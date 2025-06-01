@@ -17,6 +17,10 @@ const config = {
 			precompress: false,
 			strict: true
 		})
+	},
+	// https://github.com/sveltejs/kit/discussions/11554
+	paths: {
+		base: '/society-flow-frontend'
 	}
 };
 
