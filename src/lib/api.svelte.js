@@ -1,5 +1,6 @@
 import societies from '../content/societies.js';
 import residences from '../content/residences.js';
+import expenses from '../content/expenses.js';
 
 class Api {
 	url = window.location.origin;
@@ -26,8 +27,17 @@ class Api {
 	getResidence(id) {
 		return this.fetch('/residences').then((residences) => {
 			return residences.find((residence) => {
-				console.log('residence.id === id;', residence.id, id);
 				return residence.id === id;
+			});
+		});
+	}
+	getExpenses() {
+		return this.fetch('/expenses');
+	}
+	getExpense(id) {
+		return this.fetch('/expenses').then((expenses) => {
+			return expenses.find((expense) => {
+				return expense.id === id;
 			});
 		});
 	}
@@ -36,7 +46,7 @@ class Api {
 const DATA = {
 	'/societies': societies,
 	'/residences': residences,
-	'/expenses': []
+	'/expenses': expenses
 };
 
 const api = new Api();

@@ -2,13 +2,12 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 
-	const EXPENSES = [
-		{ id: '1', name: 'Cleaning of public spaces' },
-		{ id: '2', name: 'Electricity for public spaces' },
-		{ id: '3', name: 'Water for public spaces' },
-		{ id: '4', name: 'Repair the elevator' },
-		{ id: '5', name: 'Gardening of public green spaces' }
-	];
+	import { api } from '$lib/api.svelte.js';
+
+	let expenses = $state([]);
+	$effect(async () => {
+		expenses = await api.getExpenses();
+	});
 </script>
 
 <svelte:head>
@@ -20,7 +19,7 @@
 </h1>
 
 <ul>
-	{#each EXPENSES as { id, name }}
+	{#each expenses as { id, name }}
 		<li>
 			<a href={`${base}/expenses/${id}`}>
 				{name}

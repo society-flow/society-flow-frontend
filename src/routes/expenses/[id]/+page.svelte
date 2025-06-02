@@ -2,7 +2,17 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	$: id = $page.params.id;
+	import { api } from '$lib/api.svelte.js';
+
+	const id = $derived($page.params.id);
+
+	let expense = $state({});
+
+	$effect(async () => {
+		if (id) {
+			expense = await api.getExpense(Number(id));
+		}
+	});
 </script>
 
 <svelte:head>
@@ -17,4 +27,14 @@
 
 <p>
 	<a href={`${base}/expenses`}> ← Back to all expenses </a>
+</p>
+
+<p>
+	<a href={`${base}/expenses/${expense.id}`}>
+		{expense.name}
+	</a>
+</p>
+
+<p>
+	{expense.description}
 </p>
