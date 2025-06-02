@@ -17,10 +17,11 @@
 	];
 
 	function isCurrentPage(menuItem) {
-		if (page.url.pathname === '/') {
-			return menuItem.path === base + '/';
+    const root = base + "/"
+		if (page.url.pathname === root) {
+			return menuItem.path === root;
 		} else {
-			return menuItem.path !== '/' && page.url.pathname.startsWith(`${base}${menuItem.path}`);
+			return menuItem.path !== root && page.url.pathname.startsWith(`${base}${menuItem.path}`);
 		}
 	}
 
