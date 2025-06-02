@@ -21,7 +21,7 @@
     console.log("menuItem", menuItem);
     console.log("page.url.pathname", page.url.pathname);
     console.log("base", base);
-		if (page.url.pathname === "/") {
+		if (page.url.pathname === base + "/") {
 			return menuItem.path === "/";
 		} else {
 			return menuItem.path !== "/" && page.url.pathname.startsWith(`${base}${menuItem.path}`);
