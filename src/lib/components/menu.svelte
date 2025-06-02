@@ -15,6 +15,15 @@
 		{ path: '/', label: 'menu.home' },
 		{ path: '/auth/login', label: 'menu.login' }
 	];
+
+	function isCurrentPage(menuItem) {
+		if (page.url.pathname === '/') {
+			return menuItem.path === base + '/';
+		} else {
+			return menuItem.path !== '/' && page.url.pathname.startsWith(`${base}${menuItem.path}`);
+		}
+	}
+
 	const isAuth = $derived(userState.user?.email);
 	const menuItems = $derived(isAuth ? menuItemsAuth : menuItemsNoAuth);
 </script>
@@ -22,10 +31,7 @@
 <menu>
 	{#each menuItems as item (item.path)}
 		<li>
-			<a
-				href="{base}{item.path}"
-				aria-current={`${base}${item.path}`.startsWith(page.url.pathname) ? 'page' : ''}
-			>
+			<a href="{base}{item.path}" aria-current={isCurrentPage(item) ? 'page' : ''}>
 				{$_(item?.label)}
 			</a>
 		</li>
