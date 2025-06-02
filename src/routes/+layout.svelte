@@ -29,9 +29,9 @@
 		margin: 0;
 	}
 	:global(.Site) {
+    background-color: var(--c-bg--secondary);
 		display: flex;
 		flex-direction: column;
-		background-color: var(--c-bg);
 		color: var(--c-fg);
 		line-height: var(--line-height);
 		font-size: var(--font-size);
@@ -51,9 +51,19 @@
       border-color: var(--c-link);
     }
   }
+  :global(a) {
+    color: var(--c-link);
+  }
 
+  .Site-header {
+    order: 1;
+    position: sticky;
+    bottom: 0;
+  }
 	.Site-main {
+    background-color: var(--c-bg);
 		flex-grow: 1;
 		padding: var(--s);
+    margin: calc(var(--s) / 2);
 	}
 </style>

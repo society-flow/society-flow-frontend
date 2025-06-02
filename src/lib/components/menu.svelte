@@ -49,15 +49,20 @@
 		margin: 0;
 		list-style: none;
 		display: flex;
-		flex-wrap: wrap;
+    overflow-x: scroll;
+    li:first-of-type {
+      position: sticky;
+      left: 0;
+    }
 	}
 	a {
-		padding: var(--s);
+    padding: calc(var(--s) / 2) var(--s);
 		text-decoration: none;
+    background-color: var(--c-bg--menu);
 		color: inherit;
 		display: inline-block;
 		&[aria-current='page'] {
-			color: var(--c-link);
+			background-color: var(--c-bg);
 		}
 	}
 </style>

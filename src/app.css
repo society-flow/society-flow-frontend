@@ -2,9 +2,11 @@
 
 /* global variables */
 :root {
-	--c-bg: white;
 	--c-fg: black;
-	--c-link: orange;
+	--c-bg: #efefef;
+	--c-secondary: white;
+	--c-bg--menu: lightsteelblue;
+	--c-link: darkblue;
 	--c-border: lightgray;
 	--s: 0.5rem;
 	--font-size: 17px;
