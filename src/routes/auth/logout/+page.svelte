@@ -1,9 +1,10 @@
 <script lang="typescript">
 	import { _ } from 'svelte-i18n';
 	import Logout from '$lib/components/auth/logout.svelte';
-  import requiresAuth from "$lib/effects/requires-auth.svelte.js"
+	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import { userState } from '$lib/states/user.svelte.js';
 
-	requiresAuth()
+	requiresAuth();
 </script>
 
 <svelte:head>
@@ -14,4 +15,6 @@
 	{$_('menu.logout')}
 </h1>
 
-<Logout />
+{#if userState.isAuth}
+	<Logout />
+{/if}

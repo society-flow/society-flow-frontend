@@ -1,19 +1,13 @@
 <script lang="typescript">
 	import { _ } from 'svelte-i18n';
-  import {base} from "$app/paths"
-	import Login from '$lib/components/auth/login.svelte';
+	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
+	import Login from '$lib/components/auth/login.svelte';
 
 	async function onLogin() {
-		if (userState.isAuth) {
-			setTimeout(() => goto(`${base}/auth/logout`), 0);
-		}
+		setTimeout(() => goto(`${base}/auth/logout`), 0);
 	}
-
-	$effect(() => {
-		onLogin();
-	});
 
 	$effect(() => {
 		userState.isAuth ? onLogin() : null;
@@ -28,4 +22,13 @@
 	{$_('menu.login')}
 </h1>
 
-<Login />
+{#if !userState.isAuth}
+	<Login />
+	<p>
+		You don't have an account yet?'
+		<a href="{base}/auth/register">
+			{$_('menu.register')}
+		</a>
+		a new user.
+	</p>
+{/if}

@@ -7,5 +7,6 @@
 	"menu.adverts": "Adverts",
 	"menu.about": "About",
 	"menu.login": "Login",
-	"menu.logout": "Logout"
+	"menu.logout": "Logout",
+	"menu.register": "Register"
 }

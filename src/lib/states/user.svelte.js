@@ -11,6 +11,11 @@ class UserState {
 		}
 	}
 
+	register(user) {
+		this.user = user;
+		localStorage.setItem('user', JSON.stringify(this.user));
+	}
+
 	login(user) {
 		this.user = user;
 		localStorage.setItem('user', JSON.stringify(this.user));
