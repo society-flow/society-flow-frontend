@@ -22,7 +22,10 @@
 <menu>
 	{#each menuItems as item (item.path)}
 		<li>
-			<a href="{base}{item.path}" aria-current={item.path === page.url.pathname ? 'page' : ''}>
+			<a
+				href="{base}{item.path}"
+				aria-current={`${base}${item.path}`.startsWith(page.url.pathname) ? 'page' : ''}
+			>
 				{$_(item?.label)}
 			</a>
 		</li>
