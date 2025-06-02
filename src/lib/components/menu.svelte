@@ -17,6 +17,10 @@
 	];
 
 	function isCurrentPage(menuItem) {
+    console.log("-----")
+    console.log("menuItem", menuItem);
+    console.log("page.url.pathname", page.url.pathname);
+    console.log("base", base);
 		if (page.url.pathname === "/") {
 			return menuItem.path === "/";
 		} else {
