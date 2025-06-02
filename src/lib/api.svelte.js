@@ -1,6 +1,7 @@
 import societies from '../content/societies.js';
 import residences from '../content/residences.js';
 import expenses from '../content/expenses.js';
+import adverts from '../content/adverts.js';
 
 class Api {
 	url = window.location.origin;
@@ -41,12 +42,23 @@ class Api {
 			});
 		});
 	}
+	getAdverts() {
+		return this.fetch('/adverts');
+	}
+	getAdvert(id) {
+		return this.fetch('/adverts').then((adverts) => {
+			return adverts.find((advert) => {
+				return advert.id === id;
+			});
+		});
+	}
 }
 
 const DATA = {
 	'/societies': societies,
 	'/residences': residences,
-	'/expenses': expenses
+	'/expenses': expenses,
+	'/adverts': adverts
 };
 
 const api = new Api();
