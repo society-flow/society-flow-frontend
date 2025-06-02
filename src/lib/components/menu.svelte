@@ -1,21 +1,30 @@
-<script lang="ts">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
+	import {userState} from '$lib/states/user.svelte.js';
 
-	const menuItems = [
+	const menuItemsAuth = [
 		{ path: '/', label: 'menu.home' },
 		{ path: '/expenses', label: 'menu.expenses' },
 		{ path: '/ads', label: 'menu.adverts' },
-		{ path: '/login', label: 'menu.login' }
+		{ path: '/auth/logout', label: 'menu.logout' }
 	];
+
+	const menuItemsNoAuth = [
+		{ path: '/', label: 'menu.home' },
+		{ path: '/auth/login', label: 'menu.login' }
+	];
+
+	const isAuth = $derived(userState.user?.email);
+	const menuItems = $derived(isAuth ? menuItemsAuth : menuItemsNoAuth);
 </script>
 
 <menu>
-	{#each menuItems as item}
+	{#each menuItems as item (item.path)}
 		<li>
 			<a href="{base}{item.path}" aria-current={item.path === page.url.pathname ? 'page' : ''}>
-				{$_(item.label)}
+				{$_(item?.label)}
 			</a>
 		</li>
 	{/each}
@@ -33,7 +42,7 @@
 		padding: var(--s);
 		text-decoration: none;
 		color: inherit;
-    display: inline-block;
+		display: inline-block;
 		&[aria-current='page'] {
 			color: var(--c-link);
 		}

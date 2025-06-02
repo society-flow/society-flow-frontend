@@ -3,7 +3,7 @@
 	import '../app.css';
 	import { waitLocale } from 'svelte-i18n';
 	import '$lib/i18n.js';
-	import Menu from '$lib/components/site/menu.svelte';
+	import Menu from '$lib/components/menu.svelte';
 
 	const { children } = $props();
 

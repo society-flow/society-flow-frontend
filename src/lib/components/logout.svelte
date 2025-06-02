@@ -1,24 +1,19 @@
 <script>
 	import {userState} from '$lib/states/user.svelte.js';
 
-	let user = $state({
-		email: ''
-	});
-
+  const {
+    onLogout = () => {}
+  } = $props();
+  
 	function onSubmit() {
-		userState.login({
-      email: user.email
-    });
+		userState.logout();
+    onLogout()
 	}
 </script>
 
 <form>
 	<fieldset>
-		<legend>Email</legend>
-		<input type="email" bind:value={user.email} />
-	</fieldset>
-	<fieldset>
-		<button onclick={() => onSubmit()}>Login</button>
+		<button onclick={() => onSubmit()}>Logout</button>
 	</fieldset>
 </form>
 

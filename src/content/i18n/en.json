@@ -3,5 +3,6 @@
 	"menu.home": "Home",
 	"menu.expenses": "Expenses",
 	"menu.adverts": "Adverts",
-	"menu.login": "Login"
+	"menu.login": "Login",
+	"menu.logout": "Logout"
 }
