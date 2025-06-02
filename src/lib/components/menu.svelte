@@ -57,12 +57,16 @@
 	}
 	a {
     padding: calc(var(--s) / 2) var(--s);
+    margin: calc(var(--s) / 4);
 		text-decoration: none;
-    background-color: var(--c-bg--menu);
 		color: inherit;
 		display: inline-block;
+    background-color: var(--c-bg);
+    border: 1px solid var(--c-bg);
+    transition: all ease-in-out 200ms;
 		&[aria-current='page'] {
-			background-color: var(--c-bg);
+			background-color: var(--c-bg--menu);
+      border-color: var(--c-border);
 		}
 	}
 </style>
