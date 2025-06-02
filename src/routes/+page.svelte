@@ -2,6 +2,17 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
+	import { api } from '$lib/api.svelte.js';
+
+	let societies = $state([]);
+	$effect(async () => {
+		societies = await api.getSocieties();
+	});
+
+	let residences = $state([]);
+	$effect(async () => {
+		residences = await api.getResidences();
+	});
 
 	const marketingUserTypes = [
 		{
@@ -39,31 +50,75 @@
 <h1>{$_('title')}</h1>
 
 {#if userState.isAuth}
-	<p>Welcome {userState?.user?.email}</p>
+	<section>
+		<article>
+			<p>Welcome {userState?.user?.email}</p>
+		</article>
+	</section>
+	<section>
+		<header>
+			<h2>Your Dashboard</h2>
+			<p>Here is a summary of your information.</p>
+		</header>
+		<article>
+			<h2>Messages</h2>
+			<p>No new messages in your inbox.</p>
+		</article>
+		<article>
+			{#if societies?.length}
+				<h2>Societies</h2>
+				<ul>
+					{#each societies as { id, name }}
+						<li>
+							<a href={`${base}/societies/${id}`}>
+								{name}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			{/if}
+		</article>
+		<article>
+			{#if residences?.length}
+				<h2>Residences</h2>
+				<ul>
+					{#each residences as { id, name }}
+						<li>
+							<a href={`${base}/residences/${id}`}>
+								{name}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			{/if}
+		</article>
+	</section>
 {:else}
-	<ul>
-		{#each marketingUserTypes as marketingUserType}
-			<li>
-				<article>
-					<header>
-						{marketingUserType.title}
-					</header>
-					<main>
-						<ul>
-							{#each marketingUserType.reasons as reason}
-								<li>
-									{reason}
-								</li>
-							{/each}
-						</ul>
-					</main>
-				</article>
-			</li>
-		{/each}
-	</ul>
-	<p>
-		<a href="{base}/auth/login">
-			{$_('menu.login')}
-		</a>
-	</p>
+	<section>
+		<ul>
+			{#each marketingUserTypes as marketingUserType}
+				<li>
+					<article>
+						<header>
+							{marketingUserType.title}
+						</header>
+						<main>
+							<ul>
+								{#each marketingUserType.reasons as reason}
+									<li>
+										{reason}
+									</li>
+								{/each}
+							</ul>
+						</main>
+					</article>
+				</li>
+			{/each}
+		</ul>
+		<p>
+			<a href="{base}/auth/login">
+				{$_('menu.login')}
+			</a>
+		</p>
+	</section>
 {/if}
