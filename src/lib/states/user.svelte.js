@@ -5,7 +5,6 @@ class UserState {
 	constructor() {
 		if (typeof localStorage !== 'undefined') {
 			const savedUser = localStorage.getItem('user');
-			console.log('savedUser', savedUser, this.user);
 			if (savedUser) {
 				this.user = JSON.parse(savedUser);
 			}
