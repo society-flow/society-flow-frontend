@@ -62,7 +62,7 @@
 		{/each}
 	</ul>
 	<p>
-		<a href="{base}auth/login">
+		<a href="{base}/auth/login">
 			{$_('menu.login')}
 		</a>
 	</p>
