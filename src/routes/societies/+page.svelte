@@ -3,8 +3,8 @@
 	import { base } from '$app/paths';
 
 	const SOCIETIES = [
-		{ id: '1', name: 'Paul Linke' },
-		{ id: '2', name: 'Reichenberger' }
+		{ id: '1', name: 'Paul Linke', type: 'Admin' },
+		{ id: '2', name: 'Reichenberger', type: 'Member' }
 	];
 </script>
 
@@ -17,10 +17,10 @@
 </h1>
 
 <ul>
-	{#each SOCIETIES as { id, name }}
+	{#each SOCIETIES as { id, name, type }}
 		<li>
 			<a href={`${base}/societies/${id}`}>
-				{name}
+				{name} - {type}
 			</a>
 		</li>
 	{/each}
