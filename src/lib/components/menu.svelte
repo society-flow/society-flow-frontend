@@ -68,5 +68,8 @@
 			background-color: var(--c-bg--menu);
       border-color: var(--c-border);
 		}
+    &:hover {
+      border-color: var(--c-fg);
+    }
 	}
 </style>

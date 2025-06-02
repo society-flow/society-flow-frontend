@@ -2,9 +2,10 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
-  import requiresAuth from "$lib/effects/requires-auth.svelte.js"
+	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import ListResidences from '$lib/components/residences/list.svelte';
 
-	requiresAuth()
+	requiresAuth();
 
 	let residences = $state([]);
 	$effect(async () => {
@@ -20,12 +21,4 @@
 	{$_('menu.residences')}
 </h1>
 
-<ul>
-	{#each residences as { id, name, role }}
-		<li>
-			<a href={`${base}/residences/${id}`}>
-				{name} - {role}
-			</a>
-		</li>
-	{/each}
-</ul>
+<ListResidences {residences} />

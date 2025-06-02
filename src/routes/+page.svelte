@@ -3,6 +3,8 @@
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { api } from '$lib/api.svelte.js';
+	import ListSocieties from '$lib/components/societies/list.svelte';
+	import ListResidences from '$lib/components/residences/list.svelte';
 
 	let societies = $state([]);
 	$effect(async () => {
@@ -67,29 +69,13 @@
 		<article>
 			{#if societies?.length}
 				<h2>Societies</h2>
-				<ul>
-					{#each societies as { id, name }}
-						<li>
-							<a href={`${base}/societies/${id}`}>
-								{name}
-							</a>
-						</li>
-					{/each}
-				</ul>
+				<ListSocieties {societies} />
 			{/if}
 		</article>
 		<article>
 			{#if residences?.length}
 				<h2>Residences</h2>
-				<ul>
-					{#each residences as { id, name }}
-						<li>
-							<a href={`${base}/residences/${id}`}>
-								{name}
-							</a>
-						</li>
-					{/each}
-				</ul>
+				<ListResidences {residences} />
 			{/if}
 		</article>
 	</section>
@@ -122,3 +108,12 @@
 		</p>
 	</section>
 {/if}
+
+<style>
+  section {
+    margin-bottom: calc(var(--s) * 3);
+  }
+  article {
+    margin-bottom: calc(var(--s) * 2);
+  }
+</style>

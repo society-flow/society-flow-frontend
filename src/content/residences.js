@@ -1,7 +1,7 @@
 export default [
 	{
 		id: 1,
-		name: 'flat-1',
+		name: 'flat 27b',
 		role: 'Admin',
 		society: 'Reichenbergerstr.21',
 		residence_fund_eur: 48,
@@ -46,7 +46,7 @@ export default [
 	},
 	{
 		id: 2,
-		name: 'falt-2',
+		name: 'Flat 3rd floor left',
 		role: 'Member',
 		society: 'Reichenbergerstr.21',
 		residence_fund_eur: 211,

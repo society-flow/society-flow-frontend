@@ -38,6 +38,7 @@
 	}
 	:global(h1, h2, h3, h4, h5, p) {
 		margin-top: 0;
+    margin-bottom: var(--s);
 	}
 	:global(fieldset) {
 		border: 1px solid var(--c-border);

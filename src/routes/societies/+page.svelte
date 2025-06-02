@@ -1,11 +1,11 @@
 <script lang="typescript">
 	import { _ } from 'svelte-i18n';
-	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
-  import requiresAuth from "$lib/effects/requires-auth.svelte.js"
+	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import ListSocieties from '$lib/components/societies/list.svelte';
 
-	requiresAuth()
-  
+	requiresAuth();
+
 	let societies = $state([]);
 	$effect(async () => {
 		societies = await api.getSocieties();
@@ -20,12 +20,4 @@
 	{$_('menu.societies')}
 </h1>
 
-<ul>
-	{#each societies as { id, name, role }}
-		<li>
-			<a href={`${base}/societies/${id}`}>
-				{name} - {role}
-			</a>
-		</li>
-	{/each}
-</ul>
+<ListSocieties {societies} />
