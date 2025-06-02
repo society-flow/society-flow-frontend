@@ -20,7 +20,7 @@ const config = {
 	},
 	// https://github.com/sveltejs/kit/discussions/11554
 	paths: {
-		base: '/society-flow-frontend'
+		base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 	}
 };
 
