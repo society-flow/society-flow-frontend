@@ -112,7 +112,7 @@
 		<ul>
 			{#each data.residences as residence}
 				<li>
-					<a href={`${base}/residences/{residence}`}>{residence} </a>
+					<a href={`${base}/residences/${residence}`}>{residence} </a>
 				</li>
 			{/each}
 		</ul>
