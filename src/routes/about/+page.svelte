@@ -30,3 +30,9 @@
 		of interest without overpaying!
 	</p>
 </article>
+
+<style>
+  article {
+    max-width: var(--s-container);
+  }
+</style>

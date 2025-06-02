@@ -24,7 +24,7 @@
 
 <style>
 	form {
-		max-width: 40rem;
+		max-width: var(--s-container);
 	}
 	fieldset:last-of-type {
 		border-color: transparent;

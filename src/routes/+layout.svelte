@@ -56,9 +56,9 @@
   }
 
   .Site-header {
-    order: 1;
-    position: sticky;
-    bottom: 0;
+    /* order: 1; */
+    /* position: sticky; */
+    /* top: 0; */
   }
 	.Site-main {
     background-color: var(--c-bg);
