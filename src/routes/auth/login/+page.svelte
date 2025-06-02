@@ -1,12 +1,13 @@
 <script lang="typescript">
 	import { _ } from 'svelte-i18n';
+  import {base} from "svelte/paths"
 	import Login from '$lib/components/login.svelte';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
 
 	async function onLogin() {
 		if (userState.isAuth) {
-			setTimeout(() => goto('/auth/logout'), 0);
+			setTimeout(() => goto(`${base}/auth/logout`), 0);
 		}
 	}
 
@@ -15,7 +16,7 @@
 	});
 
 	$effect(() => {
-		userState.isAuth ? goto('/auth/logout') : null;
+		userState.isAuth ? onLogin() : null;
 	});
 </script>
 
