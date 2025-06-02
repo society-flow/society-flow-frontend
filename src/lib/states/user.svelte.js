@@ -2,14 +2,25 @@ class UserState {
 	user = $state(null);
 	isAuth = $derived(!!this.user);
 
+	constructor() {
+		if (typeof localStorage !== 'undefined') {
+			const savedUser = localStorage.getItem('user');
+			console.log('savedUser', savedUser, this.user);
+			if (savedUser) {
+				this.user = JSON.parse(savedUser);
+			}
+		}
+	}
+
 	login(user) {
 		this.user = user;
+		localStorage.setItem('user', JSON.stringify(this.user));
 	}
+
 	logout() {
 		this.user = null;
+		localStorage.removeItem('user');
 	}
 }
 
-const userState = new UserState();
-
-export { userState };
+export const userState = new UserState();

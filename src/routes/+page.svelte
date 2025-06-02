@@ -39,7 +39,7 @@
 <h1>{$_('title')}</h1>
 
 {#if userState.isAuth}
-	<p>Welcome {userState.user.email}</p>
+	<p>Welcome {userState?.user?.email}</p>
 {:else}
 	<ul>
 		{#each marketingUserTypes as marketingUserType}
