@@ -1,6 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
+	import { userState } from '$lib/states/user.svelte.js';
 
 	const marketingUserTypes = [
 		{
@@ -37,29 +38,32 @@
 
 <h1>{$_('title')}</h1>
 
-<ul>
-	{#each marketingUserTypes as marketingUserType}
-		<li>
-			<article>
-				<header>
-					{marketingUserType.title}
-				</header>
-				<main>
-					<ul>
-						{#each marketingUserType.reasons as reason}
-							<li>
-								{reason}
-							</li>
-						{/each}
-					</ul>
-				</main>
-			</article>
-		</li>
-	{/each}
-</ul>
-
-<p>
-	<a href="{base}auth/login">
-		{$_('menu.login')}
-	</a>
-</p>
+{#if userState.isAuth}
+	<p>Welcome {userState.user.email}</p>
+{:else}
+	<ul>
+		{#each marketingUserTypes as marketingUserType}
+			<li>
+				<article>
+					<header>
+						{marketingUserType.title}
+					</header>
+					<main>
+						<ul>
+							{#each marketingUserType.reasons as reason}
+								<li>
+									{reason}
+								</li>
+							{/each}
+						</ul>
+					</main>
+				</article>
+			</li>
+		{/each}
+	</ul>
+	<p>
+		<a href="{base}auth/login">
+			{$_('menu.login')}
+		</a>
+	</p>
+{/if}

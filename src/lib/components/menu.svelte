@@ -1,8 +1,8 @@
-<script>
+<script lang="typescript">
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
-	import {userState} from '$lib/states/user.svelte.js';
+	import { userState } from '$lib/states/user.svelte.js';
 
 	const menuItemsAuth = [
 		{ path: '/', label: 'menu.home' },
@@ -15,7 +15,6 @@
 		{ path: '/', label: 'menu.home' },
 		{ path: '/auth/login', label: 'menu.login' }
 	];
-
 	const isAuth = $derived(userState.user?.email);
 	const menuItems = $derived(isAuth ? menuItemsAuth : menuItemsNoAuth);
 </script>
