@@ -3,6 +3,9 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
+  import requiresAuth from "$lib/effects/requires-auth.svelte.js"
+
+	requiresAuth()
 
 	const id = $derived($page.params.id);
 

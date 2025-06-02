@@ -2,6 +2,9 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
+  import requiresAuth from "$lib/effects/requires-auth.svelte.js"
+
+	requiresAuth()
   
 	let societies = $state([]);
 	$effect(async () => {
