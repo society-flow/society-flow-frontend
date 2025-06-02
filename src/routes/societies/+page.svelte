@@ -2,7 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
-
+  
 	let societies = $state([]);
 	$effect(async () => {
 		societies = await api.getSocieties();

@@ -1,11 +1,12 @@
 <script lang="typescript">
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
+	import { api } from '$lib/api.svelte.js';
 
-	const RESIDENCES = [
-		{ id: '1', name: 'flat-1', type: 'Admin' },
-		{ id: '2', name: 'falt-2', type: 'Member' }
-	];
+	let residences = $state([]);
+	$effect(async () => {
+		residences = await api.getResidences();
+	});
 </script>
 
 <svelte:head>
@@ -17,10 +18,10 @@
 </h1>
 
 <ul>
-	{#each RESIDENCES as { id, name, type }}
+	{#each residences as { id, name, role }}
 		<li>
 			<a href={`${base}/residences/${id}`}>
-				{name} - {type}
+				{name} - {role}
 			</a>
 		</li>
 	{/each}

@@ -1,55 +1,18 @@
-<script lang="ts">
+<script lang="typescript">
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	$: id = $page.params.id;
+	import { api } from '$lib/api.svelte.js';
 
-	const data = {
-		residence: {
-			society: 'Reichenbergerstr.21',
-			flat: 'Flat 11',
-			role: 'Member',
-			residence_fund_eur: 48,
-			area: 70,
-			total_active_residents: 2,
-			floor_count: -3
-		},
-		maintenance: [
-			{
-				yearMonth: '202506',
-				isActive: true,
-				carryOver: 70,
-				fine: 3.25,
-				currentExpense: 150,
-				totalToPay: 223.25
-			},
-			{
-				yearMonth: '202505',
-				isActive: false,
-				carryOver: 0,
-				fine: 0,
-				currentExpense: 150,
-				totalToPay: 150,
-				formula: 'xyz Imnop ...'
-			}
-		],
-		payments: [
-			{
-				timestamp: '2025-05-03T10:00:00Z',
-				amount: 50,
-				maintenanceYearMonth: '202505',
-				description: 'Paid from m26 with reference01',
-				paidByUser: 'Vivian'
-			},
-			{
-				timestamp: '2025-05-13T20:20:00Z',
-				amount: 30,
-				maintenanceYearMonth: '202505',
-				description: 'Paid from m26 with reference02',
-				paidByUser: 'Julia'
-			}
-		]
-	};
+	const id = $derived($page.params.id);
+
+	let residence = $state({});
+
+	$effect(async () => {
+		if (id) {
+			residence = await api.getResidence(Number(id));
+		}
+	});
 </script>
 
 <svelte:head>
@@ -66,27 +29,25 @@
 
 <article>
 	<header>
-		<h2>Residence: {data.residence.society} → {data.residence.flat} - {data.residence.role}</h2>
+		<h2>Residence: {residence.society} → {residence.flat} - {residence.role}</h2>
 	</header>
 
 	<main>
 		<section>
 			<h3>Residence Info</h3>
 			<ul>
-				<li>Residence Fund: {data.residence.residence_fund_eur} EUR</li>
-				<li>Area: {data.residence.area}</li>
-				<li>Total Active Residents: {data.residence.total_active_residents}</li>
+				<li>Residence Fund: {residence.residence_fund_eur} EUR</li>
+				<li>Area: {residence.area}</li>
+				<li>Total Active Residents: {residence.total_active_residents}</li>
 				<li>
-					Floor Count: {data.residence.floor_count} (underground level {Math.abs(
-						data.residence.floor_count
-					)})
+					Floor Count: {residence.floor_count} (underground level {Math.abs(residence.floor_count)})
 				</li>
 			</ul>
 		</section>
 
 		<section>
 			<h3>Maintenances on Residence Unit</h3>
-			{#each data.maintenance as m}
+			{#each residence.maintenance as m}
 				<article>
 					<p>Year/Month: {m.yearMonth}</p>
 					<p>Status: {m.isActive ? 'Active' : 'Inactive'}</p>
@@ -104,8 +65,8 @@
 		</section>
 
 		<section>
-			<h3>Maintenance Payments from Residence: {data.residence.flat}</h3>
-			{#each data.payments as p}
+			<h3>Maintenance Payments from Residence: {residence.flat}</h3>
+			{#each residence.payments as p}
 				<article>
 					<time datetime={p.timestamp}>{p.timestamp}</time>
 					<p>Amount: {p.amount} EUR</p>

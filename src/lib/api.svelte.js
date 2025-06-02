@@ -1,35 +1,41 @@
 import societies from '../content/societies.js';
+import residences from '../content/residences.js';
 
 class Api {
 	url = window.location.origin;
 
 	fetch(endpoint) {
-		/* const url = this.url + endpoint; */
-		/* console.log('url', url); */
 		return fetch(this.url).then(() => {
 			return DATA[endpoint];
 		});
 	}
 
 	getSocieties() {
-		console.log('society');
 		return this.fetch('/societies');
 	}
 	getSociety(id) {
 		return this.fetch('/societies').then((societies) => {
-			const so = societies.find((society) => {
-				console.log('society.id === id', society.id, id, society.id === id);
+			return societies.find((society) => {
 				return society.id === id;
 			});
-			console.log('so', so);
-			return so;
+		});
+	}
+	getResidences() {
+		return this.fetch('/residences');
+	}
+	getResidence(id) {
+		return this.fetch('/residences').then((residences) => {
+			return residences.find((residence) => {
+				console.log('residence.id === id;', residence.id, id);
+				return residence.id === id;
+			});
 		});
 	}
 }
 
 const DATA = {
 	'/societies': societies,
-	'/residences': [],
+	'/residences': residences,
 	'/expenses': []
 };
 
