@@ -18,7 +18,7 @@
 
 	function isCurrentPage(menuItem) {
     const root = base + "/"
-		if (page.url.pathname === root) {
+		if (page.url.pathname === "/") {
 			return menuItem.path === root;
 		} else {
 			return menuItem.path !== root && page.url.pathname.startsWith(`${base}${menuItem.path}`);
