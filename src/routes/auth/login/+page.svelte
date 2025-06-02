@@ -1,6 +1,6 @@
 <script lang="typescript">
 	import { _ } from 'svelte-i18n';
-  import {base} from "svelte/paths"
+  import {base} from "$app/paths"
 	import Login from '$lib/components/login.svelte';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
