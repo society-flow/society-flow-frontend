@@ -6,6 +6,7 @@
 
 	const menuItemsAuth = [
 		{ path: '/', label: 'menu.home' },
+    { path: '/societies', label: 'menu.societies' },
 		{ path: '/expenses', label: 'menu.expenses' },
 		{ path: '/ads', label: 'menu.adverts' },
 		{ path: '/auth/logout', label: 'menu.logout' }

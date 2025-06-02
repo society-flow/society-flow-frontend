@@ -1,6 +1,7 @@
 {
 	"title": "Society Flow",
 	"menu.home": "Home",
+	"menu.societies": "Societies",
 	"menu.expenses": "Expenses",
 	"menu.adverts": "Adverts",
 	"menu.login": "Login",
