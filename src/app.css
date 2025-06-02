@@ -1,0 +1,29 @@
+:root {
+	--c-bg: white;
+	--c-fg: black;
+	--c-link: orange;
+	--c-border: lightgray;
+	--s: 0.5rem;
+	--font-size: 17px;
+	--line-height: 1.6;
+}
+
+/* https://css-tricks.com/box-sizing/ universal with inheritance */
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.roboto-society-maintenance {
+	font-family: 'Roboto', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+}

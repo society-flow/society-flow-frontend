@@ -1,6 +1,6 @@
 <script>
 	import { _ } from 'svelte-i18n';
-  import Login from "$lib/components/login.svelte";
+	import Login from '$lib/components/login.svelte';
 </script>
 
 <svelte:head>
@@ -11,5 +11,4 @@
 	{$_('menu.login')}
 </h1>
 
-<Login/>
-
+<Login />

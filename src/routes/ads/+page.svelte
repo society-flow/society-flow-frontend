@@ -6,6 +6,4 @@
 	<title>{$_('menu.adverts')}</title>
 </svelte:head>
 
-<h1>
-	{$_('menu.adverts')}
-</h1>
+<h1>{$_('menu.adverts')}</h1>

@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
 	let email = $state('');
 
-	const onSubmit = () => {
+	const onSubmit = (event: Event) => {
 		console.log('Submit');
-    event.preventDefault();
-    console.log("email", email);
+		event.preventDefault();
+		console.log('email', email);
 	};
 </script>
-
-<p>Email: {email}</p>
 
 <form>
 	<fieldset>
@@ -16,6 +14,15 @@
 		<input bind:value={email} />
 	</fieldset>
 	<fieldset>
-		<button onclick={() => onSubmit()}>Login</button>
+		<button onclick={onSubmit}>Login</button>
 	</fieldset>
 </form>
+
+<style>
+	form {
+		max-width: 40rem;
+	}
+	fieldset:last-of-type {
+		border-color: transparent;
+	}
+</style>
