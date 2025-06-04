@@ -119,6 +119,7 @@
 		justify-content: center;
     background-color: var(--c-bg--secondary);
 		border-bottom: 1px solid var(--c-border);
+    width: 100%;
 	}
 	.Site-main {
 		background-color: var(--c-bg);
@@ -141,8 +142,8 @@
 	}
   .Site-footer {
     align-self: flex-end;
+    padding: calc(var(--s) / 2);
     a {
-      padding: calc(var(--s) / 2);
       display: inline-block;
     }
   }

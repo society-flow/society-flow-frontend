@@ -20,8 +20,9 @@
 		margin: 0;
 		list-style: none;
 		display: flex;
-		overflow-x: scroll;
+    flex-wrap: wrap;
 		align-items: center;
+    text-align: center;
 	}
 	a {
 		padding: calc(var(--s) / 2) var(--s);
@@ -31,6 +32,7 @@
 		text-decoration: underline;
 		text-decoration-color: transparent;
 		transition: all ease-in-out 200ms;
+    line-height: 1;
 		&:hover {
 			border-radius: calc(var(--s) * 1.5);
 			text-decoration-color: var(--c-link);

@@ -50,7 +50,8 @@
 		list-style: none;
 		display: flex;
     overflow-x: scroll;
-    align-items: center;
+    /* align-items: center; */
+    /* justify-content: center; */
 	}
 	a {
     padding: calc(var(--s) / 2) var(--s);
