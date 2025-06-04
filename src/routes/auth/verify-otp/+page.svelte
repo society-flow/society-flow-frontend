@@ -13,7 +13,7 @@
 	const otp = page.url.searchParams.get('otp');
 
 	async function onverify() {
-		setTimeout(() => goto(`${base}/auth/logout`), 0);
+		setTimeout(() => goto(`${base}/`), 0);
 	}
 </script>
 

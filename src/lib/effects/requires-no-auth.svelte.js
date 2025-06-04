@@ -7,7 +7,6 @@ export default function requiresNoAuth() {
 
 	$effect(() => {
 		if (isAuth) {
-			console.log('isAuth', isAuth);
 			setTimeout(() => goto(`${base}/`), 0);
 		}
 	});

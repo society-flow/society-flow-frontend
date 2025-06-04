@@ -12,7 +12,7 @@
 		try {
 			// also sends the OTP
 			await api.login({ email: userEmail });
-			onLogin({ email });
+			onLogin({ email: userEmail });
 		} catch (err) {
 			error = err.message;
 		}
