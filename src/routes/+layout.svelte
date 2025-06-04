@@ -1,5 +1,6 @@
 <script lang="javascript">
 	import '../app.css';
+  import 'leaflet/dist/leaflet.css';
 	import { waitLocale } from 'svelte-i18n';
 	import { navigating } from '$app/stores';
 	import Menu from '$lib/components/menu.svelte';

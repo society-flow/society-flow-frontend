@@ -33,6 +33,7 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
+		"leaflet": "^1.9.4",
 		"svelte-i18n": "^4.0.1"
 	}
 }

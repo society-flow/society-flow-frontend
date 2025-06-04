@@ -143,6 +143,10 @@
 		}
 	}
 
+  p {
+    padding: var(--s);
+  }
+  
 	svg {
 		margin: 15vw auto;
 		transition: transform 0.3s ease;
