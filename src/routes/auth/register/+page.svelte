@@ -12,9 +12,9 @@
 	const email = page.url.searchParams.get('email');
 	const name = page.url.searchParams.get('name');
 
-	async function onregister({email}) {
+	async function onregister({email: userEmail}) {
     console.log("onregister")
-		setTimeout(() => goto(`${base}/auth/verify-otp?email=${email}`), 0);
+		setTimeout(() => goto(`${base}/auth/verify-otp?email=${userEmail}`), 0);
 	}
 </script>
 

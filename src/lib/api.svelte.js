@@ -1,12 +1,9 @@
 import { userState } from '$lib/states/user.svelte.js';
-import * as env from '$env/static/public';
+import { PUBLIC_API_URL } from '$env/static/public';
 import societies from '../content/societies.js';
 import residences from '../content/residences.js';
 import expenses from '../content/expenses.js';
 import adverts from '../content/adverts.js';
-
-const apiUrl = env.PUBLIC_API_URL;
-console.log('env', env);
 
 const DATA = {
 	'/societies': societies,
@@ -17,10 +14,10 @@ const DATA = {
 
 class Api {
 	urlMock = window.location.origin;
-	url = `${apiUrl}/api`;
+	url = `${PUBLIC_API_URL}/api`;
 
 	constructor() {
-		if (!apiUrl) {
+		if (!PUBLIC_API_URL) {
 			console.warn('Missing PUBLIC_API_URL env var');
 		}
 	}
@@ -82,13 +79,13 @@ class Api {
 	// ========== AUTH METHODS ==========
 	async register({ name, email }) {
 		// for testing
-		/* return Promise.resolve({
-			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-			 email: email,
-			 name: name,
-			 createdAt: '2025-06-04T06:05:18.702Z',
-			 updatedAt: '2025-06-04T06:05:18.702Z'
-		   }); */
+		return Promise.resolve({
+			id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+			email: email,
+			name: name,
+			createdAt: '2025-06-04T06:05:18.702Z',
+			updatedAt: '2025-06-04T06:05:18.702Z'
+		});
 		return this.fetch('/users', {
 			method: 'POST',
 			data: { name, email }
@@ -107,13 +104,13 @@ class Api {
 
 	async verifyOtp({ email, otp }) {
 		// for testing
-		/* return {
-			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-			 email: 'de@de.de',
-			 name: 'Bobi Diye',
-			 createdAt: '2025-06-04T05:41:36.367Z',
-			 updatedAt: '2025-06-04T05:41:36.367Z'
-		   }; */
+		return Promise.resolve({
+			id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+			email: email,
+			name: 'Bobi Diye',
+			createdAt: '2025-06-04T05:41:36.367Z',
+			updatedAt: '2025-06-04T05:41:36.367Z'
+		});
 		return this.fetch('/users/verify-otp', {
 			method: 'POST',
 			data: { email, otp }
