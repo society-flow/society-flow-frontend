@@ -5,6 +5,8 @@ import residences from '../content/residences.js';
 import expenses from '../content/expenses.js';
 import adverts from '../content/adverts.js';
 
+const apiUrl = PUBLIC_API_URL;
+
 const DATA = {
 	'/societies': societies,
 	'/residences': residences,
@@ -14,13 +16,7 @@ const DATA = {
 
 class Api {
 	urlMock = window.location.origin;
-	url = `${PUBLIC_API_URL}/api`;
-
-	constructor() {
-		if (!PUBLIC_API_URL) {
-			throw 'Missing API_URL env var';
-		}
-	}
+	url = `${apiUrl}/api`;
 
 	async fetch(endpoint, { method = 'GET', data } = {}) {
 		const options = {
