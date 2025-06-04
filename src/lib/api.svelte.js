@@ -20,7 +20,7 @@ class Api {
 
 	constructor() {
 		if (!apiUrl) {
-			throw 'Missing PUBLIC_API_URL env var';
+			console.warn('Missing PUBLIC_API_URL env var');
 		}
 	}
 
