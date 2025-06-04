@@ -20,9 +20,7 @@
 			<circle class="country country-1" cx="16" cy="32" r="8" fill="#FF5722" />
 			<circle class="country country-2" cx="32" cy="32" r="8" fill="#FFC107" />
 			<circle class="country country-3" cx="48" cy="32" r="8" fill="#03A9F4" />
-			<circle class="mystery-center" cx="32" cy="32" r="5" fill="#212121" />
-			<text class="question-mark" x="32" y="36" text-anchor="middle" fill="white" font-size="8"
-				>?</text
+			<circle class="center-dot" cx="32" cy="32" r="5" fill="" />
 			>
 		</svg>
 	</article>
@@ -34,11 +32,11 @@
 		</p>
 
 		<svg class="pricing-breakdown" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-			<circle cx="32" cy="32" r="24" fill="#E0F2F1" />
+			<circle cx="32" cy="32" r="24" fill="" class="background" />
 			<path class="segment segment-1" d="M32,32 L56,32 A24,24 0 0,1 32,8 Z" fill="#4CAF50" />
 			<path class="segment segment-2" d="M32,32 L32,8 A24,24 0 0,1 8,32 Z" fill="#FFEB3B" />
 			<path class="segment segment-3" d="M32,32 L8,32 A24,24 0 0,1 32,56 Z" fill="#F44336" />
-			<circle class="center-dot" cx="32" cy="32" r="3" fill="#212121" />
+			<circle class="center-dot" cx="32" cy="32" r="3" fill="" />
 		</svg>
 	</article>
 
@@ -53,7 +51,7 @@
 			<path class="bar bar-2" d="M26,16 A10,10 0 0,1 16,26 L16,16 Z" fill="#FFD23F" />
 			<path class="bar bar-3" d="M16,26 A10,10 0 0,1 6,16 L16,16 Z" fill="#7B68EE" />
 			<path class="bar bar-4" d="M6,16 A10,10 0 0,1 16,6 L16,16 Z" fill="#FF1493" />
-			<circle class="center-indicator" cx="16" cy="16" r="3" fill="#1A1A1A" />
+			<circle class="center-dot" cx="16" cy="16" r="3" fill="" />
 		</svg>
 	</article>
 
@@ -123,32 +121,39 @@
 		@media (min-width: 40rem) {
 			grid-template-columns: 1fr 1fr;
 		}
-    :global(.Site-main) > & {
-      max-width: calc(var(--s-container) * 1.5)
-    }
+	}
+	:global(.Site-main) {
+		& > section[size="large"] {
+			max-width: calc(var(--s-container) * 3);
+		}
 	}
 
 	article {
 		display: flex;
 		flex-direction: column;
-    justify-content: center;
-    @media (min-width: 40rem) {
-      &:nth-child(2n) {
-        flex-direction: column-reverse;
-		  }
-      &:nth-child(3n) {
-        flex-direction: row;
-        align-items: center;
-		  }
-    }
+		justify-content: center;
+		@media (min-width: 40rem) {
+			&:nth-child(2n) {
+				flex-direction: column-reverse;
+			}
+			&:nth-child(3n) {
+				flex-direction: row;
+				align-items: center;
+			}
+		}
 	}
 
 	svg {
-		margin: 10vw;
-		cursor: pointer;
+		margin: 15vw auto;
 		transition: transform 0.3s ease;
+		background: var(--c-bg--secondary);
+		border-radius: var(--border-radius);
+		border: 1px solid var(--c-border);
+		max-width: calc(var(--s) * 2);
+		min-width: 40vw;
 		@media (min-width: 40rem) {
-			margin: 3vw;
+			min-width: 15vw;
+			margin: 3vw auto;
 		}
 	}
 
@@ -179,7 +184,6 @@
 		}
 
 		&:hover {
-			transform: scale(1.05);
 			.country {
 				animation-duration: 0.8s;
 			}
@@ -191,6 +195,14 @@
 
 	/* SVG 2: Pricing Breakdown - Segments growing */
 	.pricing-breakdown {
+		.background {
+			fill: #e0f2f1;
+			transition: transform ease-in-out 200ms;
+			transform-origin: center center;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
 		.segment {
 			transform-origin: 32px 32px;
 			animation: segment-grow 4s ease-in-out infinite;
@@ -211,7 +223,6 @@
 		}
 
 		&:hover {
-			transform: scale(1.1);
 			.segment {
 				animation-duration: 2s;
 			}
@@ -243,8 +254,8 @@
 		}
 
 		&:hover {
-			transform: scale(1.15);
 			.bar {
+				transform: scale(1.15);
 				animation-duration: 1.5s;
 			}
 		}
@@ -254,11 +265,13 @@
 	.peer-to-peer {
 		.connection-line {
 			stroke-dasharray: 5, 5;
-			animation: dash-flow 2s linear infinite;
+			animation: dash-flow 8s linear infinite;
+			transition: all 200ms ease-in-out;
+			transform-origin: center center;
 		}
 
 		.peer {
-			animation: peer-bounce 2s ease-in-out infinite;
+			animation: peer-bounce 5s ease-in-out infinite;
 		}
 
 		.peer-1 {
@@ -286,15 +299,18 @@
 		}
 
 		&:hover {
-			transform: scale(1.1);
 			.connection-line {
+				transform: scale(1.1);
 				stroke-width: 4;
-				animation-duration: 1s;
+				animation-duration: 4s;
 			}
 			.pulse {
-				animation-duration: 1s;
+				animation-duration: 6s;
 			}
 		}
+	}
+	.center-dot {
+		fill: var(--c-link);
 	}
 
 	/* Keyframe Animations */

@@ -1,13 +1,22 @@
 <script lang="javascript">
 	import '../app.css';
 	import { waitLocale } from 'svelte-i18n';
-	import '$lib/i18n.js';
+	import { navigating } from '$app/stores';
 	import Menu from '$lib/components/menu.svelte';
 	import Footer from '$lib/components/footer.svelte';
+	import '$lib/i18n.js';
 
 	const { children } = $props();
 
-	export async function preload() {
+  let localeLoaded = $state(false);
+
+  $effect(async () => {
+    // Because preload() has already run before the component mounts,
+    // we can assume `waitLocale()` is done at this point. 
+    localeLoaded = true;
+  });
+
+  export async function preload() {
 		// awaits for the loading of the language ("en"...) dictionaries
 		return waitLocale();
 	}
@@ -18,6 +27,16 @@
 </header>
 
 <main class="Site-main">
+  {#if !localeLoaded}
+    <div class="spinner-overlay">
+      <div class="spinner"></div>
+    </div>
+  {/if}
+	{#if $navigating}
+		<div class="spinner-overlay">
+			<progress></progress>
+		</div>
+	{/if}
 	{@render children()}
 </main>
 
@@ -45,12 +64,12 @@
 		margin-top: 0;
 		margin-bottom: var(--s);
 	}
-  :global(h1) {
-    font-size: 1.7em;
-  }
-  :global(h2) {
-    font-size: 1.3em;
-  }
+	:global(h1) {
+		font-size: 1.7em;
+	}
+	:global(h2) {
+		font-size: 1.3em;
+	}
 	:global(fieldset) {
 		border: 1px solid var(--c-border);
 		display: flex;
@@ -59,7 +78,7 @@
 	:global(input, textarea, select, button) {
 		padding: calc(var(--s) / 1);
 		font-size: 1rem;
-    transition: border-color 200ms ease-in-out;
+		transition: border-color 200ms ease-in-out;
 		&:focus {
 			border-color: var(--c-link);
 		}
@@ -69,9 +88,9 @@
 		&:empty {
 			border-color: var(--c-border);
 		}
-    &:hover {
-      border-color: var(--c-fg);
-    }
+		&:hover {
+			border-color: var(--c-fg);
+		}
 	}
 	:global(button) {
 		background-color: var(--c-bg);
@@ -113,14 +132,14 @@
 	/* local elements */
 	.Site-header {
 		/* order: 1; */
-    z-index: 2;
+		z-index: 2;
 		position: sticky;
 		top: 0;
 		display: flex;
 		justify-content: center;
-    background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg--secondary);
 		border-bottom: 1px solid var(--c-border);
-    width: 100%;
+		width: 100%;
 	}
 	.Site-main {
 		background-color: var(--c-bg);
@@ -136,26 +155,26 @@
 		align-items: center;
 		flex-wrap: wrap;
 		flex-direction: column;
-    z-index: 1;
+		z-index: 1;
 		:global(& > section) {
 			width: 100%;
 			max-width: var(--s-container);
-      &[size="large"] {
-        max-width: calc(var(--s-container) * 1.3);
-      }
+			&[size='large'] {
+				max-width: calc(var(--s-container) * 1.3);
+			}
 		}
-    :global(& > header) {
-      padding: calc(var(--s) * 3) 0;
-    }
+		:global(& > header) {
+			padding: calc(var(--s) * 3) 0;
+		}
 	}
-  .Site-footer {
-    align-self: flex-end;
-    padding: calc(var(--s) / 2);
-    position: sticky;
-    bottom: 0;
-    z-index: 0;
-    a {
-      display: inline-block;
-    }
-  }
+	.Site-footer {
+		align-self: flex-end;
+		padding: calc(var(--s) / 2);
+		position: sticky;
+		bottom: 0;
+		z-index: 0;
+		a {
+			display: inline-block;
+		}
+	}
 </style>
