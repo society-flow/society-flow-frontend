@@ -27,7 +27,14 @@
 	</fieldset>
 	<fieldset>
 		<legend>OTP (One Time Password)</legend>
-		<input type="text" bind:value={oneTimePassword} required minlength="1" maxlength="10" />
+		<input
+			type="text"
+			bind:value={oneTimePassword}
+			required
+			minlength="1"
+			maxlength="10"
+			autofocus
+		/>
 	</fieldset>
 	<fieldset>
 		<button type="submit">Verify</button>

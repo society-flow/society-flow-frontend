@@ -81,12 +81,12 @@
 	</section>
 {:else}
 	<section>
-		<ul>
+		<ul class="Cards">
 			{#each marketingUserTypes as marketingUserType}
-				<li>
+				<li class="Card">
 					<article>
 						<header>
-							{marketingUserType.title}
+							<h2>{marketingUserType.title}</h2>
 						</header>
 						<main>
 							<ul>
@@ -101,11 +101,13 @@
 				</li>
 			{/each}
 		</ul>
-		<p>
+	</section>
+	<section>
+		<center>
 			<a href="{base}/auth/login">
 				{$_('menu.login')}
 			</a>
-		</p>
+		</center>
 	</section>
 {/if}
 
@@ -115,5 +117,27 @@
 	}
 	article {
 		margin-bottom: calc(var(--s) * 2);
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.Cards {
+		display: grid;
+		justify-content: center;
+    @media (min-width: 50rem) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+		gap: calc(var(--s) * 2);
+	}
+	.Card {
+		padding: calc(var(--s) * 2);
+		background-color: var(--c-bg--secondary);
+		border-radius: var(--border-radius);
+    ul {
+      list-style-type: square;
+      padding: calc(var(--s) * 2);
+    }
 	}
 </style>

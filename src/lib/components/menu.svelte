@@ -50,25 +50,26 @@
 		list-style: none;
 		display: flex;
     overflow-x: scroll;
-    li:first-of-type {
-      position: sticky;
-      left: 0;
-    }
+    align-items: center;
 	}
 	a {
     padding: calc(var(--s) / 2) var(--s);
-    margin: calc(var(--s) / 4);
+    margin: 0 calc(var(--s) * 1);
 		text-decoration: none;
-		color: inherit;
+		color: var(--c-fg);
+    font-weight: bold;
 		display: inline-block;
-    background-color: var(--c-bg);
-    border: 1px solid var(--c-bg);
+    /* background-color: var(--c-bg); */
+    border-bottom: var(--s) solid var(--c-bg);
+    border-radius: calc(var(--s) / 3);
     transition: all ease-in-out 200ms;
 		&[aria-current='page'] {
 			background-color: var(--c-bg--menu);
-      border-color: var(--c-border);
+      border-color: var(--c-link);
+      color: var(--c-link);
 		}
     &:hover {
+      border-radius: calc(var(--s) * 1.5);
       border-color: var(--c-fg);
     }
 	}

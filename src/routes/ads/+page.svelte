@@ -13,14 +13,17 @@
 	<title>{$_('menu.adverts')}</title>
 </svelte:head>
 
-<h1>{$_('menu.adverts')}</h1>
-
-<ul>
-	{#each adverts as { id, name } (id)}
-		<li>
-			<a href={`${base}/ads/${id}`}>
-				{name}
-			</a>
-		</li>
-	{/each}
-</ul>
+<header>
+	<h1>{$_('menu.adverts')}</h1>
+</header>
+<section>
+	<ul>
+		{#each adverts as { id, name } (id)}
+			<li>
+				<a href={`${base}/ads/${id}`}>
+					{name}
+				</a>
+			</li>
+		{/each}
+	</ul>
+</section>

@@ -1,7 +1,7 @@
 <script lang>
 	import { api } from '$lib/api.svelte.js';
 
-	const { email, name, onRegister = () => {} } = $props();
+	const { email, name, onregister = () => {} } = $props();
 
 	let user = $state({
 		email: email || '',
@@ -14,10 +14,11 @@
 		error = '';
 		try {
 			// also logs in user (@TODO: backend OTP?)
-			await api.register(user);
-			onRegister(user);
+			const res = await api.register(user);
+      console.log("use", res)
+			onregister(user);
 		} catch (err) {
-      console.log(err)
+			console.log("err", err);
 			error = err.message;
 		}
 	}
@@ -26,7 +27,7 @@
 <form {onsubmit}>
 	<fieldset>
 		<legend>Name</legend>
-		<input type="text" bind:value={user.name} required minlength="2" maxlength="50" />
+		<input type="text" bind:value={user.name} required minlength="2" maxlength="50" autofocus />
 	</fieldset>
 	<fieldset>
 		<legend>Email</legend>
@@ -41,9 +42,3 @@
 		</fieldset>
 	{/if}
 </form>
-
-<style>
-	form {
-		max-width: var(--s-container);
-	}
-</style>

@@ -6,9 +6,11 @@
 	<title>{$_('menu.about')}</title>
 </svelte:head>
 
-<h1>{$_('menu.about')}</h1>
+<header>
+	<h1>{$_('menu.about')}</h1>
+</header>
 
-<article>
+<section>
 	<p>
 		Different countries with same problem: Hidden expense management without clear visibility of
 		costs and funds.
@@ -29,10 +31,13 @@
 		users, bypassing middle men. Next time reach out peer to peer for any services within your area
 		of interest without overpaying!
 	</p>
-</article>
+</section>
 
 <style>
-  article {
-    max-width: var(--s-container);
-  }
+	section {
+		/* max-width: var(--s-container); */
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+	}
 </style>

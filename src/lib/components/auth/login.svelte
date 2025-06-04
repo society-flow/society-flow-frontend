@@ -22,7 +22,7 @@
 <form {onsubmit}>
 	<fieldset>
 		<legend>Email</legend>
-		<input type="email" bind:value={userEmail} required />
+		<input type="email" bind:value={userEmail} required autofocus />
 	</fieldset>
 	<fieldset>
 		<button type="submit">Login</button>

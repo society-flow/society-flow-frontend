@@ -1,8 +1,9 @@
-<script lang>
+<script lang="javascript">
 	import '../app.css';
 	import { waitLocale } from 'svelte-i18n';
 	import '$lib/i18n.js';
 	import Menu from '$lib/components/menu.svelte';
+	import Footer from '$lib/components/footer.svelte';
 
 	const { children } = $props();
 
@@ -20,6 +21,10 @@
 	{@render children()}
 </main>
 
+<footer class="Site-footer">
+	<Footer />
+</footer>
+
 <style>
 	:global(html, body, .Site) {
 		min-height: 100dvh;
@@ -31,6 +36,7 @@
 		background-color: var(--c-bg--secondary);
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		color: var(--c-fg);
 		line-height: var(--line-height);
 		font-size: var(--font-size);
@@ -39,6 +45,12 @@
 		margin-top: 0;
 		margin-bottom: var(--s);
 	}
+  :global(h1) {
+    font-size: 1.7em;
+  }
+  :global(h2) {
+    font-size: 1.3em;
+  }
 	:global(fieldset) {
 		border: 1px solid var(--c-border);
 		display: flex;
@@ -53,9 +65,12 @@
 		&:invalid {
 			border-color: var(--c-error);
 		}
-    &:empty {
+		&:empty {
 			border-color: var(--c-border);
 		}
+	}
+	:global(button) {
+		background-color: var(--c-bg);
 	}
 	:global(a) {
 		color: var(--c-link);
@@ -64,6 +79,9 @@
 		padding: var(--s);
 	}
 	:global(fieldset) {
+		margin-bottom: var(--s);
+		padding: var(--s);
+		border-color: transparent;
 		&[data-type='error'] {
 			border-color: transparent;
 			text-decoration: underline;
@@ -71,15 +89,57 @@
 			margin: var(--s);
 		}
 	}
+	:global(form) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border: 1px solid var(--c-border);
+		background-color: var(--c-bg--form);
+		border-radius: var(--border-radius);
+		padding: var(--s);
+		max-width: var(--s-form);
+		& fieldset {
+			width: 100%;
+		}
+		:global(input, textarea, select, button) {
+			background-color: var(--c-bg);
+		}
+	}
+
+	/* local elements */
 	.Site-header {
 		/* order: 1; */
-		/* position: sticky; */
-		/* top: 0; */
+		position: sticky;
+		top: 0;
+		display: flex;
+		justify-content: center;
+    background-color: var(--c-bg--secondary);
 	}
 	.Site-main {
 		background-color: var(--c-bg);
+		border-top: 1px solid var(--c-border);
+		border-radius: var(--border-radius);
 		flex-grow: 1;
 		padding: var(--s);
-		margin: calc(var(--s) / 2);
+		margin: 0 calc(var(--s) * 2);
+		max-width: var(--s-page);
+		width: 100%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		flex-direction: column;
+		:global(& > section) {
+			width: 100%;
+			max-width: var(--s-container);
+		}
 	}
+  .Site-footer {
+    align-self: flex-end;
+    a {
+      padding: calc(var(--s) / 2);
+      display: inline-block;
+    }
+  }
 </style>
