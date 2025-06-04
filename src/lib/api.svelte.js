@@ -18,6 +18,12 @@ class Api {
 	urlMock = window.location.origin;
 	url = `${apiUrl}/api`;
 
+	constructor() {
+		if (!apiUrl) {
+			throw 'Missing PUBLIC_API_URL env var';
+		}
+	}
+
 	async fetch(endpoint, { method = 'GET', data } = {}) {
 		const options = {
 			method,
