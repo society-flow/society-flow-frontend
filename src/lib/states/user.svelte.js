@@ -17,7 +17,7 @@ class UserState {
 
 	logout() {
 		this.user = null;
-		this.deleteSotrageUser();
+		this.deleteStorageUser();
 	}
 
 	setUser(user) {

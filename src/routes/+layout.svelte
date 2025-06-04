@@ -144,6 +144,9 @@
         max-width: calc(var(--s-container) * 1.3);
       }
 		}
+    :global(& > header) {
+      padding: calc(var(--s) * 6) 0;
+    }
 	}
   .Site-footer {
     align-self: flex-end;

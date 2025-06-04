@@ -74,13 +74,16 @@
 
 <style>
 	.house-scene {
+    --svg-size: clamp(1rem, calc(var(--s * 30)), 60vw);
 		cursor: pointer;
 		transition: transform 0.3s ease;
-		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-		background: white;
-		width: 200px;
-		height: 200px;
+		border-radius: var(--border-radius);
+		box-shadow: 0 4px 20px var(--c-bg);
+		background-color: var(--c-bg--secondary);
+    border: 1px solid var(--c-link);
+		width: var(--svg-size);
+		height: var(--svg-size);
+    padding: var(--s);
 	}
 
 	.house-scene:hover {
