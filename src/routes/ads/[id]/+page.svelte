@@ -19,17 +19,19 @@
 	<title>{$_('menu.adverts')}</title>
 </svelte:head>
 
-<h1>{$_('menu.adverts')}</h1>
-
-<p>id: {id}</p>
-
-<p>
-	<a href={`${base}/ads`}>← Back to all adverts</a>
-</p>
+<section>
+	<h1>
+		<a href={`${base}/ads`}> ← {$_('menu.adverts')}</a>
+	</h1>
+</section>
 
 <article>
 	<header>
-		<h2>{advert.name}</h2>
+		<h2>
+			<a href={`${base}/ads/${id}`}>
+				{advert.name}
+			</a>
+		</h2>
 	</header>
 
 	<main>
@@ -38,3 +40,19 @@
 		</p>
 	</main>
 </article>
+
+<style>
+	article {
+		width: 100%;
+		flex-grow: 1;
+		max-width: var(--s-container);
+	}
+  :is(h1, h2) a {
+      text-decoration: none;
+  }
+  :is(h2) a {
+    background-color: var(--c-bg--secondary);
+    padding: var(--s);
+    border-radius: var(--border-radius);
+  }
+</style>
