@@ -57,8 +57,9 @@
 		flex-direction: column;
 	}
 	:global(input, textarea, select, button) {
-		padding: calc(var(--s) / 2);
+		padding: calc(var(--s) / 1);
 		font-size: 1rem;
+    transition: border-color 200ms ease-in-out;
 		&:focus {
 			border-color: var(--c-link);
 		}
@@ -68,6 +69,9 @@
 		&:empty {
 			border-color: var(--c-border);
 		}
+    &:hover {
+      border-color: var(--c-fg);
+    }
 	}
 	:global(button) {
 		background-color: var(--c-bg);
@@ -96,7 +100,7 @@
 		border: 1px solid var(--c-border);
 		background-color: var(--c-bg--form);
 		border-radius: var(--border-radius);
-		padding: var(--s);
+		padding: calc(var(--s) * 3) calc(var(--s) * 2);
 		max-width: var(--s-form);
 		& fieldset {
 			width: 100%;
@@ -114,15 +118,15 @@
 		display: flex;
 		justify-content: center;
     background-color: var(--c-bg--secondary);
+		border-bottom: 1px solid var(--c-border);
 	}
 	.Site-main {
 		background-color: var(--c-bg);
-		border-top: 1px solid var(--c-border);
 		border-radius: var(--border-radius);
 		flex-grow: 1;
 		padding: var(--s);
 		margin: 0 calc(var(--s) * 2);
-		max-width: var(--s-page);
+		/* max-width: var(--s-page); */
 		width: 100%;
 
 		display: flex;

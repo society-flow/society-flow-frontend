@@ -49,7 +49,10 @@
 	<title>{$_('title')}</title>
 </svelte:head>
 
-<h1>{$_('title')}</h1>
+<header>
+	<h1>{$_('title')}</h1>
+	<p>{$_('catch_line')}</p>
+</header>
 
 {#if userState.isAuth}
 	<section>
@@ -118,6 +121,9 @@
 	article {
 		margin-bottom: calc(var(--s) * 2);
 	}
+  h1 {
+    text-align: center;
+  }
 	ul {
 		list-style: none;
 		margin: 0;
@@ -126,18 +132,18 @@
 	.Cards {
 		display: grid;
 		justify-content: center;
-    @media (min-width: 50rem) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+		@media (min-width: 50rem) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
 		gap: calc(var(--s) * 2);
 	}
 	.Card {
 		padding: calc(var(--s) * 2);
 		background-color: var(--c-bg--secondary);
 		border-radius: var(--border-radius);
-    ul {
-      list-style-type: square;
-      padding: calc(var(--s) * 2);
-    }
+		ul {
+			list-style-type: square;
+			padding: calc(var(--s) * 2);
+		}
 	}
 </style>

@@ -60,7 +60,7 @@
     font-weight: bold;
 		display: inline-block;
     /* background-color: var(--c-bg); */
-    border-bottom: var(--s) solid var(--c-bg);
+    border-bottom: calc( var(--s) / 2) solid transparent;
     border-radius: calc(var(--s) / 3);
     transition: all ease-in-out 200ms;
 		&[aria-current='page'] {
@@ -69,8 +69,7 @@
       color: var(--c-link);
 		}
     &:hover {
-      border-radius: calc(var(--s) * 1.5);
-      border-color: var(--c-fg);
+      color: var(--c-link);
     }
 	}
 </style>
