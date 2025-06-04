@@ -6,6 +6,7 @@ import expenses from '../content/expenses.js';
 import adverts from '../content/adverts.js';
 
 const apiUrl = PUBLIC_API_URL;
+console.log('apiUrl', apiUrl);
 
 const DATA = {
 	'/societies': societies,
