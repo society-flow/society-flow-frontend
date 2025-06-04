@@ -29,6 +29,7 @@ jobs:
           BASE_PATH: '/${{ github.event.repository.name }}'
           PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
         run: npm run build
+      - run echo $PUBLIC_API_URL
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./build
