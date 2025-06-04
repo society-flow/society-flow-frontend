@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,7 +29,6 @@ jobs:
       - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
-          PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
         run: npm run build
       - run: echo "$PUBLIC_API_URL"
       - uses: actions/upload-pages-artifact@v3
