@@ -8,5 +8,6 @@
 	"menu.about": "About",
 	"menu.login": "Login",
 	"menu.logout": "Logout",
-	"menu.register": "Register"
+	"menu.register": "Register",
+	"menu.verify-otp": "Verify OTP"
 }

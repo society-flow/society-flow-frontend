@@ -1,28 +1,39 @@
 class UserState {
 	user = $state(null);
-	isAuth = $derived(!!this.user);
+	isAuth = $derived(!!this.user?.id);
 
 	constructor() {
 		if (typeof localStorage !== 'undefined') {
-			const savedUser = localStorage.getItem('user');
+			const savedUser = this.getStorageUser();
 			if (savedUser) {
-				this.user = JSON.parse(savedUser);
+				this.user = savedUser;
 			}
 		}
 	}
 
-	register(user) {
-		this.user = user;
-		localStorage.setItem('user', JSON.stringify(this.user));
-	}
-
 	login(user) {
-		this.user = user;
-		localStorage.setItem('user', JSON.stringify(this.user));
+		this.setUser(user);
 	}
 
 	logout() {
 		this.user = null;
+		this.deleteSotrageUser();
+	}
+
+	setUser(user) {
+		this.user = user;
+		localStorage.setItem('user', JSON.stringify(this.user));
+	}
+	getStorageUser() {
+		const savedUser = localStorage.getItem('user');
+		try {
+			return JSON.parse(savedUser);
+		} catch (err) {
+			this.deleteStorageUser();
+			throw err;
+		}
+	}
+	deleteStorageUser() {
 		localStorage.removeItem('user');
 	}
 }

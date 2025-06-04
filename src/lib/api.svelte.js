@@ -1,58 +1,9 @@
+import { userState } from '$lib/states/user.svelte.js';
+import { PUBLIC_API_URL } from '$env/static/public';
 import societies from '../content/societies.js';
 import residences from '../content/residences.js';
 import expenses from '../content/expenses.js';
 import adverts from '../content/adverts.js';
-
-class Api {
-	url = window.location.origin;
-
-	fetch(endpoint) {
-		return fetch(this.url).then(() => {
-			return DATA[endpoint];
-		});
-	}
-
-	getSocieties() {
-		return this.fetch('/societies');
-	}
-	getSociety(id) {
-		return this.fetch('/societies').then((societies) => {
-			return societies.find((society) => {
-				return society.id === id;
-			});
-		});
-	}
-	getResidences() {
-		return this.fetch('/residences');
-	}
-	getResidence(id) {
-		return this.fetch('/residences').then((residences) => {
-			return residences.find((residence) => {
-				return residence.id === id;
-			});
-		});
-	}
-	getExpenses() {
-		return this.fetch('/expenses');
-	}
-	getExpense(id) {
-		return this.fetch('/expenses').then((expenses) => {
-			return expenses.find((expense) => {
-				return expense.id === id;
-			});
-		});
-	}
-	getAdverts() {
-		return this.fetch('/adverts');
-	}
-	getAdvert(id) {
-		return this.fetch('/adverts').then((adverts) => {
-			return adverts.find((advert) => {
-				return advert.id === id;
-			});
-		});
-	}
-}
 
 const DATA = {
 	'/societies': societies,
@@ -61,6 +12,114 @@ const DATA = {
 	'/adverts': adverts
 };
 
-const api = new Api();
+class Api {
+	urlMock = window.location.origin;
+	url = `${PUBLIC_API_URL}/api`;
 
-export { api };
+	constructor() {
+		if (!PUBLIC_API_URL) {
+			throw 'Missing API_URL env var';
+		}
+	}
+
+	async fetch(endpoint, { method = 'GET', data } = {}) {
+		const options = {
+			method,
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		};
+
+		if (data) {
+			options.body = JSON.stringify(data);
+		}
+
+		return fetch(`${this.url}${endpoint}`, options).then(async (res) => {
+			if (!res.ok) {
+				const errorBody = await res.json();
+				throw new Error(errorBody.message || res.statusText);
+			}
+			return res.json();
+		});
+	}
+
+	// ========== MOCK METHODS ==========
+	fetchMock(endpoint) {
+		return fetch(this.urlMock).then(() => DATA[endpoint]);
+	}
+
+	getSocieties() {
+		return this.fetchMock('/societies');
+	}
+	getSociety(id) {
+		return this.getSocieties().then((s) => s.find((i) => i.id === id));
+	}
+
+	getResidences() {
+		return this.fetchMock('/residences');
+	}
+	getResidence(id) {
+		return this.getResidences().then((r) => r.find((i) => i.id === id));
+	}
+
+	getExpenses() {
+		return this.fetchMock('/expenses');
+	}
+	getExpense(id) {
+		return this.getExpenses().then((e) => e.find((i) => i.id === id));
+	}
+
+	getAdverts() {
+		return this.fetchMock('/adverts');
+	}
+	getAdvert(id) {
+		return this.getAdverts().then((a) => a.find((i) => i.id === id));
+	}
+
+	// ========== AUTH METHODS ==========
+	async register({ name, email }) {
+		// for testing
+		/* const user = {
+			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+			 email: email,
+			 name: name,
+			 createdAt: '2025-06-04T06:05:18.702Z',
+			 updatedAt: '2025-06-04T06:05:18.702Z'
+		   }; */
+		return this.fetch('/users', {
+			method: 'POST',
+			data: { name, email }
+		});
+	}
+
+	async login({ email }) {
+		// for testing
+		/* return true; */
+		return this.fetch('/users/login', {
+			method: 'POST',
+			data: { email }
+		});
+		// login doesn't return a user — no storage here
+	}
+
+	async verifyOtp({ email, otp }) {
+		// for testing
+		/* const user = {
+			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+			 email: 'de@de.de',
+			 name: 'Bobi Diye',
+			 createdAt: '2025-06-04T05:41:36.367Z',
+			 updatedAt: '2025-06-04T05:41:36.367Z'
+		   }; */
+		return this.fetch('/users/verify-otp', {
+			method: 'POST',
+			data: { email, otp }
+		});
+	}
+
+	logout() {
+		userState.logout();
+	}
+}
+
+export const api = new Api();

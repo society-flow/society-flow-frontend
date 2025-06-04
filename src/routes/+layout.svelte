@@ -1,5 +1,4 @@
-<!-- src/_layout.svelte -->
-<script>
+<script lang>
 	import '../app.css';
 	import { waitLocale } from 'svelte-i18n';
 	import '$lib/i18n.js';
@@ -29,7 +28,7 @@
 		margin: 0;
 	}
 	:global(.Site) {
-    background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg--secondary);
 		display: flex;
 		flex-direction: column;
 		color: var(--c-fg);
@@ -38,33 +37,49 @@
 	}
 	:global(h1, h2, h3, h4, h5, p) {
 		margin-top: 0;
-    margin-bottom: var(--s);
+		margin-bottom: var(--s);
 	}
 	:global(fieldset) {
 		border: 1px solid var(--c-border);
-    display: flex;
-    flex-direction: column;
+		display: flex;
+		flex-direction: column;
 	}
-  :global(input, textarea, select, button) {
-    padding: calc(var(--s) / 2);
-    font-size: 1rem;
-    &:focus {
-      border-color: var(--c-link);
-    }
-  }
-  :global(a) {
-    color: var(--c-link);
-  }
-
-  .Site-header {
-    /* order: 1; */
-    /* position: sticky; */
-    /* top: 0; */
-  }
+	:global(input, textarea, select, button) {
+		padding: calc(var(--s) / 2);
+		font-size: 1rem;
+		&:focus {
+			border-color: var(--c-link);
+		}
+		&:invalid {
+			border-color: var(--c-error);
+		}
+    &:empty {
+			border-color: var(--c-border);
+		}
+	}
+	:global(a) {
+		color: var(--c-link);
+	}
+	:global(section) {
+		padding: var(--s);
+	}
+	:global(fieldset) {
+		&[data-type='error'] {
+			border-color: transparent;
+			text-decoration: underline;
+			text-decoration-color: var(--c-error);
+			margin: var(--s);
+		}
+	}
+	.Site-header {
+		/* order: 1; */
+		/* position: sticky; */
+		/* top: 0; */
+	}
 	.Site-main {
-    background-color: var(--c-bg);
+		background-color: var(--c-bg);
 		flex-grow: 1;
 		padding: var(--s);
-    margin: calc(var(--s) / 2);
+		margin: calc(var(--s) / 2);
 	}
 </style>

@@ -1,18 +1,19 @@
-<script lang="typescript">
+<script lang>
 	import { api } from '$lib/api.svelte.js';
 
-	const { email, onLogin = () => {} } = $props();
+	const { email, otp, onverify = () => {} } = $props();
 
 	let userEmail = $state(email || '');
+	let oneTimePassword = $state(otp || '');
 	let error = $state('');
 
 	async function onsubmit(event) {
 		event.preventDefault();
 		error = '';
 		try {
-			// also sends the OTP
-			await api.login({ email: userEmail });
-			onLogin({ email });
+			// this handles login
+			await api.verifyOtp({ email: userEmail, otp: oneTimePassword });
+			onverify();
 		} catch (err) {
 			error = err.message;
 		}
@@ -25,7 +26,11 @@
 		<input type="email" bind:value={userEmail} required />
 	</fieldset>
 	<fieldset>
-		<button type="submit">Login</button>
+		<legend>OTP (One Time Password)</legend>
+		<input type="text" bind:value={oneTimePassword} required minlength="1" maxlength="10" />
+	</fieldset>
+	<fieldset>
+		<button type="submit">Verify</button>
 	</fieldset>
 	{#if error}
 		<fieldset data-type="error">

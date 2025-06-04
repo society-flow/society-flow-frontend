@@ -54,7 +54,7 @@
 {#if userState.isAuth}
 	<section>
 		<article>
-			<p>Welcome {userState?.user?.email}</p>
+			<p>Hello <strong>{userState?.user?.name}</strong> ({userState?.user?.email}).</p>
 		</article>
 	</section>
 	<section>
@@ -110,10 +110,10 @@
 {/if}
 
 <style>
-  section {
-    margin-bottom: calc(var(--s) * 3);
-  }
-  article {
-    margin-bottom: calc(var(--s) * 2);
-  }
+	section {
+		margin-bottom: calc(var(--s) * 3);
+	}
+	article {
+		margin-bottom: calc(var(--s) * 2);
+	}
 </style>

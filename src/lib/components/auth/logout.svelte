@@ -1,12 +1,13 @@
 <script>
-	import {userState} from '$lib/states/user.svelte.js';
-
+  import { api } from '$lib/api.svelte.js';
+   
   const {
     onLogout = () => {}
   } = $props();
   
+
 	function onSubmit() {
-		userState.logout();
+		api.logout();
     onLogout()
 	}
 </script>
