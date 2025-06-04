@@ -77,6 +77,13 @@
 
 <header>
 	<h1>{$_('title')}</h1>
+	{#if !userState?.isAuth}
+		<center>
+			<a href="{base}/auth/register">
+				<HomeLogo />
+			</a>
+		</center>
+	{/if}
 	<p>{$_('catch_line')}</p>
 </header>
 
@@ -137,21 +144,14 @@
 			</a>
 		</center>
 	</section>
-	<section>
-		<center>
-			<a href="{base}/auth/register">
-				<HomeLogo />
-			</a>
-		</center>
-	</section>
 {/if}
 
 <style>
 	section {
 		margin: calc(var(--s) * 3) 0;
-    :global(.Site-main) > & {
-      max-width: calc(var(--s-container) * 1.4)
-    }
+		:global(.Site-main) > & {
+			max-width: calc(var(--s-container) * 1.4);
+		}
 	}
 	article {
 		margin-bottom: calc(var(--s) * 2);
@@ -169,30 +169,30 @@
 		justify-content: center;
 		gap: calc(var(--s) * 4);
 		@media (min-width: 50rem) {
-      gap: calc(var(--s) * 6);
+			gap: calc(var(--s) * 6);
 			grid-template-columns: 1fr 1fr 1fr;
 		}
 	}
 	.Card {
 		padding: calc(var(--s) * 2);
 		background-color: var(--c-bg--secondary);
-    border: 1px solid var(--c-border);
+		border: 1px solid var(--c-border);
 		border-radius: var(--border-radius);
 		ul {
 			list-style-type: square;
 			padding: calc(var(--s) * 2);
 		}
-    @media (min-width: 50rem) {
-      &:nth-of-type(2n) {
-			transform: scale(1.1);
-		}
+		@media (min-width: 50rem) {
+			&:nth-of-type(2n) {
+				transform: scale(1.1);
+			}
 		}
 	}
 
 	/* SVG shared settings */
-	.Card svg {
-		width: calc(var(--s * 6));
-		height: calc(var(--s * 6));
+	svg {
+		max-width: calc(var(--s * 6));
+		max-height: calc(var(--s * 6));
 		transition: all 0.3s ease;
 	}
 

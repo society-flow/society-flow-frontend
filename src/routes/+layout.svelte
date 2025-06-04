@@ -145,7 +145,7 @@
       }
 		}
     :global(& > header) {
-      padding: calc(var(--s) * 6) 0;
+      padding: calc(var(--s) * 3) 0;
     }
 	}
   .Site-footer {

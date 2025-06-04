@@ -80,10 +80,13 @@
 		border-radius: var(--border-radius);
 		box-shadow: 0 4px 20px var(--c-bg);
 		background-color: var(--c-bg--secondary);
-    border: 1px solid var(--c-link);
+    border: 1px solid var(--c-border);
 		width: var(--svg-size);
 		height: var(--svg-size);
     padding: var(--s);
+    &:hover {
+      border-color: var(--c-link);
+    }
 	}
 
 	.house-scene:hover {
