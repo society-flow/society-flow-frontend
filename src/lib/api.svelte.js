@@ -14,7 +14,7 @@ const DATA = {
 
 class Api {
 	urlMock = window.location.origin;
-	url = `${PUBLIC_API_URL}/api`;
+	url = $state(`${PUBLIC_API_URL}/api`);
 
 	constructor() {
 		if (!PUBLIC_API_URL) {

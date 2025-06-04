@@ -138,6 +138,9 @@
 		:global(& > section) {
 			width: 100%;
 			max-width: var(--s-container);
+      &[size="large"] {
+        max-width: calc(var(--s-container) * 1.3);
+      }
 		}
 	}
   .Site-footer {

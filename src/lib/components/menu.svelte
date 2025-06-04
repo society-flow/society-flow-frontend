@@ -11,14 +11,16 @@
     { path: '/residences', label: 'menu.residences' },
 		{ path: '/expenses', label: 'menu.expenses' },
     { path: '/about', label: 'menu.about' },
-		{ path: '/auth/logout', label: 'menu.logout' }
+    { path: '/settings', label: 'menu.settings' },
+		{ path: '/auth/logout', label: 'menu.logout' },
 	];
 
 	const menuItemsNoAuth = [
 		{ path: '/', label: 'menu.home' },
     { path: '/ads', label: 'menu.adverts' },
     { path: '/about', label: 'menu.about' },
-		{ path: '/auth/login', label: 'menu.login' }
+		{ path: '/auth/login', label: 'menu.login' },
+    { path: '/settings', label: 'menu.settings' }
 	];
 
 	function isCurrentPage(menuItem) {
