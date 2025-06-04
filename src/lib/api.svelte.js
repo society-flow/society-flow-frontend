@@ -114,6 +114,8 @@ class Api {
 		return this.fetch('/users/verify-otp', {
 			method: 'POST',
 			data: { email, otp }
+		}).then((user) => {
+			return userState.login(user);
 		});
 	}
 
