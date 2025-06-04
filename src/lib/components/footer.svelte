@@ -15,6 +15,11 @@
 			{$_('title')}
 		</a>
 	</li>
+	<li>
+		<a href="{base}/settings">
+			{$_('menu.settings')}
+		</a>
+	</li>
 	{#if isAuth}
 		<li>
 			<a href="{base}/about">

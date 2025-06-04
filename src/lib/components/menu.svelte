@@ -10,7 +10,6 @@
     { path: '/societies', label: 'menu.societies' },
     { path: '/residences', label: 'menu.residences' },
 		{ path: '/expenses', label: 'menu.expenses' },
-    { path: '/settings', label: 'menu.settings' },
 		{ path: '/auth/logout', label: 'menu.logout' },
 	];
 
@@ -19,7 +18,6 @@
     { path: '/ads', label: 'menu.adverts' },
     { path: '/about', label: 'menu.about' },
 		{ path: '/auth/login', label: 'menu.login' },
-    { path: '/settings', label: 'menu.settings' }
 	];
 
 	function isCurrentPage(menuItem) {

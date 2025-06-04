@@ -5,6 +5,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import ListSocieties from '$lib/components/societies/list.svelte';
 	import ListResidences from '$lib/components/residences/list.svelte';
+	import HomeLogo from '$lib/components/home-logo.svelte';
 
 	let societies = $state([]);
 	$effect(async () => {
@@ -112,6 +113,13 @@
 			</a>
 		</center>
 	</section>
+	<section>
+		<center>
+			<a href="{base}/auth/register">
+				<HomeLogo />
+			</a>
+		</center>
+	</section>
 {/if}
 
 <style>
@@ -121,9 +129,9 @@
 	article {
 		margin-bottom: calc(var(--s) * 2);
 	}
-  h1 {
-    text-align: center;
-  }
+	h1 {
+		text-align: center;
+	}
 	ul {
 		list-style: none;
 		margin: 0;

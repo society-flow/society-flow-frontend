@@ -113,7 +113,7 @@
 	/* local elements */
 	.Site-header {
 		/* order: 1; */
-    z-index: 1;
+    z-index: 2;
 		position: sticky;
 		top: 0;
 		display: flex;
@@ -136,6 +136,7 @@
 		align-items: center;
 		flex-wrap: wrap;
 		flex-direction: column;
+    z-index: 1;
 		:global(& > section) {
 			width: 100%;
 			max-width: var(--s-container);
@@ -147,6 +148,9 @@
   .Site-footer {
     align-self: flex-end;
     padding: calc(var(--s) / 2);
+    position: sticky;
+    bottom: 0;
+    z-index: 0;
     a {
       display: inline-block;
     }
