@@ -1,4 +1,4 @@
-<script>
+<script lang="javascript">
 	import { _ } from 'svelte-i18n';
 </script>
 
@@ -123,7 +123,7 @@
 		}
 	}
 	:global(.Site-main) {
-		& > section[size="large"] {
+		& > section[size='large'] {
 			max-width: calc(var(--s-container) * 1.6);
 		}
 	}
@@ -143,10 +143,10 @@
 		}
 	}
 
-  p {
-    padding: var(--s);
-  }
-  
+	p {
+		padding: var(--s);
+	}
+
 	svg {
 		margin: 15vw auto;
 		transition: transform 0.3s ease;
@@ -156,7 +156,7 @@
 		max-width: calc(var(--s) * 2);
 		min-width: 40vw;
 		@media (min-width: 40rem) {
-			min-width: 15vw;
+			min-width: 8vw;
 			margin: 3vw auto;
 		}
 	}
