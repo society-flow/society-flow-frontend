@@ -30,7 +30,11 @@ jobs:
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: npm run build
-      - run: echo "$PUBLIC_API_URL"
+      - name: Debug variables
+        run: |
+          echo "Repository variables:"
+          echo "PUBLIC_API_URL from vars: ${{ vars.PUBLIC_API_URL }}"
+          echo "PUBLIC_API_URL from env: $PUBLIC_API_URL"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./build
