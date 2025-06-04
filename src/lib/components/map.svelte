@@ -4,7 +4,7 @@
 
 	const { mapId, markers = [] } = $props();
 
-	let map;
+	let mapLeaflet;
 
 	function getCssVariable(name) {
 		return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -24,43 +24,38 @@
 	}
 
 	const setupMap = (node) => {
-		const fillColor = getCssVariable('--c-link') || '#007bff';
+    $effect(() => {
+			const fillColor = getCssVariable('--c-link') || '#007bff';
 
-		map = L.map(node).setView([0, 0], 2); // default view
+		  mapLeaflet = L.map(node).setView([0, 0], 2); // default view
 
-		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			attribution: '&copy; OpenStreetMap contributors'
-		}).addTo(map);
+		  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			  attribution: '&copy; OpenStreetMap contributors'
+		  }).addTo(mapLeaflet);
 
-		const validMarkers = markers.filter((m) => m.map?.coordinates);
+		  const validMarkers = markers.filter((m) => m.map?.coordinates);
 
-		if (validMarkers.length) {
-			const markerGroup = L.featureGroup(
-	      validMarkers.map(({ map, name }) => {
-		      const [lon, lat] = map.coordinates;
-		      return L.marker([lat, lon], {
-			      icon: createSvgIcon(fillColor),
-			      title: name
-		      }).bindPopup(name).openPopup();
-	      })
-      ).addTo(map);
+		  if (validMarkers.length) {
+			  const markerGroup = L.featureGroup(
+	        validMarkers.map(({ map, name }) => {
+		        const [lon, lat] = map.coordinates;
+		        return L.marker([lat, lon], {
+			        icon: createSvgIcon(fillColor),
+			        title: name
+		        }).bindPopup(name).openPopup();
+	        })
+        ).addTo(mapLeaflet);
 
 
-			map.fitBounds(markerGroup.getBounds().pad(0.2));
-		}
+			  mapLeaflet.fitBounds(markerGroup.getBounds().pad(0.2));
+		  }
 
-		return {
-			destroy() {
-				map.remove();
-				map = null;
-			}
-		};
+			return () => {
+				mapLeaflet.remove();
+				mapLeaflet = null;
+			};
+		});
 	};
-
-	onDestroy(() => {
-		map?.remove();
-		map = null;
-	});
 </script>
 
 <div id={mapId} class="map" use:setupMap></div>
