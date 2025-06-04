@@ -1,12 +1,12 @@
 import { userState } from '$lib/states/user.svelte.js';
-import { PUBLIC_API_URL } from '$env/static/public';
+import * as env from '$env/static/public';
 import societies from '../content/societies.js';
 import residences from '../content/residences.js';
 import expenses from '../content/expenses.js';
 import adverts from '../content/adverts.js';
 
-const apiUrl = PUBLIC_API_URL;
-console.log('apiUrl', apiUrl);
+const apiUrl = env.PUBLIC_API_URL;
+console.log('env', env);
 
 const DATA = {
 	'/societies': societies,
