@@ -60,10 +60,15 @@
 		line-height: var(--line-height);
 		font-size: var(--font-size);
 	}
-	:global(h1, h2, h3, h4, h5, p) {
+	:global(h1, h2, h3, h4, h5) {
 		margin-top: 0;
 		margin-bottom: var(--s);
+    line-height: 1.1;
 	}
+  :global(p) {
+    margin-top: 0;
+		margin-bottom: var(--s);
+  }
 	:global(h1) {
 		font-size: 1.7em;
 	}

@@ -185,6 +185,10 @@
 		}
     :global(header) {
       text-align: center;
+      order: 1;
+    }
+    :global(main) {
+      order: 0;
     }
 
 		@media (min-width: 50rem) {

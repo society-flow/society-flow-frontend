@@ -124,7 +124,7 @@
 	}
 	:global(.Site-main) {
 		& > section[size="large"] {
-			max-width: calc(var(--s-container) * 3);
+			max-width: calc(var(--s-container) * 1.6);
 		}
 	}
 

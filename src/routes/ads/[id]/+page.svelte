@@ -18,20 +18,13 @@
 <svelte:head>
 	<title>{$_('menu.adverts')}</title>
 </svelte:head>
-
-<section>
-	<h1>
-		<a href={`${base}/ads`}> ← {$_('menu.adverts')}</a>
-	</h1>
-</section>
-
 <article>
 	<header>
-		<h2>
+		<h1>
 			<a href={`${base}/ads/${id}`}>
 				{advert.name}
 			</a>
-		</h2>
+		</h1>
 	</header>
 
 	<main>
@@ -39,20 +32,39 @@
 			{advert.description}
 		</p>
 	</main>
+	<footer>
+		<nav>
+			<a href={`${base}/ads`}> ← {$_('menu.adverts')}</a>
+		</nav>
+	</footer>
 </article>
 
 <style>
 	article {
 		width: 100%;
-		flex-grow: 1;
 		max-width: var(--s-container);
 	}
-  :is(h1, h2) a {
-      text-decoration: none;
-  }
-  :is(h2) a {
-    background-color: var(--c-bg--secondary);
-    padding: var(--s);
-    border-radius: var(--border-radius);
+	:is(h1, h2) a {
+		text-decoration: none;
+	}
+	:is(h2) a {
+		background-color: var(--c-bg--secondary);
+		padding: var(--s);
+		border-radius: var(--border-radius);
+	}
+	main {
+		background-color: var(--c-bg--secondary);
+		padding: var(--s) calc(var(--s) * 2);
+    margin: var(--s);
+		border-radius: var(--border-radius);
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+	}
+  footer {
+    nav a {
+      display: inline-block;
+      padding: var(--s);
+    }
   }
 </style>
