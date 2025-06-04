@@ -1,7 +1,7 @@
 <script lang>
 	import { _ } from 'svelte-i18n';
-	import SettingsApi from '$lib/components/settings/api.svelte';
 	import { page } from '$app/state';
+	import SettingsApi from '$lib/components/settings/api.svelte';
 
 	const apiUrl = page.url.searchParams.get('api-url');
 </script>

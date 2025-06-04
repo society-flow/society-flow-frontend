@@ -128,9 +128,11 @@
 	article {
 		display: flex;
 		flex-direction: column;
-		&:nth-child(2n) {
-      flex-direction: column-reverse;
-		}
+    @media (min-width: 40rem) {
+      &:nth-child(2n) {
+        flex-direction: column-reverse;
+		  }
+    }
 	}
 
 	svg {

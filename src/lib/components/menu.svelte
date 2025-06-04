@@ -10,7 +10,6 @@
     { path: '/societies', label: 'menu.societies' },
     { path: '/residences', label: 'menu.residences' },
 		{ path: '/expenses', label: 'menu.expenses' },
-    { path: '/about', label: 'menu.about' },
     { path: '/settings', label: 'menu.settings' },
 		{ path: '/auth/logout', label: 'menu.logout' },
 	];
@@ -31,7 +30,7 @@
 		}
 	}
 
-	const isAuth = $derived(userState.user?.email);
+	const isAuth = $derived(userState.isAuth);
 	const menuItems = $derived(isAuth ? menuItemsAuth : menuItemsNoAuth);
 </script>
 

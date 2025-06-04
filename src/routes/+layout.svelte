@@ -113,6 +113,7 @@
 	/* local elements */
 	.Site-header {
 		/* order: 1; */
+    z-index: 1;
 		position: sticky;
 		top: 0;
 		display: flex;
