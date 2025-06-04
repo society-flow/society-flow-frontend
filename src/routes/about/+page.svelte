@@ -123,14 +123,22 @@
 		@media (min-width: 40rem) {
 			grid-template-columns: 1fr 1fr;
 		}
+    :global(.Site-main) > & {
+      max-width: calc(var(--s-container) * 1.5)
+    }
 	}
 
 	article {
 		display: flex;
 		flex-direction: column;
+    justify-content: center;
     @media (min-width: 40rem) {
       &:nth-child(2n) {
         flex-direction: column-reverse;
+		  }
+      &:nth-child(3n) {
+        flex-direction: row;
+        align-items: center;
 		  }
     }
 	}
