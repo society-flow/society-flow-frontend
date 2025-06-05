@@ -24,5 +24,11 @@
       background-color: transparent;
       outline-color: var(--c-bg--secondary);
     }
+    &:focus {
+      outline-color: var(--c-fg);
+    }
+    &:active {
+      outline-color: var(--c-border);
+    }
   }
 </style>

@@ -56,9 +56,13 @@
         font-weight: bold;
 			}
       &:focus {
-        outline: 1px solid var(--c-fg);
+        outline-color: var(--c-fg);
         font-weight: bold;
 			}
+      &:active {
+        outline-color: var(--c-bg--secondary);
+        border-color: var(--c-border);
+      }
 		}
 	}
 </style>

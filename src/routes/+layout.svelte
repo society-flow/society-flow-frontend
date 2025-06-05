@@ -105,7 +105,7 @@
     border-radius: var(--border-radius);
     border: 1px solid var(--c-border);
 		&:focus {
-			border-color: var(--c-link);
+			border-color: var(--c-fg);
       outline: 0.1rem solid var(--c-border);
 		}
 		&:invalid {
@@ -115,15 +115,20 @@
 			border-color: var(--c-border);
 		}
 		&:hover {
-			border-color: var(--c-fg);
+			border-color: var(--c-bg-border);
+		}
+    &:focus-within {
+			border-color: var(--c-link);
 		}
 	}
 
 	:global(button) {
-		background-color: var(--c-bg);
+    border-color: var(--c-border);
 		cursor: pointer;
+    transition: all 140ms ease-in-out;
     &:hover {
-      background-color: var(--c-border);
+      background-color: var(--c-bg);
+      border-color: var(--c-bg--secondary);
     }
 	}
 
@@ -132,16 +137,17 @@
 		font-weight: bold;
     outline: 1px solid transparent;
     border-radius: calc(var(--s) * 1.5);
-    transition: all 200ms ease-in-out;
+    transition: all 140ms ease-in-out;
     &:focus {
       outline-color: var(--c-link);
-      outline-offset: 0.2rem;
+      /* outline-offset: 0.1rem; */
     }
     &:hover {
       border-radius: 0;
     }
     &:active {
       outline-color: transparent;
+      text-decoration-color: transparent;
     }
 	}
 
@@ -177,6 +183,9 @@
 	:global(form legend) {
 		margin-bottom: -0.3em;
 		font-weight: bold;
+	}
+  :global(form button[type="submit"]) {
+    /* background-color: var(--c-border); */
 	}
 
 	.Site-header {
