@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 
 	const { onLogout = () => {} } = $props();
@@ -11,6 +12,6 @@
 
 <form>
 	<fieldset>
-		<button onclick={() => onSubmit()}>Logout</button>
+		<button onclick={() => onSubmit()}>{$_('menu.logout')}</button>
 	</fieldset>
 </form>
