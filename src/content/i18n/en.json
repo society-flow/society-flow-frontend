@@ -16,6 +16,49 @@
 		"verify-otp": "Verify OTP"
 	},
 	"pages": {
+		"home": {
+			"auth": {
+				"greeting": "Hello {name} ({email}).",
+				"dashboard": {
+					"title": "Your Dashboard",
+					"description": "Here is a summary of your information."
+				},
+				"sections": {
+					"societies": "Societies",
+					"residences": "Residences"
+				}
+			},
+			"marketing": {
+				"user_types": {
+					"society_admin": {
+						"title": "Society Admins",
+						"features": [
+							"Create one or more society",
+							"Invite users",
+							"Add expenses needed",
+							"Approve payment records",
+							"Create custom adjustments",
+							"Publish notices to residents"
+						]
+					},
+					"society_member": {
+						"title": "Society Members",
+						"features": [
+							"View all your residences across various societies and cities",
+							"View your monthly dues with proper breakup of costs and available funds",
+							"Message admins of issues being faced or get notifications from them."
+						]
+					},
+					"rent_seeker": {
+						"title": "Looking for Rents or looking to buy one?",
+						"features": [
+							"Check out the adverts published by authenticated valid landlords or societies about availability, as suitable to your budget and dream location"
+						]
+					}
+				},
+				"call_to_action": "Join {title} and discover all features."
+			}
+		},
 		"about": {
 			"title": "About",
 			"sections": {

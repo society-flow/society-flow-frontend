@@ -1,6 +1,6 @@
 {
 	"title": "Society Flow",
-	"catch_line": "Partagez les services. Divisez les coûts. Renforcez votre communauté.",
+	"catch_line": "Partager les services. Répartir les coûts. Renforcer votre communauté.",
 	"menu": {
 		"home": "Accueil",
 		"societies": "Sociétés",
@@ -13,14 +13,57 @@
 		"login": "Connexion",
 		"logout": "Déconnexion",
 		"register": "S'inscrire",
-		"verify_otp": "Vérifier le code OTP"
+		"verify-otp": "Vérifier OTP"
 	},
 	"pages": {
+		"home": {
+			"auth": {
+				"greeting": "Bonjour {name} ({email}).",
+				"dashboard": {
+					"title": "Votre Tableau de Bord",
+					"description": "Voici un résumé de vos informations."
+				},
+				"sections": {
+					"societies": "Sociétés",
+					"residences": "Résidences"
+				}
+			},
+			"marketing": {
+				"user_types": {
+					"society_admin": {
+						"title": "Administrateurs de Société",
+						"features": [
+							"Créer une ou plusieurs sociétés",
+							"Inviter des utilisateurs",
+							"Ajouter les dépenses nécessaires",
+							"Approuver les enregistrements de paiement",
+							"Créer des ajustements personnalisés",
+							"Publier des avis aux résidents"
+						]
+					},
+					"society_member": {
+						"title": "Membres de Société",
+						"features": [
+							"Voir toutes vos résidences dans diverses sociétés et villes",
+							"Voir vos cotisations mensuelles avec une répartition appropriée des coûts et des fonds disponibles",
+							"Envoyer des messages aux administrateurs concernant les problèmes rencontrés ou recevoir des notifications de leur part."
+						]
+					},
+					"rent_seeker": {
+						"title": "Vous cherchez à louer ou à acheter ?",
+						"features": [
+							"Consultez les annonces publiées par des propriétaires ou sociétés authentifiés et valides concernant la disponibilité, adaptées à votre budget et à l'emplacement de vos rêves"
+						]
+					}
+				},
+				"call_to_action": "Rejoignez {title} et découvrez toutes les fonctionnalités."
+			}
+		},
 		"about": {
 			"title": "À propos",
 			"sections": {
 				"problem": {
-					"text": "Différents pays avec le même problème : gestion cachée des dépenses sans visibilité claire des coûts et des fonds.",
+					"text": "Différents pays avec le même problème : Gestion des dépenses cachées sans visibilité claire des coûts et des fonds.",
 					"icon": "hidden-expenses"
 				},
 				"goal": {
@@ -28,11 +71,11 @@
 					"icon": "pricing-breakdown"
 				},
 				"philosophy": {
-					"text": "Nous pensons fermement que les dépenses réduites ou augmentées doivent faire varier les contributions, et non les fixer. De plus, différentes dépenses nécessitent différentes façons de distribution entre les résidences.",
+					"text": "Nous croyons fermement que les dépenses réduites ou augmentées devraient faire varier les contributions, pas les fixer. De plus, différentes dépenses nécessitent des méthodes de distribution différentes entre les résidences.",
 					"icon": "variable-contributions"
 				},
 				"peer_services": {
-					"text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées d'utilisateurs membres valides, en contournant les intermédiaires. La prochaine fois, contactez de pair à pair pour tous services dans votre zone d'intérêt sans payer trop cher !",
+					"text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées de membres utilisateurs valides, en contournant les intermédiaires. La prochaine fois, contactez directement vos pairs pour tous les services dans votre domaine d'intérêt sans payer trop cher !",
 					"icon": "peer-to-peer"
 				}
 			}

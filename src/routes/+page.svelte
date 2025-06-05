@@ -1,5 +1,5 @@
 <script lang="javascript">
-	import { _ } from 'svelte-i18n';
+	import { _, json } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { api } from '$lib/api.svelte.js';
@@ -25,36 +25,7 @@
 		residences = await api.getResidences();
 	});
 
-	const marketingUserTypes = [
-		{
-			title: 'Society Admins',
-			reasons: [
-				'Create one or more society',
-				'Invite users',
-				'Add expenses needed',
-				'Approve payment records',
-				'Create custom adjustments',
-				'Publish notices to residents'
-			],
-			icon: 'admin'
-		},
-		{
-			title: 'Society Members',
-			reasons: [
-				'View all your residences across various societies and cities',
-				'View your monthly dues with proper breakup of costs and available funds',
-				'Message admins of issues being faced or get notifications from them.'
-			],
-			icon: 'member'
-		},
-		{
-			title: 'Looking for Rents or looking to buy one?',
-			reasons: [
-				'Check out the adverts published by authenticated valid landlords or societies about availability, as suitable to your budget and dream location'
-			],
-			icon: 'rent'
-		}
-	];
+	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));
 </script>
 
 <svelte:head>
@@ -64,8 +35,9 @@
 {#if userState.isAuth}
 	<header>
 		<p>
-			Hello <strong>{userState?.user?.name}</strong> (
-			{userState?.user?.email}).
+			{$_('pages.home.auth.greeting', {
+				values: { name: userState?.user?.name, email: userState?.user?.email }
+			})}
 		</p>
 	</header>
 {:else}
@@ -83,14 +55,14 @@
 {#if userState.isAuth}
 	<section>
 		<header>
-			<h2>Your Dashboard</h2>
-			<p>Here is a summary of your information.</p>
+			<h2>{$_('pages.home.auth.dashboard.title')}</h2>
+			<p>{$_('pages.home.auth.dashboard.description')}</p>
 		</header>
 	</section>
 	<section>
 		<article>
 			{#if societies?.length}
-				<h2>Societies</h2>
+				<h2>{$_('pages.home.auth.sections.societies')}</h2>
 				<ListSocieties {societies} />
 			{/if}
 		</article>
@@ -98,7 +70,7 @@
 	<section>
 		<article>
 			{#if residences?.length}
-				<h2>Residences</h2>
+				<h2>{$_('pages.home.auth.sections.residences')}</h2>
 				<ListResidences {residences} />
 			{/if}
 		</article>
@@ -106,21 +78,27 @@
 {:else}
 	<section>
 		<ul class="Cards">
-			{#each marketingUserTypes as marketingUserType}
+			{#each Object.entries(marketingUserTypes) as [key, userType]}
 				<li class="Card">
 					<article>
 						<header>
-							<h2>{marketingUserType.title}</h2>
+							<h2>{userType.title}</h2>
 						</header>
 						<main>
 							<ul>
-								{#each marketingUserType.reasons as reason}
-									<li>{reason}</li>
+								{#each userType.features as feature}
+									<li>{feature}</li>
 								{/each}
 							</ul>
 						</main>
 						<aside>
-							<SvgIcon name={marketingUserType.icon} />
+							<SvgIcon
+								name={key === 'society_admin'
+									? 'admin'
+									: key === 'society_member'
+										? 'member'
+										: 'rent'}
+							/>
 						</aside>
 					</article>
 				</li>
@@ -132,7 +110,7 @@
 		{#if !userState?.isAuth}
 			<center>
 				<p>
-					Join {$_('title')} and discover all features.
+					{$_('pages.home.marketing.call_to_action', { values: { title: $_('title') } })}
 				</p>
 			</center>
 		{/if}
