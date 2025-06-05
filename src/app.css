@@ -2,8 +2,9 @@
 
 /* global variables */
 :root {
-	--c-fg: black;
-	--c-bg: #efefef;
+	--c-fg: #171623;
+	--c-fg--secondary: #545454;
+	--c-bg: #ededed;
 	--c-bg--secondary: white;
 	--c-bg--form: var(--c-bg--secondary);
 	--c-link: green;

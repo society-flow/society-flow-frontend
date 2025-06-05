@@ -169,6 +169,7 @@
 	}
 
 	:global(form fieldset label) {
+    color: var(--c-fg--secondary);
 		font-size: var(--font-size--small);
 		font-style: italic;
 	}

@@ -64,6 +64,7 @@
     transition: all ease-in-out 300ms;
     outline: 1px solid transparent;
     outline-offset: 0;
+    color: var(--c-fg);
 		&[aria-current='page'] {
 			background-color: var(--c-bg--menu);
       border-bottom-color: var(--c-link);
@@ -74,6 +75,7 @@
     &:hover {
       color: var(--c-link);
       /* border-radius: calc(var(--s) * 1.5); */
+      color: var(--c-fg);
     }
     &:focus {
       outline-offset: -0.05rem;
