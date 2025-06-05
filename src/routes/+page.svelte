@@ -7,12 +7,12 @@
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
-	import { getPage } from '$lib/db-static.js';
+	import { getBlog } from '$lib/db-static.js';
 
-	let page = $state({});
+	let blog = $state({});
 	$effect(async () => {
-		page = await getPage('index');
-		console.log('page', page.name);
+		blog = await getBlog('index');
+		console.log('blog', blog.name);
 	});
 
 	let societies = $state([]);

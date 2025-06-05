@@ -16,6 +16,46 @@
 		"verify-otp": "OTP সত্যাপন"
 	},
 	"pages": {
+		"auth": {
+			"verify-otp": {
+				"sections": {
+					"did-not-receive": {
+						"text": "আপুনি OTP ক'ড থকা ইমেইলটো লাভ কৰা নাইনে?"
+					},
+					"resend": {
+						"text": "ইমেইল পুনৰ পঠাওক",
+						"link": {
+							"url": "#@TODO",
+							"text": "menu.verify-otp"
+						}
+					}
+				}
+			},
+
+			"register": {
+				"sections": {
+					"have-account": {
+						"text": "আপোনাৰ ইতিমধ্যে এটা একাউণ্ট আছে নে?",
+						"link": {
+							"url": "/auth/login",
+							"text": "menu.login"
+						}
+					}
+				}
+			},
+
+			"login": {
+				"sections": {
+					"no-account": {
+						"text": "আপোনাৰ এতিয়াও একাউণ্ট নাইনে? বিনামূল্যে",
+						"link": {
+							"url": "/auth/register",
+							"text": "menu.register"
+						}
+					}
+				}
+			}
+		},
 		"home": {
 			"auth": {
 				"greeting": "নমস্কাৰ {name} ({email})।",

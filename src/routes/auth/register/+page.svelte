@@ -1,5 +1,5 @@
-<script lang="typescript">
-	import { _ } from 'svelte-i18n';
+<script lang="javascript">
+	import { _, json } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
@@ -12,6 +12,8 @@
 	const email = page.url.searchParams.get('email');
 	const name = page.url.searchParams.get('name');
 
+	const sections = $derived($json('pages.auth.register.sections'));
+
 	async function onregister({ email: userEmail }) {
 		console.log('onregister');
 		setTimeout(() => goto(`${base}/auth/verify-otp?email=${userEmail}`), 0);
@@ -23,25 +25,29 @@
 </svelte:head>
 
 <header>
-	<h1>
-		{$_('menu.register')}
-	</h1>
+	<h1>{$_('menu.register')}</h1>
 </header>
 
 {#if !userState.isAuth}
 	<section>
 		<Register {onregister} {email} {name} />
 	</section>
-
-	<section>
-		<center>
+	{#each Object.entries(sections) as [key, section]}
+		<section>
 			<p>
-				You already have an account?
-				<a href="{base}/auth/login">
-					{$_('menu.login')}
-				</a>
-				your existing user account.
+				<center>
+					{section.text}
+					{#if section.link}
+						<a href={section.link.url}>{$_(section.link.text)}</a>
+					{/if}
+				</center>
 			</p>
-		</center>
-	</section>
+		</section>
+	{/each}
 {/if}
+
+<style>
+	p {
+		text-align: center;
+	}
+</style>

@@ -1,5 +1,5 @@
-<script lang="typescript">
-	import { _ } from 'svelte-i18n';
+<script lang="javascript">
+	import { _, json } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
@@ -11,6 +11,8 @@
 
 	const email = page.url.searchParams.get('email');
 	const otp = page.url.searchParams.get('otp');
+
+	const sections = $derived($json('pages.auth.verify-otp.sections'));
 
 	async function onverify() {
 		setTimeout(() => goto(`${base}/`), 0);
@@ -31,9 +33,17 @@
 	<section>
 		<VerifyOTP {onverify} {email} {otp} />
 	</section>
-	<p>
-		<center>
-			You did not receive an email with the OTP code? <a href="#@TODO">Resend email</a> now.
-		</center>
-	</p>
+	<section>
+		{#each Object.entries(sections) as [key, section]}
+			<section>
+				<p>{section.text}</p>
+			</section>
+		{/each}
+	</section>
 {/if}
+
+<style>
+	p {
+		text-align: center;
+	}
+</style>

@@ -1,5 +1,5 @@
 <script lang="javascript">
-	import { _ } from 'svelte-i18n';
+	import { _, json } from 'svelte-i18n';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
@@ -10,6 +10,8 @@
 	requiresNoAuth();
 
 	const email = page.url.searchParams.get('email');
+
+	const sections = $derived($json('pages.auth.login.sections'));
 
 	async function onLogin({ email }) {
 		setTimeout(() => goto(`${base}/auth/verify-otp?email=${email}`), 0);
@@ -26,22 +28,30 @@
 	</h1>
 </header>
 
-<section>
-	{#if !userState.isAuth}
+{#if !userState.isAuth}
+	<section>
 		<Login {onLogin} {email} />
-	{/if}
-</section>
+	</section>
+{/if}
 
 {#if !userState.isAuth}
 	<section>
-		<center>
-			<p>
-				You don't have an account yet?' It's free to
-				<a href="{base}/auth/register">
-					{$_('menu.register').toLowerCase()}
-				</a>
-				a new user.
-			</p>
-		</center>
+		{#each Object.entries(sections) as [key, section]}
+			<article>
+				<p>
+					{section.text}
+					{#if section.link}
+						<a href={section.link.url}>{$_(section.link.text)}</a>
+					{/if}
+					{'.'}
+				</p>
+			</article>
+		{/each}
 	</section>
 {/if}
+
+<style>
+  p {
+    text-align: center;
+  }
+</style>

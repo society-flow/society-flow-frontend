@@ -16,6 +16,46 @@
 		"verify-otp": "Verify OTP"
 	},
 	"pages": {
+		"auth": {
+			"verify-otp": {
+				"sections": {
+					"did-not-receive": {
+						"text": "You did not receive an email with the OTP code?"
+					},
+					"resend": {
+						"text": "Resend email",
+						"link": {
+							"url": "#@TODO",
+							"text": "menu.verify-otp"
+						}
+					}
+				}
+			},
+
+			"register": {
+				"sections": {
+					"have-account": {
+						"text": "You already have an account?",
+						"link": {
+							"url": "/auth/login",
+							"text": "menu.login"
+						}
+					}
+				}
+			},
+
+			"login": {
+				"sections": {
+					"no-account": {
+						"text": "You don't have an account yet? It's free to",
+						"link": {
+							"url": "/auth/register",
+							"text": "menu.register"
+						}
+					}
+				}
+			}
+		},
 		"home": {
 			"auth": {
 				"greeting": "Hello {name} ({email}).",

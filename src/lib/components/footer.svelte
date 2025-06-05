@@ -1,7 +1,8 @@
-<script lang="typescript">
+<script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
+	import Locales from '$lib/components/locales.svelte';
 
 	const isAuth = $derived(userState.isAuth);
 	const currentDateTime = new Date();
@@ -32,6 +33,9 @@
 			</a>
 		</li>
 	{/if}
+	<li>
+		<Locales />
+	</li>
 </menu>
 
 <style>
@@ -44,9 +48,9 @@
 		align-items: center;
 		text-align: center;
 	}
-  time {
-    margin: calc(var(--s) / 2)
-  }
+	time {
+		margin: calc(var(--s) / 2);
+	}
 	a {
 		padding: calc(var(--s) / 2) var(--s);
 		color: var(--c-fg);
