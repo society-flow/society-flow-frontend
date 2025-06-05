@@ -10,11 +10,11 @@
 	<title>{$_('menu.settings')}</title>
 </svelte:head>
 
-<section>
+<header>
 	<h1>
 		{$_('menu.settings')}
 	</h1>
-</section>
+</header>
 
 <section>
 	<SettingsApi {apiUrl} />
