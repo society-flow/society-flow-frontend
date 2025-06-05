@@ -16,8 +16,12 @@
 	<title>{$_('menu.societies')}</title>
 </svelte:head>
 
-<h1>
-	{$_('menu.societies')}
-</h1>
+<header>
+	<h1>
+		{$_('menu.societies')}
+	</h1>
+</header>
 
-<ListSocieties {societies} />
+<section>
+	<ListSocieties {societies} />
+</section>

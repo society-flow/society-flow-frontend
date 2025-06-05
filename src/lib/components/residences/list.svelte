@@ -20,5 +20,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--s);
+    justify-content: center;
   }
 </style>

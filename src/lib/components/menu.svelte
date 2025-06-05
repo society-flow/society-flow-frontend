@@ -61,7 +61,6 @@
 		display: inline-block;
     /* background-color: var(--c-bg); */
     border: calc( var(--s) / 2) solid transparent;
-    border-radius: calc(var(--s) / 3);
     transition: all ease-in-out 300ms;
     outline: 1px solid transparent;
     outline-offset: 0;
@@ -69,13 +68,16 @@
 			background-color: var(--c-bg--menu);
       border-bottom-color: var(--c-link);
       color: var(--c-link);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
 		}
     &:hover {
       color: var(--c-link);
+      /* border-radius: calc(var(--s) * 1.5); */
     }
     &:focus {
       outline-offset: -0.05rem;
-      outline-color: var(--c-link);
+      /* border-radius: calc(var(--s) * 1.5); */
 		}
 	}
 </style>

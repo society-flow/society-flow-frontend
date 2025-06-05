@@ -17,8 +17,12 @@
 	<title>{$_('menu.residences')}</title>
 </svelte:head>
 
-<h1>
-	{$_('menu.residences')}
-</h1>
+<header>
+	<h1>
+		{$_('menu.residences')}
+	</h1>
+</header>
 
-<ListResidences {residences} />
+<section>
+	<ListResidences {residences} />
+</section>

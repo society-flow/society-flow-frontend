@@ -4,11 +4,16 @@
 	import { userState } from '$lib/states/user.svelte.js';
 
 	const isAuth = $derived(userState.isAuth);
+	const currentDateTime = new Date();
+	const currentYear = currentDateTime.getFullYear();
 </script>
 
 <menu>
 	<li>
-		{new Date().getFullYear()} ©
+		©
+		<time datetime={currentDateTime.toISOString()} title={currentDateTime.toLocaleString()}>
+			{currentYear}
+		</time>
 	</li>
 	<li>
 		<a href="{base}/">
@@ -39,6 +44,9 @@
 		align-items: center;
 		text-align: center;
 	}
+  time {
+    margin: calc(var(--s) / 2)
+  }
 	a {
 		padding: calc(var(--s) / 2) var(--s);
 		color: var(--c-fg);
@@ -49,7 +57,6 @@
 		transition: all ease-in-out 200ms;
 		line-height: 1;
 		&:hover {
-			border-radius: calc(var(--s) * 1.5);
 			text-decoration-color: var(--c-link);
 		}
 	}

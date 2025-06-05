@@ -130,6 +130,19 @@
 	:global(a) {
 		color: var(--c-link);
 		font-weight: bold;
+    outline: 1px solid transparent;
+    border-radius: calc(var(--s) * 1.5);
+    transition: all 200ms ease-in-out;
+    &:focus {
+      outline-color: var(--c-link);
+      outline-offset: 0.2rem;
+    }
+    &:hover {
+      border-radius: 0;
+    }
+    &:active {
+      outline-color: transparent;
+    }
 	}
 
 	:global(section) {
