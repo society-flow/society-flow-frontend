@@ -56,6 +56,18 @@
 				}
 			}
 		},
+		"settings": {
+			"sections": {
+				"development": {
+					"title": "উন্নয়ন"
+				},
+				"demo": {
+					"title": "ডেমো",
+					"loginText": "ডেমো ব্যৱহাৰকাৰী হিচাপে লগ ইন কৰক",
+					"logoutText": "ডেমো ব্যৱহাৰকাৰী হিচাপে লগ আউট কৰক"
+				}
+			}
+		},
 		"home": {
 			"auth": {
 				"greeting": "নমস্কাৰ {name} ({email})।",

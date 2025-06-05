@@ -56,6 +56,18 @@
 				}
 			}
 		},
+		"settings": {
+			"sections": {
+				"development": {
+					"title": "Development"
+				},
+				"demo": {
+					"title": "Demo",
+					"loginText": "Log in demo user",
+					"logoutText": "Log out demo user"
+				}
+			}
+		},
 		"home": {
 			"auth": {
 				"greeting": "Hello {name} ({email}).",

@@ -1,5 +1,5 @@
-<script lang>
-	import { _ } from 'svelte-i18n';
+<script lang="javascript">
+	import { _, json } from 'svelte-i18n';
 	import { page } from '$app/state';
 	import SettingsApi from '$lib/components/settings/api.svelte';
 	import { userState } from '$lib/states/user.svelte';
@@ -15,6 +15,9 @@
 			updatedAt: '2025-06-04T05:41:36.367Z'
 		});
 	}
+
+	// grab all "settings.sections" from JSON
+	const sections = $derived($json('pages.settings.sections'));
 </script>
 
 <svelte:head>
@@ -22,24 +25,31 @@
 </svelte:head>
 
 <header>
-	<h1>
-		{$_('menu.settings')}
-	</h1>
+	<h1>{$_('menu.settings')}</h1>
 </header>
 
-<section>
-	<h1>Development</h1>
-	<SettingsApi {apiUrl} />
-</section>
+{#each Object.entries(sections) as [key, section]}
+	<section>
+		<header>
+			<h1>{section.title}</h1>
+		</header>
 
-<section>
-	<header>
-		<h1>Demo</h1>
-	</header>
-	{#if !userState.isAuth}
-		<button {onclick}> Log in demo user</button>
-	{/if}
-	{#if userState.isDemo}
-		<button onclick={userState.logout()} type="submit"> Log out demo user</button>
-	{/if}
-</section>
+		{#if key === 'development'}
+			<SettingsApi {apiUrl} />
+		{/if}
+
+		{#if key === 'demo'}
+			{#if !userState.isAuth}
+				<button on:click={onclick}>
+					{section.loginText}
+				</button>
+			{/if}
+
+			{#if userState.isDemo}
+				<button on:click={userState.logout}>
+					{section.logoutText}
+				</button>
+			{/if}
+		{/if}
+	</section>
+{/each}

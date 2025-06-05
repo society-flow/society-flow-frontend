@@ -56,6 +56,18 @@
 				}
 			}
 		},
+		"settings": {
+			"sections": {
+				"development": {
+					"title": "Développement"
+				},
+				"demo": {
+					"title": "Démo",
+					"loginText": "Se connecter en tant qu'utilisateur de démonstration",
+					"logoutText": "Se déconnecter de l'utilisateur de démonstration"
+				}
+			}
+		},
 		"home": {
 			"auth": {
 				"greeting": "Bonjour {name} ({email}).",
