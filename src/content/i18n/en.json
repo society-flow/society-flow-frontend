@@ -1,16 +1,41 @@
 {
 	"title": "Society Flow",
 	"catch_line": "Share services. Split costs. Strengthen your community.",
-	"menu.home": "Home",
-	"menu.societies": "Societies",
-	"menu.residences": "Residences",
-	"menu.expenses": "Expenses",
-	"menu.adverts": "Adverts",
-	"menu.about": "About",
-	"menu.styles": "Styles",
-	"menu.settings": "Settings",
-	"menu.login": "Login",
-	"menu.logout": "Logout",
-	"menu.register": "Register",
-	"menu.verify-otp": "Verify OTP"
+	"menu": {
+		"home": "Home",
+		"societies": "Societies",
+		"residences": "Residences",
+		"expenses": "Expenses",
+		"adverts": "Adverts",
+		"about": "About",
+		"styles": "Styles",
+		"settings": "Settings",
+		"login": "Login",
+		"logout": "Logout",
+		"register": "Register",
+		"verify-otp": "Verify OTP"
+	},
+	"pages": {
+		"about": {
+			"title": "About",
+			"sections": {
+				"problem": {
+					"text": "Different countries with same problem: Hidden expense management without clear visibility of costs and funds.",
+					"icon": "hidden-expenses"
+				},
+				"goal": {
+					"text": "Our goal is to provide detailed breakup of dynamically calculated monthly pricing to your knowledge.",
+					"icon": "pricing-breakdown"
+				},
+				"philosophy": {
+					"text": "We do feel strongly that expense reduced or increased should make the contributions vary, not fixed. Also, different expenses need different way of distribution across residences.",
+					"icon": "variable-contributions"
+				},
+				"peer_services": {
+					"text": "Along the way, our system allows you to create or find geo located ads from valid member of users, bypassing middle men. Next time reach out peer to peer for any services within your area of interest without overpaying!",
+					"icon": "peer-to-peer"
+				}
+			}
+		}
+	}
 }

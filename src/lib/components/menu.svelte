@@ -3,6 +3,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { userState } from '$lib/states/user.svelte.js';
+  import Locales from "$lib/components/locales.svelte"
 
 	const menuItemsAuth = [
 		{ path: '/', label: 'menu.home' },
@@ -40,6 +41,9 @@
 			</a>
 		</li>
 	{/each}
+  <li>
+		<Locales/>
+	</li>
 </menu>
 
 <style>

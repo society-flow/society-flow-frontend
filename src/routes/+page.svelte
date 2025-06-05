@@ -7,6 +7,13 @@
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
+	import { getPage } from '$lib/db-static.js';
+
+	let page = $state({});
+	$effect(async () => {
+		page = await getPage('index');
+		console.log('page', page.name);
+	});
 
 	let societies = $state([]);
 	$effect(async () => {
@@ -18,7 +25,6 @@
 		residences = await api.getResidences();
 	});
 
-	// Now: icon is just a string identifier (no raw HTML)
 	const marketingUserTypes = [
 		{
 			title: 'Society Admins',

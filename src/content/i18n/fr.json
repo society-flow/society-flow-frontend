@@ -1,0 +1,41 @@
+{
+	"title": "Society Flow",
+	"catch_line": "Partagez les services. Divisez les coûts. Renforcez votre communauté.",
+	"menu": {
+		"home": "Accueil",
+		"societies": "Sociétés",
+		"residences": "Résidences",
+		"expenses": "Dépenses",
+		"adverts": "Annonces",
+		"about": "À propos",
+		"styles": "Styles",
+		"settings": "Paramètres",
+		"login": "Connexion",
+		"logout": "Déconnexion",
+		"register": "S'inscrire",
+		"verify_otp": "Vérifier le code OTP"
+	},
+	"pages": {
+		"about": {
+			"title": "À propos",
+			"sections": {
+				"problem": {
+					"text": "Différents pays avec le même problème : gestion cachée des dépenses sans visibilité claire des coûts et des fonds.",
+					"icon": "hidden-expenses"
+				},
+				"goal": {
+					"text": "Notre objectif est de fournir une répartition détaillée des prix mensuels calculés dynamiquement à votre connaissance.",
+					"icon": "pricing-breakdown"
+				},
+				"philosophy": {
+					"text": "Nous pensons fermement que les dépenses réduites ou augmentées doivent faire varier les contributions, et non les fixer. De plus, différentes dépenses nécessitent différentes façons de distribution entre les résidences.",
+					"icon": "variable-contributions"
+				},
+				"peer_services": {
+					"text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées d'utilisateurs membres valides, en contournant les intermédiaires. La prochaine fois, contactez de pair à pair pour tous services dans votre zone d'intérêt sans payer trop cher !",
+					"icon": "peer-to-peer"
+				}
+			}
+		}
+	}
+}

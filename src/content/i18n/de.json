@@ -1,0 +1,41 @@
+{
+	"title": "Society Flow",
+	"catch_line": "Dienste teilen. Kosten aufteilen. Gemeinschaft stärken.",
+	"menu": {
+		"home": "Startseite",
+		"societies": "Gesellschaften",
+		"residences": "Wohnungen",
+		"expenses": "Ausgaben",
+		"adverts": "Anzeigen",
+		"about": "Über uns",
+		"styles": "Stile",
+		"settings": "Einstellungen",
+		"login": "Anmelden",
+		"logout": "Abmelden",
+		"register": "Registrieren",
+		"verify_otp": "OTP verifizieren"
+	},
+	"pages": {
+		"about": {
+			"title": "Über uns",
+			"sections": {
+				"problem": {
+					"text": "Verschiedene Länder mit demselben Problem: Versteckte Ausgabenverwaltung ohne klare Sichtbarkeit von Kosten und Mitteln.",
+					"icon": "hidden-expenses"
+				},
+				"goal": {
+					"text": "Unser Ziel ist es, Ihnen eine detaillierte Aufschlüsselung der dynamisch berechneten monatlichen Preise zu Ihrem Wissen zu bieten.",
+					"icon": "pricing-breakdown"
+				},
+				"philosophy": {
+					"text": "Wir sind der festen Überzeugung, dass reduzierte oder erhöhte Ausgaben die Beiträge variieren lassen sollten, nicht festgelegt. Außerdem benötigen verschiedene Ausgaben verschiedene Arten der Verteilung auf die Wohnungen.",
+					"icon": "variable-contributions"
+				},
+				"peer_services": {
+					"text": "Nebenbei ermöglicht unser System Ihnen, geo-lokalisierte Anzeigen von gültigen Mitgliedern zu erstellen oder zu finden, und dabei Zwischenhändler zu umgehen. Wenden Sie sich das nächste Mal direkt an Gleichgesinnte für alle Dienstleistungen in Ihrem Interessensbereich, ohne zu viel zu bezahlen!",
+					"icon": "peer-to-peer"
+				}
+			}
+		}
+	}
+}
