@@ -26,6 +26,7 @@
 	});
 
 	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));
+  const titleOneWord = $derived($_('title').split(' ').join(''))
 </script>
 
 <svelte:head>
@@ -42,7 +43,7 @@
 	</header>
 {:else}
 	<header>
-		<h1>{$_('title')}</h1>
+		<h1>{titleOneWord}</h1>
 		<p>{$_('catch_line')}</p>
 		<center>
 			<a href="{base}/auth/register">
@@ -110,7 +111,7 @@
 		{#if !userState?.isAuth}
 			<center>
 				<p>
-					{$_('pages.home.marketing.call_to_action', { values: { title: $_('title') } })}
+					{$_('pages.home.marketing.call_to_action', { values: { title: titleOneWord } })}
 				</p>
 			</center>
 		{/if}

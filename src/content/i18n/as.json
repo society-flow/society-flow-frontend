@@ -132,5 +132,16 @@
 				}
 			}
 		}
+	},
+	"components": {
+		"settings": {
+			"api": {
+				"legend": "এপিআই URL",
+				"label": "ব্যাকএণ্ড ছাৰ্ভাৰসমূহত API থকা স্থান।"
+			}
+		},
+		"locales": {
+			"language": "ভাষা"
+		}
 	}
 }

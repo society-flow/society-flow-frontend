@@ -17,18 +17,18 @@
 		</time>
 	</li>
 	<li>
-		<a href="{base}/">
+		<a href="{base}/" title={$_('title')}>
 			{$_('title')}
 		</a>
 	</li>
 	<li>
-		<a href="{base}/settings">
+		<a href="{base}/settings" title={$_('menu.settings')}>
 			{$_('menu.settings')}
 		</a>
 	</li>
 	{#if isAuth}
 		<li>
-			<a href="{base}/about">
+			<a href="{base}/about" title={$_('menu.about')}>
 				{$_('menu.about')}
 			</a>
 		</li>
@@ -63,5 +63,9 @@
 		&:hover {
 			text-decoration-color: var(--c-link);
 		}
+	}
+	:global(select) {
+		padding: calc(var(--s) / 3);
+		background-color: transparent;
 	}
 </style>

@@ -1,8 +1,8 @@
-<script lang="javscript">
+<script lang="javascript">
+	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 
 	const props = $props();
-
 	let apiUrl = $state(api.url);
 
 	$effect(() => {
@@ -14,8 +14,10 @@
 
 <form>
 	<fieldset>
-		<legend>Api URL</legend>
+		<legend>{$_('components.settings.api.legend')}</legend>
 		<input id="api-url" type="text" bind:value={apiUrl} required />
-		<label for="api-url">Where the API on the backend servers is located.</label>
+		<label for="api-url">
+			{$_('components.settings.api.label')}
+		</label>
 	</fieldset>
 </form>

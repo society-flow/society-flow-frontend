@@ -132,5 +132,16 @@
 				}
 			}
 		}
+	},
+	"components": {
+		"settings": {
+			"api": {
+				"legend": "API-URL",
+				"label": "Wo sich die API auf den Backend-Servern befindet."
+			}
+		},
+		"locales": {
+			"language": "Sprache"
+		}
 	}
 }

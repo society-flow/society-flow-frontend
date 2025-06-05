@@ -35,12 +35,11 @@
 	{#each Object.entries(sections) as [key, section]}
 		<section>
 			<p>
-				<center>
-					{section.text}
-					{#if section.link}
-						<a href={section.link.url}>{$_(section.link.text)}</a>
-					{/if}
-				</center>
+				{section.text}
+				{#if section.link}
+					<a href={section.link.url}>{$_(section.link.text)}</a>
+				{/if}
+				{'.'}
 			</p>
 		</section>
 	{/each}

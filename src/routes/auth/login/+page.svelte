@@ -41,7 +41,7 @@
 				<p>
 					{section.text}
 					{#if section.link}
-						<a href={section.link.url}>{$_(section.link.text)}</a>
+						<a href={section.link.url}>{$_(section.link.text).toLowerCase()}</a>
 					{/if}
 					{'.'}
 				</p>
@@ -51,7 +51,7 @@
 {/if}
 
 <style>
-  p {
-    text-align: center;
-  }
+	p {
+		text-align: center;
+	}
 </style>
