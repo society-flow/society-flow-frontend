@@ -48,13 +48,16 @@
 			text-decoration-color: transparent;
 			transition: all 150ms ease-in-out;
       outline: 1px solid transparent;
+      font-weight: normal;
 			&:hover {
 				text-decoration: underline var(--c-link);
 				border-color: var(--c-bg--secondary);
         background-color: transparent;
+        font-weight: bold;
 			}
       &:focus {
         outline: 1px solid var(--c-fg);
+        font-weight: bold;
 			}
 		}
 	}

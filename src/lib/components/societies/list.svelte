@@ -1,5 +1,4 @@
 <script>
-	import { base } from '$app/paths';
 	import SocietyCard from './card.svelte';
 	const { societies = [] } = $props();
 </script>

@@ -55,44 +55,47 @@
 	<title>{$_('title')}</title>
 </svelte:head>
 
-<header>
-	<h1>{$_('title')}</h1>
-	<p>{$_('catch_line')}</p>
-	<center>
-		<a href="{base}/auth/register">
-			<HomeLogo />
-		</a>
-	</center>
-</header>
+{#if userState.isAuth}
+	<header>
+		<p>
+			Hello <strong>{userState?.user?.name}</strong> (
+			{userState?.user?.email}).
+		</p>
+	</header>
+{:else}
+	<header>
+		<h1>{$_('title')}</h1>
+		<p>{$_('catch_line')}</p>
+		<center>
+			<a href="{base}/auth/register">
+				<HomeLogo />
+			</a>
+		</center>
+	</header>
+{/if}
 
 {#if userState.isAuth}
-	<section>
-		<article>
-			<p>
-				Hello <strong>{userState?.user?.name}</strong> (
-				{userState?.user?.email}).
-			</p>
-		</article>
-	</section>
-
 	<section>
 		<header>
 			<h2>Your Dashboard</h2>
 			<p>Here is a summary of your information.</p>
 		</header>
-
+	</section>
+	<section>
 		<article>
 			<h2>Messages</h2>
 			<p>No new messages in your inbox.</p>
 		</article>
-
+	</section>
+	<section>
 		<article>
 			{#if societies?.length}
 				<h2>Societies</h2>
 				<ListSocieties {societies} />
 			{/if}
 		</article>
-
+	</section>
+	<section>
 		<article>
 			{#if residences?.length}
 				<h2>Residences</h2>

@@ -79,44 +79,46 @@ class Api {
 	// ========== AUTH METHODS ==========
 	async register({ name, email }) {
 		// for testing
-		/* return Promise.resolve({
-			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-			 email: email,
-			 name: name,
-			 createdAt: '2025-06-04T06:05:18.702Z',
-			 updatedAt: '2025-06-04T06:05:18.702Z'
-		   }); */
-		return this.fetch('/users', {
-			method: 'POST',
-			data: { name, email }
+		return Promise.resolve({
+			id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+			email: email,
+			name: name,
+			createdAt: '2025-06-04T06:05:18.702Z',
+			updatedAt: '2025-06-04T06:05:18.702Z'
 		});
+		/* return this.fetch('/users', {
+			 method: 'POST',
+			 data: { name, email }
+		   }); */
 	}
 
 	async login({ email }) {
 		// for testing
-		/* return true; */
-		return this.fetch('/users/login', {
-			method: 'POST',
-			data: { email }
-		});
+		return true;
+		/* return this.fetch('/users/login', {
+			 method: 'POST',
+			 data: { email }
+		   }); */
 		// login doesn't return a user — no storage here
 	}
 
 	async verifyOtp({ email, otp }) {
 		// for testing
-		/* return Promise.resolve({
-			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-			 email: email,
-			 name: 'Bobi Diye',
-			 createdAt: '2025-06-04T05:41:36.367Z',
-			 updatedAt: '2025-06-04T05:41:36.367Z'
-		   }); */
-		return this.fetch('/users/verify-otp', {
-			method: 'POST',
-			data: { email, otp }
+		return Promise.resolve({
+			id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+			email: email,
+			name: 'Bobi Diye',
+			createdAt: '2025-06-04T05:41:36.367Z',
+			updatedAt: '2025-06-04T05:41:36.367Z'
 		}).then((user) => {
 			return userState.login(user);
 		});
+		/* return this.fetch('/users/verify-otp', {
+			 method: 'POST',
+			 data: { email, otp }
+		   }).then((user) => {
+			 return userState.login(user);
+		   }); */
 	}
 
 	logout() {

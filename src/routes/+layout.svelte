@@ -76,6 +76,7 @@
 
 	:global(h1) {
 		font-size: 1.7em;
+    font-style: italic;
 	}
 
 	:global(h2) {
