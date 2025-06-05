@@ -23,7 +23,7 @@
 <form {onsubmit}>
 	<fieldset>
 		<legend>Email</legend>
-		<input required type="email" bind:value={userEmail} placeholder="user@example.com" />
+		<input required readonly type="email" bind:value={userEmail} placeholder="user@example.com" />
 	</fieldset>
 	<fieldset>
 		<legend>OTP (One Time Password)</legend>

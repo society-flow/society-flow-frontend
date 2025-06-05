@@ -83,12 +83,6 @@
 	</section>
 	<section>
 		<article>
-			<h2>Messages</h2>
-			<p>No new messages in your inbox.</p>
-		</article>
-	</section>
-	<section>
-		<article>
 			{#if societies?.length}
 				<h2>Societies</h2>
 				<ListSocieties {societies} />

@@ -1,6 +1,7 @@
 class UserState {
 	user = $state(null);
 	isAuth = $derived(!!this.user?.id);
+	isDemo = $derived(this.user?.email === 'demo@example.com');
 
 	constructor() {
 		if (typeof localStorage !== 'undefined') {

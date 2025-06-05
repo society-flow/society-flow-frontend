@@ -29,7 +29,6 @@ class Api {
 				'Content-Type': 'application/json'
 			}
 		};
-
 		if (data) {
 			options.body = JSON.stringify(data);
 		}

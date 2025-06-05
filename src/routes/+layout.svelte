@@ -1,6 +1,6 @@
 <script lang="javascript">
 	import '../app.css';
-  import 'leaflet/dist/leaflet.css';
+	import 'leaflet/dist/leaflet.css';
 	import { waitLocale } from 'svelte-i18n';
 	import { navigating } from '$app/stores';
 	import Menu from '$lib/components/menu.svelte';
@@ -76,7 +76,7 @@
 
 	:global(h1) {
 		font-size: 1.7em;
-    font-style: italic;
+		font-style: italic;
 	}
 
 	:global(h2) {
@@ -102,11 +102,11 @@
 		padding: calc(var(--s) / 0.6);
 		font-size: 1rem;
 		transition: border-color 200ms ease-in-out;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--c-border);
+		border-radius: var(--border-radius);
+		border: 1px solid var(--c-border);
 		&:focus {
 			border-color: var(--c-fg);
-      outline: 0.1rem solid var(--c-border);
+			outline: 0.1rem solid var(--c-border);
 		}
 		&:invalid {
 			border-color: var(--c-error);
@@ -117,38 +117,49 @@
 		&:hover {
 			border-color: var(--c-bg-border);
 		}
-    &:focus-within {
+		&:focus-within {
 			border-color: var(--c-link);
 		}
 	}
 
+	:global(input, textarea) {
+		width: 100%;
+	}
+	:global(textarea) {
+		min-height: calc(var(--s) * 5);
+		resize: vertical;
+	}
+
 	:global(button) {
-    border-color: var(--c-border);
+		border-color: var(--c-border);
 		cursor: pointer;
-    transition: all 140ms ease-in-out;
-    &:hover {
-      background-color: var(--c-bg);
-      border-color: var(--c-bg--secondary);
+		transition: all 140ms ease-in-out;
+		&:hover {
+			background-color: var(--c-bg);
+			border-color: var(--c-bg--secondary);
+		}
+    &[type="submit"] {
+      border-color: var(--c-link);
     }
 	}
 
 	:global(a) {
 		color: var(--c-link);
 		font-weight: bold;
-    outline: 1px solid transparent;
-    border-radius: calc(var(--s) * 1.5);
-    transition: all 140ms ease-in-out;
-    &:focus {
-      outline-color: var(--c-link);
-      /* outline-offset: 0.1rem; */
-    }
-    &:hover {
-      border-radius: 0;
-    }
-    &:active {
-      outline-color: transparent;
-      text-decoration-color: transparent;
-    }
+		outline: 1px solid transparent;
+		border-radius: calc(var(--s) * 1.5);
+		transition: all 140ms ease-in-out;
+		&:focus {
+			outline-color: var(--c-link);
+			/* outline-offset: 0.1rem; */
+		}
+		&:hover {
+			border-radius: 0;
+		}
+		&:active {
+			outline-color: transparent;
+			text-decoration-color: transparent;
+		}
 	}
 
 	:global(section) {
@@ -168,14 +179,14 @@
 
 	:global(form fieldset) {
 		width: 100%;
-    &:last-of-type {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+		&:last-of-type {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
 	}
 
 	:global(form fieldset label) {
-    color: var(--c-fg--secondary);
+		color: var(--c-fg--secondary);
 		font-size: var(--font-size--small);
 		font-style: italic;
 	}
@@ -184,8 +195,8 @@
 		margin-bottom: -0.3em;
 		font-weight: bold;
 	}
-  :global(form button[type="submit"]) {
-    /* background-color: var(--c-border); */
+	:global(form button[type='submit']) {
+		/* background-color: var(--c-border); */
 	}
 
 	.Site-header {
