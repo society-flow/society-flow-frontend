@@ -23,17 +23,18 @@
 <form {onsubmit}>
 	<fieldset>
 		<legend>Email</legend>
-		<input type="email" bind:value={userEmail} required />
+		<input required type="email" bind:value={userEmail} placeholder="user@example.com" />
 	</fieldset>
 	<fieldset>
 		<legend>OTP (One Time Password)</legend>
 		<input
+			autofocus
+			required
 			type="text"
 			bind:value={oneTimePassword}
-			required
 			minlength="1"
 			maxlength="10"
-			autofocus
+			placeholder="12345"
 		/>
 	</fieldset>
 	<fieldset>

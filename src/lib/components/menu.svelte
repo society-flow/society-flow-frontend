@@ -60,16 +60,22 @@
     font-weight: bold;
 		display: inline-block;
     /* background-color: var(--c-bg); */
-    border-bottom: calc( var(--s) / 2) solid transparent;
+    border: calc( var(--s) / 2) solid transparent;
     border-radius: calc(var(--s) / 3);
-    transition: all ease-in-out 200ms;
+    transition: all ease-in-out 300ms;
+    outline: 1px solid transparent;
+    outline-offset: 0;
 		&[aria-current='page'] {
 			background-color: var(--c-bg--menu);
-      border-color: var(--c-link);
+      border-bottom-color: var(--c-link);
       color: var(--c-link);
 		}
     &:hover {
       color: var(--c-link);
     }
+    &:focus {
+      outline-offset: -0.05rem;
+      outline-color: var(--c-link);
+		}
 	}
 </style>

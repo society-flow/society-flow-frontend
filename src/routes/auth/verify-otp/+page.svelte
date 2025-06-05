@@ -21,17 +21,19 @@
 	<title>{$_('menu.verify-otp')}</title>
 </svelte:head>
 
-<section>
+<header>
 	<h1>
 		{$_('menu.verify-otp')}
 	</h1>
-</section>
+</header>
 
 {#if !userState.isAuth}
 	<section>
 		<VerifyOTP {onverify} {email} {otp} />
 	</section>
-	<section>
-		You did not receive an email with the OTP code? <a href="#@TODO">Resend email</a> now.
-	</section>
+	<p>
+		<center>
+			You did not receive an email with the OTP code? <a href="#@TODO">Resend email</a> now.
+		</center>
+	</p>
 {/if}

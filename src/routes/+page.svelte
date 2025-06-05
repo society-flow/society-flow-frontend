@@ -57,14 +57,12 @@
 
 <header>
 	<h1>{$_('title')}</h1>
-	{#if !userState?.isAuth}
-		<center>
-			<a href="{base}/auth/register">
-				<HomeLogo />
-			</a>
-		</center>
-	{/if}
 	<p>{$_('catch_line')}</p>
+	<center>
+		<a href="{base}/auth/register">
+			<HomeLogo />
+		</a>
+	</center>
 </header>
 
 {#if userState.isAuth}
@@ -109,7 +107,6 @@
 				<li class="Card">
 					<article>
 						<header>
-							<SvgIcon name={marketingUserType.icon} />
 							<h2>{marketingUserType.title}</h2>
 						</header>
 						<main>
@@ -119,6 +116,9 @@
 								{/each}
 							</ul>
 						</main>
+						<aside>
+							<SvgIcon name={marketingUserType.icon} />
+						</aside>
 					</article>
 				</li>
 			{/each}
@@ -126,6 +126,13 @@
 	</section>
 
 	<section>
+		{#if !userState?.isAuth}
+			<center>
+				<p>
+					Join {$_('title')} and discover all features.
+				</p>
+			</center>
+		{/if}
 		<center>
 			<a href="{base}/auth/login">{$_('menu.login')}</a>
 		</center>
@@ -177,19 +184,19 @@
 			max-height: var(--s-svg);
 			transition: all 0.3s ease;
 			border: 1px solid var(--c-bg);
-      margin: calc(var(--s) * 2) auto;
-      display: block;
-      background-color: var(--c-bg);
-      border-radius: var(--border-radius);
-      padding: var(--s);
+			margin: calc(var(--s) * 2) auto;
+			display: block;
+			background-color: var(--c-bg);
+			border-radius: var(--border-radius);
+			padding: var(--s);
 		}
-    :global(header) {
-      text-align: center;
-      order: 1;
-    }
-    :global(main) {
-      order: 0;
-    }
+		:global(header) {
+			text-align: center;
+			order: 1;
+		}
+		:global(main) {
+			order: 0;
+		}
 
 		@media (min-width: 50rem) {
 			&:nth-of-type(2n) {

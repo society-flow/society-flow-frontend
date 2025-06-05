@@ -11,10 +11,14 @@
 	<title>{$_('menu.logout')}</title>
 </svelte:head>
 
-<h1>
-	{$_('menu.logout')}
-</h1>
+<header>
+	<h1>
+		{$_('menu.logout')}
+	</h1>
+</header>
 
 {#if userState.isAuth}
-	<Logout />
+	<section>
+		<Logout />
+	</section>
 {/if}

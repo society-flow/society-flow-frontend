@@ -9,16 +9,15 @@
 
 	const { children } = $props();
 
-  let localeLoaded = $state(false);
+	let localeLoaded = $state(false);
 
-  $effect(async () => {
-    // Because preload() has already run before the component mounts,
-    // we can assume `waitLocale()` is done at this point. 
-    localeLoaded = true;
-  });
+	$effect(async () => {
+		// Locale has already loaded before component mount
+		localeLoaded = true;
+	});
 
-  export async function preload() {
-		// awaits for the loading of the language ("en"...) dictionaries
+	export async function preload() {
+		// Preload translations
 		return waitLocale();
 	}
 </script>
@@ -28,11 +27,11 @@
 </header>
 
 <main class="Site-main">
-  {#if !localeLoaded}
-    <div class="spinner-overlay">
-      <div class="spinner"></div>
-    </div>
-  {/if}
+	{#if !localeLoaded}
+		<div class="spinner-overlay">
+			<div class="spinner"></div>
+		</div>
+	{/if}
 	{#if $navigating}
 		<div class="spinner-overlay">
 			<progress></progress>
@@ -49,9 +48,11 @@
 	:global(html, body, .Site) {
 		min-height: 100dvh;
 	}
+
 	:global(body) {
 		margin: 0;
 	}
+
 	:global(.Site) {
 		background-color: var(--c-bg--secondary);
 		display: flex;
@@ -61,32 +62,50 @@
 		line-height: var(--line-height);
 		font-size: var(--font-size);
 	}
+
 	:global(h1, h2, h3, h4, h5) {
 		margin-top: 0;
 		margin-bottom: var(--s);
-    line-height: 1.1;
+		line-height: 1.1;
 	}
-  :global(p) {
-    margin-top: 0;
+
+	:global(p) {
+		margin-top: 0;
 		margin-bottom: var(--s);
-  }
+	}
+
 	:global(h1) {
 		font-size: 1.7em;
 	}
+
 	:global(h2) {
 		font-size: 1.3em;
 	}
+
 	:global(fieldset) {
 		border: 1px solid var(--c-border);
 		display: flex;
 		flex-direction: column;
+		margin-bottom: var(--s);
+		padding: var(--s);
+		border-color: transparent;
 	}
+
+	:global(fieldset[data-type='error']) {
+		text-decoration: underline;
+		text-decoration-color: var(--c-error);
+		margin: var(--s);
+	}
+
 	:global(input, textarea, select, button) {
-		padding: calc(var(--s) / 1);
+		padding: calc(var(--s) / 0.6);
 		font-size: 1rem;
 		transition: border-color 200ms ease-in-out;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--c-border);
 		&:focus {
 			border-color: var(--c-link);
+      outline: 0.1rem solid var(--c-border);
 		}
 		&:invalid {
 			border-color: var(--c-error);
@@ -98,46 +117,54 @@
 			border-color: var(--c-fg);
 		}
 	}
+
 	:global(button) {
 		background-color: var(--c-bg);
+		cursor: pointer;
+    &:hover {
+      background-color: var(--c-border);
+    }
 	}
+
 	:global(a) {
 		color: var(--c-link);
+		font-weight: bold;
 	}
+
 	:global(section) {
 		padding: var(--s);
 	}
-	:global(fieldset) {
-		margin-bottom: var(--s);
-		padding: var(--s);
-		border-color: transparent;
-		&[data-type='error'] {
-			border-color: transparent;
-			text-decoration: underline;
-			text-decoration-color: var(--c-error);
-			margin: var(--s);
-		}
-	}
+
 	:global(form) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		border: 1px solid var(--c-border);
 		background-color: var(--c-bg--form);
-		border-radius: var(--border-radius);
+		border-radius: calc(var(--border-radius) * 2);
 		padding: calc(var(--s) * 3) calc(var(--s) * 2);
 		max-width: var(--s-form);
-		& fieldset {
-			width: 100%;
-		}
-		:global(input, textarea, select, button) {
-			background-color: var(--c-bg);
-		}
 	}
 
-	/* local elements */
+	:global(form fieldset) {
+		width: 100%;
+    &:last-of-type {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+	}
+
+	:global(form fieldset label) {
+		font-size: var(--font-size--small);
+		font-style: italic;
+	}
+
+	:global(form legend) {
+		margin-bottom: -0.3em;
+		font-weight: bold;
+	}
+
 	.Site-header {
-		/* order: 1; */
 		z-index: 2;
 		position: sticky;
 		top: 0;
@@ -147,40 +174,40 @@
 		border-bottom: 1px solid var(--c-border);
 		width: 100%;
 	}
+
 	.Site-main {
 		background-color: var(--c-bg);
 		border-radius: var(--border-radius);
 		flex-grow: 1;
 		padding: var(--s);
 		margin: 0 calc(var(--s) * 2);
-		/* max-width: var(--s-page); */
 		width: 100%;
-
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 		flex-direction: column;
 		z-index: 1;
-		:global(& > section) {
-			width: 100%;
-			max-width: var(--s-container);
-			&[size='large'] {
-				max-width: calc(var(--s-container) * 1.3);
-			}
-		}
-		:global(& > header) {
-			padding: calc(var(--s) * 3) 0;
-		}
 	}
+
+	:global(.Site-main > section) {
+		width: 100%;
+		max-width: var(--s-container);
+	}
+
+	:global(.Site-main > section[size='large']) {
+		max-width: calc(var(--s-container) * 1.3);
+	}
+
+	:global(.Site-main > header) {
+		padding: calc(var(--s) * 3) 0;
+	}
+
 	.Site-footer {
 		align-self: flex-end;
 		padding: calc(var(--s) / 2);
 		position: sticky;
 		bottom: 0;
 		z-index: 0;
-		a {
-			display: inline-block;
-		}
 	}
 </style>

@@ -47,9 +47,13 @@
 			text-decoration: underline;
 			text-decoration-color: transparent;
 			transition: all 200ms ease-in-out;
+      outline: 1px solid transparent;
 			&:hover {
-				border-color: var(--c-bg);
+				border-color: var(--c-fg);
 				text-decoration: underline var(--c-link);
+			}
+      &:focus {
+        outline: 1px solid var(--c-fg);
 			}
 		}
 	}

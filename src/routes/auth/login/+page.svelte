@@ -1,4 +1,4 @@
-<script lang>
+<script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
@@ -20,11 +20,13 @@
 	<title>{$_('menu.login')}</title>
 </svelte:head>
 
-<section>
+<header>
 	<h1>
 		{$_('menu.login')}
 	</h1>
+</header>
 
+<section>
 	{#if !userState.isAuth}
 		<Login {onLogin} {email} />
 	{/if}
@@ -32,12 +34,14 @@
 
 {#if !userState.isAuth}
 	<section>
-		<p>
-			You don't have an account yet?' It's free to
-			<a href="{base}/auth/register">
-				{$_('menu.register').toLowerCase()}
-			</a>
-			a new user.
-		</p>
+		<center>
+			<p>
+				You don't have an account yet?' It's free to
+				<a href="{base}/auth/register">
+					{$_('menu.register').toLowerCase()}
+				</a>
+				a new user.
+			</p>
+		</center>
 	</section>
 {/if}

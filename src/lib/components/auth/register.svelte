@@ -15,10 +15,10 @@
 		try {
 			// also logs in user (@TODO: backend OTP?)
 			const res = await api.register(user);
-      console.log("use", res)
+			console.log('use', res);
 			onregister(user);
 		} catch (err) {
-			console.log("err", err);
+			console.log('err', err);
 			error = err.message;
 		}
 	}
@@ -27,11 +27,19 @@
 <form {onsubmit}>
 	<fieldset>
 		<legend>Name</legend>
-		<input type="text" bind:value={user.name} required minlength="2" maxlength="50" autofocus />
+		<input
+			autofocus
+			required
+			type="text"
+			bind:value={user.name}
+			minlength="2"
+			maxlength="50"
+			placeholder="Azur"
+		/>
 	</fieldset>
 	<fieldset>
 		<legend>Email</legend>
-		<input type="email" bind:value={user.email} required />
+		<input required type="email" bind:value={user.email} placeholder="user@example.com" />
 	</fieldset>
 	<fieldset>
 		<button type="submit">Register</button>

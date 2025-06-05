@@ -12,8 +12,8 @@
 	const email = page.url.searchParams.get('email');
 	const name = page.url.searchParams.get('name');
 
-	async function onregister({email: userEmail}) {
-    console.log("onregister")
+	async function onregister({ email: userEmail }) {
+		console.log('onregister');
 		setTimeout(() => goto(`${base}/auth/verify-otp?email=${userEmail}`), 0);
 	}
 </script>
@@ -22,11 +22,11 @@
 	<title>{$_('menu.register')}</title>
 </svelte:head>
 
-<section>
+<header>
 	<h1>
 		{$_('menu.register')}
 	</h1>
-</section>
+</header>
 
 {#if !userState.isAuth}
 	<section>
@@ -34,12 +34,14 @@
 	</section>
 
 	<section>
-		<p>
-			You already have an account?
-			<a href="{base}/auth/login">
-				{$_('menu.login')}
-			</a>
-			your existing user account.
-		</p>
+		<center>
+			<p>
+				You already have an account?
+				<a href="{base}/auth/login">
+					{$_('menu.login')}
+				</a>
+				your existing user account.
+			</p>
+		</center>
 	</section>
 {/if}
