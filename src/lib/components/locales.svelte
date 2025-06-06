@@ -2,6 +2,7 @@
 	import { _, locale as currentLocale, locales } from 'svelte-i18n';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
+  import { base } from '$app/paths';
 	import EmojiIcon from '$lib/components/emoji-icon.svelte';
 
 	// Split locale like "en-US" -> "en"
@@ -17,7 +18,9 @@
 		} else {
 			segments.unshift(selectedLocale);
 		}
-
+    if (base) {
+      segments.unshift(base)
+    }
 		const newPath = '/' + segments.join('/');
 		$currentLocale = selectedLocale;
 		goto(newPath, { replaceState: true });

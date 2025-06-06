@@ -1,15 +1,21 @@
-import { init, addMessages, getLocaleFromNavigator } from 'svelte-i18n';
-import en from '../content/i18n/en.json';
-import asamese from '../content/i18n/as.json';
-import de from '../content/i18n/de.json';
-import fr from '../content/i18n/fr.json';
+import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
 
-addMessages('en', en);
-addMessages('as', asamese);
-addMessages('de', de);
-addMessages('fr', fr);
+export const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr'];
+
+const localeFiles = import.meta.glob('../content/i18n/*.json');
+
+for (const lng of SUPPORTED_LOCALES) {
+	register(lng, () => {
+		const matchingKey = `../content/i18n/${lng}.json`;
+		if (localeFiles[matchingKey]) {
+			return localeFiles[matchingKey]();
+		} else {
+			return Promise.reject(new Error(`Missing translation file for "${lng}"`));
+		}
+	});
+}
 
 init({
-	fallbackLocale: 'en',
+	fallbackLocale: SUPPORTED_LOCALES[0],
 	initialLocale: getLocaleFromNavigator()
 });

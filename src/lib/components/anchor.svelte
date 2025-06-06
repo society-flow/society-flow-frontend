@@ -3,31 +3,32 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 
-  const {path} = $props()
+	const { path } = $props();
 
+  console.log($locale)
+
+	$effect(() => {
+		if (href) {
+			isCurrent = isCurrentPage(path);
+		}
+	});
+
+	const localeRoot = $derived($locale.split('-')[0]);
 	const href = $derived(`${base}/${$locale}${path}`);
-  let isCurrent = $state(false)
+	let isCurrent = $state(false);
 
-  $effect(() => {
-    if (href) {
-    isCurrent = isCurrentPage(path)
-    }
-  })
-  
-  function isCurrentPage(pathname) {
-    const currentPath = page.url.pathname.replace(/\/+$/, '');
-		const targetPath = `${base}/${$locale.split("-")[0]}${path}`.replace(/\/+$/, '');
+	function isCurrentPage(pathname) {
+		const currentPath = page.url.pathname.replace(/\/+$/, '');
+		const targetPath = `${base}/${localeRoot}${path}`.replace(/\/+$/, '');
 
-    console.log("targetPath", targetPath, currentPath)
 		// Root page special handling
-		if (targetPath === `${base}/${$locale}` || targetPath === "/") {
+		if (targetPath === `${base}/${$locale}` || targetPath === '/') {
 			return currentPath === `${base}/${$locale}` || currentPath === `${base}/`;
 		}
 
 		// Subpages
 		return currentPath === targetPath || currentPath.startsWith(targetPath + '/');
 	}
-
 </script>
 
 <a {href} aria-current={isCurrent ? 'page' : undefined}>

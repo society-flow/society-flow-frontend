@@ -5,10 +5,10 @@ import '$lib/i18n';
 import { browser } from '$app/environment';
 import { locale, waitLocale } from 'svelte-i18n';
 
-const localeRoot = window.navigator.language.split('-')[0];
-
 export const load = async () => {
 	if (browser) {
+		const localeRoot = window.navigator.language.split('-')[0];
+		console.log('localeRoot', localeRoot);
 		locale.set(localeRoot);
 	}
 	await waitLocale();

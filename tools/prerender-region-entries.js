@@ -1,11 +1,8 @@
 // tools/generatePrerenderEntries.js
 import fs from 'fs';
 import path from 'path';
-
-/**
- * Supported locales you want to prerender for
- */
-const SUPPORTED_LOCALES = ['en', 'de', 'fr', 'as'];
+/* import {SUPPORTED_LOCALES} from "../src/lib/i18n.js" */
+const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr'];
 
 /**
  * Starting folder: the `[[region]]` directory under routes
