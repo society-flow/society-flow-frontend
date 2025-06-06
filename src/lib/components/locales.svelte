@@ -6,7 +6,7 @@
 	import EmojiIcon from '$lib/components/emoji-icon.svelte';
 
 	// Split locale like "en-US" -> "en"
-	const currentLocaleShort = $derived(() => $currentLocale.split('-')[0]);
+	const currentLocaleShort = $derived($currentLocale.split('-')[0]);
 
 	function onchange(event) {
 		const selectedLocale = event.target.value;
