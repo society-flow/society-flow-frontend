@@ -29,7 +29,10 @@ jobs:
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
           PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
-      - run: echo "$PUBLIC_API_URL and $BASE_PATH"
+      - name: Log public env vars
+        run: echo "$PUBLIC_API_URL and $BASE_PATH"
+      - name: Log output
+        run: ls -R build/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./build
