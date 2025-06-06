@@ -1,21 +1,39 @@
 <script lang="javascript">
 	import { _, locale as currentLocale, locales } from 'svelte-i18n';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import EmojiIcon from '$lib/components/emoji-icon.svelte';
 
-	const currentLocalePaths = $derived($currentLocale.split('-'));
-	const currentLocaleRoot = $derived(currentLocalePaths[0]);
-	$effect(() => {
-		console.log('currentLocaleRoot', currentLocaleRoot);
-	});
+	// Split locale like "en-US" -> "en"
+	const currentLocaleShort = $derived(() => $currentLocale.split('-')[0]);
+
+	function onchange(event) {
+		const selectedLocale = event.target.value;
+		const segments = page.url.pathname.split('/').filter(Boolean);
+
+		// Replace first segment with new locale
+		if ($locales.includes(segments[0])) {
+			segments[0] = selectedLocale;
+		} else {
+			segments.unshift(selectedLocale);
+		}
+
+		const newPath = '/' + segments.join('/');
+		$currentLocale = selectedLocale;
+		goto(newPath, { replaceState: true });
+	}
 </script>
 
 <aside title={$_('components.locales.language')}>
-	<select bind:value={$currentLocale}>
+	<select {onchange}>
 		{#each $locales as locale}
 			<option
 				value={locale}
-				selected={console.log('locccc', locale) && currentLocaleRoot === locale}>{locale}</option
+				selected={currentLocaleShort === locale}
+				disabled={currentLocaleShort === locale}
 			>
+				{locale}
+			</option>
 		{/each}
 	</select>
 

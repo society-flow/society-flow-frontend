@@ -1,23 +1,26 @@
 <script lang="javascript">
-	import '../app.css';
+	import '../../app.css';
 	import 'leaflet/dist/leaflet.css';
-	import { waitLocale } from 'svelte-i18n';
-	import { navigating } from '$app/stores';
+	import { locale, waitLocale } from 'svelte-i18n';
+	import { page, navigating } from '$app/stores';
 	import Menu from '$lib/components/menu.svelte';
 	import Footer from '$lib/components/footer.svelte';
-	import '$lib/i18n.js';
+	import { onMount } from 'svelte';
 
-	const { children } = $props();
+	let localeLoaded = false;
+	let region;
 
-	let localeLoaded = $state(false);
+	$: region = $page.params.region;
 
-	$effect(async () => {
-		// Locale has already loaded before component mount
-		localeLoaded = true;
-	});
+	$: if (region) {
+		locale.set(region);
+		waitLocale().then(() => {
+			localeLoaded = true;
+			console.log('$locale', region);
+		});
+	}
 
 	export async function preload() {
-		// Preload translations
 		return waitLocale();
 	}
 </script>
@@ -32,12 +35,14 @@
 			<div class="spinner"></div>
 		</div>
 	{/if}
+
 	{#if $navigating}
 		<div class="spinner-overlay">
 			<progress></progress>
 		</div>
 	{/if}
-	{@render children()}
+
+	<slot />
 </main>
 
 <footer class="Site-footer">
@@ -138,9 +143,9 @@
 			background-color: var(--c-bg);
 			border-color: var(--c-bg--secondary);
 		}
-    &[type="submit"] {
-      border-color: var(--c-link);
-    }
+		&[type='submit'] {
+			border-color: var(--c-link);
+		}
 	}
 
 	:global(a) {

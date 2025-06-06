@@ -1,5 +1,5 @@
 <script lang="javascript">
-	import { _, json } from 'svelte-i18n';
+	import { _, json, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { api } from '$lib/api.svelte.js';
@@ -8,6 +8,7 @@
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
 	import { getBlog } from '$lib/db-static.js';
+
 
 	let blog = $state({});
 	$effect(async () => {
@@ -25,7 +26,7 @@
 		residences = await api.getResidences();
 	});
 
-	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));
+	const marketingUserTypes = $derived($json('pages.home.marketing.user_types') || {});
   const titleOneWord = $derived($_('title').split(' ').join(''))
 </script>
 

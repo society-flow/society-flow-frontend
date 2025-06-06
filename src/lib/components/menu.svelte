@@ -1,8 +1,9 @@
-<script lang="typescript">
-	import { _ } from 'svelte-i18n';
+<script lang="javascript">
+	import { _, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { userState } from '$lib/states/user.svelte.js';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	const menuItemsAuth = [
 		{ path: '/', label: 'menu.home' },
@@ -20,24 +21,16 @@
 		{ path: '/auth/login', label: 'menu.login' }
 	];
 
-	function isCurrentPage(menuItem) {
-		if (page.url.pathname === base + '/') {
-			return menuItem.path === '/';
-		} else {
-			return menuItem.path !== '/' && page.url.pathname.startsWith(`${base}${menuItem.path}`);
-		}
-	}
-
 	const isAuth = $derived(userState.isAuth);
 	const menuItems = $derived(isAuth ? menuItemsAuth : menuItemsNoAuth);
 </script>
 
 <menu>
-	{#each menuItems as item (item.path)}
+	{#each menuItems as { path, label } (path)}
 		<li>
-			<a href="{base}{item.path}" aria-current={isCurrentPage(item) ? 'page' : ''}>
-				{$_(item?.label)}
-			</a>
+			<Anchor {path}>
+				{$_(label)}
+			</Anchor>
 		</li>
 	{/each}
 </menu>
@@ -51,35 +44,35 @@
 		overflow-x: scroll;
 		/* align-items: center; */
 		/* justify-content: center; */
-	}
-	a {
-		padding: calc(var(--s) / 2) var(--s);
-		margin: 0 calc(var(--s) * 1);
-		text-decoration: none;
-		color: var(--c-fg);
-		font-weight: bold;
-		display: inline-block;
-		/* background-color: var(--c-bg); */
-		border: calc(var(--s) / 2) solid transparent;
-		transition: all ease-in-out 300ms;
-		outline: 1px solid transparent;
-		outline-offset: 0;
-		color: var(--c-fg);
-		&[aria-current='page'] {
-			background-color: var(--c-bg--menu);
-			border-bottom-color: var(--c-link);
-			color: var(--c-link);
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-		&:hover {
-			color: var(--c-link);
-			/* border-radius: calc(var(--s) * 1.5); */
-			color: var(--c-fg);
-		}
-		&:focus {
-			outline-offset: -0.05rem;
-			/* border-radius: calc(var(--s) * 1.5); */
-		}
+    :global(a) {
+		  padding: calc(var(--s) / 2) var(--s);
+		  margin: 0 calc(var(--s) * 1);
+		  text-decoration: none;
+		  color: var(--c-fg);
+		  font-weight: bold;
+		  display: inline-block;
+		  /* background-color: var(--c-bg); */
+		  border: calc(var(--s) / 2) solid transparent;
+		  transition: all ease-in-out 300ms;
+		  outline: 1px solid transparent;
+		  outline-offset: 0;
+		  color: var(--c-fg);
+		  &[aria-current='page'] {
+			  background-color: var(--c-bg--menu);
+			  border-bottom-color: var(--c-link);
+			  color: var(--c-link);
+			  border-bottom-left-radius: 0;
+			  border-bottom-right-radius: 0;
+		  }
+		  &:hover {
+			  color: var(--c-link);
+			  /* border-radius: calc(var(--s) * 1.5); */
+			  color: var(--c-fg);
+		  }
+		  &:focus {
+			  outline-offset: -0.05rem;
+			  /* border-radius: calc(var(--s) * 1.5); */
+		  }
+	  }
 	}
 </style>
