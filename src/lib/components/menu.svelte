@@ -1,7 +1,5 @@
 <script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
-	import { base } from '$app/paths';
-	import { page } from '$app/state';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
 

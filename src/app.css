@@ -4,7 +4,7 @@
 :root {
 	--c-fg: #171623;
 	--c-fg--secondary: #545454;
-	--c-bg: #ededed;
+	--c-bg: #f9f9f9;
 	--c-bg--secondary: white;
 	--c-bg--form: var(--c-bg--secondary);
 	--c-link: green;
