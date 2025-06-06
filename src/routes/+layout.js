@@ -6,10 +6,10 @@ import { browser } from '$app/environment';
 import { locale, waitLocale } from 'svelte-i18n';
 
 export const load = async () => {
+	await waitLocale();
 	if (browser) {
 		const localeRoot = window.navigator.language.split('-')[0];
-		console.log('localeRoot', localeRoot);
+		console.log('/+layout localeRoot', localeRoot);
 		locale.set(localeRoot);
 	}
-	await waitLocale();
 };

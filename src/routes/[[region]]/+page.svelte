@@ -4,6 +4,7 @@
 	import { userState } from '$lib/states/user.svelte.js';
 	import { api } from '$lib/api.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
 	import ListSocieties from '$lib/components/societies/list.svelte';
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
@@ -42,9 +43,9 @@
 			<h1>{titleOneWord}</h1>
 			<p>{$_('catch_line')}</p>
 			<center>
-				<a href="{base}/auth/register">
+				<Anchor href="/auth/register">
 					<HomeLogo />
-				</a>
+				</Anchor>
 			</center>
 		{/if}
 	{/snippet}
@@ -112,7 +113,7 @@
 				</center>
 			{/if}
 			<center>
-				<a href="{base}/auth/login">{$_('menu.login')}</a>
+				<Anchor href="/auth/login">{$_('menu.login')}</Anchor>
 			</center>
 		</section>
 	{/if}
