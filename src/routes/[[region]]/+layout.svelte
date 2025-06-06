@@ -1,28 +1,11 @@
 <script lang="javascript">
 	import '../../app.css';
 	import 'leaflet/dist/leaflet.css';
-	import { locale, waitLocale } from 'svelte-i18n';
-	import { page, navigating } from '$app/stores';
+	import { navigating } from '$app/stores';
 	import Menu from '$lib/components/menu.svelte';
 	import Footer from '$lib/components/footer.svelte';
-	import { onMount } from 'svelte';
 
-	let localeLoaded = false;
-	let region;
-
-	$: region = $page.params.region;
-
-	$: if (region) {
-		locale.set(region);
-		waitLocale().then(() => {
-			localeLoaded = true;
-			console.log('$locale', region);
-		});
-	}
-
-	export async function preload() {
-		return waitLocale();
-	}
+  const {children} = $props()
 </script>
 
 <header class="Site-header">
@@ -30,19 +13,13 @@
 </header>
 
 <main class="Site-main">
-	{#if !localeLoaded}
-		<div class="spinner-overlay">
-			<div class="spinner"></div>
-		</div>
-	{/if}
-
 	{#if $navigating}
 		<div class="spinner-overlay">
 			<progress></progress>
 		</div>
 	{/if}
 
-	<slot />
+{@render children()}
 </main>
 
 <footer class="Site-footer">

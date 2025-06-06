@@ -2,7 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 /* import {SUPPORTED_LOCALES} from "../src/lib/i18n.js" */
-const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr'];
+/* const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr']; */
+const SUPPORTED_LOCALES = ['en'];
 
 /**
  * Starting folder: the `[[region]]` directory under routes
@@ -74,5 +75,6 @@ export default function generatePrerenderEntries() {
 
 	// Always ensure "/" (root) also redirects/crawls or is included if you want a fallback
 	entries.push('/');
+	console.log('entries', entries);
 	return entries;
 }
