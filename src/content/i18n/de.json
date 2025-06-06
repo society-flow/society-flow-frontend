@@ -163,6 +163,17 @@
 				},
 				"submit": "Registrieren",
 				"error": "{error}"
+			},
+			"verify_otp": {
+				"email": {
+					"legend": "E‑Mail",
+					"placeholder": "benutzer@beispiel.de"
+				},
+				"otp": {
+					"legend": "OTP (Einmalpasswort)",
+					"placeholder": "12345"
+				},
+				"submit": "Verifizieren"
 			}
 		}
 	}

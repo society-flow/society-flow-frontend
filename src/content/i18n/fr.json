@@ -163,6 +163,17 @@
 				},
 				"submit": "Inscription",
 				"error": "{error}"
+			},
+			"verify_otp": {
+				"email": {
+					"legend": "E‑mail",
+					"placeholder": "utilisateur@exemple.com"
+				},
+				"otp": {
+					"legend": "Code OTP (Mot de passe à usage unique)",
+					"placeholder": "12345"
+				},
+				"submit": "Vérifier"
 			}
 		}
 	}

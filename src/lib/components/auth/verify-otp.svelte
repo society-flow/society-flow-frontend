@@ -1,4 +1,5 @@
-<script lang>
+<script lang="javascript">
+	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 
 	const { email, otp, onverify = () => {} } = $props();
@@ -11,7 +12,6 @@
 		event.preventDefault();
 		error = '';
 		try {
-			// this handles login
 			await api.verifyOtp({ email: userEmail, otp: oneTimePassword });
 			onverify();
 		} catch (err) {
@@ -22,11 +22,18 @@
 
 <form {onsubmit}>
 	<fieldset>
-		<legend>Email</legend>
-		<input required readonly type="email" bind:value={userEmail} placeholder="user@example.com" />
+		<legend>{$_('components.auth.verify_otp.email.legend')}</legend>
+		<input
+			required
+			readonly
+			type="email"
+			bind:value={userEmail}
+			placeholder={$_('components.auth.verify_otp.email.placeholder')}
+		/>
 	</fieldset>
+
 	<fieldset>
-		<legend>OTP (One Time Password)</legend>
+		<legend>{$_('components.auth.verify_otp.otp.legend')}</legend>
 		<input
 			autofocus
 			required
@@ -34,12 +41,14 @@
 			bind:value={oneTimePassword}
 			minlength="1"
 			maxlength="10"
-			placeholder="12345"
+			placeholder={$_('components.auth.verify_otp.otp.placeholder')}
 		/>
 	</fieldset>
+
 	<fieldset>
-		<button type="submit">Verify</button>
+		<button type="submit">{$_('components.auth.verify_otp.submit')}</button>
 	</fieldset>
+
 	{#if error}
 		<fieldset data-type="error">
 			{error}

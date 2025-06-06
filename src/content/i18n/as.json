@@ -163,6 +163,17 @@
 				},
 				"submit": "নিবন্ধন কৰক",
 				"error": "{error}"
+			},
+			"verify_otp": {
+				"email": {
+					"legend": "ইমেইল",
+					"placeholder": "ব্যৱহাৰকাৰী@উদাহৰণ.com"
+				},
+				"otp": {
+					"legend": "OTP (এবাৰ ব্যৱহাৰ কৰিব পৰা পাছৱৰ্ড)",
+					"placeholder": "12345"
+				},
+				"submit": "যাচাই কৰক"
 			}
 		}
 	}

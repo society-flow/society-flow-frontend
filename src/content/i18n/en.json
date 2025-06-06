@@ -163,6 +163,17 @@
 				},
 				"submit": "Register",
 				"error": "{error}"
+			},
+			"verify_otp": {
+				"email": {
+					"legend": "Email",
+					"placeholder": "user@example.com"
+				},
+				"otp": {
+					"legend": "OTP (One Time Password)",
+					"placeholder": "12345"
+				},
+				"submit": "Verify"
 			}
 		}
 	}
