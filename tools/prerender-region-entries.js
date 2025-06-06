@@ -73,8 +73,7 @@ export default function generatePrerenderEntries() {
 		}
 	}
 
-	// Always ensure "/" (root) also redirects/crawls or is included if you want a fallback
-	entries.push('/');
-	console.log('entries', entries);
+	entries.push('*');
+	console.log('entries to be built', entries);
 	return entries;
 }
