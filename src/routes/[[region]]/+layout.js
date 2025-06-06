@@ -1,7 +1,8 @@
-import { localeIsSupported, DEFAULT_LOCALE } from '$lib/i18n';
-import { browser } from '$app/environment';
-import { redirect, error } from '@sveltejs/kit';
 import { locale, waitLocale } from 'svelte-i18n';
+import { redirect, error } from '@sveltejs/kit';
+import { browser } from '$app/environment';
+import { base } from '$app/paths';
+import { localeIsSupported, DEFAULT_LOCALE } from '$lib/i18n';
 
 export const load = async ({ url }) => {
 	const userLocaleRoot = navigator?.language.split('-')[0];
@@ -12,7 +13,7 @@ export const load = async ({ url }) => {
 	const reqLocaleSupported = localeIsSupported(reqLocaleRoot);
 
 	function buildPath(root) {
-		return `/${root}${url.pathname.slice(reqLocale.length + 1)}`;
+		return `${base}/${root}${url.pathname.slice(reqLocale.length + 1)}`;
 	}
 
 	if (reqLocaleSupported) {
