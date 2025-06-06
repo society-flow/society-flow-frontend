@@ -1,11 +1,13 @@
 <script lang="typescript">
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
-  import requiresAuth from "$lib/effects/requires-auth.svelte.js"
+	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import Anchor from '$lib/components/anchor.svelte';
+	import Page from '$lib/components/routes/page.svelte';
 
-	requiresAuth()
+	requiresAuth($locale);
 
 	const id = $derived($page.params.id);
 
@@ -18,26 +20,27 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$_('menu.expenses')}</title>
-</svelte:head>
+<Page title={$_('menu.expenses')}>
+	{#snippet header()}
+		<h1>
+			{$_('menu.expenses')}
+		</h1>
+	{/snippet}
+	<section>
+		<p>id: {id}</p>
 
-<h1>
-	{$_('menu.expenses')}
-</h1>
+		<p>
+			<Anchor href={'/expenses'}>← Back to all expenses</Anchor>
+		</p>
 
-<p>id: {id}</p>
+		<p>
+			<Anchor href={`/expenses/${expense.id}`}>
+				{expense.name}
+			</Anchor>
+		</p>
 
-<p>
-	<a href={`${base}/expenses`}> ← Back to all expenses </a>
-</p>
-
-<p>
-	<a href={`${base}/expenses/${expense.id}`}>
-		{expense.name}
-	</a>
-</p>
-
-<p>
-	{expense.description}
-</p>
+		<p>
+			{expense.description}
+		</p>
+	</section>
+</Page>

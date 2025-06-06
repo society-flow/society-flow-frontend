@@ -1,16 +1,17 @@
-<script lang="typescript">
+<script lang="javascript">
+	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 
-	const { email, onLogin = () => {} } = $props();
+	const { email: userEmail, onLogin = () => {} } = $props();
 
-	let userEmail = $state(email || '');
+	let email = $state(userEmail || '');
 	let error = $state('');
 
 	async function onsubmit(event) {
 		event.preventDefault();
 		error = '';
 		try {
-			// also sends the OTP
+			// Also sends the OTP
 			await api.login({ email: userEmail });
 			onLogin({ email: userEmail });
 		} catch (err) {
@@ -21,15 +22,23 @@
 
 <form {onsubmit}>
 	<fieldset>
-		<legend>Email</legend>
-		<input autofocus required type="email" bind:value={userEmail} placeholder="user@example.com" />
+		<legend>{$_('components.auth.login.email.legend')}</legend>
+		<input
+			autofocus
+			required
+			type="email"
+			bind:value={email}
+			placeholder={$_('components.auth.login.email.placeholder')}
+		/>
 	</fieldset>
+
 	<fieldset>
-		<button type="submit">Login</button>
+		<button type="submit">{$_('components.auth.login.submit')}</button>
 	</fieldset>
+
 	{#if error}
 		<fieldset data-type="error">
-			{error}
+			{$_('components.auth.login.error', { error })}
 		</fieldset>
 	{/if}
 </form>

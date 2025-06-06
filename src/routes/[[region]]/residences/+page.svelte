@@ -1,11 +1,12 @@
-<script lang="typescript">
-	import { _ } from 'svelte-i18n';
+<script lang="javascript">
+	import { _, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import ListResidences from '$lib/components/residences/list.svelte';
+	import Page from '$lib/components/routes/page.svelte';
 
-	requiresAuth();
+	requiresAuth(locale);
 
 	let residences = $state([]);
 	$effect(async () => {
@@ -13,16 +14,14 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$_('menu.residences')}</title>
-</svelte:head>
+<Page title={$_('menu.residences')}>
+	{#snippet header()}
+		<h1>
+			{$_('menu.residences')}
+		</h1>
+	{/snippet}
 
-<header>
-	<h1>
-		{$_('menu.residences')}
-	</h1>
-</header>
-
-<section>
-	<ListResidences {residences} />
-</section>
+	<section>
+		<ListResidences {residences} />
+	</section>
+</Page>

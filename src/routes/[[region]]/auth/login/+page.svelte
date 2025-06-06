@@ -1,57 +1,50 @@
 <script lang="javascript">
-	import { _, json } from 'svelte-i18n';
+	import { _, json, locale } from 'svelte-i18n';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
+	import Page from '$lib/components/routes/page.svelte';
 	import Login from '$lib/components/auth/login.svelte';
 	import requiresNoAuth from '$lib/effects/requires-no-auth.svelte.js';
+	import Anchor from '$lib/components/anchor.svelte';
 
-	requiresNoAuth();
+	requiresNoAuth($locale);
 
 	const email = page.url.searchParams.get('email');
 
 	const sections = $derived($json('pages.auth.login.sections'));
 
 	async function onLogin({ email }) {
-		setTimeout(() => goto(`${base}/auth/verify-otp?email=${email}`), 0);
+		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${email}`), 0);
 	}
 </script>
 
-<svelte:head>
-	<title>{$_('menu.login')}</title>
-</svelte:head>
+<Page title={$_('menu.login')}>
+	{#snippet header()}
+		<h1>
+			{$_('menu.login')}
+		</h1>
+	{/snippet}
+	{#if !userState.isAuth}
+		<section>
+			<Login {onLogin} {email} />
+		</section>
+	{/if}
 
-<header>
-	<h1>
-		{$_('menu.login')}
-	</h1>
-</header>
-
-{#if !userState.isAuth}
-	<section>
-		<Login {onLogin} {email} />
-	</section>
-{/if}
-
-{#if !userState.isAuth}
-	<section>
-		{#each Object.entries(sections) as [key, section]}
-			<article>
-				<p>
-					{section.text}
-					{#if section.link}
-						<a href={section.link.url}>{$_(section.link.text).toLowerCase()}</a>
-					{/if}
-					{'.'}
-				</p>
-			</article>
-		{/each}
-	</section>
-{/if}
-
-<style>
-	p {
-		text-align: center;
-	}
-</style>
+	{#if !userState.isAuth}
+		<section>
+			{#each Object.entries(sections) as [key, section]}
+				<article>
+					<p class="text-center">
+						{section.text}
+						{#if section.link}
+							<Anchor href={section.link.url}>{$_(section.link.text).toLowerCase()}</Anchor>
+						{/if}
+						{'.'}
+					</p>
+				</article>
+			{/each}
+		</section>
+	{/if}
+</Page>

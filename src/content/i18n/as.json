@@ -142,6 +142,28 @@
 		},
 		"locales": {
 			"language": "ভাষা"
+		},
+		"auth": {
+			"login": {
+				"email": {
+					"legend": "ইমেইল",
+					"placeholder": "ব্যৱহাৰকাৰী@উদাহৰণ.com"
+				},
+				"submit": "প্ৰৱেশ কৰক",
+				"error": "{error}"
+			},
+			"register": {
+				"name": {
+					"legend": "নাম",
+					"placeholder": "Azur"
+				},
+				"email": {
+					"legend": "ইমেইল",
+					"placeholder": "ব্যৱহাৰকাৰী@উদাহৰণ.com"
+				},
+				"submit": "নিবন্ধন কৰক",
+				"error": "{error}"
+			}
 		}
 	}
 }

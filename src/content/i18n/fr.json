@@ -142,6 +142,28 @@
 		},
 		"locales": {
 			"language": "Langue"
+		},
+		"auth": {
+			"login": {
+				"email": {
+					"legend": "E-mail",
+					"placeholder": "utilisateur@exemple.com"
+				},
+				"submit": "Connexion",
+				"error": "{error}"
+			},
+			"register": {
+				"name": {
+					"legend": "Nom",
+					"placeholder": "Azur"
+				},
+				"email": {
+					"legend": "E‑mail",
+					"placeholder": "utilisateur@exemple.com"
+				},
+				"submit": "Inscription",
+				"error": "{error}"
+			}
 		}
 	}
 }

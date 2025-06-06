@@ -1,4 +1,5 @@
-<script lang>
+<script lang="javascript">
+	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 
 	const { email, name, onregister = () => {} } = $props();
@@ -13,12 +14,9 @@
 		event.preventDefault();
 		error = '';
 		try {
-			// also logs in user (@TODO: backend OTP?)
 			const res = await api.register(user);
-			console.log('use', res);
 			onregister(user);
 		} catch (err) {
-			console.log('err', err);
 			error = err.message;
 		}
 	}
@@ -26,7 +24,7 @@
 
 <form {onsubmit}>
 	<fieldset>
-		<legend>Name</legend>
+		<legend>{$_('components.auth.register.name.legend')}</legend>
 		<input
 			autofocus
 			required
@@ -34,19 +32,27 @@
 			bind:value={user.name}
 			minlength="2"
 			maxlength="50"
-			placeholder="Azur"
+			placeholder={$_('components.auth.register.name.placeholder')}
 		/>
 	</fieldset>
+
 	<fieldset>
-		<legend>Email</legend>
-		<input required type="email" bind:value={user.email} placeholder="user@example.com" />
+		<legend>{$_('components.auth.register.email.legend')}</legend>
+		<input
+			required
+			type="email"
+			bind:value={user.email}
+			placeholder={$_('components.auth.register.email.placeholder')}
+		/>
 	</fieldset>
+
 	<fieldset>
-		<button type="submit">Register</button>
+		<button type="submit">{$_('components.auth.register.submit')}</button>
 	</fieldset>
+
 	{#if error}
 		<fieldset data-type="error">
-			{error}
+			{$_('components.auth.register.error', { error })}
 		</fieldset>
 	{/if}
 </form>

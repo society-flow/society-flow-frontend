@@ -1,24 +1,22 @@
 <script lang="typescript">
-	import { _ } from 'svelte-i18n';
-	import Logout from '$lib/components/auth/logout.svelte';
+	import { _, locale } from 'svelte-i18n';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
+	import Logout from '$lib/components/auth/logout.svelte';
+	import Page from '$lib/components/routes/page.svelte';
 
-	requiresAuth();
+	requiresAuth($locale);
 </script>
 
-<svelte:head>
-	<title>{$_('menu.logout')}</title>
-</svelte:head>
-
-<header>
-	<h1>
-		{$_('menu.logout')}
-	</h1>
-</header>
-
-{#if userState.isAuth}
-	<section>
-		<Logout />
-	</section>
-{/if}
+<Page title={$_('menu.logout')}>
+	{#snippet header()}
+		<h1>
+			{$_('menu.logout')}
+		</h1>
+	{/snippet}
+	{#if userState.isAuth}
+		<section>
+			<Logout />
+		</section>
+	{/if}
+</Page>

@@ -2,12 +2,12 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import Card from '$lib/components/card.svelte';
 
-	const { society = {} } = $props();
-	const { id, name, role } = society;
+	const { expense = {} } = $props();
+	const { id, name } = expense;
 </script>
 
 <Card>
-	<Anchor href={`/societies/${id}`}>
-		{name} - {role}
+	<Anchor href={`/expenses/${id}`}>
+		{name}
 	</Anchor>
 </Card>

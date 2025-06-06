@@ -1,14 +1,14 @@
 <script lang="javascript">
-	import { _, json, locale } from 'svelte-i18n';
+	import { _, json } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import { api } from '$lib/api.svelte.js';
+	import Page from '$lib/components/routes/page.svelte';
 	import ListSocieties from '$lib/components/societies/list.svelte';
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
 	import { getBlog } from '$lib/db-static.js';
-
 
 	let blog = $state({});
 	$effect(async () => {
@@ -26,101 +26,97 @@
 		residences = await api.getResidences();
 	});
 
-	const marketingUserTypes = $derived($json('pages.home.marketing.user_types') || {});
-  const titleOneWord = $derived($_('title').split(' ').join(''))
+	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));
+	const titleOneWord = $derived($_('title').split(' ').join(''));
 </script>
 
-<svelte:head>
-	<title>{$_('title')}</title>
-</svelte:head>
-
-{#if userState.isAuth}
-	<header>
-		<p>
-			{$_('pages.home.auth.greeting', {
-				values: { name: userState?.user?.name, email: userState?.user?.email }
-			})}
-		</p>
-	</header>
-{:else}
-	<header>
-		<h1>{titleOneWord}</h1>
-		<p>{$_('catch_line')}</p>
-		<center>
-			<a href="{base}/auth/register">
-				<HomeLogo />
-			</a>
-		</center>
-	</header>
-{/if}
-
-{#if userState.isAuth}
-	<section>
-		<header>
-			<h2>{$_('pages.home.auth.dashboard.title')}</h2>
-			<p>{$_('pages.home.auth.dashboard.description')}</p>
-		</header>
-	</section>
-	<section>
-		<article>
-			{#if societies?.length}
-				<h2>{$_('pages.home.auth.sections.societies')}</h2>
-				<ListSocieties {societies} />
-			{/if}
-		</article>
-	</section>
-	<section>
-		<article>
-			{#if residences?.length}
-				<h2>{$_('pages.home.auth.sections.residences')}</h2>
-				<ListResidences {residences} />
-			{/if}
-		</article>
-	</section>
-{:else}
-	<section>
-		<ul class="Cards">
-			{#each Object.entries(marketingUserTypes) as [key, userType]}
-				<li class="Card">
-					<article>
-						<header>
-							<h2>{userType.title}</h2>
-						</header>
-						<main>
-							<ul>
-								{#each userType.features as feature}
-									<li>{feature}</li>
-								{/each}
-							</ul>
-						</main>
-						<aside>
-							<SvgIcon
-								name={key === 'society_admin'
-									? 'admin'
-									: key === 'society_member'
-										? 'member'
-										: 'rent'}
-							/>
-						</aside>
-					</article>
-				</li>
-			{/each}
-		</ul>
-	</section>
-
-	<section>
-		{#if !userState?.isAuth}
+<Page title={$_('title')}>
+	{#snippet header()}
+		{#if userState.isAuth}
+			<p>
+				{$_('pages.home.auth.greeting', {
+					values: { name: userState?.user?.name, email: userState?.user?.email }
+				})}
+			</p>
+		{:else}
+			<h1>{titleOneWord}</h1>
+			<p>{$_('catch_line')}</p>
 			<center>
-				<p>
-					{$_('pages.home.marketing.call_to_action', { values: { title: titleOneWord } })}
-				</p>
+				<a href="{base}/auth/register">
+					<HomeLogo />
+				</a>
 			</center>
 		{/if}
-		<center>
-			<a href="{base}/auth/login">{$_('menu.login')}</a>
-		</center>
-	</section>
-{/if}
+	{/snippet}
+
+	{#if userState.isAuth}
+		<section>
+			<header>
+				<h2>{$_('pages.home.auth.dashboard.title')}</h2>
+				<p>{$_('pages.home.auth.dashboard.description')}</p>
+			</header>
+		</section>
+		<section>
+			<article>
+				{#if societies?.length}
+					<h2>{$_('pages.home.auth.sections.societies')}</h2>
+					<ListSocieties {societies} />
+				{/if}
+			</article>
+		</section>
+		<section>
+			<article>
+				{#if residences?.length}
+					<h2>{$_('pages.home.auth.sections.residences')}</h2>
+					<ListResidences {residences} />
+				{/if}
+			</article>
+		</section>
+	{:else}
+		<section>
+			<ul class="Cards">
+				{#each Object.entries(marketingUserTypes) as [key, userType]}
+					<li class="Card">
+						<article>
+							<header>
+								<h2>{userType.title}</h2>
+							</header>
+							<main>
+								<ul>
+									{#each userType.features as feature}
+										<li>{feature}</li>
+									{/each}
+								</ul>
+							</main>
+							<aside>
+								<SvgIcon
+									name={key === 'society_admin'
+										? 'admin'
+										: key === 'society_member'
+											? 'member'
+											: 'rent'}
+								/>
+							</aside>
+						</article>
+					</li>
+				{/each}
+			</ul>
+		</section>
+
+		<section>
+			{#if !userState?.isAuth}
+				<center>
+					<p>
+						{$_('pages.home.marketing.call_to_action', { values: { title: titleOneWord } })}
+					</p>
+				</center>
+			{/if}
+			<center>
+				<a href="{base}/auth/login">{$_('menu.login')}</a>
+			</center>
+		</section>
+	{/if}
+</Page>
 
 <style>
 	section {

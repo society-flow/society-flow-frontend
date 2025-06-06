@@ -3,23 +3,16 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 
-	const { path } = $props();
-
-  console.log($locale)
-
-	$effect(() => {
-		if (href) {
-			isCurrent = isCurrentPage(path);
-		}
-	});
+	const props = $props();
+	const { href: reqHref, children, ...rest } = props;
 
 	const localeRoot = $derived($locale.split('-')[0]);
-	const href = $derived(`${base}/${$locale}${path}`);
+	const href = $derived(`${base}/${$locale}${reqHref}`);
 	let isCurrent = $state(false);
 
 	function isCurrentPage(pathname) {
 		const currentPath = page.url.pathname.replace(/\/+$/, '');
-		const targetPath = `${base}/${localeRoot}${path}`.replace(/\/+$/, '');
+		const targetPath = `${base}/${localeRoot}${reqHref}`.replace(/\/+$/, '');
 
 		// Root page special handling
 		if (targetPath === `${base}/${$locale}` || targetPath === '/') {
@@ -29,8 +22,14 @@
 		// Subpages
 		return currentPath === targetPath || currentPath.startsWith(targetPath + '/');
 	}
+
+  $effect(() => {
+		if (href) {
+			isCurrent = isCurrentPage(reqHref);
+		}
+	});
 </script>
 
-<a {href} aria-current={isCurrent ? 'page' : undefined}>
-	<slot>{label}</slot>
+<a {...rest} {href} aria-current={isCurrent ? 'page' : undefined}>
+	{@render children()}
 </a>

@@ -3,6 +3,7 @@
 	import { base } from '$app/paths';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Locales from '$lib/components/locales.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	const isAuth = $derived(userState.isAuth);
 	const currentDateTime = new Date();
@@ -17,20 +18,20 @@
 		</time>
 	</li>
 	<li>
-		<a href="{base}/" title={$_('title')}>
+		<Anchor href="{base}/" title={$_('title')}>
 			{$_('title')}
-		</a>
+		</Anchor>
 	</li>
 	<li>
-		<a href="{base}/settings" title={$_('menu.settings')}>
+		<Anchor href="{base}/settings" title={$_('menu.settings')}>
 			{$_('menu.settings')}
-		</a>
+		</Anchor>
 	</li>
 	{#if isAuth}
 		<li>
-			<a href="{base}/about" title={$_('menu.about')}>
+			<Anchor href="{base}/about" title={$_('menu.about')}>
 				{$_('menu.about')}
-			</a>
+			</Anchor>
 		</li>
 	{/if}
 	<li>
@@ -47,25 +48,26 @@
 		flex-wrap: wrap;
 		align-items: center;
 		text-align: center;
-	}
-	time {
+    :global(a) {
+		  padding: calc(var(--s) / 2) var(--s);
+		  color: var(--c-fg);
+		  font-weight: bold;
+		  display: inline-block;
+		  text-decoration: underline;
+		  text-decoration-color: transparent;
+		  transition: all ease-in-out 200ms;
+		  line-height: 1;
+		  &:hover {
+			  text-decoration-color: var(--c-link);
+		  }
+	  }
+	  :global(select) {
+		  padding: calc(var(--s) / 3);
+		  background-color: transparent;
+	  }
+    time {
 		margin: calc(var(--s) / 2);
+	  }
 	}
-	a {
-		padding: calc(var(--s) / 2) var(--s);
-		color: var(--c-fg);
-		font-weight: bold;
-		display: inline-block;
-		text-decoration: underline;
-		text-decoration-color: transparent;
-		transition: all ease-in-out 200ms;
-		line-height: 1;
-		&:hover {
-			text-decoration-color: var(--c-link);
-		}
-	}
-	:global(select) {
-		padding: calc(var(--s) / 3);
-		background-color: transparent;
-	}
+	
 </style>

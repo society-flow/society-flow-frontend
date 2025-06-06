@@ -1,10 +1,11 @@
-<script lang="typescript">
-	import { _ } from 'svelte-i18n';
-	import { base } from '$app/paths';
+<script lang="javascript">
+	import { _, locale } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
-  import requiresAuth from "$lib/effects/requires-auth.svelte.js"
+	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import Page from '$lib/components/routes/page.svelte';
+	import ListExpenses from '$lib/components/expenses/list.svelte';
 
-	requiresAuth()
+	requiresAuth($locale);
 
 	let expenses = $state([]);
 	$effect(async () => {
@@ -12,20 +13,14 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$_('menu.expenses')}</title>
-</svelte:head>
+<Page title={$_('menu.expenses')}>
+	{#snippet header()}
+		<h1>
+			{$_('menu.expenses')}
+		</h1>
+	{/snippet}
 
-<h1>
-	{$_('menu.expenses')}
-</h1>
-
-<ul>
-	{#each expenses as { id, name }}
-		<li>
-			<a href={`${base}/expenses/${id}`}>
-				{name}
-			</a>
-		</li>
-	{/each}
-</ul>
+	<section>
+		<ListExpenses {expenses}></ListExpenses>
+	</section>
+</Page>

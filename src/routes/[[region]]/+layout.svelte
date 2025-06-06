@@ -250,4 +250,9 @@
 		bottom: 0;
 		z-index: 0;
 	}
+
+  /* utilities */
+  :global(.text-center) {
+    text-align: center;
+  }
 </style>

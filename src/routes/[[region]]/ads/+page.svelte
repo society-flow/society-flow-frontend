@@ -2,6 +2,9 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
+	import Page from '$lib/components/routes/page.svelte';
+	import Card from '$lib/components/card.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	let adverts = $state([]);
 	$effect(async () => {
@@ -9,60 +12,31 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$_('menu.adverts')}</title>
-</svelte:head>
-
-<header>
-	<h1>{$_('menu.adverts')}</h1>
-</header>
-
-<section>
-	<ul class="Cards">
-		{#each adverts as { id, name } (id)}
-			<li class="Card">
-				<a href={`${base}/ads/${id}`}>
-					{name}
-				</a>
-			</li>
-		{/each}
-	</ul>
-</section>
+<Page title={$_('menu.adverts')}>
+	{#snippet header()}
+		<h1>{$_('menu.adverts')}</h1>
+	{/snippet}
+	<section>
+		<ul>
+			{#each adverts as { id, name } (id)}
+				<li>
+					<Card>
+						<Anchor href={`${base}/ads/${id}`}>
+							{name}
+						</Anchor>
+					</Card>
+				</li>
+			{/each}
+		</ul>
+	</section>
+</Page>
 
 <style>
-	.Cards {
+	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: grid;
 		gap: calc(var(--s) / 3);
-	}
-	.Card {
-		a {
-			display: flex;
-			padding: calc(var(--s) * 2);
-			border: 1px solid var(--c-border);
-			background-color: var(--c-bg--secondary);
-			border-radius: var(--border-radius);
-			text-decoration: underline;
-			text-decoration-color: transparent;
-			transition: all 150ms ease-in-out;
-      outline: 1px solid transparent;
-      font-weight: normal;
-			&:hover {
-				text-decoration: underline var(--c-link);
-				border-color: var(--c-bg--secondary);
-        background-color: transparent;
-        font-weight: bold;
-			}
-      &:focus {
-        outline-color: var(--c-fg);
-        font-weight: bold;
-			}
-      &:active {
-        outline-color: var(--c-bg--secondary);
-        border-color: var(--c-border);
-      }
-		}
 	}
 </style>
