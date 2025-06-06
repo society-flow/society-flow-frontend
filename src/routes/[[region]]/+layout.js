@@ -1,20 +1,25 @@
 import { locale, waitLocale } from 'svelte-i18n';
-import { redirect, error } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import { browser } from '$app/environment';
 import { base } from '$app/paths';
 import { localeIsSupported, DEFAULT_LOCALE } from '$lib/i18n';
 
 export const load = async ({ url }) => {
-	const userLocaleRoot = navigator?.language.split('-')[0];
-	const userLocaleSupported = localeIsSupported(userLocaleRoot);
+	const pathname = url.pathname.startsWith(base) ? url.pathname.slice(base.length) : url.pathname;
 
-	const reqLocale = url.pathname.slice(1).split('/')[0]; // e.g., 'en' or 'en-GB'
-	const reqLocaleRoot = reqLocale.split('-')[0]; // e.g., 'en'
-	const reqLocaleSupported = localeIsSupported(reqLocaleRoot);
+	const reqLocale = pathname.slice(1).split('/')[0]; // e.g., 'en' or 'en-GB'
+	const reqLocaleRoot = reqLocale.split('-')[0];
+	const reqLocaleSupported = localeIsSupported(reqLocale);
 
-	function buildPath(root) {
-		return `${base}/${root}${url.pathname.slice(reqLocale.length + 1)}`;
+	let userLocaleRoot;
+	let userLocaleSupported = false;
+
+	if (browser) {
+		userLocaleRoot = navigator.language.split('-')[0];
+		userLocaleSupported = localeIsSupported(userLocaleRoot);
 	}
+
+	const buildPath = (newLocale) => `${base}/${newLocale}${pathname.slice(reqLocale.length + 1)}`;
 
 	if (reqLocaleSupported) {
 		console.info('reqLocaleSupported', reqLocaleRoot);
