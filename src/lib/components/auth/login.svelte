@@ -12,8 +12,8 @@
 		error = '';
 		try {
 			// Also sends the OTP
-			await api.login({ email: userEmail });
-			onLogin({ email: userEmail });
+			await api.login({ email });
+			onLogin({ email });
 		} catch (err) {
 			error = err.message;
 		}
@@ -39,7 +39,6 @@
 	{#if error}
 		<fieldset data-type="error">
 			{$_('components.auth.login.error', { error })}
-			{console.log('error', error)}
 		</fieldset>
 	{/if}
 </form>

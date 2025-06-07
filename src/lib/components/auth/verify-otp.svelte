@@ -2,9 +2,9 @@
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 
-	const { email, otp, onverify = () => {} } = $props();
+	const { email: userEmail, otp, onverify = () => {} } = $props();
 
-	let userEmail = $state(email || '');
+	let email = $state(userEmail || '');
 	let oneTimePassword = $state(otp || '');
 	let error = $state('');
 
@@ -12,7 +12,7 @@
 		event.preventDefault();
 		error = '';
 		try {
-			await api.verifyOtp({ email: userEmail, otp: oneTimePassword });
+			await api.verifyOtp({ email, otp: oneTimePassword });
 			onverify();
 		} catch (err) {
 			error = err.message;
@@ -27,7 +27,7 @@
 			required
 			readonly
 			type="email"
-			bind:value={userEmail}
+			bind:value={email}
 			placeholder={$_('components.auth.verify_otp.email.placeholder')}
 		/>
 	</fieldset>
