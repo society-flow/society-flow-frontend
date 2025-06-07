@@ -41,7 +41,7 @@
 
 		<footer>
 			<nav>
-				<Anchor href={`$/ads`}>← {$_('menu.adverts')}</Anchor>
+				<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
 			</nav>
 		</footer>
 	</article>

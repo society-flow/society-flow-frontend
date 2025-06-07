@@ -1,6 +1,5 @@
-<script lang="typescript">
+<script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
-	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
@@ -9,13 +8,16 @@
 
 	requiresAuth($locale);
 
-	const id = $derived($page.params.id);
+	const urlId = $derived($page.params.id);
 
 	let expense = $state({});
+	const { id, name, description } = $derived(expense);
+	// const name = $derived(expense.name);
+	// const description = $derived(expense.description);
 
 	$effect(async () => {
-		if (id) {
-			expense = await api.getExpense(Number(id));
+		if (urlId) {
+			expense = await api.getExpense(Number(urlId));
 		}
 	});
 </script>
@@ -34,13 +36,13 @@
 		</p>
 
 		<p>
-			<Anchor href={`/expenses/${expense.id}`}>
-				{expense.name}
+			<Anchor href={`/expenses/${urlId}`}>
+				{name}
 			</Anchor>
 		</p>
 
 		<p>
-			{expense.description}
+			{description}
 		</p>
 	</section>
 </Page>
