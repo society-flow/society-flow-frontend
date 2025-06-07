@@ -16,16 +16,16 @@
 
     // Replace first segment with new locale (assuming first segment is always locale)
     if ($locales.includes(segments[0])) {
-      segments[0] = selectedLocale;
+        segments[0] = selectedLocale;
     } else {
-      segments.unshift(selectedLocale);
+        segments.unshift(selectedLocale);
     }
 
     const newPath = '/' + segments.join('/');
     $currentLocale = selectedLocale;
     console.log("newPath:", newPath);
     goto(newPath, { replaceState: true });
-  }
+}
 </script>
 
 <aside title={$_('components.locales.language')}>
