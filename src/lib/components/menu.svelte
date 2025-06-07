@@ -57,6 +57,7 @@
 			outline: 1px solid transparent;
 			outline-offset: 0;
 			color: var(--c-fg);
+      white-space: nowrap;
 			&[aria-current='page'] {
 				background-color: var(--c-bg--menu);
 				border-bottom-color: var(--c-link);

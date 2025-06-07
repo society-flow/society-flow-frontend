@@ -44,10 +44,11 @@
 		padding: 0;
 		margin: 0;
 		list-style: none;
+		text-align: center;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		text-align: center;
+    justify-content: center;
 		:global(a) {
 			padding: calc(var(--s) / 2) var(--s);
 			color: var(--c-fg);
