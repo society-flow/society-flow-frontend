@@ -8,24 +8,24 @@
 	// Split locale like "en-US" -> "en"
 	const currentLocaleShort = $derived($currentLocale.split('-')[0]);
 
-	function onchange(event) {
-		const selectedLocale = event.target.value;
-		const segments = page.url.pathname.split('/').filter(Boolean);
+  function onchange(event) {
+    const selectedLocale = event.target.value;
+    
+    const segments = page.url.pathname.split('/').filter(Boolean);
+    console.log("current segments:", segments);
 
-		// Replace first segment with new locale
-		if ($locales.includes(segments[0])) {
-			segments[0] = selectedLocale;
-		} else {
-			segments.unshift(selectedLocale);
-		}
-    if (base) {
-      segments.unshift(base)
+    // Replace first segment with new locale (assuming first segment is always locale)
+    if ($locales.includes(segments[0])) {
+      segments[0] = selectedLocale;
+    } else {
+      segments.unshift(selectedLocale);
     }
-		const newPath = '/' + segments.join('/');
-		$currentLocale = selectedLocale;
-    console.log("newPath | segments", newPath, segments)
-		goto(newPath, { replaceState: true });
-	}
+
+    const newPath = '/' + segments.join('/');
+    $currentLocale = selectedLocale;
+    console.log("newPath:", newPath);
+    goto(newPath, { replaceState: true });
+  }
 </script>
 
 <aside title={$_('components.locales.language')}>
