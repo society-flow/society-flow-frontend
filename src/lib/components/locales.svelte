@@ -9,28 +9,23 @@
 	const currentLocaleShort = $derived($currentLocale.split('-')[0]);
 
 	function onchange(event) {
-    const selectedLocale = event.target.value;
-    
-    // Get pathname without base
-    let pathname = page.url.pathname;
-    if (base && pathname.startsWith(base)) {
-      pathname = pathname.slice(base.length);
-    }
-    
-    const segments = pathname.split('/').filter(Boolean);
+		const selectedLocale = event.target.value;
+		const segments = page.url.pathname.split('/').filter(Boolean);
 
-    // Replace first segment with new locale
-    if ($locales.includes(segments[0])) {
-      segments[0] = selectedLocale;
-    } else {
-      segments.unshift(selectedLocale);
+		// Replace first segment with new locale
+		if ($locales.includes(segments[0])) {
+			segments[0] = selectedLocale;
+		} else {
+			segments.unshift(selectedLocale);
+		}
+    if (base) {
+      segments.unshift(base)
     }
-
-    const newPath = '/' + segments.join('/');
-    $currentLocale = selectedLocale;
-    console.log("newPath", newPath);
-    goto(newPath, { replaceState: true });
-  }
+		const newPath = '/' + segments.join('/');
+		$currentLocale = selectedLocale;
+    console.log("newPath | segments", newPath, segments)
+		goto(newPath, { replaceState: true });
+	}
 </script>
 
 <aside title={$_('components.locales.language')}>
