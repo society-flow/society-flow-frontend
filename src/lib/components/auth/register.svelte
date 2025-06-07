@@ -1,6 +1,7 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
+	import Error from '$lib/components/error.svelte';
 
 	const { email, name, onregister = () => {} } = $props();
 
@@ -8,16 +9,16 @@
 		email: email || '',
 		name: name || ''
 	});
-	let error = $state('');
+	let error = $state({});
 
 	async function onsubmit(event) {
 		event.preventDefault();
 		error = '';
 		try {
-			const res = await api.register(user);
+			await api.register(user);
 			onregister(user);
 		} catch (err) {
-			error = err.message;
+			error = err;
 		}
 	}
 </script>
@@ -52,7 +53,7 @@
 
 	{#if error}
 		<fieldset data-type="error">
-			{$_('components.auth.register.error', { error })}
+			<Error {error} />
 		</fieldset>
 	{/if}
 </form>

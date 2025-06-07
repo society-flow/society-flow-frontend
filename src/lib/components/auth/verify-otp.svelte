@@ -1,12 +1,13 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
+	import Error from '$lib/components/error.svelte';
 
 	const { email: userEmail, otp, onverify = () => {} } = $props();
 
 	let email = $state(userEmail || '');
 	let oneTimePassword = $state(otp || '');
-	let error = $state('');
+	let error = $state({});
 
 	async function onsubmit(event) {
 		event.preventDefault();
@@ -15,7 +16,7 @@
 			await api.verifyOtp({ email, otp: oneTimePassword });
 			onverify();
 		} catch (err) {
-			error = err.message;
+			error = err;
 		}
 	}
 </script>
@@ -51,7 +52,7 @@
 
 	{#if error}
 		<fieldset data-type="error">
-			{error}
+			<Error {error} />
 		</fieldset>
 	{/if}
 </form>

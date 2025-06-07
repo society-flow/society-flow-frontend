@@ -1,11 +1,12 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
+	import Error from '$lib/components/error.svelte';
 
 	const { email: userEmail, onLogin = () => {} } = $props();
 
 	let email = $state(userEmail || '');
-	let error = $state('');
+	let error = $state({});
 
 	async function onsubmit(event) {
 		event.preventDefault();
@@ -13,11 +14,9 @@
 		try {
 			// Also sends the OTP
 			const res = await api.login({ email });
-      console.log("res", res)
 			onLogin({ email });
 		} catch (err) {
-      console.log("err", err)
-			error = err.message;
+			error = err;
 		}
 	}
 </script>
@@ -38,9 +37,7 @@
 		<button type="submit">{$_('components.auth.login.submit')}</button>
 	</fieldset>
 
-	{#if error}
-		<fieldset data-type="error">
-			{$_('components.auth.login.error', { error: error })}
-		</fieldset>
-	{/if}
+	<fieldset data-type="error">
+		<Error {error} />
+	</fieldset>
 </form>
