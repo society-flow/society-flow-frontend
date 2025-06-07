@@ -121,7 +121,7 @@
 			border-color: var(--c-bg--secondary);
 		}
 		&[type='submit'] {
-			border-color: var(--c-link);
+      outline: 1px solid var(--c-link);
 		}
 	}
 
@@ -156,7 +156,7 @@
 		background-color: var(--c-bg--form);
 		border-radius: calc(var(--border-radius) * 2);
 		padding: calc(var(--s) * 3) calc(var(--s) * 2);
-		max-width: var(--s-form);
+		/* max-width: var(--s-form); */
 	}
 
 	:global(form fieldset) {
