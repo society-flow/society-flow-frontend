@@ -11,7 +11,8 @@
   function onchange(event) {
     const selectedLocale = event.target.value;
     
-    const segments = page.url.pathname.split('/').filter(Boolean);
+    const rootlessPathname = page.url.pathname.split(`/${base}`)[0]
+    const segments = rootlessPathname.split('/').filter(Boolean);
     console.log("current segments:", segments);
 
     // Replace first segment with new locale (assuming first segment is always locale)
