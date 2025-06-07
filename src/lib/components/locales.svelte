@@ -22,7 +22,6 @@
       segments.unshift(base)
     }
 		const newPath = '/' + segments.join('/');
-		$currentLocale = selectedLocale;
 		goto(newPath, { replaceState: true });
 	}
 </script>
