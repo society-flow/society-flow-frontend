@@ -32,8 +32,9 @@ jobs:
       - name: Log public env vars
         run: echo "$PUBLIC_API_URL and $BASE_PATH"
       - name: Log output
-        run: cat build/index.html
         run: ls -R build/
+      - name: Log homepage html
+        run: cat build/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./build
