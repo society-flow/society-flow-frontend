@@ -1,20 +1,20 @@
 <script lang="javascript">
-	import { _, json } from 'svelte-i18n';
-	import { base } from '$app/paths';
-	import { userState } from '$lib/states/user.svelte.js';
+	import { _, json, locale } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
+	import { getTicker, getTickers } from '$lib/db-static.js';
+	import { userState } from '$lib/states/user.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import ListSocieties from '$lib/components/societies/list.svelte';
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
-	import { getBlog } from '$lib/db-static.js';
 
-	let blog = $state({});
+	let ticker = $state({});
 	$effect(async () => {
-		blog = await getBlog('index');
-		console.log('blog', blog.name);
+		ticker = await getTicker('dev', $locale);
+		const tickers = await getTickers($locale);
+		console.log('ticker,s', ticker, tickers);
 	});
 
 	let societies = $state([]);
@@ -49,6 +49,23 @@
 			</center>
 		{/if}
 	{/snippet}
+
+	{#if ticker}
+		<section>
+			<article>
+				<h3>
+					<center>{ticker?.title}</center>
+				</h3>
+				{#if ticker?.body}
+					<main>
+						<center>
+							{ticker.body}
+						</center>
+					</main>
+				{/if}
+			</article>
+		</section>
+	{/if}
 
 	{#if userState.isAuth}
 		<section>

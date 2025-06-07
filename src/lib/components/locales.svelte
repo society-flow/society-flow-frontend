@@ -14,7 +14,6 @@
     const newPath = translateCurrentPath(page.url.pathname, selectedLocale, base);
     
     $currentLocale = selectedLocale;
-    console.log("newPath:", newPath);
     goto(newPath, { replaceState: true });
   }
 </script>

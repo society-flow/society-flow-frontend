@@ -40,6 +40,8 @@
 		list-style: none;
 		display: flex;
 		overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 		/* align-items: center; */
 		/* justify-content: center; */
 		:global(a) {
