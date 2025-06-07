@@ -50,23 +50,6 @@
 		{/if}
 	{/snippet}
 
-	{#if ticker}
-		<section>
-			<article>
-				<h3>
-					<center>{ticker?.title}</center>
-				</h3>
-				{#if ticker?.body}
-					<main>
-						<center>
-							{ticker.body}
-						</center>
-					</main>
-				{/if}
-			</article>
-		</section>
-	{/if}
-
 	{#if userState.isAuth}
 		<section>
 			<header>
@@ -133,6 +116,20 @@
 				<Anchor href="/auth/login">{$_('menu.login')}</Anchor>
 			</center>
 		</section>
+		{#if ticker}
+			<aside class="Ticker">
+				<header>
+					<h3>
+						{ticker?.title}
+					</h3>
+				</header>
+				{#if ticker?.body}
+					<main>
+						{ticker.body}
+					</main>
+				{/if}
+			</aside>
+		{/if}
 	{/if}
 </Page>
 
@@ -200,5 +197,14 @@
 				transform: scale(1.1);
 			}
 		}
+	}
+	.Ticker {
+		background-color: var(--c-bg--secondary);
+		padding: var(--s) calc(var(--s) * 2);
+		border-radius: var(--border-radius);
+		font-style: italic;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--s);
 	}
 </style>
