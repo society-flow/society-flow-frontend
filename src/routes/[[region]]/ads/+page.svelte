@@ -21,7 +21,7 @@
 			{#each adverts as { id, name } (id)}
 				<li>
 					<Card>
-						<Anchor href={`${base}/ads/${id}`}>
+						<Anchor href={`/ads/${id}`}>
 							{name}
 						</Anchor>
 					</Card>

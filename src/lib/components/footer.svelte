@@ -18,18 +18,18 @@
 		</time>
 	</li>
 	<li>
-		<Anchor href="{base}/" title={$_('title')}>
+		<Anchor href="/" title={$_('title')}>
 			{$_('title')}
 		</Anchor>
 	</li>
 	<li>
-		<Anchor href="{base}/settings" title={$_('menu.settings')}>
+		<Anchor href="/settings" title={$_('menu.settings')}>
 			{$_('menu.settings')}
 		</Anchor>
 	</li>
 	{#if isAuth}
 		<li>
-			<Anchor href="{base}/about" title={$_('menu.about')}>
+			<Anchor href="/about" title={$_('menu.about')}>
 				{$_('menu.about')}
 			</Anchor>
 		</li>
@@ -48,26 +48,25 @@
 		flex-wrap: wrap;
 		align-items: center;
 		text-align: center;
-    :global(a) {
-		  padding: calc(var(--s) / 2) var(--s);
-		  color: var(--c-fg);
-		  font-weight: bold;
-		  display: inline-block;
-		  text-decoration: underline;
-		  text-decoration-color: transparent;
-		  transition: all ease-in-out 200ms;
-		  line-height: 1;
-		  &:hover {
-			  text-decoration-color: var(--c-link);
-		  }
-	  }
-	  :global(select) {
-		  padding: calc(var(--s) / 3);
-		  background-color: transparent;
-	  }
-    time {
-		margin: calc(var(--s) / 2);
-	  }
+		:global(a) {
+			padding: calc(var(--s) / 2) var(--s);
+			color: var(--c-fg);
+			font-weight: bold;
+			display: inline-block;
+			text-decoration: underline;
+			text-decoration-color: transparent;
+			transition: all ease-in-out 200ms;
+			line-height: 1;
+			&:hover {
+				text-decoration-color: var(--c-link);
+			}
+		}
+		:global(select) {
+			padding: calc(var(--s) / 3);
+			background-color: transparent;
+		}
+		time {
+			margin: calc(var(--s) / 2);
+		}
 	}
-	
 </style>

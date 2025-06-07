@@ -25,7 +25,7 @@
 	<article>
 		<header>
 			<h1>
-				<Anchor href={`${base}/ads/${id}`}>
+				<Anchor href={`/ads/${id}`}>
 					{advert?.name}
 				</Anchor>
 			</h1>
@@ -41,7 +41,7 @@
 
 		<footer>
 			<nav>
-				<Anchor href={`${base}/ads`}>← {$_('menu.adverts')}</Anchor>
+				<Anchor href={`$/ads`}>← {$_('menu.adverts')}</Anchor>
 			</nav>
 		</footer>
 	</article>

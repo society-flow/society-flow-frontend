@@ -30,7 +30,7 @@
 		<p>id: {id}</p>
 
 		<p>
-			<Anchor href={`${base}/societies`}>← Back to all societies</Anchor>
+			<Anchor href="/societies">← Back to all societies</Anchor>
 		</p>
 
 		<article>
