@@ -44,7 +44,7 @@
 				{/if}
 
 				{#if userState.isDemo}
-					<button on:click={userState.logout}>
+					<button on:click={() => userState.logout()}>
 						{section.logoutText}
 					</button>
 				{/if}
