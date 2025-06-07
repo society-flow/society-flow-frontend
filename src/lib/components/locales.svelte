@@ -4,29 +4,19 @@
 	import { page } from '$app/state';
   import { base } from '$app/paths';
 	import EmojiIcon from '$lib/components/emoji-icon.svelte';
+  import {translateCurrentPath} from "$lib/i18n.js";
 
 	// Split locale like "en-US" -> "en"
 	const currentLocaleShort = $derived($currentLocale.split('-')[0]);
 
   function onchange(event) {
     const selectedLocale = event.target.value;
+    const newPath = translateCurrentPath(page.url.pathname, selectedLocale, base);
     
-    const rootlessPathname = page.url.pathname.split(`/${base}`)[0]
-    const segments = rootlessPathname.split('/').filter(Boolean);
-    console.log("current segments:", segments);
-
-    // Replace first segment with new locale (assuming first segment is always locale)
-    if ($locales.includes(segments[0])) {
-        segments[0] = selectedLocale;
-    } else {
-        segments.unshift(selectedLocale);
-    }
-
-    const newPath = '/' + segments.join('/');
     $currentLocale = selectedLocale;
     console.log("newPath:", newPath);
     goto(newPath, { replaceState: true });
-}
+  }
 </script>
 
 <aside title={$_('components.locales.language')}>
