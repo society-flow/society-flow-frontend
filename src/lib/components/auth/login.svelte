@@ -39,6 +39,7 @@
 	{#if error}
 		<fieldset data-type="error">
 			{$_('components.auth.login.error', { error })}
+			{console.log('error', error)}
 		</fieldset>
 	{/if}
 </form>
