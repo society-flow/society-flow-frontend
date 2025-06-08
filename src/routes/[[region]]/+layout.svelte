@@ -83,12 +83,13 @@
 	:global(input, textarea, select, button) {
 		padding: calc(var(--s) / 0.6);
 		font-size: 1rem;
-		transition: border-color 200ms ease-in-out;
 		border-radius: var(--border-radius);
 		border: 1px solid var(--c-border);
+    outline: 0.1rem solid transparent;
+		transition: all 200ms ease-in-out;
 		&:focus {
 			border-color: var(--c-fg);
-			outline: 0.1rem solid var(--c-fg);
+			outline-color: var(--c-fg);
 		}
 		&:invalid {
 			border-color: var(--c-error);
@@ -97,8 +98,22 @@
 			border-color: var(--c-border);
 		}
 		&:hover {
-			border-color: var(--c-bg-border);
+			border-color: var(--c-bg);
 		}
+    &[readonly],
+    &[disabled] {
+      background-color: var(--c-bg);
+    }
+    &[readonly]:focus,
+    &[disabled]:focus {
+      outline-color: transparent;
+      border-color: transparent;
+      color: var(--c-fg--secondary);
+    }
+    &::placeholder {
+      font-style: italic;
+      color: var(--c-fg--secondary);
+    }
 	}
 
 	:global(input, textarea) {
@@ -114,11 +129,16 @@
 		cursor: pointer;
 		transition: all 140ms ease-in-out;
 		&:hover {
-			background-color: var(--c-bg);
-			border-color: var(--c-bg--secondary);
+			/* background-color: var(--c-bg); */
+			border-color: var(--c-border);
 		}
+    &:focus,
+    &:active {
+      font-weight: bold;
+    }
 		&[type='submit'] {
       /* outline: 1px solid var(--c-link); */
+      
 		}
 	}
 
@@ -148,6 +168,9 @@
 
 	:global(section) {
 		padding: var(--s);
+    & + section {
+      margin-top: var(--s);
+    }
 	}
 
 	:global(form) {
@@ -180,6 +203,7 @@
 		color: var(--c-fg--secondary);
 		font-size: var(--font-size--small);
 		font-style: italic;
+    padding: calc(var(--s) / 2);
 	}
 
 	:global(form legend) {
