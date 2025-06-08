@@ -7,7 +7,7 @@
 
 	let email = $state(userEmail || '');
 	let oneTimePassword = $state(otp || '');
-	let error = $state({});
+	let error = $state(null);
 
 	async function onsubmit(event) {
 		event.preventDefault();
@@ -26,7 +26,7 @@
 		<legend>{$_('components.auth.verify_otp.email.legend')}</legend>
 		<input
 			required
-			readonly
+			readonly={userEmail ? true : false}
 			type="email"
 			bind:value={email}
 			placeholder={$_('components.auth.verify_otp.email.placeholder')}

@@ -6,7 +6,7 @@
 	const { email: userEmail, onLogin = () => {} } = $props();
 
 	let email = $state(userEmail || '');
-	let error = $state({});
+	let error = $state(null);
 
 	async function onsubmit(event) {
 		event.preventDefault();
@@ -37,7 +37,9 @@
 		<button type="submit">{$_('components.auth.login.submit')}</button>
 	</fieldset>
 
-	<fieldset data-type="error">
-		<Error {error} />
-	</fieldset>
+	{#if error}
+		<fieldset data-type="error">
+			<Error {error} />
+		</fieldset>
+	{/if}
 </form>

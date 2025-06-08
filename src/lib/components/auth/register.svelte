@@ -9,7 +9,7 @@
 		email: email || '',
 		name: name || ''
 	});
-	let error = $state({});
+	let error = $state(null);
 
 	async function onsubmit(event) {
 		event.preventDefault();

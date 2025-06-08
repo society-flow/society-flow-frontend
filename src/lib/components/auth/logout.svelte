@@ -5,7 +5,7 @@
 
 	const { onLogout = () => {} } = $props();
 
-	let error = $state({});
+	let error = $state(null);
 
 	async function onSubmit(event) {
 		event.preventDefault();
