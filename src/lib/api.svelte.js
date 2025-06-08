@@ -86,7 +86,7 @@ class Api {
 			 createdAt: '2025-06-04T06:05:18.702Z',
 			 updatedAt: '2025-06-04T06:05:18.702Z'
 		   }); */
-		return this.fetch('/users', {
+		return this.fetch('/users/create', {
 			method: 'POST',
 			data: { name, email }
 		});
