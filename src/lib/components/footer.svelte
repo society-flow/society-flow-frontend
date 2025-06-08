@@ -64,7 +64,7 @@
 			}
 		}
 		:global(select) {
-			padding: calc(var(--s) / 3);
+			padding: calc(var(--s) / 3) var(--s);
 			background-color: transparent;
 		}
 		time {

@@ -33,3 +33,10 @@
 
 	<EmojiIcon name="lang" />
 </aside>
+
+<style>
+  aside {
+    display: flex;
+    gap: var(--s);
+  }
+</style>
