@@ -174,5 +174,8 @@
 				"submit": "Verify"
 			}
 		}
+	},
+	"errors": {
+		"NetworkError": "NetworkError when attempting to fetch resource."
 	}
 }

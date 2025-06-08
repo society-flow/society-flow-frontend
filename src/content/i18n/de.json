@@ -176,5 +176,8 @@
 				"submit": "Verifizieren"
 			}
 		}
+	},
+	"errors": {
+		"NetworkError": "Netzwerkfehler beim Versuch, die Ressource abzurufen."
 	}
 }

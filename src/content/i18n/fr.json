@@ -176,5 +176,8 @@
 				"submit": "Vérifier"
 			}
 		}
+	},
+	"errors": {
+		"NetworkError": "Erreur réseau lors de la récupération de la ressource."
 	}
 }
