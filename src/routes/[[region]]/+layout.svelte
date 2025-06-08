@@ -167,6 +167,13 @@
 			margin-bottom: 0;
 			padding-bottom: 0;
 		}
+    :global(&:has(input:focus, input:active)),
+    :global(&:has(select:focus, select:active)),
+    :global(&:has(textarea:focus, textarea:active)) {
+      :global(legend) {
+        font-weight: bold;
+      }
+    }
 	}
 
 	:global(form fieldset label) {
@@ -177,7 +184,7 @@
 
 	:global(form legend) {
 		margin-bottom: -0.3em;
-		font-weight: bold;
+    transition: font-weight 200ms ease-in-out;
 	}
 	:global(form button[type='submit']) {
 		/* background-color: var(--c-border); */
