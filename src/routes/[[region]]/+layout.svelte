@@ -134,13 +134,15 @@
 		transition: all 140ms ease-in-out;
 		&:focus {
 			outline-color: var(--c-link);
+      text-decoration-color: var(--c-border);
 		}
 		&:hover {
-			border-radius: 0;
+			text-decoration-color: var(--c-border);
 		}
 		&:active {
 			outline-color: transparent;
 			text-decoration-color: transparent;
+      font-weight: normal;
 		}
 	}
 
@@ -193,8 +195,12 @@
 	}
 
 	.Site-main {
+    --border-radius--top: var(--border-radius);
+    --border-radius--bottom: calc(var(--border-radius--top) * 6);
 		background-color: var(--c-bg);
-		border-radius: var(--border-radius);
+		border-radius: var(--border-radius--top);
+    border-bottom-left-radius: var(--border-radius--bottom);
+    border-bottom-right-radius: var(--border-radius--bottom);
 		flex-grow: 1;
 		padding: var(--s);
 		margin: 0 calc(var(--s) * 2);
