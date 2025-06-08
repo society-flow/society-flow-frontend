@@ -45,14 +45,14 @@
 		/* align-items: center; */
 		/* justify-content: center; */
 		:global(a) {
-			padding: calc(var(--s) / 2) var(--s);
+			padding: var(--s);
 			margin: 0 calc(var(--s) * 1);
 			text-decoration: none;
 			color: var(--c-fg);
 			font-weight: bold;
 			display: inline-block;
 			/* background-color: var(--c-bg); */
-			border: calc(var(--s) / 2) solid transparent;
+			border: calc(var(--s) / 1.6) solid transparent;
 			transition: all ease-in-out 300ms;
 			outline: 1px solid transparent;
 			outline-offset: 0;
@@ -68,10 +68,10 @@
 			&:hover {
 				color: var(--c-link);
 				/* border-radius: calc(var(--s) * 1.5); */
-				color: var(--c-fg);
 			}
 			&:focus {
 				outline-offset: -0.05rem;
+        outline-color: var(--c-link);
 				/* border-radius: calc(var(--s) * 1.5); */
 			}
 		}

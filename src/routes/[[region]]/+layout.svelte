@@ -88,7 +88,7 @@
 		border: 1px solid var(--c-border);
 		&:focus {
 			border-color: var(--c-fg);
-			outline: 0.1rem solid var(--c-border);
+			outline: 0.1rem solid var(--c-fg);
 		}
 		&:invalid {
 			border-color: var(--c-error);
@@ -98,9 +98,6 @@
 		}
 		&:hover {
 			border-color: var(--c-bg-border);
-		}
-		&:focus-within {
-			border-color: var(--c-link);
 		}
 	}
 
@@ -121,7 +118,7 @@
 			border-color: var(--c-bg--secondary);
 		}
 		&[type='submit'] {
-      outline: 1px solid var(--c-link);
+      /* outline: 1px solid var(--c-link); */
 		}
 	}
 
@@ -130,10 +127,13 @@
 		font-weight: bold;
 		outline: 1px solid transparent;
 		border-radius: calc(var(--s) * 1.5);
+    display: inline-block;
+    line-height: 1; /* for :focus styles centered */
+    padding: calc(var(--s) / 2.5) calc(var(--s) / 1.7);
+    
 		transition: all 140ms ease-in-out;
 		&:focus {
 			outline-color: var(--c-link);
-			/* outline-offset: 0.1rem; */
 		}
 		&:hover {
 			border-radius: 0;
