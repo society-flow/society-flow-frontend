@@ -25,13 +25,12 @@
 					"resend": {
 						"text": "Resend email",
 						"link": {
-							"url": "#@TODO",
+							"url": "/auth/login?email={email}",
 							"text": "menu.verify-otp"
 						}
 					}
 				}
 			},
-
 			"register": {
 				"sections": {
 					"have-account": {
@@ -43,7 +42,6 @@
 					}
 				}
 			},
-
 			"login": {
 				"sections": {
 					"no-account": {

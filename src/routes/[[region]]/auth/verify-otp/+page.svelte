@@ -7,6 +7,7 @@
 	import VerifyOTP from '$lib/components/auth/verify-otp.svelte';
 	import requiresNoAuth from '$lib/effects/requires-no-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	requiresNoAuth($locale);
 
@@ -32,8 +33,18 @@
 		</section>
 		<section>
 			{#each Object.entries(sections) as [key, section]}
-				<section>
-					<p>{section.text}</p>
+				<section class="text-center">
+					<p>
+						{#if section.link}
+							{section.text}{','}
+							<Anchor href={$_(section.link.url, { values: { email } })}
+								>{$_(section.link.text)}</Anchor
+							>
+							{'.'}
+						{:else}
+							{section.text}
+						{/if}
+					</p>
 				</section>
 			{/each}
 		</section>

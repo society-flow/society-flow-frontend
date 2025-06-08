@@ -25,7 +25,7 @@
 					"resend": {
 						"text": "Renvoyer l'e-mail",
 						"link": {
-							"url": "#@TODO",
+							"url": "/auth/login?email={email}",
 							"text": "menu.verify-otp"
 						}
 					}

@@ -25,7 +25,7 @@
 					"resend": {
 						"text": "ইমেইল পুনৰ পঠাওক",
 						"link": {
-							"url": "#@TODO",
+							"url": "/auth/login?email={email}",
 							"text": "menu.verify-otp"
 						}
 					}
