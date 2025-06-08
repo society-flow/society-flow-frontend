@@ -83,6 +83,7 @@
 	:global(input, textarea, select, button) {
 		padding: calc(var(--s) / 0.6);
 		font-size: 1rem;
+    background-color: transparent;
 		border-radius: var(--border-radius);
 		border: 1px solid var(--c-border);
     outline: 0.1rem solid transparent;
@@ -103,6 +104,7 @@
     &[readonly],
     &[disabled] {
       background-color: var(--c-bg);
+      color: var(--c-fg--secondary);
     }
     &[readonly]:focus,
     &[disabled]:focus {
@@ -211,7 +213,7 @@
     transition: font-weight 200ms ease-in-out;
 	}
 	:global(form button[type='submit']) {
-		/* background-color: var(--c-border); */
+		background-color: var(--c-bg--form);
 	}
 
 	.Site-header {
