@@ -41,7 +41,7 @@
 			<h1>{titleOneWord}</h1>
 			<p>{$_('catch_line')}</p>
 			<center>
-				<Anchor href="/auth/register">
+				<Anchor href="/auth/register" title={$_('menu.register')}>
 					<HomeLogo />
 				</Anchor>
 			</center>
@@ -203,7 +203,7 @@
 		font-style: italic;
 		display: flex;
 		flex-wrap: wrap;
-    align-items: center;
+		align-items: center;
 		gap: var(--s);
 		.Ticker-title {
 			margin-bottom: 0;

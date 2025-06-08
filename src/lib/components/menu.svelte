@@ -26,7 +26,7 @@
 <menu>
 	{#each menuItems as { path, label } (path)}
 		<li>
-			<Anchor href={path}>
+			<Anchor href={path} title={$_(label)}>
 				{$_(label)}
 			</Anchor>
 		</li>
@@ -40,8 +40,8 @@
 		list-style: none;
 		display: flex;
 		overflow-x: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
 		/* align-items: center; */
 		/* justify-content: center; */
 		:global(a) {
@@ -57,7 +57,7 @@
 			outline: 1px solid transparent;
 			outline-offset: 0;
 			color: var(--c-fg);
-      white-space: nowrap;
+			white-space: nowrap;
 			&[aria-current='page'] {
 				background-color: var(--c-bg--menu);
 				border-bottom-color: var(--c-link);
@@ -71,7 +71,7 @@
 			}
 			&:focus {
 				outline-offset: -0.05rem;
-        outline-color: var(--c-link);
+				outline-color: var(--c-link);
 				/* border-radius: calc(var(--s) * 1.5); */
 			}
 		}
