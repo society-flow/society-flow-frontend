@@ -46,7 +46,6 @@ const allContentModules = import.meta.glob('/src/content/**/*.json', {
 });
 
 let allContentCache = null;
-
 const loadAllContent = async () => {
 	if (!allContentCache) {
 		allContentCache = await serializeModules(allContentModules);
@@ -63,10 +62,30 @@ const getContent = async (type, locale = DEFAULT_LOCALE, slug) => {
 	);
 };
 
-// 🔄 Get all content of a specific type
-const getAllContent = async (type) => {
+// Get all content of a specific type with locale filtering
+const getAllContent = async (type, locale = DEFAULT_LOCALE) => {
 	const all = await loadAllContent();
-	return all.filter((item) => item.type === type);
+
+	// Get items for requested locale
+	const requestedLocaleItems = all.filter((item) => item.type === type && item.locale === locale);
+
+	// If requesting default locale, return only default locale items
+	if (locale === DEFAULT_LOCALE) {
+		return requestedLocaleItems;
+	}
+
+	// For non-default locales, include fallbacks for missing content
+	const defaultLocaleItems = all.filter(
+		(item) => item.type === type && item.locale === DEFAULT_LOCALE
+	);
+
+	// Get slugs that exist in requested locale
+	const requestedLocaleSlugs = new Set(requestedLocaleItems.map((item) => item.slug));
+
+	// Add default locale items only if they don't exist in requested locale
+	const fallbackItems = defaultLocaleItems.filter((item) => !requestedLocaleSlugs.has(item.slug));
+
+	return [...requestedLocaleItems, ...fallbackItems];
 };
 
 // Optional type-specific wrappers
