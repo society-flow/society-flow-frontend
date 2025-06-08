@@ -57,7 +57,7 @@ class Api {
 
 	// ========== MOCK METHODS ==========
 	fetchMock(endpoint) {
-		return fetch(this.urlMock).then(() => DATA[endpoint]);
+		return Promise.resolve(DATA[endpoint]);
 	}
 
 	getSocieties() {
