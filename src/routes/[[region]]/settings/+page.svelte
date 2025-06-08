@@ -6,8 +6,8 @@
 	import Page from '$lib/components/routes/page.svelte';
 
 	const apiUrl = page.url.searchParams.get('api-url');
-	function onclick() {
-		console.log('clicked');
+
+	function loginDemoUser() {
 		userState.setUser({
 			id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
 			email: 'demo@example.com',
@@ -17,7 +17,10 @@
 		});
 	}
 
-	// grab all "settings.sections" from JSON
+	async function logoutDemoUser() {
+		await userState.logout();
+	}
+
 	const sections = $derived($json('pages.settings.sections'));
 </script>
 
@@ -38,13 +41,13 @@
 
 			{#if key === 'demo'}
 				{#if !userState.isAuth}
-					<button on:click={onclick}>
+					<button onclick={loginDemoUser}>
 						{section.loginText}
 					</button>
 				{/if}
 
 				{#if userState.isDemo}
-					<button on:click={() => userState.logout()}>
+					<button onclick={logoutDemoUser}>
 						{section.logoutText}
 					</button>
 				{/if}

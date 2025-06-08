@@ -17,7 +17,7 @@
 	const sections = $derived($json('pages.auth.verify-otp.sections'));
 
 	async function onverify() {
-		setTimeout(() => goto(`${base}/`), 0);
+		setTimeout(() => goto(`${base}/${$locale}/`), 0);
 	}
 </script>
 

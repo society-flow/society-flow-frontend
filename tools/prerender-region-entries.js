@@ -74,6 +74,6 @@ export default function generatePrerenderEntries() {
 	}
 
 	entries.push('*');
-	console.log('entries to be built', entries);
+	console.info('entries to be built', entries);
 	return entries;
 }

@@ -17,8 +17,7 @@
 	const sections = $derived($json('pages.auth.register.sections'));
 
 	async function onregister({ email: userEmail }) {
-		console.log('onregister');
-		setTimeout(() => goto(`${base}/auth/verify-otp?email=${userEmail}`), 0);
+    setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${userEmail}`), 0);
 	}
 </script>
 

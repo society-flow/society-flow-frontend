@@ -13,8 +13,6 @@
 	let ticker = $state({});
 	$effect(async () => {
 		ticker = await getTicker('dev', $locale);
-		const tickers = await getTickers($locale);
-		console.log('ticker,s', ticker, tickers);
 	});
 
 	let societies = $state([]);

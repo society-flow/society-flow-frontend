@@ -22,19 +22,16 @@ export const load = async ({ url }) => {
 	const buildPath = (newLocale) => `${base}/${newLocale}${pathname.slice(reqLocale.length + 1)}`;
 
 	if (reqLocaleSupported) {
-		console.info('reqLocaleSupported', reqLocaleRoot);
 		locale.set(reqLocale);
 		return;
 	}
 
 	if (userLocaleSupported) {
-		console.info('userLocaleSupported', userLocaleRoot);
 		locale.set(userLocaleRoot);
 		throw redirect(307, buildPath(userLocaleRoot));
 	}
 
 	if (!reqLocaleSupported) {
-		console.info('!reqLocaleSupported', reqLocaleRoot);
 		locale.set(DEFAULT_LOCALE);
 		throw redirect(307, buildPath(DEFAULT_LOCALE));
 	}
