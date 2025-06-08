@@ -22,24 +22,36 @@ class Api {
 		}
 	}
 
-	async fetch(endpoint, { method = 'GET', data } = {}) {
+	async fetch(endpoint, userOptions = {}) {
+		const { method = 'GET', data, headers = {} } = userOptions;
 		const options = {
 			mode: 'cors',
 			method,
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				...headers
 			}
 		};
 		if (data) {
 			options.body = JSON.stringify(data);
 		}
 
-		return fetch(`${this.url}${endpoint}`, options).then(async (res) => {
-			if (!res.ok) {
-				const errorBody = await res.json();
-				throw new Error(errorBody.message || res.statusText);
+		const res = await fetch(`${this.url}${endpoint}`, options);
+		if (!res.ok) {
+			const errorBody = await res.json();
+			throw new Error(errorBody.message || res.statusText);
+		}
+		return res.json();
+	}
+
+	async fetchAuthed(endpoint, options = {}) {
+		const token = 'token-hello-world';
+		return this.fetch(endpoint, {
+			...options,
+			headers: {
+				...options.headers,
+				Authorization: `Bearer ${token}`
 			}
-			return res.json();
 		});
 	}
 
@@ -123,6 +135,11 @@ class Api {
 
 	logout() {
 		userState.logout();
+	}
+
+	// ========== data =========
+	getUserByEmail(email = userState?.user?.email) {
+		return this.fetchAuthed(`/users/by-email/${email}`);
 	}
 }
 
