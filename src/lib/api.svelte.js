@@ -24,6 +24,7 @@ class Api {
 
 	async fetch(endpoint, { method = 'GET', data } = {}) {
 		const options = {
+			mode: 'cors',
 			method,
 			headers: {
 				'Content-Type': 'application/json'
