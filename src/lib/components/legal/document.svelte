@@ -38,7 +38,17 @@
 				{content}
 			{:else if slug === 'data-processing-info'}
 				<Dpi dpi={content} />
+			{:else if typeof content === 'object'}
+				<pre>{content?.message}</pre>
 			{/if}
 		{/if}
 	{/if}
 </article>
+
+<style>
+	article {
+		pre {
+			white-space: pre-wrap;
+		}
+	}
+</style>

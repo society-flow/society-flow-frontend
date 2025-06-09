@@ -1,5 +1,7 @@
 <script type="javascript">
-	const { dpi } = $props();
+	const { dpi: data } = $props();
+	const dpi = $derived(JSON.parse(data.message));
+	console.log('data', data.message);
 </script>
 
 <div>

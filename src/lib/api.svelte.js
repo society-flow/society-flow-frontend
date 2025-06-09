@@ -167,10 +167,11 @@ class Api {
 			const errorBody = await res.json();
 			throw new Error(errorBody.message || res.statusText);
 		} else {
-			if (legalDocumentType === 'data-processing-info') {
-				return res.json();
-			}
-			return res.text();
+			return res.json();
+			/* if (legalDocumentType === 'data-processing-info') {
+				 return res.json();
+			   }
+			   return res.text(); */
 		}
 	}
 }
