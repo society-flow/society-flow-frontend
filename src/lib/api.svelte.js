@@ -46,7 +46,7 @@ class Api {
 	}
 
 	async fetchAuthed(endpoint, options = {}) {
-		const token = 'token-hello-world';
+		const token = userState.user.token;
 		return this.fetch(endpoint, {
 			...options,
 			headers: {
@@ -129,8 +129,8 @@ class Api {
 		return this.fetch('/users/verify-otp', {
 			method: 'POST',
 			data: { email, otp }
-		}).then((user) => {
-			return userState.login(user);
+		}).then(({ token }) => {
+			return userState.setToken(token);
 		});
 	}
 
