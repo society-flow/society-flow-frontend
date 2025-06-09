@@ -1,9 +1,22 @@
 // tools/generatePrerenderEntries.js
 import fs from 'fs';
 import path from 'path';
-/* import {SUPPORTED_LOCALES} from "../src/lib/i18n.js" */
+
 const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr'];
-/* const SUPPORTED_LOCALES = ['en']; */
+
+/**
+ * Configuration for dynamic route parameters
+ * Key: route pattern, Value: object with param arrays
+ */
+const DYNAMIC_ROUTES = {
+	'ads/[id]': { id: [1, 2, 3, 4, 5, 6, 7] },
+	'expenses/[id]': { id: [1, 2, 3, 4, 5] },
+	'residences/[id]': { id: [1, 2] },
+	'societies/[id]': { id: [1, 2] },
+	'legal/[slug]': {
+		slug: ['privacy-policy', 'terms-of-service', 'cookie-policy', 'data-protection']
+	}
+};
 
 /**
  * Starting folder: the `[[region]]` directory under routes
@@ -14,9 +27,12 @@ const ROUTES_ROOT = path.resolve('src/routes/[[region]]');
  * Returns true if `dir` contains a +page.(svelte|js|ts)
  */
 function hasPageFile(dir) {
-	// Check for +page.svelte, +page.js, or +page.ts
-	const entries = fs.readdirSync(dir);
-	return entries.some((file) => /^(\+page\.(svelte|js|ts))$/.test(file));
+	try {
+		const entries = fs.readdirSync(dir);
+		return entries.some((file) => /^(\+page\.(svelte|js|ts))$/.test(file));
+	} catch (error) {
+		return false;
+	}
 }
 
 /**
@@ -31,7 +47,7 @@ function collectStaticRoutes(dir, relative = '') {
 
 	// If this folder has a +page.* file, record it.
 	if (hasPageFile(dir)) {
-		// `relative` is '' for the root of [[region]] (meaning “/locale”)
+		// `relative` is '' for the root of [[region]] (meaning "/locale")
 		results.push(relative.replace(/\\/g, '/'));
 	}
 
@@ -50,23 +66,103 @@ function collectStaticRoutes(dir, relative = '') {
 }
 
 /**
+ * Recursively walk `dir` and collect all dynamic route patterns.
+ * Dynamic means: contains '[' and ']' in folder name
+ *
+ * Returns an array of relative POSIX‐style paths with brackets, e.g.
+ *   [ 'ads/[id]', 'legal/[slug]', 'societies/[id]', ... ]
+ */
+function collectDynamicRoutes(dir, relative = '') {
+	const results = [];
+
+	// If this folder has a +page.* file, record it as a dynamic route
+	if (hasPageFile(dir) && /\[.+\]/.test(relative)) {
+		results.push(relative.replace(/\\/g, '/'));
+	}
+
+	// Recurse into all subdirectories
+	try {
+		const children = fs.readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory());
+
+		for (const child of children) {
+			const childDir = path.join(dir, child.name);
+			const childRel = relative === '' ? child.name : `${relative}/${child.name}`;
+			results.push(...collectDynamicRoutes(childDir, childRel));
+		}
+	} catch (error) {
+		// Skip directories we can't read
+	}
+
+	return results;
+}
+
+/**
+ * Generate all parameter combinations for a dynamic route
+ */
+function generateDynamicEntries(routePattern, paramConfig) {
+	const entries = [];
+	const paramNames = Object.keys(paramConfig);
+	const paramValues = Object.values(paramConfig);
+
+	// Generate all combinations
+	function generateCombinations(index, current) {
+		if (index === paramNames.length) {
+			// Replace all parameters in the route pattern
+			let resolvedRoute = routePattern;
+			for (const [param, value] of Object.entries(current)) {
+				resolvedRoute = resolvedRoute.replace(`[${param}]`, value);
+			}
+			entries.push(resolvedRoute);
+			return;
+		}
+
+		const paramName = paramNames[index];
+		const values = paramValues[index];
+
+		for (const value of values) {
+			current[paramName] = value;
+			generateCombinations(index + 1, current);
+		}
+	}
+
+	generateCombinations(0, {});
+	return entries;
+}
+
+/**
  * Main generator function.
- * Returns an array of strings: [ '/en', '/en/about', '/de/ads', ... ]
+ * Returns an array of strings: [ '/en', '/en/about', '/de/ads/123', ... ]
  */
 export default function generatePrerenderEntries() {
 	if (!fs.existsSync(ROUTES_ROOT)) {
 		throw new Error(`Cannot find ${ROUTES_ROOT}. Make sure your [[region]] folder exists.`);
 	}
 
-	// Step 1: gather all static route “relative paths” under [[region]]
-	//   e.g. [ '', 'about', 'ads', 'societies', 'societies/list', ... ]
+	// Step 1: gather all static route "relative paths" under [[region]]
 	const staticRoutes = collectStaticRoutes(ROUTES_ROOT);
 
-	// Step 2: for each locale, prefix each route with `/locale/`
-	const entries = [];
+	// Step 2: gather all dynamic route patterns under [[region]]
+	const dynamicRoutePatterns = collectDynamicRoutes(ROUTES_ROOT);
 
+	// Step 3: generate resolved dynamic routes
+	const dynamicRoutes = [];
+	for (const pattern of dynamicRoutePatterns) {
+		const config = DYNAMIC_ROUTES[pattern];
+		if (config) {
+			const resolved = generateDynamicEntries(pattern, config);
+			dynamicRoutes.push(...resolved);
+		} else {
+			console.warn(`⚠️  No configuration found for dynamic route: ${pattern}`);
+		}
+	}
+
+	// Step 4: combine all routes
+	const allRoutes = [...staticRoutes, ...dynamicRoutes];
+
+	// Step 5: for each locale, prefix each route with `/locale/`
+	const entries = [];
 	for (const locale of SUPPORTED_LOCALES) {
-		for (const route of staticRoutes) {
+		for (const route of allRoutes) {
 			// Build "/<locale>" or "/<locale>/<route>"
 			const full = route === '' ? `/${locale}` : `/${locale}/${route}`;
 			entries.push(full.replace(/\/+$/, ''));
@@ -74,6 +170,11 @@ export default function generatePrerenderEntries() {
 	}
 
 	entries.push('*');
-	console.info('entries to be built', entries);
+
+	console.info(`Generated ${entries.length - 1} prerender entries:`);
+	console.info(`  - ${staticRoutes.length * SUPPORTED_LOCALES.length} static routes`);
+	console.info(`  - ${dynamicRoutes.length * SUPPORTED_LOCALES.length} dynamic routes`);
+	console.info('Sample entries:', entries.slice(0, 10));
+
 	return entries;
 }
