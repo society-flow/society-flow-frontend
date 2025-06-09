@@ -33,11 +33,9 @@
 		<header>
 			<h1>{$_(`menu.legal.${slug}`)}</h1>
 		</header>
-		{#if content}
-			{#if typeof content === 'string'}
-				{content}
-			{:else if slug === 'data-processing-info'}
-				<Dpi dpi={content} />
+		{#if content && content.message}
+			{#if slug === 'data-processing-info'}
+				<Dpi dpi={content?.message} />
 			{:else if typeof content === 'object'}
 				<pre>{content?.message}</pre>
 			{/if}
