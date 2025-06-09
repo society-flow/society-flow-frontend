@@ -8,10 +8,10 @@
 	requiresAuth($locale);
 </script>
 
-<Page title={$_('menu.logout')}>
+<Page title={$_('menu.auth.logout')}>
 	{#snippet header()}
 		<h1>
-			{$_('menu.logout')}
+			{$_('menu.auth.logout')}
 		</h1>
 	{/snippet}
 	{#if userState.isAuth}

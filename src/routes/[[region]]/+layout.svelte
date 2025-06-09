@@ -74,6 +74,10 @@
 		border-color: transparent;
 	}
 
+  :global(pre) {
+    white-space: pre-wrap;
+  }
+
 	:global(fieldset[data-type='error']) {
 		text-decoration: underline;
 		text-decoration-color: var(--c-error);

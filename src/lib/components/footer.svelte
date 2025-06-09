@@ -16,6 +16,9 @@
 		<time datetime={currentDateTime.toISOString()} title={currentDateTime.toLocaleString()}>
 			{currentYear}
 		</time>
+		<Anchor href="/legal" title={$_('menu.legal')}>
+			{$_('menu.legal')}
+		</Anchor>
 	</li>
 	<li>
 		<Anchor href="/" title={$_('title')}>
@@ -48,8 +51,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
+		justify-content: center;
+		gap: 0.3rem;
 		:global(a) {
 			padding: calc(var(--s) / 2) var(--s);
 			color: var(--c-fg);

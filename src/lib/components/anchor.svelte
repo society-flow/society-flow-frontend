@@ -23,7 +23,7 @@
 		return currentPath === targetPath || currentPath.startsWith(targetPath + '/');
 	}
 
-  $effect(() => {
+	$effect(() => {
 		if (href) {
 			isCurrent = isCurrentPage(reqHref);
 		}
@@ -31,5 +31,9 @@
 </script>
 
 <a {...rest} {href} aria-current={isCurrent ? 'page' : undefined}>
-	{@render children()}
+	{#if children}
+		{@render children()}
+	{:else}
+		{href}
+	{/if}
 </a>

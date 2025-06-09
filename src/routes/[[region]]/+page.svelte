@@ -15,12 +15,12 @@
 		ticker = await getTicker('dev', $locale);
 	});
 
-  let user = $state(null);
+	let user = $state(null);
 	$effect(async () => {
-    if (userState?.isAuth) {
-      user = await api.getUserByEmail();
-      console.log("User by email", user)
-    }
+		if (userState?.isAuth) {
+			user = await api.getUserByEmail();
+			console.log('User by email', user);
+		}
 	});
 
 	let societies = $state([]);
@@ -49,7 +49,7 @@
 			<h1>{titleOneWord}</h1>
 			<p>{$_('catch_line')}</p>
 			<center>
-				<Anchor href="/auth/register" title={$_('menu.register')}>
+				<Anchor href="/auth/register" title={$_('menu.auth.register')}>
 					<HomeLogo />
 				</Anchor>
 			</center>
@@ -119,7 +119,7 @@
 				</center>
 			{/if}
 			<center>
-				<Anchor href="/auth/login">{$_('menu.login')}</Anchor>
+				<Anchor href="/auth/login">{$_('menu.auth.login')}</Anchor>
 			</center>
 		</section>
 		{#if ticker}

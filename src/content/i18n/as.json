@@ -10,10 +10,15 @@
 		"about": "আমাৰ বিষয়ে",
 		"styles": "ষ্টাইলসমূহ",
 		"settings": "সংহতিসমূহ",
-		"login": "লগ ইন",
-		"logout": "লগ আউট",
-		"register": "পঞ্জীকৰণ",
-		"verify-otp": "OTP সত্যাপন"
+		"auth.login": "লগ ইন",
+		"auth.logout": "লগ আউট",
+		"auth.register": "পঞ্জীকৰণ",
+		"auth.verify-otp": "OTP সত্যাপন",
+		"legal": "আইনী",
+		"legal.terms-of-service": "সেৱাৰ চৰ্তাৱলী",
+		"legal.privacy-policy": "গোপনীয়তা নীতি",
+		"legal.data-processing-info": "তথ্য প্ৰক্ৰিয়াকৰণৰ তথ্য",
+		"legal.cookie-policy": "কুকি নীতি"
 	},
 	"pages": {
 		"auth": {
@@ -26,7 +31,7 @@
 						"text": "ইমেইল পুনৰ পঠাওক",
 						"link": {
 							"url": "/auth/login?email={email}",
-							"text": "menu.verify-otp"
+							"text": "menu.auth.verify-otp"
 						}
 					}
 				}
@@ -38,7 +43,7 @@
 						"text": "আপোনাৰ ইতিমধ্যে এটা একাউণ্ট আছে নে?",
 						"link": {
 							"url": "/auth/login",
-							"text": "menu.login"
+							"text": "menu.auth.login"
 						}
 					}
 				}
@@ -50,7 +55,7 @@
 						"text": "আপোনাৰ এতিয়াও একাউণ্ট নাইনে? বিনামূল্যে",
 						"link": {
 							"url": "/auth/register",
-							"text": "menu.register"
+							"text": "menu.auth.register"
 						}
 					}
 				}

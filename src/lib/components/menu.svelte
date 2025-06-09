@@ -9,14 +9,14 @@
 		{ path: '/societies', label: 'menu.societies' },
 		{ path: '/residences', label: 'menu.residences' },
 		{ path: '/expenses', label: 'menu.expenses' },
-		{ path: '/auth/logout', label: 'menu.logout' }
+		{ path: '/auth/logout', label: 'menu.auth.logout' }
 	];
 
 	const menuItemsNoAuth = [
 		{ path: '/', label: 'menu.home' },
 		{ path: '/ads', label: 'menu.adverts' },
 		{ path: '/about', label: 'menu.about' },
-		{ path: '/auth/login', label: 'menu.login' }
+		{ path: '/auth/login', label: 'menu.auth.login' }
 	];
 
 	const isAuth = $derived(userState.isAuth);

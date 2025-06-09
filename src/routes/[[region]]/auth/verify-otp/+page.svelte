@@ -21,10 +21,10 @@
 	}
 </script>
 
-<Page title={$_('menu.verify-otp')}>
+<Page title={$_('menu.auth.verify-otp')}>
 	{#snippet header()}
 		<h1>
-			{$_('menu.verify-otp')}
+			{$_('menu.auth.verify-otp')}
 		</h1>
 	{/snippet}
 	{#if !userState.isAuth}

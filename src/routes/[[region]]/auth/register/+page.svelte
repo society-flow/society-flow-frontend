@@ -21,9 +21,9 @@
 	}
 </script>
 
-<Page title={$_('menu.register')}>
+<Page title={$_('menu.auth.register')}>
 	{#snippet header()}
-		<h1>{$_('menu.register')}</h1>
+		<h1>{$_('menu.auth.register')}</h1>
 	{/snippet}
 
 	{#if !userState.isAuth}

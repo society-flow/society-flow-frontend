@@ -20,10 +20,10 @@
 	}
 </script>
 
-<Page title={$_('menu.login')}>
+<Page title={$_('menu.auth.login')}>
 	{#snippet header()}
 		<h1>
-			{$_('menu.login')}
+			{$_('menu.auth.login')}
 		</h1>
 	{/snippet}
 	{#if !userState.isAuth}

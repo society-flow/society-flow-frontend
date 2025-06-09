@@ -21,7 +21,7 @@
 
 <form on:submit={onSubmit}>
 	<fieldset>
-		<button type="submit">{$_('menu.logout')}</button>
+		<button type="submit">{$_('menu.auth.logout')}</button>
 	</fieldset>
 
 	{#if error}

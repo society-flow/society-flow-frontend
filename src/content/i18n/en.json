@@ -10,10 +10,15 @@
 		"about": "About",
 		"styles": "Styles",
 		"settings": "Settings",
-		"login": "Login",
-		"logout": "Logout",
-		"register": "Register",
-		"verify-otp": "Verify OTP"
+		"auth.login": "Login",
+		"auth.logout": "Logout",
+		"auth.register": "Register",
+		"auth.verify-otp": "Verify OTP",
+		"legal": "Legal",
+		"legal.terms-of-service": "Terms of Service",
+		"legal.privacy-policy": "Privacy Policy",
+		"legal.data-processing-info": "Data Processing Information",
+		"legal.cookie-policy": "Cookie Policy"
 	},
 	"pages": {
 		"auth": {
@@ -26,7 +31,7 @@
 						"text": "Resend email",
 						"link": {
 							"url": "/auth/login?email={email}",
-							"text": "menu.verify-otp"
+							"text": "menu.auth.verify-otp"
 						}
 					}
 				}
@@ -37,7 +42,7 @@
 						"text": "You already have an account?",
 						"link": {
 							"url": "/auth/login",
-							"text": "menu.login"
+							"text": "menu.auth.login"
 						}
 					}
 				}
@@ -48,7 +53,7 @@
 						"text": "You don't have an account yet? It's free to",
 						"link": {
 							"url": "/auth/register",
-							"text": "menu.register"
+							"text": "menu.auth.register"
 						}
 					}
 				}

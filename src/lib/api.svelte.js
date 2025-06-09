@@ -1,4 +1,5 @@
 import { userState } from '$lib/states/user.svelte.js';
+import { DOCUMENT_TYPES as validLegalDocumentTypes } from '$lib/const/legal.js';
 import { PUBLIC_API_URL } from '$env/static/public';
 import societies from '../content/societies.js';
 import residences from '../content/residences.js';
@@ -140,6 +141,33 @@ class Api {
 	// ========== data =========
 	getUserByEmail(email = userState?.user?.email) {
 		return this.fetchAuthed(`/users/by-email/${email}`);
+	}
+
+	// ========== legal =========
+	async getLegal(legalDocumentType, lang = 'en') {
+		if (!validLegalDocumentTypes.includes(legalDocumentType)) {
+			throw new Error(
+				`Invalid legal document type. Must be one of: ${validLegalDocumentTypes.join(', ')}`
+			);
+		}
+
+		const endpoint = `/legal/${legalDocumentType}${lang ? `?lang=${lang}` : ''}`;
+		const res = await fetch(`${this.url}${endpoint}`, {
+			mode: 'cors',
+			method: 'get',
+			headers: {
+				'Content-Type': 'text/plain'
+			}
+		});
+		if (!res.ok) {
+			const errorBody = await res.json();
+			throw new Error(errorBody.message || res.statusText);
+		} else {
+			if (legalDocumentType === 'data-processing-info') {
+				return res.json();
+			}
+			return res.text();
+		}
 	}
 }
 

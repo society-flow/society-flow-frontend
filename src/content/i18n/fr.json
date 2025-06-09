@@ -10,10 +10,15 @@
 		"about": "À propos",
 		"styles": "Styles",
 		"settings": "Paramètres",
-		"login": "Connexion",
-		"logout": "Déconnexion",
-		"register": "S'inscrire",
-		"verify-otp": "Vérifier OTP"
+		"auth.login": "Connexion",
+		"auth.logout": "Déconnexion",
+		"auth.register": "S'inscrire",
+		"auth.verify-otp": "Vérifier OTP",
+		"legal": "Légal",
+		"legal.terms-of-service": "Conditions d'utilisation",
+		"legal.privacy-policy": "Politique de confidentialité",
+		"legal.data-processing-info": "Informations sur le traitement des données",
+		"legal.cookie-policy": "Politique des cookies"
 	},
 	"pages": {
 		"auth": {
@@ -26,7 +31,7 @@
 						"text": "Renvoyer l'e-mail",
 						"link": {
 							"url": "/auth/login?email={email}",
-							"text": "menu.verify-otp"
+							"text": "menu.auth.verify-otp"
 						}
 					}
 				}
@@ -38,7 +43,7 @@
 						"text": "Vous avez déjà un compte ?",
 						"link": {
 							"url": "/auth/login",
-							"text": "menu.login"
+							"text": "menu.auth.login"
 						}
 					}
 				}
@@ -50,7 +55,7 @@
 						"text": "Vous n'avez pas encore de compte ? C'est gratuit de",
 						"link": {
 							"url": "/auth/register",
-							"text": "menu.register"
+							"text": "menu.auth.register"
 						}
 					}
 				}
