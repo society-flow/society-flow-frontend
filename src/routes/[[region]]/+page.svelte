@@ -15,14 +15,6 @@
 		ticker = await getTicker('dev', $locale);
 	});
 
-	let user = $state(null);
-	$effect(async () => {
-		if (userState?.isAuth) {
-			user = await api.getUserByEmail();
-			console.log('User by email', user);
-		}
-	});
-
 	let societies = $state([]);
 	$effect(async () => {
 		societies = await api.getSocieties();

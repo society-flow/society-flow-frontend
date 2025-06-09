@@ -46,7 +46,7 @@ class Api {
 	}
 
 	async fetchAuthed(endpoint, options = {}) {
-		const token = userState.user.token;
+		const token = userState.token;
 		return this.fetch(endpoint, {
 			...options,
 			headers: {
@@ -130,6 +130,7 @@ class Api {
 			method: 'POST',
 			data: { email, otp }
 		}).then(({ token }) => {
+			console.log('token', token);
 			return userState.setToken(token);
 		});
 	}
@@ -139,6 +140,9 @@ class Api {
 	}
 
 	// ========== data =========
+	getUser() {
+		return this.fetchAuthed(`/users`);
+	}
 	getUserByEmail(email = userState?.user?.email) {
 		return this.fetchAuthed(`/users/by-email/${email}`);
 	}

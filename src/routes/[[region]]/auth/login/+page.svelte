@@ -1,9 +1,9 @@
 <script lang="javascript">
 	import { _, json, locale } from 'svelte-i18n';
-	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
+	import { userState } from '$lib/states/user.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Login from '$lib/components/auth/login.svelte';
 	import requiresNoAuth from '$lib/effects/requires-no-auth.svelte.js';

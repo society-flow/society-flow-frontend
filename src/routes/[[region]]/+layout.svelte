@@ -2,10 +2,20 @@
 	import '../../app.css';
 	import 'leaflet/dist/leaflet.css';
 	import { navigating } from '$app/stores';
+  import { api } from '$lib/api.svelte.js';
+  import { userState } from '$lib/states/user.svelte.js';
 	import Menu from '$lib/components/menu.svelte';
 	import Footer from '$lib/components/footer.svelte';
 
   const {children} = $props()
+
+	$effect(async () => {
+		if (userState?.isAuth) {
+			const user = await api.getUser();
+      userState.setUser(user)
+			console.log('User by email', user);
+		}
+	});
 </script>
 
 <header class="Site-header">
