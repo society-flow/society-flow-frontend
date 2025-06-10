@@ -18,7 +18,7 @@ let swaggerClient = null;
 
 export async function initSwaggerClient() {
 	if (!swaggerClient) {
-		swaggerClient = await Swagger('https://gigrandom.com/api-docs');
+		swaggerClient = await Swagger(`${PUBLIC_API_URL}/api-docs`);
 	}
 	return swaggerClient;
 }
@@ -34,8 +34,8 @@ class Api {
 
 	async getClient() {
 		const client = getSwaggerClient();
-		const token = userState?.token;
-		if (token) {
+		const bearerAuth = userState?.token;
+		if (bearerAuth) {
 			client.spec.securityDefinitions = {
 				bearerAuth: {
 					type: 'apiKey',
@@ -43,9 +43,7 @@ class Api {
 					in: 'header'
 				}
 			};
-			client.authorizations = {
-				bearerAuth: `Bearer ${token}`
-			};
+			client.authorizations = { bearerAuth };
 		}
 		return client;
 	}
@@ -85,26 +83,25 @@ class Api {
 	}
 	async login({ email }) {
 		const client = await this.getClient();
-		console.log('client', client);
-		return client.apis.users.login({ email });
+		return client.apis.users.login({}, { requestBody: { email } });
 	}
 	async register({ email, name }) {
 		const client = await this.getClient();
-		return client.apis.users.createUser({ name, email });
+		return client.apis.users.createUser({}, { requestBody: { name, email } });
 	}
 	async verifyOtp({ email, otp }) {
 		const client = await this.getClient();
-		const res = await client.apis.users.verifyOtp({ email, otp });
+		const res = await client.apis.users.verifyOtp({}, { requestBody: { email, otp } });
 		userState.setToken(res.body.token);
 		return res;
 	}
-	async getUser() {
-		const client = await this.getClient();
-		return client.apis.users.getUser();
-	}
 	async getUserByEmail(email = userState?.user?.email) {
 		const client = await this.getClient();
-		return client.apis.users.getUserByEmail({ email });
+		return client.apis.users.getUserByEmail({}, { requestBody: { email } });
+	}
+	async getUser() {
+		const client = await this.getClient();
+		return client.apis.users.getUser().then((res) => res.body);
 	}
 
 	// Legal content (fallback to fetch)

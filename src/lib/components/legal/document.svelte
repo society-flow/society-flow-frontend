@@ -19,7 +19,7 @@
 			console.log(response);
 			content = response;
 		} catch (err) {
-			console.log('Error', err);
+			console.info('Error', err);
 		}
 	}
 
