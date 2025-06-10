@@ -170,11 +170,6 @@ export default function generatePrerenderEntries() {
 	}
 
 	entries.push('*');
-
-	console.info(`Generated ${entries.length - 1} prerender entries:`);
-	console.info(`  - ${staticRoutes.length * SUPPORTED_LOCALES.length} static routes`);
-	console.info(`  - ${dynamicRoutes.length * SUPPORTED_LOCALES.length} dynamic routes`);
-	console.info('Sample entries:', entries.slice(0, 10));
-
+	console.log('entries', entries);
 	return entries;
 }

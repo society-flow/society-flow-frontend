@@ -2,9 +2,10 @@
 	import { _ } from 'svelte-i18n';
 
 	const { error } = $props();
-	const messageRoot = $derived(error?.message.split(' ')[0]);
 </script>
 
-{#if error?.message}
-	{$_(`errors.${messageRoot}`, { default: error?.message })}
+{#if error?.response}
+	{error.response?.body?.message}
+{:else if error?.message}
+	{$_(`errors.${error.message}`)}
 {/if}

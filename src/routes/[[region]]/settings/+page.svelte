@@ -8,13 +8,7 @@
 	const apiUrl = page.url.searchParams.get('api-url');
 
 	function loginDemoUser() {
-		userState.setUser({
-			id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-			email: 'demo@example.com',
-			name: 'Demo User',
-			createdAt: '2025-06-04T05:41:36.367Z',
-			updatedAt: '2025-06-04T05:41:36.367Z'
-		});
+		userState.loginDemo();
 	}
 
 	async function logoutDemoUser() {

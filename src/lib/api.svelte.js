@@ -1,153 +1,110 @@
+import Swagger from 'swagger-client';
 import { userState } from '$lib/states/user.svelte.js';
 import { DOCUMENT_TYPES as validLegalDocumentTypes } from '$lib/const/legal.js';
-import { PUBLIC_API_URL } from '$env/static/public';
 import societies from '../content/societies.js';
 import residences from '../content/residences.js';
 import expenses from '../content/expenses.js';
 import adverts from '../content/adverts.js';
+import { PUBLIC_API_URL } from '$env/static/public';
 
-const DATA = {
+const MOCK_DATA = {
 	'/societies': societies,
 	'/residences': residences,
 	'/expenses': expenses,
 	'/adverts': adverts
 };
 
+let swaggerClient = null;
+
+export async function initSwaggerClient() {
+	if (!swaggerClient) {
+		swaggerClient = await Swagger(`${PUBLIC_API_URL}/api-docs`);
+	}
+	return swaggerClient;
+}
+
+export function getSwaggerClient() {
+	if (!swaggerClient) throw new Error('Swagger client not initialized. Call initApi() first.');
+	return swaggerClient;
+}
+
 class Api {
 	urlMock = window.location.origin;
 	url = $state(`${PUBLIC_API_URL}/api`);
 
-	constructor() {
-		if (!PUBLIC_API_URL) {
-			console.warn('Missing PUBLIC_API_URL env var');
+	async getClient() {
+		const client = getSwaggerClient();
+		const bearerAuth = userState?.token;
+		if (bearerAuth) {
+			client.spec.securityDefinitions = {
+				bearerAuth: {
+					type: 'apiKey',
+					name: 'Authorization',
+					in: 'header'
+				}
+			};
+			client.authorizations = { bearerAuth };
 		}
+		return client;
 	}
 
-	async fetch(endpoint, userOptions = {}) {
-		const { method = 'GET', data, headers = {} } = userOptions;
-		const options = {
-			mode: 'cors',
-			method,
-			headers: {
-				'Content-Type': 'application/json',
-				...headers
-			}
-		};
-		if (data) {
-			options.body = JSON.stringify(data);
-		}
-
-		const res = await fetch(`${this.url}${endpoint}`, options);
-		if (!res.ok) {
-			const errorBody = await res.json();
-			throw new Error(errorBody.message || res.statusText);
-		}
-		return res.json();
-	}
-
-	async fetchAuthed(endpoint, options = {}) {
-		const token = userState.token;
-		return this.fetch(endpoint, {
-			...options,
-			headers: {
-				...options.headers,
-				Authorization: `Bearer ${token}`
-			}
-		});
-	}
-
-	// ========== MOCK METHODS ==========
+	// Mocked endpoints
 	fetchMock(endpoint) {
-		return Promise.resolve(DATA[endpoint]);
+		return Promise.resolve(MOCK_DATA[endpoint]);
 	}
-
 	getSocieties() {
 		return this.fetchMock('/societies');
 	}
 	getSociety(id) {
-		return this.getSocieties().then((s) => s.find((i) => i.id === id));
+		return this.getSocieties().then((list) => list.find((i) => i.id === id));
 	}
-
 	getResidences() {
 		return this.fetchMock('/residences');
 	}
 	getResidence(id) {
-		return this.getResidences().then((r) => r.find((i) => i.id === id));
+		return this.getResidences().then((list) => list.find((i) => i.id === id));
 	}
-
 	getExpenses() {
 		return this.fetchMock('/expenses');
 	}
 	getExpense(id) {
-		return this.getExpenses().then((e) => e.find((i) => i.id === id));
+		return this.getExpenses().then((list) => list.find((i) => i.id === id));
 	}
-
 	getAdverts() {
 		return this.fetchMock('/adverts');
 	}
 	getAdvert(id) {
-		return this.getAdverts().then((a) => a.find((i) => i.id === id));
+		return this.getAdverts().then((list) => list.find((i) => i.id === id));
 	}
 
-	// ========== AUTH METHODS ==========
-	async register({ name, email }) {
-		// for testing
-		/* return Promise.resolve({
-			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-			 email: email,
-			 name: name,
-			 createdAt: '2025-06-04T06:05:18.702Z',
-			 updatedAt: '2025-06-04T06:05:18.702Z'
-		   }); */
-		return this.fetch('/users/create', {
-			method: 'POST',
-			data: { name, email }
-		});
-	}
-
-	async login({ email }) {
-		// for testing
-		/* return true; */
-		return this.fetch('/users/login', {
-			method: 'POST',
-			data: { email }
-		});
-		// login doesn't return a user — no storage here
-	}
-
-	async verifyOtp({ email, otp }) {
-		// for testing
-		/* return Promise.resolve({
-			 id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-			 email: email,
-			 name: 'Bobi Diye',
-			 createdAt: '2025-06-04T05:41:36.367Z',
-			 updatedAt: '2025-06-04T05:41:36.367Z'
-		   }).then((user) => {
-			 return userState.login(user);
-		   }); */
-		return this.fetch('/users/verify-otp', {
-			method: 'POST',
-			data: { email, otp }
-		}).then(({ token }) => {
-			console.log('token', token);
-			return userState.setToken(token);
-		});
-	}
-
+	// Auth methods
 	logout() {
 		userState.logout();
 	}
-
-	// ========== data =========
-	getUser() {
-		return this.fetchAuthed(`/users`);
+	async login({ email }) {
+		const client = await this.getClient();
+		return client.apis.users.login({}, { requestBody: { email } });
 	}
-	getUserByEmail(email = userState?.user?.email) {
-		return this.fetchAuthed(`/users/by-email/${email}`);
+	async register({ email, name }) {
+		const client = await this.getClient();
+		return client.apis.users.createUser({}, { requestBody: { name, email } });
+	}
+	async verifyOtp({ email, otp }) {
+		const client = await this.getClient();
+		const res = await client.apis.users.verifyOtp({}, { requestBody: { email, otp } });
+		userState.setToken(res.body.token);
+		return res;
+	}
+	async getUserByEmail(email = userState?.user?.email) {
+		const client = await this.getClient();
+		return client.apis.users.getUserByEmail({}, { requestBody: { email } });
+	}
+	async getUser() {
+		const client = await this.getClient();
+		return client.apis.users.getUser().then((res) => res.body);
 	}
 
-	// ========== legal =========
+	// Legal content (fallback to fetch)
 	async getLegal(legalDocumentType, lang = 'en') {
 		if (!validLegalDocumentTypes.includes(legalDocumentType)) {
 			throw new Error(
@@ -155,25 +112,23 @@ class Api {
 			);
 		}
 
-		const endpoint = `/legal/${legalDocumentType}${lang ? `?lang=${lang}` : ''}`;
+		const endpoint = `/legal/${legalDocumentType}?lang=${lang}`;
 		const res = await fetch(`${this.url}${endpoint}`, {
-			mode: 'cors',
-			method: 'get',
-			headers: {
-				'Content-Type': 'text/plain'
-			}
+			method: 'GET',
+			headers: { 'Content-Type': 'text/plain' }
 		});
+
 		if (!res.ok) {
-			const errorBody = await res.json();
-			throw new Error(errorBody.message || res.statusText);
-		} else {
-			return res.json();
-			/* if (legalDocumentType === 'data-processing-info') {
-				 return res.json();
-			   }
-			   return res.text(); */
+			const err = await res.json();
+			throw new Error(err.message || res.statusText);
 		}
+		return legalDocumentType === 'data-processing-info' ? res.json() : res.text();
 	}
 }
 
 export const api = new Api();
+
+// Main entrypoint to call once on app load
+export async function initApi() {
+	await initSwaggerClient();
+}

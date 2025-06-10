@@ -34,6 +34,11 @@
 	},
 	"dependencies": {
 		"leaflet": "^1.9.4",
-		"svelte-i18n": "^4.0.1"
+		"svelte-i18n": "^4.0.1",
+		"swagger-client": "^3.35.5"
+	},
+	"scarfSettings": {
+		"#comment": "swagger-client no analytics",
+		"enabled": false
 	}
 }

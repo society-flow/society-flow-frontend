@@ -11,12 +11,12 @@
 
 	requiresNoAuth($locale);
 
-	const email = page.url.searchParams.get('email');
+	const email = $derived(page.url.searchParams.get('email'));
 
 	const sections = $derived($json('pages.auth.login.sections'));
 
-	async function onLogin({ email }) {
-		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${email}`), 0);
+	async function onLogin({ email: userEmail }) {
+		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${userEmail}`), 0);
 	}
 </script>
 

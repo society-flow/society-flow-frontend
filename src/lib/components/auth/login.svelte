@@ -6,16 +6,17 @@
 	const { email: userEmail, onLogin = () => {} } = $props();
 
 	let email = $state(userEmail || '');
-	let error = $state(null);
+	let error = $state('');
 
 	async function onsubmit(event) {
 		event.preventDefault();
 		error = '';
 		try {
 			// Also sends the OTP
-			const res = await api.login({ email });
+			const res = await api.login({ email })
 			onLogin({ email });
 		} catch (err) {
+      console.log("Error login", err.message)
 			error = err;
 		}
 	}
