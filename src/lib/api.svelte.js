@@ -86,27 +86,25 @@ class Api {
 	async login({ email }) {
 		const client = await this.getClient();
 		console.log('client', client);
-		console.log('client', client.apis['client user']);
-		return client.apis['User Controller'].login({ body: { email } });
+		return client.apis.users.login({ email });
 	}
-	async register({ name, email }) {
+	async register({ email, name }) {
 		const client = await this.getClient();
-		return client.apis['User Controller'].createUser({ name, email });
+		return client.apis.users.createUser({ name, email });
 	}
 	async verifyOtp({ email, otp }) {
 		const client = await this.getClient();
-		const res = await client.apis['User Controller'].verifyOtp({ email, otp });
+		const res = await client.apis.users.verifyOtp({ email, otp });
 		userState.setToken(res.body.token);
 		return res;
 	}
-
 	async getUser() {
 		const client = await this.getClient();
-		return client.apis['User Controller'].getUser();
+		return client.apis.users.getUser();
 	}
 	async getUserByEmail(email = userState?.user?.email) {
 		const client = await this.getClient();
-		return client.apis['User Controller'].getUserByEmail({ email });
+		return client.apis.users.getUserByEmail({ email });
 	}
 
 	// Legal content (fallback to fetch)
