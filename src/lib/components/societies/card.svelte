@@ -3,11 +3,11 @@
 	import Card from '$lib/components/card.svelte';
 
 	const { society = {} } = $props();
-	const { id, name, role } = society;
+	const { id, name } = society;
 </script>
 
 <Card>
 	<Anchor href={`/societies/${id}`}>
-		{name} - {role}
+		{name}
 	</Anchor>
 </Card>

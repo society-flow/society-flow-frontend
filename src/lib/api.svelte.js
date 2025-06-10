@@ -77,6 +77,167 @@ class Api {
 		return this.getAdverts().then((list) => list.find((i) => i.id === id));
 	}
 
+	// Society API endpoints
+	async getAllSocieties() {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getAllSocieties();
+		return response.body;
+	}
+
+	async getSocietyById(id) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getSocietyById({ id });
+		return response.body;
+	}
+
+	async createOrUpdateSociety(societyData) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.createOrUpdateSociety(
+			{},
+			{ requestBody: societyData }
+		);
+		return response.body;
+	}
+
+	async findSocietyByNameAndLocation({ name, city, state, country }) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.findSocietyByNameAndLocation({
+			name,
+			city,
+			state,
+			country
+		});
+		return response.body;
+	}
+
+	async getUserSocieties(userId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getUserSocieties({ userId });
+		return response.body;
+	}
+
+	async getSocietyUsers(societyId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getSocietyUsers({ societyId });
+		return response.body;
+	}
+
+	async assignUserToSociety(assignmentData) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.assignUserToSociety(
+			{},
+			{ requestBody: assignmentData }
+		);
+		return response.body;
+	}
+
+	async removeUserFromSociety(societyId, userId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.removeUserFromSociety({
+			societyId,
+			userId
+		});
+		return response.body;
+	}
+
+	async getUserRoleInSociety(societyId, userId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getUserRoleInSociety({
+			societyId,
+			userId
+		});
+		return response.body;
+	}
+
+	// Residence endpoints related to societies
+	async getAllResidencesInSociety(societyId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getAllResidencesInSociety({
+			societyId
+		});
+		return response.body;
+	}
+
+	async createOrUpdateResidence(residenceData) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.createOrUpdateResidence(
+			{},
+			{ requestBody: residenceData }
+		);
+		return response.body;
+	}
+
+	async getResidenceById(id) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getResidenceById({ id });
+		return response.body;
+	}
+
+	async getUserResidencesInSociety(societyId, userId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getUserResidencesInSociety({
+			societyId,
+			userId
+		});
+		return response.body;
+	}
+
+	async getUserResidences(userId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getUserResidences({ userId });
+		return response.body;
+	}
+
+	async findResidenceByNameInSociety(societyId, residenceName) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.findResidenceByNameInSociety({
+			societyId,
+			residenceName
+		});
+		return response.body;
+	}
+
+	async countResidencesInSociety(societyId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.countResidencesInSociety({
+			societyId
+		});
+		return response.body;
+	}
+
+	async getResidenceUsers(residenceId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.getResidenceUsers({ residenceId });
+		return response.body;
+	}
+
+	async assignUserToResidence(assignmentData) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.assignUserToResidence(
+			{},
+			{ requestBody: assignmentData }
+		);
+		return response.body;
+	}
+
+	async removeUserFromResidence(residenceId, userId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.removeUserFromResidence({
+			residenceId,
+			userId
+		});
+		return response.body;
+	}
+
+	async isUserInResidence(residenceId, userId) {
+		const client = await this.getClient();
+		const response = await client.apis.societies.isUserInResidence({
+			residenceId,
+			userId
+		});
+		return response.body;
+	}
+
 	// Auth methods
 	logout() {
 		userState.logout();
@@ -97,7 +258,7 @@ class Api {
 	}
 	async getUserByEmail(email = userState?.user?.email) {
 		const client = await this.getClient();
-		return client.apis.users.getUserByEmail({}, { requestBody: { email } });
+		return client.apis.users.getUserByEmail({ email });
 	}
 	async getUser() {
 		const client = await this.getClient();
@@ -123,6 +284,34 @@ class Api {
 			throw new Error(err.message || res.statusText);
 		}
 		return legalDocumentType === 'data-processing-info' ? res.json() : res.text();
+	}
+
+	// GDPR endpoints
+	async exportUserData() {
+		const client = await this.getClient();
+		const response = await client.apis['GDPR Controller'].exportUserData();
+		return response.body;
+	}
+
+	async updateUserData(userData) {
+		const client = await this.getClient();
+		const response = await client.apis['GDPR Controller'].updateUserData(
+			{},
+			{ requestBody: userData }
+		);
+		return response.body;
+	}
+
+	async createDataRequest(requestType) {
+		const client = await this.getClient();
+		const response = await client.apis['GDPR Controller'].createDataRequest({ requestType });
+		return response.body;
+	}
+
+	async deleteUserAccount(deleteCompletely = false) {
+		const client = await this.getClient();
+		const response = await client.apis['GDPR Controller'].deleteUserAccount({ deleteCompletely });
+		return response.body;
 	}
 }
 
