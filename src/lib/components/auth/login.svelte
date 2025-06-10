@@ -6,7 +6,7 @@
 	const { email: userEmail, onLogin = () => {} } = $props();
 
 	let email = $state(userEmail || '');
-	let error = $state(null);
+	let error = $state('');
 
 	async function onsubmit(event) {
 		event.preventDefault();
