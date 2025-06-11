@@ -14,8 +14,8 @@
 			joinError = null;
 
 			const societyUser = await api.assignUserToSociety({
-				societyid: societyId,
-				userid: userState.user.id,
+				societyId,
+				userId: userState.user.id,
 				role: 'MEMBER' // Default role when joining
 			});
 

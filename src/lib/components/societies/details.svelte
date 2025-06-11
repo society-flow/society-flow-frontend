@@ -57,9 +57,10 @@
 <style>
   header {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
     gap: var(--s);
     align-items: center;
+    justify-content: space-between;
     :global(form) {
       border-color: transparent;
       padding: 0;

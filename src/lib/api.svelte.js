@@ -72,7 +72,7 @@ class Api {
 	async getUserSocieties(userId) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.getUserSocieties({ userId });
-		return response.body;
+		return response.body.map((body) => ({ ...body, id: body.societyId }));
 	}
 
 	async getSocietyUsers(societyId) {
@@ -81,11 +81,11 @@ class Api {
 		return response.body;
 	}
 
-	async assignUserToSociety(assignmentData) {
+	async assignUserToSociety({ societyId, userId, role }) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.assignUserToSociety(
 			{},
-			{ requestBody: assignmentData }
+			{ requestBody: { societyId, userId, role } }
 		);
 		return response.body;
 	}
@@ -147,26 +147,26 @@ class Api {
 		return response.body;
 	}
 
-	async findResidenceByNameInSociety(societyid, residenceName) {
+	async findResidenceByNameInSociety(societyId, residenceName) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.findResidenceByNameInSociety({
-			societyid,
+			societyId,
 			residenceName
 		});
 		return response.body;
 	}
 
-	async countResidencesInSociety(societyid) {
+	async countResidencesInSociety(societyId) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.countResidencesInSociety({
-			societyId: societyid
+			societyId: societyId
 		});
 		return response.body;
 	}
 
-	async getResidenceUsers(residenceid) {
+	async getResidenceUsers(residenceId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getResidenceUsers({ residenceid });
+		const response = await client.apis.societies.getResidenceUsers({ residenceId });
 		return response.body;
 	}
 
@@ -182,8 +182,8 @@ class Api {
 	async removeUserFromResidence(residenceId, userId) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.removeUserFromResidence({
-			residenceid,
-			userid
+			residenceId,
+			userId
 		});
 		return response.body;
 	}
