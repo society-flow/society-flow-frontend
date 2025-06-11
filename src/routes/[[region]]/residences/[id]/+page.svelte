@@ -1,7 +1,7 @@
 <script lang="typescript">
 	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
-	import { api } from '$lib/api.svelte.js';
+	// import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
@@ -14,7 +14,7 @@
 
 	$effect(async () => {
 		if (id) {
-			residence = await api.getResidence(Number(id));
+			// residence = await api.getResidence(Number(id));
 		}
 	});
 </script>

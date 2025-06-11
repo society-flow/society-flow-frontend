@@ -3,21 +3,81 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
+	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Error from '$lib/components/error.svelte';
+	import SocietyDetails from '$lib/components/societies/details.svelte';
+	import SocietyJoin from '$lib/components/societies/join.svelte';
+	import ResidencesList from '$lib/components/residences/list.svelte';
+	import UsersList from '$lib/components/users/list.svelte';
 
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
 
-	let society = $state({});
+	let society = $state(null);
+	let residences = $state([]);
+	let societyUsers = $state([]);
+	let userResidences = $state([]);
+	let userRole = $state(null);
+	let residenceCount = $state(0);
+	let loading = $state(true);
+	let error = $state(null);
 
 	$effect(async () => {
-		if (id) {
-			society = await api.getSociety(Number(id));
+		if (id && userState?.user?.id) {
+			await loadSocietyData();
 		}
 	});
+
+	async function loadSocietyData() {
+		try {
+			loading = true;
+			error = null;
+
+			// Fetch society details
+			society = await api.getSocietyById(id);
+
+			// Fetch all residences in this society
+			residences = await api.getAllResidencesInSociety(id);
+
+			// Get residence count
+			const countResponse = await api.countResidencesInSociety(id);
+			residenceCount = countResponse.count;
+
+			// Get society users (to see who's in the society)
+			societyUsers = await api.getSocietyUsers(id);
+
+			// Get user's role in this society
+			try {
+				userRole = await api.getUserRoleInSociety(id, userState.user.id);
+			} catch (roleError) {
+				// User might not be a member of this society
+				userRole = null;
+			}
+
+			// Get user's residences in this society
+			try {
+				userResidences = await api.getUserResidencesInSociety(id, userState.user.id);
+			} catch (residenceError) {
+				// User might not have any residences in this society
+				userResidences = [];
+			}
+		} catch (err) {
+			error = err.message || 'Failed to load society details';
+			console.error('Error loading society details:', err);
+		} finally {
+			loading = false;
+		}
+	}
+
+	function handleRoleUpdate(newRole) {
+		userRole = newRole;
+		// Refresh society users list
+		loadSocietyData();
+	}
 </script>
 
 <Page title={$_('menu.societies')}>
@@ -26,71 +86,51 @@
 			{$_('menu.societies')}
 		</h1>
 	{/snippet}
-	<section>
-		<p>id: {id}</p>
 
+	<article class="Detail">
+		{#if loading}
+			<section>Loading society details...</section>
+		{:else if error}
+			<section><Error {error}></Error></section>
+		{:else if society}
+			<SocietyDetails {society} {userRole} />
+
+			{#if !userRole}
+				<section>
+					<SocietyJoin societyId={id} {userRole} onRoleUpdate={handleRoleUpdate} />
+				</section>
+			{/if}
+
+			{#if residences.length > 0}
+				<section>
+					<ResidencesList {residences} {residenceCount} {society} title="Residences" />
+				</section>
+			{/if}
+
+			{#if societyUsers.length}
+				<section>
+					<UsersList users={societyUsers} title="Society Members" />
+				</section>
+			{/if}
+
+			{#if userResidences.length > 0}
+				<aside>
+					<ResidencesList
+						residences={userResidences}
+						residenceCount={userResidences.length}
+						{society}
+						title="Your Residences in this Society"
+					/>
+				</aside>
+			{/if}
+		{:else}
+			<p>Society not found.</p>
+		{/if}
+	</article>
+
+	{#snippet footer()}
 		<p>
 			<Anchor href="/societies">← Back to all societies</Anchor>
 		</p>
-
-		<article>
-			<header>
-				<h2>{society.id}</h2>
-				<p>Society: {society.name} - {society.role}</p>
-			</header>
-
-			<main>
-				<section>
-					<h3>Society Details</h3>
-					<ul>
-						<li>Society Fund: {society.fund} {society.currency_code}</li>
-						<li>Locale: {society.locale}</li>
-						<li>Total Active Residences: {society.total_active_residences}</li>
-						<li>Total Active Residents: {society.total_active_residents}</li>
-						<li>Jurisdiction: {society.jurisdiction}</li>
-						<li>Time Zone: {society.time_zone}</li>
-						<li>Area Unit: {society.area_unit}</li>
-						<li>Currency Code: {society.currency_code}</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Wall Posts From Admin</h3>
-					{#each society.wall_posts_from_admin as post}
-						<article>
-							<time datetime={post.date}>{post.date}</time>
-							<p>{post.message}</p>
-						</article>
-					{/each}
-				</section>
-
-				<section>
-					<h3>Posts from Members</h3>
-					{#each society.posts_from_members as post}
-						<article>
-							<time datetime={post.date}>{post.date}</time>
-							<p>{post.message}</p>
-							{#if post.response}
-								<aside>
-									<time datetime={post.response.date}>{post.response.date}</time>
-									<p>{post.response.message}</p>
-								</aside>
-							{/if}
-						</article>
-					{/each}
-				</section>
-			</main>
-
-			<aside>
-				<h3>My Residences in this Society:</h3>
-				<ul>
-					{#each society.residences as residence}
-						<li>
-							<Anchor href={`/residences/${residence}`}>{residence}</Anchor>
-						</li>
-					{/each}
-				</ul>
-			</aside>
-		</article>
-	</section>
+	{/snippet}
 </Page>

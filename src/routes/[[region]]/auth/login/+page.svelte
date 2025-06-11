@@ -20,7 +20,7 @@
 	}
 </script>
 
-<Page title={$_('menu.auth.login')}>
+<Page title={$_('menu.auth.login')} oisCenter={true}>
 	{#snippet header()}
 		<h1>
 			{$_('menu.auth.login')}

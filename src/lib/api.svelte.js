@@ -1,18 +1,7 @@
 import Swagger from 'swagger-client';
 import { userState } from '$lib/states/user.svelte.js';
 import { DOCUMENT_TYPES as validLegalDocumentTypes } from '$lib/const/legal.js';
-import societies from '../content/societies.js';
-import residences from '../content/residences.js';
-import expenses from '../content/expenses.js';
-import adverts from '../content/adverts.js';
 import { PUBLIC_API_URL } from '$env/static/public';
-
-const MOCK_DATA = {
-	'/societies': societies,
-	'/residences': residences,
-	'/expenses': expenses,
-	'/adverts': adverts
-};
 
 let swaggerClient = null;
 
@@ -29,7 +18,6 @@ export function getSwaggerClient() {
 }
 
 class Api {
-	urlMock = window.location.origin;
 	url = $state(`${PUBLIC_API_URL}/api`);
 
 	async getClient() {
@@ -46,35 +34,6 @@ class Api {
 			client.authorizations = { bearerAuth };
 		}
 		return client;
-	}
-
-	// Mocked endpoints
-	fetchMock(endpoint) {
-		return Promise.resolve(MOCK_DATA[endpoint]);
-	}
-	getSocieties() {
-		return this.fetchMock('/societies');
-	}
-	getSociety(id) {
-		return this.getSocieties().then((list) => list.find((i) => i.id === id));
-	}
-	getResidences() {
-		return this.fetchMock('/residences');
-	}
-	getResidence(id) {
-		return this.getResidences().then((list) => list.find((i) => i.id === id));
-	}
-	getExpenses() {
-		return this.fetchMock('/expenses');
-	}
-	getExpense(id) {
-		return this.getExpenses().then((list) => list.find((i) => i.id === id));
-	}
-	getAdverts() {
-		return this.fetchMock('/adverts');
-	}
-	getAdvert(id) {
-		return this.getAdverts().then((list) => list.find((i) => i.id === id));
 	}
 
 	// Society API endpoints
@@ -149,7 +108,7 @@ class Api {
 		return response.body;
 	}
 
-	// Residence endpoints related to societies
+	// Residence endpoints
 	async getAllResidencesInSociety(societyId) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.getAllResidencesInSociety({
@@ -188,26 +147,26 @@ class Api {
 		return response.body;
 	}
 
-	async findResidenceByNameInSociety(societyId, residenceName) {
+	async findResidenceByNameInSociety(societyid, residenceName) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.findResidenceByNameInSociety({
-			societyId,
+			societyid,
 			residenceName
 		});
 		return response.body;
 	}
 
-	async countResidencesInSociety(societyId) {
+	async countResidencesInSociety(societyid) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.countResidencesInSociety({
-			societyId
+			societyId: societyid
 		});
 		return response.body;
 	}
 
-	async getResidenceUsers(residenceId) {
+	async getResidenceUsers(residenceid) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getResidenceUsers({ residenceId });
+		const response = await client.apis.societies.getResidenceUsers({ residenceid });
 		return response.body;
 	}
 
@@ -223,8 +182,8 @@ class Api {
 	async removeUserFromResidence(residenceId, userId) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.removeUserFromResidence({
-			residenceId,
-			userId
+			residenceid,
+			userid
 		});
 		return response.body;
 	}
@@ -242,30 +201,60 @@ class Api {
 	logout() {
 		userState.logout();
 	}
+
 	async login({ email }) {
 		const client = await this.getClient();
 		return client.apis.users.login({}, { requestBody: { email } });
 	}
+
 	async register({ email, name }) {
 		const client = await this.getClient();
 		return client.apis.users.createUser({}, { requestBody: { name, email } });
 	}
+
 	async verifyOtp({ email, otp }) {
 		const client = await this.getClient();
 		const res = await client.apis.users.verifyOtp({}, { requestBody: { email, otp } });
 		userState.setToken(res.body.token);
 		return res;
 	}
+
 	async getUserByEmail(email = userState?.user?.email) {
 		const client = await this.getClient();
 		return client.apis.users.getUserByEmail({ email });
 	}
+
 	async getUser() {
 		const client = await this.getClient();
 		return client.apis.users.getUser().then((res) => res.body);
 	}
 
-	// Legal content (fallback to fetch)
+	// Legal endpoints - Updated to match OpenAPI spec
+	async getTermsOfService(locale = 'de') {
+		const client = await this.getClient();
+		const response = await client.apis.legal.getTermsOfService({ locale });
+		return response.body;
+	}
+
+	async getPrivacyPolicy(locale = 'de') {
+		const client = await this.getClient();
+		const response = await client.apis.legal.getPrivacyPolicy({ locale });
+		return response.body;
+	}
+
+	async getCookiePolicy(locale = 'en') {
+		const client = await this.getClient();
+		const response = await client.apis.legal.getCookiePolicy({ locale });
+		return response.body;
+	}
+
+	async getDataProcessingInfo() {
+		const client = await this.getClient();
+		const response = await client.apis.legal.getDataProcessingInfo();
+		return response.body;
+	}
+
+	// Legacy method - consider deprecating in favor of specific methods above
 	async getLegal(legalDocumentType, lang = 'en') {
 		if (!validLegalDocumentTypes.includes(legalDocumentType)) {
 			throw new Error(
@@ -273,45 +262,59 @@ class Api {
 			);
 		}
 
-		const endpoint = `/legal/${legalDocumentType}?lang=${lang}`;
-		const res = await fetch(`${this.url}${endpoint}`, {
-			method: 'GET',
-			headers: { 'Content-Type': 'text/plain' }
-		});
-
-		if (!res.ok) {
-			const err = await res.json();
-			throw new Error(err.message || res.statusText);
+		// Map to new specific methods
+		switch (legalDocumentType) {
+			case 'terms-of-service':
+				return this.getTermsOfService(lang);
+			case 'privacy-policy':
+				return this.getPrivacyPolicy(lang);
+			case 'cookie-policy':
+				return this.getCookiePolicy(lang);
+			case 'data-processing-info':
+				return this.getDataProcessingInfo();
+			default:
+				throw new Error(`Unsupported legal document type: ${legalDocumentType}`);
 		}
-		return legalDocumentType === 'data-processing-info' ? res.json() : res.text();
 	}
 
-	// GDPR endpoints
+	// GDPR endpoints - Fixed namespace
 	async exportUserData() {
 		const client = await this.getClient();
-		const response = await client.apis['GDPR Controller'].exportUserData();
+		const response = await client.apis.gdpr.exportUserData();
 		return response.body;
 	}
 
 	async updateUserData(userData) {
 		const client = await this.getClient();
-		const response = await client.apis['GDPR Controller'].updateUserData(
-			{},
-			{ requestBody: userData }
-		);
+		const response = await client.apis.gdpr.updateUserData({}, { requestBody: userData });
 		return response.body;
 	}
 
 	async createDataRequest(requestType) {
 		const client = await this.getClient();
-		const response = await client.apis['GDPR Controller'].createDataRequest({ requestType });
+		const response = await client.apis.gdpr.createDataRequest({ requestType });
 		return response.body;
 	}
 
 	async deleteUserAccount(deleteCompletely = false) {
 		const client = await this.getClient();
-		const response = await client.apis['GDPR Controller'].deleteUserAccount({ deleteCompletely });
+		const response = await client.apis.gdpr.deleteUserAccount({ deleteCompletely });
 		return response.body;
+	}
+
+	// Error handling wrapper - Consider adding this to all methods
+	async _handleApiCall(apiCall) {
+		try {
+			return await apiCall();
+		} catch (error) {
+			console.error('API call failed:', error);
+			// Handle specific error cases based on status codes
+			if (error.status === 401) {
+				this.logout();
+				throw new Error('Authentication required');
+			}
+			throw error;
+		}
 	}
 }
 

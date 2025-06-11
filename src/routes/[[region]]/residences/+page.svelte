@@ -1,7 +1,7 @@
 <script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
-	import { api } from '$lib/api.svelte.js';
+	// import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import Page from '$lib/components/routes/page.svelte';
@@ -10,7 +10,7 @@
 
 	let residences = $state([]);
 	$effect(async () => {
-		residences = await api.getResidences();
+		// residences = await api.getResidences();
 	});
 </script>
 

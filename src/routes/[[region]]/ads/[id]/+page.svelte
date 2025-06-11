@@ -2,7 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { api } from '$lib/api.svelte.js';
+	// import { api } from '$lib/api.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
@@ -14,15 +14,21 @@
 
 	$effect(() => {
 		if (id) {
-			api.getAdvert(Number(id)).then((ad) => {
-				advert = ad;
-			});
+			// api.getAdvert(Number(id)).then((ad) => {
+			// 	advert = ad;
+			// });
 		}
 	});
 </script>
 
 <Page title={`${advert?.name} — ${$_('menu.adverts')}`}>
-	<article>
+	{#snippet header()}
+		<h1>
+			{$_('menu.adverts')}
+		</h1>
+	{/snippet}
+
+	<article class="Detail">
 		<header>
 			<h1>
 				<Anchor href={`/ads/${id}`}>
@@ -46,25 +52,3 @@
 		</footer>
 	</article>
 </Page>
-
-<style>
-	article {
-		width: 100%;
-		max-width: var(--s-container);
-	}
-	main {
-		background-color: var(--c-bg--secondary);
-		padding: var(--s) calc(var(--s) * 2);
-		margin: var(--s);
-		border-radius: var(--border-radius);
-		p:last-of-type {
-			margin-bottom: 0;
-		}
-	}
-	footer {
-		nav :global(a) {
-			display: inline-block;
-			padding: var(--s);
-		}
-	}
-</style>

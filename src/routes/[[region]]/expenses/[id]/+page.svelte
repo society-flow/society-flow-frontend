@@ -1,7 +1,7 @@
 <script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
-	import { api } from '$lib/api.svelte.js';
+	// import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Page from '$lib/components/routes/page.svelte';
@@ -17,7 +17,7 @@
 
 	$effect(async () => {
 		if (urlId) {
-			expense = await api.getExpense(Number(urlId));
+			// expense = await api.getExpense(Number(urlId));
 		}
 	});
 </script>

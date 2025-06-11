@@ -9,7 +9,7 @@
 
 	let expenses = $state([]);
 	$effect(async () => {
-		expenses = await api.getExpenses();
+		// expenses = await api.getExpenses();
 	});
 </script>
 

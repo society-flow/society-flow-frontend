@@ -1,9 +1,11 @@
 <script>
+  import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import Card from './card.svelte';
 	const { residences = [] } = $props();
 </script>
 
+{#if residences.length}
 <ul>
 	{#each residences as residence}
 		<li>
@@ -11,6 +13,9 @@
 		</li>
 	{/each}
 </ul>
+{:else}
+	<p class="text-center">ø {$_('menu.residences')}</p>
+{/if}
 
 <style>
   ul {

@@ -8,7 +8,7 @@
 	requiresAuth($locale);
 </script>
 
-<Page title={$_('menu.auth.logout')}>
+<Page title={$_('menu.auth.logout')} isCenter={true}>
 	{#snippet header()}
 		<h1>
 			{$_('menu.auth.logout')}

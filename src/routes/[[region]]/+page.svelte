@@ -17,12 +17,12 @@
 
 	let societies = $state([]);
 	$effect(async () => {
-		societies = await api.getSocieties();
+		societies = await api.getUserSocieties(userState.user.id);
 	});
 
 	let residences = $state([]);
 	$effect(async () => {
-		residences = await api.getResidences();
+		residences = await api.getUserResidences(userState.user.id);
 	});
 
 	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));
@@ -57,16 +57,16 @@
 		</section>
 		<section>
 			<article>
+				<h2>{$_('pages.home.auth.sections.societies')}</h2>
 				{#if societies?.length}
-					<h2>{$_('pages.home.auth.sections.societies')}</h2>
 					<ListSocieties {societies} />
 				{/if}
 			</article>
 		</section>
 		<section>
 			<article>
+				<h2>{$_('pages.home.auth.sections.residences')}</h2>
 				{#if residences?.length}
-					<h2>{$_('pages.home.auth.sections.residences')}</h2>
 					<ListResidences {residences} />
 				{/if}
 			</article>

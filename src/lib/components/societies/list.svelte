@@ -1,15 +1,20 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import SocietyCard from './card.svelte';
 	const { societies = [] } = $props();
 </script>
 
-<ul>
-	{#each societies as society}
-		<li>
-			<SocietyCard {society} />
-		</li>
-	{/each}
-</ul>
+{#if societies.length}
+	<ul>
+		{#each societies as society}
+			<li>
+				<SocietyCard {society} />
+			</li>
+		{/each}
+	</ul>
+{:else}
+	<p class="text-center">ø {$_('menu.societies')}</p>
+{/if}
 
 <style>
 	ul {
@@ -18,7 +23,7 @@
 		list-style: none;
 		display: flex;
 		flex-wrap: wrap;
-    gap: var(--s);
-    justify-content: center;
+		gap: var(--s);
+		justify-content: center;
 	}
 </style>

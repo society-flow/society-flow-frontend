@@ -8,6 +8,6 @@
 
 <Card>
 	<Anchor href={`/societies/${id}`}>
-		{name}
+		{name || id}
 	</Anchor>
 </Card>

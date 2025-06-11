@@ -21,7 +21,7 @@
 	}
 </script>
 
-<Page title={$_('menu.auth.verify-otp')}>
+<Page title={$_('menu.auth.verify-otp')} isCenter={true}>
 	{#snippet header()}
 		<h1>
 			{$_('menu.auth.verify-otp')}

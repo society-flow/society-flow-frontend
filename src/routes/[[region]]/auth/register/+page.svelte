@@ -17,11 +17,11 @@
 	const sections = $derived($json('pages.auth.register.sections'));
 
 	async function onregister({ email: userEmail }) {
-    setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${userEmail}`), 0);
+		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${userEmail}`), 0);
 	}
 </script>
 
-<Page title={$_('menu.auth.register')}>
+<Page title={$_('menu.auth.register')} isCenter={true}>
 	{#snippet header()}
 		<h1>{$_('menu.auth.register')}</h1>
 	{/snippet}

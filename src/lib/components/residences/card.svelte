@@ -1,4 +1,4 @@
-<script>
+<script lang="javascript">
 	import Anchor from '$lib/components/anchor.svelte';
 	import Card from '$lib/components/card.svelte';
 
