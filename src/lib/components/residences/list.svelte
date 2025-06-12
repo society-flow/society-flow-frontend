@@ -6,9 +6,9 @@
 </script>
 
 {#if residences.length}
-	<ul>
+	<ul class="List">
 		{#each residences as residence}
-			<li>
+			<li class="List-item">
 				<Card {residence} />
 			</li>
 		{/each}
@@ -16,15 +16,3 @@
 {:else}
 	<p class="text-center">ø {$_('menu.residences')}</p>
 {/if}
-
-<style>
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--s);
-		justify-content: center;
-	}
-</style>

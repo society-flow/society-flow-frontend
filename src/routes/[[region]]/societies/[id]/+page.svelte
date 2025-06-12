@@ -101,11 +101,16 @@
 				</aside>
 			{/if}
 
-			{#if residences.length > 0}
-				<aside>
+			<aside>
+				{#if residences.length > 0}
 					<ResidencesList {residences} {residenceCount} {society} />
-				</aside>
-			{/if}
+				{/if}
+				{#if userRole}
+					<Anchor href={`/create/residences/${id}`}>
+						+ {$_('menu.residences')}
+					</Anchor>
+				{/if}
+			</aside>
 
 			{#if societyUsers.length}
 				<aside>

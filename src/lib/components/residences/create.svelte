@@ -34,30 +34,32 @@
 
 <form on:submit|preventDefault={submit}>
 	{#if !id}
-		<div>
-			<label for="societyId">Society ID</label>
-			<input id="societyId" bind:value={societyId} required />
-		</div>
+		<fieldset>
+			<legend>Society ID</legend>
+			<input bind:value={societyId} required />
+		</fieldset>
 	{/if}
-	<div>
-		<label for="residenceName">Residence Name</label>
-		<input id="residenceName" bind:value={residenceName} required />
-	</div>
-	<div>
-		<label for="floorCount">Floor Count</label>
-		<input type="number" id="floorCount" bind:value={floorCount} min="1" />
-	</div>
-	<div>
-		<label for="areaValue">Area (sqft)</label>
-		<input type="number" id="areaValue" bind:value={areaValue} min="0" />
-	</div>
-	<div>
-		<label for="residentsCount">Residents Count</label>
-		<input type="number" id="residentsCount" bind:value={residentsCount} min="0" />
-	</div>
-	<div>
-		<label for="description">Description</label>
-		<textarea id="description" bind:value={description}></textarea>
-	</div>
-	<button type="submit">Create Residence</button>
+	<fieldset>
+		<legend>Residence Name</legend>
+		<input bind:value={residenceName} required />
+	</fieldset>
+	<fieldset>
+		<legend>Floor Count</legend>
+		<input type="number" bind:value={floorCount} />
+	</fieldset>
+	<fieldset>
+		<legend>Area (sqft)</legend>
+		<input type="number" bind:value={areaValue} min="0" />
+	</fieldset>
+	<fieldset>
+		<legend>Residents Count</legend>
+		<input type="number" bind:value={residentsCount} min="0" />
+	</fieldset>
+	<fieldset>
+		<legend>Description</legend>
+		<textarea bind:value={description}></textarea>
+	</fieldset>
+	<fieldset>
+		<button type="submit">Create Residence</button>
+	</fieldset>
 </form>

@@ -10,7 +10,7 @@
 
 	let societies = $state([]);
 	$effect(async () => {
-		societies = await api.getUserSocieties();
+		societies = await api.getAllSocieties();
 	});
 </script>
 

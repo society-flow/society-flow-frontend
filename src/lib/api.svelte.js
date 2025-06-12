@@ -69,7 +69,7 @@ class Api {
 		return response.body;
 	}
 
-	async getUserSocieties(userId) {
+	async getUserSocieties(userId = userState.user?.id) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.getUserSocieties({ userId });
 		return response.body.map(({ society, role }) => ({ ...society, role }));

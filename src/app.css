@@ -20,7 +20,7 @@
 		--c-fg--secondary: #545454;
 		--c-bg: #e5e4e4;
 		--c-bg--secondary: #fafafa;
-		--c-bg--form: var(--c-bg--secondary);
+		--c-bg--form: #d3d3d3;
 		--c-link: green;
 		--c-border: #c7c7c7;
 		--c-error: #d06100;
@@ -34,7 +34,7 @@
 		--c-fg--secondary: #838383;
 		--c-bg: #252525;
 		--c-bg--secondary: #1d1b1b;
-		--c-bg--form: #1d1d1d;
+		--c-bg--form: #303030;
 		--c-link: #11b311;
 		--c-border: #646060;
 		--c-error: #d06100;

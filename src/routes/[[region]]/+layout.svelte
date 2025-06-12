@@ -213,6 +213,16 @@
         font-weight: bold;
       }
     }
+    :global(&:has([required])) {
+      /* border: 1px solid var(--c-link); */
+      background-color: var(--c-bg);
+      border-radius: var(--border-radius);
+      :global(legend) {
+        /* text-decoration: underline; */
+        /* text-decoration-color: var(--c-link); */
+        /* background-color: var(--c-link); */
+      }
+    }
 	}
 
 	:global(form fieldset label) {
@@ -268,6 +278,14 @@
 	}
 
   /* components */
+  :global(.List) {
+    list-style: none;
+    padding: 0;
+    maring: 0;
+    :global(.List-item) {
+      margin-bottom: calc(var(--s) / 2);
+    }
+  }
   :global(.Detail) {
     :global(& > section, & >  header, & > main, & > aside) {
       border: 1px solid var(--c-border);
