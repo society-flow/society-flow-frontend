@@ -5,6 +5,7 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import Page from '$lib/components/routes/page.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	requiresAuth(locale);
 
@@ -19,6 +20,9 @@
 		<h1>
 			{$_('menu.residences')}
 		</h1>
+		<Anchor href="/create/residences">
+			+ {$_('menu.residences')}
+		</Anchor>
 	{/snippet}
 
 	<section>

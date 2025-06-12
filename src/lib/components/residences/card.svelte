@@ -3,11 +3,11 @@
 	import Card from '$lib/components/card.svelte';
 
 	const { residence = {} } = $props();
-	const { id, name } = residence;
+	const { id, residenceName } = residence;
 </script>
 
 <Card>
 	<Anchor href={`/residences/${id}`}>
-		{name}
+		{residenceName || id}
 	</Anchor>
 </Card>

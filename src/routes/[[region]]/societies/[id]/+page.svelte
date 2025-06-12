@@ -96,21 +96,21 @@
 			<SocietyDetails {society} {userRole} />
 
 			{#if !userRole}
-				<section>
+				<aside>
 					<SocietyJoin societyId={id} {userRole} onRoleUpdate={handleRoleUpdate} />
-				</section>
+				</aside>
 			{/if}
 
 			{#if residences.length > 0}
-				<section>
-					<ResidencesList {residences} {residenceCount} {society} title="Residences" />
-				</section>
+				<aside>
+					<ResidencesList {residences} {residenceCount} {society} />
+				</aside>
 			{/if}
 
 			{#if societyUsers.length}
-				<section>
-					<UsersList users={societyUsers} title="Society Members" />
-				</section>
+				<aside>
+					<UsersList users={societyUsers} />
+				</aside>
 			{/if}
 
 			{#if userResidences.length > 0}
@@ -119,7 +119,6 @@
 						residences={userResidences}
 						residenceCount={userResidences.length}
 						{society}
-						title="Your Residences in this Society"
 					/>
 				</aside>
 			{/if}

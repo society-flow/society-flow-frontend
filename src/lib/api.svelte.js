@@ -72,13 +72,13 @@ class Api {
 	async getUserSocieties(userId) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.getUserSocieties({ userId });
-		return response.body.map((body) => ({ ...body, id: body.societyId }));
+		return response.body.map(({ society, role }) => ({ ...society, role }));
 	}
 
 	async getSocietyUsers(societyId) {
 		const client = await this.getClient();
 		const response = await client.apis.societies.getSocietyUsers({ societyId });
-		return response.body;
+		return response.body.map(({ user, role }) => ({ ...user, role }));
 	}
 
 	async assignUserToSociety({ societyId, userId, role }) {
@@ -119,6 +119,7 @@ class Api {
 
 	async createOrUpdateResidence(residenceData) {
 		const client = await this.getClient();
+		console.log('residenceData', residenceData);
 		const response = await client.apis.societies.createOrUpdateResidence(
 			{},
 			{ requestBody: residenceData }

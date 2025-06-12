@@ -269,7 +269,7 @@
 
   /* components */
   :global(.Detail) {
-    :global(section, header, main) {
+    :global(& > section, & >  header, & > main, & > aside) {
       border: 1px solid var(--c-border);
       border-radius: var(--border-radius);
       margin-top: calc(var(--s) * 2);

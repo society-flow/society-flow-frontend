@@ -22,7 +22,7 @@
 
 	let residences = $state([]);
 	$effect(async () => {
-		residences = await api.getUserResidences(userState.user.id);
+		// residences = await api.getUserResidences(userState.user.id);
 	});
 
 	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));

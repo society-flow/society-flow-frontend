@@ -19,6 +19,8 @@
 	}
 </script>
 
+{console.log('users', users)}
+
 {#if users.length > 0}
 	<ul>
 		{#each users as user}
@@ -26,7 +28,11 @@
 				<div>
 					<div>
 						<strong>User ID:</strong>
-						{user.userid}
+						{user.id}
+					</div>
+					<div>
+						<strong>User Name:</strong>
+						{user.name}
 					</div>
 					<div>
 						<span class="role-badge {getRoleBadgeClass(user.role)}">
@@ -35,7 +41,7 @@
 					</div>
 					{#if user.createdAt}
 						<div>
-							<small>Member since: {formatDate(user.createdAt)}</small>
+							Member since: {formatDate(user.createdAt)}
 						</div>
 					{/if}
 				</div>
