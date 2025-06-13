@@ -18,7 +18,10 @@
 		"legal.terms-of-service": "Nutzungsbedingungen",
 		"legal.privacy-policy": "Datenschutzerklärung",
 		"legal.data-processing-info": "Informationen zur Datenverarbeitung",
-		"legal.cookie-policy": "Cookie-Richtlinie"
+		"legal.cookie-policy": "Cookie-Richtlinie",
+		"create.societies": "Neue Gesellschaft erstellen",
+		"create.residences": "Neue Wohnung erstellen",
+		"create.ads": "Neue Anzeige erstellen"
 	},
 	"pages": {
 		"auth": {

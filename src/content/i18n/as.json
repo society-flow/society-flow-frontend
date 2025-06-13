@@ -18,7 +18,10 @@
 		"legal.terms-of-service": "সেৱাৰ চৰ্তাৱলী",
 		"legal.privacy-policy": "গোপনীয়তা নীতি",
 		"legal.data-processing-info": "তথ্য প্ৰক্ৰিয়াকৰণৰ তথ্য",
-		"legal.cookie-policy": "কুকি নীতি"
+		"legal.cookie-policy": "কুকি নীতি",
+		"create.societies": "নতুন সমাজ সৃষ্টি কৰক",
+		"create.residences": "নতুন বাসস্থান সৃষ্টি কৰক",
+		"create.ads": "নতুন বিজ্ঞাপন সৃষ্টি কৰক"
 	},
 	"pages": {
 		"auth": {

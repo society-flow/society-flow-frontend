@@ -18,7 +18,10 @@
 		"legal.terms-of-service": "Conditions d'utilisation",
 		"legal.privacy-policy": "Politique de confidentialité",
 		"legal.data-processing-info": "Informations sur le traitement des données",
-		"legal.cookie-policy": "Politique des cookies"
+		"legal.cookie-policy": "Politique des cookies",
+		"create.societies": "Créer une nouvelle société",
+		"create.residences": "Créer une nouvelle résidence",
+		"create.ads": "Créer une nouvelle annonce"
 	},
 	"pages": {
 		"auth": {

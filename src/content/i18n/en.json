@@ -18,7 +18,10 @@
 		"legal.terms-of-service": "Terms of Service",
 		"legal.privacy-policy": "Privacy Policy",
 		"legal.data-processing-info": "Data Processing Information",
-		"legal.cookie-policy": "Cookie Policy"
+		"legal.cookie-policy": "Cookie Policy",
+		"create.societies": "Create new Society",
+		"create.residences": "Create new Residence",
+		"create.ads": "Create new Ad"
 	},
 	"pages": {
 		"auth": {
