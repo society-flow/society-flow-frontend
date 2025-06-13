@@ -181,6 +181,96 @@
 				},
 				"submit": "Verify"
 			}
+		},
+		"users": {
+			"card": {
+				"user_id": "User ID",
+				"user_name": "Name",
+				"user_role": "Role",
+				"member_since": "Member Since",
+				"no_members": "No members found"
+			}
+		},
+		"societies": {
+			"create": {
+				"name": "Society Name",
+				"name_placeholder": "Enter society name",
+				"pincode": "Pincode",
+				"pincode_placeholder": "Enter pincode",
+				"city": "City",
+				"city_placeholder": "Enter city",
+				"state": "State",
+				"state_placeholder": "Enter state",
+				"country": "Country",
+				"country_placeholder": "Enter country",
+				"timezone": "Timezone",
+				"timezone_placeholder": "Enter timezone (e.g., Asia/Kolkata)",
+				"currency": "Currency",
+				"area_unit": "Area Unit",
+				"create": "Create Society",
+				"created_successfully": "Society created successfully."
+			},
+			"details": {
+				"role": "Role",
+				"no_membership": "You are not a member",
+				"id": "Society ID",
+				"location": "Location",
+				"pincode": "Pincode",
+				"currency": "Currency",
+				"timezone": "Timezone",
+				"area_unit": "Area Unit",
+				"fine_rate": "Fine Rate",
+				"coordinates": "Coordinates",
+				"created": "Created At",
+				"updated": "Last Updated"
+			}
+		},
+		"residences": {
+			"create": {
+				"societyId": "Society ID",
+				"societyId_placeholder": "Enter society ID",
+				"residenceName": "Residence Name",
+				"residenceName_placeholder": "Enter residence name",
+				"floorCount": "Number of Floors",
+				"floorCount_placeholder": "Enter floor count",
+				"areaValue": "Area (sq ft)",
+				"areaValue_placeholder": "Enter area in sq ft",
+				"residentsCount": "Number of Residents",
+				"residentsCount_placeholder": "Enter number of residents",
+				"description": "Description",
+				"description_placeholder": "Add a description (optional)",
+				"submit": "Submit"
+			},
+			"details": {
+				"societyId": "Society ID",
+				"residentsCount": "Residents",
+				"floorCount": "Floors",
+				"area": "Area",
+				"active": "Active",
+				"yes": "Yes",
+				"no": "No",
+				"description": "Description",
+				"createdAt": "Created At",
+				"updatedAt": "Updated At",
+				"notAvailable": "Not available"
+			}
+		},
+		"ads": {
+			"create": {
+				"adDescription": "Advertisement Description",
+				"adDescription_placeholder": "Enter the advertisement description",
+				"anonymousUserName": "Anonymous User Name",
+				"anonymousUserName_placeholder": "Enter your alias or anonymous name",
+				"adType": "Advertisement Type",
+				"adType_placeholder": "Select an advertisement type",
+				"map": "Select Location on Map",
+				"coordinates": "Coordinates (Latitude, Longitude)",
+				"create": "Create Advertisement",
+				"created_successfully": "Advertisement created successfully."
+			}
 		}
+	},
+	"common": {
+		"creating": "Creating..."
 	}
 }

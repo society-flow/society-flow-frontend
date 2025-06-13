@@ -183,6 +183,96 @@
 				},
 				"submit": "Verifizieren"
 			}
+		},
+		"users": {
+			"card": {
+				"user_id": "Benutzer-ID",
+				"user_name": "Name",
+				"user_role": "Rolle",
+				"member_since": "Mitglied seit",
+				"no_members": "Keine Mitglieder gefunden"
+			}
+		},
+		"societies": {
+			"create": {
+				"name": "Name der Gesellschaft",
+				"name_placeholder": "Namen der Gesellschaft eingeben",
+				"pincode": "Postleitzahl",
+				"pincode_placeholder": "Postleitzahl eingeben",
+				"city": "Stadt",
+				"city_placeholder": "Stadt eingeben",
+				"state": "Bundesland",
+				"state_placeholder": "Bundesland eingeben",
+				"country": "Land",
+				"country_placeholder": "Land eingeben",
+				"timezone": "Zeitzone",
+				"timezone_placeholder": "Zeitzone eingeben (z.B. Europe/Berlin)",
+				"currency": "Währung",
+				"area_unit": "Flächeneinheit",
+				"create": "Gesellschaft erstellen",
+				"created_successfully": "Gesellschaft erfolgreich erstellt."
+			},
+			"details": {
+				"role": "Rolle",
+				"no_membership": "Sie sind kein Mitglied",
+				"id": "Gesellschafts-ID",
+				"location": "Standort",
+				"pincode": "Postleitzahl",
+				"currency": "Währung",
+				"timezone": "Zeitzone",
+				"area_unit": "Flächeneinheit",
+				"fine_rate": "Bußgeldsatz",
+				"coordinates": "Koordinaten",
+				"created": "Erstellt am",
+				"updated": "Zuletzt aktualisiert"
+			}
+		},
+		"residences": {
+			"create": {
+				"societyId": "Gesellschafts-ID",
+				"societyId_placeholder": "Gesellschafts-ID eingeben",
+				"residenceName": "Wohnungsname",
+				"residenceName_placeholder": "Wohnungsname eingeben",
+				"floorCount": "Anzahl der Stockwerke",
+				"floorCount_placeholder": "Stockwerke eingeben",
+				"areaValue": "Fläche (qm)",
+				"areaValue_placeholder": "Fläche in Quadratmetern eingeben",
+				"residentsCount": "Anzahl der Bewohner",
+				"residentsCount_placeholder": "Anzahl der Bewohner eingeben",
+				"description": "Beschreibung",
+				"description_placeholder": "Beschreibung hinzufügen (optional)",
+				"submit": "Absenden"
+			},
+			"details": {
+				"societyId": "Gesellschafts-ID",
+				"residentsCount": "Bewohneranzahl",
+				"floorCount": "Anzahl der Etagen",
+				"area": "Fläche",
+				"active": "Aktiv",
+				"yes": "Ja",
+				"no": "Nein",
+				"description": "Beschreibung",
+				"createdAt": "Erstellt am",
+				"updatedAt": "Aktualisiert am",
+				"notAvailable": "Nicht verfügbar"
+			}
+		},
+		"ads": {
+			"create": {
+				"components.advertisements.create.adDescription": "Anzeigenbeschreibung",
+				"components.advertisements.create.adDescription_placeholder": "Beschreibung der Anzeige eingeben",
+				"components.advertisements.create.anonymousUserName": "Anonymer Benutzername",
+				"components.advertisements.create.anonymousUserName_placeholder": "Geben Sie einen anonymen Namen ein",
+				"components.advertisements.create.adType": "Anzeigentyp",
+				"components.advertisements.create.adType_placeholder": "Wählen Sie einen Anzeigentyp aus",
+				"components.advertisements.create.map": "Standort auf der Karte auswählen",
+				"components.advertisements.create.coordinates": "Koordinaten (Breite, Länge)",
+				"components.advertisements.create.create": "Anzeige erstellen",
+				"components.advertisements.create.created_successfully": "Anzeige erfolgreich erstellt."
+			}
 		}
+	},
+	"common": {
+		"creating": "Erstelle..."
 	}
 }

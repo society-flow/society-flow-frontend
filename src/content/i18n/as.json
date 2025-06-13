@@ -183,6 +183,96 @@
 				},
 				"submit": "যাচাই কৰক"
 			}
+		},
+		"users": {
+			"card": {
+				"user_id": "ব্যৱহাৰকাৰীৰ আইডি",
+				"user_name": "নাম",
+				"user_role": "ভূমিকা",
+				"member_since": "সদস্যতাৰ তাৰিখ",
+				"no_members": "কোনো সদস্য পোৱা নগ’ল"
+			}
+		},
+		"societies": {
+			"create": {
+				"name": "সমাজৰ নাম",
+				"name_placeholder": "সমাজৰ নাম লিখক",
+				"pincode": "পিনক'ড",
+				"pincode_placeholder": "পিনক'ড লিখক",
+				"city": "চহৰ",
+				"city_placeholder": "চহৰৰ নাম লিখক",
+				"state": "ৰাজ্য",
+				"state_placeholder": "ৰাজ্যৰ নাম লিখক",
+				"country": "দেশ",
+				"country_placeholder": "দেশৰ নাম লিখক",
+				"timezone": "সময় মণ্ডল",
+				"timezone_placeholder": "সময় মণ্ডল লিখক (যেনেঃ Asia/Kolkata)",
+				"currency": "মুদ্ৰা",
+				"area_unit": "ক্ষেত্ৰফল একক",
+				"create": "সমাজ সৃষ্টি কৰক",
+				"created_successfully": "সমাজ সফলভাৱে সৃষ্টি কৰা হৈছে।"
+			},
+			"details": {
+				"role": "ভুমিকা",
+				"no_membership": "আপুনি সদস্য নহয়",
+				"id": "সমিতিৰ আইডি",
+				"location": "অৱস্থান",
+				"pincode": "পিনক'ড",
+				"currency": "মুদ্ৰা",
+				"timezone": "সময় অঞ্চল",
+				"area_unit": "মাটিৰ একক",
+				"fine_rate": "জৰিমনা হাৰ",
+				"coordinates": "স্থানাংক",
+				"created": "সৃষ্টি তাৰিখ",
+				"updated": "শেষবাৰৰ আপডে’ট"
+			}
+		},
+		"residences": {
+			"create": {
+				"societyId": "সমাজ আইডি",
+				"societyId_placeholder": "সমাজ আইডি প্ৰৱিষ্ট কৰক",
+				"residenceName": "আবাসৰ নাম",
+				"residenceName_placeholder": "আবাসৰ নাম লিখক",
+				"floorCount": "তলসংখ্যা",
+				"floorCount_placeholder": "তলসংখ্যা প্ৰৱিষ্ট কৰক",
+				"areaValue": "ক্ষেত্ৰফল (স্কুৱে. ফুট)",
+				"areaValue_placeholder": "স্কুৱে. ফুটত ক্ষেত্ৰফল লিখক",
+				"residentsCount": "নিবাসীৰ সংখ্যা",
+				"residentsCount_placeholder": "নিবাসীৰ সংখ্যা প্ৰৱিষ্ট কৰক",
+				"description": "বিৱৰণ",
+				"description_placeholder": "এটা বিৱৰণ যোগ কৰক (ঐচ্ছিক)",
+				"submit": "জমা দিয়ক"
+			},
+			"details": {
+				"societyId": "সমাজৰ আইডি",
+				"residentsCount": "বাসিন্দাৰ সংখ্যা",
+				"floorCount": "মজিয়াৰ সংখ্যা",
+				"area": "মাটিৰ পৰিমাণ",
+				"active": "সক্রিয়",
+				"yes": "হয়",
+				"no": "নহয়",
+				"description": "বিৱৰণ",
+				"createdAt": "সৃষ্টি কৰা তাৰিখ",
+				"updatedAt": "সৰ্বশেষ সম্পাদিত",
+				"notAvailable": "উপলব্ধ নহয়"
+			}
+		},
+		"ads": {
+			"create": {
+				"adDescription": "বিজ্ঞাপন বিৱৰণ",
+				"adDescription_placeholder": "বিজ্ঞাপনটোৰ বিৱৰণ লিখক",
+				"anonymousUserName": "অজ্ঞাত ব্যৱহাৰকাৰীৰ নাম",
+				"anonymousUserName_placeholder": "আপোনাৰ ছদ্ম নাম লিখক",
+				"adType": "বিজ্ঞাপন ধৰণ",
+				"adType_placeholder": "বিজ্ঞাপন ধৰণ নিৰ্ব্বাচন কৰক",
+				"map": "মেপত স্থান নিৰ্ব্বাচন কৰক",
+				"coordinates": "অৱস্থান (অক্ষাংশ, দেশান্চ)",
+				"create": "বিজ্ঞাপন সৃষ্টি কৰক",
+				"created_successfully": "বিজ্ঞাপন সফলভাৱে সৃষ্টি কৰা হৈছে।"
+			}
 		}
+	},
+	"common": {
+		"creating": "সৃষ্টি হৈ আছে..."
 	}
 }

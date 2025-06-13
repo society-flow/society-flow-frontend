@@ -61,7 +61,7 @@
 			};
 
 			const newAd = await api.createAdvertisement(payload);
-			success = $_('components.advertisements.create.created_successfully');
+			success = $_('components.ads.create.created_successfully');
 			onCreate(newAd);
 
 			// reset form
@@ -87,31 +87,31 @@
 
 <form on:submit|preventDefault={handleSubmit}>
 	<fieldset>
-		<legend>{$_('components.advertisements.create.adDescription')}</legend>
+		<legend>{$_('components.ads.create.adDescription')}</legend>
 		<textarea
 			bind:value={form.adDescription}
-			placeholder={$_('components.advertisements.create.adDescription_placeholder')}
+			placeholder={$_('components.ads.create.adDescription_placeholder')}
 			required
 			on:input={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.advertisements.create.anonymousUserName')}</legend>
+		<legend>{$_('components.ads.create.anonymousUserName')}</legend>
 		<input
 			type="text"
 			bind:value={form.anonymousUserName}
-			placeholder={$_('components.advertisements.create.anonymousUserName_placeholder')}
+			placeholder={$_('components.ads.create.anonymousUserName_placeholder')}
 			required
 			on:input={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.advertisements.create.adType')}</legend>
+		<legend>{$_('components.ads.create.adType')}</legend>
 		<select bind:value={form.adType} on:change={resetMessages}>
 			<option value="" disabled>
-				{$_('components.advertisements.create.adType_placeholder')}
+				{$_('components.ads.create.adType_placeholder')}
 			</option>
 			{#each adTypeOptions as opt}
 				<option value={opt.id}>{opt.name}</option>
@@ -121,13 +121,13 @@
 
 	<fieldset>
 		<label>
-			{$_('components.advertisements.create.map')}
+			{$_('components.ads.create.map')}
 		</label>
 		<MapPicker on:select={onMapSelect} />
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.advertisements.create.coordinates')}</legend>
+		<legend>{$_('components.ads.create.coordinates')}</legend>
 		<input
 			type="number"
 			step="any"
@@ -146,7 +146,7 @@
 
 	<fieldset>
 		<button type="submit" disabled={isLoading}>
-			{isLoading ? $_('common.creating') : $_('components.advertisements.create.create')}
+			{isLoading ? $_('common.creating') : $_('components.ads.create.create')}
 		</button>
 	</fieldset>
 

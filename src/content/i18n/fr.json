@@ -39,7 +39,6 @@
 					}
 				}
 			},
-
 			"register": {
 				"sections": {
 					"have-account": {
@@ -51,7 +50,6 @@
 					}
 				}
 			},
-
 			"login": {
 				"sections": {
 					"no-account": {
@@ -183,6 +181,96 @@
 				},
 				"submit": "Vérifier"
 			}
+		},
+		"users": {
+			"card": {
+				"user_id": "ID utilisateur",
+				"user_name": "Nom",
+				"user_role": "Rôle",
+				"member_since": "Membre depuis",
+				"no_members": "Aucun membre trouvé"
+			}
+		},
+		"societies": {
+			"create": {
+				"name": "Nom de la société",
+				"name_placeholder": "Entrez le nom de la société",
+				"pincode": "Code postal",
+				"pincode_placeholder": "Entrez le code postal",
+				"city": "Ville",
+				"city_placeholder": "Entrez la ville",
+				"state": "État",
+				"state_placeholder": "Entrez l'état",
+				"country": "Pays",
+				"country_placeholder": "Entrez le pays",
+				"timezone": "Fuseau horaire",
+				"timezone_placeholder": "Entrez le fuseau horaire (ex : Europe/Paris)",
+				"currency": "Devise",
+				"area_unit": "Unité de surface",
+				"create": "Créer la société",
+				"created_successfully": "Société créée avec succès."
+			},
+			"details": {
+				"role": "Rôle",
+				"no_membership": "Vous n'êtes pas membre",
+				"id": "ID de la société",
+				"location": "Emplacement",
+				"pincode": "Code postal",
+				"currency": "Devise",
+				"timezone": "Fuseau horaire",
+				"area_unit": "Unité de surface",
+				"fine_rate": "Taux d’amende",
+				"coordinates": "Coordonnées",
+				"created": "Créé le",
+				"updated": "Dernière mise à jour"
+			}
+		},
+		"residences": {
+			"create": {
+				"societyId": "ID de la société",
+				"societyId_placeholder": "Saisir l'ID de la société",
+				"residenceName": "Nom de la résidence",
+				"residenceName_placeholder": "Entrez le nom de la résidence",
+				"floorCount": "Nombre d'étages",
+				"floorCount_placeholder": "Entrez le nombre d'étages",
+				"areaValue": "Superficie (p²)",
+				"areaValue_placeholder": "Entrez la superficie en pieds carrés",
+				"residentsCount": "Nombre de résidents",
+				"residentsCount_placeholder": "Entrez le nombre de résidents",
+				"description": "Description",
+				"description_placeholder": "Ajoutez une description (facultatif)",
+				"submit": "Créer"
+			},
+			"details": {
+				"societyId": "ID de la société",
+				"residentsCount": "Nombre de résidents",
+				"floorCount": "Nombre d'étages",
+				"area": "Surface",
+				"active": "Actif",
+				"yes": "Oui",
+				"no": "Non",
+				"description": "Description",
+				"createdAt": "Créé le",
+				"updatedAt": "Mis à jour le",
+				"notAvailable": "Non disponible"
+			}
+		},
+		"ads": {
+			"create": {
+				"adDescription": "Description de l'annonce",
+				"adDescription_placeholder": "Entrez la description de l'annonce",
+				"anonymousUserName": "Nom d'utilisateur anonyme",
+				"anonymousUserName_placeholder": "Entrez un nom d'utilisateur anonyme",
+				"adType": "Type d'annonce",
+				"adType_placeholder": "Sélectionnez un type d'annonce",
+				"map": "Sélectionner un emplacement sur la carte",
+				"coordinates": "Coordonnées (Latitude, Longitude)",
+				"create": "Créer une annonce",
+				"created_successfully": "Annonce créée avec succès."
+			}
 		}
+	},
+	"common": {
+		"creating": "Création en cours..."
 	}
 }
