@@ -17,12 +17,20 @@
 
 	let societies = $state([]);
 	$effect(async () => {
-		societies = await api.getUserSocieties(userState.user.id);
+		if (userState?.user?.id) {
+			societies = await api.getUserSocieties(userState.user.id);
+		}
 	});
 
 	let residences = $state([]);
 	$effect(async () => {
-		// residences = await api.getUserResidences(userState.user.id);
+		if (societies) {
+			const promises = societies.map(({ id }) =>
+				api.getUserResidencesInSociety(id, userState.user.id)
+			);
+			const res = await Promise.all(promises);
+			residences = [].concat(...res);
+		}
 	});
 
 	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));
@@ -56,20 +64,24 @@
 			</header>
 		</section>
 		<section>
-			<article>
-				<h2>{$_('pages.home.auth.sections.societies')}</h2>
-				{#if societies?.length}
-					<ListSocieties {societies} />
-				{/if}
-			</article>
+			<h2>{$_('pages.home.auth.sections.societies')}</h2>
+			{#if societies?.length}
+				<ListSocieties {societies} />
+			{:else}
+				<Anchor href="/create/societies">
+					+ {$_('menu.societies')}
+				</Anchor>
+			{/if}
 		</section>
 		<section>
-			<article>
-				<h2>{$_('pages.home.auth.sections.residences')}</h2>
-				{#if residences?.length}
-					<ListResidences {residences} />
-				{/if}
-			</article>
+			<h2>{$_('pages.home.auth.sections.residences')}</h2>
+			{#if residences?.length}
+				<ListResidences {residences} />
+			{:else}
+				<Anchor href="/create/residences">
+					+ {$_('menu.residences')}
+				</Anchor>
+			{/if}
 		</section>
 	{:else}
 		<section>
