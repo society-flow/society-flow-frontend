@@ -9,13 +9,15 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
 	import ResidenceJoin from '$lib/components/residences/join.svelte';
+	import UsersList from '$lib/components/users/list.svelte';
 
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
 
 	let residence = $state({});
-	let userRole = $state(null);
+	let users = $state([]);
+	let isUser = $state(false);
 	let error = $state(null);
 
 	$effect(async () => {
@@ -24,28 +26,28 @@
 		}
 	});
 
+  async function onJoin(residenceUser) {
+    await loadResidenceData();
+  }
+
 	async function loadResidenceData() {
 		try {
 			error = null;
 			residence = await api.getResidenceById(id);
 
-      console.log("residence", residence)
+			console.log('residence', residence);
 			try {
-				userRole = await api.getUserRoleInResidence(id, userState.user.id);
-        console.log("userRole", userRole)
+				users = await api.getResidenceUsers(id);
+				isUser = !!users.find(({ id }) => id === userState?.user?.id);
 			} catch (err) {
-        console.log("error", err)
-				userRole = null; // not a member
+				console.log('error', err);
+				isUser = null; // not a member
+				error = err.message;
 			}
 		} catch (err) {
-			error = err.message || _('errors.load_failed');
+			error = err.message;
 			console.error('Failed to load residence:', err);
 		}
-	}
-
-	function handleRoleUpdate(newRole) {
-		userRole = newRole;
-		loadResidenceData();
 	}
 </script>
 
@@ -56,18 +58,18 @@
 
 	<article class="Detail">
 		{#if error}
-			<p class="text-red-500">{error}</p>
+			<p>{error}</p>
 		{:else}
-			<ResidenceDetails {residence} {userRole} />
+			<ResidenceDetails {residence} {isUser} />
 
-			{#if !userRole}
+			{#if !isUser}
 				<aside>
-					<ResidenceJoin
-						residenceId={id}
-						societyId={residence.societyId}
-						{userRole}
-						onRoleUpdate={handleRoleUpdate}
-					/>
+					<ResidenceJoin residenceId={id} societyId={residence.societyId} {isUser} {onJoin} />
+				</aside>
+			{/if}
+			{#if users}
+				<aside>
+					<UsersList {users} />
 				</aside>
 			{/if}
 		{/if}

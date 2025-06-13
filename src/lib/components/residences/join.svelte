@@ -3,7 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 
-	let { residenceId, societyId, userRole, onRoleUpdate } = $props();
+	let { residenceId, societyId, userRole, onJoin } = $props();
 
 	let joining = $state(false);
 	let joinError = $state(null);
@@ -19,8 +19,8 @@
 				userId: userState.user.id
 			});
 
-			if (onRoleUpdate) {
-				onRoleUpdate(residenceUser);
+			if (onJoin) {
+				onJoin(residenceUser);
 			}
 		} catch (err) {
 			joinError = err.message || _('errors.join_failed');

@@ -62,7 +62,6 @@
 		<input
 			type="number"
 			bind:value={form.floorCount}
-			min="0"
 			placeholder={$_('components.residences.create.floorCount_placeholder')}
 		/>
 	</fieldset>

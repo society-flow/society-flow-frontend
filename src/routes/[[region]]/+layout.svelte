@@ -296,6 +296,11 @@
     :global(h1, h2) {
       margin-bottom: 0;
     }
+    :global(main) {
+      :global(p:last-child) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   /* utilities */
