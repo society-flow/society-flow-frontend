@@ -40,6 +40,6 @@
 	{/if}
 
 	<button on:click={joinResidence} disabled={joining}>
-		{joining ? $_('components.residences.join.loading') : $_('components.residences.join.button')}
+		{$_('components.residences.join.button')}
 	</button>
 {/if}

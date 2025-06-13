@@ -6,11 +6,11 @@
 </script>
 
 <header>
-	<h2>
+	<h1>
 		<Anchor href={`/residences/${residence.id}`}>
 			{residence.residenceName}
 		</Anchor>
-	</h2>
+	</h1>
 </header>
 
 <main>

@@ -19,6 +19,7 @@
 	let users = $state([]);
 	let isUser = $state(false);
 	let error = $state(null);
+	let loading = $state(false);
 
 	$effect(async () => {
 		if (id && userState?.user?.id) {
@@ -26,11 +27,12 @@
 		}
 	});
 
-  async function onJoin(residenceUser) {
-    await loadResidenceData();
-  }
+	async function onJoin(residenceUser) {
+		await loadResidenceData();
+	}
 
 	async function loadResidenceData() {
+		loading = true;
 		try {
 			error = null;
 			residence = await api.getResidenceById(id);
@@ -47,6 +49,8 @@
 		} catch (err) {
 			error = err.message;
 			console.error('Failed to load residence:', err);
+		} finally {
+			loading = false;
 		}
 	}
 </script>
@@ -57,7 +61,13 @@
 	{/snippet}
 
 	<article class="Detail">
-		{#if error}
+		{#if loading}
+			<aside>
+				<center>
+					<progress />
+				</center>
+			</aside>
+		{:else if error}
 			<p>{error}</p>
 		{:else}
 			<ResidenceDetails {residence} {isUser} />

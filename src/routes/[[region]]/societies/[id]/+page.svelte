@@ -89,7 +89,11 @@
 
 	<article class="Detail">
 		{#if loading}
-			<section>Loading society details...</section>
+			<aside>
+				<center>
+					<progress />
+				</center>
+			</aside>
 		{:else if error}
 			<section><Error {error}></Error></section>
 		{:else if society}

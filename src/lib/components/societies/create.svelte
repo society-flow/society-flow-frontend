@@ -80,98 +80,98 @@
 </script>
 
 <form onsubmit={handleSubmit}>
-		<fieldset>
-			<legend for="society-name">{$_('components.societies.create.name')}</legend>
-			<input
-				id="society-name"
-				bind:value={form.name}
-				placeholder={$_('components.societies.create.name_placeholder')}
-				required
-				oninput={resetMessages}
-			/>
-		</fieldset>
+	<fieldset>
+		<legend for="society-name">{$_('components.societies.create.name')}</legend>
+		<input
+			id="society-name"
+			bind:value={form.name}
+			placeholder={$_('components.societies.create.name_placeholder')}
+			required
+			oninput={resetMessages}
+		/>
+	</fieldset>
 
-		<fieldset>
-			<legend>{$_('components.societies.create.pincode')}</legend>
-			<input
-				id="pincode"
-				bind:value={form.pincode}
-				placeholder={$_('components.societies.create.pincode_placeholder')}
-				oninput={resetMessages}
-			/>
-		</fieldset>
+	<fieldset>
+		<legend>{$_('components.societies.create.pincode')}</legend>
+		<input
+			id="pincode"
+			bind:value={form.pincode}
+			placeholder={$_('components.societies.create.pincode_placeholder')}
+			oninput={resetMessages}
+		/>
+	</fieldset>
 
-		<fieldset>
-			<legend>{$_('components.societies.create.city')}</legend>
-			<input
-				id="city"
-				bind:value={form.city}
-				placeholder={$_('components.societies.create.city_placeholder')}
-				oninput={resetMessages}
-			/>
-		</fieldset>
+	<fieldset>
+		<legend>{$_('components.societies.create.city')}</legend>
+		<input
+			id="city"
+			bind:value={form.city}
+			placeholder={$_('components.societies.create.city_placeholder')}
+			oninput={resetMessages}
+		/>
+	</fieldset>
 
-		<fieldset>
-			<legend>{$_('components.societies.create.state')}</legend>
-			<input
-				id="state"
-				bind:value={form.state}
-				placeholder={$_('components.societies.create.state_placeholder')}
-				oninput={resetMessages}
-			/>
-		</fieldset>
+	<fieldset>
+		<legend>{$_('components.societies.create.state')}</legend>
+		<input
+			id="state"
+			bind:value={form.state}
+			placeholder={$_('components.societies.create.state_placeholder')}
+			oninput={resetMessages}
+		/>
+	</fieldset>
 
-		<fieldset>
-			<legend>{$_('components.societies.create.country')}</legend>
-			<input
-				id="country"
-				bind:value={form.country}
-				placeholder={$_('components.societies.create.country_placeholder')}
-				oninput={resetMessages}
-			/>
-		</fieldset>
+	<fieldset>
+		<legend>{$_('components.societies.create.country')}</legend>
+		<input
+			id="country"
+			bind:value={form.country}
+			placeholder={$_('components.societies.create.country_placeholder')}
+			oninput={resetMessages}
+		/>
+	</fieldset>
 
-		<fieldset>
-			<legend>{$_('components.societies.create.timezone')}</legend>
-			<input
-				id="timezone"
-				bind:value={form.timezone}
-				placeholder={$_('components.societies.create.timezone_placeholder')}
-				oninput={resetMessages}
-			/>
-		</fieldset>
+	<fieldset>
+		<legend>{$_('components.societies.create.timezone')}</legend>
+		<input
+			id="timezone"
+			bind:value={form.timezone}
+			placeholder={$_('components.societies.create.timezone_placeholder')}
+			oninput={resetMessages}
+		/>
+	</fieldset>
 
-		<fieldset>
-			<legend>{$_('components.societies.create.currency')}</legend>
-			<select id="currency" bind:value={form.currency} onchange={resetMessages}>
-				{#each currencyOptions as option}
-					<option value={option.value}>{option.label}</option>
-				{/each}
-			</select>
-		</fieldset>
+	<fieldset>
+		<legend>{$_('components.societies.create.currency')}</legend>
+		<select id="currency" bind:value={form.currency} onchange={resetMessages}>
+			{#each currencyOptions as option}
+				<option value={option.value}>{option.label}</option>
+			{/each}
+		</select>
+	</fieldset>
 
-		<fieldset>
-			<legend>{$_('components.societies.create.area_unit')}</legend>
-			<select id="areaunit" bind:value={form.areaunit} onchange={resetMessages}>
-				{#each areaUnitOptions as option}
-					<option value={option.value}>{option.label}</option>
-				{/each}
-			</select>
-		</fieldset>
+	<fieldset>
+		<legend>{$_('components.societies.create.area_unit')}</legend>
+		<select id="areaunit" bind:value={form.areaunit} onchange={resetMessages}>
+			{#each areaUnitOptions as option}
+				<option value={option.value}>{option.label}</option>
+			{/each}
+		</select>
+	</fieldset>
 
-		<fieldset>
-			<button type="submit" disabled={isLoading}>
-				{isLoading ? $_('common.creating') : $_('components.societies.create.create')}
-			</button>
+	<fieldset>
+		<button type="submit" disabled={isLoading}>
+			{$_('components.societies.create.create')}
+		</button>
+	</fieldset>
+	{#if error}
+		<fieldset data-type="error" role="alert">
+			{error}
 		</fieldset>
-		{#if error}
-			<fieldset data-type="error" role="alert">
-				{error}
-			</fieldset>
-		{/if}
-		{#if success}
-			<fieldset data-type="success" role="alert">
-				{success}
-			</fieldset>
-		{/if}
-	</form>
+	{/if}
+	{#if success}
+		<fieldset data-type="success" role="alert">
+			{success}
+		</fieldset>
+	{/if}
+</form>

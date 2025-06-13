@@ -146,7 +146,7 @@
 
 	<fieldset>
 		<button type="submit" disabled={isLoading}>
-			{isLoading ? $_('common.creating') : $_('components.ads.create.create')}
+			{$_('components.ads.create.create')}
 		</button>
 	</fieldset>
 
