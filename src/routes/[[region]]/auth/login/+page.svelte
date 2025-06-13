@@ -12,15 +12,20 @@
 	requiresNoAuth($locale);
 
 	const email = $derived(page.url.searchParams.get('email'));
+	let userEmail = $state(email || '');
 
 	const sections = $derived($json('pages.auth.login.sections'));
 
-	async function onLogin({ email: userEmail }) {
-		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${userEmail}`), 0);
+	async function onSubmit({ email: inputEmail }) {
+		userEmail = inputEmail;
+		console.log('submit userEmail', userEmail);
+	}
+	async function onLogin({ email: inputEmail }) {
+		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${inputEmail}`), 0);
 	}
 </script>
 
-<Page title={$_('menu.auth.login')} oisCenter={true}>
+<Page title={$_('menu.auth.login')} isCenter={true}>
 	{#snippet header()}
 		<h1>
 			{$_('menu.auth.login')}
@@ -28,23 +33,31 @@
 	{/snippet}
 	{#if !userState.isAuth}
 		<section>
-			<Login {onLogin} {email} />
+			<Login {onLogin} {onSubmit} {email} />
 		</section>
 	{/if}
 
-	{#if !userState.isAuth}
-		<section>
-			{#each Object.entries(sections) as [key, section]}
-				<article>
-					<p class="text-center">
-						{section.text}
-						{#if section.link}
-							<Anchor href={section.link.url}>{$_(section.link.text).toLowerCase()}</Anchor>
-						{/if}
-						{'.'}
-					</p>
-				</article>
-			{/each}
-		</section>
-	{/if}
+	<section>
+		{#if userEmail}
+			{@render templateSections()}
+		{:else}
+			{@render templateSections()}
+		{/if}
+	</section>
 </Page>
+
+{#snippet templateSections()}
+	{#each Object.entries(sections) as [key, section]}
+		<article>
+			<p class="text-center">
+				{section.text}
+				{#if section.link}
+					<Anchor href={userEmail ? `/auth/register?email=${userEmail}` : '/auth/register'}
+						>{$_(section.link.text).toLowerCase()}</Anchor
+					>
+				{/if}
+				{'.'}
+			</p>
+		</article>
+	{/each}
+{/snippet}

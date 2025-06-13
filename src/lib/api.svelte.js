@@ -25,246 +25,187 @@ class Api {
 		const bearerAuth = userState?.token;
 		if (bearerAuth) {
 			client.spec.securityDefinitions = {
-				bearerAuth: {
-					type: 'apiKey',
-					name: 'Authorization',
-					in: 'header'
-				}
+				bearerAuth: { type: 'apiKey', name: 'Authorization', in: 'header' }
 			};
 			client.authorizations = { bearerAuth };
 		}
 		return client;
 	}
 
-	// Society API endpoints
+	// --- Societies & Residences ---
 	async getAllSocieties() {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getAllSocieties();
-		return response.body;
+		const res = await client.apis.societies.getAllSocieties();
+		return res.body;
 	}
-
 	async getSocietyById(id) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getSocietyById({ id });
-		return response.body;
+		const res = await client.apis.societies.getSocietyById({ id });
+		return res.body;
 	}
-
 	async createOrUpdateSociety(societyData) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.createOrUpdateSociety(
-			{},
-			{ requestBody: societyData }
-		);
-		return response.body;
+		const res = await client.apis.societies.createOrUpdateSociety({}, { requestBody: societyData });
+		return res.body;
 	}
-
 	async findSocietyByNameAndLocation({ name, city, state, country }) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.findSocietyByNameAndLocation({
+		const res = await client.apis.societies.findSocietyByNameAndLocation({
 			name,
 			city,
 			state,
 			country
 		});
-		return response.body;
+		return res.body;
 	}
-
 	async getUserSocieties(userId = userState.user?.id) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getUserSocieties({ userId });
-		return response.body.map(({ society, role }) => ({ ...society, role }));
+		const res = await client.apis.societies.getUserSocieties({ userId });
+		return res.body.map(({ society, role }) => ({ ...society, role }));
 	}
-
 	async getSocietyUsers(societyId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getSocietyUsers({ societyId });
-		return response.body.map(({ user, role }) => ({ ...user, role }));
+		const res = await client.apis.societies.getSocietyUsers({ societyId });
+		return res.body.map(({ user, role }) => ({ ...user, role }));
 	}
-
 	async assignUserToSociety({ societyId, userId, role }) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.assignUserToSociety(
+		const res = await client.apis.societies.assignUserToSociety(
 			{},
 			{ requestBody: { societyId, userId, role } }
 		);
-		return response.body;
+		return res.body;
 	}
-
 	async removeUserFromSociety(societyId, userId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.removeUserFromSociety({
-			societyId,
-			userId
-		});
-		return response.body;
+		const res = await client.apis.societies.removeUserFromSociety({ societyId, userId });
+		return res.body;
 	}
-
 	async getUserRoleInSociety(societyId, userId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getUserRoleInSociety({
-			societyId,
-			userId
-		});
-		return response.body;
+		const res = await client.apis.societies.getUserRoleInSociety({ societyId, userId });
+		return res.body;
 	}
 
-	// Residence endpoints
 	async getAllResidencesInSociety(societyId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getAllResidencesInSociety({
-			societyId
-		});
-		return response.body;
+		const res = await client.apis.societies.getAllResidencesInSociety({ societyId });
+		return res.body;
 	}
-
 	async createOrUpdateResidence(residenceData) {
 		const client = await this.getClient();
-		console.log('residenceData', residenceData);
-		const response = await client.apis.societies.createOrUpdateResidence(
+		const res = await client.apis.societies.createOrUpdateResidence(
 			{},
 			{ requestBody: residenceData }
 		);
-		return response.body;
+		return res.body;
 	}
-
 	async getResidenceById(id) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getResidenceById({ id });
-		return response.body;
+		const res = await client.apis.societies.getResidenceById({ id });
+		return res.body;
 	}
-
 	async getUserResidencesInSociety(societyId, userId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getUserResidencesInSociety({
-			societyId,
-			userId
-		});
-		return response.body;
+		const res = await client.apis.societies.getUserResidencesInSociety({ societyId, userId });
+		return res.body;
 	}
-
 	async getUserResidences(userId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getUserResidences({ userId });
-		return response.body;
+		const res = await client.apis.societies.getUserResidences({ userId });
+		return res.body;
 	}
-
 	async findResidenceByNameInSociety(societyId, residenceName) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.findResidenceByNameInSociety({
+		const res = await client.apis.societies.findResidenceByNameInSociety({
 			societyId,
 			residenceName
 		});
-		return response.body;
+		return res.body;
 	}
-
 	async countResidencesInSociety(societyId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.countResidencesInSociety({
-			societyId: societyId
-		});
-		return response.body;
+		const res = await client.apis.societies.countResidencesInSociety({ societyId });
+		return res.body;
 	}
-
 	async getResidenceUsers(residenceId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.getResidenceUsers({ residenceId });
-		return response.body;
+		const res = await client.apis.societies.getResidenceUsers({ residenceId });
+		return res.body;
 	}
-
 	async assignUserToResidence(assignmentData) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.assignUserToResidence(
+		const res = await client.apis.societies.assignUserToResidence(
 			{},
 			{ requestBody: assignmentData }
 		);
-		return response.body;
+		return res.body;
 	}
-
 	async removeUserFromResidence(residenceId, userId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.removeUserFromResidence({
-			residenceId,
-			userId
-		});
-		return response.body;
+		const res = await client.apis.societies.removeUserFromResidence({ residenceId, userId });
+		return res.body;
 	}
-
 	async isUserInResidence(residenceId, userId) {
 		const client = await this.getClient();
-		const response = await client.apis.societies.isUserInResidence({
-			residenceId,
-			userId
-		});
-		return response.body;
+		const res = await client.apis.societies.isUserInResidence({ residenceId, userId });
+		return res.body;
 	}
 
-	// Auth methods
+	// --- Users & Auth ---
 	logout() {
 		userState.logout();
 	}
-
 	async login({ email }) {
 		const client = await this.getClient();
 		return client.apis.users.login({}, { requestBody: { email } });
 	}
-
 	async register({ email, name }) {
 		const client = await this.getClient();
 		return client.apis.users.createUser({}, { requestBody: { name, email } });
 	}
-
 	async verifyOtp({ email, otp }) {
 		const client = await this.getClient();
 		const res = await client.apis.users.verifyOtp({}, { requestBody: { email, otp } });
 		userState.setToken(res.body.token);
 		return res;
 	}
-
-	async getUserByEmail(email = userState?.user?.email) {
+	async getUserByEmail(email = userState.user?.email) {
 		const client = await this.getClient();
-		return client.apis.users.getUserByEmail({ email });
+		const res = await client.apis.users.getUserByEmail({ email });
+		return res.body;
 	}
-
 	async getUser() {
 		const client = await this.getClient();
-		return client.apis.users.getUser().then((res) => res.body);
+		const res = await client.apis.users.getUser();
+		return res.body;
 	}
 
-	// Legal endpoints - Updated to match OpenAPI spec
+	// --- Legal ---
 	async getTermsOfService(locale = 'de') {
 		const client = await this.getClient();
-		const response = await client.apis.legal.getTermsOfService({ locale });
-		return response.body;
+		const res = await client.apis.legal.getTermsOfService({ locale });
+		return res.body;
 	}
-
 	async getPrivacyPolicy(locale = 'de') {
 		const client = await this.getClient();
-		const response = await client.apis.legal.getPrivacyPolicy({ locale });
-		return response.body;
+		const res = await client.apis.legal.getPrivacyPolicy({ locale });
+		return res.body;
 	}
-
 	async getCookiePolicy(locale = 'en') {
 		const client = await this.getClient();
-		const response = await client.apis.legal.getCookiePolicy({ locale });
-		return response.body;
+		const res = await client.apis.legal.getCookiePolicy({ locale });
+		return res.body;
 	}
-
 	async getDataProcessingInfo() {
 		const client = await this.getClient();
-		const response = await client.apis.legal.getDataProcessingInfo();
-		return response.body;
+		const res = await client.apis.legal.getDataProcessingInfo();
+		return res.body;
 	}
-
-	// Legacy method - consider deprecating in favor of specific methods above
-	async getLegal(legalDocumentType, lang = 'en') {
-		if (!validLegalDocumentTypes.includes(legalDocumentType)) {
-			throw new Error(
-				`Invalid legal document type. Must be one of: ${validLegalDocumentTypes.join(', ')}`
-			);
-		}
-
-		// Map to new specific methods
-		switch (legalDocumentType) {
+	async getLegal(type, lang = 'en') {
+		if (!validLegalDocumentTypes.includes(type))
+			throw new Error(`Invalid legal document type: ${type}`);
+		switch (type) {
 			case 'terms-of-service':
 				return this.getTermsOfService(lang);
 			case 'privacy-policy':
@@ -274,54 +215,154 @@ class Api {
 			case 'data-processing-info':
 				return this.getDataProcessingInfo();
 			default:
-				throw new Error(`Unsupported legal document type: ${legalDocumentType}`);
+				throw new Error(`Unsupported legal document type: ${type}`);
 		}
 	}
 
-	// GDPR endpoints - Fixed namespace
+	// --- GDPR ---
 	async exportUserData() {
 		const client = await this.getClient();
-		const response = await client.apis.gdpr.exportUserData();
-		return response.body;
+		const res = await client.apis.gdpr.exportUserData();
+		return res.body;
 	}
-
 	async updateUserData(userData) {
 		const client = await this.getClient();
-		const response = await client.apis.gdpr.updateUserData({}, { requestBody: userData });
-		return response.body;
+		const res = await client.apis.gdpr.updateUserData({}, { requestBody: userData });
+		return res.body;
 	}
-
 	async createDataRequest(requestType) {
 		const client = await this.getClient();
-		const response = await client.apis.gdpr.createDataRequest({ requestType });
-		return response.body;
+		const res = await client.apis.gdpr.createDataRequest({ requestType });
+		return res.body;
 	}
-
 	async deleteUserAccount(deleteCompletely = false) {
 		const client = await this.getClient();
-		const response = await client.apis.gdpr.deleteUserAccount({ deleteCompletely });
-		return response.body;
+		const res = await client.apis.gdpr.deleteUserAccount({ deleteCompletely });
+		return res.body;
 	}
 
-	// Error handling wrapper - Consider adding this to all methods
-	async _handleApiCall(apiCall) {
-		try {
-			return await apiCall();
-		} catch (error) {
-			console.error('API call failed:', error);
-			// Handle specific error cases based on status codes
-			if (error.status === 401) {
-				this.logout();
-				throw new Error('Authentication required');
-			}
-			throw error;
-		}
+	// --- Finances ---
+	async getAllExpensesBySociety(societyId) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.getAllExpensesBySociety({ societyId });
+		return res.body;
+	}
+	async getExpenseById(id) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.getExpenseById({ id });
+		return res.body;
+	}
+	async createOrUpdateExpense(expenseData) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.createOrUpdateExpense({}, { requestBody: expenseData });
+		return res.body;
+	}
+	async getAllExpenseDistributionsByExpenseId(expenseId) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.getAllExpenseDistributionsByExpenseId({ expenseId });
+		return res.body;
+	}
+	async createOrUpdateExpenseDistribution(distributionData) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.createOrUpdateExpenseDistribution(
+			{},
+			{ requestBody: distributionData }
+		);
+		return res.body;
+	}
+	async getAllCalculationsByExpense(expenseId) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.getAllCalculationsByExpense({ expenseId });
+		return res.body;
+	}
+	async getAllCalculationsByExpenseYearMonth(expenseId, yearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.getAllCalculationsByExpenseYearMonth({
+			expenseId,
+			yearMonth
+		});
+		return res.body;
+	}
+	async isCalculationForExpenseYearMonthUpdatable(expenseId, yearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.isCalculationForExpenseYearMonthUpdatable({
+			expenseId,
+			yearMonth
+		});
+		return res.body;
+	}
+	async getCalculationByExpenseYearMonthResidence(expenseId, yearMonth, residenceId) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.getCalculationByExpenseYearMonthResidence({
+			expenseId,
+			yearMonth,
+			residenceId
+		});
+		return res.body;
+	}
+	async getAllCalculationsByExpenseFromYearMonth(expenseId, fromYearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.getAllCalculationsByExpenseFromYearMonth({
+			expenseId,
+			fromYearMonth
+		});
+		return res.body;
+	}
+	async triggerCalculation(expenseId, yearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.finances.triggerCalculation({ expenseId, yearMonth });
+		return res.body;
+	}
+
+	// --- Advertisings ---
+	async getAllAdvertisements() {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.getAllAdvertisements();
+		return res.body;
+	}
+	async getAdvertisementById(id) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.getAdvertisementById({ id });
+		return res.body;
+	}
+	async getAdvertisementsByUserId(userId) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.getAdvertisementsByUserId({ userId });
+		return res.body;
+	}
+	async getAdvertisementsBySocietyId(societyId) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.getAdvertisementsBySocietyId({ societyId });
+		return res.body;
+	}
+	async createAdvertisement(adData) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.createAdvertisement({}, { requestBody: adData });
+		return res.body;
+	}
+	async updateAdvertisement(id, adData) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.updateAdvertisement({ id }, { requestBody: adData });
+		return res.body;
+	}
+	async getActiveAdvertisements() {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.getActiveAdvertisements();
+		return res.body;
+	}
+	async getAllAdTypes() {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.getAllAdTypes();
+		return res.body;
+	}
+	async getAdTypeById(id) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.getAdTypeById({ id });
+		return res.body;
 	}
 }
 
 export const api = new Api();
-
-// Main entrypoint to call once on app load
 export async function initApi() {
 	await initSwaggerClient();
 }

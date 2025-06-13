@@ -1,27 +1,34 @@
-<script>
+<script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	// import { api } from '$lib/api.svelte.js';
+	import { api } from '$lib/api.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 
 	const id = $derived($page.params.id);
 	let advert = $state({});
-	let markers = $derived(advert ? [advert] : []);
+	let markers = $derived(
+		advert?.approxGeoCoordinate
+			? [
+					{
+						coordinates: [advert.approxGeoCoordinate.x, advert.approxGeoCoordinate.y],
+						title: advert.id
+					}
+				]
+			: []
+	);
 	let mapId = $derived(`advert-${advert.id}`);
 
-	$effect(() => {
+	$effect(async () => {
 		if (id) {
-			// api.getAdvert(Number(id)).then((ad) => {
-			// 	advert = ad;
-			// });
+			advert = await api.getAdvertisementById(id);
 		}
 	});
 </script>
 
-<Page title={`${advert?.name} — ${$_('menu.adverts')}`}>
+<Page title={`${advert?.title} — ${$_('menu.adverts')}`}>
 	{#snippet header()}
 		<h1>
 			{$_('menu.adverts')}
@@ -32,18 +39,20 @@
 		<header>
 			<h1>
 				<Anchor href={`/ads/${id}`}>
-					{advert?.name}
+					{advert?.title}
 				</Anchor>
 			</h1>
 		</header>
 
 		<main>
-			<p>{advert?.description}</p>
+			<p>{advert?.adDescription}</p>
 		</main>
 
-		<aside>
-			<Map {mapId} {markers} />
-		</aside>
+		{#if markers.length}
+			<aside>
+				<Map {mapId} {markers} />
+			</aside>
+		{/if}
 
 		<footer>
 			<nav>

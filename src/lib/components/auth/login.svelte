@@ -3,7 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import Error from '$lib/components/error.svelte';
 
-	const { email: userEmail, onLogin = () => {} } = $props();
+	const { email: userEmail, onLogin = () => {}, onSubmit = () => {} } = $props();
 
 	let email = $state(userEmail || '');
 	let error = $state('');
@@ -11,6 +11,7 @@
 	async function onsubmit(event) {
 		event.preventDefault();
 		error = '';
+    onSubmit({ email });
 		try {
 			// Also sends the OTP
 			const res = await api.login({ email })

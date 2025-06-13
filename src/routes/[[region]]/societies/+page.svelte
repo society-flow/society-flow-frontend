@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
