@@ -13,7 +13,6 @@
 		if (userState?.isAuth) {
 			const user = await api.getUser();
       userState.setUser(user)
-			console.log('User by email', user);
 		}
 	});
 </script>
@@ -293,6 +292,9 @@
       margin-top: calc(var(--s) * 2);
       padding: var(--s);
       background-color: var(--c-bg--secondary);
+    }
+    :global(h1, h2) {
+      margin-bottom: 0;
     }
   }
 

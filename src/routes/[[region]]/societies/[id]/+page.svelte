@@ -133,8 +133,6 @@
 	</article>
 
 	{#snippet footer()}
-		<p>
-			<Anchor href="/societies">← Back to all societies</Anchor>
-		</p>
+		<Anchor href="/societies">← {$_('menu.societies')}</Anchor>
 	{/snippet}
 </Page>

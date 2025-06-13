@@ -39,7 +39,7 @@
 		<header>
 			<h1>
 				<Anchor href={`/ads/${id}`}>
-					{advert?.title}
+					{advert?.title || id}
 				</Anchor>
 			</h1>
 		</header>

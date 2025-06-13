@@ -1,4 +1,4 @@
-<script>
+<script lang="javascript">
 	import { _ } from 'svelte-i18n';
 
 	let { users = [] } = $props();
@@ -19,29 +19,28 @@
 	}
 </script>
 
-{console.log('users', users)}
-
 {#if users.length > 0}
 	<ul>
 		{#each users as user}
 			<li>
 				<div>
 					<div>
-						<strong>User ID:</strong>
+						<strong>{$_('components.users.list.user_id')}:</strong>
 						{user.id}
 					</div>
 					<div>
-						<strong>User Name:</strong>
+						<strong>{$_('components.users.list.user_name')}:</strong>
 						{user.name}
 					</div>
 					<div>
+						<strong>{$_('components.users.list.user_role')}:</strong>
 						<span class="role-badge {getRoleBadgeClass(user.role)}">
 							{user.role}
 						</span>
 					</div>
 					{#if user.createdAt}
 						<div>
-							Member since: {formatDate(user.createdAt)}
+							{$_('components.users.list.member_since')}: {formatDate(user.createdAt)}
 						</div>
 					{/if}
 				</div>
@@ -49,5 +48,5 @@
 		{/each}
 	</ul>
 {:else}
-	<p>No members found.</p>
+	<p>{$_('components.users.list.no_members')}</p>
 {/if}
