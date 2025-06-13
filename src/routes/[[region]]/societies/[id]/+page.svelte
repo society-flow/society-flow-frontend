@@ -101,6 +101,22 @@
 				</aside>
 			{/if}
 
+			{#if userResidences.length > 0}
+				<aside>
+					<ResidencesList
+						residences={userResidences}
+						residenceCount={userResidences.length}
+						{society}
+					/>
+				</aside>
+			{/if}
+
+			{#if societyUsers.length}
+				<aside>
+					<UsersList users={societyUsers} />
+				</aside>
+			{/if}
+
 			<aside>
 				{#if residences.length > 0}
 					<ResidencesList {residences} {residenceCount} {society} />
@@ -111,24 +127,8 @@
 					</Anchor>
 				{/if}
 			</aside>
-
-			{#if societyUsers.length}
-				<aside>
-					<UsersList users={societyUsers} />
-				</aside>
-			{/if}
-
-			{#if userResidences.length > 0}
-				<aside>
-					<ResidencesList
-						residences={userResidences}
-						residenceCount={userResidences.length}
-						{society}
-					/>
-				</aside>
-			{/if}
 		{:else}
-			<p>Society not found.</p>
+			<p>ø</p>
 		{/if}
 	</article>
 

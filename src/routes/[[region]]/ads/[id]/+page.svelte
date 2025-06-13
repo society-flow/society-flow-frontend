@@ -53,11 +53,9 @@
 				<Map {mapId} {markers} />
 			</aside>
 		{/if}
-
-		<footer>
-			<nav>
-				<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
-			</nav>
-		</footer>
 	</article>
+
+	{#snippet footer()}
+		<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
+	{/snippet}
 </Page>
