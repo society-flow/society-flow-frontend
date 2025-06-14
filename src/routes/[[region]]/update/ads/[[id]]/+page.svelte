@@ -1,7 +1,10 @@
 <script>
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
+  import { base } from '$app/paths';
+  import { goto } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
+	import Error from '$lib/components/error.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import Form from '$lib/components/ads/form.svelte';
 
@@ -12,23 +15,22 @@
 	$effect(async () => {
 		try {
 			data = await api.getAdvertisementById(id);
-			console.log(data);
 		} catch (e) {
-			error = e.message;
+			error = e;
 		}
 	});
 
-	function handleUpdated(updatedData) {
-		console.log('Updated:', updatedData);
+	function onsuccess(ad) {
+    setTimeout(() => goto(`${base}/${$locale}/ads/${ad.id}`), 0);
 	}
 </script>
 
 <Page title={$_('menu.update.ads')}>
 	{#if error}
-		<p>{error}</p>
+		<Error {error} />
 	{:else if !data}
 		<progress />
 	{:else}
-		<Form initialData={data} onSuccess={handleUpdated} />
+		<Form {data} {onsuccess} />
 	{/if}
 </Page>

@@ -21,7 +21,7 @@
 			: []
 	);
 
-	let isOwner = $derived(advert?.byUserId === userState?.user?.id);
+	let isOwner = $derived(advert?.userId === userState?.user?.id);
 
 	$effect(async () => {
 		if (id) {

@@ -20,7 +20,6 @@
 
 	async function submit() {
 		try {
-			console.log('form', form);
 			const response = await api.createOrUpdateResidence({ ...form });
 			onsuccess(response);
 			form = { ...response };

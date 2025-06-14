@@ -1,7 +1,7 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
-  import {nominatim} from "$lib/geo.js"
+	import { nominatim } from '$lib/geo.js';
 	import { AREA_UNITS as areaUnitOptions } from '$lib/const/area.js';
 	import { CURRENCIES as currencyOptions } from '$lib/const/currencies.js';
 	import MapPicker from '$lib/components/map-picker.svelte';
@@ -24,40 +24,49 @@
 			currency: 'EUR',
 			timezone: userTimezone || '',
 			areaUnit: 'sqm',
-			fineRate: 0
+			fineRate: 0,
+      geoCoordinate: { x: '', y: '' }
 		},
 		...initialData
 	});
 
-  async function onMapSelect(detail) {
-	  const lat = detail.lat;
-	  const lng = detail.lng;
+  console.log("form", form)
 
-	  form = {
-		  ...form,
-		  geoCoordinate: {
-			  x: lat,
-			  y: lng
-		  }
-	  };
+	const markers = $derived(form.geoCoordinate ? [
+		{
+			coordinates: [form?.geoCoordinate?.x, form?.geoCoordinate?.y],
+			title: form.name || ''
+		}
+	] : []);
 
-	  try {
-		  const data = await nominatim(lat, lng);
+	async function onMapSelect(detail) {
+		const lat = detail.lat;
+		const lng = detail.lng;
 
-		  if (data.address) {
-			  form = {
-				  ...form,
-				  pincode: data.address.postcode || '',
-				  city: data.address.city || data.address.town || data.address.village || '',
-				  state: data.address.state || '',
-				  country: data.address.country || ''
-			  };
-		  }
-	  } catch (err) {
-		  console.error("Error fetching OSM data:", err);
-	  }
-  }
+		form = {
+			...form,
+			geoCoordinate: {
+				x: lat,
+				y: lng
+			}
+		};
 
+		try {
+			const data = await nominatim(lat, lng);
+
+			if (data.address) {
+				form = {
+					...form,
+					pincode: data.address.postcode || '',
+					city: data.address.city || data.address.town || data.address.village || '',
+					state: data.address.state || '',
+					country: data.address.country || ''
+				};
+			}
+		} catch (err) {
+			console.error('Error fetching OSM data:', err);
+		}
+	}
 
 	async function handleSubmit() {
 		if (!form.name.trim()) {
@@ -86,7 +95,7 @@
 
 <form onsubmit={handleSubmit}>
 	<fieldset>
-		<legend for="society-name">{$_('components.societies.create.name')}</legend>
+		<legend>{$_('components.societies.create.name')}</legend>
 		<input
 			bind:value={form.name}
 			placeholder={$_('components.societies.create.name_placeholder')}
@@ -96,10 +105,10 @@
 	</fieldset>
 
 	<fieldset>
-		<label>
+		<legend>
 			{$_('components.ads.create.map')}
-		</label>
-		<MapPicker onselect={onMapSelect}/>
+		</legend>
+		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
 	</fieldset>
 
 	<fieldset>

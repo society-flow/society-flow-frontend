@@ -1,21 +1,31 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import MapPicker from '$lib/components/map-picker.svelte';
 
-	const { initialData = null, onSuccess = () => {} } = $props();
+	const { data: initialData = {}, onsuccess = () => {} } = $props();
 
 	let isLoading = $state(false);
 	let error = $state('');
 	let success = $state('');
 
-	let form = $state(initialData ?? {
-		adDescription: '',
-		anonymousUserName: '',
-		adType: '',
-		isActive: true,
-		approxGeoCoordinate: { x: '', y: '' }
+	let form = $state({
+		...{
+			adDescription: '',
+			anonymousUserName: '',
+			type: '',
+			isActive: true,
+			approxGeoCoordinate: { x: '', y: '' }
+		},
+		...initialData
 	});
+
+	const markers = $derived([
+		{
+			coordinates: [form.approxGeoCoordinate.x, form.approxGeoCoordinate.y],
+			title: form.adDescription || ''
+		}
+	]);
 
 	// Options loaded via reactive effect
 	let adTypeOptions = $state([]);
@@ -26,8 +36,8 @@
 		}
 	});
 
-	function onMapSelect(event) {
-		const { detail } = event;
+	function onMapSelect(detail) {
+		console.log('detail', detail);
 		form = {
 			...form,
 			approxGeoCoordinate: {
@@ -38,7 +48,7 @@
 	}
 
 	async function handleSubmit() {
-		if (!form.adDescription.trim() || !form.anonymousUserName.trim() || !form.adType) {
+		if (!form.adDescription.trim() || !form.anonymousUserName.trim() || !form.type) {
 			error = $_('errors.required_fields');
 			return;
 		}
@@ -51,27 +61,20 @@
 			const payload = {
 				adDescription: form.adDescription,
 				anonymousUserName: form.anonymousUserName,
-				adType: form.adType,
+				type: form.type,
 				isActive: form.isActive,
 				approxGeoCoordinate:
-	      form.approxGeoCoordinate.x !== '' && form.approxGeoCoordinate.y !== ''
-		      ? { x: +form.approxGeoCoordinate.x, y: +form.approxGeoCoordinate.y }
-		    : undefined
-
+					form.approxGeoCoordinate.x !== '' && form.approxGeoCoordinate.y !== ''
+						? { x: +form.approxGeoCoordinate.x, y: +form.approxGeoCoordinate.y }
+						: undefined
 			};
 
 			const newAd = await api.createAdvertisement(payload);
 			success = $_('components.ads.create.created_successfully');
-			onSuccess(newAd);
+			onsuccess(newAd);
 
 			// reset form
-			form = {
-				adDescription: '',
-				anonymousUserName: '',
-				adType: '',
-				isActive: true,
-				approxGeoCoordinate: { x: '', y: '' }
-			};
+			form = { ...newAd };
 		} catch (err) {
 			error = err.message || $_('errors.generic');
 		} finally {
@@ -108,10 +111,10 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.ads.create.adType')}</legend>
-		<select bind:value={form.adType} on:change={resetMessages}>
+		<legend>{$_('components.ads.create.type')}</legend>
+		<select bind:value={form.type} on:change={resetMessages}>
 			<option value="" disabled>
-				{$_('components.ads.create.adType_placeholder')}
+				{$_('components.ads.create.type_placeholder')}
 			</option>
 			{#each adTypeOptions as opt}
 				<option value={opt.id}>{opt.name}</option>
@@ -123,7 +126,7 @@
 		<label>
 			{$_('components.ads.create.map')}
 		</label>
-		<MapPicker on:select={onMapSelect} />
+		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
 	</fieldset>
 
 	<fieldset>

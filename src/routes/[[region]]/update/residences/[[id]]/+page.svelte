@@ -4,6 +4,7 @@
   import { base } from '$app/paths';
   import { goto } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
+  import Error from '$lib/components/error.svelte';
   import Page from '$lib/components/routes/page.svelte';
 	import Form from '$lib/components/residences/form.svelte';
 
@@ -15,7 +16,7 @@
 		try {
 			data = await api.getResidenceById(id);
 		} catch (e) {
-			error = e.message;
+			error = e;
 		}
 	});
 
@@ -26,7 +27,7 @@
 
 <Page title={$_('menu.update.residences')}>
 	{#if error}
-		<p>{error}</p>
+		<Error {error} />
 	{:else if !data}
 		<progress />
 	{:else}
