@@ -38,13 +38,9 @@
 	});
 
 	function onMapSelect(detail) {
-		console.log('detail', detail);
-		form = {
-			...form,
-			approxGeoCoordinate: {
+		form.approxGeoCoordinate = {
 				x: detail.lat,
 				y: detail.lng
-			}
 		};
 	}
 
@@ -59,15 +55,7 @@
 		success = '';
 
 		try {
-			const payload = {
-				...form,
-				approxGeoCoordinate:
-					form.approxGeoCoordinate.x !== '' && form.approxGeoCoordinate.y !== ''
-						? { x: +form.approxGeoCoordinate.x, y: +form.approxGeoCoordinate.y }
-						: undefined
-			};
-
-			const newAd = await api.createAdvertisement(payload);
+			const newAd = await api.createAdvertisement({...form});
 			success = $_('components.ads.form.created_successfully');
 			onsuccess(newAd);
 

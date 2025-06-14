@@ -32,14 +32,10 @@
 </script>
 
 {#if !isMember}
-	<h3>{$_('components.residences.join.title')}</h3>
-	<p>{$_('components.residences.join.description')}</p>
-
-	{#if joinError}
-		<p class="text-red-500">{joinError}</p>
-	{/if}
-
 	<button on:click={joinResidence} disabled={joining}>
 		{$_('components.residences.join.button')}
+		{#if joinError}
+			<span>{joinError}</span>
+		{/if}
 	</button>
 {/if}

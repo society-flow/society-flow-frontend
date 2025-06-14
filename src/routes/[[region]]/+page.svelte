@@ -7,6 +7,8 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import ListSocieties from '$lib/components/societies/list.svelte';
 	import ListResidences from '$lib/components/residences/list.svelte';
+	import ListAds from '$lib/components/ads/list.svelte';
+	import MarketingUsers from '$lib/components/marketing/users.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
 
@@ -17,14 +19,14 @@
 
 	let societies = $state([]);
 	$effect(async () => {
-		if (userState?.user?.id) {
+		if (userState?.isAuth) {
 			societies = await api.getUserSocieties(userState.user.id);
 		}
 	});
 
 	let residences = $state([]);
 	$effect(async () => {
-		if (societies) {
+		if (userState?.isAuth && societies) {
 			const promises = societies.map(({ id }) =>
 				api.getUserResidencesInSociety(id, userState.user.id)
 			);
@@ -33,11 +35,18 @@
 		}
 	});
 
+	let ads = $state([]);
+	$effect(async () => {
+		if (userState?.isAuth) {
+			ads = await api.getAdvertisementsByUserId(userState.user.id);
+		}
+	});
+
 	const marketingUserTypes = $derived($json('pages.home.marketing.user_types'));
 	const titleOneWord = $derived($_('title').split(' ').join(''));
 </script>
 
-<Page title={$_('title')}>
+<Page title={$_('title')} isWide={!userState?.isAuth} isCenter={!userState?.isAuth}>
 	{#snippet header()}
 		{#if !userState.isAuth}
 			<h1>{titleOneWord}</h1>
@@ -62,143 +71,76 @@
 			</header>
 		</section>
 		<section>
-			<h2>{$_('pages.home.auth.sections.societies')}</h2>
+			<h2>{$_('menu.societies')}</h2>
 			{#if societies?.length}
 				<ListSocieties {societies} />
 			{:else}
-				<Anchor href="/create/societies">
+				<Anchor href="/create/societies" isButton>
 					{$_('menu.create.societies')}
 				</Anchor>
 			{/if}
 		</section>
 		<section>
-			<h2>{$_('pages.home.auth.sections.residences')}</h2>
+			<h2>{$_('menu.residences')}</h2>
 			{#if residences?.length}
 				<ListResidences {residences} />
 			{:else}
-				<Anchor href="/create/residences">
+				<Anchor href="/create/residences" isButton>
 					{$_('menu.create.residences')}
+				</Anchor>
+			{/if}
+		</section>
+		<section>
+			<h2>{$_('menu.adverts')}</h2>
+			{#if ads?.length}
+				<ListAds {ads} />
+			{:else}
+				<Anchor href="/create/ads" isButton>
+					{$_('menu.create.ads')}
 				</Anchor>
 			{/if}
 		</section>
 	{:else}
 		<section>
-			<ul class="Cards">
-				{#each Object.entries(marketingUserTypes) as [key, userType]}
-					<li class="Card">
-						<article>
-							<header>
-								<h2>{userType.title}</h2>
-							</header>
-							<main>
-								<ul>
-									{#each userType.features as feature}
-										<li>{feature}</li>
-									{/each}
-								</ul>
-							</main>
-							<aside>
-								<SvgIcon
-									name={key === 'society_admin'
-										? 'admin'
-										: key === 'society_member'
-											? 'member'
-											: 'rent'}
-								/>
-							</aside>
-						</article>
-					</li>
-				{/each}
-			</ul>
+			<MarketingUsers />
 		</section>
-
-		<section>
-			{#if !userState?.isAuth}
-				<center>
-					<p>
-						{$_('pages.home.marketing.call_to_action', { values: { title: titleOneWord } })}
-					</p>
-				</center>
-			{/if}
-			<center>
-				<Anchor href="/auth/login">{$_('menu.auth.login')}</Anchor>
-			</center>
-		</section>
-		{#if ticker}
-			<aside class="Ticker">
-				<header>
-					<h3 class="Ticker-title">
-						{ticker?.title}
-					</h3>
-				</header>
-				{#if ticker?.body}
-					<main>
-						{ticker.body}
-					</main>
-				{/if}
-			</aside>
-		{/if}
 	{/if}
+
+	{#snippet footer()}
+		{#if !userState.isAuth}
+			<section>
+				{#if !userState?.isAuth}
+					<center>
+						<p>
+							{$_('pages.home.marketing.call_to_action', { values: { title: titleOneWord } })}
+						</p>
+					</center>
+				{/if}
+				<center>
+					<Anchor href="/auth/login">{$_('menu.auth.login')}</Anchor>
+				</center>
+			</section>
+			{#if ticker}
+				<aside class="Ticker">
+					<header>
+						<h3 class="Ticker-title">
+							{ticker?.title}
+						</h3>
+					</header>
+					{#if ticker?.body}
+						<main>
+							{ticker.body}
+						</main>
+					{/if}
+				</aside>
+			{/if}
+		{/if}
+	{/snippet}
 </Page>
 
 <style>
-	article {
-		margin-bottom: calc(var(--s) * 2);
-	}
 	h1 {
 		text-align: center;
-	}
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	.Cards {
-		display: grid;
-		justify-content: center;
-		gap: calc(var(--s) * 4);
-		@media (min-width: 50rem) {
-			gap: calc(var(--s) * 6);
-			grid-template-columns: 1fr 1fr 1fr;
-		}
-	}
-	.Card {
-		/* keeps the same sizing as before */
-		--s-svg: calc(var(--s) * 15);
-		padding: calc(var(--s) * 2);
-		background-color: var(--c-bg--secondary);
-		border: 1px solid var(--c-border);
-		border-radius: var(--border-radius);
-
-		ul {
-			list-style-type: square;
-			padding: calc(var(--s) * 2);
-		}
-
-		:global(svg) {
-			max-width: var(--s-svg);
-			max-height: var(--s-svg);
-			transition: all 0.3s ease;
-			border: 1px solid var(--c-bg);
-			margin: calc(var(--s) * 2) auto;
-			display: block;
-			background-color: var(--c-bg);
-			border-radius: var(--border-radius);
-			padding: var(--s);
-		}
-		:global(header) {
-			text-align: center;
-			order: 1;
-		}
-		:global(main) {
-			order: 0;
-		}
-
-		@media (min-width: 50rem) {
-			&:nth-of-type(2n) {
-				transform: scale(1.1);
-			}
-		}
 	}
 	.Ticker {
 		background-color: var(--c-bg--secondary);

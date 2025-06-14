@@ -26,11 +26,6 @@
 </script>
 
 <Page title={$_('menu.auth.login')} isCenter={true}>
-	{#snippet header()}
-		<h1>
-			{$_('menu.auth.login')}
-		</h1>
-	{/snippet}
 	{#if !userState.isAuth}
 		<section>
 			<Login {onLogin} {onSubmit} {email} />

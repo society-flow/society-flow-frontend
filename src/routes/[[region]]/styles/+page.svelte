@@ -4,10 +4,6 @@
 </script>
 
 <Page title={$_('menu.styles')}>
-	{#snippet header()}
-		<h1>{$_('menu.styles')}</h1>
-	{/snippet}
-
 	<section>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

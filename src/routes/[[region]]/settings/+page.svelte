@@ -19,10 +19,6 @@
 </script>
 
 <Page title={$_('menu.settings')}>
-	{#snippet header()}
-		<h1>{$_('menu.settings')}</h1>
-	{/snippet}
-
 	{#each Object.entries(sections) as [key, section]}
 		<section>
 			<header>

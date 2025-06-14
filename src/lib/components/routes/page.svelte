@@ -1,5 +1,14 @@
 <script type="javascript">
-	const { title, header, children, footer, isCenter = false, showHeader = false } = $props();
+	const {
+		title,
+		header,
+		children,
+		footer,
+		showHeader = true,
+		isCenter = false,
+    isWide = false,
+		isFull = false
+	} = $props();
 </script>
 
 <svelte:head>
@@ -19,7 +28,12 @@
 {/if}
 
 {#if children}
-	<main class={`Page-main ${isCenter ? 'Page-main--center' : ''}`}>
+	<main
+		class="Page-main"
+		class:Page-main--center={isCenter}
+		class:Page-main--full={isFull}
+		class:Page-main--wide={isWide}
+	>
 		{@render children()}
 	</main>
 {/if}
@@ -33,7 +47,7 @@
 <style>
 	.Page-header {
 		display: flex;
-    flex-direction: column;
+		flex-direction: column;
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
@@ -51,13 +65,19 @@
 		&:not(.Page-main--center) {
 			flex-grow: 1;
 		}
+		&.Page-main--full {
+			max-width: none;
+		}
+    &.Page-main--wide {
+      max-width: calc(var(--s-container) * 1.5);
+		}
 	}
 	.Page-footer {
 		:global(a) {
 			padding: var(--s);
 		}
-    :global(nav) {
-      list-style: none;
-    }
+		:global(nav) {
+			list-style: none;
+		}
 	}
 </style>

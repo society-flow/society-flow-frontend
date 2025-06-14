@@ -64,12 +64,12 @@
 	}
 
 	:global(h1) {
-		font-size: 1.7em;
+		font-size: 2em;
 		font-style: italic;
 	}
 
 	:global(h2) {
-		font-size: 1.3em;
+		font-size: 1.5em;
 	}
 
 	:global(fieldset) {
@@ -153,7 +153,7 @@
 		}
 	}
 	:global(a.Button) {
-		border-color: var(--c-link);
+		/* border-color: var(--c-link); */
 		padding: var(--s);
 		text-decoration-color: transparent;
 		&:hover {
@@ -199,7 +199,7 @@
 		border: 1px solid var(--c-border);
 		background-color: var(--c-bg--form);
 		border-radius: calc(var(--border-radius) * 2);
-		padding: calc(var(--s) * 3) calc(var(--s) * 2);
+		padding: calc(var(--s) * 2) calc(var(--s) * 1);
 		/* max-width: var(--s-form); */
 	}
 
@@ -263,12 +263,8 @@
 	}
 
 	.Site-main {
-		--border-radius--top: var(--border-radius);
-		--border-radius--bottom: calc(var(--border-radius--top) * 6);
 		background-color: var(--c-bg);
 		border-radius: var(--border-radius--top);
-		border-bottom-left-radius: var(--border-radius--bottom);
-		border-bottom-right-radius: var(--border-radius--bottom);
 		flex-grow: 1;
 		padding: var(--s);
 		margin: 0 calc(var(--s) * 2);
@@ -314,8 +310,8 @@
 		:global(& > section, & > header, & > main, & > aside) {
 			border: 1px solid var(--c-border);
 			border-radius: var(--border-radius);
-			margin-top: calc(var(--s) * 1);
 			padding: var(--s);
+      margin-top: calc(var(--s) / 2);
 		}
     :global(& > header) {
       background-color: var(--c-bg--secondary);
@@ -326,6 +322,10 @@
     }
 		:global(h1, h2) {
 			margin-bottom: 0;
+      text-align: center;
+      :global(a) {
+        text-decoration: none;
+      }
 		}
 		:global(nav) {
 			list-style: none;

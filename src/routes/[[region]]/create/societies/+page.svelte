@@ -1,7 +1,7 @@
 <script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
-  import { base } from '$app/paths';
-  import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
+	import { goto } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
@@ -11,18 +11,10 @@
 	requiresAuth(locale);
 
 	function onsuccess(newSociety) {
-    setTimeout(() => goto(`${base}/${$locale}/societies/${newSociety.id}`), 0);
+		setTimeout(() => goto(`${base}/${$locale}/societies/${newSociety.id}`), 0);
 	}
 </script>
 
 <Page title={$_('menu.create.societies')}>
-	{#snippet header()}
-		<div class="header-content">
-			<h1>{$_('menu.create.societies')}</h1>
-		</div>
-	{/snippet}
-
-	<section>
-		<Form {onsuccess} />
-	</section>
+	<Form {onsuccess} />
 </Page>

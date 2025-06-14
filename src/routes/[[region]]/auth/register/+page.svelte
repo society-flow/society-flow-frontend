@@ -22,10 +22,6 @@
 </script>
 
 <Page title={$_('menu.auth.register')} isCenter={true}>
-	{#snippet header()}
-		<h1>{$_('menu.auth.register')}</h1>
-	{/snippet}
-
 	{#if !userState.isAuth}
 		<section>
 			<Register {onregister} {email} {name} />

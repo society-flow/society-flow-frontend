@@ -14,12 +14,6 @@
 </script>
 
 <Page title={$_('menu.expenses')}>
-	{#snippet header()}
-		<h1>
-			{$_('menu.expenses')}
-		</h1>
-	{/snippet}
-
 	<section>
 		<ListExpenses {expenses}></ListExpenses>
 	</section>

@@ -1,5 +1,7 @@
 <script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
+	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
@@ -8,11 +10,11 @@
 
 	requiresAuth(locale);
 
-	function handleCreated(data) {
-		console.log('data', data);
+	async function onsuccess({ id }) {
+		setTimeout(() => goto(`${base}/${$locale}/ads/${id}`), 0);
 	}
 </script>
 
 <Page title={$_('menu.create.ads')}>
-	<Form onSuccess={handleCreated} />
+	<Form {onsuccess} />
 </Page>

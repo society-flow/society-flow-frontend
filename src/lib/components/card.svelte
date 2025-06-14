@@ -19,6 +19,8 @@
 	.Card {
 		:global(a) {
 			display: flex;
+      flex-wrap: wrap;
+      gap: var(--s);
 			padding: calc(var(--s) * 2);
 			border: 1px solid var(--c-border);
 			background-color: var(--c-bg--secondary);

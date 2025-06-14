@@ -1,7 +1,6 @@
 <script lang="javascript">
 	import { _, json, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
-	import { userState } from '$lib/states/user.svelte.js';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import VerifyOTP from '$lib/components/auth/verify-otp.svelte';
@@ -22,12 +21,6 @@
 </script>
 
 <Page title={$_('menu.auth.verify-otp')} isCenter={true}>
-	{#snippet header()}
-		<h1>
-			{$_('menu.auth.verify-otp')}
-		</h1>
-	{/snippet}
-	{#if !userState.isAuth}
 		<section>
 			<VerifyOTP {onverify} {email} {otp} />
 		</section>
@@ -48,5 +41,4 @@
 				</section>
 			{/each}
 		</section>
-	{/if}
 </Page>

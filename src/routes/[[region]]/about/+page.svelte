@@ -6,11 +6,7 @@
 	const aboutSections = $derived($json('pages.about.sections'));
 </script>
 
-<Page title={$_('pages.about.title')}>
-	{#snippet header()}
-		<h1>{$_('pages.about.title')}</h1>
-	{/snippet}
-
+<Page title={$_('pages.about.title')} isWide>
 	<section data-size="large">
 		{#each Object.entries(aboutSections) as [key, section]}
 			<article>
@@ -48,20 +44,20 @@
 		text-align: center;
 		border-radius: var(--border-radius);
 
-    :global(svg) {
-		  margin: calc(var(--s) * 5) auto;
-		  transition: transform 0.3s ease;
-		  background: var(--c-bg);
-		  border-radius: var(--border-radius);
-		  border: 1px solid var(--c-border);
-		  max-width: calc(var(--s) * 2);
-		  min-width: 40vw;
-		  @media (min-width: 40rem) {
-			  min-width: 8vw;
-			  margin: calc(var(--s) * 2) auto;
-		  }
-	  }
-    
+		:global(svg) {
+			margin: calc(var(--s) * 5) auto;
+			transition: transform 0.3s ease;
+			background: var(--c-bg);
+			border-radius: var(--border-radius);
+			border: 1px solid var(--c-border);
+			max-width: calc(var(--s) * 2);
+			min-width: 40vw;
+			@media (min-width: 40rem) {
+				min-width: 8vw;
+				margin: calc(var(--s) * 2) auto;
+			}
+		}
+
 		/* @media (min-width: 40rem) { */
 		/* 	&:nth-child(2n) { */
 		/* 		flex-direction: column-reverse; */
