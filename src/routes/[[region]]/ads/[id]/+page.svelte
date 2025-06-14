@@ -46,6 +46,18 @@
 			</h1>
 		</header>
 
+		{#if isOwner}
+			<aside>
+				<nav>
+					<li>
+						<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')} isButton>
+							{$_('menu.update.ads')}
+						</Anchor>
+					</li>
+				</nav>
+			</aside>
+		{/if}
+
 		<main>
 			<p>{advert?.adDescription}</p>
 		</main>
@@ -59,12 +71,9 @@
 
 	{#snippet footer()}
 		<nav>
-			<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
-			{#if isOwner}
-				<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')}>
-					({$_('menu.update.ads')})
-				</Anchor>
-			{/if}
+			<li>
+				<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
+			</li>
 		</nav>
 	{/snippet}
 </Page>

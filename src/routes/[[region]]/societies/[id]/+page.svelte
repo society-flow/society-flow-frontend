@@ -114,11 +114,22 @@
 		{:else if society}
 			<SocietyDetails {society} {userRole} />
 
-			{#if !userRole}
-				<aside>
-					<SocietyJoin societyId={id} {userRole} onRoleUpdate={handleRoleUpdate} />
-				</aside>
-			{/if}
+			<aside>
+				<nav>
+					{#if !userRole}
+						<li>
+							<SocietyJoin societyId={id} {userRole} onRoleUpdate={handleRoleUpdate} />
+						</li>
+					{/if}
+					{#if isOwner}
+						<li>
+							<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')} isButton>
+								{$_('menu.update.societies')}
+							</Anchor>
+						</li>
+					{/if}
+				</nav>
+			</aside>
 
 			{#if markers.length}
 				<aside>
@@ -147,9 +158,13 @@
 					<ResidencesList {residences} {residenceCount} {society} />
 				{/if}
 				{#if userRole}
-					<Anchor href={`/create/residences/${id}`}>
-						+ {$_('menu.residences')}
-					</Anchor>
+					<nav>
+						<li>
+							<Anchor href={`/create/residences/${id}`} isButton>
+								{$_('menu.create.residences')}
+							</Anchor>
+						</li>
+					</nav>
 				{/if}
 			</aside>
 		{:else}
@@ -160,11 +175,6 @@
 	{#snippet footer()}
 		<nav>
 			<Anchor href="/societies">← {$_('menu.societies')}</Anchor>
-			{#if isOwner}
-				<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')}>
-					({$_('menu.update.societies')})
-				</Anchor>
-			{/if}
 		</nav>
 	{/snippet}
 </Page>

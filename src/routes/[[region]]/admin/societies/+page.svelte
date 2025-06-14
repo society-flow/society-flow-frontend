@@ -20,7 +20,7 @@
 			{$_('menu.societies')}
 		</h1>
 		<Anchor href="/create/societies">
-			+ {$_('menu.societies')}
+			{$_('menu.create.societies')}
 		</Anchor>
 	{/snippet}
 

@@ -41,14 +41,6 @@
 		:global(h1, h2) {
 			margin-bottom: 0;
 		}
-		:global(a) {
-			padding: var(--s);
-			border: 1px solid var(--c-link);
-			text-decoration-color: transparent;
-			&:hover {
-				text-decoration-color: initial;
-			}
-		}
 	}
 	.Page-main {
 		width: 100%;
@@ -63,5 +55,8 @@
 		:global(a) {
 			padding: var(--s);
 		}
+    :global(nav) {
+      list-style: none;
+    }
 	}
 </style>

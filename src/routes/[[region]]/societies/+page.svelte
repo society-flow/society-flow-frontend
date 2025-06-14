@@ -19,8 +19,8 @@
 		<h1>
 			{$_('menu.societies')}
 		</h1>
-		<Anchor href="/create/societies">
-			+ {$_('menu.societies')}
+		<Anchor href="/create/societies" isButton>
+			{$_('menu.create.societies')}
 		</Anchor>
 	{/snippet}
 

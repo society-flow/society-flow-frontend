@@ -41,6 +41,7 @@
 			try {
 				users = await api.getResidenceUsers(id);
 				isMember = !!users.find(({ id }) => id === userState?.user?.id);
+				console.log('isMember', isMember);
 			} catch (err) {
 				console.log('error', err);
 				isMember = null;
@@ -72,11 +73,21 @@
 		{:else}
 			<ResidenceDetails {residence} {isMember} />
 
-			{#if !isMember}
-				<aside>
-					<ResidenceJoin residenceId={id} societyId={residence.societyId} {isMember} {onJoin} />
-				</aside>
-			{/if}
+			<aside>
+				<nav>
+					{#if !isMember}
+						<li>
+							<ResidenceJoin residenceId={id} societyId={residence.societyId} {isMember} {onJoin} />
+						</li>
+					{/if}
+					{#if isMember}
+						<Anchor href={`/update/residences/${id}`} title={$_('menu.update.residences')} isButton>
+							{$_('menu.update.residences')}
+						</Anchor>
+					{/if}
+				</nav>
+			</aside>
+
 			{#if users}
 				<aside>
 					<UsersList {users} />
@@ -87,12 +98,9 @@
 
 	{#snippet footer()}
 		<nav>
-			<Anchor href={'/residences'}>← {$_('menu.residences')}</Anchor>
-			{#if isMember}
-				<Anchor href={`/update/residences/${id}`} title={$_('menu.update.residences')}>
-					({$_('menu.update.residences')})
-				</Anchor>
-			{/if}
+			<li>
+				<Anchor href={'/residences'}>← {$_('menu.residences')}</Anchor>
+			</li>
 		</nav>
 	{/snippet}
 </Page>

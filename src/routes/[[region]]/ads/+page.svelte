@@ -15,8 +15,8 @@
 <Page title={$_('menu.adverts')}>
 	{#snippet header()}
 		<h1>{$_('menu.adverts')}</h1>
-		<Anchor href="/create/ads">
-			+ {$_('menu.adverts')}
+		<Anchor href="/create/ads" isButton>
+			{$_('menu.create.ads')}
 		</Anchor>
 	{/snippet}
 	<section>

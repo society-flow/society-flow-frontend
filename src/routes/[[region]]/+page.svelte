@@ -69,7 +69,7 @@
 				<ListSocieties {societies} />
 			{:else}
 				<Anchor href="/create/societies">
-					+ {$_('menu.societies')}
+					{$_('menu.create.societies')}
 				</Anchor>
 			{/if}
 		</section>
@@ -79,7 +79,7 @@
 				<ListResidences {residences} />
 			{:else}
 				<Anchor href="/create/residences">
-					+ {$_('menu.residences')}
+					{$_('menu.create.residences')}
 				</Anchor>
 			{/if}
 		</section>

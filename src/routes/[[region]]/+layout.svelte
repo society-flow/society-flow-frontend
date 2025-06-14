@@ -93,7 +93,7 @@
 		margin: var(--s);
 	}
 
-	:global(input, textarea, select, button) {
+	:global(input, textarea, select, button, .Button) {
 		padding: calc(var(--s) / 0.6);
 		font-size: 1rem;
     background-color: transparent;
@@ -139,7 +139,7 @@
 		resize: vertical;
 	}
 
-	:global(button) {
+	:global(button, .Button) {
 		border-color: var(--c-border);
 		cursor: pointer;
 		transition: all 140ms ease-in-out;
@@ -154,6 +154,14 @@
 		&[type='submit'] {
       /* outline: 1px solid var(--c-link); */
       
+		}
+	}
+  :global(a.Button) {
+    border-color: var(--c-link);
+		padding: var(--s);
+		text-decoration-color: transparent;
+		&:hover {
+			text-decoration-color: initial;
 		}
 	}
 
@@ -295,6 +303,14 @@
     }
     :global(h1, h2) {
       margin-bottom: 0;
+    }
+    :global(nav) {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    :global(aside nav) {
+      justify-content: center;
     }
     :global(main) {
       :global(p:last-child) {

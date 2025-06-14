@@ -40,8 +40,8 @@
 		<h1>
 			{$_('menu.residences')}
 		</h1>
-		<Anchor href="/create/residences">
-			+ {$_('menu.residences')}
+		<Anchor href="/create/residences" isButton>
+			{$_('menu.create.residences')}
 		</Anchor>
 	{/snippet}
 

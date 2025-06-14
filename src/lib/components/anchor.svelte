@@ -4,7 +4,7 @@
 	import { page } from '$app/state';
 
 	const props = $props();
-	const { href: reqHref, children, ...rest } = props;
+	const { href: reqHref, children, isButton = false, ...rest } = props;
 
 	const localeRoot = $derived($locale.split('-')[0]);
 	const href = $derived(`${base}/${$locale}${reqHref}`);
@@ -30,7 +30,7 @@
 	});
 </script>
 
-<a {...rest} {href} aria-current={isCurrent ? 'page' : undefined}>
+<a {...rest} {href} aria-current={isCurrent ? 'page' : undefined} class:Button={isButton}>
 	{#if children}
 		{@render children()}
 	{:else}
