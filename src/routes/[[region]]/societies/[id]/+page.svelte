@@ -43,7 +43,6 @@
 		if (id && userState?.user?.id) {
 			await loadSocietyData();
 		}
-		console.log('userRole', userRole);
 	});
 
 	async function loadSocietyData() {
@@ -67,7 +66,6 @@
 			// Get user's role in this society
 			try {
 				userRole = await api.getUserRoleInSociety(id, userState.user.id);
-				console.log();
 			} catch (roleError) {
 				// User might not be a member of this society
 				userRole = null;

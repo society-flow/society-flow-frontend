@@ -17,7 +17,6 @@
 			const res = await api.login({ email })
 			onLogin({ email });
 		} catch (err) {
-      console.log("Error login", err.message)
 			error = err;
 		}
 	}

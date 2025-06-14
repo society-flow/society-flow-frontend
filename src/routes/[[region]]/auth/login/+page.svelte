@@ -18,7 +18,6 @@
 
 	async function onSubmit({ email: inputEmail }) {
 		userEmail = inputEmail;
-		console.log('submit userEmail', userEmail);
 	}
 	async function onLogin({ email: inputEmail }) {
 		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${inputEmail}`), 0);

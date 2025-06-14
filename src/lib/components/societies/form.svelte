@@ -29,8 +29,6 @@
 		...initialData
 	});
 
-	console.log('form', form);
-
 	const markers = $derived(
 		form.geoCoordinate
 			? [

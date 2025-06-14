@@ -4,7 +4,6 @@
 
 	const { ad } = $props();
 	const { id, adDescription, adTitle } = ad;
-	console.log('ad', ad);
 </script>
 
 <Card>

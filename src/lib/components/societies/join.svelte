@@ -19,8 +19,6 @@
 				role: 'MEMBER' // Default role when joining
 			});
 
-			console.log('User joined society:', societyUser);
-
 			// Notify parent component to refresh user role
 			if (onRoleUpdate) {
 				onRoleUpdate(societyUser);

@@ -5,7 +5,7 @@
 		try {
 			dpi = JSON.parse(data);
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 		}
 	});
 </script>

@@ -37,13 +37,10 @@
 			error = null;
 			residence = await api.getResidenceById(id);
 
-			console.log('residence', residence);
 			try {
 				users = await api.getResidenceUsers(id);
 				isMember = !!users.find(({ id }) => id === userState?.user?.id);
-				console.log('isMember', isMember);
 			} catch (err) {
-				console.log('error', err);
 				isMember = null;
 				error = err.message;
 			}

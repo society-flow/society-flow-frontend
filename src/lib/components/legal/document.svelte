@@ -10,13 +10,12 @@
 
 	async function loadLegalContent() {
 		if (!slug || !validSlugs.includes(slug)) {
-			console.log(`Invalid legal document type: ${slug}`);
+			console.error(`Invalid legal document type: ${slug}`);
 			return;
 		}
 
 		try {
 			const response = await api.getLegal(slug, $locale);
-			console.log(response);
 			content = response;
 		} catch (err) {
 			console.info('Error', err);
