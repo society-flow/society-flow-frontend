@@ -21,7 +21,10 @@
 		"legal.cookie-policy": "Cookie-Richtlinie",
 		"create.societies": "Neue Gesellschaft erstellen",
 		"create.residences": "Neue Wohnung erstellen",
-		"create.ads": "Neue Anzeige erstellen"
+		"create.ads": "Neue Anzeige erstellen",
+		"update.societies": "Gesellschaft aktualisieren",
+		"update.residences": "Residenz aktualisieren",
+		"update.ads": "Anzeige aktualisieren"
 	},
 	"pages": {
 		"auth": {

@@ -21,7 +21,10 @@
 		"legal.cookie-policy": "কুকি নীতি",
 		"create.societies": "নতুন সমাজ সৃষ্টি কৰক",
 		"create.residences": "নতুন বাসস্থান সৃষ্টি কৰক",
-		"create.ads": "নতুন বিজ্ঞাপন সৃষ্টি কৰক"
+		"create.ads": "নতুন বিজ্ঞাপন সৃষ্টি কৰক",
+		"update.societies": "সমাজ আপডেট কৰক",
+		"update.residences": "আবাসন আপডেট কৰক",
+		"update.ads": "বিজ্ঞাপন আপডেট কৰক"
 	},
 	"pages": {
 		"auth": {

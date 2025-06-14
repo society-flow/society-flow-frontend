@@ -21,7 +21,10 @@
 		"legal.cookie-policy": "Cookie Policy",
 		"create.societies": "Create new Society",
 		"create.residences": "Create new Residence",
-		"create.ads": "Create new Ad"
+		"create.ads": "Create new Ad",
+		"update.societies": "Update Society",
+		"update.residences": "Update Residence",
+		"update.ads": "Update Ad"
 	},
 	"pages": {
 		"auth": {
