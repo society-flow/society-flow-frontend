@@ -3,7 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 
-	let { residenceId, societyId, userRole, onJoin } = $props();
+	let { residenceId, societyId, isMember, onJoin } = $props();
 
 	let joining = $state(false);
 	let joinError = $state(null);
@@ -31,7 +31,7 @@
 	}
 </script>
 
-{#if !userRole}
+{#if !isMember}
 	<h3>{$_('components.residences.join.title')}</h3>
 	<p>{$_('components.residences.join.description')}</p>
 

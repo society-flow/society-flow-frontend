@@ -1,8 +1,13 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
+  import {nominatim} from "$lib/geo.js"
+	import { AREA_UNITS as areaUnitOptions } from '$lib/const/area.js';
+	import { CURRENCIES as currencyOptions } from '$lib/const/currencies.js';
+	import MapPicker from '$lib/components/map-picker.svelte';
 
-	const { onSuccess = () => {} } = $props();
+	const { data: initialData = {}, onsuccess = () => {} } = $props();
+	const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 	let isLoading = $state(false);
 	let error = $state('');
@@ -10,34 +15,49 @@
 
 	// Form state
 	let form = $state({
-		name: '',
-		pincode: '',
-		city: '',
-		state: '',
-		country: '',
-		currency: 'USD',
-		timezone: '',
-		areaunit: 'sqft',
-		finerate: 0
+		...{
+			name: '',
+			pincode: '',
+			city: '',
+			state: '',
+			country: '',
+			currency: 'EUR',
+			timezone: userTimezone || '',
+			areaUnit: 'sqm',
+			fineRate: 0
+		},
+		...initialData
 	});
 
-	// Currency options
-	const currencyOptions = [
-		{ value: 'USD', label: 'USD - US Dollar' },
-		{ value: 'EUR', label: 'EUR - Euro' },
-		{ value: 'GBP', label: 'GBP - British Pound' },
-		{ value: 'INR', label: 'INR - Indian Rupee' },
-		{ value: 'CAD', label: 'CAD - Canadian Dollar' },
-		{ value: 'AUD', label: 'AUD - Australian Dollar' }
-	];
+  async function onMapSelect(detail) {
+	  const lat = detail.lat;
+	  const lng = detail.lng;
 
-	// Area unit options
-	const areaUnitOptions = [
-		{ value: 'sqft', label: 'Square Feet' },
-		{ value: 'sqm', label: 'Square Meters' },
-		{ value: 'acres', label: 'Acres' },
-		{ value: 'hectares', label: 'Hectares' }
-	];
+	  form = {
+		  ...form,
+		  geoCoordinate: {
+			  x: lat,
+			  y: lng
+		  }
+	  };
+
+	  try {
+		  const data = await nominatim(lat, lng);
+
+		  if (data.address) {
+			  form = {
+				  ...form,
+				  pincode: data.address.postcode || '',
+				  city: data.address.city || data.address.town || data.address.village || '',
+				  state: data.address.state || '',
+				  country: data.address.country || ''
+			  };
+		  }
+	  } catch (err) {
+		  console.error("Error fetching OSM data:", err);
+	  }
+  }
+
 
 	async function handleSubmit() {
 		if (!form.name.trim()) {
@@ -47,25 +67,11 @@
 
 		isLoading = true;
 		error = '';
-		success = '';
 
 		try {
-			const result = await api.createOrUpdateSociety({ ...form });
-			success = $_('components.societies.create.created_successfully');
-
-			// Reset form
-			form = {
-				name: '',
-				pincode: '',
-				city: '',
-				state: '',
-				country: '',
-				currency: 'USD',
-				timezone: '',
-				areaunit: 'sqft'
-			};
-
-			onSuccess(result);
+			const res = await api.createOrUpdateSociety({ ...form });
+			form = { ...res };
+			onsuccess(res);
 		} catch (err) {
 			error = err.message || $_('errors.generic');
 		} finally {
@@ -75,7 +81,6 @@
 
 	function resetMessages() {
 		error = '';
-		success = '';
 	}
 </script>
 
@@ -83,7 +88,6 @@
 	<fieldset>
 		<legend for="society-name">{$_('components.societies.create.name')}</legend>
 		<input
-			id="society-name"
 			bind:value={form.name}
 			placeholder={$_('components.societies.create.name_placeholder')}
 			required
@@ -92,9 +96,15 @@
 	</fieldset>
 
 	<fieldset>
+		<label>
+			{$_('components.ads.create.map')}
+		</label>
+		<MapPicker onselect={onMapSelect}/>
+	</fieldset>
+
+	<fieldset>
 		<legend>{$_('components.societies.create.pincode')}</legend>
 		<input
-			id="pincode"
 			bind:value={form.pincode}
 			placeholder={$_('components.societies.create.pincode_placeholder')}
 			oninput={resetMessages}
@@ -104,7 +114,6 @@
 	<fieldset>
 		<legend>{$_('components.societies.create.city')}</legend>
 		<input
-			id="city"
 			bind:value={form.city}
 			placeholder={$_('components.societies.create.city_placeholder')}
 			oninput={resetMessages}
@@ -114,7 +123,6 @@
 	<fieldset>
 		<legend>{$_('components.societies.create.state')}</legend>
 		<input
-			id="state"
 			bind:value={form.state}
 			placeholder={$_('components.societies.create.state_placeholder')}
 			oninput={resetMessages}
@@ -124,7 +132,6 @@
 	<fieldset>
 		<legend>{$_('components.societies.create.country')}</legend>
 		<input
-			id="country"
 			bind:value={form.country}
 			placeholder={$_('components.societies.create.country_placeholder')}
 			oninput={resetMessages}
@@ -133,17 +140,18 @@
 
 	<fieldset>
 		<legend>{$_('components.societies.create.timezone')}</legend>
-		<input
-			id="timezone"
-			bind:value={form.timezone}
-			placeholder={$_('components.societies.create.timezone_placeholder')}
-			oninput={resetMessages}
-		/>
+		<select bind:value={form.timezone} onchange={resetMessages}>
+			{#each Intl.supportedValuesOf('timeZone').sort() as tz}
+				<option value={tz}>
+					{tz}
+				</option>
+			{/each}
+		</select>
 	</fieldset>
 
 	<fieldset>
 		<legend>{$_('components.societies.create.currency')}</legend>
-		<select id="currency" bind:value={form.currency} onchange={resetMessages}>
+		<select bind:value={form.currency} onchange={resetMessages}>
 			{#each currencyOptions as option}
 				<option value={option.value}>{option.label}</option>
 			{/each}
@@ -152,7 +160,7 @@
 
 	<fieldset>
 		<legend>{$_('components.societies.create.area_unit')}</legend>
-		<select id="areaunit" bind:value={form.areaunit} onchange={resetMessages}>
+		<select bind:value={form.areaUnit} onchange={resetMessages}>
 			{#each areaUnitOptions as option}
 				<option value={option.value}>{option.label}</option>
 			{/each}
@@ -164,14 +172,10 @@
 			{$_('components.societies.create.create')}
 		</button>
 	</fieldset>
+
 	{#if error}
-		<fieldset data-type="error" role="alert">
+		<fieldset data-type="error">
 			{error}
-		</fieldset>
-	{/if}
-	{#if success}
-		<fieldset data-type="success" role="alert">
-			{success}
 		</fieldset>
 	{/if}
 </form>

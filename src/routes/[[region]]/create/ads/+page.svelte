@@ -4,7 +4,7 @@
 	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
-	import CreateAd from '$lib/components/ads/create.svelte';
+	import Form from '$lib/components/ads/form.svelte';
 
 	requiresAuth(locale);
 
@@ -14,13 +14,5 @@
 </script>
 
 <Page title={$_('menu.create.ads')}>
-	{#snippet header()}
-		<div class="header-content">
-			<h1>{$_('menu.create.ads')}</h1>
-		</div>
-	{/snippet}
-
-	<section>
-		<CreateAd onSuccess={handleCreated} />
-	</section>
+	<Form onSuccess={handleCreated} />
 </Page>

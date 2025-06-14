@@ -3,7 +3,7 @@
 	import L from 'leaflet';
 
 	const {
-    mapId = 'map',
+    mapId = Date.now().toString(),
 	  markers = [],
 	  center = [0, 0],
 	  zoom = 2,

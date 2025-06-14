@@ -3,7 +3,7 @@
 	let dpi = $derived({});
 	$effect(() => {
 		try {
-			dpi = JSON.parse(data);;
+			dpi = JSON.parse(data);
 		} catch (e) {
 			console.log(e);
 		}

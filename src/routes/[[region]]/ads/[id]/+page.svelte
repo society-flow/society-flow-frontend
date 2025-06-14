@@ -3,6 +3,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
+	import { userState } from '$lib/states/user.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
@@ -19,7 +20,8 @@
 				]
 			: []
 	);
-	let mapId = $derived(`advert-${advert.id}`);
+
+	let isOwner = $derived(advert?.byUserId === userState?.user?.id);
 
 	$effect(async () => {
 		if (id) {
@@ -50,12 +52,19 @@
 
 		{#if markers.length}
 			<aside>
-				<Map {mapId} {markers} />
+				<Map {markers} />
 			</aside>
 		{/if}
 	</article>
 
 	{#snippet footer()}
-		<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
+		<nav>
+			<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
+			{#if isOwner}
+				<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')}>
+					({$_('menu.update.ads')})
+				</Anchor>
+			{/if}
+		</nav>
 	{/snippet}
 </Page>

@@ -1,42 +1,39 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
-	import { createEventDispatcher } from 'svelte';
 	import { api } from '$lib/api.svelte.js';
+	import Error from '$lib/components/error.svelte';
 
-	const { societyId: initialSocietyId = '' } = $props();
-	const dispatch = createEventDispatcher();
+	const { data: initialData = {}, onsuccess = () => {} } = $props();
 
-	// single form state
 	let form = $state({
-		societyId: initialSocietyId,
-		residenceName: '',
-		floorCount: 0,
-		areaValue: 0,
-		residentsCount: 0,
-		description: ''
+		...{
+			societyId: '',
+			residenceName: '',
+			floorCount: 0,
+			areaValue: 0,
+			residentsCount: 0,
+			description: ''
+		},
+		...initialData
 	});
-
-	// keep a copy of the initial state for reset
-	const defaultForm = { ...form };
+	let error = $state('');
 
 	async function submit() {
 		try {
+			console.log('form', form);
 			const response = await api.createOrUpdateResidence({ ...form });
-			dispatch('success', response);
-			// reset form to defaults
-			form = {
-				...defaultForm,
-				societyId: initialSocietyId
-			};
+			onsuccess(response);
+			form = { ...response };
 		} catch (error) {
 			console.error('Error creating residence:', error);
+			error = error.message;
 			dispatch('error', error);
 		}
 	}
 </script>
 
 <form on:submit|preventDefault={submit}>
-	{#if !initialSocietyId}
+	{#if !form.societyId}
 		<fieldset>
 			<legend>{$_('components.residences.create.societyId')}</legend>
 			<input
@@ -99,4 +96,10 @@
 			{$_('components.residences.create.submit')}
 		</button>
 	</fieldset>
+
+	{#if error}
+		<fieldset data-type="error">
+			<Error {error} />
+		</fieldset>
+	{/if}
 </form>

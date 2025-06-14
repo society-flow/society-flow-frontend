@@ -1,15 +1,12 @@
 <script lang="javascript">
 	import Map from '$lib/components/map.svelte';
-	import { createEventDispatcher } from 'svelte';
+	const { initialMarkers = [], onselect = () => {} } = $props();
 
-	export let initialMarkers = [];
-	export let selected = null;
-
-	const dispatch = createEventDispatcher();
+  let selected = $state(null)
 
 	function onMapClick(event) {
 		selected = event.detail;
-		dispatch('select', selected);
+		onselect(selected);
 	}
 </script>
 

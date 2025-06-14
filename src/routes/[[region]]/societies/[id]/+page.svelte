@@ -12,6 +12,7 @@
 	import SocietyJoin from '$lib/components/societies/join.svelte';
 	import ResidencesList from '$lib/components/residences/list.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
+	import Map from '$lib/components/map.svelte';
 
 	requiresAuth(locale);
 
@@ -25,11 +26,24 @@
 	let residenceCount = $state(0);
 	let loading = $state(true);
 	let error = $state(null);
+	let markers = $derived(
+		society?.geoCoordinate
+			? [
+					{
+						coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
+						title: society.name || society.id
+					}
+				]
+			: []
+	);
+
+	let isOwner = $derived(userRole?.role === 'ADMIN');
 
 	$effect(async () => {
 		if (id && userState?.user?.id) {
 			await loadSocietyData();
 		}
+		console.log('userRole', userRole);
 	});
 
 	async function loadSocietyData() {
@@ -53,6 +67,7 @@
 			// Get user's role in this society
 			try {
 				userRole = await api.getUserRoleInSociety(id, userState.user.id);
+				console.log();
 			} catch (roleError) {
 				// User might not be a member of this society
 				userRole = null;
@@ -105,6 +120,12 @@
 				</aside>
 			{/if}
 
+			{#if markers.length}
+				<aside>
+					<Map {markers} />
+				</aside>
+			{/if}
+
 			{#if userResidences.length > 0}
 				<aside>
 					<ResidencesList
@@ -137,6 +158,13 @@
 	</article>
 
 	{#snippet footer()}
-		<Anchor href="/societies">← {$_('menu.societies')}</Anchor>
+		<nav>
+			<Anchor href="/societies">← {$_('menu.societies')}</Anchor>
+			{#if isOwner}
+				<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')}>
+					({$_('menu.update.societies')})
+				</Anchor>
+			{/if}
+		</nav>
 	{/snippet}
 </Page>

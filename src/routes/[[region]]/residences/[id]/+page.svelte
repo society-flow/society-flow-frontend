@@ -17,7 +17,7 @@
 
 	let residence = $state({});
 	let users = $state([]);
-	let isUser = $state(false);
+	let isMember = $state(false);
 	let error = $state(null);
 	let loading = $state(false);
 
@@ -40,10 +40,10 @@
 			console.log('residence', residence);
 			try {
 				users = await api.getResidenceUsers(id);
-				isUser = !!users.find(({ id }) => id === userState?.user?.id);
+				isMember = !!users.find(({ id }) => id === userState?.user?.id);
 			} catch (err) {
 				console.log('error', err);
-				isUser = null; // not a member
+				isMember = null;
 				error = err.message;
 			}
 		} catch (err) {
@@ -70,11 +70,11 @@
 		{:else if error}
 			<p>{error}</p>
 		{:else}
-			<ResidenceDetails {residence} {isUser} />
+			<ResidenceDetails {residence} {isMember} />
 
-			{#if !isUser}
+			{#if !isMember}
 				<aside>
-					<ResidenceJoin residenceId={id} societyId={residence.societyId} {isUser} {onJoin} />
+					<ResidenceJoin residenceId={id} societyId={residence.societyId} {isMember} {onJoin} />
 				</aside>
 			{/if}
 			{#if users}
@@ -86,6 +86,13 @@
 	</article>
 
 	{#snippet footer()}
-		<Anchor href={'/residences'}>← {$_('menu.residences')}</Anchor>
+		<nav>
+			<Anchor href={'/residences'}>← {$_('menu.residences')}</Anchor>
+			{#if isMember}
+				<Anchor href={`/update/residences/${id}`} title={$_('menu.update.residences')}>
+					({$_('menu.update.residences')})
+				</Anchor>
+			{/if}
+		</nav>
 	{/snippet}
 </Page>

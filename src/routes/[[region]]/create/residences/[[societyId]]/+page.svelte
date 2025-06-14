@@ -1,28 +1,24 @@
 <script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
+	import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
+	import { page } from '$app/stores';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
-	import CreateResidence from '$lib/components/residences/create.svelte';
-	import { page } from '$app/stores';
-
-	const societyId = $derived($page.params.societyId);
+	import Form from '$lib/components/residences/form.svelte';
 
 	requiresAuth(locale);
 
-	function handleResidenceCreated(newResidence) {
-		console.log('New Residence', newResidence);
-		// Optionally handle UI updates or navigation after creation
+	const societyId = $derived($page.params.societyId);
+  const data = $derived({societyId})
+
+	async function onsuccess({ id }) {
+		setTimeout(() => goto(`${base}/${$locale}/residences/${id}`), 0);
 	}
 </script>
 
 <Page title={$_('menu.create.residences')}>
-	{#snippet header()}
-		<div class="header-content">
-			<h1>{$_('menu.create.residences')}</h1>
-		</div>
-	{/snippet}
-
 	<section>
-		<CreateResidence onSuccess={handleResidenceCreated} {societyId} />
+		<Form {onsuccess} {data} />
 	</section>
 </Page>

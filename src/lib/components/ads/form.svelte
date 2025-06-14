@@ -3,14 +3,13 @@
 	import { api } from '$lib/api.svelte.js';
 	import MapPicker from '$lib/components/map-picker.svelte';
 
-	const { onCreate = () => {} } = $props();
+	const { initialData = null, onSuccess = () => {} } = $props();
 
 	let isLoading = $state(false);
 	let error = $state('');
 	let success = $state('');
 
-	// Form state matching AdvertisementDto
-	let form = $state({
+	let form = $state(initialData ?? {
 		adDescription: '',
 		anonymousUserName: '',
 		adType: '',
@@ -55,14 +54,15 @@
 				adType: form.adType,
 				isActive: form.isActive,
 				approxGeoCoordinate:
-					form.approxGeoCoordinate.x && form.approxGeoCoordinate.y
-						? { x: +form.approxGeoCoordinate.x, y: +form.approxGeoCoordinate.y }
-						: undefined
+	      form.approxGeoCoordinate.x !== '' && form.approxGeoCoordinate.y !== ''
+		      ? { x: +form.approxGeoCoordinate.x, y: +form.approxGeoCoordinate.y }
+		    : undefined
+
 			};
 
 			const newAd = await api.createAdvertisement(payload);
 			success = $_('components.ads.create.created_successfully');
-			onCreate(newAd);
+			onSuccess(newAd);
 
 			// reset form
 			form = {

@@ -10,6 +10,12 @@
 	<header class="Page-header">
 		{@render header()}
 	</header>
+{:else if title}
+	<header class="Page-header">
+		<h1>
+			{title}
+		</h1>
+	</header>
 {/if}
 
 {#if children}
@@ -25,33 +31,33 @@
 {/if}
 
 <style>
-  .Page-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: var(--s);
-    padding: calc(var(--s) * 2);
-    :global(h1, h2) {
-      margin-bottom: 0;
-    }
-    :global(a) {
-      padding: var(--s);
-      border: 1px solid var(--c-link);
-      text-decoration-color: transparent;
-      &:hover {
-        text-decoration-color: initial;
-      }
-    }
-  }
+	.Page-header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: var(--s);
+		padding: calc(var(--s) * 2);
+		:global(h1, h2) {
+			margin-bottom: 0;
+		}
+		:global(a) {
+			padding: var(--s);
+			border: 1px solid var(--c-link);
+			text-decoration-color: transparent;
+			&:hover {
+				text-decoration-color: initial;
+			}
+		}
+	}
 	.Page-main {
 		width: 100%;
 		max-width: var(--s-container);
 		display: flex;
 		flex-direction: column;
-    &:not(.Page-main--center) {
-		  flex-grow: 1;
-    }
+		&:not(.Page-main--center) {
+			flex-grow: 1;
+		}
 	}
 	.Page-footer {
 		:global(a) {
