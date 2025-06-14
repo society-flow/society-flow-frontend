@@ -154,9 +154,6 @@
 			{/if}
 
 			<aside>
-				{#if residences.length > 0}
-					<ResidencesList {residences} {residenceCount} {society} />
-				{/if}
 				{#if userRole}
 					<nav>
 						<li>
@@ -165,6 +162,9 @@
 							</Anchor>
 						</li>
 					</nav>
+				{/if}
+				{#if residences.length > 0}
+					<ResidencesList {residences} {residenceCount} {society} />
 				{/if}
 			</aside>
 		{:else}

@@ -11,7 +11,6 @@
 
 	let isLoading = $state(false);
 	let error = $state('');
-	let success = $state('');
 
 	// Form state
 	let form = $state({
@@ -25,19 +24,23 @@
 			timezone: userTimezone || '',
 			areaUnit: 'sqm',
 			fineRate: 0,
-      geoCoordinate: { x: '', y: '' }
+			geoCoordinate: { x: '', y: '' }
 		},
 		...initialData
 	});
 
-  console.log("form", form)
+	console.log('form', form);
 
-	const markers = $derived(form.geoCoordinate ? [
-		{
-			coordinates: [form?.geoCoordinate?.x, form?.geoCoordinate?.y],
-			title: form.name || ''
-		}
-	] : []);
+	const markers = $derived(
+		form.geoCoordinate
+			? [
+					{
+						coordinates: [form?.geoCoordinate?.x, form?.geoCoordinate?.y],
+						title: form.name || ''
+					}
+				]
+			: []
+	);
 
 	async function onMapSelect(detail) {
 		const lat = detail.lat;
@@ -95,10 +98,10 @@
 
 <form onsubmit={handleSubmit}>
 	<fieldset>
-		<legend>{$_('components.societies.create.name')}</legend>
+		<legend>{$_('components.societies.form.name')}</legend>
 		<input
 			bind:value={form.name}
-			placeholder={$_('components.societies.create.name_placeholder')}
+			placeholder={$_('components.societies.form.name_placeholder')}
 			required
 			oninput={resetMessages}
 		/>
@@ -112,43 +115,43 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.create.pincode')}</legend>
+		<legend>{$_('components.societies.form.pincode')}</legend>
 		<input
 			bind:value={form.pincode}
-			placeholder={$_('components.societies.create.pincode_placeholder')}
+			placeholder={$_('components.societies.form.pincode_placeholder')}
 			oninput={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.create.city')}</legend>
+		<legend>{$_('components.societies.form.city')}</legend>
 		<input
 			bind:value={form.city}
-			placeholder={$_('components.societies.create.city_placeholder')}
+			placeholder={$_('components.societies.form.city_placeholder')}
 			oninput={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.create.state')}</legend>
+		<legend>{$_('components.societies.form.state')}</legend>
 		<input
 			bind:value={form.state}
-			placeholder={$_('components.societies.create.state_placeholder')}
+			placeholder={$_('components.societies.form.state_placeholder')}
 			oninput={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.create.country')}</legend>
+		<legend>{$_('components.societies.form.country')}</legend>
 		<input
 			bind:value={form.country}
-			placeholder={$_('components.societies.create.country_placeholder')}
+			placeholder={$_('components.societies.form.country_placeholder')}
 			oninput={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.create.timezone')}</legend>
+		<legend>{$_('components.societies.form.timezone')}</legend>
 		<select bind:value={form.timezone} onchange={resetMessages}>
 			{#each Intl.supportedValuesOf('timeZone').sort() as tz}
 				<option value={tz}>
@@ -159,7 +162,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.create.currency')}</legend>
+		<legend>{$_('components.societies.form.currency')}</legend>
 		<select bind:value={form.currency} onchange={resetMessages}>
 			{#each currencyOptions as option}
 				<option value={option.value}>{option.label}</option>
@@ -168,7 +171,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.create.area_unit')}</legend>
+		<legend>{$_('components.societies.form.area_unit')}</legend>
 		<select bind:value={form.areaUnit} onchange={resetMessages}>
 			{#each areaUnitOptions as option}
 				<option value={option.value}>{option.label}</option>
@@ -178,7 +181,7 @@
 
 	<fieldset>
 		<button type="submit" disabled={isLoading}>
-			{$_('components.societies.create.create')}
+			{$_('common.submit')}
 		</button>
 	</fieldset>
 

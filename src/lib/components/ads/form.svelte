@@ -70,7 +70,7 @@
 			};
 
 			const newAd = await api.createAdvertisement(payload);
-			success = $_('components.ads.create.created_successfully');
+			success = $_('components.ads.form.created_successfully');
 			onsuccess(newAd);
 
 			// reset form
@@ -90,31 +90,31 @@
 
 <form on:submit|preventDefault={handleSubmit}>
 	<fieldset>
-		<legend>{$_('components.ads.create.adDescription')}</legend>
+		<legend>{$_('components.ads.form.adDescription')}</legend>
 		<textarea
 			bind:value={form.adDescription}
-			placeholder={$_('components.ads.create.adDescription_placeholder')}
+			placeholder={$_('components.ads.form.adDescription_placeholder')}
 			required
 			on:input={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.ads.create.anonymousUserName')}</legend>
+		<legend>{$_('components.ads.form.anonymousUserName')}</legend>
 		<input
 			type="text"
 			bind:value={form.anonymousUserName}
-			placeholder={$_('components.ads.create.anonymousUserName_placeholder')}
+			placeholder={$_('components.ads.form.anonymousUserName_placeholder')}
 			required
 			on:input={resetMessages}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.ads.create.type')}</legend>
+		<legend>{$_('components.ads.form.type')}</legend>
 		<select bind:value={form.type} on:change={resetMessages}>
 			<option value="" disabled>
-				{$_('components.ads.create.type_placeholder')}
+				{$_('components.ads.form.type_placeholder')}
 			</option>
 			{#each adTypeOptions as opt}
 				<option value={opt.id}>{opt.name}</option>
@@ -124,13 +124,13 @@
 
 	<fieldset>
 		<label>
-			{$_('components.ads.create.map')}
+			{$_('components.ads.form.map')}
 		</label>
 		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.ads.create.coordinates')}</legend>
+		<legend>{$_('components.ads.form.coordinates')}</legend>
 		<input
 			type="number"
 			step="any"
@@ -149,7 +149,7 @@
 
 	<fieldset>
 		<button type="submit" disabled={isLoading}>
-			{$_('components.ads.create.create')}
+			{$_('common.submit')}
 		</button>
 	</fieldset>
 

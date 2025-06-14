@@ -34,65 +34,65 @@
 <form on:submit|preventDefault={submit}>
 	{#if !form.societyId}
 		<fieldset>
-			<legend>{$_('components.residences.create.societyId')}</legend>
+			<legend>{$_('components.residences.form.societyId')}</legend>
 			<input
 				bind:value={form.societyId}
-				placeholder={$_('components.residences.create.societyId_placeholder')}
+				placeholder={$_('components.residences.form.societyId_placeholder')}
 				required
 			/>
 		</fieldset>
 	{/if}
 
 	<fieldset>
-		<legend>{$_('components.residences.create.residenceName')}</legend>
+		<legend>{$_('components.residences.form.residenceName')}</legend>
 		<input
 			bind:value={form.residenceName}
-			placeholder={$_('components.residences.create.residenceName_placeholder')}
+			placeholder={$_('components.residences.form.residenceName_placeholder')}
 			required
 			on:input={() => (form.description = form.description)}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.residences.create.floorCount')}</legend>
+		<legend>{$_('components.residences.form.floorCount')}</legend>
 		<input
 			type="number"
 			bind:value={form.floorCount}
-			placeholder={$_('components.residences.create.floorCount_placeholder')}
+			placeholder={$_('components.residences.form.floorCount_placeholder')}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.residences.create.areaValue')}</legend>
+		<legend>{$_('components.residences.form.areaValue')}</legend>
 		<input
 			type="number"
 			bind:value={form.areaValue}
 			min="0"
-			placeholder={$_('components.residences.create.areaValue_placeholder')}
+			placeholder={$_('components.residences.form.areaValue_placeholder')}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.residences.create.residentsCount')}</legend>
+		<legend>{$_('components.residences.form.residentsCount')}</legend>
 		<input
 			type="number"
 			bind:value={form.residentsCount}
 			min="0"
-			placeholder={$_('components.residences.create.residentsCount_placeholder')}
+			placeholder={$_('components.residences.form.residentsCount_placeholder')}
 		/>
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.residences.create.description')}</legend>
+		<legend>{$_('components.residences.form.description')}</legend>
 		<textarea
 			bind:value={form.description}
-			placeholder={$_('components.residences.create.description_placeholder')}
+			placeholder={$_('components.residences.form.description_placeholder')}
 		></textarea>
 	</fieldset>
 
 	<fieldset>
 		<button type="submit">
-			{$_('components.residences.create.submit')}
+			{$_('common.submit')}
 		</button>
 	</fieldset>
 

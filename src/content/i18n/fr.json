@@ -195,7 +195,7 @@
 			}
 		},
 		"societies": {
-			"create": {
+			"form": {
 				"name": "Nom de la société",
 				"name_placeholder": "Entrez le nom de la société",
 				"pincode": "Code postal",
@@ -210,8 +210,7 @@
 				"timezone_placeholder": "Entrez le fuseau horaire (ex : Europe/Paris)",
 				"currency": "Devise",
 				"area_unit": "Unité de surface",
-				"create": "Créer la société",
-				"created_successfully": "Société créée avec succès."
+				"submit": "Créer la société"
 			},
 			"details": {
 				"role": "Rôle",
@@ -229,7 +228,7 @@
 			}
 		},
 		"residences": {
-			"create": {
+			"form": {
 				"societyId": "ID de la société",
 				"societyId_placeholder": "Saisir l'ID de la société",
 				"residenceName": "Nom de la résidence",
@@ -241,8 +240,7 @@
 				"residentsCount": "Nombre de résidents",
 				"residentsCount_placeholder": "Entrez le nombre de résidents",
 				"description": "Description",
-				"description_placeholder": "Ajoutez une description (facultatif)",
-				"submit": "Créer"
+				"description_placeholder": "Ajoutez une description (facultatif)"
 			},
 			"details": {
 				"societyId": "ID de la société",
@@ -259,7 +257,7 @@
 			}
 		},
 		"ads": {
-			"create": {
+			"form": {
 				"adDescription": "Description de l'annonce",
 				"adDescription_placeholder": "Entrez la description de l'annonce",
 				"anonymousUserName": "Nom d'utilisateur anonyme",
@@ -274,6 +272,7 @@
 		}
 	},
 	"common": {
-		"creating": "Création en cours..."
+		"creating": "Création en cours...",
+		"submit": "Créer"
 	}
 }

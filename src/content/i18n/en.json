@@ -195,7 +195,7 @@
 			}
 		},
 		"societies": {
-			"create": {
+			"form": {
 				"name": "Society Name",
 				"name_placeholder": "Enter society name",
 				"pincode": "Pincode",
@@ -209,9 +209,7 @@
 				"timezone": "Timezone",
 				"timezone_placeholder": "Enter timezone (e.g., Asia/Kolkata)",
 				"currency": "Currency",
-				"area_unit": "Area Unit",
-				"create": "Create Society",
-				"created_successfully": "Society created successfully."
+				"area_unit": "Area Unit"
 			},
 			"details": {
 				"role": "Role",
@@ -229,7 +227,7 @@
 			}
 		},
 		"residences": {
-			"create": {
+			"form": {
 				"societyId": "Society ID",
 				"societyId_placeholder": "Enter society ID",
 				"residenceName": "Residence Name",
@@ -241,8 +239,7 @@
 				"residentsCount": "Number of Residents",
 				"residentsCount_placeholder": "Enter number of residents",
 				"description": "Description",
-				"description_placeholder": "Add a description (optional)",
-				"submit": "Submit"
+				"description_placeholder": "Add a description (optional)"
 			},
 			"details": {
 				"societyId": "Society ID",
@@ -259,7 +256,7 @@
 			}
 		},
 		"ads": {
-			"create": {
+			"form": {
 				"adDescription": "Advertisement Description",
 				"adDescription_placeholder": "Enter the advertisement description",
 				"anonymousUserName": "Anonymous User Name",
@@ -274,6 +271,7 @@
 		}
 	},
 	"common": {
-		"creating": "Creating..."
+		"creating": "Creating...",
+		"submit": "Submit"
 	}
 }

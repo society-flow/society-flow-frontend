@@ -197,7 +197,7 @@
 			}
 		},
 		"societies": {
-			"create": {
+			"form": {
 				"name": "সমাজৰ নাম",
 				"name_placeholder": "সমাজৰ নাম লিখক",
 				"pincode": "পিনক'ড",
@@ -211,9 +211,7 @@
 				"timezone": "সময় মণ্ডল",
 				"timezone_placeholder": "সময় মণ্ডল লিখক (যেনেঃ Asia/Kolkata)",
 				"currency": "মুদ্ৰা",
-				"area_unit": "ক্ষেত্ৰফল একক",
-				"create": "সমাজ সৃষ্টি কৰক",
-				"created_successfully": "সমাজ সফলভাৱে সৃষ্টি কৰা হৈছে।"
+				"area_unit": "ক্ষেত্ৰফল একক"
 			},
 			"details": {
 				"role": "ভুমিকা",
@@ -231,7 +229,7 @@
 			}
 		},
 		"residences": {
-			"create": {
+			"form": {
 				"societyId": "সমাজ আইডি",
 				"societyId_placeholder": "সমাজ আইডি প্ৰৱিষ্ট কৰক",
 				"residenceName": "আবাসৰ নাম",
@@ -243,8 +241,7 @@
 				"residentsCount": "নিবাসীৰ সংখ্যা",
 				"residentsCount_placeholder": "নিবাসীৰ সংখ্যা প্ৰৱিষ্ট কৰক",
 				"description": "বিৱৰণ",
-				"description_placeholder": "এটা বিৱৰণ যোগ কৰক (ঐচ্ছিক)",
-				"submit": "জমা দিয়ক"
+				"description_placeholder": "এটা বিৱৰণ যোগ কৰক (ঐচ্ছিক)"
 			},
 			"details": {
 				"societyId": "সমাজৰ আইডি",
@@ -261,7 +258,7 @@
 			}
 		},
 		"ads": {
-			"create": {
+			"form": {
 				"adDescription": "বিজ্ঞাপন বিৱৰণ",
 				"adDescription_placeholder": "বিজ্ঞাপনটোৰ বিৱৰণ লিখক",
 				"anonymousUserName": "অজ্ঞাত ব্যৱহাৰকাৰীৰ নাম",
@@ -276,6 +273,7 @@
 		}
 	},
 	"common": {
-		"creating": "সৃষ্টি হৈ আছে..."
+		"creating": "সৃষ্টি হৈ আছে...",
+		"submit": "জমা দিয়ক"
 	}
 }
