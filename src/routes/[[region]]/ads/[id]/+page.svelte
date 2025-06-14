@@ -30,13 +30,7 @@
 	});
 </script>
 
-<Page title={`${advert?.title} — ${$_('menu.adverts')}`}>
-	{#snippet header()}
-		<h1>
-			{$_('menu.adverts')}
-		</h1>
-	{/snippet}
-
+<Page title={`${advert?.adTitle || advert?.id} — ${$_('menu.adverts')}`} showHeader={false}>
 	<article class="Detail">
 		{#if isOwner}
 			<aside>
@@ -52,20 +46,20 @@
 		<header>
 			<h1>
 				<Anchor href={`/ads/${id}`}>
-					{advert?.title || id}
+					{advert?.adTitle || id}
 				</Anchor>
 			</h1>
 		</header>
-
-		<main>
-			<p>{advert?.adDescription}</p>
-		</main>
 
 		{#if markers.length}
 			<aside>
 				<Map {markers} />
 			</aside>
 		{/if}
+
+		<main>
+			<p>{advert?.adDescription}</p>
+		</main>
 	</article>
 
 	{#snippet footer()}
@@ -76,3 +70,11 @@
 		</nav>
 	{/snippet}
 </Page>
+
+<style>
+	.Detail {
+		main {
+			white-space: pre-wrap;
+		}
+	}
+</style>

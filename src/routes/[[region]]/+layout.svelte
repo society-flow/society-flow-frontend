@@ -211,6 +211,7 @@
 			:global(&:has(button[type='submit'])) {
 				position: sticky;
 				bottom: 0;
+        z-index: 2;
 			}
 		}
 		:global(&:has(input:focus, input:active)),
@@ -319,7 +320,7 @@
     :global(& > header) {
       background-color: var(--c-bg--secondary);
     }
-    :global(& > aside:has(nav, .map, .List)) {
+    :global(& > aside:has(nav, .Map, .List)) {
       padding: 0;
       border: 0;
     }

@@ -56,11 +56,7 @@
 	}
 </script>
 
-<Page title={$_('menu.residences')}>
-	{#snippet header()}
-		<h1>{$_('menu.residences')}</h1>
-	{/snippet}
-
+<Page title={$_('menu.residences')} showHeader={false}>
 	<article class="Detail">
 		{#if loading}
 			<aside>
@@ -71,8 +67,6 @@
 		{:else if error}
 			<p>{error}</p>
 		{:else}
-			<ResidenceDetails {residence} {isMember} />
-
 			<aside>
 				<nav>
 					{#if !isMember}
@@ -87,6 +81,8 @@
 					{/if}
 				</nav>
 			</aside>
+
+			<ResidenceDetails {residence} {isMember} />
 
 			{#if users}
 				<aside>

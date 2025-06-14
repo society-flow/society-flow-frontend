@@ -258,6 +258,8 @@
 		},
 		"ads": {
 			"form": {
+				"adTitle": "বিজ্ঞাপন শিৰোনাম",
+				"adTitle_placeholder": "বিজ্ঞাপন শিৰোনাম লিখক",
 				"adDescription": "বিজ্ঞাপন বিৱৰণ",
 				"adDescription_placeholder": "বিজ্ঞাপনটোৰ বিৱৰণ লিখক",
 				"anonymousUserName": "অজ্ঞাত ব্যৱহাৰকাৰীৰ নাম",

@@ -1,5 +1,5 @@
 <script type="javascript">
-	const { title, header, children, footer, isCenter = false } = $props();
+	const { title, header, children, footer, isCenter = false, showHeader = false } = $props();
 </script>
 
 <svelte:head>
@@ -10,7 +10,7 @@
 	<header class="Page-header">
 		{@render header()}
 	</header>
-{:else if title}
+{:else if showHeader && title}
 	<header class="Page-header">
 		<h1>
 			{title}

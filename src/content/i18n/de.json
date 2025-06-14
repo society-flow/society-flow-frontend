@@ -259,6 +259,8 @@
 		},
 		"ads": {
 			"form": {
+				"adTitle": "Anzeigentitel",
+				"adTitle_placeholder": "Geben Sie den Anzeigentitel ein",
 				"adDescription": "Anzeigenbeschreibung",
 				"adDescription_placeholder": "Beschreibung der Anzeige eingeben",
 				"anonymousUserName": "Anonymer Benutzername",

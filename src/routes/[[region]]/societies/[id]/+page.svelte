@@ -95,7 +95,7 @@
 	}
 </script>
 
-<Page title={$_('menu.societies')}>
+<Page title={$_('menu.societies')} showHeader={false}>
 	<article class="Detail">
 		{#if loading}
 			<aside>

@@ -78,11 +78,12 @@
 	}
 </script>
 
-<div id={mapId} class="map" use:setup></div>
+<div id={mapId} class="Map" use:setup></div>
 
 <style>
-	.map {
+	.Map {
 		width: 100%;
 		height: 35dvh;
+    z-index: 1;
 	}
 </style>

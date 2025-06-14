@@ -11,6 +11,7 @@
 
 	let form = $state({
 		...{
+			adTitle: '',
 			adDescription: '',
 			anonymousUserName: '',
 			type: '',
@@ -59,10 +60,7 @@
 
 		try {
 			const payload = {
-				adDescription: form.adDescription,
-				anonymousUserName: form.anonymousUserName,
-				type: form.type,
-				isActive: form.isActive,
+				...form,
 				approxGeoCoordinate:
 					form.approxGeoCoordinate.x !== '' && form.approxGeoCoordinate.y !== ''
 						? { x: +form.approxGeoCoordinate.x, y: +form.approxGeoCoordinate.y }
@@ -89,6 +87,16 @@
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
+	<fieldset>
+		<legend>{$_('components.ads.form.adTitle')}</legend>
+		<input
+			bind:value={form.adTitle}
+			placeholder={$_('components.ads.form.adTitle_placeholder')}
+			required
+			on:input={resetMessages}
+		/>
+	</fieldset>
+
 	<fieldset>
 		<legend>{$_('components.ads.form.adDescription')}</legend>
 		<textarea
@@ -129,7 +137,7 @@
 		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
 	</fieldset>
 
-	<fieldset class="Fieldset--hz">
+	<fieldset style="display: none;">
 		<legend>{$_('components.ads.form.coordinates')}</legend>
 		<input
 			type="number"

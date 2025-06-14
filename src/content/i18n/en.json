@@ -256,6 +256,8 @@
 		},
 		"ads": {
 			"form": {
+				"adTitle": "Advertisement title",
+				"adTitle_placeholder": "Enter the advertisement title",
 				"adDescription": "Advertisement Description",
 				"adDescription_placeholder": "Enter the advertisement description",
 				"anonymousUserName": "Anonymous User Name",
