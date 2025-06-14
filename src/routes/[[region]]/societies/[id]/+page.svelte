@@ -96,12 +96,6 @@
 </script>
 
 <Page title={$_('menu.societies')}>
-	{#snippet header()}
-		<h1>
-			{$_('menu.societies')}
-		</h1>
-	{/snippet}
-
 	<article class="Detail">
 		{#if loading}
 			<aside>
@@ -112,8 +106,6 @@
 		{:else if error}
 			<section><Error {error}></Error></section>
 		{:else if society}
-			<SocietyDetails {society} {userRole} />
-
 			<aside>
 				<nav>
 					{#if !userRole}
@@ -130,6 +122,8 @@
 					{/if}
 				</nav>
 			</aside>
+
+			<SocietyDetails {society} {userRole} />
 
 			{#if markers.length}
 				<aside>

@@ -38,14 +38,6 @@
 	{/snippet}
 
 	<article class="Detail">
-		<header>
-			<h1>
-				<Anchor href={`/ads/${id}`}>
-					{advert?.title || id}
-				</Anchor>
-			</h1>
-		</header>
-
 		{#if isOwner}
 			<aside>
 				<nav>
@@ -57,6 +49,13 @@
 				</nav>
 			</aside>
 		{/if}
+		<header>
+			<h1>
+				<Anchor href={`/ads/${id}`}>
+					{advert?.title || id}
+				</Anchor>
+			</h1>
+		</header>
 
 		<main>
 			<p>{advert?.adDescription}</p>

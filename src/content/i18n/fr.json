@@ -81,8 +81,7 @@
 			"auth": {
 				"greeting": "Bonjour {name} ({email}).",
 				"dashboard": {
-					"title": "Votre Tableau de Bord",
-					"description": "Voici un résumé de vos informations."
+					"title": "Votre Tableau de Bord"
 				},
 				"sections": {
 					"societies": "Sociétés",
@@ -235,7 +234,7 @@
 				"residenceName_placeholder": "Entrez le nom de la résidence",
 				"floorCount": "Nombre d'étages",
 				"floorCount_placeholder": "Entrez le nombre d'étages",
-				"areaValue": "Superficie (p²)",
+				"areaValue": "Superficie (m²)",
 				"areaValue_placeholder": "Entrez la superficie en pieds carrés",
 				"residentsCount": "Nombre de résidents",
 				"residentsCount_placeholder": "Entrez le nombre de résidents",
@@ -273,6 +272,6 @@
 	},
 	"common": {
 		"creating": "Création en cours...",
-		"submit": "Créer"
+		"submit": "Envoyer"
 	}
 }

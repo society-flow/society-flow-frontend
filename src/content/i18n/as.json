@@ -83,8 +83,7 @@
 			"auth": {
 				"greeting": "নমস্কাৰ {name} ({email})।",
 				"dashboard": {
-					"title": "আপোনাৰ ডেছব'ৰ্ড",
-					"description": "ইয়াত আপোনাৰ তথ্যৰ সাৰাংশ দিয়া হৈছে।"
+					"title": "আপোনাৰ ডেছব'ৰ্ড"
 				},
 				"sections": {
 					"societies": "সমাজসমূহ",

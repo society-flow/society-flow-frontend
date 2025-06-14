@@ -33,6 +33,7 @@
 <style>
 	.Page-header {
 		display: flex;
+    flex-direction: column;
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;

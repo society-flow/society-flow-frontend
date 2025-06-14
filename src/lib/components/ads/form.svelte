@@ -1,4 +1,4 @@
-<script>
+<script lang="janvascript">
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import MapPicker from '$lib/components/map-picker.svelte';
@@ -123,13 +123,13 @@
 	</fieldset>
 
 	<fieldset>
-		<label>
+		<legend>
 			{$_('components.ads.form.map')}
-		</label>
+		</legend>
 		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
 	</fieldset>
 
-	<fieldset>
+	<fieldset class="Fieldset--hz">
 		<legend>{$_('components.ads.form.coordinates')}</legend>
 		<input
 			type="number"

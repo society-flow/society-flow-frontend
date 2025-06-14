@@ -83,8 +83,7 @@
 			"auth": {
 				"greeting": "Hallo {name} ({email}).",
 				"dashboard": {
-					"title": "Ihr Dashboard",
-					"description": "Hier ist eine Zusammenfassung Ihrer Informationen."
+					"title": "Ihr Dashboard"
 				},
 				"sections": {
 					"societies": "Gesellschaften",

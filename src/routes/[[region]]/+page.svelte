@@ -39,13 +39,7 @@
 
 <Page title={$_('title')}>
 	{#snippet header()}
-		{#if userState.isAuth}
-			<p>
-				{$_('pages.home.auth.greeting', {
-					values: { name: userState?.user?.name, email: userState?.user?.email }
-				})}
-			</p>
-		{:else}
+		{#if !userState.isAuth}
 			<h1>{titleOneWord}</h1>
 			<p>{$_('catch_line')}</p>
 			<center>
@@ -60,7 +54,11 @@
 		<section>
 			<header>
 				<h2>{$_('pages.home.auth.dashboard.title')}</h2>
-				<p>{$_('pages.home.auth.dashboard.description')}</p>
+				<p>
+					{$_('pages.home.auth.greeting', {
+						values: { name: userState?.user?.name, email: userState?.user?.email }
+					})}
+				</p>
 			</header>
 		</section>
 		<section>
@@ -144,12 +142,6 @@
 </Page>
 
 <style>
-	section {
-		margin: calc(var(--s) * 3) 0;
-		:global(.Site-main) > & {
-			max-width: calc(var(--s-container) * 1.4);
-		}
-	}
 	article {
 		margin-bottom: calc(var(--s) * 2);
 	}
