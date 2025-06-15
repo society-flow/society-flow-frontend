@@ -197,8 +197,8 @@
 			"form": {
 				"name": "Society Name",
 				"name_placeholder": "Enter society name",
-				"pincode": "Pincode",
-				"pincode_placeholder": "Enter pincode",
+				"postcode": "Postcode",
+				"postcode_placeholder": "Enter postcode",
 				"city": "City",
 				"city_placeholder": "Enter city",
 				"state": "State",
@@ -206,7 +206,7 @@
 				"country": "Country",
 				"country_placeholder": "Enter country",
 				"timezone": "Timezone",
-				"timezone_placeholder": "Enter timezone (e.g., Asia/Kolkata)",
+				"timezone_placeholder": "Enter timezone (e.g., Europe/Berlin)",
 				"currency": "Currency",
 				"area_unit": "Area Unit"
 			},
@@ -215,7 +215,7 @@
 				"no_membership": "You are not a member",
 				"id": "Society ID",
 				"location": "Location",
-				"pincode": "Pincode",
+				"postcode": "Postcode",
 				"currency": "Currency",
 				"timezone": "Timezone",
 				"area_unit": "Area Unit",

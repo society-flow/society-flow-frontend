@@ -16,7 +16,7 @@
 	let form = $state({
 		...{
 			name: '',
-			pincode: '',
+			postcode: '',
 			city: '',
 			state: '',
 			country: '',
@@ -58,7 +58,7 @@
 			if (data.address) {
 				form = {
 					...form,
-					pincode: data.address.postcode || '',
+					postcode: data.address.postcode || '',
 					city: data.address.city || data.address.town || data.address.village || '',
 					state: data.address.state || '',
 					country: data.address.country || ''
@@ -113,10 +113,10 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{$_('components.societies.form.pincode')}</legend>
+		<legend>{$_('components.societies.form.postcode')}</legend>
 		<input
-			bind:value={form.pincode}
-			placeholder={$_('components.societies.form.pincode_placeholder')}
+			bind:value={form.postcode}
+			placeholder={$_('components.societies.form.postcode_placeholder')}
 			oninput={resetMessages}
 		/>
 	</fieldset>

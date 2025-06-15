@@ -46,7 +46,7 @@
 			<strong>{$_('components.societies.details.location')}:</strong>
 			{society.city}, {society.state}, {society.country}
 		</li>
-		<li><strong>{$_('components.societies.details.pincode')}:</strong> {society.pincode}</li>
+		<li><strong>{$_('components.societies.details.postcode')}:</strong> {society.postcode}</li>
 		<li><strong>{$_('components.societies.details.currency')}:</strong> {society.currency}</li>
 		<li><strong>{$_('components.societies.details.timezone')}:</strong> {society.timezone}</li>
 		<li><strong>{$_('components.societies.details.area_unit')}:</strong> {society.areaunit}</li>
