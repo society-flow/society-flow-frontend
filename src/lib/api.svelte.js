@@ -133,9 +133,17 @@ class Api {
 		const res = await client.apis.societies.getResidenceUsers({ residenceId });
 		return res.body;
 	}
+	async assignUserWithEmailNameToResidence({ residenceId, email, name }) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.assignUserWithEmailNameToResidence(
+			{},
+			{ requestBody: { residenceId, email, name } }
+		);
+		return res.body;
+	}
 	async assignUserToResidence(assignmentData) {
 		const client = await this.getClient();
-		const res = await client.apis.societies.assignUserToResidence(
+		const res = await client.apis.societies.assignOrUpdateUserToResidence(
 			{},
 			{ requestBody: assignmentData }
 		);
@@ -363,6 +371,8 @@ class Api {
 }
 
 export const api = new Api();
+
 export async function initApi() {
 	await initSwaggerClient();
+	console.log('api client', swaggerClient);
 }

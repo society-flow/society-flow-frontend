@@ -12,5 +12,5 @@
 		{/each}
 	</ul>
 {:else}
-	<p>{$_('components.users.list.no_members')}</p>
+	<p>{$_('components.users.list.no_user')}</p>
 {/if}

@@ -194,6 +194,9 @@
 				"user_role": "Rôle",
 				"member_since": "Membre depuis",
 				"no_members": "Aucun membre trouvé"
+			},
+			"list": {
+				"no_user": "Il n'y a actuellement aucun utilisateur."
 			}
 		},
 		"societies": {
@@ -256,6 +259,17 @@
 				"createdAt": "Créé le",
 				"updatedAt": "Mis à jour le",
 				"notAvailable": "Non disponible"
+			},
+			"invite_user": {
+				"title": "Inviter un nouvel utilisateur à cette résidence",
+				"name": {
+					"legend": "Nom",
+					"placeholder": "Alice"
+				},
+				"email": {
+					"legend": "E-mail",
+					"placeholder": "utilisateur@exemple.com"
+				}
 			}
 		},
 		"ads": {
@@ -294,6 +308,7 @@
 	},
 	"common": {
 		"creating": "Création en cours...",
-		"submit": "Envoyer"
+		"submit": "Envoyer",
+		"join": "Rejoindre"
 	}
 }

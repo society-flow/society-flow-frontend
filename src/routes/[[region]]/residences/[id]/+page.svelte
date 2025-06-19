@@ -9,6 +9,7 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
 	import ResidenceJoin from '$lib/components/residences/join.svelte';
+	import ResidenceInviteUser from '$lib/components/residences/invite-user.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
 
 	requiresAuth(locale);
@@ -24,11 +25,16 @@
 	$effect(async () => {
 		if (id && userState?.user?.id) {
 			await loadResidenceData();
+			await loadResidenceUsersData();
 		}
 	});
 
 	async function onJoin(residenceUser) {
-		await loadResidenceData();
+		await loadResidenceUsersData();
+	}
+
+	async function onInvite(inviteData) {
+		await loadResidenceUsersData();
 	}
 
 	async function loadResidenceData() {
@@ -36,19 +42,19 @@
 		try {
 			error = null;
 			residence = await api.getResidenceById(id);
-
-			try {
-				users = await api.getResidenceUsers(id);
-				isMember = !!users.find(({ id }) => id === userState?.user?.id);
-			} catch (err) {
-				isMember = null;
-				error = err.message;
-			}
 		} catch (err) {
 			error = err.message;
-			console.error('Failed to load residence:', err);
 		} finally {
 			loading = false;
+		}
+	}
+	async function loadResidenceUsersData() {
+		try {
+			users = await api.getResidenceUsers(id);
+			isMember = !!users.find(({ id }) => id === userState?.user?.id);
+		} catch (err) {
+			isMember = null;
+			error = err.message;
 		}
 	}
 </script>
@@ -84,6 +90,12 @@
 			{#if users}
 				<aside>
 					<UsersList {users} />
+				</aside>
+			{/if}
+
+			{#if isMember}
+				<aside>
+					<ResidenceInviteUser residenceId={residence.id} {onInvite} />
 				</aside>
 			{/if}
 		{/if}

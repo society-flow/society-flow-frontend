@@ -142,9 +142,9 @@
 				}
 			}
 		},
-    "error": {
-      "not_found": "Die angeforderte Seite existiert auf dieser Website nicht."
-    }
+		"error": {
+			"not_found": "Die angeforderte Seite existiert auf dieser Website nicht."
+		}
 	},
 	"components": {
 		"settings": {
@@ -196,6 +196,9 @@
 				"user_role": "Rolle",
 				"member_since": "Mitglied seit",
 				"no_members": "Keine Mitglieder gefunden"
+			},
+			"list": {
+				"no_user": "Derzeit gibt es keine Benutzer."
 			}
 		},
 		"societies": {
@@ -258,6 +261,17 @@
 				"createdAt": "Erstellt am",
 				"updatedAt": "Aktualisiert am",
 				"notAvailable": "Nicht verfügbar"
+			},
+			"invite_user": {
+				"title": "Einen neuen Benutzer zu dieser Residenz einladen",
+				"name": {
+					"legend": "Name",
+					"placeholder": "Alice"
+				},
+				"email": {
+					"legend": "E-Mail",
+					"placeholder": "benutzer@beispiel.de"
+				}
 			}
 		},
 		"ads": {
@@ -274,26 +288,27 @@
 				"coordinates": "Koordinaten (Breite, Länge)"
 			}
 		},
-    "legal": {
-      "dpi": {
-        "controller.heading": "Datenverantwortlicher",
-        "controller.name_label": "Name:",
-        "controller.address_label": "Adresse:",
-        "controller.email_label": "E-Mail:",
-        "controller.phone_label": "Telefon:",
-        "protection_officer.heading": "Datenschutzbeauftragter",
-        "protection_officer.email_label": "E-Mail:",
-        "purposes.heading": "Verarbeitungszwecke",
-        "legal_bases.heading": "Rechtsgrundlagen",
-        "recipients.heading": "Empfänger der Daten",
-        "retention.heading": "Datenspeicherung",
-        "rights.heading": "Ihre Rechte",
-        "supervisory_authority.heading": "Aufsichtsbehörde"
-      }
-    }
+		"legal": {
+			"dpi": {
+				"controller.heading": "Datenverantwortlicher",
+				"controller.name_label": "Name:",
+				"controller.address_label": "Adresse:",
+				"controller.email_label": "E-Mail:",
+				"controller.phone_label": "Telefon:",
+				"protection_officer.heading": "Datenschutzbeauftragter",
+				"protection_officer.email_label": "E-Mail:",
+				"purposes.heading": "Verarbeitungszwecke",
+				"legal_bases.heading": "Rechtsgrundlagen",
+				"recipients.heading": "Empfänger der Daten",
+				"retention.heading": "Datenspeicherung",
+				"rights.heading": "Ihre Rechte",
+				"supervisory_authority.heading": "Aufsichtsbehörde"
+			}
+		}
 	},
 	"common": {
 		"creating": "Erstelle...",
-		"submit": "Absenden"
+		"submit": "Absenden",
+		"join": "Beitreten"
 	}
 }

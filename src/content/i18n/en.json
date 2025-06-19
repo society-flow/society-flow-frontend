@@ -164,7 +164,7 @@
 				"error": "{error}"
 			},
 			"register": {
-				"name": {
+				"Name": {
 					"legend": "Name",
 					"placeholder": "Azur"
 				},
@@ -194,6 +194,9 @@
 				"user_role": "Role",
 				"member_since": "Member Since",
 				"no_members": "No members found"
+			},
+			"list": {
+				"no_user": "There are currently no users."
 			}
 		},
 		"societies": {
@@ -255,6 +258,17 @@
 				"createdAt": "Created At",
 				"updatedAt": "Updated At",
 				"notAvailable": "Not available"
+			},
+			"invite_user": {
+				"title": "Invite a new user to this residency",
+				"name": {
+					"legend": "Name",
+					"placeholder": "Alice"
+				},
+				"email": {
+					"legend": "Email",
+					"placeholder": "user@example.com"
+				}
 			}
 		},
 		"ads": {
@@ -293,6 +307,7 @@
 	},
 	"common": {
 		"creating": "Creating...",
-		"submit": "Submit"
+		"submit": "Submit",
+		"join": "Join"
 	}
 }

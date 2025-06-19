@@ -33,7 +33,7 @@
 
 {#if !isMember}
 	<button on:click={joinResidence} disabled={joining}>
-		{$_('components.residences.join.button')}
+		{$_('common.join')}
 		{#if joinError}
 			<span>{joinError}</span>
 		{/if}

@@ -3,15 +3,15 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 
-	let { societyId, userRole, onRoleUpdate } = $props();
+	let { societyId, onJoin } = $props();
 
 	let joining = $state(false);
-	let joinError = $state(null);
+	let error = $state(null);
 
 	async function joinSociety() {
 		try {
 			joining = true;
-			joinError = null;
+			error = null;
 
 			const societyUser = await api.assignUserToSociety({
 				societyId,
@@ -21,10 +21,10 @@
 
 			// Notify parent component to refresh user role
 			if (onRoleUpdate) {
-				onRoleUpdate(societyUser);
+				onJoin(societyUser);
 			}
 		} catch (err) {
-			joinError = err.message || 'Failed to join society';
+			error = err;
 			console.error('Error joining society:', err);
 		} finally {
 			joining = false;
@@ -32,17 +32,10 @@
 	}
 </script>
 
-{#if !userRole}
-	<section>
-		<h3>Join This Society</h3>
-		<p>You are not currently a member of this society.</p>
-
-		{#if joinError}
-			<p>{joinError}</p>
-		{/if}
-
-		<button onclick={joinSociety} disabled={joining}>
-			{joining ? 'Joining...' : 'Join Society'}
-		</button>
-	</section>
+{#if error}
+	<Error {error} />
 {/if}
+
+<button onclick={joinSociety} disabled={joining}>
+	{joining ? $_('components.societies.join.joining') : $_('components.societies.join.join')}
+</button>

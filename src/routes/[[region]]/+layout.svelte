@@ -320,7 +320,10 @@
       padding: 0;
       border: 0;
     }
-		:global(h1, h2) {
+    :global(& > aside:has(form)) {
+      border: 0;
+    }
+    :global(h1, h2) {
 			margin-bottom: 0;
       text-align: center;
       :global(a) {
