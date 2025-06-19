@@ -141,7 +141,10 @@
 					"icon": "peer-to-peer"
 				}
 			}
-		}
+		},
+    "error": {
+      "not_found": "Die angeforderte Seite existiert auf dieser Website nicht."
+    }
 	},
 	"components": {
 		"settings": {
@@ -270,7 +273,24 @@
 				"map": "Standort auf der Karte auswählen",
 				"coordinates": "Koordinaten (Breite, Länge)"
 			}
-		}
+		},
+    "legal": {
+      "dpi": {
+        "controller.heading": "Datenverantwortlicher",
+        "controller.name_label": "Name:",
+        "controller.address_label": "Adresse:",
+        "controller.email_label": "E-Mail:",
+        "controller.phone_label": "Telefon:",
+        "protection_officer.heading": "Datenschutzbeauftragter",
+        "protection_officer.email_label": "E-Mail:",
+        "purposes.heading": "Verarbeitungszwecke",
+        "legal_bases.heading": "Rechtsgrundlagen",
+        "recipients.heading": "Empfänger der Daten",
+        "retention.heading": "Datenspeicherung",
+        "rights.heading": "Ihre Rechte",
+        "supervisory_authority.heading": "Aufsichtsbehörde"
+      }
+    }
 	},
 	"common": {
 		"creating": "Erstelle...",

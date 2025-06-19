@@ -139,6 +139,9 @@
 					"icon": "peer-to-peer"
 				}
 			}
+		},
+		"error": {
+			"not_found": "La page demandée n'existe pas sur ce site."
 		}
 	},
 	"components": {
@@ -269,6 +272,23 @@
 				"coordinates": "Coordonnées (Latitude, Longitude)",
 				"create": "Créer une annonce",
 				"created_successfully": "Annonce créée avec succès."
+			}
+		},
+		"legal": {
+			"dpi": {
+				"controller.heading": "Responsable du traitement",
+				"controller.name_label": "Nom :",
+				"controller.address_label": "Adresse :",
+				"controller.email_label": "E-mail :",
+				"controller.phone_label": "Téléphone :",
+				"protection_officer.heading": "Délégué à la protection des données",
+				"protection_officer.email_label": "E-mail :",
+				"purposes.heading": "Finalités du traitement",
+				"legal_bases.heading": "Fondements juridiques",
+				"recipients.heading": "Destinataires des données",
+				"retention.heading": "Conservation des données",
+				"rights.heading": "Vos droits",
+				"supervisory_authority.heading": "Autorité de contrôle"
 			}
 		}
 	},

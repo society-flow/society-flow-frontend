@@ -1,6 +1,8 @@
 <script lang="javascript">
-	export let name = "";
-	export let className = '';
+	const{
+    name = '',
+    className = ''
+  } = $props();
 </script>
 
 {#if name === 'admin'}
@@ -115,19 +117,17 @@
 			opacity="0"
 		/>
 	</svg>
-{:else}
-	<span class={className}>Invalid icon</span>
 {/if}
 
 <style>
 	/* Admin icon: bounce avatar and spin “gear” on hover */
 	.admin-icon:hover circle:first-of-type {
 		animation: bounce 6s infinite;
-    animation-play-state: pause;
+		animation-play-state: pause;
 	}
 	.admin-icon:hover circle:last-of-type {
-    transform: rotate(20deg);
-    animation-play-state: pause;
+		transform: rotate(20deg);
+		animation-play-state: pause;
 	}
 
 	/* Member icon: glow house + pulse message box on hover */
@@ -136,13 +136,13 @@
 	}
 	.member-icon:hover rect {
 		animation: pulseBox 1s infinite;
-    animation-play-state: pause;
+		animation-play-state: pause;
 	}
 
 	/* Rent icon: pop pin + scale magnifier on hover */
 	.rent-icon:hover path {
 		animation: pop 4s infinite;
-    animation-play-state: pause;
+		animation-play-state: pause;
 	}
 	.rent-icon:hover circle,
 	.rent-icon:hover line {
@@ -150,7 +150,7 @@
 		transform-origin: center;
 	}
 
-    /* SVG 1: Hidden Expenses - Countries pulsing with mystery center */
+	/* SVG 1: Hidden Expenses - Countries pulsing with mystery center */
 	.hidden-expenses {
 		.country {
 			transform-origin: center;
@@ -339,7 +339,7 @@
 			transform: scale(1);
 		}
 	}
-  
+
 	@keyframes pulse-country {
 		0%,
 		100% {

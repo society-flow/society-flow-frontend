@@ -139,6 +139,9 @@
 					"icon": "peer-to-peer"
 				}
 			}
+		},
+		"error": {
+			"not_found": "The requested page does not exist on this website."
 		}
 	},
 	"components": {
@@ -268,6 +271,23 @@
 				"coordinates": "Coordinates (Latitude, Longitude)",
 				"create": "Create Advertisement",
 				"created_successfully": "Advertisement created successfully."
+			}
+		},
+		"legal": {
+			"dpi": {
+				"controller.heading": "Data Controller",
+				"controller.name_label": "Name:",
+				"controller.address_label": "Address:",
+				"controller.email_label": "Email:",
+				"controller.phone_label": "Phone:",
+				"protection_officer.heading": "Data Protection Officer",
+				"protection_officer.email_label": "Email:",
+				"purposes.heading": "Purposes of Processing",
+				"legal_bases.heading": "Legal Bases",
+				"recipients.heading": "Data Recipients",
+				"retention.heading": "Data Retention",
+				"rights.heading": "Your Rights",
+				"supervisory_authority.heading": "Supervisory Authority"
 			}
 		}
 	},

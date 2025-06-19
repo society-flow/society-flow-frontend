@@ -19,7 +19,7 @@
 
 	let societies = $state([]);
 	$effect(async () => {
-		if (userState?.isAuth) {
+		if (userState?.user) {
 			societies = await api.getUserSocieties(userState.user.id);
 		}
 	});

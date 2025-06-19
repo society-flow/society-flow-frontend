@@ -141,6 +141,9 @@
 					"icon": "peer-to-peer"
 				}
 			}
+		},
+		"error": {
+			"not_found": "অনুৰোধ কৰা পৃষ্ঠাটো এই ৱেবচাইটত নাছিল।"
 		}
 	},
 	"components": {
@@ -270,6 +273,23 @@
 				"coordinates": "অৱস্থান (অক্ষাংশ, দেশান্চ)",
 				"create": "বিজ্ঞাপন সৃষ্টি কৰক",
 				"created_successfully": "বিজ্ঞাপন সফলভাৱে সৃষ্টি কৰা হৈছে।"
+			}
+		},
+		"legal": {
+			"dpi": {
+				"controller.heading": "ডেটা নিয়ন্ত্ৰক",
+				"controller.name_label": "নাম:",
+				"controller.address_label": "ঠিকনা:",
+				"controller.email_label": "ইমেইল:",
+				"controller.phone_label": "ফোন:",
+				"protection_officer.heading": "ডেটা সংৰক্ষণ বিষয়া",
+				"protection_officer.email_label": "ইমেইল:",
+				"purposes.heading": "প্ৰক্ৰিয়াকৰণৰ উদ্দেশ্যসমূহ",
+				"legal_bases.heading": "আইনী আধাৰ",
+				"recipients.heading": "ডেটা গ্ৰহণকাৰীসকল",
+				"retention.heading": "ডেটা ৰক্ষা",
+				"rights.heading": "আপোনাৰ অধিকাৰ",
+				"supervisory_authority.heading": "পৰ্যবেক্ষণ কৰ্তৃপক্ষ"
 			}
 		}
 	},
