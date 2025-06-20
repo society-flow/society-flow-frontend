@@ -30,9 +30,7 @@
 		});
 	}
 
-	function setup(node) {
-		$effect(() => {
-			// init map
+		function setup(node) {
 			const fill = getCssVar('--c-fg');
 			const fillNew = getCssVar('--c-link');
 			map = L.map(node).setView(center, zoom);
@@ -41,41 +39,33 @@
 				attribution: '&copy; OpenStreetMap contributors'
 			}).addTo(map);
 
-			// draw incoming markers
-			const valid = markers.filter((m) => m.coordinates && m.title);
+			// draw initial markers
+			const valid = markers.filter(m => m.coordinates && m.title);
 			markerGroup = L.featureGroup(
 				valid.map(({ coordinates: [lat, lon], title }) =>
 					L.marker([lat, lon], { icon: createIcon(fill), title }).bindPopup(title)
 				)
 			).addTo(map);
-
 			if (valid.length) {
 				map.fitBounds(markerGroup.getBounds().pad(0.2));
 			}
 
-			// click-to-select
+			// click-to-select marker placement
 			if (selectMode) {
 				map.on('click', (e) => {
 					const { lat, lng } = e.latlng;
 					dispatch('mapClick', { lat, lng });
-
-					// replace the “new” marker
 					if (newMarker) map.removeLayer(newMarker);
-					newMarker = L.marker([lat, lng], {
-						icon: createIcon(fillNew),
-						title: 'New Position'
-					})
+					newMarker = L.marker([lat, lng], { icon: createIcon(fillNew), title: 'New Position' })
 						.addTo(map)
 						.bindPopup(`Selected: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
 						.openPopup();
 				});
 			}
 
-			return () => {
-				map.remove();
-			};
-		});
-	}
+			// cleanup on destroy
+			return { destroy() { map.remove(); } };
+		}
 </script>
 
 <div id={mapId} class="Map" use:setup></div>
