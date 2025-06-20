@@ -322,6 +322,10 @@
 		}
     :global(& > header) {
       background-color: var(--c-bg--secondary);
+      :global(h1, h2) {
+			  margin-bottom: 0;
+        text-align: center;
+		  }
     }
     :global(& > aside:has(nav, .Map, .List)) {
       padding: 0;
@@ -331,8 +335,6 @@
       border: 0;
     }
     :global(h1, h2) {
-			margin-bottom: 0;
-      text-align: center;
       :global(a) {
         text-decoration: none;
       }

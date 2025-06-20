@@ -21,10 +21,5 @@
 		<strong>{$_('components.expenses.distributionCard.coverage')}:</strong>
 		{distribution.percentageCoverage}%
 	</p>
+	<progress max="100" value={distribution.percentageCoverage}></progress>
 </Card>
-
-<style>
-	.DistributionCard p {
-		margin: var(--s1) 0;
-	}
-</style>

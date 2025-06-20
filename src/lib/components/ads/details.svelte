@@ -6,7 +6,7 @@
 
 <header>
 	<h1>
-		<Anchor href={`/ads/${advert.id}`}>{advert.adTitle || advert.id}</Anchor>
+		<Anchor href={`/ads/${advert.id}`}>{advert.title || advert.id}</Anchor>
 	</h1>
 </header>
 
