@@ -1,4 +1,4 @@
-<script type="javascript">
+<script lang="javascript">
 	const {
 		title,
 		header,

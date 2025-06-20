@@ -40,6 +40,11 @@
 							{$_('menu.update.ads')}
 						</Anchor>
 					</li>
+					<li>
+						<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton data-type="error">
+							{$_('common.delete')}
+						</Anchor>
+					</li>
 				</nav>
 			</aside>
 		{/if}

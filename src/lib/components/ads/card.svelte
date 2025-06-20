@@ -1,6 +1,6 @@
 <script lang="javascript">
-	import Card from '$lib/components/card.svelte';
-	import Anchor from '$lib/components/anchor.svelte';
+   import Card from '$lib/components/card.svelte';
+   import Anchor from '$lib/components/anchor.svelte';
 
 	const { ad } = $props();
 	const { id, adDescription, adTitle } = ad;

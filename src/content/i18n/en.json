@@ -308,6 +308,9 @@
 	"common": {
 		"creating": "Creating...",
 		"submit": "Submit",
-		"join": "Join"
+		"join": "Join",
+		"delete": "Delete",
+		"deleting": "Deleting...",
+		"cancel": "Cancel"
 	}
 }

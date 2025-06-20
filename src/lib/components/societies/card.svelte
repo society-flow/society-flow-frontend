@@ -1,6 +1,6 @@
 <script>
-	import Anchor from '$lib/components/anchor.svelte';
-	import Card from '$lib/components/card.svelte';
+   import Anchor from '$lib/components/anchor.svelte';
+   import Card from '$lib/components/card.svelte';
 
 	const { society = {} } = $props();
 	const { id, name } = society;

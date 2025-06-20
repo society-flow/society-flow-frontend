@@ -22,8 +22,8 @@
 </header>
 
 <main class="Site-main">
-	{#if $navigating}
-		<progress class="Site-progress" />
+   {#if $navigating}
+       <progress class="Site-progress"></progress>
 	{/if}
 
 	{@render children()}

@@ -29,7 +29,7 @@
    {#if error}
        <Error {error} />
    {:else if !data}
-       <progress />
+       <progress></progress>
    {:else}
        <Form data={data} {onsuccess} />
    {/if}

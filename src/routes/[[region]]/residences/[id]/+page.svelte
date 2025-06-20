@@ -61,10 +61,10 @@
 
 <Page title={$_('menu.residences')} showHeader={false}>
 	<article class="Detail">
-		{#if loading}
-			<aside>
-				<center>
-					<progress />
+   {#if loading}
+       <aside>
+           <center>
+               <progress></progress>
 				</center>
 			</aside>
 		{:else if error}
@@ -80,6 +80,9 @@
 					{#if isMember}
 						<Anchor href={`/update/residences/${id}`} title={$_('menu.update.residences')} isButton>
 							{$_('menu.update.residences')}
+						</Anchor>
+						<Anchor href={`/delete/residences/${id}`} title={$_('common.delete')} isButton data-type="error">
+							{$_('common.delete')}
 						</Anchor>
 					{/if}
 				</nav>

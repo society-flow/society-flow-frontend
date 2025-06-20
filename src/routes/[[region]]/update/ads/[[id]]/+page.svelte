@@ -28,8 +28,8 @@
 <Page title={$_('menu.update.ads')}>
 	{#if error}
 		<Error {error} />
-	{:else if !data}
-		<progress />
+  {:else if !data}
+    <progress></progress>
 	{:else}
 		<Form {data} {onsuccess} />
 	{/if}
