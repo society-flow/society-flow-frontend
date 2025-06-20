@@ -13,15 +13,16 @@
     "auth.login": "Zaloguj się",
     "auth.logout": "Wyloguj się",
     "auth.register": "Zarejestruj się",
-    "auth.verify-otp": "Zweryfikuj OTP",
+    "auth.verify-otp": "Zweryfikuj kod OTP",
     "legal": "Informacje prawne",
-    "legal.terms-of-service": "Warunki świadczenia usług",
+    "legal.terms-of-service": "Warunki korzystania z usługi",
     "legal.privacy-policy": "Polityka prywatności",
     "legal.data-processing-info": "Informacje o przetwarzaniu danych",
     "legal.cookie-policy": "Polityka plików cookie",
     "create.societies": "Utwórz nową społeczność",
     "create.residences": "Utwórz nowe mieszkanie",
     "create.ads": "Utwórz nowe ogłoszenie",
+    "create.expenses": "Utwórz nowy wydatek",
     "update.societies": "Zaktualizuj społeczność",
     "update.residences": "Zaktualizuj mieszkanie",
     "update.ads": "Zaktualizuj ogłoszenie"
@@ -31,7 +32,7 @@
       "verify-otp": {
         "sections": {
           "did-not-receive": {
-            "text": "Nie otrzymałeś wiadomości e-mail z kodem OTP?"
+            "text": "Nie otrzymałeś e-maila z kodem OTP?"
           },
           "resend": {
             "text": "Wyślij ponownie e-mail",
@@ -56,7 +57,7 @@
       "login": {
         "sections": {
           "no-account": {
-            "text": "Nie masz jeszcze konta? Jest to bezpłatne",
+            "text": "Nie masz jeszcze konta? To nic nie kosztuje",
             "link": {
               "url": "/auth/register",
               "text": "menu.auth.register"
@@ -72,7 +73,7 @@
         },
         "demo": {
           "title": "Demo",
-          "loginText": "Zaloguj się jako użytkownik demo",
+          "loginText": "Zaloguj użytkownika demo",
           "logoutText": "Wyloguj użytkownika demo"
         }
       }
@@ -81,7 +82,7 @@
       "auth": {
         "greeting": "Witaj {name} ({email}).",
         "dashboard": {
-          "title": "Twój pulpit nawigacyjny"
+          "title": "Twój pulpit"
         },
         "sections": {
           "societies": "Społeczności",
@@ -95,24 +96,24 @@
             "features": [
               "Utwórz jedną lub więcej społeczności",
               "Zaproś użytkowników",
-              "Dodaj wymagane wydatki",
+              "Dodaj potrzebne wydatki",
               "Zatwierdź zapisy płatności",
               "Utwórz niestandardowe korekty",
-              "Publikuj ogłoszenia dla mieszkańców"
+              "Publikuj powiadomienia dla mieszkańców"
             ]
           },
           "society_member": {
             "title": "Członkowie społeczności",
             "features": [
               "Wyświetl wszystkie swoje mieszkania w różnych społecznościach i miastach",
-              "Wyświetl miesięczne należności z odpowiednim podziałem kosztów i dostępnych środków",
-              "Wiadomości do administratorów o napotkanych problemach lub otrzymuj od nich powiadomienia."
+              "Wyświetl swoje miesięczne opłaty z odpowiednim podziałem kosztów i dostępnych środków",
+              "Wiadomość do administratorów o napotkanych problemach lub otrzymywanie od nich powiadomień."
             ]
           },
           "rent_seeker": {
             "title": "Szukasz czynszu lub chcesz kupić?",
             "features": [
-              "Sprawdź ogłoszenia opublikowane przez uwierzytelnionych, ważnych właścicieli lub społeczności dotyczące dostępności, zgodnie z Twoim budżetem i wymarzoną lokalizacją"
+              "Sprawdź ogłoszenia opublikowane przez uwierzytelnionych, ważnych właścicieli lub społeczności dotyczące dostępności, odpowiednio do Twojego budżetu i wymarzonej lokalizacji"
             ]
           }
         },
@@ -123,32 +124,68 @@
       "title": "O nas",
       "sections": {
         "problem": {
-          "text": "Różne kraje z tym samym problemem: ukryte zarządzanie wydatkami bez przejrzystości kosztów i środków.",
+          "text": "Różne kraje z tym samym problemem: Ukryte zarządzanie wydatkami bez jasnej widoczności kosztów i funduszy.",
           "icon": "hidden-expenses"
         },
         "goal": {
-          "text": "Naszym celem jest zapewnienie szczegółowego podziału dynamicznie obliczanych cen miesięcznych dla Twojej wiedzy.",
+          "text": "Naszym celem jest zapewnienie szczegółowego podziału dynamicznie obliczanych miesięcznych cen do Twojej wiadomości.",
           "icon": "pricing-breakdown"
         },
         "philosophy": {
-          "text": "Naprawdę uważamy, że zmniejszone lub zwiększone wydatki powinny powodować zmienność składek, a nie stałą opłatę. Ponadto różne wydatki wymagają innego sposobu podziału na mieszkania.",
+          "text": "Uważamy, że zmniejszone lub zwiększone wydatki powinny powodować zmienność składek, a nie stałą kwotę. Ponadto różne wydatki wymagają innego sposobu dystrybucji w różnych mieszkaniach.",
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "Po drodze nasz system pozwala tworzyć lub znajdować ogłoszenia geo-zlokalizowane od ważnych członków użytkowników, omijając pośredników. Następnym razem skontaktuj się z osobą, aby uzyskać wszelkie usługi w Twojej strefie zainteresowań bez przepłacania!",
+          "text": "Po drodze nasz system pozwala na tworzenie lub znajdowanie ogłoszeń zlokalizowanych geograficznie od ważnych członków użytkowników, pomijając pośredników. Następnym razem skontaktuj się z rówieśnikami w celu uzyskania jakichkolwiek usług w obszarze Twoich zainteresowań bez przepłacania!",
           "icon": "peer-to-peer"
         }
       }
     },
     "error": {
       "not_found": "Żądana strona nie istnieje w tej witrynie."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "Moje opłaty za wydatki",
+        "noExpenseDues": "Nie znaleziono żadnych opłat za wydatki.",
+        "table": {
+          "month": "Miesiąc",
+          "expense": "Wydatek",
+          "amount": "Kwota"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Obliczenia wydatków",
+        "noExpensesConfigured": "Brak skonfigurowanych wydatków.",
+        "table": {
+          "month": "Miesiąc",
+          "residence": "Mieszkanie",
+          "amount": "Kwota"
+        }
+      }
+    },
+    "delete": {
+      "confirm": "Czy na pewno chcesz usunąć"
+    },
+    "expenses": {
+      "form": {
+        "name": "Nazwa",
+        "name_placeholder": "Wprowadź nazwę wydatku",
+        "amount": "Kwota na miesiąc",
+        "amount_placeholder": "Wprowadź kwotę na miesiąc",
+        "society": "Towarzystwo",
+        "society_placeholder": "Wybierz towarzystwo",
+        "active": "Aktywny"
+      }
     }
   },
   "components": {
     "settings": {
       "api": {
         "legend": "Adres URL API",
-        "label": "Gdzie znajduje się interfejs API na serwerach zaplecza."
+        "label": "Gdzie znajduje się API na serwerach zaplecza."
       }
     },
     "locales": {
@@ -165,7 +202,7 @@
       },
       "register": {
         "name": {
-          "legend": "Imię",
+          "legend": "Nazwa",
           "placeholder": "Azur"
         },
         "email": {
@@ -188,8 +225,8 @@
     },
     "users": {
       "card": {
-        "user_id": "Identyfikator użytkownika",
-        "user_name": "Imię",
+        "user_id": "ID użytkownika",
+        "user_name": "Nazwa",
         "user_role": "Rola",
         "member_since": "Członek od",
         "no_members": "Nie znaleziono członków"
@@ -206,8 +243,8 @@
         "postcode_placeholder": "Wprowadź kod pocztowy",
         "city": "Miasto",
         "city_placeholder": "Wprowadź miasto",
-        "state": "Stan",
-        "state_placeholder": "Wprowadź stan",
+        "state": "Województwo",
+        "state_placeholder": "Wprowadź województwo",
         "country": "Kraj",
         "country_placeholder": "Wprowadź kraj",
         "timezone": "Strefa czasowa",
@@ -226,7 +263,7 @@
         "area_unit": "Jednostka powierzchni",
         "fine_rate": "Stawka grzywny",
         "coordinates": "Współrzędne",
-        "created": "Utworzono dnia",
+        "created": "Utworzono",
         "updated": "Ostatnia aktualizacja"
       }
     },
@@ -254,14 +291,14 @@
         "yes": "Tak",
         "no": "Nie",
         "description": "Opis",
-        "createdAt": "Utworzono dnia",
-        "updatedAt": "Zaktualizowano dnia",
+        "createdAt": "Utworzono",
+        "updatedAt": "Zaktualizowano",
         "notAvailable": "Niedostępny"
       },
       "invite_user": {
         "title": "Zaproś nowego użytkownika do tej rezydencji",
         "name": {
-          "legend": "Imię",
+          "legend": "Nazwa",
           "placeholder": "Alicja"
         },
         "email": {
@@ -278,12 +315,22 @@
         "adDescription_placeholder": "Wprowadź opis ogłoszenia",
         "anonymousUserName": "Anonimowa nazwa użytkownika",
         "anonymousUserName_placeholder": "Wprowadź swój alias lub anonimową nazwę",
-        "type": "Rodzaj ogłoszenia",
-        "type_placeholder": "Wybierz rodzaj ogłoszenia",
+        "type": "Typ ogłoszenia",
+        "type_placeholder": "Wybierz typ ogłoszenia",
         "map": "Wybierz lokalizację na mapie",
-        "coordinates": "Współrzędne (Szerokość, Długość)",
+        "coordinates": "Współrzędne (Szerokość geograficzna, Długość geograficzna)",
         "create": "Utwórz ogłoszenie",
         "created_successfully": "Ogłoszenie utworzono pomyślnie."
+      }
+    },
+    "expenses": {
+      "form": {
+        "name": "Nazwa",
+        "name_placeholder": "Izmir",
+        "amount": "Kwota na miesiąc",
+        "society": "Towarzystwo",
+        "society_placeholder": "Wybierz towarzystwo",
+        "active": "Aktywny"
       }
     },
     "legal": {
@@ -291,10 +338,10 @@
         "controller.heading": "Administrator danych",
         "controller.name_label": "Nazwa:",
         "controller.address_label": "Adres:",
-        "controller.email_label": "E-mail:",
+        "controller.email_label": "Email:",
         "controller.phone_label": "Telefon:",
-        "protection_officer.heading": "Inspektor Ochrony Danych",
-        "protection_officer.email_label": "E-mail:",
+        "protection_officer.heading": "Inspektor ochrony danych",
+        "protection_officer.email_label": "Email:",
         "purposes.heading": "Cele przetwarzania",
         "legal_bases.heading": "Podstawy prawne",
         "recipients.heading": "Odbiorcy danych",
@@ -306,7 +353,10 @@
   },
   "common": {
     "creating": "Tworzenie...",
-    "submit": "Prześlij",
-    "join": "Dołącz"
+    "submit": "Wyślij",
+    "join": "Dołącz",
+    "delete": "Usuń",
+    "deleting": "Usuwanie...",
+    "cancel": "Anuluj"
   }
 }

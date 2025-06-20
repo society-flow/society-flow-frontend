@@ -12,16 +12,17 @@
     "settings": "Paramètres",
     "auth.login": "Connexion",
     "auth.logout": "Déconnexion",
-    "auth.register": "Inscription",
-    "auth.verify-otp": "Vérifier OTP",
+    "auth.register": "S'inscrire",
+    "auth.verify-otp": "Vérifier le code OTP",
     "legal": "Mentions légales",
     "legal.terms-of-service": "Conditions d'utilisation",
     "legal.privacy-policy": "Politique de confidentialité",
     "legal.data-processing-info": "Informations sur le traitement des données",
-    "legal.cookie-policy": "Politique relative aux cookies",
+    "legal.cookie-policy": "Politique en matière de cookies",
     "create.societies": "Créer une nouvelle société",
     "create.residences": "Créer une nouvelle résidence",
     "create.ads": "Créer une nouvelle annonce",
+    "create.expenses": "Créer une nouvelle dépense",
     "update.societies": "Mettre à jour la société",
     "update.residences": "Mettre à jour la résidence",
     "update.ads": "Mettre à jour l'annonce"
@@ -72,7 +73,7 @@
         },
         "demo": {
           "title": "Démo",
-          "loginText": "Connectez-vous en tant qu'utilisateur de démonstration",
+          "loginText": "Connecter l'utilisateur de démonstration",
           "logoutText": "Déconnecter l'utilisateur de démonstration"
         }
       }
@@ -93,7 +94,7 @@
           "society_admin": {
             "title": "Administrateurs de la société",
             "features": [
-              "Créez une ou plusieurs sociétés",
+              "Créer une ou plusieurs sociétés",
               "Inviter des utilisateurs",
               "Ajouter les dépenses nécessaires",
               "Approuver les relevés de paiement",
@@ -106,11 +107,11 @@
             "features": [
               "Consultez toutes vos résidences dans différentes sociétés et villes",
               "Consultez vos cotisations mensuelles avec une ventilation appropriée des coûts et des fonds disponibles",
-              "Envoyez des messages aux administrateurs des problèmes rencontrés ou recevez des notifications de leur part."
+              "Envoyez un message aux administrateurs des problèmes rencontrés ou recevez des notifications de leur part."
             ]
           },
           "rent_seeker": {
-            "title": "Vous recherchez des locations ou souhaitez en acheter une ?",
+            "title": "Vous cherchez des locations ou souhaitez en acheter une ?",
             "features": [
               "Consultez les annonces publiées par des propriétaires ou des sociétés valides et authentifiés concernant la disponibilité, en fonction de votre budget et de l'emplacement de vos rêves"
             ]
@@ -127,28 +128,64 @@
           "icon": "hidden-expenses"
         },
         "goal": {
-          "text": "Notre objectif est de fournir une répartition détaillée des prix mensuels calculés dynamiquement à votre connaissance.",
+          "text": "Notre objectif est de fournir une ventilation détaillée des prix mensuels calculés dynamiquement à votre connaissance.",
           "icon": "pricing-breakdown"
         },
         "philosophy": {
-          "text": "Nous pensons fermement que les dépenses réduites ou augmentées devraient faire varier les cotisations, et non les fixer. De plus, différentes dépenses nécessitent une manière différente de répartition entre les résidences.",
+          "text": "Nous pensons fermement que les dépenses réduites ou augmentées devraient faire varier les contributions, et non les fixer. De plus, les différentes dépenses nécessitent une manière différente de répartition entre les résidences.",
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées de membres valides d'utilisateurs, en contournant les intermédiaires. La prochaine fois, contactez directement vos pairs pour tous les services qui vous intéressent sans payer trop cher !",
+          "text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées auprès de membres valides des utilisateurs, en contournant les intermédiaires. La prochaine fois, contactez vos pairs pour tout service dans votre domaine d'intérêt sans payer trop cher !",
           "icon": "peer-to-peer"
         }
       }
     },
     "error": {
       "not_found": "La page demandée n'existe pas sur ce site Web."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "Mes cotisations de dépenses",
+        "noExpenseDues": "Aucune cotisation de dépenses trouvée.",
+        "table": {
+          "month": "Mois",
+          "expense": "Dépense",
+          "amount": "Montant"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Calculs des dépenses",
+        "noExpensesConfigured": "Aucune dépense configurée.",
+        "table": {
+          "month": "Mois",
+          "residence": "Résidence",
+          "amount": "Montant"
+        }
+      }
+    },
+    "delete": {
+      "confirm": "Êtes-vous sûr de vouloir supprimer"
+    },
+    "expenses": {
+      "form": {
+        "name": "Nom",
+        "name_placeholder": "Entrez le nom de la dépense",
+        "amount": "Montant par mois",
+        "amount_placeholder": "Entrez le montant par mois",
+        "society": "Société",
+        "society_placeholder": "Sélectionner une société",
+        "active": "Actif"
+      }
     }
   },
   "components": {
     "settings": {
       "api": {
         "legend": "URL de l'API",
-        "label": "Où se trouve l'API sur les serveurs backend."
+        "label": "Où se trouve l'API sur les serveurs principaux."
       }
     },
     "locales": {
@@ -172,7 +209,7 @@
           "legend": "E-mail",
           "placeholder": "user@example.com"
         },
-        "submit": "Inscription",
+        "submit": "S'inscrire",
         "error": "{error}"
       },
       "verify_otp": {
@@ -181,14 +218,14 @@
           "placeholder": "user@example.com"
         },
         "otp": {
-          "legend": "OTP (Mot de passe à usage unique)"
+          "legend": "OTP (Mot de passe unique)"
         },
         "submit": "Vérifier"
       }
     },
     "users": {
       "card": {
-        "user_id": "ID utilisateur",
+        "user_id": "Identifiant utilisateur",
         "user_name": "Nom",
         "user_role": "Rôle",
         "member_since": "Membre depuis",
@@ -238,8 +275,8 @@
         "residenceName_placeholder": "Entrez le nom de la résidence",
         "floorCount": "Nombre d'étages",
         "floorCount_placeholder": "Entrez le nombre d'étages",
-        "areaValue": "Surface (pi2)",
-        "areaValue_placeholder": "Entrez la surface en pi2",
+        "areaValue": "Superficie (pi2)",
+        "areaValue_placeholder": "Entrez la superficie en pi2",
         "residentsCount": "Nombre de résidents",
         "residentsCount_placeholder": "Entrez le nombre de résidents",
         "description": "Description",
@@ -249,7 +286,7 @@
         "societyId": "ID de la société",
         "residentsCount": "Résidents",
         "floorCount": "Étages",
-        "area": "Surface",
+        "area": "Superficie",
         "active": "Actif",
         "yes": "Oui",
         "no": "Non",
@@ -277,24 +314,34 @@
         "adDescription": "Description de l'annonce",
         "adDescription_placeholder": "Entrez la description de l'annonce",
         "anonymousUserName": "Nom d'utilisateur anonyme",
-        "anonymousUserName_placeholder": "Entrez votre alias ou votre nom anonyme",
+        "anonymousUserName_placeholder": "Entrez votre alias ou nom anonyme",
         "type": "Type d'annonce",
         "type_placeholder": "Sélectionnez un type d'annonce",
-        "map": "Sélectionnez l'emplacement sur la carte",
-        "coordinates": "Coordonnées (latitude, longitude)",
+        "map": "Sélectionner l'emplacement sur la carte",
+        "coordinates": "Coordonnées (Latitude, Longitude)",
         "create": "Créer une annonce",
         "created_successfully": "Annonce créée avec succès."
       }
     },
+    "expenses": {
+      "form": {
+        "name": "Nom",
+        "name_placeholder": "Izmir",
+        "amount": "Montant par mois",
+        "society": "Société",
+        "society_placeholder": "Sélectionner une société",
+        "active": "Actif"
+      }
+    },
     "legal": {
       "dpi": {
-        "controller.heading": "Responsable du traitement des données",
-        "controller.name_label": "Nom:",
-        "controller.address_label": "Adresse:",
-        "controller.email_label": "E-mail:",
-        "controller.phone_label": "Téléphone:",
+        "controller.heading": "Contrôleur de données",
+        "controller.name_label": "Nom :",
+        "controller.address_label": "Adresse :",
+        "controller.email_label": "E-mail :",
+        "controller.phone_label": "Téléphone :",
         "protection_officer.heading": "Délégué à la protection des données",
-        "protection_officer.email_label": "E-mail:",
+        "protection_officer.email_label": "E-mail :",
         "purposes.heading": "Finalités du traitement",
         "legal_bases.heading": "Bases légales",
         "recipients.heading": "Destinataires des données",
@@ -307,6 +354,9 @@
   "common": {
     "creating": "Création...",
     "submit": "Soumettre",
-    "join": "Rejoindre"
+    "join": "Rejoindre",
+    "delete": "Supprimer",
+    "deleting": "Suppression...",
+    "cancel": "Annuler"
   }
 }

@@ -1,6 +1,6 @@
 {
   "title": "Society Flow",
-  "catch_line": "Teilen Sie Dienste. Kosten aufteilen. Stärken Sie Ihre Gemeinschaft.",
+  "catch_line": "Dienste teilen. Kosten aufteilen. Stärken Sie Ihre Gemeinschaft.",
   "menu": {
     "home": "Startseite",
     "societies": "Gesellschaften",
@@ -22,6 +22,7 @@
     "create.societies": "Neue Gesellschaft erstellen",
     "create.residences": "Neue Residenz erstellen",
     "create.ads": "Neue Anzeige erstellen",
+    "create.expenses": "Neuen Aufwand erstellen",
     "update.societies": "Gesellschaft aktualisieren",
     "update.residences": "Residenz aktualisieren",
     "update.ads": "Anzeige aktualisieren"
@@ -56,7 +57,7 @@
       "login": {
         "sections": {
           "no-account": {
-            "text": "Sie haben noch kein Konto? Es ist kostenlos zu",
+            "text": "Sie haben noch kein Konto? Es ist kostenlos,",
             "link": {
               "url": "/auth/register",
               "text": "menu.auth.register"
@@ -98,21 +99,21 @@
               "Benötigte Ausgaben hinzufügen",
               "Zahlungsaufzeichnungen genehmigen",
               "Benutzerdefinierte Anpassungen erstellen",
-              "Mitteilungen an Bewohner veröffentlichen"
+              "Mitteilungen an die Bewohner veröffentlichen"
             ]
           },
           "society_member": {
             "title": "Gesellschaftsmitglieder",
             "features": [
               "Zeigen Sie alle Ihre Residenzen in verschiedenen Gesellschaften und Städten an",
-              "Zeigen Sie Ihre monatlichen Gebühren mit einer ordnungsgemäßen Aufschlüsselung der Kosten und verfügbaren Mittel an",
-              "Melden Sie Administratoren Probleme oder erhalten Sie Benachrichtigungen von ihnen."
+              "Zeigen Sie Ihre monatlichen Beiträge mit einer ordnungsgemäßen Aufschlüsselung der Kosten und verfügbaren Mittel an",
+              "Nachrichten an Administratoren über aufgetretene Probleme senden oder Benachrichtigungen von ihnen erhalten."
             ]
           },
           "rent_seeker": {
-            "title": "Suchen Sie nach Mieten oder möchten Sie eine kaufen?",
+            "title": "Auf der Suche nach Mieten oder dem Kauf?",
             "features": [
-              "Sehen Sie sich die von authentifizierten gültigen Vermietern oder Gesellschaften veröffentlichten Anzeigen über die Verfügbarkeit an, die Ihrem Budget und Ihrem Traumort entsprechen"
+              "Sehen Sie sich die von authentifizierten, gültigen Vermietern oder Gesellschaften veröffentlichten Anzeigen zur Verfügbarkeit an, die Ihrem Budget und Ihrem Traumstandort entsprechen"
             ]
           }
         },
@@ -123,25 +124,61 @@
       "title": "Über",
       "sections": {
         "problem": {
-          "text": "Verschiedene Länder mit demselben Problem: Verwaltung versteckter Ausgaben ohne klare Übersicht über Kosten und Gelder.",
+          "text": "Verschiedene Länder mit demselben Problem: Versteckte Ausgabenverwaltung ohne klare Sichtbarkeit der Kosten und Mittel.",
           "icon": "hidden-expenses"
         },
         "goal": {
-          "text": "Unser Ziel ist es, Ihnen eine detaillierte Aufschlüsselung der dynamisch berechneten monatlichen Preise zu geben.",
+          "text": "Unser Ziel ist es, eine detaillierte Aufschlüsselung der dynamisch berechneten monatlichen Preise zu Ihrem Wissen bereitzustellen.",
           "icon": "pricing-breakdown"
         },
         "philosophy": {
-          "text": "Wir sind der festen Überzeugung, dass reduzierte oder erhöhte Ausgaben die Beiträge variieren lassen sollten, nicht fest. Außerdem benötigen unterschiedliche Ausgaben unterschiedliche Verteilungsarten über die Residenzen.",
+          "text": "Wir sind der festen Überzeugung, dass reduzierte oder erhöhte Ausgaben die Beiträge variieren lassen sollten, nicht fest. Außerdem benötigen verschiedene Ausgaben unterschiedliche Verteilungsarten über die Residenzen.",
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "Auf dem Weg dorthin ermöglicht Ihnen unser System, geolokalierte Anzeigen von gültigen Benutzern zu erstellen oder zu finden, wodurch Zwischenhändler umgangen werden. Wenden Sie sich beim nächsten Mal Peer-to-Peer nach Dienstleistungen in Ihrem Interessengebiet, ohne zu viel zu bezahlen!",
+          "text": "Auf dem Weg dorthin ermöglicht Ihnen unser System, geo-lokalisierte Anzeigen von gültigen Mitgliedern der Benutzer zu erstellen oder zu finden, wodurch Zwischenhändler umgangen werden. Kontaktieren Sie das nächste Mal Peer-to-Peer nach Dienstleistungen in Ihrem Interessengebiet, ohne zu viel zu bezahlen!",
           "icon": "peer-to-peer"
         }
       }
     },
     "error": {
-      "not_found": "Die angeforderte Seite existiert nicht auf dieser Website."
+      "not_found": "Die angeforderte Seite existiert auf dieser Website nicht."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "Meine Ausgabengebühren",
+        "noExpenseDues": "Keine Ausgabengebühren gefunden.",
+        "table": {
+          "month": "Monat",
+          "expense": "Ausgabe",
+          "amount": "Betrag"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Ausgabenberechnungen",
+        "noExpensesConfigured": "Keine Ausgaben konfiguriert.",
+        "table": {
+          "month": "Monat",
+          "residence": "Residenz",
+          "amount": "Betrag"
+        }
+      }
+    },
+    "delete": {
+      "confirm": "Sind Sie sicher, dass Sie löschen möchten"
+    },
+    "expenses": {
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Geben Sie den Ausgabenamen ein",
+        "amount": "Betrag pro Monat",
+        "amount_placeholder": "Geben Sie den Betrag pro Monat ein",
+        "society": "Gesellschaft",
+        "society_placeholder": "Wählen Sie eine Gesellschaft aus",
+        "active": "Aktiv"
+      }
     }
   },
   "components": {
@@ -181,9 +218,9 @@
           "placeholder": "user@example.com"
         },
         "otp": {
-          "legend": "OTP (One Time Password)"
+          "legend": "OTP (Einmalpasswort)"
         },
-        "submit": "Verifizieren"
+        "submit": "Bestätigen"
       }
     },
     "users": {
@@ -200,8 +237,8 @@
     },
     "societies": {
       "form": {
-        "name": "Gesellschaftsname",
-        "name_placeholder": "Gesellschaftsnamen eingeben",
+        "name": "Name der Gesellschaft",
+        "name_placeholder": "Geben Sie den Gesellschaftsnamen ein",
         "postcode": "Postleitzahl",
         "postcode_placeholder": "Postleitzahl eingeben",
         "city": "Stadt",
@@ -224,7 +261,7 @@
         "currency": "Währung",
         "timezone": "Zeitzone",
         "area_unit": "Flächeneinheit",
-        "fine_rate": "Bußgeld",
+        "fine_rate": "Bußgeldsatz",
         "coordinates": "Koordinaten",
         "created": "Erstellt am",
         "updated": "Zuletzt aktualisiert"
@@ -233,22 +270,22 @@
     "residences": {
       "form": {
         "societyId": "Gesellschafts-ID",
-        "societyId_placeholder": "Gesellschafts-ID eingeben",
-        "residenceName": "Residenzname",
-        "residenceName_placeholder": "Residenzname eingeben",
-        "floorCount": "Anzahl der Etagen",
-        "floorCount_placeholder": "Anzahl der Etagen eingeben",
-        "areaValue": "Fläche (sq ft)",
-        "areaValue_placeholder": "Fläche in sq ft eingeben",
+        "societyId_placeholder": "Geben Sie die Gesellschafts-ID ein",
+        "residenceName": "Name der Residenz",
+        "residenceName_placeholder": "Geben Sie den Namen der Residenz ein",
+        "floorCount": "Anzahl der Stockwerke",
+        "floorCount_placeholder": "Anzahl der Stockwerke eingeben",
+        "areaValue": "Fläche (qm)",
+        "areaValue_placeholder": "Fläche in qm eingeben",
         "residentsCount": "Anzahl der Bewohner",
         "residentsCount_placeholder": "Anzahl der Bewohner eingeben",
         "description": "Beschreibung",
-        "description_placeholder": "Eine Beschreibung hinzufügen (optional)"
+        "description_placeholder": "Fügen Sie eine Beschreibung hinzu (optional)"
       },
       "details": {
         "societyId": "Gesellschafts-ID",
         "residentsCount": "Bewohner",
-        "floorCount": "Etagen",
+        "floorCount": "Stockwerke",
         "area": "Fläche",
         "active": "Aktiv",
         "yes": "Ja",
@@ -259,7 +296,7 @@
         "notAvailable": "Nicht verfügbar"
       },
       "invite_user": {
-        "title": "Laden Sie einen neuen Benutzer zu dieser Residenz ein",
+        "title": "Laden Sie einen neuen Benutzer in diese Residenz ein",
         "name": {
           "legend": "Name",
           "placeholder": "Alice"
@@ -277,13 +314,23 @@
         "adDescription": "Anzeigenbeschreibung",
         "adDescription_placeholder": "Geben Sie die Anzeigenbeschreibung ein",
         "anonymousUserName": "Anonymer Benutzername",
-        "anonymousUserName_placeholder": "Geben Sie Ihren Alias oder anonymen Namen ein",
-        "type": "Anzeigenart",
-        "type_placeholder": "Wählen Sie eine Anzeigenart aus",
+        "anonymousUserName_placeholder": "Geben Sie Ihren Alias- oder anonymen Namen ein",
+        "type": "Anzeigentyp",
+        "type_placeholder": "Wählen Sie einen Anzeigentyp aus",
         "map": "Wählen Sie den Standort auf der Karte aus",
         "coordinates": "Koordinaten (Breitengrad, Längengrad)",
         "create": "Anzeige erstellen",
         "created_successfully": "Anzeige erfolgreich erstellt."
+      }
+    },
+    "expenses": {
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Izmir",
+        "amount": "Betrag pro Monat",
+        "society": "Gesellschaft",
+        "society_placeholder": "Wählen Sie eine Gesellschaft aus",
+        "active": "Aktiv"
       }
     },
     "legal": {
@@ -305,8 +352,11 @@
     }
   },
   "common": {
-    "creating": "Erstellen...",
+    "creating": "Wird erstellt...",
     "submit": "Senden",
-    "join": "Beitreten"
+    "join": "Beitreten",
+    "delete": "Löschen",
+    "deleting": "Wird gelöscht...",
+    "cancel": "Abbrechen"
   }
 }

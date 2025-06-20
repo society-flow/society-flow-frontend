@@ -22,6 +22,7 @@
     "create.societies": "Yeni Topluluk Oluştur",
     "create.residences": "Yeni Konut Oluştur",
     "create.ads": "Yeni Reklam Oluştur",
+    "create.expenses": "Yeni Gider Oluştur",
     "update.societies": "Topluluğu Güncelle",
     "update.residences": "Konutu Güncelle",
     "update.ads": "Reklamı Güncelle"
@@ -142,6 +143,42 @@
     },
     "error": {
       "not_found": "İstenen sayfa bu web sitesinde mevcut değil."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "Gider Borçlarım",
+        "noExpenseDues": "Gider borcu bulunamadı.",
+        "table": {
+          "month": "Ay",
+          "expense": "Gider",
+          "amount": "Tutar"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Gider Hesaplamaları",
+        "noExpensesConfigured": "Hiçbir gider yapılandırılmamış.",
+        "table": {
+          "month": "Ay",
+          "residence": "İkametgah",
+          "amount": "Tutar"
+        }
+      }
+    },
+    "delete": {
+      "confirm": "Silmek istediğinizden emin misiniz"
+    },
+    "expenses": {
+      "form": {
+        "name": "Ad",
+        "name_placeholder": "Gider adını girin",
+        "amount": "Aylık Tutar",
+        "amount_placeholder": "Aylık tutarı girin",
+        "society": "Site",
+        "society_placeholder": "Site seçin",
+        "active": "Aktif"
+      }
     }
   },
   "components": {
@@ -284,6 +321,16 @@
         "coordinates": "Koordinatlar (Enlem, Boylam)",
         "create": "Reklam Oluştur",
         "created_successfully": "Reklam başarıyla oluşturuldu."
+      }
+    },
+    "expenses": {
+      "form": {
+        "name": "Ad",
+        "name_placeholder": "İzmir",
+        "amount": "Aylık Tutar",
+        "society": "Site",
+        "society_placeholder": "Site seçin",
+        "active": "Aktif"
       }
     },
     "legal": {

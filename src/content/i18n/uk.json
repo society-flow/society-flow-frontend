@@ -1,0 +1,362 @@
+{
+  "title": "Society Flow",
+  "catch_line": "Діліться послугами. Розподіляйте витрати. Зміцнюйте свою спільноту.",
+  "menu": {
+    "home": "Головна",
+    "societies": "Спільноти",
+    "residences": "Резиденції",
+    "expenses": "Витрати",
+    "adverts": "Оголошення",
+    "about": "Про нас",
+    "styles": "Стилі",
+    "settings": "Налаштування",
+    "auth.login": "Увійти",
+    "auth.logout": "Вийти",
+    "auth.register": "Зареєструватися",
+    "auth.verify-otp": "Підтвердити OTP",
+    "legal": "Юридична інформація",
+    "legal.terms-of-service": "Умови використання",
+    "legal.privacy-policy": "Політика конфіденційності",
+    "legal.data-processing-info": "Інформація про обробку даних",
+    "legal.cookie-policy": "Політика використання файлів cookie",
+    "create.societies": "Створити нову спільноту",
+    "create.residences": "Створити нову резиденцію",
+    "create.ads": "Створити нове оголошення",
+    "create.expenses": "Створити новий витрати",
+    "update.societies": "Оновити спільноту",
+    "update.residences": "Оновити резиденцію",
+    "update.ads": "Оновити оголошення"
+  },
+  "pages": {
+    "auth": {
+      "verify-otp": {
+        "sections": {
+          "did-not-receive": {
+            "text": "Ви не отримали електронного листа з кодом OTP?"
+          },
+          "resend": {
+            "text": "Надіслати електронний лист повторно",
+            "link": {
+              "url": "/auth/login?email={email}",
+              "text": "menu.auth.verify-otp"
+            }
+          }
+        }
+      },
+      "register": {
+        "sections": {
+          "have-account": {
+            "text": "У вас вже є обліковий запис?",
+            "link": {
+              "url": "/auth/login",
+              "text": "menu.auth.login"
+            }
+          }
+        }
+      },
+      "login": {
+        "sections": {
+          "no-account": {
+            "text": "У вас ще немає облікового запису? Це безкоштовно",
+            "link": {
+              "url": "/auth/register",
+              "text": "menu.auth.register"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "sections": {
+        "development": {
+          "title": "Розробка"
+        },
+        "demo": {
+          "title": "Демо",
+          "loginText": "Увійти як демо-користувач",
+          "logoutText": "Вийти з демо-користувача"
+        }
+      }
+    },
+    "home": {
+      "auth": {
+        "greeting": "Привіт, {name} ({email}).",
+        "dashboard": {
+          "title": "Ваша інформаційна панель"
+        },
+        "sections": {
+          "societies": "Спільноти",
+          "residences": "Резиденції"
+        }
+      },
+      "marketing": {
+        "user_types": {
+          "society_admin": {
+            "title": "Адміністратори спільноти",
+            "features": [
+              "Створіть одну або кілька спільнот",
+              "Запросити користувачів",
+              "Додати необхідні витрати",
+              "Схвалити записи про оплату",
+              "Створити власні коригування",
+              "Публікувати сповіщення для мешканців"
+            ]
+          },
+          "society_member": {
+            "title": "Учасники спільноти",
+            "features": [
+              "Перегляньте всі свої резиденції в різних спільнотах і містах",
+              "Перегляньте свої щомісячні внески з належним розбиттям витрат і доступних коштів",
+              "Надсилайте повідомлення адміністраторам про проблеми, з якими стикаєтесь, або отримуйте від них сповіщення."
+            ]
+          },
+          "rent_seeker": {
+            "title": "Шукаєте оренду чи хочете купити?",
+            "features": [
+              "Перегляньте оголошення, опубліковані автентифікованими дійсними орендодавцями або спільнотами щодо наявності, відповідно до вашого бюджету та бажаного місця розташування"
+            ]
+          }
+        },
+        "call_to_action": "Приєднуйтесь до {title} і відкрийте для себе всі функції."
+      }
+    },
+    "about": {
+      "title": "Про нас",
+      "sections": {
+        "problem": {
+          "text": "Різні країни з тією ж проблемою: приховане управління витратами без чіткої видимості витрат і коштів.",
+          "icon": "hidden-expenses"
+        },
+        "goal": {
+          "text": "Наша мета - надати детальний розбір динамічно розрахованих щомісячних цін для вашого відома.",
+          "icon": "pricing-breakdown"
+        },
+        "philosophy": {
+          "text": "Ми твердо переконані, що зменшення або збільшення витрат має змінювати внески, а не фіксувати їх. Крім того, різні витрати потребують різного способу розподілу між резиденціями.",
+          "icon": "variable-contributions"
+        },
+        "peer_services": {
+          "text": "У процесі роботи наша система дозволяє вам створювати або знаходити географічні оголошення від дійсних користувачів, минаючи посередників. Наступного разу зверніться до однолітків для будь-яких послуг у вашій зоні інтересів, не переплачуючи!",
+          "icon": "peer-to-peer"
+        }
+      }
+    },
+    "error": {
+      "not_found": "Запитана сторінка не існує на цьому веб-сайті."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "Мої борги за витрати",
+        "noExpenseDues": "Не знайдено боргів за витратами.",
+        "table": {
+          "month": "Місяць",
+          "expense": "Витрати",
+          "amount": "Сума"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Розрахунки витрат",
+        "noExpensesConfigured": "Не налаштовано витрати.",
+        "table": {
+          "month": "Місяць",
+          "residence": "Місце проживання",
+          "amount": "Сума"
+        }
+      }
+    },
+    "delete": {
+      "confirm": "Ви впевнені, що хочете видалити"
+    },
+    "expenses": {
+      "form": {
+        "name": "Ім'я",
+        "name_placeholder": "Введіть назву витрати",
+        "amount": "Сума на місяць",
+        "amount_placeholder": "Введіть суму на місяць",
+        "society": "Суспільство",
+        "society_placeholder": "Виберіть суспільство",
+        "active": "Активний"
+      }
+    }
+  },
+  "components": {
+    "settings": {
+      "api": {
+        "legend": "API URL",
+        "label": "Де розташований API на серверах бекенду."
+      }
+    },
+    "locales": {
+      "language": "Мова"
+    },
+    "auth": {
+      "login": {
+        "email": {
+          "legend": "Електронна пошта",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Увійти",
+        "error": "{error}"
+      },
+      "register": {
+        "name": {
+          "legend": "Ім'я",
+          "placeholder": "Azur"
+        },
+        "email": {
+          "legend": "Електронна пошта",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Зареєструватися",
+        "error": "{error}"
+      },
+      "verify_otp": {
+        "email": {
+          "legend": "Електронна пошта",
+          "placeholder": "user@example.com"
+        },
+        "otp": {
+          "legend": "OTP (одноразовий пароль)"
+        },
+        "submit": "Підтвердити"
+      }
+    },
+    "users": {
+      "card": {
+        "user_id": "ID користувача",
+        "user_name": "Ім'я",
+        "user_role": "Роль",
+        "member_since": "Учасник з",
+        "no_members": "Не знайдено учасників"
+      },
+      "list": {
+        "no_user": "Наразі немає користувачів."
+      }
+    },
+    "societies": {
+      "form": {
+        "name": "Назва товариства",
+        "name_placeholder": "Введіть назву товариства",
+        "postcode": "Поштовий індекс",
+        "postcode_placeholder": "Введіть поштовий індекс",
+        "city": "Місто",
+        "city_placeholder": "Введіть місто",
+        "state": "Область",
+        "state_placeholder": "Введіть область",
+        "country": "Країна",
+        "country_placeholder": "Введіть країну",
+        "timezone": "Часовий пояс",
+        "timezone_placeholder": "Введіть часовий пояс (наприклад, Europe/Berlin)",
+        "currency": "Валюта",
+        "area_unit": "Одиниця площі"
+      },
+      "details": {
+        "role": "Роль",
+        "no_membership": "Ви не є учасником",
+        "id": "ID товариства",
+        "location": "Місцезнаходження",
+        "postcode": "Поштовий індекс",
+        "currency": "Валюта",
+        "timezone": "Часовий пояс",
+        "area_unit": "Одиниця площі",
+        "fine_rate": "Розмір штрафу",
+        "coordinates": "Координати",
+        "created": "Створено",
+        "updated": "Останнє оновлення"
+      }
+    },
+    "residences": {
+      "form": {
+        "societyId": "ID товариства",
+        "societyId_placeholder": "Введіть ID товариства",
+        "residenceName": "Назва резиденції",
+        "residenceName_placeholder": "Введіть назву резиденції",
+        "floorCount": "Кількість поверхів",
+        "floorCount_placeholder": "Введіть кількість поверхів",
+        "areaValue": "Площа (кв. фути)",
+        "areaValue_placeholder": "Введіть площу в кв. футах",
+        "residentsCount": "Кількість мешканців",
+        "residentsCount_placeholder": "Введіть кількість мешканців",
+        "description": "Опис",
+        "description_placeholder": "Додайте опис (необов'язково)"
+      },
+      "details": {
+        "societyId": "ID товариства",
+        "residentsCount": "Мешканці",
+        "floorCount": "Поверхи",
+        "area": "Площа",
+        "active": "Активний",
+        "yes": "Так",
+        "no": "Ні",
+        "description": "Опис",
+        "createdAt": "Створено",
+        "updatedAt": "Оновлено",
+        "notAvailable": "Недоступно"
+      },
+      "invite_user": {
+        "title": "Запросити нового користувача до цієї резиденції",
+        "name": {
+          "legend": "Ім'я",
+          "placeholder": "Аліса"
+        },
+        "email": {
+          "legend": "Електронна пошта",
+          "placeholder": "user@example.com"
+        }
+      }
+    },
+    "ads": {
+      "form": {
+        "adTitle": "Назва оголошення",
+        "adTitle_placeholder": "Введіть назву оголошення",
+        "adDescription": "Опис оголошення",
+        "adDescription_placeholder": "Введіть опис оголошення",
+        "anonymousUserName": "Анонімне ім'я користувача",
+        "anonymousUserName_placeholder": "Введіть свій псевдонім або анонімне ім'я",
+        "type": "Тип оголошення",
+        "type_placeholder": "Виберіть тип оголошення",
+        "map": "Виберіть місцезнаходження на карті",
+        "coordinates": "Координати (Широта, Довгота)",
+        "create": "Створити оголошення",
+        "created_successfully": "Оголошення успішно створено."
+      }
+    },
+    "expenses": {
+      "form": {
+        "name": "Ім'я",
+        "name_placeholder": "Ізмір",
+        "amount": "Сума на місяць",
+        "society": "Суспільство",
+        "society_placeholder": "Виберіть суспільство",
+        "active": "Активний"
+      }
+    },
+    "legal": {
+      "dpi": {
+        "controller.heading": "Контролер даних",
+        "controller.name_label": "Ім'я:",
+        "controller.address_label": "Адреса:",
+        "controller.email_label": "Електронна пошта:",
+        "controller.phone_label": "Телефон:",
+        "protection_officer.heading": "Відповідальний за захист даних",
+        "protection_officer.email_label": "Електронна пошта:",
+        "purposes.heading": "Цілі обробки",
+        "legal_bases.heading": "Юридичні підстави",
+        "recipients.heading": "Одержувачі даних",
+        "retention.heading": "Зберігання даних",
+        "rights.heading": "Ваші права",
+        "supervisory_authority.heading": "Наглядовий орган"
+      }
+    }
+  },
+  "common": {
+    "creating": "Створення...",
+    "submit": "Надіслати",
+    "join": "Приєднатися",
+    "delete": "Видалити",
+    "deleting": "Видалення...",
+    "cancel": "Скасувати"
+  }
+}

@@ -34,7 +34,7 @@
 <Page title={$_('menu.expenses')}>
    {#snippet header()}
        <h1>{$_('menu.expenses')}</h1>
-       <Anchor href="/create/expenses" isButton>Create Expense</Anchor>
+       <Anchor href="/create/expenses" isButton>{$_('menu.create.expenses')}</Anchor>
    {/snippet}
    {#each societies as society}
        <section>

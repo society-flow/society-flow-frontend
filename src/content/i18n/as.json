@@ -22,6 +22,7 @@
     "create.societies": "Create new Society",
     "create.residences": "Create new Residence",
     "create.ads": "Create new Ad",
+    "create.expenses": "Create new Expense",
     "update.societies": "Update Society",
     "update.residences": "Update Residence",
     "update.ads": "Update Ad"
@@ -142,6 +143,42 @@
     },
     "error": {
       "not_found": "The requested page does not exist on this website."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "My Expense Dues",
+        "noExpenseDues": "No expense dues found.",
+        "table": {
+          "month": "Month",
+          "expense": "Expense",
+          "amount": "Amount"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Expense Calculations",
+        "noExpensesConfigured": "No expenses configured.",
+        "table": {
+          "month": "Month",
+          "residence": "Residence",
+          "amount": "Amount"
+        }
+      }
+    },
+    "delete": {
+      "confirm": "Are you sure you want to delete"
+    },
+    "expenses": {
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Enter expense name",
+        "amount": "Amount per Month",
+        "amount_placeholder": "Enter amount per month",
+        "society": "Society",
+        "society_placeholder": "Select a society",
+        "active": "Active"
+      }
     }
   },
   "components": {
@@ -286,6 +323,16 @@
         "created_successfully": "Advertisement created successfully."
       }
     },
+    "expenses": {
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Izmir",
+        "amount": "Amount per Month",
+        "society": "Society",
+        "society_placeholder": "Select a society",
+        "active": "Active"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Data Controller",
@@ -307,6 +354,9 @@
   "common": {
     "creating": "Creating...",
     "submit": "Submit",
-    "join": "Join"
+    "join": "Join",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "cancel": "Cancel"
   }
 }

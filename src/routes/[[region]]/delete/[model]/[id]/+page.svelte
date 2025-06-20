@@ -61,9 +61,9 @@
    {:else if !item.id}
        <progress></progress>
    {:else}
-       <p>Are you sure you want to delete "{item.name || item.title || item.residenceName}"?</p>
+       <p>{$_('components.delete.confirm')} "{item.name || item.title || item.residenceName}"?</p>
        <fieldset>
-           <button on:click={handleDelete} disabled={isDeleting}>
+           <button onclick={handleDelete} disabled={isDeleting}>
                {isDeleting ? $_('common.deleting') : $_('common.delete')}
            </button>
            <Anchor href={`${base}/${$locale}/${model}`}>{$_('common.cancel') || 'Cancel'}</Anchor>

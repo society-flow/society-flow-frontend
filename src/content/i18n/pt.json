@@ -22,6 +22,7 @@
     "create.societies": "Criar nova Sociedade",
     "create.residences": "Criar nova Residência",
     "create.ads": "Criar novo Anúncio",
+    "create.expenses": "Criar nova despesa",
     "update.societies": "Atualizar Sociedade",
     "update.residences": "Atualizar Residência",
     "update.ads": "Atualizar Anúncio"
@@ -142,6 +143,42 @@
     },
     "error": {
       "not_found": "A página solicitada não existe neste site."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "Minhas Dívidas de Despesas",
+        "noExpenseDues": "Nenhuma dívida de despesa encontrada.",
+        "table": {
+          "month": "Mês",
+          "expense": "Despesa",
+          "amount": "Valor"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Cálculos de Despesas",
+        "noExpensesConfigured": "Nenhuma despesa configurada.",
+        "table": {
+          "month": "Mês",
+          "residence": "Residência",
+          "amount": "Valor"
+        }
+      }
+    },
+    "delete": {
+      "confirm": "Tem certeza de que deseja excluir"
+    },
+    "expenses": {
+      "form": {
+        "name": "Nome",
+        "name_placeholder": "Insira o nome da despesa",
+        "amount": "Valor por mês",
+        "amount_placeholder": "Insira o valor por mês",
+        "society": "Sociedade",
+        "society_placeholder": "Selecione uma sociedade",
+        "active": "Ativo"
+      }
     }
   },
   "components": {
@@ -284,6 +321,16 @@
         "coordinates": "Coordenadas (Latitude, Longitude)",
         "create": "Criar anúncio",
         "created_successfully": "Anúncio criado com sucesso."
+      }
+    },
+    "expenses": {
+      "form": {
+        "name": "Nome",
+        "name_placeholder": "Izmir",
+        "amount": "Valor por mês",
+        "society": "Sociedade",
+        "society_placeholder": "Selecione uma sociedade",
+        "active": "Ativo"
       }
     },
     "legal": {

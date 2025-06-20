@@ -14,6 +14,6 @@
    }
 </script>
 
-<Page title="Create Expense">
+<Page title={$_('menu.create.expenses')}>
    <Form onsuccess={onsuccess} />
 </Page>

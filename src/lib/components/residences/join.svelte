@@ -31,7 +31,7 @@
 </script>
 
 {#if !isMember}
-	<button on:click={joinResidence} disabled={joining}>
+  <button onclick={joinResidence} disabled={joining}>
 		{$_('common.join')}
 		{#if joinError}
 			<span>{joinError}</span>

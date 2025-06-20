@@ -173,17 +173,23 @@
 				{/if}
 			</aside>
 
-			<!-- Expense calculations MVP -->
-			<section>
-				<h2>Expense Calculations</h2>
-				{#if expenses.length}
+        <!-- Expense calculations MVP -->
+        <section>
+            <h2>{$_('pages.societies.detail.expenseCalculations')}</h2>
+            {#if expenses.length}
 					<ul class="List">
 					{#each expenses as exp}
 						<li class="List-item">
 							<details>
 								<summary>{exp.name} — {exp.amountPerMonth}</summary>
 								<table>
-									<thead><tr><th>Month</th><th>Residence</th><th>Amount</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>{$_('pages.societies.detail.table.month')}</th>
+                            <th>{$_('pages.societies.detail.table.residence')}</th>
+                            <th>{$_('pages.societies.detail.table.amount')}</th>
+                        </tr>
+                    </thead>
 									<tbody>
 										{#await api.getAllCalculationsByExpense(exp.id) then calcs}
 											{#each calcs as calc}
@@ -198,8 +204,8 @@
 						</li>
 					{/each}
 					</ul>
-				{:else}
-					<p>No expenses configured.</p>
+                {:else}
+                    <p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
 				{/if}
 			</section>
 

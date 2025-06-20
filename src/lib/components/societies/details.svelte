@@ -34,7 +34,7 @@
 				title={$_('components.societies.details.id')}
 				value={society.id}
 				readonly
-				on:click={(e) => e.target.select()}
+				onclick={(e) => e.target.select()}
 			/>
 		</fieldset>
 	</form>

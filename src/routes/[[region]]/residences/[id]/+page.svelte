@@ -19,6 +19,8 @@
 	let residence = $state({});
 	let users = $state([]);
 	let isMember = $state(false);
+	// My expense calculations for this residence
+	let myCalculations = $state([]);
 	let error = $state(null);
 	let loading = $state(false);
 
@@ -26,6 +28,23 @@
 		if (id && userState?.user?.id) {
 			await loadResidenceData();
 			await loadResidenceUsersData();
+			// load expense calculations for this residence
+			if (residence.societyId) {
+				try {
+					const exps = await api.getAllExpensesBySociety(residence.societyId);
+					const nested = await Promise.all(
+						exps.map(exp => api.getAllCalculationsByExpense(exp.id)
+							.then(calcs => calcs
+								.filter(c => c.residenceId === residence.id)
+								.map(c => ({ ...c, expenseName: exp.name }))
+							)
+						)
+					);
+					myCalculations = nested.flat();
+				} catch (e) {
+					console.error('Error loading calculations:', e);
+				}
+			}
 		}
 	});
 
@@ -102,13 +121,40 @@
 				</aside>
 			{/if}
 		{/if}
-	</article>
+    </article>
 
-	{#snippet footer()}
-		<nav>
-			<li>
-				<Anchor href={'/residences'}>← {$_('menu.residences')}</Anchor>
-			</li>
-		</nav>
-	{/snippet}
+  <!-- Expense calculations section -->
+  {#if isMember}
+    <section>
+      <h2>{$_('pages.residences.detail.myExpenseDues')}</h2>
+      {#if myCalculations.length}
+        <table>
+          <thead>
+            <tr>
+              <th>{$_('pages.residences.detail.table.month')}</th>
+              <th>{$_('pages.residences.detail.table.expense')}</th>
+              <th>{$_('pages.residences.detail.table.amount')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {#each myCalculations as calc}
+              <tr>
+                <td>{calc.yearMonth}</td>
+                <td>{calc.expenseName}</td>
+                <td>{calc.amount}</td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      {:else}
+        <p>{$_('pages.residences.detail.noExpenseDues')}</p>
+      {/if}
+    </section>
+  {/if}
+
+  {#snippet footer()}
+    <nav>
+      <Anchor href="/residences">← {$_('menu.residences')}</Anchor>
+    </nav>
+  {/snippet}
 </Page>
