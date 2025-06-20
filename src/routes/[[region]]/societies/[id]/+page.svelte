@@ -24,6 +24,8 @@
 	let userResidences = $state([]);
 	let userRole = $state(null);
 	let residenceCount = $state(0);
+	// expense list for calculation breakdown
+	let expenses = $state([]);
 	let loading = $state(true);
 	let error = $state(null);
 	let markers = $derived(
@@ -84,6 +86,12 @@
 		} finally {
 			loading = false;
 		}
+       // load expenses for calculations
+       try {
+           expenses = await api.getAllExpensesBySociety(id);
+       } catch (e) {
+           console.error('Error loading expenses:', e);
+       }
 	}
 
 	function handleRoleUpdate(newRole) {
@@ -164,6 +172,37 @@
 					<ResidencesList {residences} {residenceCount} {society} />
 				{/if}
 			</aside>
+
+			<!-- Expense calculations MVP -->
+			<section>
+				<h2>Expense Calculations</h2>
+				{#if expenses.length}
+					<ul class="List">
+					{#each expenses as exp}
+						<li class="List-item">
+							<details>
+								<summary>{exp.name} — {exp.amountPerMonth}</summary>
+								<table>
+									<thead><tr><th>Month</th><th>Residence</th><th>Amount</th></tr></thead>
+									<tbody>
+										{#await api.getAllCalculationsByExpense(exp.id) then calcs}
+											{#each calcs as calc}
+												<tr><td>{calc.yearMonth}</td><td>{calc.residenceName}</td><td>{calc.amount}</td></tr>
+											{/each}
+										{:catch err}
+											<tr><td colspan="3">Error: {err.message}</td></tr>
+										{/await}
+									</tbody>
+								</table>
+							</details>
+						</li>
+					{/each}
+					</ul>
+				{:else}
+					<p>No expenses configured.</p>
+				{/if}
+			</section>
+
 		{:else}
 			<p>ø</p>
 		{/if}
