@@ -2,7 +2,9 @@
 import fs from 'fs';
 import path from 'path';
 
-const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr'];
+// import { SUPPORTED_LOCALES } from '../src/lib/i18n.js';
+
+const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr', 'pl', 'tr', 'pt', 'uk'];
 
 /**
  * Configuration for dynamic route parameters
