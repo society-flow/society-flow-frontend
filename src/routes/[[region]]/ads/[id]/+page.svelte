@@ -6,8 +6,8 @@
 	import { userState } from '$lib/states/user.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
-   import Anchor from '$lib/components/anchor.svelte';
-   import AdDetails from '$lib/components/ads/details.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
+	import AdDetails from '$lib/components/ads/details.svelte';
 
 	const id = $derived($page.params.id);
 	let advert = $state({});
@@ -31,7 +31,7 @@
 	});
 </script>
 
-<Page title={`${advert?.adTitle || advert?.id} — ${$_('menu.ads')}`} showHeader={false}>
+<Page title={`${advert?.title || advert?.id} — ${$_('menu.ads')}`} showHeader={false}>
 	<article class="Detail">
 		{#if isOwner}
 			<aside>
@@ -53,14 +53,14 @@
 					</li>
 				</nav>
 			</aside>
-        {/if}
-        <AdDetails {advert} />
+		{/if}
+		<AdDetails {advert} />
 
-        {#if markers.length}
-            <aside>
-                <Map {markers} />
-            </aside>
-        {/if}
+		{#if markers.length}
+			<aside>
+				<Map {markers} />
+			</aside>
+		{/if}
 	</article>
 
 	{#snippet footer()}
