@@ -91,7 +91,7 @@
 			{/if}
 		</section>
 		<section>
-			<h2>{$_('menu.adverts')}</h2>
+			<h2>{$_('menu.ads')}</h2>
 			{#if ads?.length}
 				<ListAds {ads} />
 			{:else}

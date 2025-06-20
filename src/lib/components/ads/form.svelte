@@ -11,7 +11,7 @@
 
 	let form = $state({
 		...{
-			adTitle: '',
+			title: '',
 			adDescription: '',
 			anonymousUserName: '',
 			type: '',
@@ -76,10 +76,10 @@
 
 <form on:submit|preventDefault={handleSubmit}>
 	<fieldset>
-		<legend>{$_('components.ads.form.adTitle')}</legend>
+		<legend>{$_('components.ads.form.title')}</legend>
 		<input
-			bind:value={form.adTitle}
-			placeholder={$_('components.ads.form.adTitle_placeholder')}
+			bind:value={form.title}
+			placeholder={$_('components.ads.form.title_placeholder')}
 			required
 			on:input={resetMessages}
 		/>

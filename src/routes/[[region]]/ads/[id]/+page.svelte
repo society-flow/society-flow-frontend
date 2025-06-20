@@ -30,7 +30,7 @@
 	});
 </script>
 
-<Page title={`${advert?.adTitle || advert?.id} — ${$_('menu.adverts')}`} showHeader={false}>
+<Page title={`${advert?.adTitle || advert?.id} — ${$_('menu.ads')}`} showHeader={false}>
 	<article class="Detail">
 		{#if isOwner}
 			<aside>
@@ -41,7 +41,12 @@
 						</Anchor>
 					</li>
 					<li>
-						<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton data-type="error">
+						<Anchor
+							href={`/delete/ads/${id}`}
+							title={$_('common.delete')}
+							isButton
+							data-type="error"
+						>
 							{$_('common.delete')}
 						</Anchor>
 					</li>
@@ -70,7 +75,7 @@
 	{#snippet footer()}
 		<nav>
 			<li>
-				<Anchor href={`/ads`}>← {$_('menu.adverts')}</Anchor>
+				<Anchor href={`/ads`}>← {$_('menu.ads')}</Anchor>
 			</li>
 		</nav>
 	{/snippet}

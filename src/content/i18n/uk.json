@@ -6,7 +6,7 @@
     "societies": "Спільноти",
     "residences": "Резиденції",
     "expenses": "Витрати",
-    "adverts": "Оголошення",
+    "ads": "Оголошення",
     "about": "Про нас",
     "styles": "Стилі",
     "settings": "Налаштування",
@@ -309,8 +309,8 @@
     },
     "ads": {
       "form": {
-        "adTitle": "Назва оголошення",
-        "adTitle_placeholder": "Введіть назву оголошення",
+        "title": "Назва оголошення",
+        "title_placeholder": "Введіть назву оголошення",
         "adDescription": "Опис оголошення",
         "adDescription_placeholder": "Введіть опис оголошення",
         "anonymousUserName": "Анонімне ім'я користувача",

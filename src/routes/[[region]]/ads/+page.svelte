@@ -12,9 +12,9 @@
 	});
 </script>
 
-<Page title={$_('menu.adverts')}>
+<Page title={$_('menu.ads')}>
 	{#snippet header()}
-		<h1>{$_('menu.adverts')}</h1>
+		<h1>{$_('menu.ads')}</h1>
 		<Anchor href="/create/ads" isButton>
 			{$_('menu.create.ads')}
 		</Anchor>

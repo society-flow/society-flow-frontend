@@ -6,7 +6,7 @@
     "societies": "Społeczności",
     "residences": "Mieszkania",
     "expenses": "Wydatki",
-    "adverts": "Ogłoszenia",
+    "ads": "Ogłoszenia",
     "about": "O nas",
     "styles": "Style",
     "settings": "Ustawienia",
@@ -309,8 +309,8 @@
     },
     "ads": {
       "form": {
-        "adTitle": "Tytuł ogłoszenia",
-        "adTitle_placeholder": "Wprowadź tytuł ogłoszenia",
+        "title": "Tytuł ogłoszenia",
+        "title_placeholder": "Wprowadź tytuł ogłoszenia",
         "adDescription": "Opis ogłoszenia",
         "adDescription_placeholder": "Wprowadź opis ogłoszenia",
         "anonymousUserName": "Anonimowa nazwa użytkownika",

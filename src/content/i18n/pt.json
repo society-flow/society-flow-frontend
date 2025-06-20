@@ -6,7 +6,7 @@
     "societies": "Sociedades",
     "residences": "Residências",
     "expenses": "Despesas",
-    "adverts": "Anúncios",
+    "ads": "Anúncios",
     "about": "Sobre",
     "styles": "Estilos",
     "settings": "Configurações",
@@ -309,8 +309,8 @@
     },
     "ads": {
       "form": {
-        "adTitle": "Título do anúncio",
-        "adTitle_placeholder": "Insira o título do anúncio",
+        "title": "Título do anúncio",
+        "title_placeholder": "Insira o título do anúncio",
         "adDescription": "Descrição do anúncio",
         "adDescription_placeholder": "Insira a descrição do anúncio",
         "anonymousUserName": "Nome de usuário anônimo",

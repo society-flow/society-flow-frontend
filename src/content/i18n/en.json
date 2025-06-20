@@ -6,7 +6,7 @@
 		"societies": "Societies",
 		"residences": "Residences",
 		"expenses": "Expenses",
-		"adverts": "Adverts",
+		"ads": "Adverts",
 		"about": "About",
 		"styles": "Styles",
 		"settings": "Settings",
@@ -310,8 +310,8 @@
 		},
 		"ads": {
 			"form": {
-				"adTitle": "Advertisement title",
-				"adTitle_placeholder": "Enter the advertisement title",
+				"title": "Advertisement title",
+				"title_placeholder": "Enter the advertisement title",
 				"adDescription": "Advertisement Description",
 				"adDescription_placeholder": "Enter the advertisement description",
 				"anonymousUserName": "Anonymous User Name",

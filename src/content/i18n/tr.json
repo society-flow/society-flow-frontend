@@ -6,7 +6,7 @@
     "societies": "Topluluklar",
     "residences": "Konutlar",
     "expenses": "Giderler",
-    "adverts": "Reklamlar",
+    "ads": "Reklamlar",
     "about": "Hakkında",
     "styles": "Stiller",
     "settings": "Ayarlar",
@@ -309,8 +309,8 @@
     },
     "ads": {
       "form": {
-        "adTitle": "Reklam başlığı",
-        "adTitle_placeholder": "Reklam başlığını girin",
+        "title": "Reklam başlığı",
+        "title_placeholder": "Reklam başlığını girin",
         "adDescription": "Reklam Açıklaması",
         "adDescription_placeholder": "Reklam açıklamasını girin",
         "anonymousUserName": "Anonim Kullanıcı Adı",

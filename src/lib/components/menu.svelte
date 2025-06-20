@@ -5,7 +5,7 @@
 
 	const menuItemsAuth = [
 		{ path: '/', label: 'menu.home' },
-		{ path: '/ads', label: 'menu.adverts' },
+		{ path: '/ads', label: 'menu.ads' },
 		{ path: '/societies', label: 'menu.societies' },
 		{ path: '/residences', label: 'menu.residences' },
 		{ path: '/expenses', label: 'menu.expenses' },
@@ -14,7 +14,7 @@
 
 	const menuItemsNoAuth = [
 		{ path: '/', label: 'menu.home' },
-		{ path: '/ads', label: 'menu.adverts' },
+		{ path: '/ads', label: 'menu.ads' },
 		{ path: '/about', label: 'menu.about' },
 		{ path: '/auth/login', label: 'menu.auth.login' }
 	];
