@@ -1,6 +1,6 @@
 {
   "title": "Society Flow",
-  "catch_line": "Dienste teilen. Kosten aufteilen. Stärken Sie Ihre Gemeinschaft.",
+  "catch_line": "Dienstleistungen teilen. Kosten aufteilen. Stärken Sie Ihre Gemeinschaft.",
   "menu": {
     "home": "Startseite",
     "societies": "Gesellschaften",
@@ -22,7 +22,7 @@
     "create.societies": "Neue Gesellschaft erstellen",
     "create.residences": "Neue Residenz erstellen",
     "create.ads": "Neue Anzeige erstellen",
-    "create.expenses": "Neuen Aufwand erstellen",
+    "create.expenses": "Neue Ausgabe erstellen",
     "update.societies": "Gesellschaft aktualisieren",
     "update.residences": "Residenz aktualisieren",
     "update.ads": "Anzeige aktualisieren"
@@ -57,7 +57,7 @@
       "login": {
         "sections": {
           "no-account": {
-            "text": "Sie haben noch kein Konto? Es ist kostenlos,",
+            "text": "Sie haben noch kein Konto? Es ist kostenlos zu",
             "link": {
               "url": "/auth/register",
               "text": "menu.auth.register"
@@ -106,14 +106,14 @@
             "title": "Gesellschaftsmitglieder",
             "features": [
               "Zeigen Sie alle Ihre Residenzen in verschiedenen Gesellschaften und Städten an",
-              "Zeigen Sie Ihre monatlichen Beiträge mit einer ordnungsgemäßen Aufschlüsselung der Kosten und verfügbaren Mittel an",
+              "Zeigen Sie Ihre monatlichen Gebühren mit einer ordnungsgemäßen Aufschlüsselung der Kosten und verfügbaren Mittel an",
               "Nachrichten an Administratoren über aufgetretene Probleme senden oder Benachrichtigungen von ihnen erhalten."
             ]
           },
           "rent_seeker": {
-            "title": "Auf der Suche nach Mieten oder dem Kauf?",
+            "title": "Auf der Suche nach Mieten oder dem Kauf einer Immobilie?",
             "features": [
-              "Sehen Sie sich die von authentifizierten, gültigen Vermietern oder Gesellschaften veröffentlichten Anzeigen zur Verfügbarkeit an, die Ihrem Budget und Ihrem Traumstandort entsprechen"
+              "Sehen Sie sich die Anzeigen an, die von authentifizierten, gültigen Vermietern oder Gesellschaften über die Verfügbarkeit veröffentlicht wurden, die Ihrem Budget und Ihrem Traumstandort entsprechen"
             ]
           }
         },
@@ -128,11 +128,11 @@
           "icon": "hidden-expenses"
         },
         "goal": {
-          "text": "Unser Ziel ist es, eine detaillierte Aufschlüsselung der dynamisch berechneten monatlichen Preise zu Ihrem Wissen bereitzustellen.",
+          "text": "Unser Ziel ist es, Ihnen eine detaillierte Aufschlüsselung der dynamisch berechneten monatlichen Preise zur Kenntnis zu bringen.",
           "icon": "pricing-breakdown"
         },
         "philosophy": {
-          "text": "Wir sind der festen Überzeugung, dass reduzierte oder erhöhte Ausgaben die Beiträge variieren lassen sollten, nicht fest. Außerdem benötigen verschiedene Ausgaben unterschiedliche Verteilungsarten über die Residenzen.",
+          "text": "Wir sind der festen Überzeugung, dass reduzierte oder erhöhte Ausgaben die Beiträge variieren lassen sollten, nicht fest. Außerdem benötigen verschiedene Ausgaben unterschiedliche Verteilungsarten für die Residenzen.",
           "icon": "variable-contributions"
         },
         "peer_services": {
@@ -167,17 +167,45 @@
       }
     },
     "delete": {
-      "confirm": "Sind Sie sicher, dass Sie löschen möchten"
+      "confirm": "Sind Sie sicher, dass Sie löschen möchten?"
     },
     "expenses": {
       "form": {
         "name": "Name",
-        "name_placeholder": "Geben Sie den Ausgabenamen ein",
+        "name_placeholder": "Geben Sie den Ausgabennamen ein",
         "amount": "Betrag pro Monat",
         "amount_placeholder": "Geben Sie den Betrag pro Monat ein",
         "society": "Gesellschaft",
         "society_placeholder": "Wählen Sie eine Gesellschaft aus",
         "active": "Aktiv"
+      },
+      "detail": {
+        "distributions": "Verteilungen",
+        "editDistributions": "Verteilungen bearbeiten",
+        "selectType": "Typ auswählen",
+        "percentageCoverage": "Prozentuale Abdeckung",
+        "typeOptions": {
+          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Pro Eigentumsanteil",
+          "AMOUNT_PER_RESIDENCE": "Pro Residenz",
+          "AMOUNT_PER_SQUARE_AREA": "Pro Quadratmeter",
+          "AMOUNT_PER_RESIDENT": "Pro Einwohner",
+          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Pro Einwohner pro Stockwerk"
+        },
+        "addDistribution": "Verteilung hinzufügen",
+        "saveDistributions": "Speichern",
+        "remove": "Entfernen",
+        "noDistributions": "Keine Verteilungen verfügbar.",
+        "calculations": "Berechnungen",
+        "noCalculations": "Keine Berechnungen verfügbar.",
+        "table": {
+          "month": "Monat",
+          "residence": "Residenz",
+          "amount": "Betrag"
+        },
+        "error": {
+          "totalCoverage": "Die Gesamtprozentdeckung muss 100 betragen"
+        },
+        "backToAllExpenses": "← Zurück zu allen Ausgaben"
       }
     }
   },
@@ -218,7 +246,8 @@
           "placeholder": "user@example.com"
         },
         "otp": {
-          "legend": "OTP (Einmalpasswort)"
+          "legend": "OTP (One Time Password)",
+          "placeholder": "12345"
         },
         "submit": "Bestätigen"
       }
@@ -248,7 +277,7 @@
         "country": "Land",
         "country_placeholder": "Land eingeben",
         "timezone": "Zeitzone",
-        "timezone_placeholder": "Zeitzone eingeben (z.B. Europe/Berlin)",
+        "timezone_placeholder": "Zeitzone eingeben (z. B. Europe/Berlin)",
         "currency": "Währung",
         "area_unit": "Flächeneinheit"
       },
@@ -270,13 +299,13 @@
     "residences": {
       "form": {
         "societyId": "Gesellschafts-ID",
-        "societyId_placeholder": "Geben Sie die Gesellschafts-ID ein",
+        "societyId_placeholder": "Gesellschafts-ID eingeben",
         "residenceName": "Name der Residenz",
-        "residenceName_placeholder": "Geben Sie den Namen der Residenz ein",
+        "residenceName_placeholder": "Residenznamen eingeben",
         "floorCount": "Anzahl der Stockwerke",
         "floorCount_placeholder": "Anzahl der Stockwerke eingeben",
-        "areaValue": "Fläche (qm)",
-        "areaValue_placeholder": "Fläche in qm eingeben",
+        "areaValue": "Fläche (sq ft)",
+        "areaValue_placeholder": "Fläche in sq ft eingeben",
         "residentsCount": "Anzahl der Bewohner",
         "residentsCount_placeholder": "Anzahl der Bewohner eingeben",
         "description": "Beschreibung",
@@ -314,13 +343,16 @@
         "adDescription": "Anzeigenbeschreibung",
         "adDescription_placeholder": "Geben Sie die Anzeigenbeschreibung ein",
         "anonymousUserName": "Anonymer Benutzername",
-        "anonymousUserName_placeholder": "Geben Sie Ihren Alias- oder anonymen Namen ein",
-        "type": "Anzeigentyp",
-        "type_placeholder": "Wählen Sie einen Anzeigentyp aus",
+        "anonymousUserName_placeholder": "Geben Sie Ihren Alias oder anonymen Namen ein",
+        "type": "Anzeigenart",
+        "type_placeholder": "Wählen Sie eine Anzeigenart aus",
         "map": "Wählen Sie den Standort auf der Karte aus",
         "coordinates": "Koordinaten (Breitengrad, Längengrad)",
         "create": "Anzeige erstellen",
         "created_successfully": "Anzeige erfolgreich erstellt."
+      },
+      "details": {
+        "description": "Beschreibung"
       }
     },
     "expenses": {
@@ -328,9 +360,21 @@
         "name": "Name",
         "name_placeholder": "Izmir",
         "amount": "Betrag pro Monat",
+        "amount_placeholder": "",
         "society": "Gesellschaft",
         "society_placeholder": "Wählen Sie eine Gesellschaft aus",
         "active": "Aktiv"
+      },
+      "details": {
+        "society": "Gesellschaft",
+        "amountPerMonth": "Betrag pro Monat",
+        "active": "Aktiv",
+        "createdAt": "Erstellt am",
+        "updatedAt": "Aktualisiert am"
+      },
+      "distributionCard": {
+        "type": "Typ",
+        "coverage": "Abdeckung"
       }
     },
     "legal": {
@@ -345,7 +389,7 @@
         "purposes.heading": "Zwecke der Verarbeitung",
         "legal_bases.heading": "Rechtsgrundlagen",
         "recipients.heading": "Datenempfänger",
-        "retention.heading": "Datenspeicherung",
+        "retention.heading": "Datenaufbewahrung",
         "rights.heading": "Ihre Rechte",
         "supervisory_authority.heading": "Aufsichtsbehörde"
       }
@@ -357,6 +401,7 @@
     "join": "Beitreten",
     "delete": "Löschen",
     "deleting": "Wird gelöscht...",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "update": "Aktualisieren"
   }
 }

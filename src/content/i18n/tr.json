@@ -6,7 +6,7 @@
     "societies": "Topluluklar",
     "residences": "Konutlar",
     "expenses": "Giderler",
-    "ads": "Reklamlar",
+    "ads": "İlanlar",
     "about": "Hakkında",
     "styles": "Stiller",
     "settings": "Ayarlar",
@@ -21,11 +21,11 @@
     "legal.cookie-policy": "Çerez Politikası",
     "create.societies": "Yeni Topluluk Oluştur",
     "create.residences": "Yeni Konut Oluştur",
-    "create.ads": "Yeni Reklam Oluştur",
+    "create.ads": "Yeni İlan Oluştur",
     "create.expenses": "Yeni Gider Oluştur",
     "update.societies": "Topluluğu Güncelle",
     "update.residences": "Konutu Güncelle",
-    "update.ads": "Reklamı Güncelle"
+    "update.ads": "İlanı Güncelle"
   },
   "pages": {
     "auth": {
@@ -35,7 +35,7 @@
             "text": "OTP kodu içeren bir e-posta almadınız mı?"
           },
           "resend": {
-            "text": "E-postayı Yeniden Gönder",
+            "text": "E-postayı tekrar gönder",
             "link": {
               "url": "/auth/login?email={email}",
               "text": "menu.auth.verify-otp"
@@ -106,18 +106,18 @@
             "title": "Topluluk Üyeleri",
             "features": [
               "Çeşitli topluluklar ve şehirlerdeki tüm konutlarınızı görüntüleyin",
-              "Maliyetlerin ve mevcut fonların uygun dökümü ile aylık aidatlarınızı görüntüleyin",
-              "Karşılaşılan sorunlar hakkında yöneticilere mesaj gönderin veya onlardan bildirim alın."
+              "Aylık aidatlarınızı, maliyetlerin ve mevcut fonların uygun dökümü ile görüntüleyin",
+              "Karşılaşılan sorunlarla ilgili yöneticilere mesaj gönderin veya onlardan bildirim alın."
             ]
           },
           "rent_seeker": {
             "title": "Kiralık veya satın alınacak yer mi arıyorsunuz?",
             "features": [
-              "Bütçenize ve hayalinizdeki konuma uygun olarak, doğrulanmış geçerli ev sahipleri veya topluluklar tarafından yayınlanan reklamları kontrol edin"
+              "Bütçenize ve hayalinizdeki konuma uygun olarak, doğrulanmış, geçerli ev sahipleri veya topluluklar tarafından yayınlanan ilanları kontrol edin"
             ]
           }
         },
-        "call_to_action": "{title}'ya katılın ve tüm özellikleri keşfedin."
+        "call_to_action": "{title}'a katılın ve tüm özellikleri keşfedin."
       }
     },
     "about": {
@@ -125,19 +125,19 @@
       "sections": {
         "problem": {
           "text": "Aynı soruna sahip farklı ülkeler: Maliyetlerin ve fonların net görünürlüğü olmadan gizli gider yönetimi.",
-          "icon": "hidden-expenses"
+          "icon": "gizli-giderler"
         },
         "goal": {
           "text": "Amacımız, bilginiz için dinamik olarak hesaplanan aylık fiyatlandırmanın ayrıntılı bir dökümünü sağlamaktır.",
-          "icon": "pricing-breakdown"
+          "icon": "fiyatlandırma-dökümü"
         },
         "philosophy": {
-          "text": "Giderlerin azaltılması veya artırılmasının, sabit değil, katkıları değiştirmesi gerektiğine kesinlikle inanıyoruz. Ayrıca, farklı giderlerin konutlar arasında farklı dağıtım yöntemlerine ihtiyacı vardır.",
-          "icon": "variable-contributions"
+          "text": "Giderlerin azaltılması veya artırılması gerektiğinin, sabit değil, katkıları değiştirmesi gerektiğine kesinlikle inanıyoruz. Ayrıca, farklı giderlerin konutlar arasında farklı dağıtım yöntemlerine ihtiyacı vardır.",
+          "icon": "değişken-katkılar"
         },
         "peer_services": {
-          "text": "Bu arada, sistemimiz, orta adamları atlayarak, geçerli kullanıcı üyelerinden coğrafi olarak konumlandırılmış reklamlar oluşturmanıza veya bulmanıza olanak tanır. Bir dahaki sefere, aşırı ödeme yapmadan ilgi alanınızdaki herhangi bir hizmet için eşler arası iletişime geçin!",
-          "icon": "peer-to-peer"
+          "text": "Bu arada, sistemimiz, orta adamları atlayarak, geçerli kullanıcı üyelerinden coğrafi olarak konumlandırılmış reklamlar oluşturmanıza veya bulmanıza olanak tanır. Bir dahaki sefere, aşırı ödeme yapmadan, ilgi alanınızdaki herhangi bir hizmet için akranlarınızla iletişime geçin!",
+          "icon": "akran-akrana"
         }
       }
     },
@@ -146,8 +146,8 @@
     },
     "residences": {
       "detail": {
-        "myExpenseDues": "Gider Borçlarım",
-        "noExpenseDues": "Gider borcu bulunamadı.",
+        "myExpenseDues": "Gider Aidatlarım",
+        "noExpenseDues": "Gider aidatı bulunamadı.",
         "table": {
           "month": "Ay",
           "expense": "Gider",
@@ -158,16 +158,16 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Gider Hesaplamaları",
-        "noExpensesConfigured": "Hiçbir gider yapılandırılmamış.",
+        "noExpensesConfigured": "Yapılandırılmış gider yok.",
         "table": {
           "month": "Ay",
-          "residence": "İkametgah",
+          "residence": "Konut",
           "amount": "Tutar"
         }
       }
     },
     "delete": {
-      "confirm": "Silmek istediğinizden emin misiniz"
+      "confirm": "Silmek istediğinizden emin misiniz?"
     },
     "expenses": {
       "form": {
@@ -175,9 +175,37 @@
         "name_placeholder": "Gider adını girin",
         "amount": "Aylık Tutar",
         "amount_placeholder": "Aylık tutarı girin",
-        "society": "Site",
-        "society_placeholder": "Site seçin",
-        "active": "Aktif"
+        "society": "Topluluk",
+        "society_placeholder": "Bir topluluk seçin",
+        "active": "Etkin"
+      },
+      "detail": {
+        "distributions": "Dağılımlar",
+        "editDistributions": "Dağılımları Düzenle",
+        "selectType": "Tür seçin",
+        "percentageCoverage": "Yüzde Kapsamı",
+        "typeOptions": {
+          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Sahiplik Yüzdesi Başına",
+          "AMOUNT_PER_RESIDENCE": "Konut Başına",
+          "AMOUNT_PER_SQUARE_AREA": "Metrekare Başına",
+          "AMOUNT_PER_RESIDENT": "Sakin Başına",
+          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Kat Sayısı Başına Sakin Başına"
+        },
+        "addDistribution": "Dağıtım Ekle",
+        "saveDistributions": "Kaydet",
+        "remove": "Kaldır",
+        "noDistributions": "Kullanılabilir dağıtım yok.",
+        "calculations": "Hesaplamalar",
+        "noCalculations": "Hesaplama mevcut değil.",
+        "table": {
+          "month": "Ay",
+          "residence": "Konut",
+          "amount": "Tutar"
+        },
+        "error": {
+          "totalCoverage": "Toplam yüzde kapsamı 100'e eşit olmalıdır"
+        },
+        "backToAllExpenses": "← Tüm giderlere geri dön"
       }
     }
   },
@@ -195,7 +223,7 @@
       "login": {
         "email": {
           "legend": "E-posta",
-          "placeholder": "user@example.com"
+          "placeholder": "kullanici@ornek.com"
         },
         "submit": "Giriş",
         "error": "{error}"
@@ -207,7 +235,7 @@
         },
         "email": {
           "legend": "E-posta",
-          "placeholder": "user@example.com"
+          "placeholder": "kullanici@ornek.com"
         },
         "submit": "Kaydol",
         "error": "{error}"
@@ -215,10 +243,11 @@
       "verify_otp": {
         "email": {
           "legend": "E-posta",
-          "placeholder": "user@example.com"
+          "placeholder": "kullanici@ornek.com"
         },
         "otp": {
-          "legend": "OTP (Tek Seferlik Şifre)"
+          "legend": "OTP (Tek Kullanımlık Şifre)",
+          "placeholder": "12345"
         },
         "submit": "Doğrula"
       }
@@ -228,7 +257,7 @@
         "user_id": "Kullanıcı Kimliği",
         "user_name": "Ad",
         "user_role": "Rol",
-        "member_since": "Üye Olma Tarihi",
+        "member_since": "Üyelik Tarihi",
         "no_members": "Üye bulunamadı"
       },
       "list": {
@@ -242,13 +271,13 @@
         "postcode": "Posta Kodu",
         "postcode_placeholder": "Posta kodunu girin",
         "city": "Şehir",
-        "city_placeholder": "Şehir girin",
+        "city_placeholder": "Şehri girin",
         "state": "Eyalet",
-        "state_placeholder": "Eyalet girin",
+        "state_placeholder": "Eyaleti girin",
         "country": "Ülke",
-        "country_placeholder": "Ülke girin",
-        "timezone": "Saat Dilimi",
-        "timezone_placeholder": "Saat dilimini girin (örneğin, Europe/Berlin)",
+        "country_placeholder": "Ülkeyi girin",
+        "timezone": "Saat dilimi",
+        "timezone_placeholder": "Saat dilimini girin (örneğin, Avrupa/Berlin)",
         "currency": "Para Birimi",
         "area_unit": "Alan Birimi"
       },
@@ -259,7 +288,7 @@
         "location": "Konum",
         "postcode": "Posta Kodu",
         "currency": "Para Birimi",
-        "timezone": "Saat Dilimi",
+        "timezone": "Saat dilimi",
         "area_unit": "Alan Birimi",
         "fine_rate": "Ceza Oranı",
         "coordinates": "Koordinatlar",
@@ -287,7 +316,7 @@
         "residentsCount": "Sakinler",
         "floorCount": "Katlar",
         "area": "Alan",
-        "active": "Aktif",
+        "active": "Etkin",
         "yes": "Evet",
         "no": "Hayır",
         "description": "Açıklama",
@@ -303,7 +332,7 @@
         },
         "email": {
           "legend": "E-posta",
-          "placeholder": "user@example.com"
+          "placeholder": "kullanici@ornek.com"
         }
       }
     },
@@ -317,10 +346,13 @@
         "anonymousUserName_placeholder": "Takma adınızı veya anonim adınızı girin",
         "type": "Reklam Türü",
         "type_placeholder": "Bir reklam türü seçin",
-        "map": "Haritada Konum Seç",
+        "map": "Harita Üzerinde Konum Seç",
         "coordinates": "Koordinatlar (Enlem, Boylam)",
         "create": "Reklam Oluştur",
         "created_successfully": "Reklam başarıyla oluşturuldu."
+      },
+      "details": {
+        "description": "Açıklama"
       }
     },
     "expenses": {
@@ -328,15 +360,27 @@
         "name": "Ad",
         "name_placeholder": "İzmir",
         "amount": "Aylık Tutar",
-        "society": "Site",
-        "society_placeholder": "Site seçin",
-        "active": "Aktif"
+        "amount_placeholder": "",
+        "society": "Topluluk",
+        "society_placeholder": "Bir topluluk seçin",
+        "active": "Etkin"
+      },
+      "details": {
+        "society": "Topluluk",
+        "amountPerMonth": "Aylık Tutar",
+        "active": "Etkin",
+        "createdAt": "Oluşturulma Tarihi",
+        "updatedAt": "Güncelleme Tarihi"
+      },
+      "distributionCard": {
+        "type": "Tür",
+        "coverage": "Kapsam"
       }
     },
     "legal": {
       "dpi": {
         "controller.heading": "Veri Denetleyicisi",
-        "controller.name_label": "Ad:",
+        "controller.name_label": "Adı:",
         "controller.address_label": "Adres:",
         "controller.email_label": "E-posta:",
         "controller.phone_label": "Telefon:",
@@ -357,6 +401,7 @@
     "join": "Katıl",
     "delete": "Sil",
     "deleting": "Siliniyor...",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "update": "Güncelle"
   }
 }

@@ -6,7 +6,8 @@
 	import { userState } from '$lib/states/user.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
-	import Anchor from '$lib/components/anchor.svelte';
+   import Anchor from '$lib/components/anchor.svelte';
+   import AdDetails from '$lib/components/ads/details.svelte';
 
 	const id = $derived($page.params.id);
 	let advert = $state({});
@@ -52,24 +53,14 @@
 					</li>
 				</nav>
 			</aside>
-		{/if}
-		<header>
-			<h1>
-				<Anchor href={`/ads/${id}`}>
-					{advert?.adTitle || id}
-				</Anchor>
-			</h1>
-		</header>
+        {/if}
+        <AdDetails {advert} />
 
-		{#if markers.length}
-			<aside>
-				<Map {markers} />
-			</aside>
-		{/if}
-
-		<main>
-			<p>{advert?.adDescription}</p>
-		</main>
+        {#if markers.length}
+            <aside>
+                <Map {markers} />
+            </aside>
+        {/if}
 	</article>
 
 	{#snippet footer()}

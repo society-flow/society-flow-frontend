@@ -69,7 +69,7 @@
 			type="number"
 			step="any"
 			bind:value={form.amountPerMonth}
-			placeholder={$_('components.expenses.form.amount_placeholder') || ''}
+			placeholder={$_('components.expenses.form.amount') || ''}
 			required
 			on:input={resetMessages}
 		/>

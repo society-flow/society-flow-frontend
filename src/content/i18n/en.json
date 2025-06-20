@@ -178,6 +178,34 @@
 				"society": "Society",
 				"society_placeholder": "Select a society",
 				"active": "Active"
+			},
+			"detail": {
+				"distributions": "Distributions",
+				"editDistributions": "Edit Distributions",
+				"selectType": "Select type",
+				"percentageCoverage": "Percentage Coverage",
+				"typeOptions": {
+					"AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Per Ownership Percentage",
+					"AMOUNT_PER_RESIDENCE": "Per Residence",
+					"AMOUNT_PER_SQUARE_AREA": "Per Square Area",
+					"AMOUNT_PER_RESIDENT": "Per Resident",
+					"AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Per Resident per Floor Count"
+				},
+				"addDistribution": "Add Distribution",
+				"saveDistributions": "Save",
+				"remove": "Remove",
+				"noDistributions": "No distributions available.",
+				"calculations": "Calculations",
+				"noCalculations": "No calculations available.",
+				"table": {
+					"month": "Month",
+					"residence": "Residence",
+					"amount": "Amount"
+				},
+				"error": {
+					"totalCoverage": "Total percentage coverage must equal 100"
+				},
+				"backToAllExpenses": "← Back to all expenses"
 			}
 		}
 	},
@@ -322,6 +350,9 @@
 				"coordinates": "Coordinates (Latitude, Longitude)",
 				"create": "Create Advertisement",
 				"created_successfully": "Advertisement created successfully."
+			},
+			"details": {
+				"description": "Description"
 			}
 		},
 		"expenses": {
@@ -329,10 +360,20 @@
 				"name": "Name",
 				"name_placeholder": "Izmir",
 				"amount": "Amount per Month",
-				"amount_placeholder": "",
 				"society": "Society",
 				"society_placeholder": "Select a society",
 				"active": "Active"
+			},
+			"details": {
+				"society": "Society",
+				"amountPerMonth": "Amount per Month",
+				"active": "Active",
+				"createdAt": "Created At",
+				"updatedAt": "Updated At"
+			},
+			"distributionCard": {
+				"type": "Type",
+				"coverage": "Coverage"
 			}
 		},
 		"legal": {
@@ -359,6 +400,7 @@
 		"join": "Join",
 		"delete": "Delete",
 		"deleting": "Deleting...",
-		"cancel": "Cancel"
+		"cancel": "Cancel",
+		"update": "Update"
 	}
 }

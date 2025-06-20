@@ -14,7 +14,8 @@
 		"lint": "prettier --check .",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
-		"i18n": "npx translator-ai src/content/i18n/en.json -l fr,de,as,pl,pt,tr,uk -o src/content/i18n/{lang}.json"
+		"i18n": "npx translator-ai src/content/i18n/en.json -l fr,de,pl,pt,tr,uk,as -o src/content/i18n/{lang}.json",
+		"i18n:as": "npx translator-ai src/content/i18n/en.json -l asamese -o src/content/i18n/{lang}.json --no-cache"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.0",

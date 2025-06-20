@@ -1,41 +1,41 @@
 {
-  "title": "Society Flow",
-  "catch_line": "Share services. Split costs. Strengthen your community.",
+  "title": "ছ'ছাইটি ফ'ল",
+  "catch_line": "সেৱা ভাগ কৰক। খৰচ ভাগ কৰক। আপোনাৰ সম্প্ৰদায়ক শক্তিশালী কৰক।",
   "menu": {
-    "home": "Home",
-    "societies": "Societies",
-    "residences": "Residences",
-    "expenses": "Expenses",
-    "ads": "Adverts",
-    "about": "About",
-    "styles": "Styles",
-    "settings": "Settings",
-    "auth.login": "Login",
-    "auth.logout": "Logout",
-    "auth.register": "Register",
-    "auth.verify-otp": "Verify OTP",
-    "legal": "Legal",
-    "legal.terms-of-service": "Terms of Service",
-    "legal.privacy-policy": "Privacy Policy",
-    "legal.data-processing-info": "Data Processing Information",
-    "legal.cookie-policy": "Cookie Policy",
-    "create.societies": "Create new Society",
-    "create.residences": "Create new Residence",
-    "create.ads": "Create new Ad",
-    "create.expenses": "Create new Expense",
-    "update.societies": "Update Society",
-    "update.residences": "Update Residence",
-    "update.ads": "Update Ad"
+    "home": "গৃহ",
+    "societies": "ছ'ছাইটিসমূহ",
+    "residences": "আবাসন",
+    "expenses": "খৰচ",
+    "ads": "বিজ্ঞাপন",
+    "about": "সম্পৰ্কে",
+    "styles": "শৈলী",
+    "settings": "ছেটিংছ",
+    "auth.login": "লগইন",
+    "auth.logout": "লগআউট",
+    "auth.register": "পঞ্জীয়ন",
+    "auth.verify-otp": "OTP পৰীক্ষা কৰক",
+    "legal": "আইন",
+    "legal.terms-of-service": "সেৱাৰ চৰ্তসমূহ",
+    "legal.privacy-policy": "গোপনীয়তা নীতি",
+    "legal.data-processing-info": "তথ্য প্ৰক্ৰিয়াকৰণ তথ্য",
+    "legal.cookie-policy": "কুكي নীতি",
+    "create.societies": "নতুন ছ'ছাইটি সৃষ্টি কৰক",
+    "create.residences": "নতুন আৱাস সৃষ্টি কৰক",
+    "create.ads": "নতুন বিজ্ঞাপন সৃষ্টি কৰক",
+    "create.expenses": "নতুন খৰচ সৃষ্টি কৰক",
+    "update.societies": "ছ'ছাইটি আপডেট কৰক",
+    "update.residences": "আবাসন আপডেট কৰক",
+    "update.ads": "বিজ্ঞাপন আপডেট কৰক"
   },
   "pages": {
     "auth": {
       "verify-otp": {
         "sections": {
           "did-not-receive": {
-            "text": "You did not receive an email with the OTP code?"
+            "text": "আপুনি OTP ক'ডৰ সৈতে ইমেইল পোৱা নাই?"
           },
           "resend": {
-            "text": "Resend email",
+            "text": "পুনৰ ইমেইল প্ৰেৰণ কৰক",
             "link": {
               "url": "/auth/login?email={email}",
               "text": "menu.auth.verify-otp"
@@ -46,7 +46,7 @@
       "register": {
         "sections": {
           "have-account": {
-            "text": "You already have an account?",
+            "text": "আপোনাৰ ইতিমধ্যে এটা একাউণ্ট আছে?",
             "link": {
               "url": "/auth/login",
               "text": "menu.auth.login"
@@ -57,7 +57,7 @@
       "login": {
         "sections": {
           "no-account": {
-            "text": "You don't have an account yet? It's free to",
+            "text": "আপোনাৰ এতিয়াও একাউণ্ট নাই নেকি? ই",
             "link": {
               "url": "/auth/register",
               "text": "menu.auth.register"
@@ -69,115 +69,143 @@
     "settings": {
       "sections": {
         "development": {
-          "title": "Development"
+          "title": "উন্নয়ন"
         },
         "demo": {
-          "title": "Demo",
-          "loginText": "Log in demo user",
-          "logoutText": "Log out demo user"
+          "title": "ডেমো",
+          "loginText": "ডেমো ব্যৱহাৰকাৰীক লগ ইন কৰক",
+          "logoutText": "ডেমো ব্যৱহাৰকাৰীক লগ আউট কৰক"
         }
       }
     },
     "home": {
       "auth": {
-        "greeting": "Hello {name} ({email}).",
+        "greeting": "নমস্কাৰ {name} ({email})।",
         "dashboard": {
-          "title": "Your Dashboard"
+          "title": "আপোনাৰ ড্যাশব'ৰ্ড"
         },
         "sections": {
-          "societies": "Societies",
-          "residences": "Residences"
+          "societies": "ছ'ছাইটিসমূহ",
+          "residences": "আবাসন"
         }
       },
       "marketing": {
         "user_types": {
           "society_admin": {
-            "title": "Society Admins",
+            "title": "ছ'ছাইটি প্ৰশাসক",
             "features": [
-              "Create one or more society",
-              "Invite users",
-              "Add expenses needed",
-              "Approve payment records",
-              "Create custom adjustments",
-              "Publish notices to residents"
+              "এটা বা একাধিক ছ'ছাইটি সৃষ্টি কৰক",
+              "ব্যৱহাৰকাৰীসকলক আমন্ত্ৰণ জনান",
+              "প্ৰয়োজনীয় খৰচ যোগ কৰক",
+              "পেমেন্ট ৰেকৰ্ড অনুমোদন কৰক",
+              "নিজৰ পছন্দমতে সালসলনি কৰক",
+              "আবাসিকসকললৈ জাননী প্ৰকাশ কৰক"
             ]
           },
           "society_member": {
-            "title": "Society Members",
+            "title": "ছ'ছাইটি সদস্য",
             "features": [
-              "View all your residences across various societies and cities",
-              "View your monthly dues with proper breakup of costs and available funds",
-              "Message admins of issues being faced or get notifications from them."
+              "বিভিন্ন ছ'ছাইটি আৰু চহৰসমূহত আপোনাৰ আটাইবোৰ আৱাস চাওক",
+              "খৰচ আৰু উপলব্ধ পুঁজিৰ সঠিক বিভাজনৰ সৈতে আপোনাৰ মাহিলী মাচুল চাওক",
+              "সন্মুখীন হোৱা সমস্যাসমূহৰ প্ৰশাসকসকলক বাৰ্তা প্ৰেৰণ কৰক অথবা তেওঁলোকৰ পৰা জাননী লাভ কৰক।"
             ]
           },
           "rent_seeker": {
-            "title": "Looking for Rents or looking to buy one?",
+            "title": "ভাড়া বিচাৰিছে নে কিনিবলৈ বিচাৰিছে?",
             "features": [
-              "Check out the adverts published by authenticated valid landlords or societies about availability, as suitable to your budget and dream location"
+              "আপোনাৰ বাজেট আৰু সপোনৰ স্থানৰ বাবে উপযুক্ততা অনুসৰি বৈধ ভূমি মালিক বা ছ'ছাইটিসমূহে প্ৰকাশ কৰা বিজ্ঞাপনসমূহ চাওক"
             ]
           }
         },
-        "call_to_action": "Join {title} and discover all features."
+        "call_to_action": "{title} ত যোগদান কৰক আৰু সকলো বৈশিষ্ট্য আৱিষ্কাৰ কৰক।"
       }
     },
     "about": {
-      "title": "About",
+      "title": "সম্পৰ্কে",
       "sections": {
         "problem": {
-          "text": "Different countries with same problem: Hidden expense management without clear visibility of costs and funds.",
+          "text": "একে সমস্যা থকা বিভিন্ন দেশ: স্পষ্ট খৰচ আৰু পুঁজিৰ দৃশ্যমানতা অবিহনে গোপন খৰচ ব্যৱস্থাপনা।",
           "icon": "hidden-expenses"
         },
         "goal": {
-          "text": "Our goal is to provide detailed breakup of dynamically calculated monthly pricing to your knowledge.",
+          "text": "আমাৰ লক্ষ্য হৈছে আপোনাৰ জ্ঞানৰ বাবে গতিশীলভাৱে গণনা কৰা মাহিলী মূল্য নিৰ্ধাৰণৰ বিতং বিভাজন প্ৰদান কৰা।",
           "icon": "pricing-breakdown"
         },
         "philosophy": {
-          "text": "We do feel strongly that expense reduced or increased should make the contributions vary, not fixed. Also, different expenses need different way of distribution across residences.",
+          "text": "আমি দৃঢ়ভাৱে অনুভৱ কৰোঁ যে খৰচ হ্ৰাস বা বৃদ্ধি কৰিলে অৱদান ভিন্ন হ'ব লাগে, নিৰ্ধাৰিত নহয়। তদুপৰি, বিভিন্ন খৰচৰ বাবে আৱাসসমূহত বিতৰণৰ বিভিন্ন পদ্ধতিৰ প্ৰয়োজন।",
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "Along the way, our system allows you to create or find geo located ads from valid member of users, bypassing middle men. Next time reach out peer to peer for any services within your area of interest without overpaying!",
+          "text": "এই পথত, আমাৰ ব্যৱস্থাই আপোনাক মধ্যভোগীসকলক বাইপাছ কৰি বৈধ সদস্যসকলৰ পৰা ভৌগোলিকভাৱে অৱস্থিত বিজ্ঞাপন সৃষ্টি বা বিচাৰিবলৈ অনুমতি দিয়ে। পৰৱৰ্তী সময়ত অতিৰিক্ত মূল্য নিদি আপোনাৰ আগ্ৰহৰ ক্ষেত্ৰৰ ভিতৰত যিকোনো সেৱাৰ বাবে সমনীয়াৰ সৈতে যোগাযোগ কৰক!",
           "icon": "peer-to-peer"
         }
       }
     },
     "error": {
-      "not_found": "The requested page does not exist on this website."
+      "not_found": "অনুবুদ্ধ পৃষ্ঠা এই ৱেবছাইটত নাই।"
     },
     "residences": {
       "detail": {
-        "myExpenseDues": "My Expense Dues",
-        "noExpenseDues": "No expense dues found.",
+        "myExpenseDues": "মোৰ খৰচৰ মাচুল",
+        "noExpenseDues": "কোনো খৰচৰ মাচুল পোৱা নগ'ল।",
         "table": {
-          "month": "Month",
-          "expense": "Expense",
-          "amount": "Amount"
+          "month": "মাহ",
+          "expense": "খৰচ",
+          "amount": "পৰিমাণ"
         }
       }
     },
     "societies": {
       "detail": {
-        "expenseCalculations": "Expense Calculations",
-        "noExpensesConfigured": "No expenses configured.",
+        "expenseCalculations": "খৰচৰ হিচাপ",
+        "noExpensesConfigured": "কোনো খৰচ কনফিগাৰ কৰা হোৱা নাই।",
         "table": {
-          "month": "Month",
-          "residence": "Residence",
-          "amount": "Amount"
+          "month": "মাহ",
+          "residence": "আবাসন",
+          "amount": "পৰিমাণ"
         }
       }
     },
     "delete": {
-      "confirm": "Are you sure you want to delete"
+      "confirm": "আপুনি নিশ্চিতভাৱে ইয়াক ডিলিট কৰিব বিচাৰে"
     },
     "expenses": {
       "form": {
-        "name": "Name",
-        "name_placeholder": "Enter expense name",
-        "amount": "Amount per Month",
-        "amount_placeholder": "Enter amount per month",
-        "society": "Society",
-        "society_placeholder": "Select a society",
-        "active": "Active"
+        "name": "নাম",
+        "name_placeholder": "খৰচৰ নাম লিখক",
+        "amount": "প্ৰতি মাহে পৰিমাণ",
+        "amount_placeholder": "প্ৰতি মাহে পৰিমাণ লিখক",
+        "society": "ছ'ছাইটি",
+        "society_placeholder": "এটা ছ'ছাইটি বাছক",
+        "active": "সক্ৰিয়"
+      },
+      "detail": {
+        "distributions": "বিতৰণ",
+        "editDistributions": "বিতৰণ সম্পাদনা কৰক",
+        "selectType": "প্ৰকাৰ বাছক",
+        "percentageCoverage": "শতকৰা হাৰৰ কভাৰেজ",
+        "typeOptions": {
+          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "মালিকীস্বত্বৰ শতকৰা হাৰ অনুসৰি",
+          "AMOUNT_PER_RESIDENCE": "আবাসন অনুসৰি",
+          "AMOUNT_PER_SQUARE_AREA": "বৰ্গক্ষেত্ৰৰ এলেকা অনুসৰি",
+          "AMOUNT_PER_RESIDENT": "প্ৰতি বাসিন্দা",
+          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "প্ৰতি ফ'ৰৰ গণনা অনুসৰি"
+        },
+        "addDistribution": "বিতৰণ যোগ কৰক",
+        "saveDistributions": "সংৰক্ষণ কৰক",
+        "remove": " আঁতৰাওক",
+        "noDistributions": "কোনো বিতৰণ উপলব্ধ নহয়।",
+        "calculations": "গণনা",
+        "noCalculations": "কোনো গণনা উপলব্ধ নহয়।",
+        "table": {
+          "month": "মাহ",
+          "residence": "আবাসন",
+          "amount": "পৰিমাণ"
+        },
+        "error": {
+          "totalCoverage": "মুঠ শতাংশৰ কভাৰেজ ১০০ হ'ব লাগিব"
+        },
+        "backToAllExpenses": "← সকলো খৰচৰ ওভত যাওক"
       }
     }
   },
@@ -185,178 +213,195 @@
     "settings": {
       "api": {
         "legend": "API URL",
-        "label": "Where the API on the backend servers is located."
+        "label": "য'ত বেকএণ্ড চাৰ্ভাৰত API অৱস্থিত।"
       }
     },
     "locales": {
-      "language": "Language"
+      "language": "ভাষা"
     },
     "auth": {
       "login": {
         "email": {
-          "legend": "Email",
+          "legend": "ইমেইল",
           "placeholder": "user@example.com"
         },
-        "submit": "Login",
+        "submit": "লগইন",
         "error": "{error}"
       },
       "register": {
         "name": {
-          "legend": "Name",
-          "placeholder": "Azur"
+          "legend": "নাম",
+          "placeholder": "আজুৰ"
         },
         "email": {
-          "legend": "Email",
+          "legend": "ইমেইল",
           "placeholder": "user@example.com"
         },
-        "submit": "Register",
+        "submit": "পঞ্জীয়ন",
         "error": "{error}"
       },
       "verify_otp": {
         "email": {
-          "legend": "Email",
+          "legend": "ইমেইল",
           "placeholder": "user@example.com"
         },
         "otp": {
-          "legend": "OTP (One Time Password)"
+          "legend": "OTP (এবাৰৰ বাবে ব্যৱহাৰযোগ্য পাছৱৰ্ড)",
+          "placeholder": "12345"
         },
-        "submit": "Verify"
+        "submit": "প্ৰমাণ কৰক"
       }
     },
     "users": {
       "card": {
-        "user_id": "User ID",
-        "user_name": "Name",
-        "user_role": "Role",
-        "member_since": "Member Since",
-        "no_members": "No members found"
+        "user_id": "ব্যৱহাৰকাৰী আইডি",
+        "user_name": "নাম",
+        "user_role": "ভূমিকা",
+        "member_since": "সদস্য হোৱাৰ তাৰিখ",
+        "no_members": "কোনো সদস্য পোৱা নগ'ল"
       },
       "list": {
-        "no_user": "There are currently no users."
+        "no_user": "বৰ্তমান কোনো ব্যৱহাৰকাৰী নাই।"
       }
     },
     "societies": {
       "form": {
-        "name": "Society Name",
-        "name_placeholder": "Enter society name",
-        "postcode": "Postcode",
-        "postcode_placeholder": "Enter postcode",
-        "city": "City",
-        "city_placeholder": "Enter city",
-        "state": "State",
-        "state_placeholder": "Enter state",
-        "country": "Country",
-        "country_placeholder": "Enter country",
-        "timezone": "Timezone",
-        "timezone_placeholder": "Enter timezone (e.g., Europe/Berlin)",
-        "currency": "Currency",
-        "area_unit": "Area Unit"
+        "name": "সমাজৰ নাম",
+        "name_placeholder": "সমাজৰ নাম লিখক",
+        "postcode": "পোষ্টকোড",
+        "postcode_placeholder": "পোষ্টকোড লিখক",
+        "city": "চহৰ",
+        "city_placeholder": "চহৰ লিখক",
+        "state": "ৰাজ্য",
+        "state_placeholder": "ৰাজ্য লিখক",
+        "country": "দেশ",
+        "country_placeholder": "দেশ লিখক",
+        "timezone": "টাইমজ'ন",
+        "timezone_placeholder": "টাইমজ'ন লিখক (উদাহৰণস্বৰূপ, Europe/Berlin)",
+        "currency": "মুদ্ৰা",
+        "area_unit": "একাংশ"
       },
       "details": {
-        "role": "Role",
-        "no_membership": "You are not a member",
-        "id": "Society ID",
-        "location": "Location",
-        "postcode": "Postcode",
-        "currency": "Currency",
-        "timezone": "Timezone",
-        "area_unit": "Area Unit",
-        "fine_rate": "Fine Rate",
-        "coordinates": "Coordinates",
-        "created": "Created At",
-        "updated": "Last Updated"
+        "role": "ভূমিকা",
+        "no_membership": "আপুনি সদস্য নহয়",
+        "id": "সমাজ আইডি",
+        "location": "অৱস্থান",
+        "postcode": "পোষ্টকোড",
+        "currency": "মুদ্ৰা",
+        "timezone": "টাইমজ'ন",
+        "area_unit": "একাংশ",
+        "fine_rate": "জৰিমনাৰ হাৰ",
+        "coordinates": "কোঅর্ডিনেট",
+        "created": "তৈয়াৰ কৰা হৈছে",
+        "updated": "শেষবাৰ আপডেট কৰা হৈছে"
       }
     },
     "residences": {
       "form": {
-        "societyId": "Society ID",
-        "societyId_placeholder": "Enter society ID",
-        "residenceName": "Residence Name",
-        "residenceName_placeholder": "Enter residence name",
-        "floorCount": "Number of Floors",
-        "floorCount_placeholder": "Enter floor count",
-        "areaValue": "Area (sq ft)",
-        "areaValue_placeholder": "Enter area in sq ft",
-        "residentsCount": "Number of Residents",
-        "residentsCount_placeholder": "Enter number of residents",
-        "description": "Description",
-        "description_placeholder": "Add a description (optional)"
+        "societyId": "সমাজ আইডি",
+        "societyId_placeholder": "সমাজ আইডি লিখক",
+        "residenceName": "আবাসৰ নাম",
+        "residenceName_placeholder": "আবাসৰ নাম লিখক",
+        "floorCount": "মহলাৰ সংখ্যা",
+        "floorCount_placeholder": "মহলাৰ সংখ্যা লিখক",
+        "areaValue": "একাংশ (বৰ্গফুট)",
+        "areaValue_placeholder": "বৰ্গফুটত এলেকা লিখক",
+        "residentsCount": "আবাসিকৰ সংখ্যা",
+        "residentsCount_placeholder": "আবাসিকৰ সংখ্যা লিখক",
+        "description": "বিৱৰণ",
+        "description_placeholder": "বিৱৰণ যোগ কৰক (ঐচ্ছিক)"
       },
       "details": {
-        "societyId": "Society ID",
-        "residentsCount": "Residents",
-        "floorCount": "Floors",
-        "area": "Area",
-        "active": "Active",
-        "yes": "Yes",
-        "no": "No",
-        "description": "Description",
-        "createdAt": "Created At",
-        "updatedAt": "Updated At",
-        "notAvailable": "Not available"
+        "societyId": "সমাজ আইডি",
+        "residentsCount": "আবাসিক",
+        "floorCount": "মহলা",
+        "area": "একাংশ",
+        "active": "সক্ৰিয়",
+        "yes": "হয়",
+        "no": "নহয়",
+        "description": "বিৱৰণ",
+        "createdAt": "তৈয়াৰ কৰা হৈছে",
+        "updatedAt": "আপডেট কৰা হৈছে",
+        "notAvailable": "উপলব্ধ নহয়"
       },
       "invite_user": {
-        "title": "Invite a new user to this residency",
+        "title": "এই আবাসলৈ নতুন ব্যৱহাৰকাৰীক আমন্ত্ৰণ জনান",
         "name": {
-          "legend": "Name",
-          "placeholder": "Alice"
+          "legend": "নাম",
+          "placeholder": "এলিছ"
         },
         "email": {
-          "legend": "Email",
+          "legend": "ইমেইল",
           "placeholder": "user@example.com"
         }
       }
     },
     "ads": {
       "form": {
-        "title": "Advertisement title",
-        "title_placeholder": "Enter the advertisement title",
-        "adDescription": "Advertisement Description",
-        "adDescription_placeholder": "Enter the advertisement description",
-        "anonymousUserName": "Anonymous User Name",
-        "anonymousUserName_placeholder": "Enter your alias or anonymous name",
-        "type": "Advertisement Type",
-        "type_placeholder": "Select an advertisement type",
-        "map": "Select Location on Map",
-        "coordinates": "Coordinates (Latitude, Longitude)",
-        "create": "Create Advertisement",
-        "created_successfully": "Advertisement created successfully."
+        "title": "বিজ্ঞাপনৰ শিৰোনাম",
+        "title_placeholder": "বিজ্ঞাপনৰ শিৰোনাম লিখক",
+        "adDescription": "বিজ্ঞাপনৰ বিৱৰণ",
+        "adDescription_placeholder": "বিজ্ঞাপনৰ বিৱৰণ লিখক",
+        "anonymousUserName": "বেনামী ব্যৱহাৰকাৰীৰ নাম",
+        "anonymousUserName_placeholder": "আপোনাৰ ছদ্মনাম বা বেনামী নাম লিখক",
+        "type": "বিজ্ঞাপনৰ প্ৰকাৰ",
+        "type_placeholder": "এটা বিজ্ঞাপনৰ প্ৰকাৰ বাছক",
+        "map": "মেপৰ ওপৰত স্থান বাছক",
+        "coordinates": "কোঅর্ডিনেট (অক্ষাংশ, দ্ৰাঘিমাংশ)",
+        "create": "বিজ্ঞাপন সৃষ্টি কৰক",
+        "created_successfully": "বিজ্ঞাপন সফলভাৱে সৃষ্টি কৰা হ'ল।"
+      },
+      "details": {
+        "description": "বিৱৰণ"
       }
     },
     "expenses": {
       "form": {
-        "name": "Name",
-        "name_placeholder": "Izmir",
-        "amount": "Amount per Month",
-        "society": "Society",
-        "society_placeholder": "Select a society",
-        "active": "Active"
+        "name": "নাম",
+        "name_placeholder": "ইজমীৰ",
+        "amount": "প্ৰতি মাহে পৰিমাণ",
+        "amount_placeholder": "",
+        "society": "ছ'ছাইটি",
+        "society_placeholder": "এটা ছ'ছাইটি বাছক",
+        "active": "সক্ৰিয়"
+      },
+      "details": {
+        "society": "ছ'ছাইটি",
+        "amountPerMonth": "প্ৰতি মাহে পৰিমাণ",
+        "active": "সক্ৰিয়",
+        "createdAt": "তৈয়াৰ কৰা হৈছে",
+        "updatedAt": "আপডেট কৰা হৈছে"
+      },
+      "distributionCard": {
+        "type": "প্ৰকাৰ",
+        "coverage": "কভাৰেজ"
       }
     },
     "legal": {
       "dpi": {
-        "controller.heading": "Data Controller",
-        "controller.name_label": "Name:",
-        "controller.address_label": "Address:",
-        "controller.email_label": "Email:",
-        "controller.phone_label": "Phone:",
-        "protection_officer.heading": "Data Protection Officer",
-        "protection_officer.email_label": "Email:",
-        "purposes.heading": "Purposes of Processing",
-        "legal_bases.heading": "Legal Bases",
-        "recipients.heading": "Data Recipients",
-        "retention.heading": "Data Retention",
-        "rights.heading": "Your Rights",
-        "supervisory_authority.heading": "Supervisory Authority"
+        "controller.heading": "ডাটা নিয়ন্ত্ৰক",
+        "controller.name_label": "নাম:",
+        "controller.address_label": "ঠিকনা:",
+        "controller.email_label": "ইমেইল:",
+        "controller.phone_label": "ফোন:",
+        "protection_officer.heading": "ডাটা সুৰক্ষা বিষয়া",
+        "protection_officer.email_label": "ইমেইল:",
+        "purposes.heading": "প্ৰক্ৰিয়াকৰণৰ উদ্দেশ্য",
+        "legal_bases.heading": "আইনগত ভিত্তি",
+        "recipients.heading": "ডাটা গ্ৰাহক",
+        "retention.heading": "ডাটা ধাৰণ",
+        "rights.heading": "আপোনাৰ অধিকাৰ",
+        "supervisory_authority.heading": "তত্ত্বাৱধায়ক কৰ্তৃপক্ষ"
       }
     }
   },
   "common": {
-    "creating": "Creating...",
-    "submit": "Submit",
-    "join": "Join",
-    "delete": "Delete",
-    "deleting": "Deleting...",
-    "cancel": "Cancel"
+    "creating": "তৈয়াৰ কৰি থকা হৈছে...",
+    "submit": "দাখিল কৰক",
+    "join": "সংযুক্ত হ'ওক",
+    "delete": "বিলোপ কৰক",
+    "deleting": "বিলোপ কৰি থকা হৈছে...",
+    "cancel": "বাতিল কৰক",
+    "update": "আপডেট কৰক"
   }
 }
