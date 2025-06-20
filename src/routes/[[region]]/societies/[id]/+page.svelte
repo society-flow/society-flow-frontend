@@ -86,12 +86,12 @@
 		} finally {
 			loading = false;
 		}
-       // load expenses for calculations
-       try {
-           expenses = await api.getAllExpensesBySociety(id);
-       } catch (e) {
-           console.error('Error loading expenses:', e);
-       }
+		// load expenses for calculations
+		try {
+			expenses = await api.getAllExpensesBySociety(id);
+		} catch (e) {
+			console.error('Error loading expenses:', e);
+		}
 	}
 
 	function handleRoleUpdate(newRole) {
@@ -99,14 +99,37 @@
 		// Refresh society users list
 		loadSocietyData();
 	}
+	// Trigger calculations for all expenses
+	let triggering = $state(false);
+	let triggerError = $state(null);
+
+	async function triggerAllCalculations() {
+		triggering = true;
+		triggerError = null;
+		try {
+			// Format yearMonth as YYYYMM (e.g. 202306)
+			const now = new Date();
+			const year = now.getFullYear();
+			const month = String(now.getMonth() + 1).padStart(2, '0');
+			const yearMonth = `${year}${month}`;
+			for (const exp of expenses) {
+				await api.triggerCalculation(exp.id, yearMonth);
+			}
+		} catch (e) {
+			console.error('Error triggering calculations:', e);
+			triggerError = e;
+		} finally {
+			triggering = false;
+		}
+	}
 </script>
 
 <Page title={$_('menu.societies')} showHeader={false}>
 	<article class="Detail">
-       {#if loading}
-           <aside>
-               <center>
-                   <progress></progress>
+		{#if loading}
+			<aside>
+				<center>
+					<progress></progress>
 				</center>
 			</aside>
 		{:else if error}
@@ -126,7 +149,12 @@
 							</Anchor>
 						</li>
 						<li>
-							<Anchor href={`/delete/societies/${id}`} title={$_('common.delete')} isButton data-type="error">
+							<Anchor
+								href={`/delete/societies/${id}`}
+								title={$_('common.delete')}
+								isButton
+								data-type="error"
+							>
 								{$_('common.delete')}
 							</Anchor>
 						</li>
@@ -173,42 +201,54 @@
 				{/if}
 			</aside>
 
-        <!-- Expense calculations MVP -->
-        <section>
-            <h2>{$_('pages.societies.detail.expenseCalculations')}</h2>
-            {#if expenses.length}
+			<!-- Expense calculations MVP -->
+			<section>
+				<h2>{$_('pages.societies.detail.expenseCalculations')}</h2>
+				<button on:click={triggerAllCalculations} disabled={triggering}>
+					{$_('pages.societies.detail.triggerCalculations')}
+				</button>
+				{#if triggering}
+					<progress></progress>
+				{/if}
+				{#if triggerError}
+					<Error error={triggerError} />
+				{/if}
+				{#if expenses.length}
 					<ul class="List">
-					{#each expenses as exp}
-						<li class="List-item">
-							<details>
-								<summary>{exp.name} — {exp.amountPerMonth}</summary>
-								<table>
-                    <thead>
-                        <tr>
-                            <th>{$_('pages.societies.detail.table.month')}</th>
-                            <th>{$_('pages.societies.detail.table.residence')}</th>
-                            <th>{$_('pages.societies.detail.table.amount')}</th>
-                        </tr>
-                    </thead>
-									<tbody>
-										{#await api.getAllCalculationsByExpense(exp.id) then calcs}
-											{#each calcs as calc}
-												<tr><td>{calc.yearMonth}</td><td>{calc.residenceName}</td><td>{calc.amount}</td></tr>
-											{/each}
-										{:catch err}
-											<tr><td colspan="3">Error: {err.message}</td></tr>
-										{/await}
-									</tbody>
-								</table>
-							</details>
-						</li>
-					{/each}
+						{#each expenses as exp}
+							<li class="List-item">
+								<details>
+									<summary>{exp.name} — {exp.amountPerMonth}</summary>
+									<table>
+										<thead>
+											<tr>
+												<th>{$_('pages.societies.detail.table.month')}</th>
+												<th>{$_('pages.societies.detail.table.residence')}</th>
+												<th>{$_('pages.societies.detail.table.amount')}</th>
+											</tr>
+										</thead>
+										<tbody>
+											{#await api.getAllCalculationsByExpense(exp.id) then calcs}
+												{#each calcs as calc}
+													<tr
+														><td>{calc.yearMonth}</td><td>{calc.residenceName}</td><td
+															>{calc.amount}</td
+														></tr
+													>
+												{/each}
+											{:catch err}
+												<tr><td colspan="3">Error: {err.message}</td></tr>
+											{/await}
+										</tbody>
+									</table>
+								</details>
+							</li>
+						{/each}
 					</ul>
-                {:else}
-                    <p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
+				{:else}
+					<p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
 				{/if}
 			</section>
-
 		{:else}
 			<p>ø</p>
 		{/if}
