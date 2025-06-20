@@ -158,7 +158,8 @@
 		},
 		"societies": {
 			"detail": {
-				"expenseCalculations": "Expense Calculations",
+            "expenseCalculations": "Expense Calculations",
+            "triggerCalculations": "Trigger Calculations",
 				"noExpensesConfigured": "No expenses configured.",
 				"table": {
 					"month": "Month",
