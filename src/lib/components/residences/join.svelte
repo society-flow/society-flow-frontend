@@ -14,7 +14,6 @@
 			joinError = null;
 
 			const residenceUser = await api.assignUserToResidence({
-				id: societyId,
 				residenceId,
 				userId: userState.user.id
 			});
