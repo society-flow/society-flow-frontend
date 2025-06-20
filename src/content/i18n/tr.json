@@ -1,0 +1,315 @@
+{
+  "title": "Society Flow",
+  "catch_line": "Hizmetleri paylaşın. Maliyetleri bölün. Topluluğunuzu güçlendirin.",
+  "menu": {
+    "home": "Ana Sayfa",
+    "societies": "Topluluklar",
+    "residences": "Konutlar",
+    "expenses": "Giderler",
+    "adverts": "Reklamlar",
+    "about": "Hakkında",
+    "styles": "Stiller",
+    "settings": "Ayarlar",
+    "auth.login": "Giriş",
+    "auth.logout": "Çıkış",
+    "auth.register": "Kaydol",
+    "auth.verify-otp": "OTP'yi Doğrula",
+    "legal": "Yasal",
+    "legal.terms-of-service": "Hizmet Şartları",
+    "legal.privacy-policy": "Gizlilik Politikası",
+    "legal.data-processing-info": "Veri İşleme Bilgileri",
+    "legal.cookie-policy": "Çerez Politikası",
+    "create.societies": "Yeni Topluluk Oluştur",
+    "create.residences": "Yeni Konut Oluştur",
+    "create.ads": "Yeni Reklam Oluştur",
+    "update.societies": "Topluluğu Güncelle",
+    "update.residences": "Konutu Güncelle",
+    "update.ads": "Reklamı Güncelle"
+  },
+  "pages": {
+    "auth": {
+      "verify-otp": {
+        "sections": {
+          "did-not-receive": {
+            "text": "OTP kodu içeren bir e-posta almadınız mı?"
+          },
+          "resend": {
+            "text": "E-postayı Yeniden Gönder",
+            "link": {
+              "url": "/auth/login?email={email}",
+              "text": "menu.auth.verify-otp"
+            }
+          }
+        }
+      },
+      "register": {
+        "sections": {
+          "have-account": {
+            "text": "Zaten bir hesabınız var mı?",
+            "link": {
+              "url": "/auth/login",
+              "text": "menu.auth.login"
+            }
+          }
+        }
+      },
+      "login": {
+        "sections": {
+          "no-account": {
+            "text": "Henüz hesabınız yok mu? Ücretsiz",
+            "link": {
+              "url": "/auth/register",
+              "text": "menu.auth.register"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "sections": {
+        "development": {
+          "title": "Geliştirme"
+        },
+        "demo": {
+          "title": "Demo",
+          "loginText": "Demo kullanıcısı olarak oturum aç",
+          "logoutText": "Demo kullanıcısı olarak oturumu kapat"
+        }
+      }
+    },
+    "home": {
+      "auth": {
+        "greeting": "Merhaba {name} ({email}).",
+        "dashboard": {
+          "title": "Kontrol Panelin"
+        },
+        "sections": {
+          "societies": "Topluluklar",
+          "residences": "Konutlar"
+        }
+      },
+      "marketing": {
+        "user_types": {
+          "society_admin": {
+            "title": "Topluluk Yöneticileri",
+            "features": [
+              "Bir veya daha fazla topluluk oluşturun",
+              "Kullanıcıları davet et",
+              "Gerekli giderleri ekleyin",
+              "Ödeme kayıtlarını onaylayın",
+              "Özel ayarlamalar oluşturun",
+              "Sakinlere bildirimler yayınlayın"
+            ]
+          },
+          "society_member": {
+            "title": "Topluluk Üyeleri",
+            "features": [
+              "Çeşitli topluluklar ve şehirlerdeki tüm konutlarınızı görüntüleyin",
+              "Maliyetlerin ve mevcut fonların uygun dökümü ile aylık aidatlarınızı görüntüleyin",
+              "Karşılaşılan sorunlar hakkında yöneticilere mesaj gönderin veya onlardan bildirim alın."
+            ]
+          },
+          "rent_seeker": {
+            "title": "Kiralık veya satın alınacak yer mi arıyorsunuz?",
+            "features": [
+              "Bütçenize ve hayalinizdeki konuma uygun olarak, doğrulanmış geçerli ev sahipleri veya topluluklar tarafından yayınlanan reklamları kontrol edin"
+            ]
+          }
+        },
+        "call_to_action": "{title}'ya katılın ve tüm özellikleri keşfedin."
+      }
+    },
+    "about": {
+      "title": "Hakkında",
+      "sections": {
+        "problem": {
+          "text": "Aynı soruna sahip farklı ülkeler: Maliyetlerin ve fonların net görünürlüğü olmadan gizli gider yönetimi.",
+          "icon": "hidden-expenses"
+        },
+        "goal": {
+          "text": "Amacımız, bilginiz için dinamik olarak hesaplanan aylık fiyatlandırmanın ayrıntılı bir dökümünü sağlamaktır.",
+          "icon": "pricing-breakdown"
+        },
+        "philosophy": {
+          "text": "Giderlerin azaltılması veya artırılmasının, sabit değil, katkıları değiştirmesi gerektiğine kesinlikle inanıyoruz. Ayrıca, farklı giderlerin konutlar arasında farklı dağıtım yöntemlerine ihtiyacı vardır.",
+          "icon": "variable-contributions"
+        },
+        "peer_services": {
+          "text": "Bu arada, sistemimiz, orta adamları atlayarak, geçerli kullanıcı üyelerinden coğrafi olarak konumlandırılmış reklamlar oluşturmanıza veya bulmanıza olanak tanır. Bir dahaki sefere, aşırı ödeme yapmadan ilgi alanınızdaki herhangi bir hizmet için eşler arası iletişime geçin!",
+          "icon": "peer-to-peer"
+        }
+      }
+    },
+    "error": {
+      "not_found": "İstenen sayfa bu web sitesinde mevcut değil."
+    }
+  },
+  "components": {
+    "settings": {
+      "api": {
+        "legend": "API URL'si",
+        "label": "Arka uç sunucularındaki API'nin bulunduğu yer."
+      }
+    },
+    "locales": {
+      "language": "Dil"
+    },
+    "auth": {
+      "login": {
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Giriş",
+        "error": "{error}"
+      },
+      "register": {
+        "name": {
+          "legend": "Ad",
+          "placeholder": "Azur"
+        },
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Kaydol",
+        "error": "{error}"
+      },
+      "verify_otp": {
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        },
+        "otp": {
+          "legend": "OTP (Tek Seferlik Şifre)"
+        },
+        "submit": "Doğrula"
+      }
+    },
+    "users": {
+      "card": {
+        "user_id": "Kullanıcı Kimliği",
+        "user_name": "Ad",
+        "user_role": "Rol",
+        "member_since": "Üye Olma Tarihi",
+        "no_members": "Üye bulunamadı"
+      },
+      "list": {
+        "no_user": "Şu anda kullanıcı yok."
+      }
+    },
+    "societies": {
+      "form": {
+        "name": "Topluluk Adı",
+        "name_placeholder": "Topluluk adını girin",
+        "postcode": "Posta Kodu",
+        "postcode_placeholder": "Posta kodunu girin",
+        "city": "Şehir",
+        "city_placeholder": "Şehir girin",
+        "state": "Eyalet",
+        "state_placeholder": "Eyalet girin",
+        "country": "Ülke",
+        "country_placeholder": "Ülke girin",
+        "timezone": "Saat Dilimi",
+        "timezone_placeholder": "Saat dilimini girin (örneğin, Europe/Berlin)",
+        "currency": "Para Birimi",
+        "area_unit": "Alan Birimi"
+      },
+      "details": {
+        "role": "Rol",
+        "no_membership": "Üye değilsiniz",
+        "id": "Topluluk Kimliği",
+        "location": "Konum",
+        "postcode": "Posta Kodu",
+        "currency": "Para Birimi",
+        "timezone": "Saat Dilimi",
+        "area_unit": "Alan Birimi",
+        "fine_rate": "Ceza Oranı",
+        "coordinates": "Koordinatlar",
+        "created": "Oluşturulma Tarihi",
+        "updated": "Son Güncelleme"
+      }
+    },
+    "residences": {
+      "form": {
+        "societyId": "Topluluk Kimliği",
+        "societyId_placeholder": "Topluluk kimliğini girin",
+        "residenceName": "Konut Adı",
+        "residenceName_placeholder": "Konut adını girin",
+        "floorCount": "Kat Sayısı",
+        "floorCount_placeholder": "Kat sayısını girin",
+        "areaValue": "Alan (sq ft)",
+        "areaValue_placeholder": "Alan (sq ft) cinsinden girin",
+        "residentsCount": "Sakin Sayısı",
+        "residentsCount_placeholder": "Sakin sayısını girin",
+        "description": "Açıklama",
+        "description_placeholder": "Bir açıklama ekleyin (isteğe bağlı)"
+      },
+      "details": {
+        "societyId": "Topluluk Kimliği",
+        "residentsCount": "Sakinler",
+        "floorCount": "Katlar",
+        "area": "Alan",
+        "active": "Aktif",
+        "yes": "Evet",
+        "no": "Hayır",
+        "description": "Açıklama",
+        "createdAt": "Oluşturulma Tarihi",
+        "updatedAt": "Güncelleme Tarihi",
+        "notAvailable": "Mevcut değil"
+      },
+      "invite_user": {
+        "title": "Bu konuta yeni bir kullanıcı davet et",
+        "name": {
+          "legend": "Ad",
+          "placeholder": "Alice"
+        },
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        }
+      }
+    },
+    "ads": {
+      "form": {
+        "adTitle": "Reklam başlığı",
+        "adTitle_placeholder": "Reklam başlığını girin",
+        "adDescription": "Reklam Açıklaması",
+        "adDescription_placeholder": "Reklam açıklamasını girin",
+        "anonymousUserName": "Anonim Kullanıcı Adı",
+        "anonymousUserName_placeholder": "Takma adınızı veya anonim adınızı girin",
+        "type": "Reklam Türü",
+        "type_placeholder": "Bir reklam türü seçin",
+        "map": "Haritada Konum Seç",
+        "coordinates": "Koordinatlar (Enlem, Boylam)",
+        "create": "Reklam Oluştur",
+        "created_successfully": "Reklam başarıyla oluşturuldu."
+      }
+    },
+    "legal": {
+      "dpi": {
+        "controller.heading": "Veri Denetleyicisi",
+        "controller.name_label": "Ad:",
+        "controller.address_label": "Adres:",
+        "controller.email_label": "E-posta:",
+        "controller.phone_label": "Telefon:",
+        "protection_officer.heading": "Veri Koruma Görevlisi",
+        "protection_officer.email_label": "E-posta:",
+        "purposes.heading": "İşleme Amaçları",
+        "legal_bases.heading": "Yasal Dayanaklar",
+        "recipients.heading": "Veri Alıcıları",
+        "retention.heading": "Veri Saklama",
+        "rights.heading": "Haklarınız",
+        "supervisory_authority.heading": "Denetim Makamı"
+      }
+    }
+  },
+  "common": {
+    "creating": "Oluşturuluyor...",
+    "submit": "Gönder",
+    "join": "Katıl",
+    "delete": "Sil",
+    "deleting": "Siliniyor...",
+    "cancel": "İptal"
+  }
+}
