@@ -164,7 +164,7 @@
 				"error": "{error}"
 			},
 			"register": {
-				"Name": {
+				"name": {
 					"legend": "Name",
 					"placeholder": "Azur"
 				},
