@@ -15,24 +15,25 @@
     "auth.register": "Zarejestruj się",
     "auth.verify-otp": "Zweryfikuj kod OTP",
     "legal": "Informacje prawne",
-    "legal.terms-of-service": "Warunki świadczenia usług",
+    "legal.terms-of-service": "Warunki korzystania z usługi",
     "legal.privacy-policy": "Polityka prywatności",
     "legal.data-processing-info": "Informacje o przetwarzaniu danych",
-    "legal.cookie-policy": "Polityka dotycząca plików cookie",
+    "legal.cookie-policy": "Polityka plików cookie",
     "create.societies": "Utwórz nową społeczność",
     "create.residences": "Utwórz nowe mieszkanie",
     "create.ads": "Utwórz nowe ogłoszenie",
     "create.expenses": "Utwórz nowy wydatek",
     "update.societies": "Zaktualizuj społeczność",
     "update.residences": "Zaktualizuj mieszkanie",
-    "update.ads": "Zaktualizuj ogłoszenie"
+    "update.ads": "Zaktualizuj ogłoszenie",
+    "update.expenses": "Aktualizuj wydatek"
   },
   "pages": {
     "auth": {
       "verify-otp": {
         "sections": {
           "did-not-receive": {
-            "text": "Nie otrzymałeś wiadomości e-mail z kodem OTP?"
+            "text": "Nie otrzymałeś e-maila z kodem OTP?"
           },
           "resend": {
             "text": "Wyślij ponownie e-mail",
@@ -57,7 +58,7 @@
       "login": {
         "sections": {
           "no-account": {
-            "text": "Nie masz jeszcze konta? Możesz",
+            "text": "Nie masz jeszcze konta? To nic nie kosztuje",
             "link": {
               "url": "/auth/register",
               "text": "menu.auth.register"
@@ -98,7 +99,7 @@
               "Zaproś użytkowników",
               "Dodaj potrzebne wydatki",
               "Zatwierdź zapisy płatności",
-              "Twórz niestandardowe korekty",
+              "Utwórz niestandardowe korekty",
               "Publikuj powiadomienia dla mieszkańców"
             ]
           },
@@ -128,7 +129,7 @@
           "icon": "hidden-expenses"
         },
         "goal": {
-          "text": "Naszym celem jest zapewnienie szczegółowego podziału dynamicznie obliczanych cen miesięcznych do Twojej wiadomości.",
+          "text": "Naszym celem jest zapewnienie szczegółowego podziału dynamicznie obliczanych miesięcznych cen do Twojej wiadomości.",
           "icon": "pricing-breakdown"
         },
         "philosophy": {
@@ -136,7 +137,7 @@
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "Po drodze nasz system pozwala na tworzenie lub znajdowanie ogłoszeń z geolokalizacją od ważnych członków użytkowników, pomijając pośredników. Następnym razem skontaktuj się z rówieśnikiem, aby uzyskać wszelkie usługi w obszarze Twoich zainteresowań bez przepłacania!",
+          "text": "Po drodze nasz system pozwala na tworzenie lub znajdowanie ogłoszeń zlokalizowanych geograficznie od ważnych członków użytkowników, pomijając pośredników. Następnym razem skontaktuj się z rówieśnikami w celu uzyskania jakichkolwiek usług w obszarze Twoich zainteresowań bez przepłacania!",
           "icon": "peer-to-peer"
         }
       }
@@ -173,10 +174,10 @@
       "form": {
         "name": "Nazwa",
         "name_placeholder": "Wprowadź nazwę wydatku",
-        "amount": "Kwota miesięczna",
-        "amount_placeholder": "Wprowadź kwotę miesięczną",
-        "society": "Społeczność",
-        "society_placeholder": "Wybierz społeczność",
+        "amount": "Kwota na miesiąc",
+        "amount_placeholder": "Wprowadź kwotę na miesiąc",
+        "society": "Towarzystwo",
+        "society_placeholder": "Wybierz towarzystwo",
         "active": "Aktywny"
       },
       "detail": {
@@ -186,10 +187,10 @@
         "percentageCoverage": "Pokrycie procentowe",
         "typeOptions": {
           "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Na procent własności",
-          "AMOUNT_PER_RESIDENCE": "Na mieszkanie",
+          "AMOUNT_PER_RESIDENCE": "Na rezydencję",
           "AMOUNT_PER_SQUARE_AREA": "Na powierzchnię",
           "AMOUNT_PER_RESIDENT": "Na mieszkańca",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Na mieszkańca na piętro"
+          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Na mieszkańca na liczbę pięter"
         },
         "addDistribution": "Dodaj dystrybucję",
         "saveDistributions": "Zapisz",
@@ -203,7 +204,7 @@
           "amount": "Kwota"
         },
         "error": {
-          "totalCoverage": "Całkowity procent pokrycia musi wynosić 100"
+          "totalCoverage": "Całkowite pokrycie procentowe musi wynosić 100"
         },
         "backToAllExpenses": "← Powrót do wszystkich wydatków"
       }
@@ -254,7 +255,7 @@
     },
     "users": {
       "card": {
-        "user_id": "Identyfikator użytkownika",
+        "user_id": "ID użytkownika",
         "user_name": "Nazwa",
         "user_role": "Rola",
         "member_since": "Członek od",
@@ -266,8 +267,8 @@
     },
     "societies": {
       "form": {
-        "name": "Nazwa Towarzystwa",
-        "name_placeholder": "Wprowadź nazwę towarzystwa",
+        "name": "Nazwa społeczeństwa",
+        "name_placeholder": "Wprowadź nazwę społeczeństwa",
         "postcode": "Kod pocztowy",
         "postcode_placeholder": "Wprowadź kod pocztowy",
         "city": "Miasto",
@@ -284,7 +285,7 @@
       "details": {
         "role": "Rola",
         "no_membership": "Nie jesteś członkiem",
-        "id": "Identyfikator Towarzystwa",
+        "id": "ID społeczeństwa",
         "location": "Lokalizacja",
         "postcode": "Kod pocztowy",
         "currency": "Waluta",
@@ -298,8 +299,8 @@
     },
     "residences": {
       "form": {
-        "societyId": "Identyfikator Towarzystwa",
-        "societyId_placeholder": "Wprowadź identyfikator towarzystwa",
+        "societyId": "ID społeczeństwa",
+        "societyId_placeholder": "Wprowadź ID społeczeństwa",
         "residenceName": "Nazwa rezydencji",
         "residenceName_placeholder": "Wprowadź nazwę rezydencji",
         "floorCount": "Liczba pięter",
@@ -312,7 +313,7 @@
         "description_placeholder": "Dodaj opis (opcjonalnie)"
       },
       "details": {
-        "societyId": "Identyfikator Towarzystwa",
+        "societyId": "ID społeczeństwa",
         "residentsCount": "Mieszkańcy",
         "floorCount": "Piętra",
         "area": "Powierzchnia",
@@ -338,18 +339,18 @@
     },
     "ads": {
       "form": {
-        "title": "Tytuł reklamy",
-        "title_placeholder": "Wprowadź tytuł reklamy",
-        "adDescription": "Opis reklamy",
-        "adDescription_placeholder": "Wprowadź opis reklamy",
+        "title": "Tytuł ogłoszenia",
+        "title_placeholder": "Wprowadź tytuł ogłoszenia",
+        "adDescription": "Opis ogłoszenia",
+        "adDescription_placeholder": "Wprowadź opis ogłoszenia",
         "anonymousUserName": "Anonimowa nazwa użytkownika",
         "anonymousUserName_placeholder": "Wprowadź swój alias lub anonimową nazwę",
-        "type": "Typ reklamy",
-        "type_placeholder": "Wybierz typ reklamy",
+        "type": "Typ ogłoszenia",
+        "type_placeholder": "Wybierz typ ogłoszenia",
         "map": "Wybierz lokalizację na mapie",
-        "coordinates": "Współrzędne (szerokość geograficzna, długość geograficzna)",
-        "create": "Utwórz reklamę",
-        "created_successfully": "Reklama utworzona pomyślnie."
+        "coordinates": "Współrzędne (Szerokość geograficzna, Długość geograficzna)",
+        "create": "Utwórz ogłoszenie",
+        "created_successfully": "Ogłoszenie utworzono pomyślnie."
       },
       "details": {
         "description": "Opis"
@@ -359,22 +360,21 @@
       "form": {
         "name": "Nazwa",
         "name_placeholder": "Izmir",
-        "amount": "Kwota miesięczna",
-        "amount_placeholder": "",
-        "society": "Społeczność",
-        "society_placeholder": "Wybierz społeczność",
+        "amount": "Kwota na miesiąc",
+        "society": "Towarzystwo",
+        "society_placeholder": "Wybierz towarzystwo",
         "active": "Aktywny"
       },
       "details": {
-        "society": "Społeczność",
-        "amountPerMonth": "Kwota miesięczna",
+        "society": "Towarzystwo",
+        "amountPerMonth": "Kwota na miesiąc",
         "active": "Aktywny",
         "createdAt": "Utworzono",
         "updatedAt": "Zaktualizowano"
       },
       "distributionCard": {
         "type": "Typ",
-        "coverage": "Pokrycie"
+        "coverage": "Zasięg"
       }
     },
     "legal": {
@@ -382,10 +382,10 @@
         "controller.heading": "Administrator danych",
         "controller.name_label": "Nazwa:",
         "controller.address_label": "Adres:",
-        "controller.email_label": "E-mail:",
+        "controller.email_label": "Email:",
         "controller.phone_label": "Telefon:",
-        "protection_officer.heading": "Inspektor Ochrony Danych",
-        "protection_officer.email_label": "E-mail:",
+        "protection_officer.heading": "Inspektor ochrony danych",
+        "protection_officer.email_label": "Email:",
         "purposes.heading": "Cele przetwarzania",
         "legal_bases.heading": "Podstawy prawne",
         "recipients.heading": "Odbiorcy danych",
@@ -397,7 +397,7 @@
   },
   "common": {
     "creating": "Tworzenie...",
-    "submit": "Prześlij",
+    "submit": "Wyślij",
     "join": "Dołącz",
     "delete": "Usuń",
     "deleting": "Usuwanie...",

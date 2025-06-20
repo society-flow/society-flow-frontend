@@ -36,13 +36,28 @@
 	let distributions = $state([]);
 	let showDistributionForm = $state(false);
 	let distError = $state('');
-   const typeOptions = [
-       { value: 'AMOUNT_PER_OWNERSHIP_PERCENTAGE', label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_OWNERSHIP_PERCENTAGE') },
-       { value: 'AMOUNT_PER_RESIDENCE', label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENCE') },
-       { value: 'AMOUNT_PER_SQUARE_AREA', label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_SQUARE_AREA') },
-       { value: 'AMOUNT_PER_RESIDENT', label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENT') },
-       { value: 'AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT', label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT') }
-   ];
+	const typeOptions = [
+		{
+			value: 'AMOUNT_PER_OWNERSHIP_PERCENTAGE',
+			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_OWNERSHIP_PERCENTAGE')
+		},
+		{
+			value: 'AMOUNT_PER_RESIDENCE',
+			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENCE')
+		},
+		{
+			value: 'AMOUNT_PER_SQUARE_AREA',
+			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_SQUARE_AREA')
+		},
+		{
+			value: 'AMOUNT_PER_RESIDENT',
+			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENT')
+		},
+		{
+			value: 'AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT',
+			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT')
+		}
+	];
 	$effect(async () => {
 		if (id) {
 			distributions = await api.getAllExpenseDistributionsByExpenseId(id);
@@ -54,23 +69,23 @@
 			{ expenseId: expense.id, calculationMode: '', percentageCoverage: 0, isActive: true }
 		];
 		showDistributionForm = true;
-       distError = '';
+		distError = '';
 	}
 	function editDistributions() {
 		showDistributionForm = true;
-       distError = '';
+		distError = '';
 	}
 	async function saveDistributions() {
-       distError = '';
-       // Validate that active distributions total 100%, or allow zero distributions
-       const activeDists = distributions.filter(d => d.isActive);
-       if (activeDists.length > 0) {
-           const total = activeDists.reduce((sum, d) => sum + Number(d.percentageCoverage), 0);
-           if (total !== 100) {
-               distError = $_('pages.expenses.detail.error.totalCoverage');
-               return;
-           }
-       }
+		distError = '';
+		// Validate that active distributions total 100%, or allow zero distributions
+		const activeDists = distributions.filter((d) => d.isActive);
+		if (activeDists.length > 0) {
+			const total = activeDists.reduce((sum, d) => sum + Number(d.percentageCoverage), 0);
+			if (total !== 100) {
+				distError = $_('pages.expenses.detail.error.totalCoverage');
+				return;
+			}
+		}
 		for (const d of distributions) {
 			const payload = {
 				id: d.id,
@@ -85,20 +100,18 @@
 		distributions = await api.getAllExpenseDistributionsByExpenseId(id);
 		showDistributionForm = false;
 	}
-   /**
-    * Remove a distribution: mark inactive if persisted, or remove entirely if new
-    */
-   function removeDistribution(dist) {
-       if (dist.id) {
-           // mark existing distribution inactive
-           distributions = distributions.map(d =>
-               d.id === dist.id ? { ...d, isActive: false } : d
-           );
-       } else {
-           // remove new entry
-           distributions = distributions.filter(d => d !== dist);
-       }
-   }
+	/**
+	 * Remove a distribution: mark inactive if persisted, or remove entirely if new
+	 */
+	function removeDistribution(dist) {
+		if (dist.id) {
+			// mark existing distribution inactive
+			distributions = distributions.map((d) => (d.id === dist.id ? { ...d, isActive: false } : d));
+		} else {
+			// remove new entry
+			distributions = distributions.filter((d) => d !== dist);
+		}
+	}
 </script>
 
 <Page title={$_('menu.expenses')} showHeader={false}>
@@ -123,55 +136,56 @@
 
 			<main>
 				<h2>{$_('pages.expenses.detail.distributions')}</h2>
-       {#if distributions.filter(d => d.isActive).length && !showDistributionForm}
-           <div class="DistributionGrid">
-               {#each distributions.filter(d => d.isActive) as d}
-                   <DistributionCard distribution={d} />
-               {/each}
-           </div>
+				{#if distributions.filter((d) => d.isActive).length && !showDistributionForm}
+					<div class="DistributionGrid">
+						{#each distributions.filter((d) => d.isActive) as d}
+							<DistributionCard distribution={d} />
+						{/each}
+					</div>
 					<button on:click={editDistributions}
 						>{$_('pages.expenses.detail.editDistributions')}</button
 					>
-           {:else if showDistributionForm}
-               <form>
-                   {#each distributions as d, index}
-                       {#if d.isActive}
-                           <div class="distribution-entry">
-								<fieldset>
-									<legend>
-										{$_('pages.expenses.detail.selectType')}
-									</legend>
-									<select bind:value={distributions[index].calculationMode}>
-										{#each typeOptions as opt}
-											<option value={opt.value}>{opt.label}</option>
-										{/each}
-									</select>
-								</fieldset>
-								<fieldset>
-									<legend>
-										{$_('pages.expenses.detail.percentageCoverage')}
-									</legend>
-									<input
-										type="number"
-										min="0"
-										max="100"
-										bind:value={distributions[index].percentageCoverage}
-									/>%
-								</fieldset>
-								<fieldset>
-                               <button type="button" on:click={() => removeDistribution(d)}
-                                   >{$_('pages.expenses.detail.remove')}</button>
-								</fieldset>
-                           </div>
-                       {/if}
-                   {/each}
+				{:else if showDistributionForm}
+					<form>
+						{#each distributions as d, index}
+							{#if d.isActive}
+								<div class="distribution-entry">
+									<fieldset>
+										<legend>
+											{$_('pages.expenses.detail.selectType')}
+										</legend>
+										<select bind:value={distributions[index].calculationMode}>
+											{#each typeOptions as opt}
+												<option value={opt.value}>{opt.label}</option>
+											{/each}
+										</select>
+									</fieldset>
+									<fieldset>
+										<legend>
+											{$_('pages.expenses.detail.percentageCoverage')} (%)
+										</legend>
+										<input
+											type="number"
+											min="0"
+											max="100"
+											bind:value={distributions[index].percentageCoverage}
+										/>
+									</fieldset>
+									<fieldset>
+										<button type="button" on:click={() => removeDistribution(d)}
+											>{$_('pages.expenses.detail.remove')}</button
+										>
+									</fieldset>
+								</div>
+							{/if}
+						{/each}
 						<fieldset>
-							<button type="button" on:click={addDistribution}
-								>{$_('pages.expenses.detail.addDistribution')}</button
-							>
-							<button type="button" on:click={saveDistributions}
-								>{$_('pages.expenses.detail.saveDistributions')}</button
-							>
+							<button type="button" on:click={addDistribution}>
+								{$_('pages.expenses.detail.addDistribution')}
+							</button>
+							<button type="button" on:click={saveDistributions}>
+								{$_('pages.expenses.detail.saveDistributions')}
+							</button>
 						</fieldset>
 						{#if distError}
 							<p class="error">{distError}</p>
@@ -205,7 +219,7 @@
 						</tbody>
 					</table>
 				{:else}
-               <p>{$_('pages.expenses.detail.noCalculations')}</p>
+					<p>{$_('pages.expenses.detail.noCalculations')}</p>
 				{/if}
 			</section>
 		{:else}
@@ -222,5 +236,11 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		gap: var(--s);
+	}
+	.distribution-entry {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
 	}
 </style>

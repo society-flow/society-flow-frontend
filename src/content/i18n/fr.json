@@ -1,6 +1,6 @@
 {
   "title": "Society Flow",
-  "catch_line": "Partagez des services. Réduisez les coûts. Renforcez votre communauté.",
+  "catch_line": "Partagez des services. Répartissez les coûts. Renforcez votre communauté.",
   "menu": {
     "home": "Accueil",
     "societies": "Sociétés",
@@ -12,20 +12,21 @@
     "settings": "Paramètres",
     "auth.login": "Connexion",
     "auth.logout": "Déconnexion",
-    "auth.register": "Inscription",
-    "auth.verify-otp": "Vérifier OTP",
+    "auth.register": "S'inscrire",
+    "auth.verify-otp": "Vérifier le code OTP",
     "legal": "Mentions légales",
     "legal.terms-of-service": "Conditions d'utilisation",
     "legal.privacy-policy": "Politique de confidentialité",
     "legal.data-processing-info": "Informations sur le traitement des données",
-    "legal.cookie-policy": "Politique de cookies",
+    "legal.cookie-policy": "Politique en matière de cookies",
     "create.societies": "Créer une nouvelle société",
     "create.residences": "Créer une nouvelle résidence",
     "create.ads": "Créer une nouvelle annonce",
     "create.expenses": "Créer une nouvelle dépense",
     "update.societies": "Mettre à jour la société",
     "update.residences": "Mettre à jour la résidence",
-    "update.ads": "Mettre à jour l'annonce"
+    "update.ads": "Mettre à jour l'annonce",
+    "update.expenses": "Mettre à jour la dépense"
   },
   "pages": {
     "auth": {
@@ -132,11 +133,11 @@
           "icon": "pricing-breakdown"
         },
         "philosophy": {
-          "text": "Nous pensons fermement que les dépenses réduites ou augmentées devraient faire varier les contributions, et non les fixer. De plus, les différentes dépenses nécessitent une manière différente de distribution entre les résidences.",
+          "text": "Nous pensons fermement que les dépenses réduites ou augmentées devraient faire varier les contributions, et non les fixer. De plus, les différentes dépenses nécessitent une manière différente de répartition entre les résidences.",
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées auprès de membres valides d'utilisateurs, en contournant les intermédiaires. La prochaine fois, contactez vos pairs pour tout service dans votre domaine d'intérêt sans payer trop cher !",
+          "text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées auprès de membres valides des utilisateurs, en contournant les intermédiaires. La prochaine fois, contactez vos pairs pour tout service dans votre domaine d'intérêt sans payer trop cher !",
           "icon": "peer-to-peer"
         }
       }
@@ -172,9 +173,9 @@
     "expenses": {
       "form": {
         "name": "Nom",
-        "name_placeholder": "Saisir le nom de la dépense",
+        "name_placeholder": "Entrez le nom de la dépense",
         "amount": "Montant par mois",
-        "amount_placeholder": "Saisir le montant par mois",
+        "amount_placeholder": "Entrez le montant par mois",
         "society": "Société",
         "society_placeholder": "Sélectionner une société",
         "active": "Actif"
@@ -188,8 +189,8 @@
           "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Par pourcentage de propriété",
           "AMOUNT_PER_RESIDENCE": "Par résidence",
           "AMOUNT_PER_SQUARE_AREA": "Par superficie",
-          "AMOUNT_PER_RESIDENT": "Par résident",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Par résident par nombre d'étages"
+          "AMOUNT_PER_RESIDENT": "Par habitant",
+          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Par habitant par nombre d'étages"
         },
         "addDistribution": "Ajouter une distribution",
         "saveDistributions": "Enregistrer",
@@ -213,7 +214,7 @@
     "settings": {
       "api": {
         "legend": "URL de l'API",
-        "label": "Où se trouve l'API sur les serveurs backend."
+        "label": "Où se trouve l'API sur les serveurs principaux."
       }
     },
     "locales": {
@@ -237,7 +238,7 @@
           "legend": "E-mail",
           "placeholder": "user@example.com"
         },
-        "submit": "Inscription",
+        "submit": "S'inscrire",
         "error": "{error}"
       },
       "verify_otp": {
@@ -246,7 +247,7 @@
           "placeholder": "user@example.com"
         },
         "otp": {
-          "legend": "OTP (Mot de passe à usage unique)",
+          "legend": "OTP (Mot de passe unique)",
           "placeholder": "12345"
         },
         "submit": "Vérifier"
@@ -304,8 +305,8 @@
         "residenceName_placeholder": "Entrez le nom de la résidence",
         "floorCount": "Nombre d'étages",
         "floorCount_placeholder": "Entrez le nombre d'étages",
-        "areaValue": "Superficie (pi²)",
-        "areaValue_placeholder": "Entrez la superficie en pi²",
+        "areaValue": "Superficie (pi2)",
+        "areaValue_placeholder": "Entrez la superficie en pi2",
         "residentsCount": "Nombre de résidents",
         "residentsCount_placeholder": "Entrez le nombre de résidents",
         "description": "Description",
@@ -360,7 +361,6 @@
         "name": "Nom",
         "name_placeholder": "Izmir",
         "amount": "Montant par mois",
-        "amount_placeholder": "",
         "society": "Société",
         "society_placeholder": "Sélectionner une société",
         "active": "Actif"
@@ -380,12 +380,12 @@
     "legal": {
       "dpi": {
         "controller.heading": "Contrôleur de données",
-        "controller.name_label": "Nom :",
-        "controller.address_label": "Adresse :",
-        "controller.email_label": "E-mail :",
-        "controller.phone_label": "Téléphone :",
+        "controller.name_label": "Nom :",
+        "controller.address_label": "Adresse :",
+        "controller.email_label": "E-mail :",
+        "controller.phone_label": "Téléphone :",
         "protection_officer.heading": "Délégué à la protection des données",
-        "protection_officer.email_label": "E-mail :",
+        "protection_officer.email_label": "E-mail :",
         "purposes.heading": "Finalités du traitement",
         "legal_bases.heading": "Bases légales",
         "recipients.heading": "Destinataires des données",

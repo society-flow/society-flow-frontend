@@ -22,10 +22,11 @@
     "create.societies": "Criar nova Sociedade",
     "create.residences": "Criar nova Residência",
     "create.ads": "Criar novo Anúncio",
-    "create.expenses": "Criar nova Despesa",
+    "create.expenses": "Criar nova despesa",
     "update.societies": "Atualizar Sociedade",
     "update.residences": "Atualizar Residência",
-    "update.ads": "Atualizar Anúncio"
+    "update.ads": "Atualizar Anúncio",
+    "update.expenses": "Atualizar Despesa"
   },
   "pages": {
     "auth": {
@@ -99,7 +100,7 @@
               "Adicionar despesas necessárias",
               "Aprovar registros de pagamento",
               "Criar ajustes personalizados",
-              "Publicar avisos aos moradores"
+              "Publicar avisos para os moradores"
             ]
           },
           "society_member": {
@@ -107,13 +108,13 @@
             "features": [
               "Visualize todas as suas residências em várias sociedades e cidades",
               "Visualize suas mensalidades com a devida discriminação de custos e fundos disponíveis",
-              "Mensagens para os administradores sobre problemas enfrentados ou receber notificações deles."
+              "Mensagem para os administradores de problemas enfrentados ou receber notificações deles."
             ]
           },
           "rent_seeker": {
             "title": "Procurando aluguéis ou procurando comprar um?",
             "features": [
-              "Confira os anúncios publicados por proprietários ou sociedades válidas e autenticadas sobre disponibilidade, de acordo com seu orçamento e localização dos sonhos"
+              "Confira os anúncios publicados por proprietários ou sociedades válidos e autenticados sobre disponibilidade, de acordo com seu orçamento e localização dos sonhos"
             ]
           }
         },
@@ -146,8 +147,8 @@
     },
     "residences": {
       "detail": {
-        "myExpenseDues": "Minhas Mensalidades de Despesas",
-        "noExpenseDues": "Nenhuma mensalidade de despesas encontrada.",
+        "myExpenseDues": "Minhas Dívidas de Despesas",
+        "noExpenseDues": "Nenhuma dívida de despesa encontrada.",
         "table": {
           "month": "Mês",
           "expense": "Despesa",
@@ -172,9 +173,9 @@
     "expenses": {
       "form": {
         "name": "Nome",
-        "name_placeholder": "Digite o nome da despesa",
-        "amount": "Valor por Mês",
-        "amount_placeholder": "Digite o valor por mês",
+        "name_placeholder": "Insira o nome da despesa",
+        "amount": "Valor por mês",
+        "amount_placeholder": "Insira o valor por mês",
         "society": "Sociedade",
         "society_placeholder": "Selecione uma sociedade",
         "active": "Ativo"
@@ -182,14 +183,14 @@
       "detail": {
         "distributions": "Distribuições",
         "editDistributions": "Editar Distribuições",
-        "selectType": "Selecione o tipo",
+        "selectType": "Selecionar tipo",
         "percentageCoverage": "Cobertura Percentual",
         "typeOptions": {
-          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Por Porcentagem de Propriedade",
+          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Por Percentual de Propriedade",
           "AMOUNT_PER_RESIDENCE": "Por Residência",
           "AMOUNT_PER_SQUARE_AREA": "Por Área Quadrada",
           "AMOUNT_PER_RESIDENT": "Por Residente",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Por Residente por Contagem de Andares"
+          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Por Residente por Contagem de Andar"
         },
         "addDistribution": "Adicionar Distribuição",
         "saveDistributions": "Salvar",
@@ -254,7 +255,7 @@
     },
     "users": {
       "card": {
-        "user_id": "ID do Usuário",
+        "user_id": "ID do usuário",
         "user_name": "Nome",
         "user_role": "Função",
         "member_since": "Membro desde",
@@ -266,31 +267,31 @@
     },
     "societies": {
       "form": {
-        "name": "Nome da Sociedade",
-        "name_placeholder": "Digite o nome da sociedade",
-        "postcode": "Código Postal",
-        "postcode_placeholder": "Digite o código postal",
+        "name": "Nome da sociedade",
+        "name_placeholder": "Insira o nome da sociedade",
+        "postcode": "Código postal",
+        "postcode_placeholder": "Insira o código postal",
         "city": "Cidade",
-        "city_placeholder": "Digite a cidade",
+        "city_placeholder": "Insira a cidade",
         "state": "Estado",
-        "state_placeholder": "Digite o estado",
+        "state_placeholder": "Insira o estado",
         "country": "País",
-        "country_placeholder": "Digite o país",
-        "timezone": "Fuso Horário",
-        "timezone_placeholder": "Digite o fuso horário (por exemplo, Europe/Berlin)",
+        "country_placeholder": "Insira o país",
+        "timezone": "Fuso horário",
+        "timezone_placeholder": "Insira o fuso horário (por exemplo, Europe/Berlin)",
         "currency": "Moeda",
-        "area_unit": "Unidade de Área"
+        "area_unit": "Unidade de área"
       },
       "details": {
         "role": "Função",
         "no_membership": "Você não é um membro",
-        "id": "ID da Sociedade",
+        "id": "ID da sociedade",
         "location": "Localização",
-        "postcode": "Código Postal",
+        "postcode": "Código postal",
         "currency": "Moeda",
-        "timezone": "Fuso Horário",
-        "area_unit": "Unidade de Área",
-        "fine_rate": "Taxa de Multa",
+        "timezone": "Fuso horário",
+        "area_unit": "Unidade de área",
+        "fine_rate": "Taxa de multa",
         "coordinates": "Coordenadas",
         "created": "Criado em",
         "updated": "Última atualização"
@@ -298,21 +299,21 @@
     },
     "residences": {
       "form": {
-        "societyId": "ID da Sociedade",
-        "societyId_placeholder": "Digite o ID da sociedade",
-        "residenceName": "Nome da Residência",
-        "residenceName_placeholder": "Digite o nome da residência",
-        "floorCount": "Número de Andares",
-        "floorCount_placeholder": "Digite a contagem de andares",
+        "societyId": "ID da sociedade",
+        "societyId_placeholder": "Insira o ID da sociedade",
+        "residenceName": "Nome da residência",
+        "residenceName_placeholder": "Insira o nome da residência",
+        "floorCount": "Número de andares",
+        "floorCount_placeholder": "Insira a contagem de andares",
         "areaValue": "Área (pés quadrados)",
-        "areaValue_placeholder": "Digite a área em pés quadrados",
-        "residentsCount": "Número de Residentes",
-        "residentsCount_placeholder": "Digite o número de residentes",
+        "areaValue_placeholder": "Insira a área em pés quadrados",
+        "residentsCount": "Número de residentes",
+        "residentsCount_placeholder": "Insira o número de residentes",
         "description": "Descrição",
-        "description_placeholder": "Adicionar uma descrição (opcional)"
+        "description_placeholder": "Adicione uma descrição (opcional)"
       },
       "details": {
-        "societyId": "ID da Sociedade",
+        "societyId": "ID da sociedade",
         "residentsCount": "Residentes",
         "floorCount": "Andares",
         "area": "Área",
@@ -339,12 +340,12 @@
     "ads": {
       "form": {
         "title": "Título do anúncio",
-        "title_placeholder": "Digite o título do anúncio",
+        "title_placeholder": "Insira o título do anúncio",
         "adDescription": "Descrição do anúncio",
-        "adDescription_placeholder": "Digite a descrição do anúncio",
-        "anonymousUserName": "Nome de Usuário Anônimo",
-        "anonymousUserName_placeholder": "Digite seu apelido ou nome anônimo",
-        "type": "Tipo de Anúncio",
+        "adDescription_placeholder": "Insira a descrição do anúncio",
+        "anonymousUserName": "Nome de usuário anônimo",
+        "anonymousUserName_placeholder": "Insira seu apelido ou nome anônimo",
+        "type": "Tipo de anúncio",
         "type_placeholder": "Selecione um tipo de anúncio",
         "map": "Selecione a localização no mapa",
         "coordinates": "Coordenadas (Latitude, Longitude)",
@@ -359,15 +360,14 @@
       "form": {
         "name": "Nome",
         "name_placeholder": "Izmir",
-        "amount": "Valor por Mês",
-        "amount_placeholder": "",
+        "amount": "Valor por mês",
         "society": "Sociedade",
         "society_placeholder": "Selecione uma sociedade",
         "active": "Ativo"
       },
       "details": {
         "society": "Sociedade",
-        "amountPerMonth": "Valor por Mês",
+        "amountPerMonth": "Valor por mês",
         "active": "Ativo",
         "createdAt": "Criado em",
         "updatedAt": "Atualizado em"
@@ -379,19 +379,19 @@
     },
     "legal": {
       "dpi": {
-        "controller.heading": "Controlador de Dados",
+        "controller.heading": "Controlador de dados",
         "controller.name_label": "Nome:",
         "controller.address_label": "Endereço:",
         "controller.email_label": "E-mail:",
         "controller.phone_label": "Telefone:",
-        "protection_officer.heading": "Encarregado de Proteção de Dados",
+        "protection_officer.heading": "Encarregado de proteção de dados",
         "protection_officer.email_label": "E-mail:",
-        "purposes.heading": "Finalidades do Processamento",
-        "legal_bases.heading": "Bases Legais",
-        "recipients.heading": "Destinatários de Dados",
-        "retention.heading": "Retenção de Dados",
-        "rights.heading": "Seus Direitos",
-        "supervisory_authority.heading": "Autoridade Supervisora"
+        "purposes.heading": "Finalidades do processamento",
+        "legal_bases.heading": "Bases legais",
+        "recipients.heading": "Destinatários de dados",
+        "retention.heading": "Retenção de dados",
+        "rights.heading": "Seus direitos",
+        "supervisory_authority.heading": "Autoridade supervisora"
       }
     }
   },

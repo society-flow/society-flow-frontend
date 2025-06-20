@@ -25,7 +25,8 @@
 		"create.expenses": "Create new Expense",
 		"update.societies": "Update Society",
 		"update.residences": "Update Residence",
-		"update.ads": "Update Ad"
+		"update.ads": "Update Ad",
+		"update.expenses": "Update Expense"
 	},
 	"pages": {
 		"auth": {

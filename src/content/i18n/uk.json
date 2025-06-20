@@ -15,17 +15,18 @@
     "auth.register": "Зареєструватися",
     "auth.verify-otp": "Підтвердити OTP",
     "legal": "Юридична інформація",
-    "legal.terms-of-service": "Умови надання послуг",
+    "legal.terms-of-service": "Умови використання",
     "legal.privacy-policy": "Політика конфіденційності",
     "legal.data-processing-info": "Інформація про обробку даних",
     "legal.cookie-policy": "Політика використання файлів cookie",
     "create.societies": "Створити нову спільноту",
     "create.residences": "Створити нову резиденцію",
     "create.ads": "Створити нове оголошення",
-    "create.expenses": "Створити нову витрату",
+    "create.expenses": "Створити новий витрати",
     "update.societies": "Оновити спільноту",
     "update.residences": "Оновити резиденцію",
-    "update.ads": "Оновити оголошення"
+    "update.ads": "Оновити оголошення",
+    "update.expenses": "Оновити витрати"
   },
   "pages": {
     "auth": {
@@ -105,8 +106,8 @@
           "society_member": {
             "title": "Учасники спільноти",
             "features": [
-              "Переглядайте всі свої резиденції в різних спільнотах і містах",
-              "Переглядайте свої щомісячні внески з належним розбиттям витрат і доступних коштів",
+              "Перегляньте всі свої резиденції в різних спільнотах і містах",
+              "Перегляньте свої щомісячні внески з належним розбиттям витрат і доступних коштів",
               "Надсилайте повідомлення адміністраторам про проблеми, з якими стикаєтесь, або отримуйте від них сповіщення."
             ]
           },
@@ -128,7 +129,7 @@
           "icon": "hidden-expenses"
         },
         "goal": {
-          "text": "Наша мета - надати детальний розбір динамічно розрахованої щомісячної ціни на ваш розсуд.",
+          "text": "Наша мета - надати детальний розбір динамічно розрахованих щомісячних цін для вашого відома.",
           "icon": "pricing-breakdown"
         },
         "philosophy": {
@@ -136,7 +137,7 @@
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "З часом наша система дозволяє вам створювати або знаходити географічні оголошення від дійсних користувачів, минаючи посередників. Наступного разу зверніться до однолітків для будь-яких послуг у вашій сфері інтересів, не переплачуючи!",
+          "text": "У процесі роботи наша система дозволяє вам створювати або знаходити географічні оголошення від дійсних користувачів, минаючи посередників. Наступного разу зверніться до однолітків для будь-яких послуг у вашій зоні інтересів, не переплачуючи!",
           "icon": "peer-to-peer"
         }
       }
@@ -146,8 +147,8 @@
     },
     "residences": {
       "detail": {
-        "myExpenseDues": "Мої витрати",
-        "noExpenseDues": "Не знайдено жодних витрат.",
+        "myExpenseDues": "Мої борги за витрати",
+        "noExpenseDues": "Не знайдено боргів за витратами.",
         "table": {
           "month": "Місяць",
           "expense": "Витрати",
@@ -158,10 +159,10 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Розрахунки витрат",
-        "noExpensesConfigured": "Витрати не налаштовані.",
+        "noExpensesConfigured": "Не налаштовано витрати.",
         "table": {
           "month": "Місяць",
-          "residence": "Резиденція",
+          "residence": "Місце проживання",
           "amount": "Сума"
         }
       }
@@ -171,22 +172,22 @@
     },
     "expenses": {
       "form": {
-        "name": "Назва",
-        "name_placeholder": "Введіть назву витрат",
+        "name": "Ім'я",
+        "name_placeholder": "Введіть назву витрати",
         "amount": "Сума на місяць",
         "amount_placeholder": "Введіть суму на місяць",
-        "society": "Спільнота",
-        "society_placeholder": "Виберіть спільноту",
+        "society": "Суспільство",
+        "society_placeholder": "Виберіть суспільство",
         "active": "Активний"
       },
       "detail": {
         "distributions": "Розподіли",
         "editDistributions": "Редагувати розподіли",
         "selectType": "Виберіть тип",
-        "percentageCoverage": "Покриття у відсотках",
+        "percentageCoverage": "Відсоткове покриття",
         "typeOptions": {
           "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "За відсотком власності",
-          "AMOUNT_PER_RESIDENCE": "За резиденцією",
+          "AMOUNT_PER_RESIDENCE": "За місцем проживання",
           "AMOUNT_PER_SQUARE_AREA": "За площею",
           "AMOUNT_PER_RESIDENT": "На мешканця",
           "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "На мешканця на кількість поверхів"
@@ -195,25 +196,25 @@
         "saveDistributions": "Зберегти",
         "remove": "Видалити",
         "noDistributions": "Розподіли відсутні.",
-        "calculations": "Обчислення",
-        "noCalculations": "Немає доступних обчислень.",
+        "calculations": "Розрахунки",
+        "noCalculations": "Розрахунки відсутні.",
         "table": {
           "month": "Місяць",
-          "residence": "Резиденція",
+          "residence": "Місце проживання",
           "amount": "Сума"
         },
         "error": {
-          "totalCoverage": "Загальне покриття у відсотках має дорівнювати 100"
+          "totalCoverage": "Загальне відсоткове покриття має дорівнювати 100"
         },
-        "backToAllExpenses": "← Назад до всіх витрат"
+        "backToAllExpenses": "← Повернутися до всіх витрат"
       }
     }
   },
   "components": {
     "settings": {
       "api": {
-        "legend": "URL API",
-        "label": "Де розташований API на бекенд-серверах."
+        "legend": "API URL",
+        "label": "Де розташований API на серверах бекенду."
       }
     },
     "locales": {
@@ -230,8 +231,8 @@
       },
       "register": {
         "name": {
-          "legend": "Назва",
-          "placeholder": "Азур"
+          "legend": "Ім'я",
+          "placeholder": "Azur"
         },
         "email": {
           "legend": "Електронна пошта",
@@ -246,7 +247,7 @@
           "placeholder": "user@example.com"
         },
         "otp": {
-          "legend": "OTP (Одноразовий пароль)",
+          "legend": "OTP (одноразовий пароль)",
           "placeholder": "12345"
         },
         "submit": "Підтвердити"
@@ -255,9 +256,9 @@
     "users": {
       "card": {
         "user_id": "ID користувача",
-        "user_name": "Назва",
+        "user_name": "Ім'я",
         "user_role": "Роль",
-        "member_since": "Член з",
+        "member_since": "Учасник з",
         "no_members": "Не знайдено учасників"
       },
       "list": {
@@ -327,7 +328,7 @@
       "invite_user": {
         "title": "Запросити нового користувача до цієї резиденції",
         "name": {
-          "legend": "Назва",
+          "legend": "Ім'я",
           "placeholder": "Аліса"
         },
         "email": {
@@ -357,16 +358,15 @@
     },
     "expenses": {
       "form": {
-        "name": "Назва",
+        "name": "Ім'я",
         "name_placeholder": "Ізмір",
         "amount": "Сума на місяць",
-        "amount_placeholder": "",
-        "society": "Спільнота",
-        "society_placeholder": "Виберіть спільноту",
+        "society": "Суспільство",
+        "society_placeholder": "Виберіть суспільство",
         "active": "Активний"
       },
       "details": {
-        "society": "Спільнота",
+        "society": "Суспільство",
         "amountPerMonth": "Сума на місяць",
         "active": "Активний",
         "createdAt": "Створено",
@@ -384,7 +384,7 @@
         "controller.address_label": "Адреса:",
         "controller.email_label": "Електронна пошта:",
         "controller.phone_label": "Телефон:",
-        "protection_officer.heading": "Спеціаліст із захисту даних",
+        "protection_officer.heading": "Відповідальний за захист даних",
         "protection_officer.email_label": "Електронна пошта:",
         "purposes.heading": "Цілі обробки",
         "legal_bases.heading": "Юридичні підстави",
