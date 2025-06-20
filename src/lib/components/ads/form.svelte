@@ -39,8 +39,8 @@
 
 	function onMapSelect(detail) {
 		form.approxGeoCoordinate = {
-				x: detail.lat,
-				y: detail.lng
+			x: detail.lat,
+			y: detail.lng
 		};
 	}
 
@@ -55,7 +55,7 @@
 		success = '';
 
 		try {
-			const newAd = await api.createAdvertisement({...form});
+			const newAd = await api.createAdvertisement({ ...form });
 			success = $_('components.ads.form.created_successfully');
 			onsuccess(newAd);
 
@@ -108,7 +108,7 @@
 
 	<fieldset>
 		<legend>{$_('components.ads.form.type')}</legend>
-		<select bind:value={form.type} on:change={resetMessages}>
+		<select bind:value={form.type} on:change={resetMessages} required>
 			<option value="" disabled>
 				{$_('components.ads.form.type_placeholder')}
 			</option>
