@@ -52,9 +52,20 @@
 		await loadResidenceUsersData();
 	}
 
-	async function onInvite(inviteData) {
-		await loadResidenceUsersData();
-	}
+   async function onInvite(inviteData) {
+       await loadResidenceUsersData();
+   }
+  
+   // Remove a user from this residence
+   async function onRemoveUser(user) {
+    try {
+        await api.removeUserFromResidence(residence.id, user.id);
+        // Reload users and membership status so UI hides edit/delete if self-removed
+        await loadResidenceUsersData();
+    } catch (e) {
+        console.error('Error removing user:', e);
+    }
+   }
 
 	async function loadResidenceData() {
 		loading = true;
@@ -109,11 +120,11 @@
 
 			<ResidenceDetails {residence} {isMember} />
 
-			{#if users}
-				<aside>
-					<UsersList {users} />
-				</aside>
-			{/if}
+            {#if users.length}
+                <aside>
+                    <UsersList {users} onRemoveUser={onRemoveUser} />
+                </aside>
+            {/if}
 
 			{#if isMember}
 				<aside>

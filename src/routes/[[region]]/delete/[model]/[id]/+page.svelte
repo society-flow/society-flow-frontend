@@ -4,6 +4,8 @@
 	import { base } from '$app/paths';
 	import { goto } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
+	import { PUBLIC_API_URL } from '$env/static/public';
+	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
@@ -26,6 +28,8 @@
 					item = await api.getResidenceById(id);
 				} else if (model === 'societies') {
 					item = await api.getSocietyById(id);
+				} else if (model === 'expenses') {
+					item = await api.getExpenseById(id);
 				} else {
 					error = `Unsupported model: ${model}`;
 				}
@@ -45,6 +49,16 @@
 				await api.createOrUpdateResidence({ ...item, isActive: false });
 			} else if (model === 'societies') {
 				await api.createOrUpdateSociety({ ...item }); // no isActive flag for societies
+			} else if (model === 'expenses') {
+				// Attempt hard delete via HTTP DELETE if supported
+				const url = `${PUBLIC_API_URL}/api/expenses/${id}`;
+				const headers = { 'Content-Type': 'application/json' };
+				if (userState.token) headers['Authorization'] = `Bearer ${userState.token}`;
+				const resp = await fetch(url, { method: 'DELETE', headers });
+				if (!resp.ok) {
+					const text = await resp.text();
+					throw new Error(text || `Failed to delete expense ${id}`);
+				}
 			}
 			setTimeout(() => goto(`${base}/${$locale}/${model}`), 0);
 		} catch (e) {
