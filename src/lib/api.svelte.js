@@ -252,27 +252,27 @@ class Api {
 	// --- Finances ---
 	async getAllExpensesBySociety(societyId) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.getAllExpensesBySociety({ societyId });
+		const res = await client.apis.expenses.getAllExpensesBySociety({ societyId });
 		return res.body;
 	}
 	async getExpenseById(id) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.getExpenseById({ id });
+		const res = await client.apis.expenses.getExpenseById({ id });
 		return res.body;
 	}
 	async createOrUpdateExpense(expenseData) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.createOrUpdateExpense({}, { requestBody: expenseData });
+		const res = await client.apis.expenses.createOrUpdateExpense({}, { requestBody: expenseData });
 		return res.body;
 	}
 	async getAllExpenseDistributionsByExpenseId(expenseId) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.getAllExpenseDistributionsByExpenseId({ expenseId });
+		const res = await client.apis.expenses.getAllExpenseDistributionsByExpenseId({ expenseId });
 		return res.body;
 	}
 	async createOrUpdateExpenseDistribution(distributionData) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.createOrUpdateExpenseDistribution(
+		const res = await client.apis.expenses.createOrUpdateExpenseDistribution(
 			{},
 			{ requestBody: distributionData }
 		);
@@ -280,12 +280,12 @@ class Api {
 	}
 	async getAllCalculationsByExpense(expenseId) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.getAllCalculationsByExpense({ expenseId });
+		const res = await client.apis.calculations.getAllCalculationsByExpense({ expenseId });
 		return res.body;
 	}
 	async getAllCalculationsByExpenseYearMonth(expenseId, yearMonth) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.getAllCalculationsByExpenseYearMonth({
+		const res = await client.apis.calculations.getAllCalculationsByExpenseYearMonth({
 			expenseId,
 			yearMonth
 		});
@@ -293,7 +293,7 @@ class Api {
 	}
 	async isCalculationForExpenseYearMonthUpdatable(expenseId, yearMonth) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.isCalculationForExpenseYearMonthUpdatable({
+		const res = await client.apis.calculations.isCalculationForExpenseYearMonthUpdatable({
 			expenseId,
 			yearMonth
 		});
@@ -301,7 +301,7 @@ class Api {
 	}
 	async getCalculationByExpenseYearMonthResidence(expenseId, yearMonth, residenceId) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.getCalculationByExpenseYearMonthResidence({
+		const res = await client.apis.calculations.getCalculationByExpenseYearMonthResidence({
 			expenseId,
 			yearMonth,
 			residenceId
@@ -310,7 +310,7 @@ class Api {
 	}
 	async getAllCalculationsByExpenseFromYearMonth(expenseId, fromYearMonth) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.getAllCalculationsByExpenseFromYearMonth({
+		const res = await client.apis.calculations.getAllCalculationsByExpenseFromYearMonth({
 			expenseId,
 			fromYearMonth
 		});
@@ -318,7 +318,7 @@ class Api {
 	}
 	async triggerCalculation(expenseId, yearMonth) {
 		const client = await this.getClient();
-		const res = await client.apis.finances.triggerCalculation({ expenseId, yearMonth });
+		const res = await client.apis.calculations.triggerCalculation({ expenseId, yearMonth });
 		return res.body;
 	}
 
