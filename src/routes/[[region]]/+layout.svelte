@@ -184,6 +184,13 @@
 			font-weight: normal;
 		}
 	}
+  :global(details) {
+    padding: calc(var(--s) / 3);
+    :global(summary) {
+      padding: var(--s);
+      cursor: pointer;
+    }
+  }
 
 	:global(section) {
 		padding: var(--s);

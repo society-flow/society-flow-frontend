@@ -11,5 +11,5 @@
 </header>
 
 <main>
-	<p><strong>{$_('ads.details.description')}:</strong> {advert.adDescription}</p>
+	{advert.adDescription}
 </main>
