@@ -1,314 +1,312 @@
 {
-	"title": "Society Flow",
-	"catch_line": "Partager les services. Répartir les coûts. Renforcer votre communauté.",
-	"menu": {
-		"home": "Accueil",
-		"societies": "Sociétés",
-		"residences": "Résidences",
-		"expenses": "Dépenses",
-		"adverts": "Annonces",
-		"about": "À propos",
-		"styles": "Styles",
-		"settings": "Paramètres",
-		"auth.login": "Connexion",
-		"auth.logout": "Déconnexion",
-		"auth.register": "S'inscrire",
-		"auth.verify-otp": "Vérifier OTP",
-		"legal": "Légal",
-		"legal.terms-of-service": "Conditions d'utilisation",
-		"legal.privacy-policy": "Politique de confidentialité",
-		"legal.data-processing-info": "Informations sur le traitement des données",
-		"legal.cookie-policy": "Politique des cookies",
-		"create.societies": "Créer une nouvelle société",
-		"create.residences": "Créer une nouvelle résidence",
-		"create.ads": "Créer une nouvelle annonce",
-		"update.societies": "Mettre à jour la société",
-		"update.residences": "Mettre à jour la résidence",
-		"update.ads": "Mettre à jour l'annonce"
-	},
-	"pages": {
-		"auth": {
-			"verify-otp": {
-				"sections": {
-					"did-not-receive": {
-						"text": "Vous n'avez pas reçu l'e-mail avec le code OTP ?"
-					},
-					"resend": {
-						"text": "Renvoyer l'e-mail",
-						"link": {
-							"url": "/auth/login?email={email}",
-							"text": "menu.auth.verify-otp"
-						}
-					}
-				}
-			},
-			"register": {
-				"sections": {
-					"have-account": {
-						"text": "Vous avez déjà un compte ?",
-						"link": {
-							"url": "/auth/login",
-							"text": "menu.auth.login"
-						}
-					}
-				}
-			},
-			"login": {
-				"sections": {
-					"no-account": {
-						"text": "Vous n'avez pas encore de compte ? C'est gratuit de",
-						"link": {
-							"url": "/auth/register",
-							"text": "menu.auth.register"
-						}
-					}
-				}
-			}
-		},
-		"settings": {
-			"sections": {
-				"development": {
-					"title": "Développement"
-				},
-				"demo": {
-					"title": "Démo",
-					"loginText": "Se connecter en tant qu'utilisateur de démonstration",
-					"logoutText": "Se déconnecter de l'utilisateur de démonstration"
-				}
-			}
-		},
-		"home": {
-			"auth": {
-				"greeting": "Bonjour {name} ({email}).",
-				"dashboard": {
-					"title": "Votre Tableau de Bord"
-				},
-				"sections": {
-					"societies": "Sociétés",
-					"residences": "Résidences"
-				}
-			},
-			"marketing": {
-				"user_types": {
-					"society_admin": {
-						"title": "Administrateurs de Société",
-						"features": [
-							"Créer une ou plusieurs sociétés",
-							"Inviter des utilisateurs",
-							"Ajouter les dépenses nécessaires",
-							"Approuver les enregistrements de paiement",
-							"Créer des ajustements personnalisés",
-							"Publier des avis aux résidents"
-						]
-					},
-					"society_member": {
-						"title": "Membres de Société",
-						"features": [
-							"Voir toutes vos résidences dans diverses sociétés et villes",
-							"Voir vos cotisations mensuelles avec une répartition appropriée des coûts et des fonds disponibles",
-							"Envoyer des messages aux administrateurs concernant les problèmes rencontrés ou recevoir des notifications de leur part."
-						]
-					},
-					"rent_seeker": {
-						"title": "Vous cherchez à louer ou à acheter ?",
-						"features": [
-							"Consultez les annonces publiées par des propriétaires ou sociétés authentifiés et valides concernant la disponibilité, adaptées à votre budget et à l'emplacement de vos rêves"
-						]
-					}
-				},
-				"call_to_action": "Rejoignez {title} et découvrez toutes les fonctionnalités."
-			}
-		},
-		"about": {
-			"title": "À propos",
-			"sections": {
-				"problem": {
-					"text": "Différents pays avec le même problème : Gestion des dépenses cachées sans visibilité claire des coûts et des fonds.",
-					"icon": "hidden-expenses"
-				},
-				"goal": {
-					"text": "Notre objectif est de fournir une répartition détaillée des prix mensuels calculés dynamiquement à votre connaissance.",
-					"icon": "pricing-breakdown"
-				},
-				"philosophy": {
-					"text": "Nous croyons fermement que les dépenses réduites ou augmentées devraient faire varier les contributions, pas les fixer. De plus, différentes dépenses nécessitent des méthodes de distribution différentes entre les résidences.",
-					"icon": "variable-contributions"
-				},
-				"peer_services": {
-					"text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées de membres utilisateurs valides, en contournant les intermédiaires. La prochaine fois, contactez directement vos pairs pour tous les services dans votre domaine d'intérêt sans payer trop cher !",
-					"icon": "peer-to-peer"
-				}
-			}
-		},
-		"error": {
-			"not_found": "La page demandée n'existe pas sur ce site."
-		}
-	},
-	"components": {
-		"settings": {
-			"api": {
-				"legend": "URL de l’API",
-				"label": "Où se trouve l’API sur les serveurs backend."
-			}
-		},
-		"locales": {
-			"language": "Langue"
-		},
-		"auth": {
-			"login": {
-				"email": {
-					"legend": "E-mail",
-					"placeholder": "utilisateur@exemple.com"
-				},
-				"submit": "Connexion",
-				"error": "{error}"
-			},
-			"register": {
-				"name": {
-					"legend": "Nom",
-					"placeholder": "Azur"
-				},
-				"email": {
-					"legend": "E‑mail",
-					"placeholder": "utilisateur@exemple.com"
-				},
-				"submit": "Inscription",
-				"error": "{error}"
-			},
-			"verify_otp": {
-				"email": {
-					"legend": "E‑mail",
-					"placeholder": "utilisateur@exemple.com"
-				},
-				"otp": {
-					"legend": "Code OTP (Mot de passe à usage unique)",
-					"placeholder": "12345"
-				},
-				"submit": "Vérifier"
-			}
-		},
-		"users": {
-			"card": {
-				"user_id": "ID utilisateur",
-				"user_name": "Nom",
-				"user_role": "Rôle",
-				"member_since": "Membre depuis",
-				"no_members": "Aucun membre trouvé"
-			},
-			"list": {
-				"no_user": "Il n'y a actuellement aucun utilisateur."
-			}
-		},
-		"societies": {
-			"form": {
-				"name": "Nom de la société",
-				"name_placeholder": "Entrez le nom de la société",
-				"postcode": "Code postal",
-				"postcode_placeholder": "Entrez le code postal",
-				"city": "Ville",
-				"city_placeholder": "Entrez la ville",
-				"state": "État",
-				"state_placeholder": "Entrez l'état",
-				"country": "Pays",
-				"country_placeholder": "Entrez le pays",
-				"timezone": "Fuseau horaire",
-				"timezone_placeholder": "Entrez le fuseau horaire (ex : Europe/Paris)",
-				"currency": "Devise",
-				"area_unit": "Unité de surface",
-				"submit": "Créer la société"
-			},
-			"details": {
-				"role": "Rôle",
-				"no_membership": "Vous n'êtes pas membre",
-				"id": "ID de la société",
-				"location": "Emplacement",
-				"postcode": "Code postal",
-				"currency": "Devise",
-				"timezone": "Fuseau horaire",
-				"area_unit": "Unité de surface",
-				"fine_rate": "Taux d’amende",
-				"coordinates": "Coordonnées",
-				"created": "Créé le",
-				"updated": "Dernière mise à jour"
-			}
-		},
-		"residences": {
-			"form": {
-				"societyId": "ID de la société",
-				"societyId_placeholder": "Saisir l'ID de la société",
-				"residenceName": "Nom de la résidence",
-				"residenceName_placeholder": "Entrez le nom de la résidence",
-				"floorCount": "Nombre d'étages",
-				"floorCount_placeholder": "Entrez le nombre d'étages",
-				"areaValue": "Superficie (m²)",
-				"areaValue_placeholder": "Entrez la superficie en pieds carrés",
-				"residentsCount": "Nombre de résidents",
-				"residentsCount_placeholder": "Entrez le nombre de résidents",
-				"description": "Description",
-				"description_placeholder": "Ajoutez une description (facultatif)"
-			},
-			"details": {
-				"societyId": "ID de la société",
-				"residentsCount": "Nombre de résidents",
-				"floorCount": "Nombre d'étages",
-				"area": "Surface",
-				"active": "Actif",
-				"yes": "Oui",
-				"no": "Non",
-				"description": "Description",
-				"createdAt": "Créé le",
-				"updatedAt": "Mis à jour le",
-				"notAvailable": "Non disponible"
-			},
-			"invite_user": {
-				"title": "Inviter un nouvel utilisateur à cette résidence",
-				"name": {
-					"legend": "Nom",
-					"placeholder": "Alice"
-				},
-				"email": {
-					"legend": "E-mail",
-					"placeholder": "utilisateur@exemple.com"
-				}
-			}
-		},
-		"ads": {
-			"form": {
-				"adTitle": "Titre de l’annonce",
-				"adTitle_placeholder": "Entrez le titre de l’annonce",
-				"adDescription": "Description de l'annonce",
-				"adDescription_placeholder": "Entrez la description de l'annonce",
-				"anonymousUserName": "Nom d'utilisateur anonyme",
-				"anonymousUserName_placeholder": "Entrez un nom d'utilisateur anonyme",
-				"type": "Type d'annonce",
-				"type_placeholder": "Sélectionnez un type d'annonce",
-				"map": "Sélectionner un emplacement sur la carte",
-				"coordinates": "Coordonnées (Latitude, Longitude)",
-				"create": "Créer une annonce",
-				"created_successfully": "Annonce créée avec succès."
-			}
-		},
-		"legal": {
-			"dpi": {
-				"controller.heading": "Responsable du traitement",
-				"controller.name_label": "Nom :",
-				"controller.address_label": "Adresse :",
-				"controller.email_label": "E-mail :",
-				"controller.phone_label": "Téléphone :",
-				"protection_officer.heading": "Délégué à la protection des données",
-				"protection_officer.email_label": "E-mail :",
-				"purposes.heading": "Finalités du traitement",
-				"legal_bases.heading": "Fondements juridiques",
-				"recipients.heading": "Destinataires des données",
-				"retention.heading": "Conservation des données",
-				"rights.heading": "Vos droits",
-				"supervisory_authority.heading": "Autorité de contrôle"
-			}
-		}
-	},
-	"common": {
-		"creating": "Création en cours...",
-		"submit": "Envoyer",
-		"join": "Rejoindre"
-	}
+  "title": "Society Flow",
+  "catch_line": "Partagez des services. Répartissez les coûts. Renforcez votre communauté.",
+  "menu": {
+    "home": "Accueil",
+    "societies": "Sociétés",
+    "residences": "Résidences",
+    "expenses": "Dépenses",
+    "adverts": "Annonces",
+    "about": "À propos",
+    "styles": "Styles",
+    "settings": "Paramètres",
+    "auth.login": "Connexion",
+    "auth.logout": "Déconnexion",
+    "auth.register": "Inscription",
+    "auth.verify-otp": "Vérifier OTP",
+    "legal": "Mentions légales",
+    "legal.terms-of-service": "Conditions d'utilisation",
+    "legal.privacy-policy": "Politique de confidentialité",
+    "legal.data-processing-info": "Informations sur le traitement des données",
+    "legal.cookie-policy": "Politique relative aux cookies",
+    "create.societies": "Créer une nouvelle société",
+    "create.residences": "Créer une nouvelle résidence",
+    "create.ads": "Créer une nouvelle annonce",
+    "update.societies": "Mettre à jour la société",
+    "update.residences": "Mettre à jour la résidence",
+    "update.ads": "Mettre à jour l'annonce"
+  },
+  "pages": {
+    "auth": {
+      "verify-otp": {
+        "sections": {
+          "did-not-receive": {
+            "text": "Vous n'avez pas reçu d'e-mail avec le code OTP ?"
+          },
+          "resend": {
+            "text": "Renvoyer l'e-mail",
+            "link": {
+              "url": "/auth/login?email={email}",
+              "text": "menu.auth.verify-otp"
+            }
+          }
+        }
+      },
+      "register": {
+        "sections": {
+          "have-account": {
+            "text": "Vous avez déjà un compte ?",
+            "link": {
+              "url": "/auth/login",
+              "text": "menu.auth.login"
+            }
+          }
+        }
+      },
+      "login": {
+        "sections": {
+          "no-account": {
+            "text": "Vous n'avez pas encore de compte ? C'est gratuit de",
+            "link": {
+              "url": "/auth/register",
+              "text": "menu.auth.register"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "sections": {
+        "development": {
+          "title": "Développement"
+        },
+        "demo": {
+          "title": "Démo",
+          "loginText": "Connectez-vous en tant qu'utilisateur de démonstration",
+          "logoutText": "Déconnecter l'utilisateur de démonstration"
+        }
+      }
+    },
+    "home": {
+      "auth": {
+        "greeting": "Bonjour {name} ({email}).",
+        "dashboard": {
+          "title": "Votre tableau de bord"
+        },
+        "sections": {
+          "societies": "Sociétés",
+          "residences": "Résidences"
+        }
+      },
+      "marketing": {
+        "user_types": {
+          "society_admin": {
+            "title": "Administrateurs de la société",
+            "features": [
+              "Créez une ou plusieurs sociétés",
+              "Inviter des utilisateurs",
+              "Ajouter les dépenses nécessaires",
+              "Approuver les relevés de paiement",
+              "Créer des ajustements personnalisés",
+              "Publier des avis aux résidents"
+            ]
+          },
+          "society_member": {
+            "title": "Membres de la société",
+            "features": [
+              "Consultez toutes vos résidences dans différentes sociétés et villes",
+              "Consultez vos cotisations mensuelles avec une ventilation appropriée des coûts et des fonds disponibles",
+              "Envoyez des messages aux administrateurs des problèmes rencontrés ou recevez des notifications de leur part."
+            ]
+          },
+          "rent_seeker": {
+            "title": "Vous recherchez des locations ou souhaitez en acheter une ?",
+            "features": [
+              "Consultez les annonces publiées par des propriétaires ou des sociétés valides et authentifiés concernant la disponibilité, en fonction de votre budget et de l'emplacement de vos rêves"
+            ]
+          }
+        },
+        "call_to_action": "Rejoignez {title} et découvrez toutes les fonctionnalités."
+      }
+    },
+    "about": {
+      "title": "À propos",
+      "sections": {
+        "problem": {
+          "text": "Différents pays avec le même problème : gestion des dépenses cachées sans visibilité claire des coûts et des fonds.",
+          "icon": "hidden-expenses"
+        },
+        "goal": {
+          "text": "Notre objectif est de fournir une répartition détaillée des prix mensuels calculés dynamiquement à votre connaissance.",
+          "icon": "pricing-breakdown"
+        },
+        "philosophy": {
+          "text": "Nous pensons fermement que les dépenses réduites ou augmentées devraient faire varier les cotisations, et non les fixer. De plus, différentes dépenses nécessitent une manière différente de répartition entre les résidences.",
+          "icon": "variable-contributions"
+        },
+        "peer_services": {
+          "text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées de membres valides d'utilisateurs, en contournant les intermédiaires. La prochaine fois, contactez directement vos pairs pour tous les services qui vous intéressent sans payer trop cher !",
+          "icon": "peer-to-peer"
+        }
+      }
+    },
+    "error": {
+      "not_found": "La page demandée n'existe pas sur ce site Web."
+    }
+  },
+  "components": {
+    "settings": {
+      "api": {
+        "legend": "URL de l'API",
+        "label": "Où se trouve l'API sur les serveurs backend."
+      }
+    },
+    "locales": {
+      "language": "Langue"
+    },
+    "auth": {
+      "login": {
+        "email": {
+          "legend": "E-mail",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Connexion",
+        "error": "{error}"
+      },
+      "register": {
+        "name": {
+          "legend": "Nom",
+          "placeholder": "Azur"
+        },
+        "email": {
+          "legend": "E-mail",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Inscription",
+        "error": "{error}"
+      },
+      "verify_otp": {
+        "email": {
+          "legend": "E-mail",
+          "placeholder": "user@example.com"
+        },
+        "otp": {
+          "legend": "OTP (Mot de passe à usage unique)"
+        },
+        "submit": "Vérifier"
+      }
+    },
+    "users": {
+      "card": {
+        "user_id": "ID utilisateur",
+        "user_name": "Nom",
+        "user_role": "Rôle",
+        "member_since": "Membre depuis",
+        "no_members": "Aucun membre trouvé"
+      },
+      "list": {
+        "no_user": "Il n'y a actuellement aucun utilisateur."
+      }
+    },
+    "societies": {
+      "form": {
+        "name": "Nom de la société",
+        "name_placeholder": "Entrez le nom de la société",
+        "postcode": "Code postal",
+        "postcode_placeholder": "Entrez le code postal",
+        "city": "Ville",
+        "city_placeholder": "Entrez la ville",
+        "state": "État",
+        "state_placeholder": "Entrez l'état",
+        "country": "Pays",
+        "country_placeholder": "Entrez le pays",
+        "timezone": "Fuseau horaire",
+        "timezone_placeholder": "Entrez le fuseau horaire (par exemple, Europe/Berlin)",
+        "currency": "Devise",
+        "area_unit": "Unité de surface"
+      },
+      "details": {
+        "role": "Rôle",
+        "no_membership": "Vous n'êtes pas membre",
+        "id": "ID de la société",
+        "location": "Emplacement",
+        "postcode": "Code postal",
+        "currency": "Devise",
+        "timezone": "Fuseau horaire",
+        "area_unit": "Unité de surface",
+        "fine_rate": "Taux d'amende",
+        "coordinates": "Coordonnées",
+        "created": "Créé le",
+        "updated": "Dernière mise à jour"
+      }
+    },
+    "residences": {
+      "form": {
+        "societyId": "ID de la société",
+        "societyId_placeholder": "Entrez l'ID de la société",
+        "residenceName": "Nom de la résidence",
+        "residenceName_placeholder": "Entrez le nom de la résidence",
+        "floorCount": "Nombre d'étages",
+        "floorCount_placeholder": "Entrez le nombre d'étages",
+        "areaValue": "Surface (pi2)",
+        "areaValue_placeholder": "Entrez la surface en pi2",
+        "residentsCount": "Nombre de résidents",
+        "residentsCount_placeholder": "Entrez le nombre de résidents",
+        "description": "Description",
+        "description_placeholder": "Ajouter une description (facultatif)"
+      },
+      "details": {
+        "societyId": "ID de la société",
+        "residentsCount": "Résidents",
+        "floorCount": "Étages",
+        "area": "Surface",
+        "active": "Actif",
+        "yes": "Oui",
+        "no": "Non",
+        "description": "Description",
+        "createdAt": "Créé le",
+        "updatedAt": "Mis à jour le",
+        "notAvailable": "Non disponible"
+      },
+      "invite_user": {
+        "title": "Inviter un nouvel utilisateur à cette résidence",
+        "name": {
+          "legend": "Nom",
+          "placeholder": "Alice"
+        },
+        "email": {
+          "legend": "E-mail",
+          "placeholder": "user@example.com"
+        }
+      }
+    },
+    "ads": {
+      "form": {
+        "adTitle": "Titre de l'annonce",
+        "adTitle_placeholder": "Entrez le titre de l'annonce",
+        "adDescription": "Description de l'annonce",
+        "adDescription_placeholder": "Entrez la description de l'annonce",
+        "anonymousUserName": "Nom d'utilisateur anonyme",
+        "anonymousUserName_placeholder": "Entrez votre alias ou votre nom anonyme",
+        "type": "Type d'annonce",
+        "type_placeholder": "Sélectionnez un type d'annonce",
+        "map": "Sélectionnez l'emplacement sur la carte",
+        "coordinates": "Coordonnées (latitude, longitude)",
+        "create": "Créer une annonce",
+        "created_successfully": "Annonce créée avec succès."
+      }
+    },
+    "legal": {
+      "dpi": {
+        "controller.heading": "Responsable du traitement des données",
+        "controller.name_label": "Nom:",
+        "controller.address_label": "Adresse:",
+        "controller.email_label": "E-mail:",
+        "controller.phone_label": "Téléphone:",
+        "protection_officer.heading": "Délégué à la protection des données",
+        "protection_officer.email_label": "E-mail:",
+        "purposes.heading": "Finalités du traitement",
+        "legal_bases.heading": "Bases légales",
+        "recipients.heading": "Destinataires des données",
+        "retention.heading": "Conservation des données",
+        "rights.heading": "Vos droits",
+        "supervisory_authority.heading": "Autorité de contrôle"
+      }
+    }
+  },
+  "common": {
+    "creating": "Création...",
+    "submit": "Soumettre",
+    "join": "Rejoindre"
+  }
 }

@@ -1,315 +1,312 @@
 {
-	"title": "Society Flow",
-	"catch_line": "সেৱাসমূহ ভাগ-বতৰা কৰক। খৰচ ভাগ কৰক। আপোনাৰ সমাজ শক্তিশালী কৰক।",
-	"menu": {
-		"home": "মূল পৃষ্ঠা",
-		"societies": "সমাজসমূহ",
-		"residences": "বাসগৃহসমূহ",
-		"expenses": "খৰচসমূহ",
-		"adverts": "বিজ্ঞাপনসমূহ",
-		"about": "আমাৰ বিষয়ে",
-		"styles": "ষ্টাইলসমূহ",
-		"settings": "সংহতিসমূহ",
-		"auth.login": "লগ ইন",
-		"auth.logout": "লগ আউট",
-		"auth.register": "পঞ্জীকৰণ",
-		"auth.verify-otp": "OTP সত্যাপন",
-		"legal": "আইনী",
-		"legal.terms-of-service": "সেৱাৰ চৰ্তাৱলী",
-		"legal.privacy-policy": "গোপনীয়তা নীতি",
-		"legal.data-processing-info": "তথ্য প্ৰক্ৰিয়াকৰণৰ তথ্য",
-		"legal.cookie-policy": "কুকি নীতি",
-		"create.societies": "নতুন সমাজ সৃষ্টি কৰক",
-		"create.residences": "নতুন বাসস্থান সৃষ্টি কৰক",
-		"create.ads": "নতুন বিজ্ঞাপন সৃষ্টি কৰক",
-		"update.societies": "সমাজ আপডেট কৰক",
-		"update.residences": "আবাসন আপডেট কৰক",
-		"update.ads": "বিজ্ঞাপন আপডেট কৰক"
-	},
-	"pages": {
-		"auth": {
-			"verify-otp": {
-				"sections": {
-					"did-not-receive": {
-						"text": "আপুনি OTP ক'ড থকা ইমেইলটো লাভ কৰা নাইনে?"
-					},
-					"resend": {
-						"text": "ইমেইল পুনৰ পঠাওক",
-						"link": {
-							"url": "/auth/login?email={email}",
-							"text": "menu.auth.verify-otp"
-						}
-					}
-				}
-			},
-
-			"register": {
-				"sections": {
-					"have-account": {
-						"text": "আপোনাৰ ইতিমধ্যে এটা একাউণ্ট আছে নে?",
-						"link": {
-							"url": "/auth/login",
-							"text": "menu.auth.login"
-						}
-					}
-				}
-			},
-
-			"login": {
-				"sections": {
-					"no-account": {
-						"text": "আপোনাৰ এতিয়াও একাউণ্ট নাইনে? বিনামূল্যে",
-						"link": {
-							"url": "/auth/register",
-							"text": "menu.auth.register"
-						}
-					}
-				}
-			}
-		},
-		"settings": {
-			"sections": {
-				"development": {
-					"title": "উন্নয়ন"
-				},
-				"demo": {
-					"title": "ডেমো",
-					"loginText": "ডেমো ব্যৱহাৰকাৰী হিচাপে লগ ইন কৰক",
-					"logoutText": "ডেমো ব্যৱহাৰকাৰী হিচাপে লগ আউট কৰক"
-				}
-			}
-		},
-		"home": {
-			"auth": {
-				"greeting": "নমস্কাৰ {name} ({email})।",
-				"dashboard": {
-					"title": "আপোনাৰ ডেছব'ৰ্ড"
-				},
-				"sections": {
-					"societies": "সমাজসমূহ",
-					"residences": "বাসগৃহসমূহ"
-				}
-			},
-			"marketing": {
-				"user_types": {
-					"society_admin": {
-						"title": "সমাজ প্ৰশাসকসকল",
-						"features": [
-							"এক বা একাধিক সমাজ সৃষ্টি কৰক",
-							"ব্যৱহাৰকাৰীসকলক আমন্ত্ৰণ জনাওক",
-							"প্ৰয়োজনীয় খৰচসমূহ যোগ কৰক",
-							"পৰিশোধৰ ৰেকৰ্ডসমূহ অনুমোদন কৰক",
-							"কাষ্টম সমন্বয়সমূহ সৃষ্টি কৰক",
-							"বাসিন্দাসকললৈ জাননী প্ৰকাশ কৰক"
-						]
-					},
-					"society_member": {
-						"title": "সমাজৰ সদস্যসকল",
-						"features": [
-							"বিভিন্ন সমাজ আৰু চহৰত আপোনাৰ সকলো বাসগৃহ চাওক",
-							"খৰচ আৰু উপলব্ধ পুঁজিৰ উপযুক্ত বিভাজনৰ সৈতে আপোনাৰ মাহেকীয়া বকেয়া চাওক",
-							"সন্মুখীন হোৱা সমস্যাবোৰৰ বিষয়ে প্ৰশাসকসকলক বাৰ্তা পঠিয়াওক বা তেওঁলোকৰ পৰা জাননী লাভ কৰক।"
-						]
-					},
-					"rent_seeker": {
-						"title": "ভাড়া বিচাৰিছে নে কিনিব বিচাৰিছে?",
-						"features": [
-							"আপোনাৰ বাজেট আৰু সপোনৰ স্থানৰ উপযুক্ত, প্ৰমাণীকৃত বৈধ মালিক বা সমাজসমূহে প্ৰকাশ কৰা উপলব্ধতাৰ বিজ্ঞাপনসমূহ চাওক"
-						]
-					}
-				},
-				"call_to_action": "{title}ত যোগদান কৰক আৰু সকলো বৈশিষ্ট্য আৱিষ্কাৰ কৰক।"
-			}
-		},
-		"about": {
-			"title": "আমাৰ বিষয়ে",
-			"sections": {
-				"problem": {
-					"text": "একেটা সমস্যা থকা বিভিন্ন দেশ: খৰচ আৰু পুঁজিৰ স্পষ্ট দৃশ্যমানতা নোহোৱাকৈ লুকাই থকা খৰচ ব্যৱস্থাপনা।",
-					"icon": "hidden-expenses"
-				},
-				"goal": {
-					"text": "আমাৰ লক্ষ্য হৈছে আপোনাৰ জ্ঞানলৈ গতিশীলভাৱে গণনা কৰা মাহেকীয়া মূল্যৰ বিতংভাৱে বিভাজন প্ৰদান কৰা।",
-					"icon": "pricing-breakdown"
-				},
-				"philosophy": {
-					"text": "আমি দৃঢ়ভাৱে অনুভৱ কৰোঁ যে খৰচ হ্ৰাস বা বৃদ্ধিয়ে অৱদানসমূহ পৰিৱৰ্তনশীল কৰা উচিত, স্থিৰ নহয়। লগতে, বিভিন্ন খৰচৰ বাবে বাসগৃহসমূহত বিতৰণৰ বিভিন্ন পদ্ধতিৰ প্ৰয়োজন।",
-					"icon": "variable-contributions"
-				},
-				"peer_services": {
-					"text": "পথত, আমাৰ ব্যৱস্থাই আপোনাক বৈধ সদস্য ব্যৱহাৰকাৰীসকলৰ পৰা ভৌগোলিকভাৱে অৱস্থিত বিজ্ঞাপনসমূহ সৃষ্টি বা বিচাৰি উলিওৱাৰ সুবিধা দিয়ে, মধ্যস্থতাকাৰীসকলক এৰাই। পৰৱৰ্তী সময়ত অধিক মূল্য নিদিয়াকৈ আপোনাৰ আগ্ৰহৰ ক্ষেত্ৰৰ ভিতৰত যিকোনো সেৱাৰ বাবে সমনীয়াৰ পৰা সমনীয়ালৈ পোনপটীয়াকৈ যোগাযোগ কৰক!",
-					"icon": "peer-to-peer"
-				}
-			}
-		},
-		"error": {
-			"not_found": "অনুৰোধ কৰা পৃষ্ঠাটো এই ৱেবচাইটত নাছিল।"
-		}
-	},
-	"components": {
-		"settings": {
-			"api": {
-				"legend": "এপিআই URL",
-				"label": "ব্যাকএণ্ড ছাৰ্ভাৰসমূহত API থকা স্থান।"
-			}
-		},
-		"locales": {
-			"language": "ভাষা"
-		},
-		"auth": {
-			"login": {
-				"email": {
-					"legend": "ইমেইল",
-					"placeholder": "ব্যৱহাৰকাৰী@উদাহৰণ.com"
-				},
-				"submit": "প্ৰৱেশ কৰক",
-				"error": "{error}"
-			},
-			"register": {
-				"name": {
-					"legend": "নাম",
-					"placeholder": "Azur"
-				},
-				"email": {
-					"legend": "ইমেইল",
-					"placeholder": "ব্যৱহাৰকাৰী@উদাহৰণ.com"
-				},
-				"submit": "নিবন্ধন কৰক",
-				"error": "{error}"
-			},
-			"verify_otp": {
-				"email": {
-					"legend": "ইমেইল",
-					"placeholder": "ব্যৱহাৰকাৰী@উদাহৰণ.com"
-				},
-				"otp": {
-					"legend": "OTP (এবাৰ ব্যৱহাৰ কৰিব পৰা পাছৱৰ্ড)",
-					"placeholder": "12345"
-				},
-				"submit": "যাচাই কৰক"
-			}
-		},
-		"users": {
-			"card": {
-				"user_id": "ব্যৱহাৰকাৰীৰ আইডি",
-				"user_name": "নাম",
-				"user_role": "ভূমিকা",
-				"member_since": "সদস্যতাৰ তাৰিখ",
-				"no_members": "কোনো সদস্য পোৱা নগ’ল"
-			},
-			"list": {
-				"no_user": "বৰ্তমান কোনো ব্যৱহাৰকাৰী নাই।"
-			}
-		},
-		"societies": {
-			"form": {
-				"name": "সমাজৰ নাম",
-				"name_placeholder": "সমাজৰ নাম লিখক",
-				"postcode": "পিনক'ড",
-				"postcode_placeholder": "পিনক'ড লিখক",
-				"city": "চহৰ",
-				"city_placeholder": "চহৰৰ নাম লিখক",
-				"state": "ৰাজ্য",
-				"state_placeholder": "ৰাজ্যৰ নাম লিখক",
-				"country": "দেশ",
-				"country_placeholder": "দেশৰ নাম লিখক",
-				"timezone": "সময় মণ্ডল",
-				"timezone_placeholder": "সময় মণ্ডল লিখক (যেনেঃ Asia/Kolkata)",
-				"currency": "মুদ্ৰা",
-				"area_unit": "ক্ষেত্ৰফল একক"
-			},
-			"details": {
-				"role": "ভুমিকা",
-				"no_membership": "আপুনি সদস্য নহয়",
-				"id": "সমিতিৰ আইডি",
-				"location": "অৱস্থান",
-				"postcode": "পিনক'ড",
-				"currency": "মুদ্ৰা",
-				"timezone": "সময় অঞ্চল",
-				"area_unit": "মাটিৰ একক",
-				"fine_rate": "জৰিমনা হাৰ",
-				"coordinates": "স্থানাংক",
-				"created": "সৃষ্টি তাৰিখ",
-				"updated": "শেষবাৰৰ আপডে’ট"
-			}
-		},
-		"residences": {
-			"form": {
-				"societyId": "সমাজ আইডি",
-				"societyId_placeholder": "সমাজ আইডি প্ৰৱিষ্ট কৰক",
-				"residenceName": "আবাসৰ নাম",
-				"residenceName_placeholder": "আবাসৰ নাম লিখক",
-				"floorCount": "তলসংখ্যা",
-				"floorCount_placeholder": "তলসংখ্যা প্ৰৱিষ্ট কৰক",
-				"areaValue": "ক্ষেত্ৰফল (স্কুৱে. ফুট)",
-				"areaValue_placeholder": "স্কুৱে. ফুটত ক্ষেত্ৰফল লিখক",
-				"residentsCount": "নিবাসীৰ সংখ্যা",
-				"residentsCount_placeholder": "নিবাসীৰ সংখ্যা প্ৰৱিষ্ট কৰক",
-				"description": "বিৱৰণ",
-				"description_placeholder": "এটা বিৱৰণ যোগ কৰক (ঐচ্ছিক)"
-			},
-			"details": {
-				"societyId": "সমাজৰ আইডি",
-				"residentsCount": "বাসিন্দাৰ সংখ্যা",
-				"floorCount": "মজিয়াৰ সংখ্যা",
-				"area": "মাটিৰ পৰিমাণ",
-				"active": "সক্রিয়",
-				"yes": "হয়",
-				"no": "নহয়",
-				"description": "বিৱৰণ",
-				"createdAt": "সৃষ্টি কৰা তাৰিখ",
-				"updatedAt": "সৰ্বশেষ সম্পাদিত",
-				"notAvailable": "উপলব্ধ নহয়"
-			},
-			"invite_user": {
-				"title": "এই আবাসস্থলত এটা নতুন ব্যৱহাৰকাৰীক আমন্ত্ৰণ জনাওক",
-				"name": {
-					"legend": "নাম",
-					"placeholder": "এলিছ"
-				},
-				"email": {
-					"legend": "ইমেইল",
-					"placeholder": "ব্যৱহাৰকাৰী@উদাহৰণ.com"
-				}
-			}
-		},
-		"ads": {
-			"form": {
-				"adTitle": "বিজ্ঞাপন শিৰোনাম",
-				"adTitle_placeholder": "বিজ্ঞাপন শিৰোনাম লিখক",
-				"adDescription": "বিজ্ঞাপন বিৱৰণ",
-				"adDescription_placeholder": "বিজ্ঞাপনটোৰ বিৱৰণ লিখক",
-				"anonymousUserName": "অজ্ঞাত ব্যৱহাৰকাৰীৰ নাম",
-				"anonymousUserName_placeholder": "আপোনাৰ ছদ্ম নাম লিখক",
-				"type": "বিজ্ঞাপন ধৰণ",
-				"type_placeholder": "বিজ্ঞাপন ধৰণ নিৰ্ব্বাচন কৰক",
-				"map": "মেপত স্থান নিৰ্ব্বাচন কৰক",
-				"coordinates": "অৱস্থান (অক্ষাংশ, দেশান্চ)",
-				"create": "বিজ্ঞাপন সৃষ্টি কৰক",
-				"created_successfully": "বিজ্ঞাপন সফলভাৱে সৃষ্টি কৰা হৈছে।"
-			}
-		},
-		"legal": {
-			"dpi": {
-				"controller.heading": "ডেটা নিয়ন্ত্ৰক",
-				"controller.name_label": "নাম:",
-				"controller.address_label": "ঠিকনা:",
-				"controller.email_label": "ইমেইল:",
-				"controller.phone_label": "ফোন:",
-				"protection_officer.heading": "ডেটা সংৰক্ষণ বিষয়া",
-				"protection_officer.email_label": "ইমেইল:",
-				"purposes.heading": "প্ৰক্ৰিয়াকৰণৰ উদ্দেশ্যসমূহ",
-				"legal_bases.heading": "আইনী আধাৰ",
-				"recipients.heading": "ডেটা গ্ৰহণকাৰীসকল",
-				"retention.heading": "ডেটা ৰক্ষা",
-				"rights.heading": "আপোনাৰ অধিকাৰ",
-				"supervisory_authority.heading": "পৰ্যবেক্ষণ কৰ্তৃপক্ষ"
-			}
-		}
-	},
-	"common": {
-		"creating": "সৃষ্টি হৈ আছে...",
-		"submit": "জমা দিয়ক",
-		"join": "যোগদান কৰক"
-	}
+  "title": "Society Flow",
+  "catch_line": "Share services. Split costs. Strengthen your community.",
+  "menu": {
+    "home": "Home",
+    "societies": "Societies",
+    "residences": "Residences",
+    "expenses": "Expenses",
+    "adverts": "Adverts",
+    "about": "About",
+    "styles": "Styles",
+    "settings": "Settings",
+    "auth.login": "Login",
+    "auth.logout": "Logout",
+    "auth.register": "Register",
+    "auth.verify-otp": "Verify OTP",
+    "legal": "Legal",
+    "legal.terms-of-service": "Terms of Service",
+    "legal.privacy-policy": "Privacy Policy",
+    "legal.data-processing-info": "Data Processing Information",
+    "legal.cookie-policy": "Cookie Policy",
+    "create.societies": "Create new Society",
+    "create.residences": "Create new Residence",
+    "create.ads": "Create new Ad",
+    "update.societies": "Update Society",
+    "update.residences": "Update Residence",
+    "update.ads": "Update Ad"
+  },
+  "pages": {
+    "auth": {
+      "verify-otp": {
+        "sections": {
+          "did-not-receive": {
+            "text": "You did not receive an email with the OTP code?"
+          },
+          "resend": {
+            "text": "Resend email",
+            "link": {
+              "url": "/auth/login?email={email}",
+              "text": "menu.auth.verify-otp"
+            }
+          }
+        }
+      },
+      "register": {
+        "sections": {
+          "have-account": {
+            "text": "You already have an account?",
+            "link": {
+              "url": "/auth/login",
+              "text": "menu.auth.login"
+            }
+          }
+        }
+      },
+      "login": {
+        "sections": {
+          "no-account": {
+            "text": "You don't have an account yet? It's free to",
+            "link": {
+              "url": "/auth/register",
+              "text": "menu.auth.register"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "sections": {
+        "development": {
+          "title": "Development"
+        },
+        "demo": {
+          "title": "Demo",
+          "loginText": "Log in demo user",
+          "logoutText": "Log out demo user"
+        }
+      }
+    },
+    "home": {
+      "auth": {
+        "greeting": "Hello {name} ({email}).",
+        "dashboard": {
+          "title": "Your Dashboard"
+        },
+        "sections": {
+          "societies": "Societies",
+          "residences": "Residences"
+        }
+      },
+      "marketing": {
+        "user_types": {
+          "society_admin": {
+            "title": "Society Admins",
+            "features": [
+              "Create one or more society",
+              "Invite users",
+              "Add expenses needed",
+              "Approve payment records",
+              "Create custom adjustments",
+              "Publish notices to residents"
+            ]
+          },
+          "society_member": {
+            "title": "Society Members",
+            "features": [
+              "View all your residences across various societies and cities",
+              "View your monthly dues with proper breakup of costs and available funds",
+              "Message admins of issues being faced or get notifications from them."
+            ]
+          },
+          "rent_seeker": {
+            "title": "Looking for Rents or looking to buy one?",
+            "features": [
+              "Check out the adverts published by authenticated valid landlords or societies about availability, as suitable to your budget and dream location"
+            ]
+          }
+        },
+        "call_to_action": "Join {title} and discover all features."
+      }
+    },
+    "about": {
+      "title": "About",
+      "sections": {
+        "problem": {
+          "text": "Different countries with same problem: Hidden expense management without clear visibility of costs and funds.",
+          "icon": "hidden-expenses"
+        },
+        "goal": {
+          "text": "Our goal is to provide detailed breakup of dynamically calculated monthly pricing to your knowledge.",
+          "icon": "pricing-breakdown"
+        },
+        "philosophy": {
+          "text": "We do feel strongly that expense reduced or increased should make the contributions vary, not fixed. Also, different expenses need different way of distribution across residences.",
+          "icon": "variable-contributions"
+        },
+        "peer_services": {
+          "text": "Along the way, our system allows you to create or find geo located ads from valid member of users, bypassing middle men. Next time reach out peer to peer for any services within your area of interest without overpaying!",
+          "icon": "peer-to-peer"
+        }
+      }
+    },
+    "error": {
+      "not_found": "The requested page does not exist on this website."
+    }
+  },
+  "components": {
+    "settings": {
+      "api": {
+        "legend": "API URL",
+        "label": "Where the API on the backend servers is located."
+      }
+    },
+    "locales": {
+      "language": "Language"
+    },
+    "auth": {
+      "login": {
+        "email": {
+          "legend": "Email",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Login",
+        "error": "{error}"
+      },
+      "register": {
+        "name": {
+          "legend": "Name",
+          "placeholder": "Azur"
+        },
+        "email": {
+          "legend": "Email",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Register",
+        "error": "{error}"
+      },
+      "verify_otp": {
+        "email": {
+          "legend": "Email",
+          "placeholder": "user@example.com"
+        },
+        "otp": {
+          "legend": "OTP (One Time Password)"
+        },
+        "submit": "Verify"
+      }
+    },
+    "users": {
+      "card": {
+        "user_id": "User ID",
+        "user_name": "Name",
+        "user_role": "Role",
+        "member_since": "Member Since",
+        "no_members": "No members found"
+      },
+      "list": {
+        "no_user": "There are currently no users."
+      }
+    },
+    "societies": {
+      "form": {
+        "name": "Society Name",
+        "name_placeholder": "Enter society name",
+        "postcode": "Postcode",
+        "postcode_placeholder": "Enter postcode",
+        "city": "City",
+        "city_placeholder": "Enter city",
+        "state": "State",
+        "state_placeholder": "Enter state",
+        "country": "Country",
+        "country_placeholder": "Enter country",
+        "timezone": "Timezone",
+        "timezone_placeholder": "Enter timezone (e.g., Europe/Berlin)",
+        "currency": "Currency",
+        "area_unit": "Area Unit"
+      },
+      "details": {
+        "role": "Role",
+        "no_membership": "You are not a member",
+        "id": "Society ID",
+        "location": "Location",
+        "postcode": "Postcode",
+        "currency": "Currency",
+        "timezone": "Timezone",
+        "area_unit": "Area Unit",
+        "fine_rate": "Fine Rate",
+        "coordinates": "Coordinates",
+        "created": "Created At",
+        "updated": "Last Updated"
+      }
+    },
+    "residences": {
+      "form": {
+        "societyId": "Society ID",
+        "societyId_placeholder": "Enter society ID",
+        "residenceName": "Residence Name",
+        "residenceName_placeholder": "Enter residence name",
+        "floorCount": "Number of Floors",
+        "floorCount_placeholder": "Enter floor count",
+        "areaValue": "Area (sq ft)",
+        "areaValue_placeholder": "Enter area in sq ft",
+        "residentsCount": "Number of Residents",
+        "residentsCount_placeholder": "Enter number of residents",
+        "description": "Description",
+        "description_placeholder": "Add a description (optional)"
+      },
+      "details": {
+        "societyId": "Society ID",
+        "residentsCount": "Residents",
+        "floorCount": "Floors",
+        "area": "Area",
+        "active": "Active",
+        "yes": "Yes",
+        "no": "No",
+        "description": "Description",
+        "createdAt": "Created At",
+        "updatedAt": "Updated At",
+        "notAvailable": "Not available"
+      },
+      "invite_user": {
+        "title": "Invite a new user to this residency",
+        "name": {
+          "legend": "Name",
+          "placeholder": "Alice"
+        },
+        "email": {
+          "legend": "Email",
+          "placeholder": "user@example.com"
+        }
+      }
+    },
+    "ads": {
+      "form": {
+        "adTitle": "Advertisement title",
+        "adTitle_placeholder": "Enter the advertisement title",
+        "adDescription": "Advertisement Description",
+        "adDescription_placeholder": "Enter the advertisement description",
+        "anonymousUserName": "Anonymous User Name",
+        "anonymousUserName_placeholder": "Enter your alias or anonymous name",
+        "type": "Advertisement Type",
+        "type_placeholder": "Select an advertisement type",
+        "map": "Select Location on Map",
+        "coordinates": "Coordinates (Latitude, Longitude)",
+        "create": "Create Advertisement",
+        "created_successfully": "Advertisement created successfully."
+      }
+    },
+    "legal": {
+      "dpi": {
+        "controller.heading": "Data Controller",
+        "controller.name_label": "Name:",
+        "controller.address_label": "Address:",
+        "controller.email_label": "Email:",
+        "controller.phone_label": "Phone:",
+        "protection_officer.heading": "Data Protection Officer",
+        "protection_officer.email_label": "Email:",
+        "purposes.heading": "Purposes of Processing",
+        "legal_bases.heading": "Legal Bases",
+        "recipients.heading": "Data Recipients",
+        "retention.heading": "Data Retention",
+        "rights.heading": "Your Rights",
+        "supervisory_authority.heading": "Supervisory Authority"
+      }
+    }
+  },
+  "common": {
+    "creating": "Creating...",
+    "submit": "Submit",
+    "join": "Join"
+  }
 }

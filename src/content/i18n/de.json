@@ -1,314 +1,312 @@
 {
-	"title": "Society Flow",
-	"catch_line": "Dienstleistungen teilen. Kosten aufteilen. Gemeinschaft stärken.",
-	"menu": {
-		"home": "Startseite",
-		"societies": "Gesellschaften",
-		"residences": "Wohnungen",
-		"expenses": "Ausgaben",
-		"adverts": "Anzeigen",
-		"about": "Über uns",
-		"styles": "Stile",
-		"settings": "Einstellungen",
-		"auth.login": "Anmelden",
-		"auth.logout": "Abmelden",
-		"auth.register": "Registrieren",
-		"auth.verify-otp": "OTP bestätigen",
-		"legal": "Rechtliches",
-		"legal.terms-of-service": "Nutzungsbedingungen",
-		"legal.privacy-policy": "Datenschutzerklärung",
-		"legal.data-processing-info": "Informationen zur Datenverarbeitung",
-		"legal.cookie-policy": "Cookie-Richtlinie",
-		"create.societies": "Neue Gesellschaft erstellen",
-		"create.residences": "Neue Wohnung erstellen",
-		"create.ads": "Neue Anzeige erstellen",
-		"update.societies": "Gesellschaft aktualisieren",
-		"update.residences": "Residenz aktualisieren",
-		"update.ads": "Anzeige aktualisieren"
-	},
-	"pages": {
-		"auth": {
-			"verify-otp": {
-				"sections": {
-					"did-not-receive": {
-						"text": "Sie haben keine E-Mail mit dem OTP-Code erhalten?"
-					},
-					"resend": {
-						"text": "E-Mail erneut senden",
-						"link": {
-							"url": "/auth/login?email={email}",
-							"text": "menu.auth.verify-otp"
-						}
-					}
-				}
-			},
-
-			"register": {
-				"sections": {
-					"have-account": {
-						"text": "Sie haben bereits ein Konto?",
-						"link": {
-							"url": "/auth/login",
-							"text": "menu.auth.login"
-						}
-					}
-				}
-			},
-
-			"login": {
-				"sections": {
-					"no-account": {
-						"text": "Sie haben noch kein Konto? Es ist kostenlos zu",
-						"link": {
-							"url": "/auth/register",
-							"text": "menu.auth.register"
-						}
-					}
-				}
-			}
-		},
-		"settings": {
-			"sections": {
-				"development": {
-					"title": "Entwicklung"
-				},
-				"demo": {
-					"title": "Demo",
-					"loginText": "Als Demo-Benutzer anmelden",
-					"logoutText": "Demo-Benutzer abmelden"
-				}
-			}
-		},
-		"home": {
-			"auth": {
-				"greeting": "Hallo {name} ({email}).",
-				"dashboard": {
-					"title": "Ihr Dashboard"
-				},
-				"sections": {
-					"societies": "Gesellschaften",
-					"residences": "Wohnungen"
-				}
-			},
-			"marketing": {
-				"user_types": {
-					"society_admin": {
-						"title": "Gesellschafts-Administratoren",
-						"features": [
-							"Eine oder mehrere Gesellschaften erstellen",
-							"Benutzer einladen",
-							"Benötigte Ausgaben hinzufügen",
-							"Zahlungsnachweise genehmigen",
-							"Benutzerdefinierte Anpassungen erstellen",
-							"Mitteilungen an Bewohner veröffentlichen"
-						]
-					},
-					"society_member": {
-						"title": "Gesellschaftsmitglieder",
-						"features": [
-							"Alle Ihre Wohnungen in verschiedenen Gesellschaften und Städten anzeigen",
-							"Ihre monatlichen Beiträge mit ordnungsgemäßer Aufschlüsselung der Kosten und verfügbaren Mittel anzeigen",
-							"Administratoren über Probleme benachrichtigen oder Benachrichtigungen von ihnen erhalten."
-						]
-					},
-					"rent_seeker": {
-						"title": "Suchen Sie eine Mietwohnung oder möchten Sie kaufen?",
-						"features": [
-							"Schauen Sie sich die Anzeigen authentifizierter Vermieter oder Gesellschaften über Verfügbarkeit an, passend zu Ihrem Budget und Traumstandort"
-						]
-					}
-				},
-				"call_to_action": "Treten Sie {title} bei und entdecken Sie alle Funktionen."
-			}
-		},
-		"about": {
-			"title": "Über uns",
-			"sections": {
-				"problem": {
-					"text": "Verschiedene Länder mit dem gleichen Problem: Versteckte Ausgabenverwaltung ohne klare Sichtbarkeit von Kosten und Mitteln.",
-					"icon": "hidden-expenses"
-				},
-				"goal": {
-					"text": "Unser Ziel ist es, Ihnen eine detaillierte Aufschlüsselung der dynamisch berechneten monatlichen Preise zu liefern.",
-					"icon": "pricing-breakdown"
-				},
-				"philosophy": {
-					"text": "Wir sind der festen Überzeugung, dass reduzierte oder erhöhte Ausgaben die Beiträge variieren lassen sollten, nicht fest sein sollten. Auch verschiedene Ausgaben benötigen unterschiedliche Verteilungswege auf die Wohnungen.",
-					"icon": "variable-contributions"
-				},
-				"peer_services": {
-					"text": "Nebenbei ermöglicht unser System Ihnen, geografisch lokalisierte Anzeigen von gültigen Mitgliedsbenutzern zu erstellen oder zu finden und dabei Zwischenhändler zu umgehen. Wenden Sie sich das nächste Mal direkt an Gleichgesinnte für alle Dienstleistungen in Ihrem Interessensbereich, ohne zu viel zu bezahlen!",
-					"icon": "peer-to-peer"
-				}
-			}
-		},
-		"error": {
-			"not_found": "Die angeforderte Seite existiert auf dieser Website nicht."
-		}
-	},
-	"components": {
-		"settings": {
-			"api": {
-				"legend": "API-URL",
-				"label": "Wo sich die API auf den Backend-Servern befindet."
-			}
-		},
-		"locales": {
-			"language": "Sprache"
-		},
-		"auth": {
-			"login": {
-				"email": {
-					"legend": "E-Mail",
-					"placeholder": "benutzer@beispiel.de"
-				},
-				"submit": "Anmelden",
-				"error": "{error}"
-			},
-			"register": {
-				"name": {
-					"legend": "Name",
-					"placeholder": "Azur"
-				},
-				"email": {
-					"legend": "E‑Mail",
-					"placeholder": "benutzer@beispiel.de"
-				},
-				"submit": "Registrieren",
-				"error": "{error}"
-			},
-			"verify_otp": {
-				"email": {
-					"legend": "E‑Mail",
-					"placeholder": "benutzer@beispiel.de"
-				},
-				"otp": {
-					"legend": "OTP (Einmalpasswort)",
-					"placeholder": "12345"
-				},
-				"submit": "Verifizieren"
-			}
-		},
-		"users": {
-			"card": {
-				"user_id": "Benutzer-ID",
-				"user_name": "Name",
-				"user_role": "Rolle",
-				"member_since": "Mitglied seit",
-				"no_members": "Keine Mitglieder gefunden"
-			},
-			"list": {
-				"no_user": "Derzeit gibt es keine Benutzer."
-			}
-		},
-		"societies": {
-			"forn": {
-				"name": "Name der Gesellschaft",
-				"name_placeholder": "Namen der Gesellschaft eingeben",
-				"postcode": "Postleitzahl",
-				"postcode_placeholder": "Postleitzahl eingeben",
-				"city": "Stadt",
-				"city_placeholder": "Stadt eingeben",
-				"state": "Bundesland",
-				"state_placeholder": "Bundesland eingeben",
-				"country": "Land",
-				"country_placeholder": "Land eingeben",
-				"timezone": "Zeitzone",
-				"timezone_placeholder": "Zeitzone eingeben (z.B. Europe/Berlin)",
-				"currency": "Währung",
-				"area_unit": "Flächeneinheit",
-				"create": "Gesellschaft erstellen"
-			},
-			"details": {
-				"role": "Rolle",
-				"no_membership": "Sie sind kein Mitglied",
-				"id": "Gesellschafts-ID",
-				"location": "Standort",
-				"postcode": "Postleitzahl",
-				"currency": "Währung",
-				"timezone": "Zeitzone",
-				"area_unit": "Flächeneinheit",
-				"fine_rate": "Bußgeldsatz",
-				"coordinates": "Koordinaten",
-				"created": "Erstellt am",
-				"updated": "Zuletzt aktualisiert"
-			}
-		},
-		"residences": {
-			"form": {
-				"societyId": "Gesellschafts-ID",
-				"societyId_placeholder": "Gesellschafts-ID eingeben",
-				"residenceName": "Wohnungsname",
-				"residenceName_placeholder": "Wohnungsname eingeben",
-				"floorCount": "Anzahl der Stockwerke",
-				"floorCount_placeholder": "Stockwerke eingeben",
-				"areaValue": "Fläche (qm)",
-				"areaValue_placeholder": "Fläche in Quadratmetern eingeben",
-				"residentsCount": "Anzahl der Bewohner",
-				"residentsCount_placeholder": "Anzahl der Bewohner eingeben",
-				"description": "Beschreibung",
-				"description_placeholder": "Beschreibung hinzufügen (optional)"
-			},
-			"details": {
-				"societyId": "Gesellschafts-ID",
-				"residentsCount": "Bewohneranzahl",
-				"floorCount": "Anzahl der Etagen",
-				"area": "Fläche",
-				"active": "Aktiv",
-				"yes": "Ja",
-				"no": "Nein",
-				"description": "Beschreibung",
-				"createdAt": "Erstellt am",
-				"updatedAt": "Aktualisiert am",
-				"notAvailable": "Nicht verfügbar"
-			},
-			"invite_user": {
-				"title": "Einen neuen Benutzer zu dieser Residenz einladen",
-				"name": {
-					"legend": "Name",
-					"placeholder": "Alice"
-				},
-				"email": {
-					"legend": "E-Mail",
-					"placeholder": "benutzer@beispiel.de"
-				}
-			}
-		},
-		"ads": {
-			"form": {
-				"adTitle": "Anzeigentitel",
-				"adTitle_placeholder": "Geben Sie den Anzeigentitel ein",
-				"adDescription": "Anzeigenbeschreibung",
-				"adDescription_placeholder": "Beschreibung der Anzeige eingeben",
-				"anonymousUserName": "Anonymer Benutzername",
-				"anonymousUserName_placeholder": "Geben Sie einen anonymen Namen ein",
-				"type": "Anzeigentyp",
-				"type_placeholder": "Wählen Sie einen Anzeigentyp aus",
-				"map": "Standort auf der Karte auswählen",
-				"coordinates": "Koordinaten (Breite, Länge)"
-			}
-		},
-		"legal": {
-			"dpi": {
-				"controller.heading": "Datenverantwortlicher",
-				"controller.name_label": "Name:",
-				"controller.address_label": "Adresse:",
-				"controller.email_label": "E-Mail:",
-				"controller.phone_label": "Telefon:",
-				"protection_officer.heading": "Datenschutzbeauftragter",
-				"protection_officer.email_label": "E-Mail:",
-				"purposes.heading": "Verarbeitungszwecke",
-				"legal_bases.heading": "Rechtsgrundlagen",
-				"recipients.heading": "Empfänger der Daten",
-				"retention.heading": "Datenspeicherung",
-				"rights.heading": "Ihre Rechte",
-				"supervisory_authority.heading": "Aufsichtsbehörde"
-			}
-		}
-	},
-	"common": {
-		"creating": "Erstelle...",
-		"submit": "Absenden",
-		"join": "Beitreten"
-	}
+  "title": "Society Flow",
+  "catch_line": "Teilen Sie Dienste. Kosten aufteilen. Stärken Sie Ihre Gemeinschaft.",
+  "menu": {
+    "home": "Startseite",
+    "societies": "Gesellschaften",
+    "residences": "Residenzen",
+    "expenses": "Ausgaben",
+    "adverts": "Anzeigen",
+    "about": "Über",
+    "styles": "Stile",
+    "settings": "Einstellungen",
+    "auth.login": "Anmelden",
+    "auth.logout": "Abmelden",
+    "auth.register": "Registrieren",
+    "auth.verify-otp": "OTP verifizieren",
+    "legal": "Rechtliches",
+    "legal.terms-of-service": "Nutzungsbedingungen",
+    "legal.privacy-policy": "Datenschutzrichtlinie",
+    "legal.data-processing-info": "Informationen zur Datenverarbeitung",
+    "legal.cookie-policy": "Cookie-Richtlinie",
+    "create.societies": "Neue Gesellschaft erstellen",
+    "create.residences": "Neue Residenz erstellen",
+    "create.ads": "Neue Anzeige erstellen",
+    "update.societies": "Gesellschaft aktualisieren",
+    "update.residences": "Residenz aktualisieren",
+    "update.ads": "Anzeige aktualisieren"
+  },
+  "pages": {
+    "auth": {
+      "verify-otp": {
+        "sections": {
+          "did-not-receive": {
+            "text": "Sie haben keine E-Mail mit dem OTP-Code erhalten?"
+          },
+          "resend": {
+            "text": "E-Mail erneut senden",
+            "link": {
+              "url": "/auth/login?email={email}",
+              "text": "menu.auth.verify-otp"
+            }
+          }
+        }
+      },
+      "register": {
+        "sections": {
+          "have-account": {
+            "text": "Sie haben bereits ein Konto?",
+            "link": {
+              "url": "/auth/login",
+              "text": "menu.auth.login"
+            }
+          }
+        }
+      },
+      "login": {
+        "sections": {
+          "no-account": {
+            "text": "Sie haben noch kein Konto? Es ist kostenlos zu",
+            "link": {
+              "url": "/auth/register",
+              "text": "menu.auth.register"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "sections": {
+        "development": {
+          "title": "Entwicklung"
+        },
+        "demo": {
+          "title": "Demo",
+          "loginText": "Demo-Benutzer anmelden",
+          "logoutText": "Demo-Benutzer abmelden"
+        }
+      }
+    },
+    "home": {
+      "auth": {
+        "greeting": "Hallo {name} ({email}).",
+        "dashboard": {
+          "title": "Ihr Dashboard"
+        },
+        "sections": {
+          "societies": "Gesellschaften",
+          "residences": "Residenzen"
+        }
+      },
+      "marketing": {
+        "user_types": {
+          "society_admin": {
+            "title": "Gesellschafts-Admins",
+            "features": [
+              "Erstellen Sie eine oder mehrere Gesellschaften",
+              "Benutzer einladen",
+              "Benötigte Ausgaben hinzufügen",
+              "Zahlungsaufzeichnungen genehmigen",
+              "Benutzerdefinierte Anpassungen erstellen",
+              "Mitteilungen an Bewohner veröffentlichen"
+            ]
+          },
+          "society_member": {
+            "title": "Gesellschaftsmitglieder",
+            "features": [
+              "Zeigen Sie alle Ihre Residenzen in verschiedenen Gesellschaften und Städten an",
+              "Zeigen Sie Ihre monatlichen Gebühren mit einer ordnungsgemäßen Aufschlüsselung der Kosten und verfügbaren Mittel an",
+              "Melden Sie Administratoren Probleme oder erhalten Sie Benachrichtigungen von ihnen."
+            ]
+          },
+          "rent_seeker": {
+            "title": "Suchen Sie nach Mieten oder möchten Sie eine kaufen?",
+            "features": [
+              "Sehen Sie sich die von authentifizierten gültigen Vermietern oder Gesellschaften veröffentlichten Anzeigen über die Verfügbarkeit an, die Ihrem Budget und Ihrem Traumort entsprechen"
+            ]
+          }
+        },
+        "call_to_action": "Treten Sie {title} bei und entdecken Sie alle Funktionen."
+      }
+    },
+    "about": {
+      "title": "Über",
+      "sections": {
+        "problem": {
+          "text": "Verschiedene Länder mit demselben Problem: Verwaltung versteckter Ausgaben ohne klare Übersicht über Kosten und Gelder.",
+          "icon": "hidden-expenses"
+        },
+        "goal": {
+          "text": "Unser Ziel ist es, Ihnen eine detaillierte Aufschlüsselung der dynamisch berechneten monatlichen Preise zu geben.",
+          "icon": "pricing-breakdown"
+        },
+        "philosophy": {
+          "text": "Wir sind der festen Überzeugung, dass reduzierte oder erhöhte Ausgaben die Beiträge variieren lassen sollten, nicht fest. Außerdem benötigen unterschiedliche Ausgaben unterschiedliche Verteilungsarten über die Residenzen.",
+          "icon": "variable-contributions"
+        },
+        "peer_services": {
+          "text": "Auf dem Weg dorthin ermöglicht Ihnen unser System, geolokalierte Anzeigen von gültigen Benutzern zu erstellen oder zu finden, wodurch Zwischenhändler umgangen werden. Wenden Sie sich beim nächsten Mal Peer-to-Peer nach Dienstleistungen in Ihrem Interessengebiet, ohne zu viel zu bezahlen!",
+          "icon": "peer-to-peer"
+        }
+      }
+    },
+    "error": {
+      "not_found": "Die angeforderte Seite existiert nicht auf dieser Website."
+    }
+  },
+  "components": {
+    "settings": {
+      "api": {
+        "legend": "API-URL",
+        "label": "Wo sich die API auf den Backend-Servern befindet."
+      }
+    },
+    "locales": {
+      "language": "Sprache"
+    },
+    "auth": {
+      "login": {
+        "email": {
+          "legend": "E-Mail",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Anmelden",
+        "error": "{error}"
+      },
+      "register": {
+        "name": {
+          "legend": "Name",
+          "placeholder": "Azur"
+        },
+        "email": {
+          "legend": "E-Mail",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Registrieren",
+        "error": "{error}"
+      },
+      "verify_otp": {
+        "email": {
+          "legend": "E-Mail",
+          "placeholder": "user@example.com"
+        },
+        "otp": {
+          "legend": "OTP (One Time Password)"
+        },
+        "submit": "Verifizieren"
+      }
+    },
+    "users": {
+      "card": {
+        "user_id": "Benutzer-ID",
+        "user_name": "Name",
+        "user_role": "Rolle",
+        "member_since": "Mitglied seit",
+        "no_members": "Keine Mitglieder gefunden"
+      },
+      "list": {
+        "no_user": "Derzeit gibt es keine Benutzer."
+      }
+    },
+    "societies": {
+      "form": {
+        "name": "Gesellschaftsname",
+        "name_placeholder": "Gesellschaftsnamen eingeben",
+        "postcode": "Postleitzahl",
+        "postcode_placeholder": "Postleitzahl eingeben",
+        "city": "Stadt",
+        "city_placeholder": "Stadt eingeben",
+        "state": "Bundesland",
+        "state_placeholder": "Bundesland eingeben",
+        "country": "Land",
+        "country_placeholder": "Land eingeben",
+        "timezone": "Zeitzone",
+        "timezone_placeholder": "Zeitzone eingeben (z.B. Europe/Berlin)",
+        "currency": "Währung",
+        "area_unit": "Flächeneinheit"
+      },
+      "details": {
+        "role": "Rolle",
+        "no_membership": "Sie sind kein Mitglied",
+        "id": "Gesellschafts-ID",
+        "location": "Standort",
+        "postcode": "Postleitzahl",
+        "currency": "Währung",
+        "timezone": "Zeitzone",
+        "area_unit": "Flächeneinheit",
+        "fine_rate": "Bußgeld",
+        "coordinates": "Koordinaten",
+        "created": "Erstellt am",
+        "updated": "Zuletzt aktualisiert"
+      }
+    },
+    "residences": {
+      "form": {
+        "societyId": "Gesellschafts-ID",
+        "societyId_placeholder": "Gesellschafts-ID eingeben",
+        "residenceName": "Residenzname",
+        "residenceName_placeholder": "Residenzname eingeben",
+        "floorCount": "Anzahl der Etagen",
+        "floorCount_placeholder": "Anzahl der Etagen eingeben",
+        "areaValue": "Fläche (sq ft)",
+        "areaValue_placeholder": "Fläche in sq ft eingeben",
+        "residentsCount": "Anzahl der Bewohner",
+        "residentsCount_placeholder": "Anzahl der Bewohner eingeben",
+        "description": "Beschreibung",
+        "description_placeholder": "Eine Beschreibung hinzufügen (optional)"
+      },
+      "details": {
+        "societyId": "Gesellschafts-ID",
+        "residentsCount": "Bewohner",
+        "floorCount": "Etagen",
+        "area": "Fläche",
+        "active": "Aktiv",
+        "yes": "Ja",
+        "no": "Nein",
+        "description": "Beschreibung",
+        "createdAt": "Erstellt am",
+        "updatedAt": "Aktualisiert am",
+        "notAvailable": "Nicht verfügbar"
+      },
+      "invite_user": {
+        "title": "Laden Sie einen neuen Benutzer zu dieser Residenz ein",
+        "name": {
+          "legend": "Name",
+          "placeholder": "Alice"
+        },
+        "email": {
+          "legend": "E-Mail",
+          "placeholder": "user@example.com"
+        }
+      }
+    },
+    "ads": {
+      "form": {
+        "adTitle": "Anzeigentitel",
+        "adTitle_placeholder": "Geben Sie den Anzeigentitel ein",
+        "adDescription": "Anzeigenbeschreibung",
+        "adDescription_placeholder": "Geben Sie die Anzeigenbeschreibung ein",
+        "anonymousUserName": "Anonymer Benutzername",
+        "anonymousUserName_placeholder": "Geben Sie Ihren Alias oder anonymen Namen ein",
+        "type": "Anzeigenart",
+        "type_placeholder": "Wählen Sie eine Anzeigenart aus",
+        "map": "Wählen Sie den Standort auf der Karte aus",
+        "coordinates": "Koordinaten (Breitengrad, Längengrad)",
+        "create": "Anzeige erstellen",
+        "created_successfully": "Anzeige erfolgreich erstellt."
+      }
+    },
+    "legal": {
+      "dpi": {
+        "controller.heading": "Datenverantwortlicher",
+        "controller.name_label": "Name:",
+        "controller.address_label": "Adresse:",
+        "controller.email_label": "E-Mail:",
+        "controller.phone_label": "Telefon:",
+        "protection_officer.heading": "Datenschutzbeauftragter",
+        "protection_officer.email_label": "E-Mail:",
+        "purposes.heading": "Zwecke der Verarbeitung",
+        "legal_bases.heading": "Rechtsgrundlagen",
+        "recipients.heading": "Datenempfänger",
+        "retention.heading": "Datenspeicherung",
+        "rights.heading": "Ihre Rechte",
+        "supervisory_authority.heading": "Aufsichtsbehörde"
+      }
+    }
+  },
+  "common": {
+    "creating": "Erstellen...",
+    "submit": "Senden",
+    "join": "Beitreten"
+  }
 }
