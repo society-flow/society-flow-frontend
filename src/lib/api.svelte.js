@@ -323,9 +323,9 @@ class Api {
 	}
 
 	// --- Advertisings ---
-	async getAllAdvertisements() {
+	async getAllAdvertisements(requestBody = { isActive: true }) {
 		const client = await this.getClient();
-		const res = await client.apis.advertisings.getAllAdvertisements();
+		const res = await client.apis.advertisings.getAllAdvertisements({}, { requestBody });
 		return res.body;
 	}
 	async getAdvertisementById(id) {
