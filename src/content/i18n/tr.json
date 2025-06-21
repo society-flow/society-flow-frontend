@@ -159,6 +159,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Gider Hesaplamaları",
+        "triggerCalculations": "Hesaplamaları Tetikle",
         "noExpensesConfigured": "Hiçbir gider yapılandırılmamış.",
         "table": {
           "month": "Ay",
@@ -309,14 +310,17 @@
         "areaValue_placeholder": "Alan (sq ft) cinsinden girin",
         "residentsCount": "Sakin Sayısı",
         "residentsCount_placeholder": "Sakin sayısını girin",
+        "percentageOwnership": "Yüzde Sahipliği",
+        "percentageOwnership_placeholder": "yüzde sahipliğini girin",
         "description": "Açıklama",
-        "description_placeholder": "Bir açıklama ekleyin (isteğe bağlı)"
+        "description_placeholder": "Bir açıklama ekleyin"
       },
       "details": {
         "societyId": "Topluluk Kimliği",
         "residentsCount": "Sakinler",
         "floorCount": "Katlar",
         "area": "Alan",
+        "percentageOwnership": "Yüzde Sahipliği",
         "active": "Aktif",
         "yes": "Evet",
         "no": "Hayır",

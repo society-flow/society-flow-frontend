@@ -159,6 +159,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Ausgabenberechnungen",
+        "triggerCalculations": "Berechnungen auslösen",
         "noExpensesConfigured": "Keine Ausgaben konfiguriert.",
         "table": {
           "month": "Monat",
@@ -309,14 +310,17 @@
         "areaValue_placeholder": "Fläche in qm eingeben",
         "residentsCount": "Anzahl der Bewohner",
         "residentsCount_placeholder": "Anzahl der Bewohner eingeben",
+        "percentageOwnership": "Prozentuale Eigentümerschaft",
+        "percentageOwnership_placeholder": "Geben Sie die prozentuale Eigentümerschaft ein",
         "description": "Beschreibung",
-        "description_placeholder": "Fügen Sie eine Beschreibung hinzu (optional)"
+        "description_placeholder": "Fügen Sie eine Beschreibung hinzu"
       },
       "details": {
         "societyId": "Gesellschafts-ID",
         "residentsCount": "Bewohner",
         "floorCount": "Stockwerke",
         "area": "Fläche",
+        "percentageOwnership": "Prozentuale Eigentümerschaft",
         "active": "Aktiv",
         "yes": "Ja",
         "no": "Nein",

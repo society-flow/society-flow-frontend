@@ -159,6 +159,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Розрахунки витрат",
+        "triggerCalculations": "Запустити обчислення",
         "noExpensesConfigured": "Не налаштовано витрати.",
         "table": {
           "month": "Місяць",
@@ -309,14 +310,17 @@
         "areaValue_placeholder": "Введіть площу в кв. футах",
         "residentsCount": "Кількість мешканців",
         "residentsCount_placeholder": "Введіть кількість мешканців",
+        "percentageOwnership": "Відсоткове володіння",
+        "percentageOwnership_placeholder": "Введіть відсоткове володіння",
         "description": "Опис",
-        "description_placeholder": "Додайте опис (необов'язково)"
+        "description_placeholder": "Додати опис"
       },
       "details": {
         "societyId": "ID товариства",
         "residentsCount": "Мешканці",
         "floorCount": "Поверхи",
         "area": "Площа",
+        "percentageOwnership": "Відсоткове володіння",
         "active": "Активний",
         "yes": "Так",
         "no": "Ні",

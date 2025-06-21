@@ -159,6 +159,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Cálculos de Gastos",
+        "triggerCalculations": "Activar cálculos",
         "noExpensesConfigured": "No se configuraron gastos.",
         "table": {
           "month": "Mes",
@@ -309,14 +310,17 @@
         "areaValue_placeholder": "Ingrese el área en pies cuadrados",
         "residentsCount": "Número de residentes",
         "residentsCount_placeholder": "Ingrese el número de residentes",
+        "percentageOwnership": "Porcentaje de propiedad",
+        "percentageOwnership_placeholder": "Ingrese el porcentaje de propiedad",
         "description": "Descripción",
-        "description_placeholder": "Agregue una descripción (opcional)"
+        "description_placeholder": "Agregar una descripción"
       },
       "details": {
         "societyId": "ID de la sociedad",
         "residentsCount": "Residentes",
         "floorCount": "Pisos",
         "area": "Área",
+        "percentageOwnership": "Porcentaje de propiedad",
         "active": "Activo",
         "yes": "Sí",
         "no": "No",

@@ -12,6 +12,7 @@
 			floorCount: 0,
 			areaValue: 0,
 			residentsCount: 0,
+			percentageOwnership: 0,
 			description: ''
 		},
 		...initialData
@@ -79,6 +80,19 @@
 			bind:value={form.residentsCount}
 			min="0"
 			placeholder={$_('components.residences.form.residentsCount_placeholder')}
+		/>
+	</fieldset>
+
+	<fieldset>
+		<legend>{$_('components.residences.form.percentageOwnership')}</legend>
+		<input
+			type="number"
+			bind:value={form.percentageOwnership}
+			min="0"
+			max="100"
+			step="any"
+			placeholder={$_('components.residences.form.percentageOwnership_placeholder')}
+			required
 		/>
 	</fieldset>
 

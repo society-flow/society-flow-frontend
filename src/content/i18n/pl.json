@@ -159,6 +159,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Obliczenia wydatków",
+        "triggerCalculations": "Uruchom obliczenia",
         "noExpensesConfigured": "Brak skonfigurowanych wydatków.",
         "table": {
           "month": "Miesiąc",
@@ -309,14 +310,17 @@
         "areaValue_placeholder": "Wprowadź powierzchnię w sq ft",
         "residentsCount": "Liczba mieszkańców",
         "residentsCount_placeholder": "Wprowadź liczbę mieszkańców",
+        "percentageOwnership": "Udział procentowy",
+        "percentageOwnership_placeholder": "Wprowadź udział procentowy",
         "description": "Opis",
-        "description_placeholder": "Dodaj opis (opcjonalnie)"
+        "description_placeholder": "Dodaj opis"
       },
       "details": {
         "societyId": "ID społeczeństwa",
         "residentsCount": "Mieszkańcy",
         "floorCount": "Piętra",
         "area": "Powierzchnia",
+        "percentageOwnership": "Udział procentowy",
         "active": "Aktywny",
         "yes": "Tak",
         "no": "Nie",

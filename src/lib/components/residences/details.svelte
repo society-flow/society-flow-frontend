@@ -20,6 +20,9 @@
 		<li>{$_('components.residences.details.floorCount')}: {residence.floorCount}</li>
 		<li>{$_('components.residences.details.area')}: {residence.areaValue}</li>
 		<li>
+			{$_('components.residences.details.percentageOwnership')}: {residence.percentageOwnership}%
+		</li>
+		<li>
 			{$_('components.residences.details.active')}:
 			{residence.isActive === null
 				? $_('components.residences.details.active')

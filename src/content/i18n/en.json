@@ -158,8 +158,8 @@
 		},
 		"societies": {
 			"detail": {
-            "expenseCalculations": "Expense Calculations",
-            "triggerCalculations": "Trigger Calculations",
+				"expenseCalculations": "Expense Calculations",
+				"triggerCalculations": "Trigger Calculations",
 				"noExpensesConfigured": "No expenses configured.",
 				"table": {
 					"month": "Month",
@@ -310,14 +310,17 @@
 				"areaValue_placeholder": "Enter area in sq ft",
 				"residentsCount": "Number of Residents",
 				"residentsCount_placeholder": "Enter number of residents",
+				"percentageOwnership": "Percentage Ownership",
+				"percentageOwnership_placeholder": "Enter percentage ownership",
 				"description": "Description",
-				"description_placeholder": "Add a description (optional)"
+				"description_placeholder": "Add a description"
 			},
 			"details": {
 				"societyId": "Society ID",
 				"residentsCount": "Residents",
 				"floorCount": "Floors",
 				"area": "Area",
+				"percentageOwnership": "Percentage Ownership",
 				"active": "Active",
 				"yes": "Yes",
 				"no": "No",
