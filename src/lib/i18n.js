@@ -1,6 +1,6 @@
 import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
 
-export const SUPPORTED_LOCALES = ['en', 'as', 'de', 'es', 'fr', 'pl', 'pt', 'tr', 'uk'];
+export const SUPPORTED_LOCALES = ['en', 'as', 'ar', 'de', 'es', 'fr', 'pl', 'pt', 'tr', 'uk'];
 export const DEFAULT_LOCALE = SUPPORTED_LOCALES[0];
 
 export function localeIsSupported(locale) {

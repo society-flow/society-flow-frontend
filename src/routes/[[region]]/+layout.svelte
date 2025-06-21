@@ -1,6 +1,7 @@
 <script lang="javascript">
 	import '../../app.css';
 	import 'leaflet/dist/leaflet.css';
+  import { locale } from 'svelte-i18n';
 	import { navigating } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
@@ -15,6 +16,17 @@
 			userState.setUser(user);
 		}
 	});
+
+  locale.subscribe(() => {
+    
+  })
+  $effect(() => {
+    if ($locale === "ar") {
+      document.dir = "rtl"
+    } else {
+      document.dir = "ltr"
+    }
+  })
 </script>
 
 <header class="Site-header">
@@ -22,8 +34,8 @@
 </header>
 
 <main class="Site-main">
-   {#if $navigating}
-       <progress class="Site-progress"></progress>
+	{#if $navigating}
+		<progress class="Site-progress"></progress>
 	{/if}
 
 	{@render children()}
@@ -184,13 +196,13 @@
 			font-weight: normal;
 		}
 	}
-  :global(details) {
-    padding: calc(var(--s) / 3);
-    :global(summary) {
-      padding: var(--s);
-      cursor: pointer;
-    }
-  }
+	:global(details) {
+		padding: calc(var(--s) / 3);
+		:global(summary) {
+			padding: var(--s);
+			cursor: pointer;
+		}
+	}
 
 	:global(section) {
 		padding: var(--s);
@@ -218,7 +230,7 @@
 			:global(&:has(button[type='submit'])) {
 				position: sticky;
 				bottom: 0;
-        z-index: 2;
+				z-index: 2;
 			}
 		}
 		:global(&:has(input:focus, input:active)),
@@ -296,21 +308,21 @@
 		list-style: none;
 		padding: 0;
 		margin: 0;
-    border: 1px solid var(--c-border);
-    border-radius: var(--border-radius);
+		border: 1px solid var(--c-border);
+		border-radius: var(--border-radius);
 		:global(.List-item) {
-      border-bottom: 1px solid var(--c-border);
-      :global(.Card a) {
-        border-color: transparent;
-        background-color: transparent;
-        border-radius: 0;
-        &:hover {
-          background-color: var(--c-bg--secondary);
-        }
-      }
-      &:last-of-type {
-        border-bottom: 0;
-      }
+			border-bottom: 1px solid var(--c-border);
+			:global(.Card a) {
+				border-color: transparent;
+				background-color: transparent;
+				border-radius: 0;
+				&:hover {
+					background-color: var(--c-bg--secondary);
+				}
+			}
+			&:last-of-type {
+				border-bottom: 0;
+			}
 		}
 	}
 	:global(.Detail) {
@@ -318,27 +330,27 @@
 			border: 1px solid var(--c-border);
 			border-radius: var(--border-radius);
 			padding: var(--s);
-      margin-top: calc(var(--s) / 2);
+			margin-top: calc(var(--s) / 2);
 		}
-    :global(& > header) {
-      background-color: transparent;
-      border: none;
-      :global(h1, h2) {
-			  margin-bottom: 0;
-        text-align: center;
-		  }
-    }
-    :global(& > aside:has(nav, .Map, .List)) {
-      padding: 0;
-      border: 0;
-    }
-    :global(& > aside:has(form)) {
-      border: 0;
-    }
-    :global(h1, h2) {
-      :global(a) {
-        text-decoration: none;
-      }
+		:global(& > header) {
+			background-color: transparent;
+			border: none;
+			:global(h1, h2) {
+				margin-bottom: 0;
+				text-align: center;
+			}
+		}
+		:global(& > aside:has(nav, .Map, .List)) {
+			padding: 0;
+			border: 0;
+		}
+		:global(& > aside:has(form)) {
+			border: 0;
+		}
+		:global(h1, h2) {
+			:global(a) {
+				text-decoration: none;
+			}
 		}
 		:global(nav) {
 			list-style: none;
