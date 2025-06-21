@@ -1,4 +1,6 @@
 <script lang="javascript">
+  import { locale } from 'svelte-i18n';
+	import { base } from '$app/paths';
 	import { createEventDispatcher } from 'svelte';
 	import L from 'leaflet';
 
@@ -42,9 +44,11 @@
 			// draw initial markers
 			const valid = markers.filter(m => m.coordinates && m.title);
 			markerGroup = L.featureGroup(
-				valid.map(({ coordinates: [lat, lon], title }) =>
-					L.marker([lat, lon], { icon: createIcon(fill), title }).bindPopup(title)
-				)
+				valid.map(({ coordinates: [lat, lon], title, href }) => {
+          console.log("href", href)
+          const popup = href ? `<a href="${base + "/" + locale + href}">${title}</a>` : title
+					return L.marker([lat, lon], { icon: createIcon(fill), title }).bindPopup(popup)
+        })
 			).addTo(map);
 			if (valid.length) {
 				map.fitBounds(markerGroup.getBounds().pad(0.2));

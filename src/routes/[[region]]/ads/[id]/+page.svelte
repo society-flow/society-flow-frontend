@@ -16,7 +16,7 @@
 			? [
 					{
 						coordinates: [advert.approxGeoCoordinate.x, advert.approxGeoCoordinate.y],
-						title: advert.id
+						title: advert.title || advert.id
 					}
 				]
 			: []

@@ -20,21 +20,24 @@
 </script>
 
 <article class="Card">
-	<div>
-		<strong>{$_('components.users.card.user_id')}:</strong>
-		{user.id}
-	</div>
-	<div>
-		<strong>{$_('components.users.card.user_name')}:</strong>
-		{user.name}
-	</div>
-	<div>
-		<strong>{$_('components.users.card.user_role')}:</strong>
-		<span>{user.role}</span>
-	</div>
+	<strong>{$_('components.users.card.user_id')}:</strong>
+	{user.id}
+	<strong>{$_('components.users.card.user_name')}:</strong>
+	{user.name}
+	<strong>{$_('components.users.card.user_role')}:</strong>
+
+	<span>{user.role}</span>
+
 	{#if user.createdAt}
-		<div>
+		<span>
 			{$_('components.users.card.member_since')}: {formatDate(user.createdAt)}
-		</div>
+		</span>
 	{/if}
 </article>
+
+<style>
+  .Card {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>

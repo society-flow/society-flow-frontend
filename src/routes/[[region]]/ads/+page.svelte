@@ -13,12 +13,6 @@
 </script>
 
 <Page title={$_('menu.ads')}>
-	{#snippet header()}
-		<h1>{$_('menu.ads')}</h1>
-		<Anchor href="/create/ads" isButton>
-			{$_('menu.create.ads')}
-		</Anchor>
-	{/snippet}
 	<section>
 		<ListAds {ads} />
 	</section>
