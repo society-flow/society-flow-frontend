@@ -11,12 +11,11 @@ const SUPPORTED_LOCALES = ['en', 'as', 'de', 'fr', 'pl', 'tr', 'pt', 'uk'];
  * Key: route pattern, Value: object with param arrays
  */
 const DYNAMIC_ROUTES = {
-	'ads/[id]': { id: [1, 2, 3, 4, 5, 6, 7] },
-	'expenses/[id]': { id: [1, 2, 3, 4, 5] },
-	'residences/[id]': { id: [1, 2] },
-	'societies/[id]': { id: [1, 2] },
 	'legal/[slug]': {
 		slug: ['privacy-policy', 'terms-of-service', 'cookie-policy', 'data-protection']
+	},
+	'delete/[model]': {
+		model: ['ads', 'societies', 'residences', 'expenses']
 	}
 };
 
