@@ -45,7 +45,6 @@
 			const valid = markers.filter(m => m.coordinates && m.title);
 			markerGroup = L.featureGroup(
 				valid.map(({ coordinates: [lat, lon], title, href }) => {
-          console.log("href", href)
           const popup = href ? `<a href="${base + "/" + locale + href}">${title}</a>` : title
 					return L.marker([lat, lon], { icon: createIcon(fill), title }).bindPopup(popup)
         })

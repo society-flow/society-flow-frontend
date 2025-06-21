@@ -321,7 +321,8 @@
       margin-top: calc(var(--s) / 2);
 		}
     :global(& > header) {
-      background-color: var(--c-bg--secondary);
+      background-color: transparent;
+      border: none;
       :global(h1, h2) {
 			  margin-bottom: 0;
         text-align: center;

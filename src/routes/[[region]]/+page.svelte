@@ -37,7 +37,7 @@
 
 	let ads = $state([]);
 	$effect(async () => {
-		if (userState?.isAuth) {
+		if (userState?.user) {
 			ads = await api.getAdvertisementsByUserId(userState.user.id);
 		}
 	});

@@ -1,6 +1,6 @@
 <script lang="javascript">
-   import Card from '$lib/components/card.svelte';
-   import Anchor from '$lib/components/anchor.svelte';
+	import Card from '$lib/components/card.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	const { ad } = $props();
 	const { id, adDescription, title } = ad;
@@ -9,9 +9,7 @@
 <Card>
 	<Anchor href={`/ads/${id}`}>
 		{#if title}
-			<strong>
-				{title}
-			</strong>
+			{title}
 		{/if}
 		<span>
 			{adDescription.slice(0, 100) + '…'}
