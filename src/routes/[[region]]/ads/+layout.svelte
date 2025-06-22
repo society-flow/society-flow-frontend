@@ -1,6 +1,7 @@
 <script>
 	import Anchor from '$lib/components/anchor.svelte';
 	import { _ } from 'svelte-i18n';
+	import { api } from '$lib/api.svelte.js';
 </script>
 
 <nav class="Ads-nav">

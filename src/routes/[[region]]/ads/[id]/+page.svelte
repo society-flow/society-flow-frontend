@@ -54,6 +54,7 @@
 				</nav>
 			</aside>
 		{/if}
+
 		<AdDetails {advert} />
 
 		{#if markers.length}

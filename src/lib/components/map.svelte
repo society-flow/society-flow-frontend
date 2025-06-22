@@ -12,6 +12,8 @@
 	  selectMode = false
   } = $props();
 
+  console.log("markers received", markers)
+
 	const dispatch = createEventDispatcher();
 	let map;
 	let markerGroup;

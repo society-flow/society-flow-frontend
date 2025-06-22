@@ -107,7 +107,7 @@
 
 	<fieldset>
 		<legend>
-			{$_('components.ads.create.map')}
+			{$_('components.societies.form.map')}
 		</legend>
 		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
 	</fieldset>

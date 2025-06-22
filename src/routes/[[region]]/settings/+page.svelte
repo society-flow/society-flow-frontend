@@ -21,16 +21,19 @@
 <Page title={$_('menu.settings')}>
 	{#each Object.entries(sections) as [key, section]}
 		<section>
-			<header>
-				<h1>{section.title}</h1>
-			</header>
-
 			{#if key === 'development'}
+				<header>
+					<h1>{section.title}</h1>
+				</header>
 				<SettingsApi {apiUrl} />
 			{/if}
 
 			{#if key === 'demo'}
 				{#if !userState.isAuth}
+					<header>
+						<h1>{section.title}</h1>
+					</header>
+
 					<button onclick={loginDemoUser}>
 						{section.loginText}
 					</button>
