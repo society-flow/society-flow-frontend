@@ -19,7 +19,6 @@
 			});
 		}
 		adverts = ads.filter((a) => a?.approxGeoCoordinate?.x || a?.approxGeoCoordinate?.y);
-		console.log('mmmm', markers);
 	});
 
 	let adTypeOptions = $state([]);
@@ -52,12 +51,7 @@
 		</nav>
 	</details>
 
-	<!-- <Map {markers} /> -->
-	{#if markers.length}
-		<aside>
-			<Map {markers} />
-		</aside>
-	{/if}
+	<Map {markers} />
 </Page>
 
 <style>
