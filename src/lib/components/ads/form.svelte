@@ -113,7 +113,7 @@
 				{$_('components.ads.form.type_placeholder')}
 			</option>
 			{#each adTypeOptions as opt}
-				<option value={opt.id}>{opt.name}</option>
+				<option value={opt.id}>{$_(`const.ads_types.${opt.name}`)}</option>
 			{/each}
 		</select>
 	</fieldset>
