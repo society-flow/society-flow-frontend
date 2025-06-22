@@ -273,6 +273,7 @@
         "name_placeholder": "Введіть назву товариства",
         "postcode": "Поштовий індекс",
         "postcode_placeholder": "Введіть поштовий індекс",
+        "map": "Виберіть місцезнаходження на карті",
         "city": "Місто",
         "city_placeholder": "Введіть місто",
         "state": "Область",
@@ -408,5 +409,43 @@
     "deleting": "Видалення...",
     "cancel": "Скасувати",
     "update": "Оновити"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Адміністратор спільноти",
+      "SELL_HOUSE": "Продати будинок",
+      "RENT_HOUSE": "Орендувати будинок",
+      "SUB_LEASE_HOUSE": "Суборенда будинку",
+      "HOUSE_SHARING": "Спільне проживання",
+      "HEATING_SERVICE_NEEDED": "Потрібна послуга опалення",
+      "PLUMBING_SERVICE_NEEDED": "Потрібна сантехнічна послуга",
+      "ELECTRICAL_SERVICE_NEEDED": "Потрібна електрична послуга",
+      "MOVING_SERVICE_NEEDED": "Потрібна послуга переїзду",
+      "SELL_CLOTH": "Продати одяг",
+      "SEARCH_CLOTH": "Пошук одягу",
+      "GIVE_AWAY_CLOTH": "Віддати одяг",
+      "SELL_FURNITURE": "Продати меблі",
+      "SEARCH_FURNITURE": "Пошук меблів",
+      "GIVE_AWAY_FURNITURE": "Віддати меблі",
+      "SMALL_PRINTING_SERVICE": "Невеликі поліграфічні послуги",
+      "PROFESSIONAL_PRINTING_SERVICE": "Професійні поліграфічні послуги",
+      "SELL_MISC": "Продати різне",
+      "SEARCH_MISC": "Пошук різного",
+      "GIVE_AWAY_MISC": "Віддати різне"
+    },
+    "area": {
+      "sqm": "Квадратні метри",
+      "sqft": "Квадратні фути",
+      "acres": "Акри",
+      "hectares": "Гектари"
+    },
+    "currencies": {
+      "EUR": "EUR - Євро",
+      "USD": "USD - Долар США",
+      "GBP": "GBP - Фунт стерлінгів",
+      "INR": "INR - Індійська рупія",
+      "CAD": "CAD - Канадський долар",
+      "AUD": "AUD - Австралійський долар"
+    }
   }
 }

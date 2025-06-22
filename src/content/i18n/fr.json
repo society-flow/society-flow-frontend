@@ -273,6 +273,7 @@
         "name_placeholder": "Entrez le nom de la société",
         "postcode": "Code postal",
         "postcode_placeholder": "Entrez le code postal",
+        "map": "Sélectionner l'emplacement sur la carte",
         "city": "Ville",
         "city_placeholder": "Entrez la ville",
         "state": "État",
@@ -408,5 +409,43 @@
     "deleting": "Suppression...",
     "cancel": "Annuler",
     "update": "Mettre à jour"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Administrateur de la société",
+      "SELL_HOUSE": "Vendre une maison",
+      "RENT_HOUSE": "Louer une maison",
+      "SUB_LEASE_HOUSE": "Sous-louer une maison",
+      "HOUSE_SHARING": "Colocation",
+      "HEATING_SERVICE_NEEDED": "Service de chauffage nécessaire",
+      "PLUMBING_SERVICE_NEEDED": "Service de plomberie nécessaire",
+      "ELECTRICAL_SERVICE_NEEDED": "Service électrique nécessaire",
+      "MOVING_SERVICE_NEEDED": "Service de déménagement nécessaire",
+      "SELL_CLOTH": "Vendre des vêtements",
+      "SEARCH_CLOTH": "Rechercher des vêtements",
+      "GIVE_AWAY_CLOTH": "Donner des vêtements",
+      "SELL_FURNITURE": "Vendre des meubles",
+      "SEARCH_FURNITURE": "Rechercher des meubles",
+      "GIVE_AWAY_FURNITURE": "Donner des meubles",
+      "SMALL_PRINTING_SERVICE": "Service d'impression petit format",
+      "PROFESSIONAL_PRINTING_SERVICE": "Service d'impression professionnel",
+      "SELL_MISC": "Vendre divers",
+      "SEARCH_MISC": "Rechercher divers",
+      "GIVE_AWAY_MISC": "Donner divers"
+    },
+    "area": {
+      "sqm": "Mètres carrés",
+      "sqft": "Pieds carrés",
+      "acres": "Acres",
+      "hectares": "Hectares"
+    },
+    "currencies": {
+      "EUR": "EUR - Euro",
+      "USD": "USD - Dollar américain",
+      "GBP": "GBP - Livre sterling",
+      "INR": "INR - Roupie indienne",
+      "CAD": "CAD - Dollar canadien",
+      "AUD": "AUD - Dollar australien"
+    }
   }
 }

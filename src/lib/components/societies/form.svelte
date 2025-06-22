@@ -163,7 +163,7 @@
 		<legend>{$_('components.societies.form.currency')}</legend>
 		<select bind:value={form.currency} onchange={resetMessages}>
 			{#each currencyOptions as option}
-				<option value={option.value}>{option.label}</option>
+				<option value={option.value}>{$_(`const.currencies.${option.value}`)}</option>
 			{/each}
 		</select>
 	</fieldset>
@@ -172,7 +172,7 @@
 		<legend>{$_('components.societies.form.area_unit')}</legend>
 		<select bind:value={form.areaUnit} onchange={resetMessages}>
 			{#each areaUnitOptions as option}
-				<option value={option.value}>{option.label}</option>
+				<option value={option.value}>{$_(`const.area.${option.value}`)}</option>
 			{/each}
 		</select>
 	</fieldset>

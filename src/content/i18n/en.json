@@ -273,6 +273,7 @@
 				"name_placeholder": "Enter society name",
 				"postcode": "Postcode",
 				"postcode_placeholder": "Enter postcode",
+				"map": "Select Location on Map",
 				"city": "City",
 				"city_placeholder": "Enter city",
 				"state": "State",
@@ -408,5 +409,43 @@
 		"deleting": "Deleting...",
 		"cancel": "Cancel",
 		"update": "Update"
+	},
+	"const": {
+		"ads_types": {
+			"SOCIETY_ADMIN": "Society Administrator",
+			"SELL_HOUSE": "Sell House",
+			"RENT_HOUSE": "Rent House",
+			"SUB_LEASE_HOUSE": "Sub-lease House",
+			"HOUSE_SHARING": "House Sharing",
+			"HEATING_SERVICE_NEEDED": "Heating Service Needed",
+			"PLUMBING_SERVICE_NEEDED": "Plumbing Service Needed",
+			"ELECTRICAL_SERVICE_NEEDED": "Electrical Service Needed",
+			"MOVING_SERVICE_NEEDED": "Moving Service Needed",
+			"SELL_CLOTH": "Sell Clothing",
+			"SEARCH_CLOTH": "Search Clothing",
+			"GIVE_AWAY_CLOTH": "Give Away Clothing",
+			"SELL_FURNITURE": "Sell Furniture",
+			"SEARCH_FURNITURE": "Search Furniture",
+			"GIVE_AWAY_FURNITURE": "Give Away Furniture",
+			"SMALL_PRINTING_SERVICE": "Small Printing Service",
+			"PROFESSIONAL_PRINTING_SERVICE": "Professional Printing Service",
+			"SELL_MISC": "Sell Miscellaneous",
+			"SEARCH_MISC": "Search Miscellaneous",
+			"GIVE_AWAY_MISC": "Give Away Miscellaneous"
+		},
+		"area": {
+			"sqm": "Square Meters",
+			"sqft": "Square Feet",
+			"acres": "Acres",
+			"hectares": "Hectares"
+		},
+		"currencies": {
+			"EUR": "EUR - Euro",
+			"USD": "USD - US Dollar",
+			"GBP": "GBP - British Pound",
+			"INR": "INR - Indian Rupee",
+			"CAD": "CAD - Canadian Dollar",
+			"AUD": "AUD - Australian Dollar"
+		}
 	}
 }

@@ -273,6 +273,7 @@
         "name_placeholder": "Topluluk adını girin",
         "postcode": "Posta Kodu",
         "postcode_placeholder": "Posta kodunu girin",
+        "map": "Haritada Konum Seç",
         "city": "Şehir",
         "city_placeholder": "Şehir girin",
         "state": "Eyalet",
@@ -408,5 +409,43 @@
     "deleting": "Siliniyor...",
     "cancel": "İptal",
     "update": "Güncelle"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Topluluk Yöneticisi",
+      "SELL_HOUSE": "Ev Sat",
+      "RENT_HOUSE": "Ev Kirala",
+      "SUB_LEASE_HOUSE": "Ev Alt Kirala",
+      "HOUSE_SHARING": "Ev Paylaşımı",
+      "HEATING_SERVICE_NEEDED": "Isıtma Servisi Gerekli",
+      "PLUMBING_SERVICE_NEEDED": "Tesisat Servisi Gerekli",
+      "ELECTRICAL_SERVICE_NEEDED": "Elektrik Servisi Gerekli",
+      "MOVING_SERVICE_NEEDED": "Taşıma Servisi Gerekli",
+      "SELL_CLOTH": "Giyim Eşyası Sat",
+      "SEARCH_CLOTH": "Giyim Eşyası Ara",
+      "GIVE_AWAY_CLOTH": "Giyim Eşyası Ver",
+      "SELL_FURNITURE": "Mobilya Sat",
+      "SEARCH_FURNITURE": "Mobilya Ara",
+      "GIVE_AWAY_FURNITURE": "Mobilya Ver",
+      "SMALL_PRINTING_SERVICE": "Küçük Ölçekli Baskı Hizmeti",
+      "PROFESSIONAL_PRINTING_SERVICE": "Profesyonel Baskı Hizmeti",
+      "SELL_MISC": "Çeşitli Eşyalar Sat",
+      "SEARCH_MISC": "Çeşitli Eşyalar Ara",
+      "GIVE_AWAY_MISC": "Çeşitli Eşyalar Ver"
+    },
+    "area": {
+      "sqm": "Metrekare",
+      "sqft": "Fitkare",
+      "acres": "Dönüm",
+      "hectares": "Hektar"
+    },
+    "currencies": {
+      "EUR": "EUR - Euro",
+      "USD": "USD - Amerikan Doları",
+      "GBP": "GBP - İngiliz Sterlini",
+      "INR": "INR - Hindistan Rupisi",
+      "CAD": "CAD - Kanada Doları",
+      "AUD": "AUD - Avustralya Doları"
+    }
   }
 }

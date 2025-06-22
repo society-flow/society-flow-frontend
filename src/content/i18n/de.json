@@ -273,6 +273,7 @@
         "name_placeholder": "Geben Sie den Gesellschaftsnamen ein",
         "postcode": "Postleitzahl",
         "postcode_placeholder": "Postleitzahl eingeben",
+        "map": "Wählen Sie den Standort auf der Karte aus",
         "city": "Stadt",
         "city_placeholder": "Stadt eingeben",
         "state": "Bundesland",
@@ -408,5 +409,43 @@
     "deleting": "Wird gelöscht...",
     "cancel": "Abbrechen",
     "update": "Aktualisieren"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Gesellschaftsverwalter",
+      "SELL_HOUSE": "Haus verkaufen",
+      "RENT_HOUSE": "Haus mieten",
+      "SUB_LEASE_HOUSE": "Haus untervermieten",
+      "HOUSE_SHARING": "Haus teilen",
+      "HEATING_SERVICE_NEEDED": "Heizungsservice benötigt",
+      "PLUMBING_SERVICE_NEEDED": "Klempnerservice benötigt",
+      "ELECTRICAL_SERVICE_NEEDED": "Elektrodienst benötigt",
+      "MOVING_SERVICE_NEEDED": "Umzugsservice benötigt",
+      "SELL_CLOTH": "Kleidung verkaufen",
+      "SEARCH_CLOTH": "Kleidung suchen",
+      "GIVE_AWAY_CLOTH": "Kleidung verschenken",
+      "SELL_FURNITURE": "Möbel verkaufen",
+      "SEARCH_FURNITURE": "Möbel suchen",
+      "GIVE_AWAY_FURNITURE": "Möbel verschenken",
+      "SMALL_PRINTING_SERVICE": "Kleiner Druckservice",
+      "PROFESSIONAL_PRINTING_SERVICE": "Professioneller Druckservice",
+      "SELL_MISC": "Sonstiges verkaufen",
+      "SEARCH_MISC": "Sonstiges suchen",
+      "GIVE_AWAY_MISC": "Sonstiges verschenken"
+    },
+    "area": {
+      "sqm": "Quadratmeter",
+      "sqft": "Quadratfuß",
+      "acres": "Morgen",
+      "hectares": "Hektar"
+    },
+    "currencies": {
+      "EUR": "EUR - Euro",
+      "USD": "USD - US-Dollar",
+      "GBP": "GBP - Britisches Pfund",
+      "INR": "INR - Indische Rupie",
+      "CAD": "CAD - Kanadischer Dollar",
+      "AUD": "AUD - Australischer Dollar"
+    }
   }
 }

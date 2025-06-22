@@ -1,9 +1,9 @@
 {
-  "title": "সমাজ প্ৰবাহ",
+  "title": "ছ'ছাইটি ফ্ল'ও",
   "catch_line": "সেৱা ভাগ কৰক। খৰচ ভাগ কৰক। আপোনাৰ সম্প্ৰদায়ক শক্তিশালী কৰক।",
   "menu": {
     "home": "গৃহ",
-    "societies": "সমাজ",
+    "societies": "ছ'ছাইটিসমূহ",
     "residences": "আবাসন",
     "expenses": "খৰচ",
     "ads": "বিজ্ঞাপন",
@@ -15,16 +15,16 @@
     "auth.logout": "লগ আউট",
     "auth.register": "পঞ্জীয়ন কৰক",
     "auth.verify-otp": "OTP পৰীক্ষা কৰক",
-    "legal": "আইন",
+    "legal": "আইনী",
     "legal.terms-of-service": "চৰ্ত্তসমূহ",
     "legal.privacy-policy": "গোপনীয়তা নীতি",
     "legal.data-processing-info": "তথ্য প্ৰক্ৰিয়াকৰণ তথ্য",
     "legal.cookie-policy": "কুكي নীতি",
-    "create.societies": "নতুন সমাজ সৃষ্টি কৰক",
-    "create.residences": "নতুন বাসস্থান সৃষ্টি কৰক",
+    "create.societies": "নতুন ছ'ছাইটি সৃষ্টি কৰক",
+    "create.residences": "নতুন আৱাস সৃষ্টি কৰক",
     "create.ads": "নতুন বিজ্ঞাপন সৃষ্টি কৰক",
     "create.expenses": "নতুন খৰচ সৃষ্টি কৰক",
-    "update.societies": "সমাজ আপডেট কৰক",
+    "update.societies": "ছ'ছাইটি আপডেট কৰক",
     "update.residences": "আবাসন আপডেট কৰক",
     "update.ads": "বিজ্ঞাপন আপডেট কৰক",
     "update.expenses": "খৰচ আপডেট কৰক"
@@ -71,7 +71,7 @@
     "settings": {
       "sections": {
         "development": {
-          "title": "বিকাশ"
+          "title": "উন্নয়ন"
         },
         "demo": {
           "title": "ডেমো",
@@ -87,35 +87,35 @@
           "title": "আপোনাৰ ড্যাশব'ৰ্ড"
         },
         "sections": {
-          "societies": "সমাজ",
+          "societies": "ছ'ছাইটিসমূহ",
           "residences": "আবাসন"
         }
       },
       "marketing": {
         "user_types": {
           "society_admin": {
-            "title": "সমাজ প্ৰশাসক",
+            "title": "ছ'ছাইটি প্ৰশাসক",
             "features": [
-              "এটা বা একাধিক সমাজ সৃষ্টি কৰক",
-              "ব্যৱহাৰকাৰীক আমন্ত্ৰণ জনান",
+              "এটা বা একাধিক ছ'ছাইটি সৃষ্টি কৰক",
+              "ব্যৱহাৰকাৰীসকলক আমন্ত্ৰণ জনান",
               "প্ৰয়োজনীয় খৰচ যোগ কৰক",
               "পেমেন্ট ৰেকৰ্ড অনুমোদন কৰক",
-              "নিজৰ পছন্দ অনুসৰি সালসলনি কৰক",
+              "নিজৰ পছন্দমতে সালসলনি কৰক",
               "বাসিন্দাসকললৈ জাননী প্ৰকাশ কৰক"
             ]
           },
           "society_member": {
-            "title": "সমাজৰ সদস্য",
+            "title": "ছ'ছাইটি সদস্য",
             "features": [
-              "বিভিন্ন সমাজ আৰু চহৰসমূহত আপোনাৰ আটাইবোৰ বাসস্থান চাওক",
+              "বিভিন্ন ছ'ছাইটি আৰু চহৰসমূহত আপোনাৰ আটাইবোৰ আৱাস চাওক",
               "খৰচ আৰু উপলব্ধ পুঁজিৰ সঠিক বিভাজনৰ সৈতে আপোনাৰ মাহিলী মাচুল চাওক",
-              "সন্মুখীন হোৱা সমস্যাসমূহৰ বিষয়ে প্ৰশাসকসকলক বাৰ্তা প্ৰেৰণ কৰক অথবা তেওঁলোকৰ পৰা জাননী লাভ কৰক।"
+              "সন্মুখীন হোৱা সমস্যাসমূহৰ প্ৰশাসকসকলক বাৰ্তা প্ৰেৰণ কৰক অথবা তেওঁলোকৰ পৰা জাননী লাভ কৰক।"
             ]
           },
           "rent_seeker": {
-            "title": "ভাড়া বিচাৰিছে নে কিনিবলৈ বিচাৰিছে?",
+            "title": "ভাড়া বিচাৰিছেন নে কিনিবলৈ বিচাৰিছেন?",
             "features": [
-              "আপোনাৰ বাজেট আৰু সপোনৰ স্থানৰ বাবে উপযুক্ত হোৱাকৈ বৈধ ভূমি মালিক বা সমাজৰ দ্বাৰা প্ৰকাশিত বিজ্ঞাপনসমূহ চাওক"
+              "আপোনাৰ বাজেট আৰু সপোনৰ স্থানৰ বাবে উপযুক্ত হোৱা বৈধ ভূমি মালিক বা ছ'ছাইটিসমূহে প্ৰকাশ কৰা বিজ্ঞাপনসমূহ চাওক"
             ]
           }
         },
@@ -126,7 +126,7 @@
       "title": "সম্পৰ্কে",
       "sections": {
         "problem": {
-          "text": "একে সমস্যাৰে বিভিন্ন দেশ: স্পষ্ট খৰচ আৰু পুঁজিৰ দৃশ্যমানতা অবিহনে গোপন খৰচ ব্যৱস্থাপনা।",
+          "text": "একে সমস্যা থকা বিভিন্ন দেশ: স্পষ্ট খৰচ আৰু পুঁজিৰ দৃশ্যমানতা অবিহনে গোপন খৰচ ব্যৱস্থাপনা।",
           "icon": "hidden-expenses"
         },
         "goal": {
@@ -134,11 +134,11 @@
           "icon": "pricing-breakdown"
         },
         "philosophy": {
-          "text": "আমি দৃঢ়ভাৱে অনুভৱ কৰোঁ যে খৰচ হ্ৰাস বা বৃদ্ধি কৰিলে অৱদান ভিন্ন হ'ব লাগে, নিৰ্ধাৰিত নহয়। তদুপৰি, বিভিন্ন খৰচৰ বাবে বাসস্থানৰ মাজত বিতৰণৰ বিভিন্ন পদ্ধতিৰ প্ৰয়োজন।",
+          "text": "আমি দৃঢ়ভাৱে অনুভৱ কৰোঁ যে খৰচ হ্ৰাস বা বৃদ্ধি কৰিলে অৱদান ভিন্ন হ'ব লাগে, নিৰ্ধাৰিত নহয়। তদুপৰি, বিভিন্ন খৰচৰ বাবে আৱাসসমূহত বিতৰণৰ বিভিন্ন পদ্ধতিৰ প্ৰয়োজন।",
           "icon": "variable-contributions"
         },
         "peer_services": {
-          "text": "এই পথত, আমাৰ ব্যৱস্থাই আপোনাক মধ্যভোগীসকলক বাইপাছ কৰি বৈধ সদস্যসকলৰ পৰা ভৌগোলিকভাৱে অৱস্থিত বিজ্ঞাপন সৃষ্টি বা বিচাৰ কৰিবলৈ অনুমতি দিয়ে। পৰৱৰ্তী সময়ত আপোনাৰ আগ্ৰহৰ ক্ষেত্ৰৰ ভিতৰত কোনো সেৱাৰ বাবে অতিৰিক্ত মূল্য নিদি পিয়েৰ টু পিয়েৰৰ সৈতে যোগাযোগ কৰক!",
+          "text": "এই পথত, আমাৰ ব্যৱস্থাই আপোনাক মধ্যভোগীসকলক বাইপাচ কৰি বৈধ সদস্যসকলৰ পৰা ভৌগোলিকভাৱে অৱস্থিত বিজ্ঞাপন সৃষ্টি বা বিচাৰ কৰিবলৈ অনুমতি দিয়ে। পৰৱৰ্তী সময়ত আপোনাৰ আগ্ৰহৰ ক্ষেত্ৰৰ ভিতৰত কোনো সেৱাৰ বাবে অতিৰিক্ত মূল্য নিদি পিয়েৰ টু পিয়েৰৰ সৈতে যোগাযোগ কৰক!",
           "icon": "peer-to-peer"
         }
       }
@@ -170,7 +170,7 @@
       }
     },
     "delete": {
-      "confirm": "আপুনি নিশ্চিতভাৱে ডিলিট কৰিব বিচাৰে"
+      "confirm": "আপুনি নিশ্চিতভাৱে ইয়াক ডিলিট কৰিব বিচাৰে নে"
     },
     "expenses": {
       "form": {
@@ -178,8 +178,8 @@
         "name_placeholder": "খৰচৰ নাম লিখক",
         "amount": "প্ৰতি মাহে পৰিমাণ",
         "amount_placeholder": "প্ৰতি মাহে পৰিমাণ লিখক",
-        "society": "সমাজ",
-        "society_placeholder": "এখন সমাজ বাছক",
+        "society": "ছ'ছাইটি",
+        "society_placeholder": "এটা ছ'ছাইটি বাছক",
         "active": "সক্ৰিয়"
       },
       "detail": {
@@ -189,24 +189,24 @@
         "percentageCoverage": "শতকৰা হাৰৰ কভাৰেজ",
         "typeOptions": {
           "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "মালিকীস্বত্বৰ শতকৰা হাৰ অনুসৰি",
-          "AMOUNT_PER_RESIDENCE": "প্ৰতি বাসস্থানত",
+          "AMOUNT_PER_RESIDENCE": "আবাসন অনুসৰি",
           "AMOUNT_PER_SQUARE_AREA": "বৰ্গক্ষেত্ৰৰ এলেকা অনুসৰি",
-          "AMOUNT_PER_RESIDENT": "প্ৰতি বাসিন্দাৰ বাবে",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "প্ৰতি বাসিন্দাৰ বাবে প্ৰতি মহলাৰ গণনা"
+          "AMOUNT_PER_RESIDENT": "বাসিন্দা অনুসৰি",
+          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "প্ৰতি ফ্লোৰ গণনাৰ বাবে প্ৰতি বাসিন্দা"
         },
         "addDistribution": "বিতৰণ যোগ কৰক",
         "saveDistributions": "সংৰক্ষণ কৰক",
-        "remove": "আতঁৰাওক",
+        "remove": " আঁতৰাওক",
         "noDistributions": "কোনো বিতৰণ উপলব্ধ নহয়।",
         "calculations": "গণনা",
-        "noCalculations": "কোনো গণনা উপলব্ধ নহয়।",
+        "noCalculations": "কোনো গণনা উপলব্ধ নাই।",
         "table": {
           "month": "মাহ",
           "residence": "আবাসন",
           "amount": "পৰিমাণ"
         },
         "error": {
-          "totalCoverage": "মুঠ শতাংশ কভাৰেজ ১০০ ৰ সমান হ'ব লাগিব"
+          "totalCoverage": "মুঠ শতাংশ কভাৰেজ ১০০ৰ সমান হ'ব লাগিব"
         },
         "backToAllExpenses": "← সকলো খৰচলৈ উভতি যাওক"
       }
@@ -215,8 +215,8 @@
   "components": {
     "settings": {
       "api": {
-        "legend": "API URL",
-        "label": "য'ত বেকএণ্ড চাৰ্ভাৰত API অৱস্থিত।"
+        "legend": "এপিআই ইউ আৰ এল",
+        "label": "য'ত এপিআই পেছনলৈ ছাৰ্ভাৰত অৱস্থিত।"
       }
     },
     "locales": {
@@ -249,18 +249,18 @@
           "placeholder": "user@example.com"
         },
         "otp": {
-          "legend": "OTP (এবাৰৰ বাবে ব্যৱহাৰযোগ্য পাছৱৰ্ড)",
+          "legend": "ওটিপি (এখন বাৰৰ পাছৱৰ্ড)",
           "placeholder": "12345"
         },
-        "submit": "প্ৰমাণ কৰক"
+        "submit": "যাচাই কৰক"
       }
     },
     "users": {
       "card": {
-        "user_id": "ব্যৱহাৰকাৰীৰ আইডি",
+        "user_id": "ব্যৱহাৰকাৰী আইডি",
         "user_name": "নাম",
         "user_role": "ভূমিকা",
-        "member_since": "সদস্য হোৱাৰ তাৰিখ",
+        "member_since": "সদস্যৰ পৰা",
         "no_members": "কোনো সদস্য পোৱা নগ'ল"
       },
       "list": {
@@ -271,67 +271,68 @@
       "form": {
         "name": "সমাজৰ নাম",
         "name_placeholder": "সমাজৰ নাম লিখক",
-        "postcode": "পোষ্টকোড",
-        "postcode_placeholder": "পোষ্টকোড লিখক",
+        "postcode": "পোস্টকোড",
+        "postcode_placeholder": "পোস্টকোড লিখক",
+        "map": "মেপত অৱস্থান বাচনি কৰক",
         "city": "চহৰ",
         "city_placeholder": "চহৰ লিখক",
         "state": "ৰাজ্য",
         "state_placeholder": "ৰাজ্য লিখক",
         "country": "দেশ",
         "country_placeholder": "দেশ লিখক",
-        "timezone": "টাইমজ'ন",
-        "timezone_placeholder": "টাইমজ'ন লিখক (উদাহৰণস্বৰূপে, Europe/Berlin)",
+        "timezone": "টাইমজোন",
+        "timezone_placeholder": "টাইমজোন লিখক (যেনে, Europe/Berlin)",
         "currency": "মুদ্ৰা",
-        "area_unit": "এৰিয়া ইউনিট"
+        "area_unit": "এলাকা একক"
       },
       "details": {
         "role": "ভূমিকা",
         "no_membership": "আপুনি সদস্য নহয়",
-        "id": "সমাজৰ আইডি",
+        "id": "সমাজ আইডি",
         "location": "অৱস্থান",
-        "postcode": "পোষ্টকোড",
+        "postcode": "পোস্টকোড",
         "currency": "মুদ্ৰা",
-        "timezone": "টাইমজ'ন",
-        "area_unit": "এৰিয়া ইউনিট",
-        "fine_rate": "জৰিমনাৰ হাৰ",
-        "coordinates": "কোঅৰ্ডিনেট",
-        "created": "সৃষ্টি কৰা হৈছে",
-        "updated": "শেষবাৰ আপডেট কৰা হৈছে"
+        "timezone": "টাইমজোন",
+        "area_unit": "এলাকা একক",
+        "fine_rate": "জৰিমনা হাৰ",
+        "coordinates": "সমন্বয়",
+        "created": "তৈয়াৰ কৰা সময়",
+        "updated": "শেষ আপডেট"
       }
     },
     "residences": {
       "form": {
-        "societyId": "সমাজৰ আইডি",
-        "societyId_placeholder": "সমাজৰ আইডি লিখক",
-        "residenceName": "আবাসৰ নাম",
-        "residenceName_placeholder": "আবাসৰ নাম লিখক",
-        "floorCount": "মহলাৰ সংখ্যা",
-        "floorCount_placeholder": "মহলাৰ সংখ্যা লিখক",
-        "areaValue": "এৰিয়া (বৰ্গফুট)",
-        "areaValue_placeholder": "বৰ্গফুটত এৰিয়া লিখক",
-        "residentsCount": "আবাসিকৰ সংখ্যা",
-        "residentsCount_placeholder": "আবাসিকৰ সংখ্যা লিখক",
-        "percentageOwnership": "শতকৰা মালিকানা",
-        "percentageOwnership_placeholder": "শতকৰা মালিকানা লিখক",
+        "societyId": "সমাজ আইডি",
+        "societyId_placeholder": "সমাজ আইডি লিখক",
+        "residenceName": "বাসস্থানৰ নাম",
+        "residenceName_placeholder": "বাসস্থানৰ নাম লিখক",
+        "floorCount": "মহলৰ সংখ্যা",
+        "floorCount_placeholder": "মহলৰ সংখ্যা লিখক",
+        "areaValue": "এলাকা (বৰ্গ ফুট)",
+        "areaValue_placeholder": "এলাকা বৰ্গ ফুটত লিখক",
+        "residentsCount": "বাসিন্দাৰ সংখ্যা",
+        "residentsCount_placeholder": "বাসিন্দাৰ সংখ্যা লিখক",
+        "percentageOwnership": "শতাংশ মালিকানা",
+        "percentageOwnership_placeholder": "শতাংশ মালিকানা লিখক",
         "description": "বিৱৰণ",
-        "description_placeholder": "বিৱৰণ যোগ কৰক"
+        "description_placeholder": "এখন বিৱৰণ যোগ কৰক"
       },
       "details": {
-        "societyId": "সমাজৰ আইডি",
-        "residentsCount": "আবাসিক",
-        "floorCount": "মহলা",
-        "area": "এৰিয়া",
-        "percentageOwnership": "শতকৰা মালিকানা",
+        "societyId": "সমাজ আইডি",
+        "residentsCount": "বাসিন্দাসকল",
+        "floorCount": "মহলসমূহ",
+        "area": "এলাকা",
+        "percentageOwnership": "শতাংশ মালিকানা",
         "active": "সক্ৰিয়",
         "yes": "হয়",
         "no": "নহয়",
         "description": "বিৱৰণ",
-        "createdAt": "সৃষ্টি কৰা হৈছে",
-        "updatedAt": "আপডেট কৰা হৈছে",
+        "createdAt": "তৈয়াৰ কৰা সময়",
+        "updatedAt": "আপডেট কৰা সময়",
         "notAvailable": "উপলব্ধ নহয়"
       },
       "invite_user": {
-        "title": "এই আবাসলৈ নতুন ব্যৱহাৰকাৰীক আমন্ত্ৰণ জনান",
+        "title": "এই বাসস্থানলৈ এখন নতুন ব্যৱহাৰকাৰী আমন্ত্ৰণ কৰক",
         "name": {
           "legend": "নাম",
           "placeholder": "এলিছ"
@@ -344,18 +345,18 @@
     },
     "ads": {
       "form": {
-        "title": "বিজ্ঞাপনৰ শিৰোনাম",
-        "title_placeholder": "বিজ্ঞাপনৰ শিৰোনাম লিখক",
-        "adDescription": "বিজ্ঞাপনৰ বিৱৰণ",
-        "adDescription_placeholder": "বিজ্ঞাপনৰ বিৱৰণ লিখক",
-        "anonymousUserName": "বেনামী ব্যৱহাৰকাৰীৰ নাম",
-        "anonymousUserName_placeholder": "আপোনাৰ ছদ্মনাম বা বেনামী নাম লিখক",
-        "type": "বিজ্ঞাপনৰ প্ৰকাৰ",
-        "type_placeholder": "এটা বিজ্ঞাপনৰ প্ৰকাৰ বাছক",
-        "map": "মেপৰ ওপৰত অৱস্থান বাছক",
-        "coordinates": "কোঅৰ্ডিনেট (অক্ষাংশ, দ্ৰাঘিমাংশ)",
+        "title": "বিজ্ঞাপন শিৰোনাম",
+        "title_placeholder": "বিজ্ঞাপন শিৰোনাম লিখক",
+        "adDescription": "বিজ্ঞাপন বিৱৰণ",
+        "adDescription_placeholder": "বিজ্ঞাপন বিৱৰণ লিখক",
+        "anonymousUserName": "গোপনীয় ব্যৱহাৰকাৰী নাম",
+        "anonymousUserName_placeholder": "আপোনাৰ উপনাম বা গোপন নাম লিখক",
+        "type": "বিজ্ঞাপন প্ৰকাৰ",
+        "type_placeholder": "এখন বিজ্ঞাপন প্ৰকাৰ বাচনি কৰক",
+        "map": "মেপত অৱস্থান বাচনি কৰক",
+        "coordinates": "সমন্বয় (অক্ষাংশ, দ্রাঘিমাংশ)",
         "create": "বিজ্ঞাপন সৃষ্টি কৰক",
-        "created_successfully": "বিজ্ঞাপন সফলভাৱে সৃষ্টি কৰা হ'ল।"
+        "created_successfully": "বিজ্ঞাপন সফলতাৰে সৃষ্টি কৰা হৈছে।"
       },
       "details": {
         "description": "বিৱৰণ"
@@ -364,18 +365,18 @@
     "expenses": {
       "form": {
         "name": "নাম",
-        "name_placeholder": "ইজমীৰ",
+        "name_placeholder": "ইজমিৰ",
         "amount": "প্ৰতি মাহে পৰিমাণ",
-        "society": "সমাজ",
-        "society_placeholder": "এখন সমাজ বাছক",
+        "society": "ছ'ছাইটি",
+        "society_placeholder": "এটা ছ'ছাইটি বাছক",
         "active": "সক্ৰিয়"
       },
       "details": {
-        "society": "সমাজ",
+        "society": "ছ'ছাইটি",
         "amountPerMonth": "প্ৰতি মাহে পৰিমাণ",
         "active": "সক্ৰিয়",
-        "createdAt": "সৃষ্টি কৰা হৈছে",
-        "updatedAt": "আপডেট কৰা হৈছে"
+        "createdAt": "তৈয়াৰ কৰা সময়",
+        "updatedAt": "আপডেট কৰা সময়"
       },
       "distributionCard": {
         "type": "প্ৰকাৰ",
@@ -389,24 +390,62 @@
         "controller.address_label": "ঠিকনা:",
         "controller.email_label": "ইমেইল:",
         "controller.phone_label": "ফোন:",
-        "protection_officer.heading": "ডাটা সুৰক্ষা বিষয়া",
+        "protection_officer.heading": "ডাটা সুৰক্ষা বিষয়ক",
         "protection_officer.email_label": "ইমেইল:",
-        "purposes.heading": "প্ৰক্ৰিয়াকৰণৰ উদ্দেশ্য",
-        "legal_bases.heading": "আইনগত ভিত্তি",
-        "recipients.heading": "ডাটা গ্ৰাহক",
-        "retention.heading": "ডাটা ধাৰণ",
+        "purposes.heading": "প্ৰক্ৰিয়াৰ উদ্দেশ্য",
+        "legal_bases.heading": "আইনী আধাৰ",
+        "recipients.heading": "ডাটা গ্ৰহণকাৰী",
+        "retention.heading": "ডাটা ৰক্ষণ",
         "rights.heading": "আপোনাৰ অধিকাৰ",
-        "supervisory_authority.heading": "তত্ত্বাৱধায়ক কৰ্তৃপক্ষ"
+        "supervisory_authority.heading": "পৰ্যবেক্ষণ কৰ্তা"
       }
     }
   },
   "common": {
-    "creating": "সৃষ্টি কৰা হৈছে...",
-    "submit": "দাখিল কৰক",
-    "join": "অন্তৰ্ভুক্ত হওক",
-    "delete": "বিলোপ কৰক",
-    "deleting": "বিলোপ কৰা হৈছে...",
+    "creating": "তৈয়াৰ কৰা হৈছে...",
+    "submit": "জমা কৰক",
+    "join": "যোগদান কৰক",
+    "delete": "মচি পেলাওক",
+    "deleting": "মচি পেলোৱা হৈছে...",
     "cancel": "বাতিল কৰক",
-    "update": "আপডেট কৰক"
+    "update": "আপডেট"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "সমাজ প্ৰশাসক",
+      "SELL_HOUSE": "ঘৰ বিক্ৰী কৰক",
+      "RENT_HOUSE": "ঘৰ ভাড়াত লওক",
+      "SUB_LEASE_HOUSE": "ঘৰ উপ-ভাড়াত দিয়ক",
+      "HOUSE_SHARING": "ঘৰ ভাগ-বতৰা",
+      "HEATING_SERVICE_NEEDED": "হিটিং সেৱা প্ৰয়োজন",
+      "PLUMBING_SERVICE_NEEDED": "নলী সংযোগ সেৱা প্ৰয়োজন",
+      "ELECTRICAL_SERVICE_NEEDED": "বৈদ্যুতিক সেৱা প্ৰয়োজন",
+      "MOVING_SERVICE_NEEDED": "স্থানান্তৰ সেৱা প্ৰয়োজন",
+      "SELL_CLOTH": "পোছাক বিক্ৰী কৰক",
+      "SEARCH_CLOTH": "পোছাক বিচাৰক",
+      "GIVE_AWAY_CLOTH": "পোছাক দান কৰক",
+      "SELL_FURNITURE": "আসবাব বিক্ৰী কৰক",
+      "SEARCH_FURNITURE": "আসবাব বিচাৰক",
+      "GIVE_AWAY_FURNITURE": "আসবাব দান কৰক",
+      "SMALL_PRINTING_SERVICE": "ক্ষুদ্ৰ ছপাশাল সেৱা",
+      "PROFESSIONAL_PRINTING_SERVICE": "বৃত্তিমূলক ছপাশাল সেৱা",
+      "SELL_MISC": "অন্যান্য সামগ্ৰী বিক্ৰী কৰক",
+      "SEARCH_MISC": "অন্যান্য সামগ্ৰী বিচাৰক",
+      "GIVE_AWAY_MISC": "অন্যান্য সামগ্ৰী দান কৰক"
+    },
+    "area": {
+      "sqm": "বৰ্গ মিটাৰ",
+      "sqft": "বৰ্গ ফুট",
+      "acres": "একাৰ",
+      "hectares": "হেক্টৰ"
+    },
+    "currencies": {
+      "EUR": "EUR - ইউৰো",
+      "USD": "USD - আমেৰিকান ডলাৰ",
+      "GBP": "GBP - ব্ৰিটিছ পাউণ্ড",
+      "INR": "INR - ভাৰতীয় টকা",
+      "CAD": "CAD - কানাডিয়ান ডলাৰ",
+      "AUD": "AUD - অষ্ট্ৰেলিয়ান ডলাৰ"
+    }
   }
 }

@@ -273,6 +273,7 @@
         "name_placeholder": "Ingrese el nombre de la sociedad",
         "postcode": "Código postal",
         "postcode_placeholder": "Ingrese el código postal",
+        "map": "Seleccionar ubicación en el mapa",
         "city": "Ciudad",
         "city_placeholder": "Ingrese la ciudad",
         "state": "Estado",
@@ -408,5 +409,43 @@
     "deleting": "Eliminando...",
     "cancel": "Cancelar",
     "update": "Actualizar"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Administrador de la sociedad",
+      "SELL_HOUSE": "Vender casa",
+      "RENT_HOUSE": "Alquilar casa",
+      "SUB_LEASE_HOUSE": "Subarrendar casa",
+      "HOUSE_SHARING": "Compartir casa",
+      "HEATING_SERVICE_NEEDED": "Servicio de calefacción necesario",
+      "PLUMBING_SERVICE_NEEDED": "Servicio de fontanería necesario",
+      "ELECTRICAL_SERVICE_NEEDED": "Servicio eléctrico necesario",
+      "MOVING_SERVICE_NEEDED": "Servicio de mudanza necesario",
+      "SELL_CLOTH": "Vender ropa",
+      "SEARCH_CLOTH": "Buscar ropa",
+      "GIVE_AWAY_CLOTH": "Regalar ropa",
+      "SELL_FURNITURE": "Vender muebles",
+      "SEARCH_FURNITURE": "Buscar muebles",
+      "GIVE_AWAY_FURNITURE": "Regalar muebles",
+      "SMALL_PRINTING_SERVICE": "Servicio de impresión pequeño",
+      "PROFESSIONAL_PRINTING_SERVICE": "Servicio de impresión profesional",
+      "SELL_MISC": "Vender varios",
+      "SEARCH_MISC": "Buscar varios",
+      "GIVE_AWAY_MISC": "Regalar varios"
+    },
+    "area": {
+      "sqm": "Metros cuadrados",
+      "sqft": "Pies cuadrados",
+      "acres": "Acres",
+      "hectares": "Hectáreas"
+    },
+    "currencies": {
+      "EUR": "EUR - Euro",
+      "USD": "USD - Dólar estadounidense",
+      "GBP": "GBP - Libra esterlina",
+      "INR": "INR - Rupia india",
+      "CAD": "CAD - Dólar canadiense",
+      "AUD": "AUD - Dólar australiano"
+    }
   }
 }

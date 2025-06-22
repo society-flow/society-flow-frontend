@@ -273,6 +273,7 @@
         "name_placeholder": "Insira o nome da sociedade",
         "postcode": "Código postal",
         "postcode_placeholder": "Insira o código postal",
+        "map": "Selecione a localização no mapa",
         "city": "Cidade",
         "city_placeholder": "Insira a cidade",
         "state": "Estado",
@@ -408,5 +409,43 @@
     "deleting": "Excluindo...",
     "cancel": "Cancelar",
     "update": "Atualizar"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Administrador da Sociedade",
+      "SELL_HOUSE": "Vender Casa",
+      "RENT_HOUSE": "Alugar Casa",
+      "SUB_LEASE_HOUSE": "Sublocar Casa",
+      "HOUSE_SHARING": "Partilha de Casa",
+      "HEATING_SERVICE_NEEDED": "Serviço de Aquecimento Necessário",
+      "PLUMBING_SERVICE_NEEDED": "Serviço de Canalização Necessário",
+      "ELECTRICAL_SERVICE_NEEDED": "Serviço Elétrico Necessário",
+      "MOVING_SERVICE_NEEDED": "Serviço de Mudança Necessário",
+      "SELL_CLOTH": "Vender Roupa",
+      "SEARCH_CLOTH": "Pesquisar Roupa",
+      "GIVE_AWAY_CLOTH": "Doar Roupa",
+      "SELL_FURNITURE": "Vender Mobiliário",
+      "SEARCH_FURNITURE": "Pesquisar Mobiliário",
+      "GIVE_AWAY_FURNITURE": "Doar Mobiliário",
+      "SMALL_PRINTING_SERVICE": "Serviço de Impressão Pequeno",
+      "PROFESSIONAL_PRINTING_SERVICE": "Serviço de Impressão Profissional",
+      "SELL_MISC": "Vender Diversos",
+      "SEARCH_MISC": "Pesquisar Diversos",
+      "GIVE_AWAY_MISC": "Doar Diversos"
+    },
+    "area": {
+      "sqm": "Metros quadrados",
+      "sqft": "Pés quadrados",
+      "acres": "Acres",
+      "hectares": "Hectares"
+    },
+    "currencies": {
+      "EUR": "EUR - Euro",
+      "USD": "USD - Dólar americano",
+      "GBP": "GBP - Libra esterlina",
+      "INR": "INR - Rupia indiana",
+      "CAD": "CAD - Dólar canadense",
+      "AUD": "AUD - Dólar australiano"
+    }
   }
 }

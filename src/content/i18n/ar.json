@@ -273,6 +273,7 @@
         "name_placeholder": "أدخل اسم المجتمع",
         "postcode": "الرمز البريدي",
         "postcode_placeholder": "أدخل الرمز البريدي",
+        "map": "حدد الموقع على الخريطة",
         "city": "المدينة",
         "city_placeholder": "أدخل المدينة",
         "state": "الولاية",
@@ -408,5 +409,43 @@
     "deleting": "جارٍ الحذف...",
     "cancel": "إلغاء",
     "update": "تحديث"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "مسؤول المجتمع",
+      "SELL_HOUSE": "بيع منزل",
+      "RENT_HOUSE": "تأجير منزل",
+      "SUB_LEASE_HOUSE": "تأجير فرعي لمنزل",
+      "HOUSE_SHARING": "مشاركة المنزل",
+      "HEATING_SERVICE_NEEDED": "خدمة التدفئة مطلوبة",
+      "PLUMBING_SERVICE_NEEDED": "خدمة السباكة مطلوبة",
+      "ELECTRICAL_SERVICE_NEEDED": "خدمة الكهرباء مطلوبة",
+      "MOVING_SERVICE_NEEDED": "خدمة النقل مطلوبة",
+      "SELL_CLOTH": "بيع ملابس",
+      "SEARCH_CLOTH": "البحث عن ملابس",
+      "GIVE_AWAY_CLOTH": "التبرع بالملابس",
+      "SELL_FURNITURE": "بيع أثاث",
+      "SEARCH_FURNITURE": "البحث عن أثاث",
+      "GIVE_AWAY_FURNITURE": "التبرع بالأثاث",
+      "SMALL_PRINTING_SERVICE": "خدمة طباعة صغيرة",
+      "PROFESSIONAL_PRINTING_SERVICE": "خدمة طباعة احترافية",
+      "SELL_MISC": "بيع متنوعات",
+      "SEARCH_MISC": "البحث عن متنوعات",
+      "GIVE_AWAY_MISC": "التبرع بمتنوعات"
+    },
+    "area": {
+      "sqm": "متر مربع",
+      "sqft": "قدم مربع",
+      "acres": "فدان",
+      "hectares": "هكتار"
+    },
+    "currencies": {
+      "EUR": "EUR - يورو",
+      "USD": "USD - دولار أمريكي",
+      "GBP": "GBP - جنيه بريطاني",
+      "INR": "INR - روبية هندية",
+      "CAD": "CAD - دولار كندي",
+      "AUD": "AUD - دولار أسترالي"
+    }
   }
 }

@@ -273,6 +273,7 @@
         "name_placeholder": "Wprowadź nazwę społeczeństwa",
         "postcode": "Kod pocztowy",
         "postcode_placeholder": "Wprowadź kod pocztowy",
+        "map": "Wybierz lokalizację na mapie",
         "city": "Miasto",
         "city_placeholder": "Wprowadź miasto",
         "state": "Województwo",
@@ -408,5 +409,43 @@
     "deleting": "Usuwanie...",
     "cancel": "Anuluj",
     "update": "Aktualizuj"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Administrator osiedla",
+      "SELL_HOUSE": "Sprzedaj dom",
+      "RENT_HOUSE": "Wynajmij dom",
+      "SUB_LEASE_HOUSE": "Podnajem domu",
+      "HOUSE_SHARING": "Współdzielenie domu",
+      "HEATING_SERVICE_NEEDED": "Potrzebna usługa grzewcza",
+      "PLUMBING_SERVICE_NEEDED": "Potrzebna usługa hydrauliczna",
+      "ELECTRICAL_SERVICE_NEEDED": "Potrzebna usługa elektryczna",
+      "MOVING_SERVICE_NEEDED": "Potrzebna usługa przeprowadzkowa",
+      "SELL_CLOTH": "Sprzedaj odzież",
+      "SEARCH_CLOTH": "Szukaj odzieży",
+      "GIVE_AWAY_CLOTH": "Oddaj odzież",
+      "SELL_FURNITURE": "Sprzedaj meble",
+      "SEARCH_FURNITURE": "Szukaj mebli",
+      "GIVE_AWAY_FURNITURE": "Oddaj meble",
+      "SMALL_PRINTING_SERVICE": "Mała usługa drukarska",
+      "PROFESSIONAL_PRINTING_SERVICE": "Profesjonalna usługa drukarska",
+      "SELL_MISC": "Sprzedaj różne",
+      "SEARCH_MISC": "Szukaj różne",
+      "GIVE_AWAY_MISC": "Oddaj różne"
+    },
+    "area": {
+      "sqm": "Metry kwadratowe",
+      "sqft": "Stopy kwadratowe",
+      "acres": "Akry",
+      "hectares": "Hektary"
+    },
+    "currencies": {
+      "EUR": "EUR - Euro",
+      "USD": "USD - Dolar amerykański",
+      "GBP": "GBP - Funt brytyjski",
+      "INR": "INR - Rupia indyjska",
+      "CAD": "CAD - Dolar kanadyjski",
+      "AUD": "AUD - Dolar australijski"
+    }
   }
 }
