@@ -257,9 +257,11 @@
 
 			<section>
 				<h2>{$_('menu.ads')}</h2>
-				<!-- <nav> -->
-				<!-- 	<Anchor href={`/create/ads/society/${id}`} /> -->
-				<!-- </nav> -->
+				<nav>
+					<Anchor href={`/create/ads?society=${id}`} isButton>
+						{$_('menu.create.ads')}
+					</Anchor>
+				</nav>
 				<AdsList {ads} />
 				{#if ads.length > 0}{/if}
 			</section>
