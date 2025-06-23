@@ -347,7 +347,7 @@
       "form": {
         "title": "Reklam başlığı",
         "title_placeholder": "Reklam başlığını girin",
-        "adDescription": "Reklam Açıklaması",
+        "adDescription": "Reklam açıklaması",
         "adDescription_placeholder": "Reklam açıklamasını girin",
         "anonymousUserName": "Anonim Kullanıcı Adı",
         "anonymousUserName_placeholder": "Takma adınızı veya anonim adınızı girin",
@@ -358,7 +358,9 @@
         "create": "Reklam Oluştur",
         "created_successfully": "Reklam başarıyla oluşturuldu.",
         "society": "Site",
-        "residency": "İkamet"
+        "society_placeholder": "Site seçin",
+        "residency": "İkamet",
+        "residency_placeholder": "İkametgah seçin"
       },
       "details": {
         "description": "Açıklama"

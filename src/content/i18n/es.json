@@ -358,7 +358,9 @@
         "create": "Crear anuncio",
         "created_successfully": "Anuncio creado con éxito.",
         "society": "Sociedad",
-        "residency": "Residencia"
+        "society_placeholder": "Selecciona una sociedad",
+        "residency": "Residencia",
+        "residency_placeholder": "Seleccione una residencia"
       },
       "details": {
         "description": "Descripción"

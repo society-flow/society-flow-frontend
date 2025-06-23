@@ -358,7 +358,9 @@
         "create": "إنشاء إعلان",
         "created_successfully": "تم إنشاء الإعلان بنجاح.",
         "society": "المجتمع",
-        "residency": "الإقامة"
+        "society_placeholder": "اختر مجتمعًا",
+        "residency": "الإقامة",
+        "residency_placeholder": "اختر الإقامة"
       },
       "details": {
         "description": "الوصف"

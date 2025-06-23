@@ -347,7 +347,7 @@
 			"form": {
 				"title": "Advertisement title",
 				"title_placeholder": "Enter the advertisement title",
-				"adDescription": "Advertisement Description",
+				"adDescription": "Advertisement description",
 				"adDescription_placeholder": "Enter the advertisement description",
 				"anonymousUserName": "Anonymous User Name",
 				"anonymousUserName_placeholder": "Enter your alias or anonymous name",
@@ -358,7 +358,9 @@
 				"create": "Create Advertisement",
 				"created_successfully": "Advertisement created successfully.",
 				"society": "Society",
-				"residency": "Residency"
+				"society_placeholder": "Select a society",
+				"residency": "Residency",
+				"residency_placeholder": "Select a residency"
 			},
 			"details": {
 				"description": "Description"

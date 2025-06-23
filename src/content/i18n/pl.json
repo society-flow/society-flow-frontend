@@ -347,7 +347,7 @@
       "form": {
         "title": "Tytuł ogłoszenia",
         "title_placeholder": "Wprowadź tytuł ogłoszenia",
-        "adDescription": "Opis ogłoszenia",
+        "adDescription": "Opis reklamy",
         "adDescription_placeholder": "Wprowadź opis ogłoszenia",
         "anonymousUserName": "Anonimowa nazwa użytkownika",
         "anonymousUserName_placeholder": "Wprowadź swój alias lub anonimową nazwę",
@@ -358,7 +358,9 @@
         "create": "Utwórz ogłoszenie",
         "created_successfully": "Ogłoszenie utworzono pomyślnie.",
         "society": "Towarzystwo",
-        "residency": "Pobyt"
+        "society_placeholder": "Wybierz towarzystwo",
+        "residency": "Pobyt",
+        "residency_placeholder": "Wybierz miejsce zamieszkania"
       },
       "details": {
         "description": "Opis"

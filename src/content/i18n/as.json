@@ -347,7 +347,7 @@
       "form": {
         "title": "বিজ্ঞাপন শিৰোনাম",
         "title_placeholder": "বিজ্ঞাপন শিৰোনাম লিখক",
-        "adDescription": "বিজ্ঞাপন বিৱৰণ",
+        "adDescription": "বিজ্ঞাপনৰ বিবৰণ",
         "adDescription_placeholder": "বিজ্ঞাপন বিৱৰণ লিখক",
         "anonymousUserName": "গোপনীয় ব্যৱহাৰকাৰী নাম",
         "anonymousUserName_placeholder": "আপোনাৰ উপনাম বা গোপন নাম লিখক",
@@ -358,7 +358,9 @@
         "create": "বিজ্ঞাপন সৃষ্টি কৰক",
         "created_successfully": "বিজ্ঞাপন সফলতাৰে সৃষ্টি কৰা হৈছে।",
         "society": "ছ'ছাইটি",
-        "residency": "বাসস্থান"
+        "society_placeholder": "এটা ছ'ছাইটি বাছক",
+        "residency": "বাসস্থান",
+        "residency_placeholder": "একতা আবাসস্থান বাছক"
       },
       "details": {
         "description": "বিৱৰণ"

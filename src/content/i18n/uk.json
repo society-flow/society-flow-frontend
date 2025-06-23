@@ -347,7 +347,7 @@
       "form": {
         "title": "Назва оголошення",
         "title_placeholder": "Введіть назву оголошення",
-        "adDescription": "Опис оголошення",
+        "adDescription": "Опис реклами",
         "adDescription_placeholder": "Введіть опис оголошення",
         "anonymousUserName": "Анонімне ім'я користувача",
         "anonymousUserName_placeholder": "Введіть свій псевдонім або анонімне ім'я",
@@ -358,7 +358,9 @@
         "create": "Створити оголошення",
         "created_successfully": "Оголошення успішно створено.",
         "society": "Суспільство",
-        "residency": "Проживання"
+        "society_placeholder": "Виберіть суспільство",
+        "residency": "Проживання",
+        "residency_placeholder": "Виберіть місце проживання"
       },
       "details": {
         "description": "Опис"

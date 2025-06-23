@@ -76,7 +76,6 @@
 			success = $_('components.ads.form.created_successfully');
 			onsuccess(newAd);
 
-			// reset form
 			form = { ...newAd };
 		} catch (err) {
 			error = err.message || $_('errors.generic');
@@ -139,7 +138,7 @@
 		<fieldset>
 			<legend>{$_('components.ads.form.society')}</legend>
 			<select bind:value={form.societyId} on:change={resetMessages}>
-				<option value="" disabled>{$_('components.expenses.form.society_placeholder')}</option>
+				<option value="" disabled>{$_('components.ads.form.society_placeholder')}</option>
 				{#each societies as soc}
 					<option value={soc.id}>{soc.name}</option>
 				{/each}
@@ -150,7 +149,7 @@
 			<fieldset>
 				<legend>{$_('components.ads.form.residency')}</legend>
 				<select bind:value={form.residencyId} on:change={resetMessages}>
-					<option value="" disabled>{$_('components.expenses.form.residency_placeholder')}</option>
+					<option value="" disabled>{$_('components.ads.form.residency_placeholder')}</option>
 					{#each residences as residency}
 						<option value={residency.id}>{residency.residenceName}</option>
 					{/each}

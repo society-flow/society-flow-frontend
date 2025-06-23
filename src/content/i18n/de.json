@@ -347,7 +347,7 @@
       "form": {
         "title": "Anzeigentitel",
         "title_placeholder": "Geben Sie den Anzeigentitel ein",
-        "adDescription": "Anzeigenbeschreibung",
+        "adDescription": "Werbebeschreibung",
         "adDescription_placeholder": "Geben Sie die Anzeigenbeschreibung ein",
         "anonymousUserName": "Anonymer Benutzername",
         "anonymousUserName_placeholder": "Geben Sie Ihren Alias- oder anonymen Namen ein",
@@ -358,7 +358,9 @@
         "create": "Anzeige erstellen",
         "created_successfully": "Anzeige erfolgreich erstellt.",
         "society": "Gesellschaft",
-        "residency": "Wohnsitz"
+        "society_placeholder": "Wählen Sie eine Gesellschaft aus",
+        "residency": "Wohnsitz",
+        "residency_placeholder": "Wählen Sie einen Wohnsitz"
       },
       "details": {
         "description": "Beschreibung"
