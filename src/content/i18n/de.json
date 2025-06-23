@@ -356,7 +356,9 @@
         "map": "Wählen Sie den Standort auf der Karte aus",
         "coordinates": "Koordinaten (Breitengrad, Längengrad)",
         "create": "Anzeige erstellen",
-        "created_successfully": "Anzeige erfolgreich erstellt."
+        "created_successfully": "Anzeige erfolgreich erstellt.",
+        "society": "Gesellschaft",
+        "residency": "Wohnsitz"
       },
       "details": {
         "description": "Beschreibung"

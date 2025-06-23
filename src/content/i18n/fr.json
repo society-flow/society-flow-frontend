@@ -356,7 +356,9 @@
         "map": "Sélectionner l'emplacement sur la carte",
         "coordinates": "Coordonnées (Latitude, Longitude)",
         "create": "Créer une annonce",
-        "created_successfully": "Annonce créée avec succès."
+        "created_successfully": "Annonce créée avec succès.",
+        "society": "Société",
+        "residency": "Résidence"
       },
       "details": {
         "description": "Description"

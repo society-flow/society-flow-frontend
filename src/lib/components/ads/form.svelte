@@ -1,6 +1,7 @@
 <script lang="janvascript">
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
+	import { userState } from '$lib/states/user.svelte.js';
 	import MapPicker from '$lib/components/map-picker.svelte';
 
 	const { data: initialData = {}, onsuccess = () => {} } = $props();
@@ -16,7 +17,9 @@
 			anonymousUserName: '',
 			type: '',
 			isActive: true,
-			approxGeoCoordinate: { x: '', y: '' }
+			approxGeoCoordinate: { x: '', y: '' },
+			societyId: null,
+			residenceId: null
 		},
 		...initialData
 	});
@@ -33,6 +36,21 @@
 	$effect(async () => {
 		if (adTypeOptions.length === 0) {
 			adTypeOptions = await api.getAllAdTypes();
+		}
+	});
+
+	// Load user societies for dropdown
+	let societies = $state([]);
+	$effect(async () => {
+		if (userState.user?.id) {
+			societies = await api.getUserSocieties(userState.user.id);
+		}
+	});
+
+	let residences = $state([]);
+	$effect(async () => {
+		if (form.societyId) {
+			residences = await api.getUserResidencesInSociety(form.societyId, userState.user.id);
 		}
 	});
 
@@ -117,30 +135,55 @@
 		</select>
 	</fieldset>
 
-	<fieldset>
-		<legend>
-			{$_('components.ads.form.map')}
-		</legend>
-		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
-	</fieldset>
+	{#if societies}
+		<fieldset>
+			<legend>{$_('components.ads.form.society')}</legend>
+			<select bind:value={form.societyId} on:change={resetMessages}>
+				<option value="" disabled>{$_('components.expenses.form.society_placeholder')}</option>
+				{#each societies as soc}
+					<option value={soc.id}>{soc.name}</option>
+				{/each}
+			</select>
+		</fieldset>
 
-	<fieldset style="display: none;">
-		<legend>{$_('components.ads.form.coordinates')}</legend>
-		<input
-			type="number"
-			step="any"
-			bind:value={form.approxGeoCoordinate.x}
-			placeholder="Lat"
-			on:input={resetMessages}
-		/>
-		<input
-			type="number"
-			step="any"
-			bind:value={form.approxGeoCoordinate.y}
-			placeholder="Lng"
-			on:input={resetMessages}
-		/>
-	</fieldset>
+		{#if residences && form.societyId}
+			<fieldset>
+				<legend>{$_('components.ads.form.residency')}</legend>
+				<select bind:value={form.residencyId} on:change={resetMessages}>
+					<option value="" disabled>{$_('components.expenses.form.residency_placeholder')}</option>
+					{#each residences as residency}
+						<option value={residency.id}>{residency.residenceName}</option>
+					{/each}
+				</select>
+			</fieldset>
+		{/if}
+	{/if}
+	{#if !form.societyId}
+		<fieldset>
+			<legend>
+				{$_('components.ads.form.map')}
+			</legend>
+			<MapPicker onselect={onMapSelect} initialMarkers={markers} />
+		</fieldset>
+
+		<fieldset style="display: none;">
+			<legend>{$_('components.ads.form.coordinates')}</legend>
+			<input
+				type="number"
+				step="any"
+				bind:value={form.approxGeoCoordinate.x}
+				placeholder="Lat"
+				on:input={resetMessages}
+			/>
+			<input
+				type="number"
+				step="any"
+				bind:value={form.approxGeoCoordinate.y}
+				placeholder="Lng"
+				on:input={resetMessages}
+			/>
+		</fieldset>
+	{/if}
 
 	<fieldset>
 		<button type="submit" disabled={isLoading}>

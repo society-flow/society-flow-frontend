@@ -356,7 +356,9 @@
         "map": "Wybierz lokalizację na mapie",
         "coordinates": "Współrzędne (Szerokość geograficzna, Długość geograficzna)",
         "create": "Utwórz ogłoszenie",
-        "created_successfully": "Ogłoszenie utworzono pomyślnie."
+        "created_successfully": "Ogłoszenie utworzono pomyślnie.",
+        "society": "Towarzystwo",
+        "residency": "Pobyt"
       },
       "details": {
         "description": "Opis"

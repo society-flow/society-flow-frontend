@@ -11,6 +11,7 @@
 	import SocietyDetails from '$lib/components/societies/details.svelte';
 	import SocietyJoin from '$lib/components/societies/join.svelte';
 	import ResidencesList from '$lib/components/residences/list.svelte';
+	import AdsList from '$lib/components/ads/list.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
 	import Map from '$lib/components/map.svelte';
 
@@ -24,6 +25,8 @@
 	let userResidences = $state([]);
 	let userRole = $state(null);
 	let residenceCount = $state(0);
+	let ads = $state([]);
+
 	// expense list for calculation breakdown
 	let expenses = $state([]);
 	let loading = $state(true);
@@ -57,6 +60,8 @@
 
 			// Fetch all residences in this society
 			residences = await api.getAllResidencesInSociety(id);
+
+			ads = await api.getAdvertisementsBySocietyId(id);
 
 			// Get residence count
 			const countResponse = await api.countResidencesInSociety(id);
@@ -248,6 +253,15 @@
 				{:else}
 					<p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
 				{/if}
+			</section>
+
+			<section>
+				<h2>{$_('menu.ads')}</h2>
+				<!-- <nav> -->
+				<!-- 	<Anchor href={`/create/ads/society/${id}`} /> -->
+				<!-- </nav> -->
+				<AdsList {ads} />
+				{#if ads.length > 0}{/if}
 			</section>
 		{:else}
 			<p>ø</p>

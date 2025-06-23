@@ -356,7 +356,9 @@
         "map": "Haritada Konum Seç",
         "coordinates": "Koordinatlar (Enlem, Boylam)",
         "create": "Reklam Oluştur",
-        "created_successfully": "Reklam başarıyla oluşturuldu."
+        "created_successfully": "Reklam başarıyla oluşturuldu.",
+        "society": "Site",
+        "residency": "İkamet"
       },
       "details": {
         "description": "Açıklama"

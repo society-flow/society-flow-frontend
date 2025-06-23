@@ -356,7 +356,9 @@
         "map": "حدد الموقع على الخريطة",
         "coordinates": "الإحداثيات (خط العرض، خط الطول)",
         "create": "إنشاء إعلان",
-        "created_successfully": "تم إنشاء الإعلان بنجاح."
+        "created_successfully": "تم إنشاء الإعلان بنجاح.",
+        "society": "المجتمع",
+        "residency": "الإقامة"
       },
       "details": {
         "description": "الوصف"
