@@ -8,15 +8,24 @@
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import AdDetails from '$lib/components/ads/details.svelte';
+	import SocietyCard from '$lib/components/societies/card.svelte';
+	import ResidencyCard from '$lib/components/residencies/card.svelte';
 
 	const id = $derived($page.params.id);
 	let advert = $state({});
+	let residency = $state(null);
+	let society = $state(null);
+
+	let coordinates = $derived(advert?.approxGeoCoordinate);
+	let selectedLocation = $derived(residency || society);
+	let locationCoordinates = $derived(selectedLocation?.geoCoordinate || coordinates);
+
 	let markers = $derived(
-		advert?.approxGeoCoordinate
+		locationCoordinates
 			? [
 					{
-						coordinates: [advert.approxGeoCoordinate.x, advert.approxGeoCoordinate.y],
-						title: advert.title || advert.id
+						coordinates: [locationCoordinates.x, locationCoordinates.y],
+						title: selectedLocation?.name || advert.title || advert.id
 					}
 				]
 			: []
@@ -26,7 +35,23 @@
 
 	$effect(async () => {
 		if (id) {
-			advert = await api.getAdvertisementById(id);
+			const res = await api.getAdvertisementById(id);
+
+			if (res.societyId || res.residencyId) {
+				try {
+					if (res.residencyId) {
+						residency = await api.getResidencyById(res.residencyId);
+						society = null; // Clear society if residency is found
+					} else if (res.societyId) {
+						society = await api.getSocietyById(res.societyId);
+						residency = null; // Clear residency if society is found
+					}
+				} catch (error) {
+					console.error('Error fetching location data:', error);
+				}
+			}
+
+			advert = res;
 		}
 	});
 </script>
@@ -56,6 +81,16 @@
 		{/if}
 
 		<AdDetails {advert} />
+
+		{#if selectedLocation}
+			<aside>
+				{#if residency}
+					<ResidencyCard {residency} />
+				{:else if society}
+					<SocietyCard {society} />
+				{/if}
+			</aside>
+		{/if}
 
 		{#if markers.length}
 			<aside>
