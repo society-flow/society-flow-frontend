@@ -30,7 +30,6 @@
 
 	// Options loaded via reactive effect
 	let adTypeOptions = $state([]);
-
 	$effect(async () => {
 		if (adTypeOptions.length === 0) {
 			adTypeOptions = await api.getAllAdTypes();

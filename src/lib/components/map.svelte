@@ -84,7 +84,7 @@
 			title,
 			href
 		} of validMarkers) {
-			const popup = href ? `<a href=\"${base}/${locale}${href}\">${title}</a>` : title;
+			const popup = href ? `<a href=\"${base}/${$locale}${href}\">${title}</a>` : title;
 			L.marker([lat, lon], { icon: createIcon(fill), title })
 				.addTo(markerGroup)
 				.bindPopup(popup);
