@@ -333,9 +333,9 @@ class Api {
 		const res = await client.apis.advertisings.getAdvertisementById({ id });
 		return res.body;
 	}
-	async getAdvertisementsByUserId(userId) {
+	async getAdvertisementsByUserId(userId, isActive = true) {
 		const client = await this.getClient();
-		const res = await client.apis.advertisings.getAdvertisementsByUserId({ userId });
+		const res = await client.apis.advertisings.getAdvertisementsByUserId({ userId, isActive });
 		return res.body;
 	}
 	async getAdvertisementsBySocietyId(societyId) {
