@@ -9,7 +9,7 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import AdDetails from '$lib/components/ads/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
-	import ResidencyCard from '$lib/components/residencies/card.svelte';
+	import ResidencyCard from '$lib/components/residences/card.svelte';
 
 	const id = $derived($page.params.id);
 	let advert = $state({});
