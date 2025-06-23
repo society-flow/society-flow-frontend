@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "Meine Ausgabengebühren",
         "noExpenseDues": "Keine Ausgabengebühren gefunden.",
+        "members": "Mitglieder",
         "table": {
           "month": "Monat",
           "expense": "Ausgabe",
@@ -162,6 +163,8 @@
         "expenseCalculations": "Ausgabenberechnungen",
         "triggerCalculations": "Berechnungen auslösen",
         "noExpensesConfigured": "Keine Ausgaben konfiguriert.",
+        "members": "Mitglieder",
+        "user_residences": "Meine Wohnsitze",
         "table": {
           "month": "Monat",
           "residence": "Residenz",

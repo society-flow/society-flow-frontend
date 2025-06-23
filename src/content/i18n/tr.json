@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "Gider Borçlarım",
         "noExpenseDues": "Gider borcu bulunamadı.",
+        "members": "Üyeler",
         "table": {
           "month": "Ay",
           "expense": "Gider",
@@ -162,6 +163,8 @@
         "expenseCalculations": "Gider Hesaplamaları",
         "triggerCalculations": "Hesaplamaları Tetikle",
         "noExpensesConfigured": "Hiçbir gider yapılandırılmamış.",
+        "members": "Üyeler",
+        "user_residences": "Konutlarım",
         "table": {
           "month": "Ay",
           "residence": "İkametgah",

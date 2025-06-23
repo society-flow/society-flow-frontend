@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "Mis Cuotas de Gastos",
         "noExpenseDues": "No se encontraron cuotas de gastos.",
+        "members": "Miembros",
         "table": {
           "month": "Mes",
           "expense": "Gasto",
@@ -162,6 +163,8 @@
         "expenseCalculations": "Cálculos de Gastos",
         "triggerCalculations": "Activar cálculos",
         "noExpensesConfigured": "No se configuraron gastos.",
+        "members": "Miembros",
+        "user_residences": "Mis residencias",
         "table": {
           "month": "Mes",
           "residence": "Residencia",

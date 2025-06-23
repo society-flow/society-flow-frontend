@@ -152,6 +152,7 @@
 		border-color: var(--c-border);
 		cursor: pointer;
 		transition: all 140ms ease-in-out;
+		padding: var(--s) calc(var(--s) * 1.5);
 		&:hover {
 			/* background-color: var(--c-bg); */
 			border-color: var(--c-border);
@@ -166,7 +167,6 @@
 	}
 	:global(a.Button) {
 		/* border-color: var(--c-link); */
-		padding: var(--s);
 		text-decoration-color: transparent;
 		&:hover {
 			text-decoration-color: initial;
@@ -194,6 +194,12 @@
 			outline-color: transparent;
 			text-decoration-color: transparent;
 			font-weight: normal;
+		}
+    &[aria-current='page'] {
+			/* background-color: var(--c-bg--menu); */
+			/* border-bottom-color: var(--c-link); */
+			/* color: var(--c-link); */
+      text-decoration: none;
 		}
 	}
 	:global(details) {
@@ -326,18 +332,37 @@
 		}
 	}
 	:global(.Detail) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 		:global(& > section, & > header, & > main, & > aside) {
-			border: 1px solid var(--c-border);
+			border: 1px solid transparent;
 			border-radius: var(--border-radius);
 			padding: var(--s);
-			margin-top: calc(var(--s) / 2);
+			margin-top: calc(var(--s) / 0.7);
 		}
+    :global(& > main) {
+      flex-grow: 1;
+      border-color: var(--c-border);
+    }
 		:global(& > header) {
 			background-color: transparent;
 			border: none;
 			:global(h1, h2) {
 				margin-bottom: 0;
 				text-align: center;
+			}
+      :global(& > nav) {
+        justify-content: flex-end;
+        align-items: center;
+      }
+		}
+    :global(& > section) {
+      background-color: var(--c-bg--secondary);
+			:global(> header) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 			}
 		}
 		:global(& > aside:has(nav, .Map, .List)) {

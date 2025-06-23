@@ -4,12 +4,6 @@
 	export let advert = {};
 </script>
 
-<header>
-	<h1>
-		<Anchor href={`/ads/${advert.id}`}>{advert.title || advert.id}</Anchor>
-	</h1>
-</header>
-
 <main>
 	{advert.adDescription}
 </main>

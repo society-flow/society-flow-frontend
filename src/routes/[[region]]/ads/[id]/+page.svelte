@@ -56,31 +56,41 @@
 	});
 </script>
 
-<Page title={`${advert?.title || advert?.id} — ${$_('menu.ads')}`} showHeader={false}>
+<Page title={`${advert?.title || advert?.id}`} showHeader={true}>
 	<article class="Detail">
-		{#if isOwner}
-			<aside>
-				<nav>
+		<header>
+			<nav>
+				{#if isOwner}
 					<li>
-						<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')} isButton>
+						<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')}>
 							{$_('menu.update.ads')}
 						</Anchor>
 					</li>
 					<li>
-						<Anchor
-							href={`/delete/ads/${id}`}
-							title={$_('common.delete')}
-							isButton
-							data-type="error"
-						>
+						<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')}>
 							{$_('common.delete')}
 						</Anchor>
 					</li>
-				</nav>
+				{/if}
+				<li>
+					<Anchor href="#" title={$_('report')}>
+						{$_('report')}
+					</Anchor>
+				</li>
+				<li>
+					<Anchor href="#" title={$_('contact')}>
+						{$_('contact')}
+					</Anchor>
+				</li>
+			</nav>
+		</header>
+		<AdDetails {advert} />
+
+		{#if markers.length}
+			<aside>
+				<Map {markers} />
 			</aside>
 		{/if}
-
-		<AdDetails {advert} />
 
 		{#if selectedLocation}
 			<aside>
@@ -89,12 +99,6 @@
 				{:else if society}
 					<SocietyCard {society} />
 				{/if}
-			</aside>
-		{/if}
-
-		{#if markers.length}
-			<aside>
-				<Map {markers} />
 			</aside>
 		{/if}
 	</article>

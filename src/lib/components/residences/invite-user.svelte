@@ -28,9 +28,6 @@
 </script>
 
 <form {onsubmit}>
-	<h3>
-		{$_('components.residences.invite_user.title')}
-	</h3>
 	<fieldset>
 		<legend>{$_('components.residences.invite_user.email.legend')}</legend>
 		<input

@@ -150,6 +150,7 @@
 			"detail": {
 				"myExpenseDues": "My Expense Dues",
 				"noExpenseDues": "No expense dues found.",
+				"members": "Members",
 				"table": {
 					"month": "Month",
 					"expense": "Expense",
@@ -162,6 +163,8 @@
 				"expenseCalculations": "Expense Calculations",
 				"triggerCalculations": "Trigger Calculations",
 				"noExpensesConfigured": "No expenses configured.",
+				"members": "Members",
+				"user_residences": "My residences",
 				"table": {
 					"month": "Month",
 					"residence": "Residence",
@@ -318,6 +321,7 @@
 				"description_placeholder": "Add a description"
 			},
 			"details": {
+				"name": "Residence name",
 				"societyId": "Society ID",
 				"residentsCount": "Residents",
 				"floorCount": "Floors",

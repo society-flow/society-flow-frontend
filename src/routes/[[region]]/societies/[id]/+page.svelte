@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
@@ -13,7 +13,7 @@
 	import ResidencesList from '$lib/components/residences/list.svelte';
 	import AdsList from '$lib/components/ads/list.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
-	import Map from '$lib/components/map.svelte';
+	import ExpenseCard from '$lib/components/expenses/card.svelte';
 
 	requiresAuth(locale);
 
@@ -27,20 +27,9 @@
 	let residenceCount = $state(0);
 	let ads = $state([]);
 
-	// expense list for calculation breakdown
 	let expenses = $state([]);
 	let loading = $state(true);
 	let error = $state(null);
-	let markers = $derived(
-		society?.geoCoordinate
-			? [
-					{
-						coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
-						title: society.name || society.id
-					}
-				]
-			: []
-	);
 
 	let isOwner = $derived(userRole?.role === 'ADMIN');
 
@@ -91,7 +80,6 @@
 		} finally {
 			loading = false;
 		}
-		// load expenses for calculations
 		try {
 			expenses = await api.getAllExpensesBySociety(id);
 		} catch (e) {
@@ -129,7 +117,7 @@
 	}
 </script>
 
-<Page title={$_('menu.societies')} showHeader={false}>
+<Page title={society?.name || $_('menu.societies')} showHeader={!!society?.name}>
 	<article class="Detail">
 		{#if loading}
 			<aside>
@@ -169,49 +157,55 @@
 
 			<SocietyDetails {society} {userRole} />
 
-			{#if markers.length}
-				<aside>
-					<Map {markers} />
-				</aside>
-			{/if}
-
 			{#if userResidences.length > 0}
-				<aside>
+				<section>
+					<header>
+						<h2>{$_('pages.societies.detail.user_residences')}</h2>
+					</header>
 					<ResidencesList
 						residences={userResidences}
 						residenceCount={userResidences.length}
 						{society}
 					/>
-				</aside>
+				</section>
 			{/if}
 
 			{#if societyUsers.length}
-				<aside>
+				<section>
+					<header>
+						<h2>{$_('pages.societies.detail.members')}</h2>
+					</header>
 					<UsersList users={societyUsers} />
-				</aside>
+				</section>
 			{/if}
 
-			<aside>
-				{#if userRole}
-					<nav>
-						<li>
-							<Anchor href={`/create/residences/${id}`} isButton>
-								{$_('menu.create.residences')}
-							</Anchor>
-						</li>
-					</nav>
-				{/if}
+			<section>
+				<header>
+					<h2>{$_('menu.residences')}</h2>
+					{#if userRole}
+						<nav>
+							<li>
+								<Anchor href={`/create/residences/${id}`} isButton>
+									{$_('menu.create.residences')}
+								</Anchor>
+							</li>
+						</nav>
+					{/if}
+				</header>
 				{#if residences.length > 0}
 					<ResidencesList {residences} {residenceCount} {society} />
 				{/if}
-			</aside>
+			</section>
 
-			<!-- Expense calculations MVP -->
 			<section>
-				<h2>{$_('pages.societies.detail.expenseCalculations')}</h2>
-				<button on:click={triggerAllCalculations} disabled={triggering}>
-					{$_('pages.societies.detail.triggerCalculations')}
-				</button>
+				<header>
+					<h2>{$_('menu.expenses')}</h2>
+					<nav>
+						<button on:click={triggerAllCalculations} disabled={triggering}>
+							{$_('pages.societies.detail.triggerCalculations')}
+						</button>
+					</nav>
+				</header>
 				{#if triggering}
 					<progress></progress>
 				{/if}
@@ -220,33 +214,9 @@
 				{/if}
 				{#if expenses.length}
 					<ul class="List">
-						{#each expenses as exp}
+						{#each expenses as expense}
 							<li class="List-item">
-								<details>
-									<summary>{exp.name} — {exp.amountPerMonth}</summary>
-									<table>
-										<thead>
-											<tr>
-												<th>{$_('pages.societies.detail.table.month')}</th>
-												<th>{$_('pages.societies.detail.table.residence')}</th>
-												<th>{$_('pages.societies.detail.table.amount')}</th>
-											</tr>
-										</thead>
-										<tbody>
-											{#await api.getAllCalculationsByExpense(exp.id) then calcs}
-												{#each calcs as calc}
-													<tr
-														><td>{calc.yearMonth}</td><td>{calc.residenceName}</td><td
-															>{calc.amount}</td
-														></tr
-													>
-												{/each}
-											{:catch err}
-												<tr><td colspan="3">Error: {err.message}</td></tr>
-											{/await}
-										</tbody>
-									</table>
-								</details>
+								<ExpenseCard {expense} />
 							</li>
 						{/each}
 					</ul>
@@ -256,12 +226,14 @@
 			</section>
 
 			<section>
-				<h2>{$_('menu.ads')}</h2>
-				<nav>
-					<Anchor href={`/create/ads?society=${id}`} isButton>
-						{$_('menu.create.ads')}
-					</Anchor>
-				</nav>
+				<header>
+					<h2>{$_('menu.ads')}</h2>
+					<nav>
+						<Anchor href={`/create/ads?society=${id}`} isButton>
+							{$_('menu.create.ads')}
+						</Anchor>
+					</nav>
+				</header>
 				<AdsList {ads} />
 				{#if ads.length > 0}{/if}
 			</section>

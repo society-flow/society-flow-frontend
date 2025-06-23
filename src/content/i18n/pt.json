@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "Minhas Dívidas de Despesas",
         "noExpenseDues": "Nenhuma dívida de despesa encontrada.",
+        "members": "Membros",
         "table": {
           "month": "Mês",
           "expense": "Despesa",
@@ -162,6 +163,8 @@
         "expenseCalculations": "Cálculos de Despesas",
         "triggerCalculations": "Acionar Cálculos",
         "noExpensesConfigured": "Nenhuma despesa configurada.",
+        "members": "Membros",
+        "user_residences": "Minhas residências",
         "table": {
           "month": "Mês",
           "residence": "Residência",

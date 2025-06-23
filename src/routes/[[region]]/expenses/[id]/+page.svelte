@@ -2,13 +2,14 @@
 	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
+	import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Page from '$lib/components/routes/page.svelte';
-
-	requiresAuth(locale);
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
 	import DistributionCard from '$lib/components/expenses/distribution-card.svelte';
+
+	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
 
@@ -36,28 +37,6 @@
 	let distributions = $state([]);
 	let showDistributionForm = $state(false);
 	let distError = $state('');
-	const typeOptions = [
-		{
-			value: 'AMOUNT_PER_OWNERSHIP_PERCENTAGE',
-			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_OWNERSHIP_PERCENTAGE')
-		},
-		{
-			value: 'AMOUNT_PER_RESIDENCE',
-			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENCE')
-		},
-		{
-			value: 'AMOUNT_PER_SQUARE_AREA',
-			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_SQUARE_AREA')
-		},
-		{
-			value: 'AMOUNT_PER_RESIDENT',
-			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENT')
-		},
-		{
-			value: 'AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT',
-			label: $_('pages.expenses.detail.typeOptions.AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT')
-		}
-	];
 	$effect(async () => {
 		if (id) {
 			distributions = await api.getAllExpenseDistributionsByExpenseId(id);
@@ -134,29 +113,35 @@
 
 			<ExpenseDetails {expense} {society} />
 
-			<main>
-				<h2>{$_('pages.expenses.detail.distributions')}</h2>
+			<section>
+				<header>
+					<h2>{$_('pages.expenses.detail.distributions')}</h2>
+					<nav>
+						<button on:click={editDistributions}
+							>{$_('pages.expenses.detail.editDistributions')}</button
+						>
+					</nav>
+				</header>
 				{#if distributions.filter((d) => d.isActive).length && !showDistributionForm}
-					<div class="DistributionGrid">
+					<div>
 						{#each distributions.filter((d) => d.isActive) as d}
 							<DistributionCard distribution={d} />
 						{/each}
 					</div>
-					<button on:click={editDistributions}
-						>{$_('pages.expenses.detail.editDistributions')}</button
-					>
 				{:else if showDistributionForm}
 					<form>
 						{#each distributions as d, index}
 							{#if d.isActive}
-								<div class="distribution-entry">
+								<article>
 									<fieldset>
 										<legend>
 											{$_('pages.expenses.detail.selectType')}
 										</legend>
 										<select bind:value={distributions[index].calculationMode}>
 											{#each typeOptions as opt}
-												<option value={opt.value}>{opt.label}</option>
+												<option value={opt}>
+													{$_(`pages.expenses.detail.typeOptions.${opt}`)}
+												</option>
 											{/each}
 										</select>
 									</fieldset>
@@ -176,7 +161,7 @@
 											>{$_('pages.expenses.detail.remove')}</button
 										>
 									</fieldset>
-								</div>
+								</article>
 							{/if}
 						{/each}
 						<fieldset>
@@ -195,7 +180,7 @@
 					<p>{$_('pages.expenses.detail.noDistributions')}</p>
 					<button on:click={addDistribution}>{$_('pages.expenses.detail.addDistribution')}</button>
 				{/if}
-			</main>
+			</section>
 
 			<section>
 				<h2>{$_('pages.expenses.detail.calculations')}</h2>
@@ -230,17 +215,3 @@
 		<p><Anchor href="/expenses">{$_('pages.expenses.detail.backToAllExpenses')}</Anchor></p>
 	{/snippet}
 </Page>
-
-<style>
-	.DistributionGrid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: var(--s);
-	}
-	.distribution-entry {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-	}
-</style>

@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "Мої борги за витрати",
         "noExpenseDues": "Не знайдено боргів за витратами.",
+        "members": "Учасники",
         "table": {
           "month": "Місяць",
           "expense": "Витрати",
@@ -162,6 +163,8 @@
         "expenseCalculations": "Розрахунки витрат",
         "triggerCalculations": "Запустити обчислення",
         "noExpensesConfigured": "Не налаштовано витрати.",
+        "members": "Учасники",
+        "user_residences": "Мої резиденції",
         "table": {
           "month": "Місяць",
           "residence": "Місце проживання",

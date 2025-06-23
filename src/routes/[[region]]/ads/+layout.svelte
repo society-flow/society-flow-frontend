@@ -5,8 +5,8 @@
 </script>
 
 <nav class="Ads-nav">
-	<Anchor href="/ads" isButton>{$_('menu.ads')}</Anchor>
-	<Anchor href="/ads/map" isButton>{$_('menu.map')}</Anchor>
+	<Anchor href="/ads">{$_('menu.ads')}</Anchor>
+	<Anchor href="/ads/map">{$_('menu.map')}</Anchor>
 	<Anchor href="/create/ads" isButton>{$_('menu.create.ads')}</Anchor>
 </nav>
 

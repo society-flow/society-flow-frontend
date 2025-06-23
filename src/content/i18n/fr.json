@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "Mes cotisations de dépenses",
         "noExpenseDues": "Aucune cotisation de dépenses trouvée.",
+        "members": "Membres",
         "table": {
           "month": "Mois",
           "expense": "Dépense",
@@ -162,6 +163,8 @@
         "expenseCalculations": "Calculs des dépenses",
         "triggerCalculations": "Déclencher des calculs",
         "noExpensesConfigured": "Aucune dépense configurée.",
+        "members": "Membres",
+        "user_residences": "Mes résidences",
         "table": {
           "month": "Mois",
           "residence": "Résidence",

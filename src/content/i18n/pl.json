@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "Moje opłaty za wydatki",
         "noExpenseDues": "Nie znaleziono żadnych opłat za wydatki.",
+        "members": "Członkowie",
         "table": {
           "month": "Miesiąc",
           "expense": "Wydatek",
@@ -162,6 +163,8 @@
         "expenseCalculations": "Obliczenia wydatków",
         "triggerCalculations": "Uruchom obliczenia",
         "noExpensesConfigured": "Brak skonfigurowanych wydatków.",
+        "members": "Członkowie",
+        "user_residences": "Moje rezydencje",
         "table": {
           "month": "Miesiąc",
           "residence": "Mieszkanie",

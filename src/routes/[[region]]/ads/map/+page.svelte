@@ -22,6 +22,7 @@
 	});
 
 	let adTypeOptions = $state([]);
+	const selectedType = $derived(adTypeOptions.find(({ id }) => id === typeId));
 	$effect(async () => {
 		if (adTypeOptions.length === 0) {
 			adTypeOptions = await api.getAllAdTypes();
@@ -41,10 +42,13 @@
 	<details>
 		<summary>
 			{$_('components.ads.form.type')}
+			{#if selectedType}
+				({$_(`const.ads_types.${selectedType.name}`)})
+			{/if}
 		</summary>
 		<nav>
 			{#each adTypeOptions as option}
-				<Anchor href={`/ads/map?type=${option.id}`} isButton disabled={option.id === typeId}
+				<Anchor href={`/ads/map?type=${option.id}`} isActive={option.id === typeId}
 					>{$_(`const.ads_types.${option.name}`)}</Anchor
 				>
 			{/each}

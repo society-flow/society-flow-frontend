@@ -134,7 +134,7 @@
 		</select>
 	</fieldset>
 
-	{#if societies}
+	{#if societies?.length}
 		<fieldset>
 			<legend>{$_('components.ads.form.society')}</legend>
 			<select bind:value={form.societyId} on:change={resetMessages}>
@@ -145,7 +145,7 @@
 			</select>
 		</fieldset>
 
-		{#if residences && form.societyId}
+		{#if residences?.length && form.societyId}
 			<fieldset>
 				<legend>{$_('components.ads.form.residency')}</legend>
 				<select bind:value={form.residencyId} on:change={resetMessages}>

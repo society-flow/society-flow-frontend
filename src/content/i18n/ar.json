@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "مستحقات المصروفات الخاصة بي",
         "noExpenseDues": "لم يتم العثور على مستحقات مصروفات.",
+        "members": "أعضاء",
         "table": {
           "month": "شهر",
           "expense": "مصروف",
@@ -162,6 +163,8 @@
         "expenseCalculations": "حسابات المصروفات",
         "triggerCalculations": "تشغيل الحسابات",
         "noExpensesConfigured": "لم يتم تكوين أي مصروفات.",
+        "members": "أعضاء",
+        "user_residences": "مساكني",
         "table": {
           "month": "شهر",
           "residence": "السكن",

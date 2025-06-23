@@ -20,24 +20,39 @@
 </script>
 
 <article class="Card">
-	<strong>{$_('components.users.card.user_id')}:</strong>
-	{user.id}
-	<strong>{$_('components.users.card.user_name')}:</strong>
-	{user.name}
-	<strong>{$_('components.users.card.user_role')}:</strong>
-
-	<span>{user.role}</span>
+	<span class="Card-id" title={$_('components.users.card.user_id')}>
+		{user.id}
+	</span>
+	<span class="Card-name" title={$_('components.users.card.user_name')}>
+		{user.name}
+	</span>
+	<span class="Card-role" title={$_('components.users.card.user_role')}>{user.role}</span>
 
 	{#if user.createdAt}
-		<span>
-			{$_('components.users.card.member_since')}: {formatDate(user.createdAt)}
-		</span>
+		<span class="Card-date" title={$_('components.users.card.member_since')}
+			>{formatDate(user.createdAt)}</span
+		>
 	{/if}
 </article>
 
 <style>
-  .Card {
-    display: flex;
-    flex-wrap: wrap;
-  }
+	.Card {
+		display: flex;
+		flex-wrap: wrap;
+    padding: calc(var(--s) / 3);
+	}
+	.Card-id {
+		display: none;
+	}
+	.Card-role {
+		order: -1;
+	}
+	.Card-name {
+		font-weight: bold;
+	}
+	.Card-name,
+	.Card-role,
+	.Card-date {
+		padding: calc(var(--s) / 2);
+	}
 </style>

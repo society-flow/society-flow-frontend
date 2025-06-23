@@ -150,6 +150,7 @@
       "detail": {
         "myExpenseDues": "মোৰ খৰচৰ মাচুল",
         "noExpenseDues": "কোনো খৰচৰ মাচুল পোৱা নগ'ল।",
+        "members": "সদস্যসকল",
         "table": {
           "month": "মাহ",
           "expense": "খৰচ",
@@ -162,6 +163,8 @@
         "expenseCalculations": "খৰচৰ হিচাপ",
         "triggerCalculations": "হিচাপ ট্ৰিগাৰ কৰক",
         "noExpensesConfigured": "কোনো খৰচ কনফিগাৰ কৰা হোৱা নাই।",
+        "members": "সদস্যসকল",
+        "user_residences": "মোৰ বাসগৃহসমূহ",
         "table": {
           "month": "মাহ",
           "residence": "আবাসন",

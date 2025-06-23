@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
@@ -6,7 +6,8 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import ListAds from '$lib/components/ads/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	const typeId = $derived(page.url.searchParams.get('type'));
+
+	let typeId = $derived(page.url.searchParams.get('type'));
 
 	let adverts = $state([]);
 	$effect(async () => {
@@ -20,6 +21,7 @@
 	});
 
 	let adTypeOptions = $state([]);
+	const selectedType = $derived(adTypeOptions.find(({ id }) => id === typeId));
 	$effect(async () => {
 		if (adTypeOptions.length === 0) {
 			adTypeOptions = await api.getAllAdTypes();
@@ -31,13 +33,13 @@
 	<details>
 		<summary>
 			{$_('components.ads.form.type')}
+			{#if selectedType}
+				({$_(`const.ads_types.${selectedType.name}`)})
+			{/if}
 		</summary>
 		<nav>
 			{#each adTypeOptions as option}
-				<Anchor
-					href={`/ads?type=${option.id}`}
-					isButton
-					aria-current={option.id === typeId ? 'page' : ''}
+				<Anchor href={`/ads?type=${option.id}`} isActive={option.id === typeId}
 					>{$_(`const.ads_types.${option.name}`)}</Anchor
 				>
 			{/each}
@@ -48,3 +50,10 @@
 		<ListAds ads={adverts} />
 	</section>
 </Page>
+
+<style>
+	:global(.Page-main) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+</style>
