@@ -6,7 +6,7 @@
 	const aboutSections = $derived($json('pages.about.sections'));
 </script>
 
-<Page title={$_('pages.about.title')} isWide>
+<Page title={$_('pages.about.title')} isCenter isWide>
 	<section data-size="large">
 		{#each Object.entries(aboutSections) as [key, section]}
 			<article>
