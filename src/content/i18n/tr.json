@@ -467,6 +467,12 @@
       "INR": "INR - Hindistan Rupisi",
       "CAD": "CAD - Kanada Doları",
       "AUD": "AUD - Avustralya Doları"
+    },
+    "society_roles": {
+      "ADMIN": "Yönetici",
+      "MANAGER": "Müdür",
+      "MEMBER": "Üye",
+      "OWNER": "Sahip"
     }
   }
 }

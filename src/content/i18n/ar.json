@@ -467,6 +467,12 @@
       "INR": "INR - روبية هندية",
       "CAD": "CAD - دولار كندي",
       "AUD": "AUD - دولار أسترالي"
+    },
+    "society_roles": {
+      "ADMIN": "مشرف",
+      "MANAGER": "مدير",
+      "MEMBER": "عضو",
+      "OWNER": "مالك"
     }
   }
 }

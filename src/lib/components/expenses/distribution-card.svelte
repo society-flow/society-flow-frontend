@@ -6,11 +6,11 @@
 </script>
 
 <Card>
+	<span title={$_('components.expenses.distributionCard.type')}>
+		{$_(`const.expense_types.${distribution.calculationMode}`)}
+	</span>
 	<span title={$_('components.expenses.distributionCard.coverage')}>
 		{distribution.percentageCoverage}%
-	</span>
-	<span title={$_('components.expenses.distributionCard.type')}>
-		{$_(`pages.expenses.detail.typeOptions.${distribution.calculationMode}`)}
 	</span>
 	{#snippet footer()}
 		<progress min="0" max="100" value={distribution.percentageCoverage}></progress>

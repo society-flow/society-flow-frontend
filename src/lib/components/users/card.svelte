@@ -1,37 +1,28 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
+	import RelativeDate from '$lib/components/date/relative.svelte';
 
 	const { user } = $props();
-
-	function formatDate(dateString) {
-		if (!dateString) return '';
-		return new Date(dateString).toLocaleDateString();
-	}
-
-	function getRoleBadgeClass(role) {
-		const roleMap = {
-			ADMIN: 'admin',
-			MANAGER: 'manager',
-			MEMBER: 'member',
-			OWNER: 'owner'
-		};
-		return roleMap[role] || 'member';
-	}
 </script>
 
 <article class="Card">
 	<span class="Card-id" title={$_('components.users.card.user_id')}>
 		{user.id}
 	</span>
-	<span class="Card-name" title={$_('components.users.card.user_name')}>
-		{user.name}
-	</span>
-	<span class="Card-role" title={$_('components.users.card.user_role')}>{user.role}</span>
-
-	{#if user.createdAt}
-		<span class="Card-date" title={$_('components.users.card.member_since')}
-			>{formatDate(user.createdAt)}</span
-		>
+	{#if user?.name}
+		<span class="Card-name" title={$_('components.users.card.user_name')}>
+			{user.name}
+		</span>
+	{/if}
+	{#if user?.role}
+		<span class="Card-role" title={$_('components.users.card.user_role')}>
+			{$_(`const.society_roles.${user.role}`)}
+		</span>
+	{/if}
+	{#if user?.createdAt}
+		<span class="Card-date" title={$_('components.users.card.member_since')}>
+			<RelativeDate date={user.createdAt} />
+		</span>
 	{/if}
 </article>
 
@@ -39,7 +30,7 @@
 	.Card {
 		display: flex;
 		flex-wrap: wrap;
-    padding: calc(var(--s) / 3);
+		padding: calc(var(--s) / 3);
 	}
 	.Card-id {
 		display: none;

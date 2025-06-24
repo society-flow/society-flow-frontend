@@ -467,6 +467,12 @@
       "INR": "INR - Rupia indyjska",
       "CAD": "CAD - Dolar kanadyjski",
       "AUD": "AUD - Dolar australijski"
+    },
+    "society_roles": {
+      "ADMIN": "Administrator",
+      "MANAGER": "Kierownik",
+      "MEMBER": "Członek",
+      "OWNER": "Właściciel"
     }
   }
 }

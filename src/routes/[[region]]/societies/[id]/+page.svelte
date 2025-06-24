@@ -133,7 +133,7 @@
 					<ul>
 						{#if !userRole}
 							<li>
-								<SocietyJoin societyId={id} {userRole} onRoleUpdate={handleRoleUpdate} />
+								<SocietyJoin societyId={id} {userRole} onJoin={handleRoleUpdate} />
 							</li>
 						{/if}
 						{#if isOwner}

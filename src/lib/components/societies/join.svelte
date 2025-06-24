@@ -19,8 +19,7 @@
 				role: 'MEMBER' // Default role when joining
 			});
 
-			// Notify parent component to refresh user role
-			if (onRoleUpdate) {
+			if (onJoin) {
 				onJoin(societyUser);
 			}
 		} catch (err) {
@@ -37,5 +36,5 @@
 {/if}
 
 <button onclick={joinSociety} disabled={joining}>
-	{joining ? $_('components.societies.join.joining') : $_('components.societies.join.join')}
+	{joining ? `…$_('common.join')` : $_('common.join')}
 </button>

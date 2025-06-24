@@ -142,7 +142,7 @@
 										<select bind:value={distributions[index].calculationMode}>
 											{#each typeOptions as opt}
 												<option value={opt}>
-													{$_(`pages.expenses.detail.typeOptions.${opt}`)}
+													{$_(`const.expense_types.${opt}`)}
 												</option>
 											{/each}
 										</select>
@@ -187,24 +187,50 @@
 			<section>
 				<h2>{$_('pages.expenses.detail.calculations')}</h2>
 				{#if calculations.length}
-					<table>
-						<thead
-							><tr
-								><th>{$_('pages.expenses.detail.table.month')}</th><th
-									>{$_('pages.expenses.detail.table.residence')}</th
-								><th>{$_('pages.expenses.detail.table.amount')}</th></tr
-							></thead
-						>
-						<tbody>
-							{#each calculations as calc}
-								<tr>
-									<td>{calc.yearMonth}</td>
-									<td>{calc.residenceName}</td>
-									<td>{calc.amount}</td>
-								</tr>
-							{/each}
-						</tbody>
-					</table>
+					<ul>
+						{#each calculations as calc}
+							<li>
+								<dl>
+									<dt>
+										{$_('pages.expenses.detail.table.month')}
+									</dt>
+									<dd>
+										{calc.yearMonth}
+									</dd>
+									<dt>
+										{$_('pages.expenses.detail.table.residence')}
+									</dt>
+									<dd>
+										{calc.residenceId}
+									</dd>
+									<dt>
+										{$_('pages.expenses.detail.table.withFormula')}
+									</dt>
+									<dd>
+										{calc.withFormula}
+									</dd>
+									<dt>
+										{$_('pages.expenses.detail.table.isExpensePaid')}
+									</dt>
+									<dd>
+										{calc.isExpensePaid}
+									</dd>
+									<dt>
+										{$_('pages.expenses.detail.table.amount')}
+									</dt>
+									<dd>
+										{calc.amountToPay}
+									</dd>
+									<dt>
+										{$_('pages.expenses.detail.table.expensePaid')}
+									</dt>
+									<dd>
+										{calc.expensePaid}
+									</dd>
+								</dl>
+							</li>
+						{/each}
+					</ul>
 				{:else}
 					<p>{$_('pages.expenses.detail.noCalculations')}</p>
 				{/if}

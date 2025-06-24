@@ -190,13 +190,6 @@
 				"editDistributions": "Edit Distributions",
 				"selectType": "Select type",
 				"percentageCoverage": "Percentage Coverage",
-				"typeOptions": {
-					"AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Per Ownership Percentage",
-					"AMOUNT_PER_RESIDENCE": "Per Residence",
-					"AMOUNT_PER_SQUARE_AREA": "Per Square Area",
-					"AMOUNT_PER_RESIDENT": "Per Resident",
-					"AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Per Resident per Floor Count"
-				},
 				"addDistribution": "Add Distribution",
 				"saveDistributions": "Save",
 				"remove": "Remove",
@@ -467,6 +460,19 @@
 			"INR": "INR - Indian Rupee",
 			"CAD": "CAD - Canadian Dollar",
 			"AUD": "AUD - Australian Dollar"
+		},
+		"society_roles": {
+			"ADMIN": "Admin",
+			"MANAGER": "Manager",
+			"MEMBER": "Member",
+			"OWNER": "Owner"
+		},
+		"expense_types": {
+			"AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Per Ownership Percentage",
+			"AMOUNT_PER_RESIDENCE": "Per Residence",
+			"AMOUNT_PER_SQUARE_AREA": "Per Square Area",
+			"AMOUNT_PER_RESIDENT": "Per Resident",
+			"AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Per Resident per Floor Count"
 		}
 	}
 }
