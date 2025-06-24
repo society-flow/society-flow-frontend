@@ -3,10 +3,11 @@
 	import { marked } from 'marked';
 
 	const { markdown } = $props();
-	const clean = $derived(markdown ? DOMPurify.sanitize(markdown) : '');
-	const content = $derived(clean ? marked.parse(clean) : '');
+	const content = $derived(marked.parse(markdown));
+  const clean = $derived(DOMPurify.sanitize(content));
+  console.log("clean", clean)
 </script>
 
 <article class="Markdown">
-	{@html content ?? null}
+	{@html clean}
 </article>

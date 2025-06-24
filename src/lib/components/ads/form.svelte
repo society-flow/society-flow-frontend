@@ -41,6 +41,7 @@
 	});
 
 	// Load user societies for dropdown
+	let selectedSociety = $derived(societies?.find((s) => s.id === form?.societyId));
 	let societies = $state([]);
 	$effect(async () => {
 		if (userState.user?.id) {
@@ -73,7 +74,10 @@
 		success = '';
 
 		try {
-			const newAd = await api.createAdvertisement({ ...form });
+			const newAd = await api.createAdvertisement({
+				...form,
+				approxGeoCoordinate: selectedSociety?.coordinates || form?.approxGeoCoordinate
+			});
 			success = $_('components.ads.form.created_successfully');
 			onsuccess(newAd);
 
@@ -182,6 +186,11 @@
 			/>
 		</fieldset>
 	{/if}
+
+	<fieldset>
+		<legend>{$_('components.ads.form.isActive')}</legend>
+		<input type="checkbox" bind:checked={form.isActive} />
+	</fieldset>
 
 	<fieldset>
 		<button type="submit" disabled={isLoading}>

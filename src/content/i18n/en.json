@@ -371,7 +371,8 @@
 				"society": "Society",
 				"society_placeholder": "Select a society",
 				"residency": "Residency",
-				"residency_placeholder": "Select a residency"
+				"residency_placeholder": "Select a residency",
+				"isActive": "Is active"
 			},
 			"details": {
 				"description": "Description"

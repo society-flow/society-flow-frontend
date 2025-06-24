@@ -1,8 +1,16 @@
-<script lang="javascript">
+<script>
 	import Card from '$lib/components/card.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+  import { marked } from 'marked';
+	import DOMPurify from 'dompurify';
 
 	const { ad } = $props();
+	const content = $derived(marked.parse(ad?.adDescription));
+	const description = $derived(
+		DOMPurify.sanitize(content, {
+			ALLOWED_TAGS: []
+		})
+	);
 </script>
 
 <Card>
@@ -11,7 +19,7 @@
 			{ad.title}
 		{/if}
 		<span>
-			{ad.adDescription.slice(0, 100) + '…'}
+			{description.slice(0, 100) + '…'}
 		</span>
 	</Anchor>
 </Card>

@@ -371,7 +371,8 @@
         "society": "Société",
         "society_placeholder": "Sélectionner une société",
         "residency": "Résidence",
-        "residency_placeholder": "Sélectionnez une résidence"
+        "residency_placeholder": "Sélectionnez une résidence",
+        "isActive": "Est actif"
       },
       "details": {
         "description": "Description"

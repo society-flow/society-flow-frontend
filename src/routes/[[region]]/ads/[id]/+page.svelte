@@ -110,7 +110,7 @@
 							{$_(`const.ads_types.${adOption?.name}`)}
 						</Anchor>
 					</li>
-					{#if advert.updatedAt}
+					{#if advert.updatedAt && advert.updatedAt !== advert.createdAt}
 						<li>
 							<span>
 								{$_('common.updated')}

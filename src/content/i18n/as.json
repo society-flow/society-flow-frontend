@@ -371,7 +371,8 @@
         "society": "ছ'ছাইটি",
         "society_placeholder": "এটা ছ'ছাইটি বাছক",
         "residency": "বাসস্থান",
-        "residency_placeholder": "একতা আবাসস্থান বাছক"
+        "residency_placeholder": "একতা আবাসস্থান বাছক",
+        "isActive": "সক্ৰিয় হয়নে"
       },
       "details": {
         "description": "বিৱৰণ"

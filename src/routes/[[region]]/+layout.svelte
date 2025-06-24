@@ -417,6 +417,13 @@
     }
   }
 
+  :global(.Markdown) {
+    :global(ul, ol) {
+      margin: 0.5rem 1.5rem;
+      padding: 0;
+    }
+  }
+
 	/* utilities */
 	:global(.text-center) {
 		text-align: center;
