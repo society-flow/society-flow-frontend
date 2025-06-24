@@ -9,22 +9,22 @@
 
 	let typeId = $derived(page.url.searchParams.get('type'));
 
-	let adverts = $state([]);
-	$effect(async () => {
-		if (typeId) {
-			adverts = await api.getAllAdvertisements({ typeId, isActive: true });
-		} else {
-			adverts = await api.getAllAdvertisements({
-				isActive: true
-			});
-		}
-	});
-
 	let adTypeOptions = $state([]);
 	const selectedType = $derived(adTypeOptions.find(({ id }) => id === typeId));
 	$effect(async () => {
 		if (adTypeOptions.length === 0) {
 			adTypeOptions = await api.getAllAdTypes();
+		}
+	});
+
+	let ads = $state([]);
+	$effect(async () => {
+		if (typeId) {
+			ads = await api.getAllAdvertisements({ typeId, isActive: true });
+		} else {
+			ads = await api.getAllAdvertisements({
+				isActive: true
+			});
 		}
 	});
 </script>
@@ -47,7 +47,7 @@
 	</details>
 
 	<section>
-		<ListAds ads={adverts} />
+		<ListAds {ads} />
 	</section>
 </Page>
 

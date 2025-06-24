@@ -3,16 +3,15 @@
 	import Anchor from '$lib/components/anchor.svelte';
 
 	const { ad } = $props();
-	const { id, adDescription, title } = ad;
 </script>
 
 <Card>
-	<Anchor href={`/ads/${id}`}>
-		{#if title}
-			{title}
+	<Anchor href={`/ads/${ad.id}`}>
+		{#if ad.title}
+			{ad.title}
 		{/if}
 		<span>
-			{adDescription.slice(0, 100) + '…'}
+			{ad.adDescription.slice(0, 100) + '…'}
 		</span>
 	</Anchor>
 </Card>
