@@ -43,7 +43,8 @@
 
 		map = L.map(node).setView(center, zoom);
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			attribution: '&copy; OpenStreetMap contributors'
+			attribution: '&copy; OpenStreetMap contributors',
+      className: 'Map-tiles'
 		}).addTo(map);
 
 		// Create an empty feature group container
@@ -78,7 +79,7 @@
 
 		markerGroup.clearLayers();
 
-		const fill = getCssVar('--c-fg');
+		const fill = getCssVar('--c-link');
 		for (const {
 			coordinates: [lat, lon],
 			title,
@@ -100,10 +101,28 @@
 
 <style>
 	.Map {
+    --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 		width: 100%;
 		height: 35dvh;
 		z-index: 1;
     border: 1px solid var(--c-border);
     border-radius: var(--border-radius);
+    :global(.leaflet-popup-content a) {
+      color: var(--c-link);
+    }
+    :global(.leaflet-popup-content) {
+      color: var(--c-fg);
+    }
+    :global(.leaflet-popup-content-wrapper, .leaflet-popup-tip) {
+      background: var(--c-bg);
+    }
+    :global(.leaflet-popup a.leaflet-popup-close-button) {
+      color: var(--c-fg);
+    }
+    @media (prefers-color-scheme: dark) {
+      :global(.Map-tiles) {
+        filter:var(--map-tiles-filter, none);
+	    }
+    }
 	}
 </style>
