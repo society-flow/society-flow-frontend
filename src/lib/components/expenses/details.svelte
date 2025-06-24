@@ -9,14 +9,12 @@
 	}
 </script>
 
-<header>
-	<h1>
-		<Anchor href={`/expenses/${expense.id}`}>{expense.name}</Anchor>
-	</h1>
-</header>
-
 <main>
 	<ul>
+		<li>
+			<strong>{$_('components.expenses.details.name')}:</strong>
+			<Anchor href={`/expenses/${expense.id}`}>{expense.name}</Anchor>
+		</li>
 		<li>
 			<strong>{$_('components.expenses.details.society')}:</strong>
 			<Anchor href={`/societies/${expense.societyId}`}>{society.name || expense.societyId}</Anchor>

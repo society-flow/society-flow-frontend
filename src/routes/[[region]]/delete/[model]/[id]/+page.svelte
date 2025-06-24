@@ -9,7 +9,7 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-  import Error from '$lib/components/error.svelte';
+	import Error from '$lib/components/error.svelte';
 
 	requiresAuth(locale);
 
@@ -17,7 +17,7 @@
 	const id = $derived($page.params.id);
 
 	let item = $state({});
-	let error = $state({});
+	let error = $state(null);
 	let isDeleting = $state(false);
 
 	$effect(async () => {
@@ -35,14 +35,13 @@
 					error = `Unsupported model: ${model}`;
 				}
 			} catch (e) {
-				error = e.message || e;
+				error = e;
 			}
 		}
 	});
 
 	async function handleDelete() {
 		isDeleting = true;
-		error = '';
 		try {
 			if (model === 'ads') {
 				await api.updateAdvertisement(id, { ...item, isActive: false });
@@ -72,12 +71,13 @@
 
 <Page title={`Delete ${model.slice(0, -1)}`} isCenter>
 	{#if error}
-		<Error {error}/>
+		<Error {error} />
 	{:else if !item.id}
 		<progress></progress>
 	{:else}
 		<p class="text-center">
-			{$_('pages.delete.confirm')} "{item.name || item.title || item.residenceName}"?
+			{$_('pages.delete.confirm')} "<strong>{item.name || item.title || item.residenceName}</strong
+			>"?
 		</p>
 		<form>
 			<fieldset>

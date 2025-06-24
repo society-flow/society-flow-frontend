@@ -17,7 +17,7 @@
 	const id = $derived($page.params.id);
 
 	let residence = $state({});
-  let society = $state({});
+	let society = $state({});
 	let users = $state([]);
 	let isMember = $state(false);
 	// My expense calculations for this residence
@@ -52,11 +52,11 @@
 		}
 	});
 
-  $effect(async () => {
-    if (residence?.societyId) {
-      society = await api.getSocietyById(residence.societyId)
-    }
-  })
+	$effect(async () => {
+		if (residence?.societyId) {
+			society = await api.getSocietyById(residence.societyId);
+		}
+	});
 
 	async function onJoin(residenceUser) {
 		await loadResidenceUsersData();
@@ -99,7 +99,10 @@
 	}
 </script>
 
-<Page title={residence?.residenceName || $_('menu.residences')} showHeader={!!residence?.name}>
+<Page
+	title={residence?.residenceName || $_('menu.residences')}
+	showHeader={!!residence?.residenceName}
+>
 	<article class="Detail">
 		{#if loading}
 			<aside>

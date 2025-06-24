@@ -289,6 +289,7 @@
         "area_unit": "Unidade de área"
       },
       "details": {
+        "name": "Nome",
         "role": "Função",
         "no_membership": "Você não é um membro",
         "id": "ID da sociedade",
@@ -321,6 +322,7 @@
         "description_placeholder": "Adicionar uma descrição"
       },
       "details": {
+        "name": "Nome da residência",
         "societyId": "ID da sociedade",
         "residentsCount": "Residentes",
         "floorCount": "Andares",
@@ -379,6 +381,7 @@
         "active": "Ativo"
       },
       "details": {
+        "name": "Nome",
         "society": "Sociedade",
         "amountPerMonth": "Valor por mês",
         "active": "Ativo",
@@ -415,7 +418,9 @@
     "delete": "Excluir",
     "deleting": "Excluindo...",
     "cancel": "Cancelar",
-    "update": "Atualizar"
+    "update": "Atualizar",
+    "contact_admin": "Contactar o administrador",
+    "contact_user": "Contactar utilizador"
   },
   "const": {
     "ads_types": {

@@ -289,6 +289,7 @@
 				"area_unit": "Area Unit"
 			},
 			"details": {
+				"name": "Name",
 				"role": "Role",
 				"no_membership": "You are not a member",
 				"id": "Society ID",
@@ -380,6 +381,7 @@
 				"active": "Active"
 			},
 			"details": {
+				"name": "Name",
 				"society": "Society",
 				"amountPerMonth": "Amount per Month",
 				"active": "Active",
@@ -416,7 +418,9 @@
 		"delete": "Delete",
 		"deleting": "Deleting...",
 		"cancel": "Cancel",
-		"update": "Update"
+		"update": "Update",
+		"contact_admin": "Contact administrator",
+		"contact_user": "Contact user"
 	},
 	"const": {
 		"ads_types": {

@@ -7,7 +7,10 @@
 
 <main>
 	<ul>
-		<li><strong>{$_('components.residences.details.name')}</strong>: {residence.residenceName}</li>
+		<li>
+			<strong>{$_('components.residences.details.name')}</strong>:
+			<Anchor href={`/societies/${residence.id}`}>{residence.residenceName}</Anchor>
+		</li>
 		<li>
 			<strong>{$_('components.residences.details.societyId')}</strong>:
 			{#if society?.id}

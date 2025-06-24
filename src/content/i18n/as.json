@@ -289,6 +289,7 @@
         "area_unit": "এলাকা একক"
       },
       "details": {
+        "name": "নাম",
         "role": "ভূমিকা",
         "no_membership": "আপুনি সদস্য নহয়",
         "id": "সমাজ আইডি",
@@ -321,6 +322,7 @@
         "description_placeholder": "এখন বিৱৰণ যোগ কৰক"
       },
       "details": {
+        "name": "বাসগৃহৰ নাম",
         "societyId": "সমাজ আইডি",
         "residentsCount": "বাসিন্দাসকল",
         "floorCount": "মহলসমূহ",
@@ -379,6 +381,7 @@
         "active": "সক্ৰিয়"
       },
       "details": {
+        "name": "নাম",
         "society": "ছ'ছাইটি",
         "amountPerMonth": "প্ৰতি মাহে পৰিমাণ",
         "active": "সক্ৰিয়",
@@ -415,7 +418,9 @@
     "delete": "মচি পেলাওক",
     "deleting": "মচি পেলোৱা হৈছে...",
     "cancel": "বাতিল কৰক",
-    "update": "আপডেট"
+    "update": "আপডেট",
+    "contact_admin": "প্ৰশাসকৰ সৈতে যোগাযোগ কৰক",
+    "contact_user": "ব্যৱহাৰকাৰীক যোগাযোগ কৰক"
   },
   "const": {
     "ads_types": {

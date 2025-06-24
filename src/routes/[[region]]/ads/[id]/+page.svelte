@@ -73,13 +73,13 @@
 					</li>
 				{/if}
 				<li>
-					<Anchor href="#" title={$_('report')}>
-						{$_('report')}
+					<Anchor href="#" title={$_('common.contact_user')}>
+						{$_('common.contact_user')}
 					</Anchor>
 				</li>
 				<li>
-					<Anchor href="#" title={$_('contact')}>
-						{$_('contact')}
+					<Anchor href="#" title={$_('common.contact_admin')}>
+						{$_('common.contact_admin')}
 					</Anchor>
 				</li>
 			</nav>

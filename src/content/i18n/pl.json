@@ -289,6 +289,7 @@
         "area_unit": "Jednostka powierzchni"
       },
       "details": {
+        "name": "Nazwa",
         "role": "Rola",
         "no_membership": "Nie jesteś członkiem",
         "id": "ID społeczeństwa",
@@ -321,6 +322,7 @@
         "description_placeholder": "Dodaj opis"
       },
       "details": {
+        "name": "Nazwa rezydencji",
         "societyId": "ID społeczeństwa",
         "residentsCount": "Mieszkańcy",
         "floorCount": "Piętra",
@@ -379,6 +381,7 @@
         "active": "Aktywny"
       },
       "details": {
+        "name": "Nazwa",
         "society": "Towarzystwo",
         "amountPerMonth": "Kwota na miesiąc",
         "active": "Aktywny",
@@ -415,7 +418,9 @@
     "delete": "Usuń",
     "deleting": "Usuwanie...",
     "cancel": "Anuluj",
-    "update": "Aktualizuj"
+    "update": "Aktualizuj",
+    "contact_admin": "Skontaktuj się z administratorem",
+    "contact_user": "Kontakt z użytkownikiem"
   },
   "const": {
     "ads_types": {

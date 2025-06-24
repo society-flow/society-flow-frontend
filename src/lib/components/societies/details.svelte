@@ -25,7 +25,12 @@
 <main>
 	<section>
 		<ul>
-			<li><strong>{$_('components.societies.details.name')}:</strong> {society.name}</li>
+			<li>
+				<strong>{$_('components.societies.details.name')}:</strong>
+				<Anchor href={`/societies/${society.id}`}>
+					{society.name}
+				</Anchor>
+			</li>
 			<li>
 				<strong>{$_('components.societies.details.location')}:</strong>
 				{society.city}, {society.state}, {society.country}

@@ -289,6 +289,7 @@
         "area_unit": "Alan Birimi"
       },
       "details": {
+        "name": "Ad",
         "role": "Rol",
         "no_membership": "Üye değilsiniz",
         "id": "Topluluk Kimliği",
@@ -321,6 +322,7 @@
         "description_placeholder": "Bir açıklama ekleyin"
       },
       "details": {
+        "name": "İkamet adı",
         "societyId": "Topluluk Kimliği",
         "residentsCount": "Sakinler",
         "floorCount": "Katlar",
@@ -379,6 +381,7 @@
         "active": "Aktif"
       },
       "details": {
+        "name": "Ad",
         "society": "Site",
         "amountPerMonth": "Aylık Tutar",
         "active": "Aktif",
@@ -415,7 +418,9 @@
     "delete": "Sil",
     "deleting": "Siliniyor...",
     "cancel": "İptal",
-    "update": "Güncelle"
+    "update": "Güncelle",
+    "contact_admin": "Yöneticiyle iletişim kurun",
+    "contact_user": "Kullanıcıyla iletişim kur"
   },
   "const": {
     "ads_types": {

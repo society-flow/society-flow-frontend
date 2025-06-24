@@ -289,6 +289,7 @@
         "area_unit": "وحدة المساحة"
       },
       "details": {
+        "name": "الاسم",
         "role": "الدور",
         "no_membership": "أنت لست عضوًا",
         "id": "معرف المجتمع",
@@ -321,6 +322,7 @@
         "description_placeholder": "أضف وصفًا"
       },
       "details": {
+        "name": "اسم الإقامة",
         "societyId": "معرف المجتمع",
         "residentsCount": "السكان",
         "floorCount": "الطوابق",
@@ -379,6 +381,7 @@
         "active": "نشط"
       },
       "details": {
+        "name": "الاسم",
         "society": "المجتمع",
         "amountPerMonth": "المبلغ الشهري",
         "active": "نشط",
@@ -415,7 +418,9 @@
     "delete": "حذف",
     "deleting": "جارٍ الحذف...",
     "cancel": "إلغاء",
-    "update": "تحديث"
+    "update": "تحديث",
+    "contact_admin": "اتصل بمسؤول النظام",
+    "contact_user": "اتصل بالمستخدم"
   },
   "const": {
     "ads_types": {

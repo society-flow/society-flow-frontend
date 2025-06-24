@@ -93,7 +93,7 @@
 	}
 </script>
 
-<Page title={$_('menu.expenses')} showHeader={false}>
+<Page title={expense.name || $_('menu.expenses')} showHeader={!!expense?.name}>
 	<article class="Detail">
 		{#if expense.id}
 			<aside>

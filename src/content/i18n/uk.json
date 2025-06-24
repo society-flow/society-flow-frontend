@@ -289,6 +289,7 @@
         "area_unit": "Одиниця площі"
       },
       "details": {
+        "name": "Ім'я",
         "role": "Роль",
         "no_membership": "Ви не є учасником",
         "id": "ID товариства",
@@ -321,6 +322,7 @@
         "description_placeholder": "Додати опис"
       },
       "details": {
+        "name": "Назва резиденції",
         "societyId": "ID товариства",
         "residentsCount": "Мешканці",
         "floorCount": "Поверхи",
@@ -379,6 +381,7 @@
         "active": "Активний"
       },
       "details": {
+        "name": "Ім'я",
         "society": "Суспільство",
         "amountPerMonth": "Сума на місяць",
         "active": "Активний",
@@ -415,7 +418,9 @@
     "delete": "Видалити",
     "deleting": "Видалення...",
     "cancel": "Скасувати",
-    "update": "Оновити"
+    "update": "Оновити",
+    "contact_admin": "Зв'яжіться з адміністратором",
+    "contact_user": "Зв'язатися з користувачем"
   },
   "const": {
     "ads_types": {
