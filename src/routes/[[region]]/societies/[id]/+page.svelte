@@ -13,7 +13,7 @@
 	import ResidencesList from '$lib/components/residences/list.svelte';
 	import AdsList from '$lib/components/ads/list.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
-	import ExpenseCard from '$lib/components/expenses/card.svelte';
+	import ExpensesList from '$lib/components/expenses/list.svelte';
 
 	requiresAuth(locale);
 
@@ -213,13 +213,7 @@
 					<Error error={triggerError} />
 				{/if}
 				{#if expenses.length}
-					<ul class="List">
-						{#each expenses as expense}
-							<li class="List-item">
-								<ExpenseCard {expense} />
-							</li>
-						{/each}
-					</ul>
+					<ExpensesList {expenses}/>
 				{:else}
 					<p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
 				{/if}

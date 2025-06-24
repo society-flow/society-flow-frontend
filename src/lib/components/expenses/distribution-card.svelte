@@ -5,16 +5,16 @@
 	const { distribution = {} } = $props();
 </script>
 
-<Card class="DistributionCard">
-	<p>
-		<strong>{$_('components.expenses.distributionCard.type')}:</strong>
-		{$_(`pages.expenses.detail.typeOptions.${distribution.calculationMode}`)}
-	</p>
-	<p>
-		<strong>{$_('components.expenses.distributionCard.coverage')}:</strong>
+<Card>
+	<span title={$_('components.expenses.distributionCard.coverage')}>
 		{distribution.percentageCoverage}%
-	</p>
-	<progress min="0" max="100" value={distribution.percentageCoverage}></progress>
+	</span>
+	<span title={$_('components.expenses.distributionCard.type')}>
+		{$_(`pages.expenses.detail.typeOptions.${distribution.calculationMode}`)}
+	</span>
+	{#snippet footer()}
+		<progress min="0" max="100" value={distribution.percentageCoverage}></progress>
+	{/snippet}
 </Card>
 
 <style>

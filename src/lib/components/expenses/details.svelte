@@ -9,13 +9,13 @@
 	}
 </script>
 
-<header class="DetailsHeader">
+<header>
 	<h1>
 		<Anchor href={`/expenses/${expense.id}`}>{expense.name}</Anchor>
 	</h1>
 </header>
 
-<main class="DetailsMain">
+<main>
 	<ul>
 		<li>
 			<strong>{$_('components.expenses.details.society')}:</strong>

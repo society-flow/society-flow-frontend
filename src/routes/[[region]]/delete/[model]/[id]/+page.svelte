@@ -9,6 +9,7 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+  import Error from '$lib/components/error.svelte';
 
 	requiresAuth(locale);
 
@@ -16,7 +17,7 @@
 	const id = $derived($page.params.id);
 
 	let item = $state({});
-	let error = $state('');
+	let error = $state({});
 	let isDeleting = $state(false);
 
 	$effect(async () => {
@@ -62,7 +63,7 @@
 			}
 			setTimeout(() => goto(`${base}/${$locale}/${model}`), 0);
 		} catch (e) {
-			error = e.message || e;
+			error = e;
 		} finally {
 			isDeleting = false;
 		}
@@ -71,7 +72,7 @@
 
 <Page title={`Delete ${model.slice(0, -1)}`} isCenter>
 	{#if error}
-		<p class="error">{error}</p>
+		<Error {error}/>
 	{:else if !item.id}
 		<progress></progress>
 	{:else}

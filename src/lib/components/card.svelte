@@ -1,5 +1,5 @@
 <script lang="javascript">
-	const { children, header } = $props();
+	const { children, header, footer } = $props();
 </script>
 
 <article class="Card">
@@ -13,14 +13,19 @@
 			{@render children()}
 		</main>
 	{/if}
+	{#if footer}
+		<footer>
+			{@render footer()}
+		</footer>
+	{/if}
 </article>
 
 <style>
 	.Card {
 		:global(a) {
 			display: flex;
-      flex-wrap: wrap;
-      gap: var(--s);
+			flex-wrap: wrap;
+			gap: var(--s);
 			padding: calc(var(--s) * 2);
 			border: 1px solid var(--c-border);
 			background-color: var(--c-bg--secondary);
