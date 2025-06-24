@@ -37,7 +37,7 @@
 		--c-bg--secondary: #0c0c0c;
 		--c-bg--form: #303030;
 		--c-bg--button: #1e1e1e;
-		--c-link: #23d2e4;
+		--c-link: #9254ff;
 		--c-border: #646060;
 		--c-error: #d06100;
 	}
@@ -51,6 +51,10 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
+}
+
+:root {
+	background-color: var(--c-bg--secondary);
 }
 
 /* fonts */
