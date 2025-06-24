@@ -1,7 +1,7 @@
-<script lang="javascript">
+<script>
 	import '../../app.css';
 	import 'leaflet/dist/leaflet.css';
-  import { locale } from 'svelte-i18n';
+	import { locale } from 'svelte-i18n';
 	import { navigating } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
@@ -17,16 +17,14 @@
 		}
 	});
 
-  locale.subscribe(() => {
-    
-  })
-  $effect(() => {
-    if ($locale === "ar") {
-      document.dir = "rtl"
-    } else {
-      document.dir = "ltr"
-    }
-  })
+	locale.subscribe(() => {});
+	$effect(() => {
+		if ($locale === 'ar') {
+			document.dir = 'rtl';
+		} else {
+			document.dir = 'ltr';
+		}
+	});
 </script>
 
 <header class="Site-header">
@@ -153,6 +151,7 @@
 		cursor: pointer;
 		transition: all 140ms ease-in-out;
 		padding: var(--s) calc(var(--s) * 1.5);
+    font-weight: bold;
 		&:hover {
 			/* background-color: var(--c-bg); */
 			border-color: var(--c-border);
@@ -195,11 +194,11 @@
 			text-decoration-color: transparent;
 			font-weight: normal;
 		}
-    &[aria-current='page'] {
+		&[aria-current='page'] {
 			/* background-color: var(--c-bg--menu); */
 			/* border-bottom-color: var(--c-link); */
 			/* color: var(--c-link); */
-      text-decoration: none;
+			text-decoration: none;
 		}
 	}
 	:global(details) {
@@ -332,19 +331,19 @@
 		}
 	}
 	:global(.Detail) {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
 		:global(& > section, & > header, & > main, & > aside) {
 			border: 1px solid transparent;
 			border-radius: var(--border-radius);
 			padding: var(--s);
 			margin-top: calc(var(--s) / 0.7);
 		}
-    :global(& > main) {
-      flex-grow: 1;
-      border-color: var(--c-border);
-    }
+		:global(& > main) {
+			flex-grow: 1;
+			border-color: var(--c-border);
+		}
 		:global(& > header) {
 			background-color: transparent;
 			border: none;
@@ -352,17 +351,16 @@
 				margin-bottom: 0;
 				text-align: center;
 			}
-      :global(& > nav) {
-        justify-content: flex-end;
-        align-items: center;
-      }
+			:global(& > nav) {
+				justify-content: flex-end;
+				align-items: center;
+			}
 		}
-    :global(& > section) {
-      background-color: var(--c-bg--secondary);
+		:global(& > section) {
 			:global(> header) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 			}
 		}
 		:global(& > aside:has(nav, .Map, .List)) {
@@ -381,11 +379,13 @@
 			list-style: none;
 			display: flex;
 			flex-wrap: wrap;
-			padding: var(--s);
 		}
 		:global(aside nav) {
 			justify-content: flex-end;
 		}
+    :global(header nav) {
+      padding: calc(var(--s) / 2);
+    }
 		:global(main) {
 			:global(p:last-child) {
 				margin-bottom: 0;
