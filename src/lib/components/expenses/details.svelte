@@ -1,12 +1,9 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
-	export let expense = {};
-	export let society = {};
-	function formatDateTime(dateString) {
-		if (!dateString) return '';
-		return new Date(dateString).toLocaleString();
-	}
+	import RelativeDate from '$lib/components/date/relative.svelte';
+
+	const { expense = {}, society = {} } = $props();
 </script>
 
 <main>
@@ -22,6 +19,7 @@
 		<li>
 			<strong>{$_('components.expenses.details.amountPerMonth')}:</strong>
 			{expense.amountPerMonth}
+			{society?.currency}
 		</li>
 		<li>
 			<strong>{$_('components.expenses.details.active')}:</strong>
@@ -29,11 +27,11 @@
 		</li>
 		<li>
 			<strong>{$_('components.expenses.details.createdAt')}:</strong>
-			{formatDateTime(expense.createdAt)}
+			<RelativeDate date={expense.createdAt} />
 		</li>
 		<li>
 			<strong>{$_('components.expenses.details.updatedAt')}:</strong>
-			{formatDateTime(expense.updatedAt)}
+			<RelativeDate date={expense.updatedAt} />
 		</li>
 	</ul>
 </main>

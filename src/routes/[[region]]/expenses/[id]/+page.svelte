@@ -8,6 +8,7 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
 	import DistributionCard from '$lib/components/expenses/distribution-card.svelte';
+	import CalculationsList from '$lib/components/calculations/list.svelte';
 
 	requiresAuth(locale);
 
@@ -186,54 +187,7 @@
 
 			<section>
 				<h2>{$_('pages.expenses.detail.calculations')}</h2>
-				{#if calculations.length}
-					<ul>
-						{#each calculations as calc}
-							<li>
-								<dl>
-									<dt>
-										{$_('pages.expenses.detail.table.month')}
-									</dt>
-									<dd>
-										{calc.yearMonth}
-									</dd>
-									<dt>
-										{$_('pages.expenses.detail.table.residence')}
-									</dt>
-									<dd>
-										{calc.residenceId}
-									</dd>
-									<dt>
-										{$_('pages.expenses.detail.table.withFormula')}
-									</dt>
-									<dd>
-										{calc.withFormula}
-									</dd>
-									<dt>
-										{$_('pages.expenses.detail.table.isExpensePaid')}
-									</dt>
-									<dd>
-										{calc.isExpensePaid}
-									</dd>
-									<dt>
-										{$_('pages.expenses.detail.table.amount')}
-									</dt>
-									<dd>
-										{calc.amountToPay}
-									</dd>
-									<dt>
-										{$_('pages.expenses.detail.table.expensePaid')}
-									</dt>
-									<dd>
-										{calc.expensePaid}
-									</dd>
-								</dl>
-							</li>
-						{/each}
-					</ul>
-				{:else}
-					<p>{$_('pages.expenses.detail.noCalculations')}</p>
-				{/if}
+				<CalculationsList {calculations} />
 			</section>
 		{:else}
 			<p>Loading...</p>
