@@ -213,6 +213,12 @@
         },
         "backToAllExpenses": "← সকলো খৰচলৈ উভতি যাওক"
       }
+    },
+    "ads": {
+      "detail": {
+        "isActive": "সক্ৰিয়",
+        "isNotActive": "निष्क्रिय"
+      }
     }
   },
   "components": {
@@ -420,7 +426,9 @@
     "cancel": "বাতিল কৰক",
     "update": "আপডেট",
     "contact_admin": "প্ৰশাসকৰ সৈতে যোগাযোগ কৰক",
-    "contact_user": "ব্যৱহাৰকাৰীক যোগাযোগ কৰক"
+    "contact_user": "ব্যৱহাৰকাৰীক যোগাযোগ কৰক",
+    "created": "সৃষ্টি কৰা হ'ল",
+    "updated": "আপডেট কৰা হ'ল"
   },
   "const": {
     "ads_types": {

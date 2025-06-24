@@ -4,9 +4,9 @@
 	import { api } from '$lib/api.svelte.js';
 </script>
 
-<nav>
-	<Anchor href="/ads">{$_('menu.ads')}</Anchor>
-	<Anchor href="/ads/map">{$_('menu.map')}</Anchor>
+<nav class="Page-nav">
+	<Anchor href="/ads" isButton>{$_('menu.ads')}</Anchor>
+	<Anchor href="/ads/map" isButton>{$_('menu.map')}</Anchor>
 	<Anchor href="/create/ads" isButton>{$_('menu.create.ads')}</Anchor>
 </nav>
 

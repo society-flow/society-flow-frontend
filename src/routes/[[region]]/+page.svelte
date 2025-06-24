@@ -59,52 +59,63 @@
 		{/if}
 	{/snippet}
 
-	{#if userState.isAuth}
-		<section>
-			<header>
-				<h2>{$_('pages.home.auth.dashboard.title')}</h2>
-				<p>
-					{$_('pages.home.auth.greeting', {
-						values: { name: userState?.user?.name, email: userState?.user?.email }
-					})}
-				</p>
-			</header>
-		</section>
-		<section>
-			<h2>{$_('menu.societies')}</h2>
-			{#if societies?.length}
-				<ListSocieties {societies} />
-			{:else}
-				<Anchor href="/create/societies" isButton>
-					{$_('menu.create.societies')}
-				</Anchor>
-			{/if}
-		</section>
-		<section>
-			<h2>{$_('menu.residences')}</h2>
-			{#if residences?.length}
-				<ListResidences {residences} />
-			{:else}
-				<Anchor href="/create/residences" isButton>
-					{$_('menu.create.residences')}
-				</Anchor>
-			{/if}
-		</section>
-		<section>
-			<h2>{$_('menu.ads')}</h2>
-			{#if ads?.length}
-				<ListAds {ads} />
-			{:else}
-				<Anchor href="/create/ads" isButton>
-					{$_('menu.create.ads')}
-				</Anchor>
-			{/if}
-		</section>
-	{:else}
-		<section>
-			<MarketingUsers />
-		</section>
-	{/if}
+	<article class="Detail">
+		{#if userState.isAuth}
+			<section>
+				<header>
+					<h2>{$_('pages.home.auth.dashboard.title')}</h2>
+					<p>
+						{$_('pages.home.auth.greeting', {
+							values: { name: userState?.user?.name, email: userState?.user?.email }
+						})}
+					</p>
+				</header>
+			</section>
+			<section>
+				<header>
+					<h2>{$_('menu.societies')}</h2>
+					<nav>
+						<Anchor href="/create/societies" isButton>
+							{$_('menu.create.societies')}
+						</Anchor>
+					</nav>
+				</header>
+				{#if societies?.length}
+					<ListSocieties {societies} />
+				{/if}
+			</section>
+			<section>
+				<header>
+					<h2>{$_('menu.residences')}</h2>
+					<nav>
+						<Anchor href="/create/residences" isButton>
+							{$_('menu.create.residences')}
+						</Anchor>
+					</nav>
+				</header>
+				{#if residences?.length}
+					<ListResidences {residences} />
+				{/if}
+			</section>
+			<section>
+				<header>
+					<h2>{$_('menu.ads')}</h2>
+					<nav>
+						<Anchor href="/create/ads" isButton>
+							{$_('menu.create.ads')}
+						</Anchor>
+					</nav>
+				</header>
+				{#if ads?.length}
+					<ListAds {ads} />
+				{/if}
+			</section>
+		{:else}
+			<section>
+				<MarketingUsers />
+			</section>
+		{/if}
+	</article>
 
 	{#snippet footer()}
 		{#if !userState.isAuth}

@@ -213,6 +213,12 @@
         },
         "backToAllExpenses": "← العودة إلى جميع المصروفات"
       }
+    },
+    "ads": {
+      "detail": {
+        "isActive": "نشط",
+        "isNotActive": "غير نشط"
+      }
     }
   },
   "components": {
@@ -420,7 +426,9 @@
     "cancel": "إلغاء",
     "update": "تحديث",
     "contact_admin": "اتصل بمسؤول النظام",
-    "contact_user": "اتصل بالمستخدم"
+    "contact_user": "اتصل بالمستخدم",
+    "created": "تم الإنشاء",
+    "updated": "تم التحديث"
   },
   "const": {
     "ads_types": {

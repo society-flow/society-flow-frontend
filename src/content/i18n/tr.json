@@ -213,6 +213,12 @@
         },
         "backToAllExpenses": "← Tüm giderlere geri dön"
       }
+    },
+    "ads": {
+      "detail": {
+        "isActive": "Aktif",
+        "isNotActive": "Etkin Değil"
+      }
     }
   },
   "components": {
@@ -420,7 +426,9 @@
     "cancel": "İptal",
     "update": "Güncelle",
     "contact_admin": "Yöneticiyle iletişim kurun",
-    "contact_user": "Kullanıcıyla iletişim kur"
+    "contact_user": "Kullanıcıyla iletişim kur",
+    "created": "Oluşturuldu",
+    "updated": "Güncellendi"
   },
   "const": {
     "ads_types": {

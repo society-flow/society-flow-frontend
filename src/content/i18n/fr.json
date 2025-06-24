@@ -213,6 +213,12 @@
         },
         "backToAllExpenses": "← Retour à toutes les dépenses"
       }
+    },
+    "ads": {
+      "detail": {
+        "isActive": "Actif",
+        "isNotActive": "Inactif"
+      }
     }
   },
   "components": {
@@ -420,7 +426,9 @@
     "cancel": "Annuler",
     "update": "Mettre à jour",
     "contact_admin": "Contacter l'administrateur",
-    "contact_user": "Contacter l'utilisateur"
+    "contact_user": "Contacter l'utilisateur",
+    "created": "Créé",
+    "updated": "Mis à jour"
   },
   "const": {
     "ads_types": {

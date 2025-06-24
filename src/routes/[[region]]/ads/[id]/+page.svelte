@@ -10,15 +10,19 @@
 	import AdDetails from '$lib/components/ads/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
 	import ResidencyCard from '$lib/components/residences/card.svelte';
+	import RelativeDate from '$lib/components/date/relative.svelte';
 
 	const id = $derived($page.params.id);
 	let advert = $state({});
 	let residency = $state(null);
 	let society = $state(null);
+	let adTypes = $state([]);
 
+	let isOwner = $derived(advert?.userId === userState?.user?.id);
 	let coordinates = $derived(advert?.approxGeoCoordinate);
 	let selectedLocation = $derived(residency || society);
 	let locationCoordinates = $derived(selectedLocation?.geoCoordinate || coordinates);
+	let adOption = $derived(adTypes?.find((type) => advert?.type === type.id));
 
 	let markers = $derived(
 		locationCoordinates
@@ -31,7 +35,11 @@
 			: []
 	);
 
-	let isOwner = $derived(advert?.userId === userState?.user?.id);
+	$effect(async () => {
+		if (adTypes.length === 0) {
+			adTypes = await api.getAllAdTypes();
+		}
+	});
 
 	$effect(async () => {
 		if (id) {
@@ -56,41 +64,73 @@
 	});
 </script>
 
-<Page title={`${advert?.title || advert?.id}`} showHeader={true}>
+<Page title={`${advert?.title || advert?.id || $_('menu.ads')}`} showHeader={true}>
 	<article class="Detail">
 		<header>
 			<nav>
-				{#if isOwner}
-					<li>
-						<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')}>
-							{$_('menu.update.ads')}
-						</Anchor>
-					</li>
-					<li>
-						<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')}>
-							{$_('common.delete')}
-						</Anchor>
-					</li>
-				{/if}
-				<li>
-					<Anchor href="#" title={$_('common.contact_user')}>
-						{$_('common.contact_user')}
-					</Anchor>
-				</li>
-				<li>
-					<Anchor href="#" title={$_('common.contact_admin')}>
-						{$_('common.contact_admin')}
-					</Anchor>
-				</li>
+				<ul>
+					{#if isOwner}
+						<li>
+							<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton>
+								{$_('common.delete')}
+							</Anchor>
+						</li>
+						<li>
+							<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')} isButton>
+								{$_('menu.update.ads')}
+							</Anchor>
+						</li>
+					{:else}
+						<li>
+							<Anchor href="#" title={$_('common.contact_user')} isButton>
+								{$_('common.contact_user')}
+							</Anchor>
+						</li>
+					{/if}
+				</ul>
 			</nav>
 		</header>
-		<AdDetails {advert} />
 
-		{#if markers.length}
-			<aside>
-				<Map {markers} />
-			</aside>
-		{/if}
+		<aside>
+			<nav>
+				<ul>
+					<li>
+						{#if isOwner}
+							<span>
+								{#if advert.isActive}
+									{$_('pages.ads.detail.isActive')}
+								{:else}
+									{$_('pages.ads.detail.isNotActive')}
+								{/if}
+							</span>
+						{/if}
+					</li>
+					<li>
+						<Anchor href={`/ads?type=${adOption?.id}`}>
+							{$_(`const.ads_types.${adOption?.name}`)}
+						</Anchor>
+					</li>
+					<li>
+						{#if advert.updatedAt && advert.updatedAt !== advert.createdAt}
+							<span>
+								{$_('common.updated')}
+								<RelativeDate date={advert.updatedAt} />
+							</span>
+						{/if}
+					</li>
+					<li>
+						{#if advert.createdAt}
+							<span>
+								{$_('common.created')}
+								<RelativeDate date={advert.createdAt} />
+							</span>
+						{/if}
+					</li>
+				</ul>
+			</nav>
+		</aside>
+
+		<AdDetails {advert} />
 
 		{#if selectedLocation}
 			<aside>
@@ -101,13 +141,26 @@
 				{/if}
 			</aside>
 		{/if}
+
+		{#if markers.length}
+			<aside>
+				<Map {markers} />
+			</aside>
+		{/if}
 	</article>
 
 	{#snippet footer()}
 		<nav>
-			<li>
-				<Anchor href={`/ads`}>← {$_('menu.ads')}</Anchor>
-			</li>
+			<ul>
+				<li>
+					<Anchor href={`/ads`}>← {$_('menu.ads')}</Anchor>
+				</li>
+				<li>
+					<Anchor href="#" title={$_('common.contact_admin')}>
+						{$_('common.contact_admin')}
+					</Anchor>
+				</li>
+			</ul>
 		</nav>
 	{/snippet}
 </Page>
