@@ -2,13 +2,9 @@
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Map from '$lib/components/map.svelte';
+	import RelativeDate from '$lib/components/date/relative.svelte';
 
 	let { society, userRole } = $props();
-
-	function formatDateTime(dateString) {
-		if (!dateString) return '';
-		return new Date(dateString).toLocaleString();
-	}
 
 	const markers = $derived(
 		society?.geoCoordinate
@@ -54,15 +50,22 @@
 					{society.geocoordinate.x}, {society.geocoordinate.y}
 				</li>
 			{/if}
-
-			<li>
-				<strong>{$_('components.societies.details.created')}:</strong>
-				{formatDateTime(society.createdAt)}
-			</li>
-			<li>
-				<strong>{$_('components.societies.details.updated')}:</strong>
-				{formatDateTime(society.updatedAt)}
-			</li>
+			{#if society.updatedAt}
+				<li>
+					<strong>
+						{$_('common.updated')}
+					</strong>
+					<RelativeDate date={society.updatedAt} />
+				</li>
+			{/if}
+			{#if society.createdAt}
+				<li>
+					<strong>
+						{$_('common.created')}
+					</strong>
+					<RelativeDate date={society.createdAt} />
+				</li>
+			{/if}
 		</ul>
 	</section>
 

@@ -1,7 +1,8 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
-
+	import RelativeDate from '$lib/components/date/relative.svelte';
+  
 	const { residence, society } = $props();
 </script>
 
@@ -25,7 +26,11 @@
 		<li>
 			<strong>{$_('components.residences.details.floorCount')}</strong>: {residence.floorCount}
 		</li>
-		<li><strong>{$_('components.residences.details.area')}</strong>: {residence.areaValue}</li>
+		<li>
+			<strong>{$_('components.residences.details.area')}</strong>:
+			{residence.areaValue}
+			{society.areaUnit}
+		</li>
 		<li>
 			<strong>{$_('components.residences.details.percentageOwnership')}</strong>: {residence.percentageOwnership}%
 		</li>
@@ -40,10 +45,21 @@
 		<li>
 			<strong>{$_('components.residences.details.description')}</strong>: {residence.description}
 		</li>
-		<li><strong>{$_('components.residences.details.createdAt')}</strong>: {residence.createdAt}</li>
-		<li>
-			<strong>{$_('components.residences.details.updatedAt')}</strong>: {residence.updatedAt ??
-				$_('components.residences.details.notAvailable')}
-		</li>
+		{#if residence.updatedAt}
+			<li>
+				<strong>
+					{$_('common.updated')}
+				</strong>
+				<RelativeDate date={residence.updatedAt} />
+			</li>
+		{/if}
+		{#if residence.createdAt}
+			<li>
+				<strong>
+					{$_('common.created')}
+				</strong>
+				<RelativeDate date={residence.createdAt} />
+			</li>
+		{/if}
 	</ul>
 </main>

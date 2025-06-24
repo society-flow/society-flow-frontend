@@ -348,11 +348,13 @@
 			border: 1px solid transparent;
 			border-radius: var(--border-radius);
 			padding: var(--s);
-			margin-top: calc(var(--s) / 0.7);
+			margin-top: var(--s);
 		}
 		:global(& > main) {
-			flex-grow: 1;
-			border-color: var(--c-border);
+			/* flex-grow: 1; */
+			/* border-color: var(--c-border); */
+      background-color: var(--c-bg--secondary);
+      padding: var(--s) calc(var(--s) * 2);
 		}
 		:global(& > header) {
 			background-color: transparent;

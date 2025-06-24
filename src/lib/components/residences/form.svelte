@@ -50,7 +50,6 @@
 			bind:value={form.residenceName}
 			placeholder={$_('components.residences.form.residenceName_placeholder')}
 			required
-			on:input={() => (form.description = form.description)}
 		/>
 	</fieldset>
 

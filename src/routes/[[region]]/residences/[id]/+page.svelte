@@ -115,24 +115,39 @@
 		{:else}
 			<aside>
 				<nav>
-					{#if !isMember}
-						<li>
-							<ResidenceJoin residenceId={id} societyId={residence.societyId} {isMember} {onJoin} />
-						</li>
-					{/if}
-					{#if isMember}
-						<Anchor href={`/update/residences/${id}`} title={$_('menu.update.residences')} isButton>
-							{$_('menu.update.residences')}
-						</Anchor>
-						<Anchor
-							href={`/delete/residences/${id}`}
-							title={$_('common.delete')}
-							isButton
-							data-type="error"
-						>
-							{$_('common.delete')}
-						</Anchor>
-					{/if}
+					<ul>
+						{#if !isMember}
+							<li>
+								<ResidenceJoin
+									residenceId={id}
+									societyId={residence.societyId}
+									{isMember}
+									{onJoin}
+								/>
+							</li>
+						{/if}
+						{#if isMember}
+							<li>
+								<Anchor
+									href={`/update/residences/${id}`}
+									title={$_('menu.update.residences')}
+									isButton
+								>
+									{$_('menu.update.residences')}
+								</Anchor>
+							</li>
+							<li>
+								<Anchor
+									href={`/delete/residences/${id}`}
+									title={$_('common.delete')}
+									isButton
+									data-type="error"
+								>
+									{$_('common.delete')}
+								</Anchor>
+							</li>
+						{/if}
+					</ul>
 				</nav>
 			</aside>
 

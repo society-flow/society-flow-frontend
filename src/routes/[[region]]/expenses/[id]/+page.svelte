@@ -98,16 +98,18 @@
 		{#if expense.id}
 			<aside>
 				<nav>
-					<li>
-						<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
-							{$_('common.update')}
-						</Anchor>
-					</li>
-					<li>
-						<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
-							{$_('common.delete')}
-						</Anchor>
-					</li>
+					<ul>
+						<li>
+							<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
+								{$_('common.update')}
+							</Anchor>
+						</li>
+						<li>
+							<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
+								{$_('common.delete')}
+							</Anchor>
+						</li>
+					</ul>
 				</nav>
 			</aside>
 

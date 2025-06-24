@@ -3,6 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import MapPicker from '$lib/components/map-picker.svelte';
+	import Editor from '$lib/components/editor.svelte';
 
 	const { data: initialData = {}, onsuccess = () => {} } = $props();
 
@@ -103,11 +104,9 @@
 
 	<fieldset>
 		<legend>{$_('components.ads.form.adDescription')}</legend>
-		<textarea
+		<Editor
 			bind:value={form.adDescription}
 			placeholder={$_('components.ads.form.adDescription_placeholder')}
-			required
-			on:input={resetMessages}
 		/>
 	</fieldset>
 

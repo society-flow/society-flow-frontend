@@ -103,5 +103,7 @@
 		width: 100%;
 		height: 35dvh;
 		z-index: 1;
+    border: 1px solid var(--c-border);
+    border-radius: var(--border-radius);
 	}
 </style>

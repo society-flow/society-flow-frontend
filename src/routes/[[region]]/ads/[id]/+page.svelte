@@ -110,27 +110,33 @@
 							{$_(`const.ads_types.${adOption?.name}`)}
 						</Anchor>
 					</li>
-					<li>
-						{#if advert.updatedAt && advert.updatedAt !== advert.createdAt}
+					{#if advert.updatedAt}
+						<li>
 							<span>
 								{$_('common.updated')}
 								<RelativeDate date={advert.updatedAt} />
 							</span>
-						{/if}
-					</li>
-					<li>
-						{#if advert.createdAt}
+						</li>
+					{/if}
+					{#if advert.createdAt}
+						<li>
 							<span>
 								{$_('common.created')}
 								<RelativeDate date={advert.createdAt} />
 							</span>
-						{/if}
-					</li>
+						</li>
+					{/if}
 				</ul>
 			</nav>
 		</aside>
 
 		<AdDetails {advert} />
+
+		{#if markers.length}
+			<aside>
+				<Map {markers} />
+			</aside>
+		{/if}
 
 		{#if selectedLocation}
 			<aside>
@@ -139,12 +145,6 @@
 				{:else if society}
 					<SocietyCard {society} />
 				{/if}
-			</aside>
-		{/if}
-
-		{#if markers.length}
-			<aside>
-				<Map {markers} />
 			</aside>
 		{/if}
 	</article>

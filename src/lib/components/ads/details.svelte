@@ -1,9 +1,12 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
-	export let advert = {};
+	import Markdown from '$lib/components/markdown.svelte';
+
+	const { advert } = $props();
+	const markdown = $derived(advert?.adDescription || '');
 </script>
 
 <main>
-	{advert.adDescription}
+	<Markdown {markdown} />
 </main>

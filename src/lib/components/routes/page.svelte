@@ -52,7 +52,7 @@
 		justify-content: center;
 		align-items: center;
 		gap: var(--s);
-		padding: calc(var(--s) * 2);
+		padding: var(--s);
 		:global(h1, h2) {
 			margin-bottom: 0;
 		}

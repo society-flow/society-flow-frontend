@@ -130,28 +130,34 @@
 		{:else if society}
 			<aside>
 				<nav>
-					{#if !userRole}
-						<li>
-							<SocietyJoin societyId={id} {userRole} onRoleUpdate={handleRoleUpdate} />
-						</li>
-					{/if}
-					{#if isOwner}
-						<li>
-							<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')} isButton>
-								{$_('menu.update.societies')}
-							</Anchor>
-						</li>
-						<li>
-							<Anchor
-								href={`/delete/societies/${id}`}
-								title={$_('common.delete')}
-								isButton
-								data-type="error"
-							>
-								{$_('common.delete')}
-							</Anchor>
-						</li>
-					{/if}
+					<ul>
+						{#if !userRole}
+							<li>
+								<SocietyJoin societyId={id} {userRole} onRoleUpdate={handleRoleUpdate} />
+							</li>
+						{/if}
+						{#if isOwner}
+							<li>
+								<Anchor
+									href={`/update/societies/${id}`}
+									title={$_('menu.update.societies')}
+									isButton
+								>
+									{$_('menu.update.societies')}
+								</Anchor>
+							</li>
+							<li>
+								<Anchor
+									href={`/delete/societies/${id}`}
+									title={$_('common.delete')}
+									isButton
+									data-type="error"
+								>
+									{$_('common.delete')}
+								</Anchor>
+							</li>
+						{/if}
+					</ul>
 				</nav>
 			</aside>
 
@@ -213,7 +219,7 @@
 					<Error error={triggerError} />
 				{/if}
 				{#if expenses.length}
-					<ExpensesList {expenses}/>
+					<ExpensesList {expenses} />
 				{:else}
 					<p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
 				{/if}
