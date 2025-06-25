@@ -3,12 +3,15 @@
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
-	import Error from '$lib/components/error.svelte';
 	import ExpensesList from '$lib/components/expenses/list.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
+	import Error from '$lib/components/error.svelte';
 
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
+	const { data } = $props();
+	const { society } = data;
 
 	let expenses = $state([]);
 	let loading = $state(true);
@@ -55,9 +58,18 @@
 		<header>
 			<h2>{$_('menu.expenses')}</h2>
 			<nav>
-				<button on:click={triggerAllCalculations} disabled={triggering}>
-					{$_('pages.societies.detail.triggerCalculations')}
-				</button>
+				<ul>
+					<li>
+						<button on:click={triggerAllCalculations} disabled={triggering}>
+							{$_('pages.societies.detail.triggerCalculations')}
+						</button>
+					</li>
+					<li>
+						<Anchor href={`/create/expenses?society=${society?.id}`} isButton>
+							{$_('menu.create.expenses')}
+						</Anchor>
+					</li>
+				</ul>
 			</nav>
 		</header>
 		{#if triggering}

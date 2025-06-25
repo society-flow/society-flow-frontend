@@ -7,9 +7,17 @@
 </script>
 
 <nav class="Page-nav">
-	<Anchor href="/ads" isButton>{$_('menu.ads')}</Anchor>
-	<Anchor href="/ads/map" isButton>{$_('menu.map')}</Anchor>
-	<Anchor href="/create/ads" isButton>{$_('menu.create.ads')}</Anchor>
+	<ul>
+		<li>
+			<Anchor href="/ads" isButton>{$_('menu.ads')}</Anchor>
+		</li>
+		<li>
+			<Anchor href="/ads/map" isButton>{$_('menu.map')}</Anchor>
+		</li>
+		<li>
+			<Anchor href="/create/ads" isButton>{$_('menu.create.ads')}</Anchor>
+		</li>
+	</ul>
 </nav>
 
 {@render children()}

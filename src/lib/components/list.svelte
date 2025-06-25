@@ -1,11 +1,18 @@
 <script>
-	const { items = [], children } = $props();
+	const { items = [], className, children, aside } = $props();
 </script>
 
-<ul class="List">
+<ul class={`List ${className}`}>
 	{#each items as item, index}
 		<li class="List-item">
 			{@render children(item, index)}
+			{#if aside}
+				<nav>
+					<ul>
+						{@render aside(item, index)}
+					</ul>
+				</nav>
+			{/if}
 		</li>
 	{/each}
 </ul>

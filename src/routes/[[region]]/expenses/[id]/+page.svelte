@@ -135,7 +135,7 @@
 					<form>
 						{#each distributions as d, index}
 							{#if d.isActive}
-								<article>
+								<section>
 									<fieldset>
 										<legend>
 											{$_('pages.expenses.detail.selectType')}
@@ -164,17 +164,19 @@
 											>{$_('pages.expenses.detail.remove')}</button
 										>
 									</fieldset>
-								</article>
+								</section>
 							{/if}
 						{/each}
-						<fieldset>
-							<button type="button" on:click={addDistribution}>
-								{$_('pages.expenses.detail.addDistribution')}
-							</button>
-							<button type="button" on:click={saveDistributions}>
-								{$_('pages.expenses.detail.saveDistributions')}
-							</button>
-						</fieldset>
+						<footer>
+							<fieldset>
+								<button type="button" on:click={addDistribution}>
+									{$_('pages.expenses.detail.addDistribution')}
+								</button>
+								<button type="button" on:click={saveDistributions}>
+									{$_('pages.expenses.detail.saveDistributions')}
+								</button>
+							</fieldset>
+						</footer>
 						{#if distError}
 							<p class="error">{distError}</p>
 						{/if}
@@ -197,3 +199,19 @@
 		<p><Anchor href="/expenses">{$_('pages.expenses.detail.backToAllExpenses')}</Anchor></p>
 	{/snippet}
 </Page>
+
+<style>
+	form {
+    section {
+		  display: flex;
+		  align-items: center;
+	  }
+    footer {
+      
+      fieldset {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+  }
+</style>

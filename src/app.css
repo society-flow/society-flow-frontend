@@ -87,22 +87,21 @@ html {
 	font-size: 1.5em;
 }
 
-:is(fieldset) {
-	border: 1px solid var(--c-border);
-	display: flex;
-	flex-direction: column;
-	margin-bottom: var(--s);
-	padding: var(--s);
-	border-color: transparent;
-}
-
 :is(pre) {
 	white-space: pre-wrap;
 }
-:is(fieldset[data-type='error']) {
-	text-decoration: underline;
-	text-decoration-color: var(--c-error);
-	margin: var(--s);
+:is(details) {
+	padding: calc(var(--s) / 3);
+	:is(summary) {
+		padding: var(--s);
+		cursor: pointer;
+	}
+}
+:is(section) {
+	padding: var(--s);
+	& + section {
+		margin-top: var(--s);
+	}
 }
 
 :is(input, textarea, select, button, .Button) {
@@ -143,8 +142,14 @@ html {
 	}
 }
 
-:is(input, textarea) {
+:is(input:not([type='checkbox']), textarea) {
 	width: 100%;
+}
+:is(input[type='checkbox']) {
+	min-height: calc(var(--s) * 3);
+	:is(fieldset:has(&)) {
+		align-items: baseline;
+	}
 }
 :is(textarea) {
 	min-height: calc(var(--s) * 5);
@@ -206,21 +211,19 @@ html {
 		text-decoration: none;
 	}
 }
-:is(details) {
-	padding: calc(var(--s) / 3);
-	:is(summary) {
-		padding: var(--s);
-		cursor: pointer;
-	}
-}
-
-:is(section) {
+:is(fieldset) {
+	border: 1px solid var(--c-border);
+	display: flex;
+	flex-direction: column;
+	margin-bottom: var(--s);
 	padding: var(--s);
-	& + section {
-		margin-top: var(--s);
-	}
+	border-color: transparent;
 }
-
+:is(fieldset[data-type='error']) {
+	text-decoration: underline;
+	text-decoration-color: var(--c-error);
+	margin: var(--s);
+}
 :is(form) {
 	display: flex;
 	flex-direction: column;
@@ -230,8 +233,26 @@ html {
 	border-radius: calc(var(--border-radius) * 2);
 	padding: calc(var(--s) * 2) calc(var(--s) * 1);
 	/* max-width: var(--s-form); */
+	:is(section, footer, main, aside) {
+		width: 100%;
+	}
+	:is(label) {
+		color: var(--c-fg--secondary);
+		font-size: var(--font-size--small);
+		font-style: italic;
+		padding: calc(var(--s) / 2);
+	}
+	:is(legend) {
+		margin-bottom: -0.3em;
+		transition: font-weight 200ms ease-in-out;
+		&:not([required]) {
+			color: var(--c-fg--secondary);
+		}
+	}
+	:is(button[type='submit']) {
+		background-color: var(--c-bg--button);
+	}
 }
-
 :is(form fieldset) {
 	width: 100%;
 	&:last-of-type {
@@ -248,34 +269,16 @@ html {
 	:is(&:has(textarea:focus, textarea:active)) {
 		:is(legend) {
 			font-weight: bold;
-			color: var(--c-fg);
+			color: var(--c-link);
 		}
 	}
 	:is(&:has([required])) {
 		:is(legend) {
-			color: var(--c-link);
+			color: var(--c-fg);
 			&::after {
 				content: '*';
 				padding-left: calc(var(--s) / 2);
 			}
 		}
 	}
-}
-
-:is(form fieldset label) {
-	color: var(--c-fg--secondary);
-	font-size: var(--font-size--small);
-	font-style: italic;
-	padding: calc(var(--s) / 2);
-}
-
-:is(form legend) {
-	margin-bottom: -0.3em;
-	transition: font-weight 200ms ease-in-out;
-	&:not([required]) {
-		color: var(--c-fg--secondary);
-	}
-}
-:is(form button[type='submit']) {
-	background-color: var(--c-bg--button);
 }

@@ -7,13 +7,17 @@
 </script>
 
 {#if users.length > 0}
-	<List items={users}>
+	<List items={users} className="List--users">
 		{#snippet children(user)}
 			<Card {user} />
+		{/snippet}
+		{#snippet aside()}
 			{#if onRemoveUser}
-				<button type="button" on:click={() => onRemoveUser(user)}>
-					{$_('common.delete')}
-				</button>
+				<li>
+					<button type="button" on:click={() => onRemoveUser(user)}>
+						{$_('common.delete')}
+					</button>
+				</li>
 			{/if}
 		{/snippet}
 	</List>
@@ -22,10 +26,12 @@
 {/if}
 
 <style>
-	.List-item {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.5rem;
+	:global(.List--users) {
+		:global(.List-item) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0.5rem;
+		}
 	}
 </style>
