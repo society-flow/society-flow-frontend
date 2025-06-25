@@ -160,6 +160,61 @@ class Api {
 		return res.body;
 	}
 
+	// --- Maintenances ---
+	async triggerSocietyMaintenanceCalculation(societyId, yearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.maintenances.triggerSocietyMaintenanceCalculation({
+			societyId,
+			yearMonth
+		});
+		return res.body;
+	}
+
+	async getAllMaintenances(societyId, residenceId) {
+		const client = await this.getClient();
+		const res = await client.apis.maintenances.getAllMaintenances({ societyId, residenceId });
+		return res.body;
+	}
+
+	async getLatestActiveMaintenance(societyId, residenceId) {
+		const client = await this.getClient();
+		const res = await client.apis.maintenances.getLatestActiveMaintenance({
+			societyId,
+			residenceId
+		});
+		return res.body;
+	}
+
+	async getAllMaintenancesFromYearMonth(societyId, residenceId, fromYearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.maintenances.getAllMaintenancesFromYearMonth({
+			societyId,
+			residenceId,
+			fromYearMonth
+		});
+		return res.body;
+	}
+
+	async triggerMaintenanceCalculation(societyId, residenceId, yearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.maintenances.triggerMaintenanceCalculation({
+			societyId,
+			residenceId,
+			yearMonth
+		});
+		return res.body;
+	}
+
+	async getMaintenanceByYearMonth(societyId, residenceId, yearMonth) {
+		const client = await this.getClient();
+		const res = await client.apis.maintenances.getMaintenanceByYearMonth({
+			societyId,
+			residenceId,
+			yearMonth
+		});
+		return res.body;
+	}
+
 	// --- Users & Auth ---
 	logout() {
 		userState.logout();
