@@ -19,3 +19,13 @@
 <article class="Markdown">
 	{@html clean}
 </article>
+
+<style>
+  .Markdown {
+    padding: var(--s);
+    :global(ul, ol) {
+      margin: 0.5rem 1.5rem;
+      padding: 0;
+    }
+  }
+</style>
