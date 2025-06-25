@@ -6,6 +6,7 @@
     "societies": "Sociedades",
     "residences": "Residencias",
     "expenses": "Gastos",
+    "maintenances": "Mantenimientos",
     "ads": "Anuncios",
     "map": "Mapa",
     "about": "Acerca de",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "Política de Cookies",
     "create.societies": "Crear nueva Sociedad",
     "create.residences": "Crear nueva Residencia",
+    "create.maintenances": "Crear Mantenimiento",
     "create.ads": "Crear nuevo Anuncio",
     "create.expenses": "Crear nuevo Gasto",
     "update.societies": "Actualizar Sociedad",
     "update.residences": "Actualizar Residencia",
+    "update.maintenances": "Actualizar Mantenimiento",
     "update.ads": "Actualizar Anuncio",
     "update.expenses": "Actualizar Gasto"
   },
@@ -407,6 +410,30 @@
         "coverage": "Cobertura"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "Es Actual",
+        "previousAmountToPay": "Importe Anterior a Pagar",
+        "fineToPay": "Multa a Pagar",
+        "thisMonthCalculation": "Cálculo de Este Mes",
+        "totalAmountToPay": "Importe Total a Pagar",
+        "withFormula": "Con Fórmula"
+      },
+      "form": {
+        "society": "sociedad",
+        "selectSociety": "Seleccionar Sociedad",
+        "residence": "Residencia",
+        "selectResidence": "Seleccionar Residencia",
+        "yearMonth": "Año Mes",
+        "yearMonth_placeholder": "Introducir AAAA/MM",
+        "isCurrent": "Es Actual",
+        "previousAmountToPay": "Importe Anterior a Pagar",
+        "fineToPay": "Multa a Pagar",
+        "thisMonthCalculation": "Cálculo de Este Mes",
+        "totalAmountToPay": "Importe Total a Pagar",
+        "withFormula": "Con Fórmula"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Controlador de datos",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "Creando...",
     "submit": "Enviar",
     "join": "Unirse",
+    "create": "Crear",
+    "creating": "Creando...",
     "delete": "Eliminar",
     "deleting": "Eliminando...",
     "cancel": "Cancelar",
@@ -436,7 +464,9 @@
     "contact_admin": "Contacte al administrador",
     "contact_user": "Contactar usuario",
     "created": "Creado",
-    "updated": "Actualizado"
+    "updated": "Actualizado",
+    "createdAt": "Creado en",
+    "updatedAt": "Actualizado en"
   },
   "const": {
     "ads_types": {

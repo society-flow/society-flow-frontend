@@ -6,6 +6,7 @@
     "societies": "Topluluklar",
     "residences": "Konutlar",
     "expenses": "Giderler",
+    "maintenances": "Bakımlar",
     "ads": "Reklamlar",
     "map": "Harita",
     "about": "Hakkında",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "Çerez Politikası",
     "create.societies": "Yeni Topluluk Oluştur",
     "create.residences": "Yeni Konut Oluştur",
+    "create.maintenances": "Bakım Oluştur",
     "create.ads": "Yeni Reklam Oluştur",
     "create.expenses": "Yeni Gider Oluştur",
     "update.societies": "Topluluğu Güncelle",
     "update.residences": "Konutu Güncelle",
+    "update.maintenances": "Bakımı Güncelle",
     "update.ads": "Reklamı Güncelle",
     "update.expenses": "Gideri Güncelle"
   },
@@ -407,6 +410,30 @@
         "coverage": "Kapsam"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "Güncel mi?",
+        "previousAmountToPay": "Ödenecek Önceki Tutar",
+        "fineToPay": "Ödenecek Ceza",
+        "thisMonthCalculation": "Bu Ay Hesaplaması",
+        "totalAmountToPay": "Ödenecek Toplam Tutar",
+        "withFormula": "Formülle"
+      },
+      "form": {
+        "society": "site",
+        "selectSociety": "Site Seç",
+        "residence": "İkametgah",
+        "selectResidence": "Konut Seç",
+        "yearMonth": "Yıl Ay",
+        "yearMonth_placeholder": "YYYY/AA Girin",
+        "isCurrent": "Güncel mi?",
+        "previousAmountToPay": "Ödenecek Önceki Tutar",
+        "fineToPay": "Ödenecek Ceza",
+        "thisMonthCalculation": "Bu Ay Hesaplaması",
+        "totalAmountToPay": "Ödenecek Toplam Tutar",
+        "withFormula": "Formülle"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Veri Denetleyicisi",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "Oluşturuluyor...",
     "submit": "Gönder",
     "join": "Katıl",
+    "create": "Oluştur",
+    "creating": "Oluşturuluyor...",
     "delete": "Sil",
     "deleting": "Siliniyor...",
     "cancel": "İptal",
@@ -436,7 +464,9 @@
     "contact_admin": "Yöneticiyle iletişim kurun",
     "contact_user": "Kullanıcıyla iletişim kur",
     "created": "Oluşturuldu",
-    "updated": "Güncellendi"
+    "updated": "Güncellendi",
+    "createdAt": "Oluşturulma Tarihi",
+    "updatedAt": "Güncelleme Tarihi"
   },
   "const": {
     "ads_types": {

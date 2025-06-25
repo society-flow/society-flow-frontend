@@ -6,6 +6,7 @@
 		"societies": "Societies",
 		"residences": "Residences",
 		"expenses": "Expenses",
+		"maintenances": "Maintenances",
 		"ads": "Adverts",
 		"map": "Map",
 		"about": "About",
@@ -22,10 +23,12 @@
 		"legal.cookie-policy": "Cookie Policy",
 		"create.societies": "Create new Society",
 		"create.residences": "Create new Residence",
+		"create.maintenances": "Create Maintenance",
 		"create.ads": "Create new Ad",
 		"create.expenses": "Create new Expense",
 		"update.societies": "Update Society",
 		"update.residences": "Update Residence",
+		"update.maintenances": "Update Maintenance",
 		"update.ads": "Update Ad",
 		"update.expenses": "Update Expense"
 	},
@@ -407,6 +410,30 @@
 				"coverage": "Coverage"
 			}
 		},
+		"maintenances": {
+			"card": {
+				"isCurrent": "Is Current",
+				"previousAmountToPay": "Previous Amount To Pay",
+				"fineToPay": "Fine To Pay",
+				"thisMonthCalculation": "This Month Calculation",
+				"totalAmountToPay": "Total Amount To Pay",
+				"withFormula": "With Formula"
+			},
+			"form": {
+				"society": "society",
+				"selectSociety": "Select Society",
+				"residence": "Residence",
+				"selectResidence": "Select Residence",
+				"yearMonth": "Year Month",
+				"yearMonth_placeholder": "Enter YYYY/MM",
+				"isCurrent": "Is Current",
+				"previousAmountToPay": "Previous Amount To Pay",
+				"fineToPay": "Fine To Pay",
+				"thisMonthCalculation": "This Month Calculation",
+				"totalAmountToPay": "Total Amount To Pay",
+				"withFormula": "With Formula"
+			}
+		},
 		"legal": {
 			"dpi": {
 				"controller.heading": "Data Controller",
@@ -426,9 +453,10 @@
 		}
 	},
 	"common": {
-		"creating": "Creating...",
 		"submit": "Submit",
 		"join": "Join",
+		"create": "Create",
+		"creating": "Creating...",
 		"delete": "Delete",
 		"deleting": "Deleting...",
 		"cancel": "Cancel",
@@ -436,7 +464,9 @@
 		"contact_admin": "Contact administrator",
 		"contact_user": "Contact user",
 		"created": "Created",
-		"updated": "Updated"
+		"updated": "Updated",
+		"createdAt": "Created At",
+		"updatedAt": "Updated At"
 	},
 	"const": {
 		"ads_types": {

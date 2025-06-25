@@ -6,6 +6,7 @@
     "societies": "المجتمعات",
     "residences": "المساكن",
     "expenses": "المصروفات",
+    "maintenances": "الصيانة",
     "ads": "الإعلانات",
     "map": "الخريطة",
     "about": "حول",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "سياسة ملفات تعريف الارتباط",
     "create.societies": "إنشاء مجتمع جديد",
     "create.residences": "إنشاء سكن جديد",
+    "create.maintenances": "إنشاء صيانة",
     "create.ads": "إنشاء إعلان جديد",
     "create.expenses": "إنشاء مصروف جديد",
     "update.societies": "تحديث المجتمع",
     "update.residences": "تحديث السكن",
+    "update.maintenances": "تحديث الصيانة",
     "update.ads": "تحديث الإعلان",
     "update.expenses": "تحديث المصروف"
   },
@@ -407,6 +410,30 @@
         "coverage": "التغطية"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "هل حالي",
+        "previousAmountToPay": "المبلغ السابق المستحق",
+        "fineToPay": "غرامة مستحقة",
+        "thisMonthCalculation": "حساب هذا الشهر",
+        "totalAmountToPay": "إجمالي المبلغ المستحق",
+        "withFormula": "بالصيغة"
+      },
+      "form": {
+        "society": "مجتمع",
+        "selectSociety": "اختر المجتمع",
+        "residence": "السكن",
+        "selectResidence": "اختر السكن",
+        "yearMonth": "سنة شهر",
+        "yearMonth_placeholder": "أدخل YYYY/MM",
+        "isCurrent": "هل حالي",
+        "previousAmountToPay": "المبلغ السابق المستحق",
+        "fineToPay": "غرامة مستحقة",
+        "thisMonthCalculation": "حساب هذا الشهر",
+        "totalAmountToPay": "إجمالي المبلغ المستحق",
+        "withFormula": "بالصيغة"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "مراقب البيانات",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "جارٍ الإنشاء...",
     "submit": "إرسال",
     "join": "انضم",
+    "create": "إنشاء",
+    "creating": "جارٍ الإنشاء...",
     "delete": "حذف",
     "deleting": "جارٍ الحذف...",
     "cancel": "إلغاء",
@@ -436,7 +464,9 @@
     "contact_admin": "اتصل بمسؤول النظام",
     "contact_user": "اتصل بالمستخدم",
     "created": "تم الإنشاء",
-    "updated": "تم التحديث"
+    "updated": "تم التحديث",
+    "createdAt": "تم الإنشاء في",
+    "updatedAt": "تم التحديث في"
   },
   "const": {
     "ads_types": {

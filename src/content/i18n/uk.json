@@ -6,6 +6,7 @@
     "societies": "Спільноти",
     "residences": "Резиденції",
     "expenses": "Витрати",
+    "maintenances": "Технічне обслуговування",
     "ads": "Оголошення",
     "map": "Карта",
     "about": "Про нас",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "Політика використання файлів cookie",
     "create.societies": "Створити нову спільноту",
     "create.residences": "Створити нову резиденцію",
+    "create.maintenances": "Створити технічне обслуговування",
     "create.ads": "Створити нове оголошення",
     "create.expenses": "Створити новий витрати",
     "update.societies": "Оновити спільноту",
     "update.residences": "Оновити резиденцію",
+    "update.maintenances": "Оновити технічне обслуговування",
     "update.ads": "Оновити оголошення",
     "update.expenses": "Оновити витрати"
   },
@@ -407,6 +410,30 @@
         "coverage": "Покриття"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "Актуальний",
+        "previousAmountToPay": "Попередня сума до сплати",
+        "fineToPay": "Штраф до сплати",
+        "thisMonthCalculation": "Розрахунок за цей місяць",
+        "totalAmountToPay": "Загальна сума до сплати",
+        "withFormula": "З формулою"
+      },
+      "form": {
+        "society": "товариство",
+        "selectSociety": "Виберіть товариство",
+        "residence": "Місце проживання",
+        "selectResidence": "Виберіть місце проживання",
+        "yearMonth": "Рік Місяць",
+        "yearMonth_placeholder": "Введіть РРРР/ММ",
+        "isCurrent": "Актуальний",
+        "previousAmountToPay": "Попередня сума до сплати",
+        "fineToPay": "Штраф до сплати",
+        "thisMonthCalculation": "Розрахунок за цей місяць",
+        "totalAmountToPay": "Загальна сума до сплати",
+        "withFormula": "З формулою"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Контролер даних",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "Створення...",
     "submit": "Надіслати",
     "join": "Приєднатися",
+    "create": "Створити",
+    "creating": "Створення...",
     "delete": "Видалити",
     "deleting": "Видалення...",
     "cancel": "Скасувати",
@@ -436,7 +464,9 @@
     "contact_admin": "Зв'яжіться з адміністратором",
     "contact_user": "Зв'язатися з користувачем",
     "created": "Створено",
-    "updated": "Оновлено"
+    "updated": "Оновлено",
+    "createdAt": "Створено",
+    "updatedAt": "Оновлено"
   },
   "const": {
     "ads_types": {

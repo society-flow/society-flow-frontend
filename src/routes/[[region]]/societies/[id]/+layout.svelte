@@ -34,6 +34,7 @@
 			</li>
 			<li><Anchor href={`/societies/${id}/residences`}>{$_('menu.residences')}</Anchor></li>
 			<li><Anchor href={`/societies/${id}/expenses`}>{$_('menu.expenses')}</Anchor></li>
+			<li><Anchor href={`/societies/${id}/maintenances`}>{$_('menu.maintenances')}</Anchor></li>
 			<li><Anchor href={`/societies/${id}/ads`}>{$_('menu.ads')}</Anchor></li>
 			{#if !userRole}
 				<li><SocietyJoin societyId={id} {userRole} onJoin={handleRoleUpdate} /></li>

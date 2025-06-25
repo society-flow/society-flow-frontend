@@ -6,6 +6,7 @@
     "societies": "Gesellschaften",
     "residences": "Residenzen",
     "expenses": "Ausgaben",
+    "maintenances": "Wartungen",
     "ads": "Anzeigen",
     "map": "Karte",
     "about": "Über",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "Cookie-Richtlinie",
     "create.societies": "Neue Gesellschaft erstellen",
     "create.residences": "Neue Residenz erstellen",
+    "create.maintenances": "Wartung erstellen",
     "create.ads": "Neue Anzeige erstellen",
     "create.expenses": "Neuen Aufwand erstellen",
     "update.societies": "Gesellschaft aktualisieren",
     "update.residences": "Residenz aktualisieren",
+    "update.maintenances": "Wartung aktualisieren",
     "update.ads": "Anzeige aktualisieren",
     "update.expenses": "Ausgabe aktualisieren"
   },
@@ -407,6 +410,30 @@
         "coverage": "Abdeckung"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "Ist aktuell",
+        "previousAmountToPay": "Vorheriger zu zahlender Betrag",
+        "fineToPay": "Zu zahlende Geldstrafe",
+        "thisMonthCalculation": "Berechnung für diesen Monat",
+        "totalAmountToPay": "Gesamtbetrag zu zahlen",
+        "withFormula": "Mit Formel"
+      },
+      "form": {
+        "society": "Gesellschaft",
+        "selectSociety": "Gesellschaft auswählen",
+        "residence": "Residenz",
+        "selectResidence": "Wohnung auswählen",
+        "yearMonth": "Jahr Monat",
+        "yearMonth_placeholder": "YYYY/MM eingeben",
+        "isCurrent": "Ist aktuell",
+        "previousAmountToPay": "Vorheriger zu zahlender Betrag",
+        "fineToPay": "Zu zahlende Geldstrafe",
+        "thisMonthCalculation": "Berechnung für diesen Monat",
+        "totalAmountToPay": "Gesamtbetrag zu zahlen",
+        "withFormula": "Mit Formel"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Datenverantwortlicher",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "Wird erstellt...",
     "submit": "Senden",
     "join": "Beitreten",
+    "create": "Erstellen",
+    "creating": "Wird erstellt...",
     "delete": "Löschen",
     "deleting": "Wird gelöscht...",
     "cancel": "Abbrechen",
@@ -436,7 +464,9 @@
     "contact_admin": "Wenden Sie sich an den Administrator",
     "contact_user": "Benutzer kontaktieren",
     "created": "Erstellt",
-    "updated": "Aktualisiert"
+    "updated": "Aktualisiert",
+    "createdAt": "Erstellt am",
+    "updatedAt": "Aktualisiert am"
   },
   "const": {
     "ads_types": {

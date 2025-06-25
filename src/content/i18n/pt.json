@@ -6,6 +6,7 @@
     "societies": "Sociedades",
     "residences": "Residências",
     "expenses": "Despesas",
+    "maintenances": "Manutenções",
     "ads": "Anúncios",
     "map": "Mapa",
     "about": "Sobre",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "Política de Cookies",
     "create.societies": "Criar nova Sociedade",
     "create.residences": "Criar nova Residência",
+    "create.maintenances": "Criar Manutenção",
     "create.ads": "Criar novo Anúncio",
     "create.expenses": "Criar nova despesa",
     "update.societies": "Atualizar Sociedade",
     "update.residences": "Atualizar Residência",
+    "update.maintenances": "Atualizar Manutenção",
     "update.ads": "Atualizar Anúncio",
     "update.expenses": "Atualizar Despesa"
   },
@@ -407,6 +410,30 @@
         "coverage": "Cobertura"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "É Atual",
+        "previousAmountToPay": "Valor Anterior a Pagar",
+        "fineToPay": "Multa a Pagar",
+        "thisMonthCalculation": "Cálculo Deste Mês",
+        "totalAmountToPay": "Valor Total a Pagar",
+        "withFormula": "Com Fórmula"
+      },
+      "form": {
+        "society": "sociedade",
+        "selectSociety": "Selecionar Sociedade",
+        "residence": "Residência",
+        "selectResidence": "Selecionar Residência",
+        "yearMonth": "Ano Mês",
+        "yearMonth_placeholder": "Inserir AAAA/MM",
+        "isCurrent": "É Atual",
+        "previousAmountToPay": "Valor Anterior a Pagar",
+        "fineToPay": "Multa a Pagar",
+        "thisMonthCalculation": "Cálculo Deste Mês",
+        "totalAmountToPay": "Valor Total a Pagar",
+        "withFormula": "Com Fórmula"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Controlador de dados",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "Criando...",
     "submit": "Enviar",
     "join": "Juntar",
+    "create": "Criar",
+    "creating": "Criando...",
     "delete": "Excluir",
     "deleting": "Excluindo...",
     "cancel": "Cancelar",
@@ -436,7 +464,9 @@
     "contact_admin": "Contactar o administrador",
     "contact_user": "Contactar utilizador",
     "created": "Criado",
-    "updated": "Atualizado"
+    "updated": "Atualizado",
+    "createdAt": "Criado em",
+    "updatedAt": "Atualizado em"
   },
   "const": {
     "ads_types": {

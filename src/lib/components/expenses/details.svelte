@@ -26,11 +26,11 @@
 			{expense.isActive ? 'Yes' : 'No'}
 		</li>
 		<li>
-			<strong>{$_('components.expenses.details.createdAt')}:</strong>
+			<strong>{$_('common.createdAt')}:</strong>
 			<RelativeDate date={expense.createdAt} />
 		</li>
 		<li>
-			<strong>{$_('components.expenses.details.updatedAt')}:</strong>
+			<strong>{$_('common.updatedAt')}:</strong>
 			<RelativeDate date={expense.updatedAt} />
 		</li>
 	</ul>

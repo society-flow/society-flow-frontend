@@ -6,6 +6,7 @@
     "societies": "Sociétés",
     "residences": "Résidences",
     "expenses": "Dépenses",
+    "maintenances": "Maintenances",
     "ads": "Annonces",
     "map": "Carte",
     "about": "À propos",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "Politique en matière de cookies",
     "create.societies": "Créer une nouvelle société",
     "create.residences": "Créer une nouvelle résidence",
+    "create.maintenances": "Create Maintenance",
     "create.ads": "Créer une nouvelle annonce",
     "create.expenses": "Créer une nouvelle dépense",
     "update.societies": "Mettre à jour la société",
     "update.residences": "Mettre à jour la résidence",
+    "update.maintenances": "Mettre à jour la maintenance",
     "update.ads": "Mettre à jour l'annonce",
     "update.expenses": "Mettre à jour la dépense"
   },
@@ -407,6 +410,30 @@
         "coverage": "Couverture"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "Est actuel",
+        "previousAmountToPay": "Montant précédent à payer",
+        "fineToPay": "Amende à payer",
+        "thisMonthCalculation": "Calcul de ce mois",
+        "totalAmountToPay": "Montant total à payer",
+        "withFormula": "Avec la formule"
+      },
+      "form": {
+        "society": "société",
+        "selectSociety": "Sélectionner la société",
+        "residence": "Résidence",
+        "selectResidence": "Sélectionner la résidence",
+        "yearMonth": "Année Mois",
+        "yearMonth_placeholder": "Entrer AAAA/MM",
+        "isCurrent": "Est actuel",
+        "previousAmountToPay": "Montant précédent à payer",
+        "fineToPay": "Amende à payer",
+        "thisMonthCalculation": "Calcul de ce mois",
+        "totalAmountToPay": "Montant total à payer",
+        "withFormula": "Avec la formule"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Contrôleur de données",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "Création...",
     "submit": "Soumettre",
     "join": "Rejoindre",
+    "create": "Créer",
+    "creating": "Création...",
     "delete": "Supprimer",
     "deleting": "Suppression...",
     "cancel": "Annuler",
@@ -436,7 +464,9 @@
     "contact_admin": "Contacter l'administrateur",
     "contact_user": "Contacter l'utilisateur",
     "created": "Créé",
-    "updated": "Mis à jour"
+    "updated": "Mis à jour",
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le"
   },
   "const": {
     "ads_types": {

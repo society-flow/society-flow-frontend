@@ -37,6 +37,9 @@
 			<li>
 				<Anchor href={`/residences/${id}/members`}>{$_('pages.residences.detail.members')}</Anchor>
 			</li>
+			<li>
+				<Anchor href={`/residences/${id}/maintenances`}>{$_('menu.maintenances')}</Anchor>
+			</li>
 			{#if !isMember}
 				<li>
 					<ResidenceJoin

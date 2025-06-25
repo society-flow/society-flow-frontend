@@ -6,6 +6,7 @@
     "societies": "ছ'ছাইটিসমূহ",
     "residences": "আবাসন",
     "expenses": "খৰচ",
+    "maintenances": "মেৰামতি",
     "ads": "বিজ্ঞাপন",
     "map": "মেপ",
     "about": "সম্পৰ্কে",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "কুكي নীতি",
     "create.societies": "নতুন ছ'ছাইটি সৃষ্টি কৰক",
     "create.residences": "নতুন আৱাস সৃষ্টি কৰক",
+    "create.maintenances": "মেৰামতি সৃষ্টি কৰক",
     "create.ads": "নতুন বিজ্ঞাপন সৃষ্টি কৰক",
     "create.expenses": "নতুন খৰচ সৃষ্টি কৰক",
     "update.societies": "ছ'ছাইটি আপডেট কৰক",
     "update.residences": "আবাসন আপডেট কৰক",
+    "update.maintenances": "মেৰামতি আপডেট কৰক",
     "update.ads": "বিজ্ঞাপন আপডেট কৰক",
     "update.expenses": "খৰচ আপডেট কৰক"
   },
@@ -407,6 +410,30 @@
         "coverage": "কভাৰেজ"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "বৰ্তমান হয় নে",
+        "previousAmountToPay": "পূৰ্বৰ পৰিশোধ কৰিবলগীয়া ধনৰ পৰিমাণ",
+        "fineToPay": "জৰিমনা পৰিশোধ কৰিবলগীয়া",
+        "thisMonthCalculation": "এই মাহৰ হিচাপ",
+        "totalAmountToPay": "পৰিশোধ কৰিবলগীয়া মুঠ ধনৰ পৰিমাণ",
+        "withFormula": "সূত্ৰৰ সৈতে"
+      },
+      "form": {
+        "society": "সমাজ",
+        "selectSociety": "সমাজ নির্বাচন কৰক",
+        "residence": "আবাসন",
+        "selectResidence": "আবাস নির্বাচন কৰক",
+        "yearMonth": "বছৰ মাহ",
+        "yearMonth_placeholder": "YYYY/MM অন্তর্ভুক্ত কৰক",
+        "isCurrent": "বৰ্তমান হয় নে",
+        "previousAmountToPay": "পূৰ্বৰ পৰিশোধ কৰিবলগীয়া ধনৰ পৰিমাণ",
+        "fineToPay": "জৰিমনা পৰিশোধ কৰিবলগীয়া",
+        "thisMonthCalculation": "এই মাহৰ হিচাপ",
+        "totalAmountToPay": "পৰিশোধ কৰিবলগীয়া মুঠ ধনৰ পৰিমাণ",
+        "withFormula": "সূত্ৰৰ সৈতে"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "ডাটা নিয়ন্ত্ৰক",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "তৈয়াৰ কৰা হৈছে...",
     "submit": "জমা কৰক",
     "join": "যোগদান কৰক",
+    "create": "সৃষ্টি কৰক",
+    "creating": "তৈয়াৰ কৰা হৈছে...",
     "delete": "মচি পেলাওক",
     "deleting": "মচি পেলোৱা হৈছে...",
     "cancel": "বাতিল কৰক",
@@ -436,7 +464,9 @@
     "contact_admin": "প্ৰশাসকৰ সৈতে যোগাযোগ কৰক",
     "contact_user": "ব্যৱহাৰকাৰীক যোগাযোগ কৰক",
     "created": "সৃষ্টি কৰা হ'ল",
-    "updated": "আপডেট কৰা হ'ল"
+    "updated": "আপডেট কৰা হ'ল",
+    "createdAt": "তৈয়াৰ কৰা সময়",
+    "updatedAt": "আপডেট কৰা সময়"
   },
   "const": {
     "ads_types": {

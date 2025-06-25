@@ -108,6 +108,7 @@ class Api {
 		);
 		return res.body;
 	}
+
 	async getResidenceById(id) {
 		const client = await this.getClient();
 		const res = await client.apis.societies.getResidenceById({ id });
@@ -169,6 +170,14 @@ class Api {
 	}
 
 	// --- Maintenances ---
+	async createOrUpdateMaintenance(maintenanceData) {
+		const client = await this.getClient();
+		const res = await client.apis.maintenances.createOrUpdateMaintenance(
+			{},
+			{ requestBody: maintenanceData }
+		);
+		return res.body;
+	}
 	async triggerSocietyMaintenanceCalculation(societyId, yearMonth) {
 		const client = await this.getClient();
 		const res = await client.apis.maintenances.triggerSocietyMaintenanceCalculation({

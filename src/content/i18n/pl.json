@@ -6,6 +6,7 @@
     "societies": "Społeczności",
     "residences": "Mieszkania",
     "expenses": "Wydatki",
+    "maintenances": "Konserwacje",
     "ads": "Ogłoszenia",
     "map": "Mapa",
     "about": "O nas",
@@ -22,10 +23,12 @@
     "legal.cookie-policy": "Polityka plików cookie",
     "create.societies": "Utwórz nową społeczność",
     "create.residences": "Utwórz nowe mieszkanie",
+    "create.maintenances": "Utwórz konserwację",
     "create.ads": "Utwórz nowe ogłoszenie",
     "create.expenses": "Utwórz nowy wydatek",
     "update.societies": "Zaktualizuj społeczność",
     "update.residences": "Zaktualizuj mieszkanie",
+    "update.maintenances": "Zaktualizuj konserwację",
     "update.ads": "Zaktualizuj ogłoszenie",
     "update.expenses": "Aktualizuj wydatek"
   },
@@ -407,6 +410,30 @@
         "coverage": "Zasięg"
       }
     },
+    "maintenances": {
+      "card": {
+        "isCurrent": "Jest aktualny",
+        "previousAmountToPay": "Poprzednia kwota do zapłaty",
+        "fineToPay": "Kara do zapłaty",
+        "thisMonthCalculation": "Obliczenia dla tego miesiąca",
+        "totalAmountToPay": "Całkowita kwota do zapłaty",
+        "withFormula": "Ze wzorem"
+      },
+      "form": {
+        "society": "społeczność",
+        "selectSociety": "Wybierz społeczność",
+        "residence": "Mieszkanie",
+        "selectResidence": "Wybierz rezydencję",
+        "yearMonth": "Rok miesiąc",
+        "yearMonth_placeholder": "Wprowadź YYYY/MM",
+        "isCurrent": "Jest aktualny",
+        "previousAmountToPay": "Poprzednia kwota do zapłaty",
+        "fineToPay": "Kara do zapłaty",
+        "thisMonthCalculation": "Obliczenia dla tego miesiąca",
+        "totalAmountToPay": "Całkowita kwota do zapłaty",
+        "withFormula": "Ze wzorem"
+      }
+    },
     "legal": {
       "dpi": {
         "controller.heading": "Administrator danych",
@@ -426,9 +453,10 @@
     }
   },
   "common": {
-    "creating": "Tworzenie...",
     "submit": "Wyślij",
     "join": "Dołącz",
+    "create": "Utwórz",
+    "creating": "Tworzenie...",
     "delete": "Usuń",
     "deleting": "Usuwanie...",
     "cancel": "Anuluj",
@@ -436,7 +464,9 @@
     "contact_admin": "Skontaktuj się z administratorem",
     "contact_user": "Kontakt z użytkownikiem",
     "created": "Utworzono",
-    "updated": "Zaktualizowano"
+    "updated": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano"
   },
   "const": {
     "ads_types": {
