@@ -1,13 +1,14 @@
 import { api, initApi } from '$lib/api.svelte.js';
+import { userState } from '$lib/states/user.svelte.js';
+
 export const prerender = false;
 
-/**
- * Load society data once for all child routes
- */
 export async function load({ params }) {
 	const { id } = params;
-	// first init api
 	await initApi();
 	const society = await api.getSocietyById(id);
-	return { society };
+	const userRole = await api.getUserRoleInSociety(id, userState.user.id);
+	const isOwner = userRole?.role === 'ADMIN';
+
+	return { society, userRole, isOwner };
 }

@@ -37,6 +37,11 @@
 	<section><Error {error} /></section>
 {:else}
 	<section>
+		<header>
+			<h2>
+				{$_('pages.societies.detail.user_residences')}
+			</h2>
+		</header>
 		<ResidencesList {residences} />
 	</section>
 {/if}

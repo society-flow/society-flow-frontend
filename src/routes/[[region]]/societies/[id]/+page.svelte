@@ -1,8 +1,8 @@
 <script>
 	import { _, locale } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
-	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Error from '$lib/components/error.svelte';
 	import SocietyDetails from '$lib/components/societies/details.svelte';
@@ -11,69 +11,25 @@
 	requiresAuth(locale);
 
 	const { data } = $props();
-	const { society } = data;
+	const { society,  userRole } = data;
 	const id = society.id;
 
-	let userRole = $state(null);
-	let loading = $state(true);
-	let error = $state(null);
-
-	let isOwner = $derived(userRole?.role === 'ADMIN');
-
-	$effect(async () => {
-		if (id && userState.user?.id) {
-			loading = true;
-			error = null;
-			try {
-				try {
-					userRole = await api.getUserRoleInSociety(id, userState.user.id);
-				} catch {
-					userRole = null;
+	const markers = $derived(
+		society?.geoCoordinate
+			? [
+				{
+					coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
+					title: society.name || society.id
 				}
-			} catch (err) {
-				error = err.message || 'Failed to load user role';
-				console.error('Error loading user role:', err);
-			} finally {
-				loading = false;
-			}
-		}
-	});
-
-	function handleRoleUpdate(newRole) {
-		userRole = newRole;
-	}
+			]
+		: []
+	);
 </script>
 
-{#if loading}
-	<aside><center><progress /></center></aside>
-{:else if error}
-	<section><Error {error} /></section>
-{:else}
+<SocietyDetails {society} {userRole} />
+
+{#if markers.length}
 	<aside>
-		<nav>
-			<ul>
-				{#if !userRole}
-					<li><SocietyJoin societyId={id} {userRole} onJoin={handleRoleUpdate} /></li>
-				{/if}
-				{#if isOwner}
-					<li>
-						<Anchor href={`/update/societies/${id}`} isButton title={$_('menu.update.societies')}>
-							{$_('menu.update.societies')}
-						</Anchor>
-					</li>
-					<li>
-						<Anchor
-							href={`/delete/societies/${id}`}
-							isButton
-							data-type="error"
-							title={$_('common.delete')}
-						>
-							{$_('common.delete')}
-						</Anchor>
-					</li>
-				{/if}
-			</ul>
-		</nav>
+		<Map {markers} />
 	</aside>
-	<SocietyDetails {society} {userRole} />
 {/if}
