@@ -301,6 +301,20 @@
 				"coordinates": "Coordinates",
 				"created": "Created At",
 				"updated": "Last Updated"
+			},
+			"invite_user": {
+				"title": "Invite a new user to this society",
+				"email": {
+					"legend": "User email",
+					"placeholder": "user@example.com"
+				},
+				"name": {
+					"legend": "User name",
+					"placeholder": "Alice"
+				},
+				"role": {
+					"legend": "User role in society"
+				}
 			}
 		},
 		"residences": {

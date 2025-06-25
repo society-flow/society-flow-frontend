@@ -190,13 +190,6 @@
         "editDistributions": "Редагувати розподіли",
         "selectType": "Виберіть тип",
         "percentageCoverage": "Відсоткове покриття",
-        "typeOptions": {
-          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "За відсотком власності",
-          "AMOUNT_PER_RESIDENCE": "За місцем проживання",
-          "AMOUNT_PER_SQUARE_AREA": "За площею",
-          "AMOUNT_PER_RESIDENT": "На мешканця",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "На мешканця на кількість поверхів"
-        },
         "addDistribution": "Додати розподіл",
         "saveDistributions": "Зберегти",
         "remove": "Видалити",
@@ -308,6 +301,20 @@
         "coordinates": "Координати",
         "created": "Створено",
         "updated": "Останнє оновлення"
+      },
+      "invite_user": {
+        "title": "Запросити нового користувача до цього товариства",
+        "email": {
+          "legend": "Електронна адреса користувача",
+          "placeholder": "user@example.com"
+        },
+        "name": {
+          "legend": "Ім'я користувача",
+          "placeholder": "Аліса"
+        },
+        "role": {
+          "legend": "Роль користувача в товаристві"
+        }
       }
     },
     "residences": {
@@ -473,6 +480,13 @@
       "MANAGER": "Менеджер",
       "MEMBER": "Учасник",
       "OWNER": "Власник"
+    },
+    "expense_types": {
+      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "За відсотком власності",
+      "AMOUNT_PER_RESIDENCE": "За місцем проживання",
+      "AMOUNT_PER_SQUARE_AREA": "За площею",
+      "AMOUNT_PER_RESIDENT": "На мешканця",
+      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "На мешканця на кількість поверхів"
     }
   }
 }

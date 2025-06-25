@@ -190,13 +190,6 @@
         "editDistributions": "বিতৰণ সম্পাদনা কৰক",
         "selectType": "প্ৰকাৰ বাছক",
         "percentageCoverage": "শতকৰা হাৰৰ কভাৰেজ",
-        "typeOptions": {
-          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "মালিকীস্বত্বৰ শতকৰা হাৰ অনুসৰি",
-          "AMOUNT_PER_RESIDENCE": "আবাসন অনুসৰি",
-          "AMOUNT_PER_SQUARE_AREA": "বৰ্গক্ষেত্ৰৰ এলেকা অনুসৰি",
-          "AMOUNT_PER_RESIDENT": "বাসিন্দা অনুসৰি",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "প্ৰতি ফ্লোৰ গণনাৰ বাবে প্ৰতি বাসিন্দা"
-        },
         "addDistribution": "বিতৰণ যোগ কৰক",
         "saveDistributions": "সংৰক্ষণ কৰক",
         "remove": " আঁতৰাওক",
@@ -308,6 +301,20 @@
         "coordinates": "সমন্বয়",
         "created": "তৈয়াৰ কৰা সময়",
         "updated": "শেষ আপডেট"
+      },
+      "invite_user": {
+        "title": "এই সমাজলৈ নতুন সদস্যক আমন্ত্ৰণ জনান",
+        "email": {
+          "legend": "ব্যৱহাৰকাৰীৰ ইমেইল",
+          "placeholder": "user@example.com"
+        },
+        "name": {
+          "legend": "ব্যৱহাৰকাৰীৰ নাম",
+          "placeholder": "এলিছ"
+        },
+        "role": {
+          "legend": "সমাজত ব্যৱহাৰকাৰীৰ ভূমিকা"
+        }
       }
     },
     "residences": {
@@ -473,6 +480,13 @@
       "MANAGER": "ব্যৱস্থাপক",
       "MEMBER": "সদস্য",
       "OWNER": "মালিক"
+    },
+    "expense_types": {
+      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "মালিকীস্বত্বৰ শতকৰা হাৰ অনুসৰি",
+      "AMOUNT_PER_RESIDENCE": "আবাসন অনুসৰি",
+      "AMOUNT_PER_SQUARE_AREA": "বৰ্গক্ষেত্ৰৰ এলেকা অনুসৰি",
+      "AMOUNT_PER_RESIDENT": "বাসিন্দা অনুসৰি",
+      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "প্ৰতি ফ্লোৰ গণনাৰ বাবে প্ৰতি বাসিন্দা"
     }
   }
 }

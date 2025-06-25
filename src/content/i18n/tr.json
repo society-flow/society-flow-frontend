@@ -190,13 +190,6 @@
         "editDistributions": "Dağılımları Düzenle",
         "selectType": "Tip seçin",
         "percentageCoverage": "Yüzde Kapsamı",
-        "typeOptions": {
-          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Hissedarlık Yüzdesi Başına",
-          "AMOUNT_PER_RESIDENCE": "Konut Başına",
-          "AMOUNT_PER_SQUARE_AREA": "Metrekare Başına",
-          "AMOUNT_PER_RESIDENT": "Sakin Başına",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Kat Sayısı Başına Sakin Başına"
-        },
         "addDistribution": "Dağılım Ekle",
         "saveDistributions": "Kaydet",
         "remove": "Kaldır",
@@ -308,6 +301,20 @@
         "coordinates": "Koordinatlar",
         "created": "Oluşturulma Tarihi",
         "updated": "Son Güncelleme"
+      },
+      "invite_user": {
+        "title": "Bu topluluğa yeni bir kullanıcı davet et",
+        "email": {
+          "legend": "Kullanıcı e-postası",
+          "placeholder": "user@example.com"
+        },
+        "name": {
+          "legend": "Kullanıcı adı",
+          "placeholder": "Alice"
+        },
+        "role": {
+          "legend": "Toplulukta kullanıcı rolü"
+        }
       }
     },
     "residences": {
@@ -473,6 +480,13 @@
       "MANAGER": "Müdür",
       "MEMBER": "Üye",
       "OWNER": "Sahip"
+    },
+    "expense_types": {
+      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Hissedarlık Yüzdesi Başına",
+      "AMOUNT_PER_RESIDENCE": "Konut Başına",
+      "AMOUNT_PER_SQUARE_AREA": "Metrekare Başına",
+      "AMOUNT_PER_RESIDENT": "Sakin Başına",
+      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Kat Sayısı Başına Sakin Başına"
     }
   }
 }

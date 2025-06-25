@@ -53,5 +53,7 @@
 		</ul>
 	{/snippet}
 
-	{@render children()}
+	<article class="Detail">
+		{@render children()}
+	</article>
 </Page>

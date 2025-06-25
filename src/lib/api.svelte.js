@@ -76,6 +76,14 @@ class Api {
 		);
 		return res.body;
 	}
+	async assignUserWithEmailNameRoleToSociety({ societyId, userId, role, email }) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.assignUserToSociety(
+			{},
+			{ requestBody: { societyId, userId, role, email } }
+		);
+		return res.body;
+	}
 	async removeUserFromSociety(societyId, userId) {
 		const client = await this.getClient();
 		const res = await client.apis.societies.removeUserFromSociety({ societyId, userId });

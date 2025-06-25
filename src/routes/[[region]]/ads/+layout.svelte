@@ -2,6 +2,8 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
+
+	const { children } = $props();
 </script>
 
 <nav class="Page-nav">
@@ -10,4 +12,4 @@
 	<Anchor href="/create/ads" isButton>{$_('menu.create.ads')}</Anchor>
 </nav>
 
-<slot />
+{@render children()}

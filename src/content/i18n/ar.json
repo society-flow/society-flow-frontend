@@ -190,13 +190,6 @@
         "editDistributions": "تعديل التوزيعات",
         "selectType": "حدد النوع",
         "percentageCoverage": "تغطية النسبة المئوية",
-        "typeOptions": {
-          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "لكل نسبة ملكية",
-          "AMOUNT_PER_RESIDENCE": "لكل سكن",
-          "AMOUNT_PER_SQUARE_AREA": "لكل مساحة مربعة",
-          "AMOUNT_PER_RESIDENT": "لكل مقيم",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "لكل مقيم لكل عدد طوابق"
-        },
         "addDistribution": "إضافة توزيع",
         "saveDistributions": "حفظ",
         "remove": "إزالة",
@@ -308,6 +301,20 @@
         "coordinates": "الإحداثيات",
         "created": "تم الإنشاء في",
         "updated": "آخر تحديث"
+      },
+      "invite_user": {
+        "title": "دعُ مستخدمًا جديدًا إلى هذه المجموعة",
+        "email": {
+          "legend": "البريد الإلكتروني للمستخدم",
+          "placeholder": "user@example.com"
+        },
+        "name": {
+          "legend": "اسم المستخدم",
+          "placeholder": "أليس"
+        },
+        "role": {
+          "legend": "دور المستخدم في المجموعة"
+        }
       }
     },
     "residences": {
@@ -473,6 +480,13 @@
       "MANAGER": "مدير",
       "MEMBER": "عضو",
       "OWNER": "مالك"
+    },
+    "expense_types": {
+      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "لكل نسبة ملكية",
+      "AMOUNT_PER_RESIDENCE": "لكل سكن",
+      "AMOUNT_PER_SQUARE_AREA": "لكل مساحة مربعة",
+      "AMOUNT_PER_RESIDENT": "لكل مقيم",
+      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "لكل مقيم لكل عدد طوابق"
     }
   }
 }

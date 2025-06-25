@@ -105,9 +105,10 @@
 		}
 	}
 	.Page-main {
-		width: 100%;
+    flex-grow: 1;
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 	.Page-footer {
 		:global(a) {

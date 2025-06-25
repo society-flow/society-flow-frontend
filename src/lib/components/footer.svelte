@@ -16,13 +16,15 @@
 		<time datetime={currentDateTime.toISOString()} title={currentDateTime.toLocaleString()}>
 			{currentYear}
 		</time>
-		<Anchor href="/legal" title={$_('menu.legal')}>
-			{$_('menu.legal')}
-		</Anchor>
 	</li>
 	<li>
 		<Anchor href="/" title={$_('title')}>
 			{$_('title')}
+		</Anchor>
+	</li>
+	<li>
+		<Anchor href="/legal" title={$_('menu.legal')}>
+			{$_('menu.legal')}
 		</Anchor>
 	</li>
 	<li>

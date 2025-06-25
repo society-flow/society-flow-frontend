@@ -190,13 +190,6 @@
         "editDistributions": "Edytuj dystrybucje",
         "selectType": "Wybierz typ",
         "percentageCoverage": "Pokrycie procentowe",
-        "typeOptions": {
-          "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Na procent własności",
-          "AMOUNT_PER_RESIDENCE": "Na rezydencję",
-          "AMOUNT_PER_SQUARE_AREA": "Na powierzchnię",
-          "AMOUNT_PER_RESIDENT": "Na mieszkańca",
-          "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Na mieszkańca na liczbę pięter"
-        },
         "addDistribution": "Dodaj dystrybucję",
         "saveDistributions": "Zapisz",
         "remove": "Usuń",
@@ -308,6 +301,20 @@
         "coordinates": "Współrzędne",
         "created": "Utworzono",
         "updated": "Ostatnia aktualizacja"
+      },
+      "invite_user": {
+        "title": "Zaproś nowego użytkownika do tego społeczeństwa",
+        "email": {
+          "legend": "Adres e-mail użytkownika",
+          "placeholder": "user@example.com"
+        },
+        "name": {
+          "legend": "Nazwa użytkownika",
+          "placeholder": "Alicja"
+        },
+        "role": {
+          "legend": "Rola użytkownika w społeczeństwie"
+        }
       }
     },
     "residences": {
@@ -473,6 +480,13 @@
       "MANAGER": "Kierownik",
       "MEMBER": "Członek",
       "OWNER": "Właściciel"
+    },
+    "expense_types": {
+      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Na procent własności",
+      "AMOUNT_PER_RESIDENCE": "Na rezydencję",
+      "AMOUNT_PER_SQUARE_AREA": "Na powierzchnię",
+      "AMOUNT_PER_RESIDENT": "Na mieszkańca",
+      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Na mieszkańca na liczbę pięter"
     }
   }
 }

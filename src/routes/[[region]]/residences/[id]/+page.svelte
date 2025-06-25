@@ -9,7 +9,7 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
 	import ResidenceJoin from '$lib/components/residences/join.svelte';
-	import ResidenceInviteUser from '$lib/components/residences/invite-user.svelte';
+	import InviteUser from '$lib/components/residences/invite-user.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
 
 	requiresAuth(locale);
@@ -196,7 +196,7 @@
 									{$_('components.residences.invite_user.title')}
 								</h3>
 							</header>
-							<ResidenceInviteUser residenceId={residence.id} {onInvite} />
+							<InviteUser residenceId={residence.id} {onInvite} />
 						</aside>
 					{/if}
 				</section>

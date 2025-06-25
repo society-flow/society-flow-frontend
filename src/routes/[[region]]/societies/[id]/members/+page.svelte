@@ -5,14 +5,21 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Error from '$lib/components/error.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
+	import InviteUser from '$lib/components/societies/invite-user.svelte';
 
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
+	const { data } = $props();
+	const { society } = data;
 
 	let users = $state([]);
 	let loading = $state(true);
 	let error = $state(null);
+
+	function onInvite(data) {
+		console.log('invited', data);
+	}
 
 	$effect(async () => {
 		if (id) {
@@ -43,4 +50,12 @@
 		</header>
 		<UsersList {users} />
 	</section>
+	<aside>
+		<header>
+			<h2>
+				{$_('components.societies.invite_user.title')}
+			</h2>
+		</header>
+		<InviteUser societyId={society.id} {onInvite} />
+	</aside>
 {/if}
