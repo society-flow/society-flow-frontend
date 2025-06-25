@@ -11,12 +11,12 @@
 
 	const societyId = $derived($page.params.societyId);
 	const data = $derived({ societyId });
-
-	async function onsuccess({ id }) {
+  
+	async function onSuccess({ id }) {
 		setTimeout(() => goto(`${base}/${$locale}/residences/${id}`), 0);
 	}
 </script>
 
 <Page title={$_('menu.create.residences')}>
-	<Form {onsuccess} {data} />
+	<Form {onSuccess} {data} />
 </Page>

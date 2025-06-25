@@ -1,6 +1,8 @@
 <script lang="javascript">
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
+	import { goto } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
@@ -13,7 +15,7 @@
 
 	$effect(async () => {
 		if (userState.user?.id) {
-			societies = await api.getAllSocieties();
+			societies = await api.getUserSocieties();
 		}
 	});
 
@@ -31,6 +33,11 @@
 			residences = [];
 		}
 	}
+
+	async function onSuccess(res) {
+    console.log("res",res)
+		setTimeout(() => goto(`${base}/${$locale}/societies/${res.societyId}/maintenances`), 0);
+	}
 </script>
 
 <Page title={$_('menu.create.maintenances')}>
@@ -39,5 +46,6 @@
 		{societies}
 		{residences}
 		{onSocietyChange}
+		{onSuccess}
 	/>
 </Page>
