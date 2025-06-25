@@ -1,24 +1,22 @@
-<script lang="javascript">
-	import UserCard from '$lib/components/users/card.svelte';
+<script>
 	import { _ } from 'svelte-i18n';
+	import List from '$lib/components/list.svelte';
+	import Card from '$lib/components/users/card.svelte';
 
-	// Optional callback: onRemoveUser(user)
 	const { users = [], onRemoveUser } = $props();
 </script>
 
 {#if users.length > 0}
-	<ul class="List">
-		{#each users as user}
-			<li class="List-item">
-				<UserCard {user} />
-				{#if onRemoveUser}
-					<button type="button" on:click={() => onRemoveUser(user)}>
-						{$_('common.delete')}
-					</button>
-				{/if}
-			</li>
-		{/each}
-	</ul>
+	<List items={users}>
+		{#snippet children(user)}
+			<Card {user} />
+			{#if onRemoveUser}
+				<button type="button" on:click={() => onRemoveUser(user)}>
+					{$_('common.delete')}
+				</button>
+			{/if}
+		{/snippet}
+	</List>
 {:else}
 	<p class="text-center">{$_('components.users.list.no_user')}</p>
 {/if}

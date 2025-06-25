@@ -1,17 +1,16 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import ExpenseCard from './card.svelte';
+	import Card from './card.svelte';
+	import List from '$lib/components/list.svelte';
 	const { expenses = [] } = $props();
 </script>
 
 {#if expenses.length}
-	<ul class="List">
-		{#each expenses as expense}
-			<li class="List-item">
-				<ExpenseCard {expense} />
-			</li>
-		{/each}
-	</ul>
+	<List items={expenses}>
+		{#snippet children(expense)}
+			<Card {expense} />
+		{/snippet}
+	</List>
 {:else}
 	<p class="text-center">ø {$_('menu.expenses')}</p>
 {/if}
