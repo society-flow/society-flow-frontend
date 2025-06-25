@@ -2,6 +2,8 @@ import { api, initApi } from '$lib/api.svelte.js';
 
 import { userState } from '$lib/states/user.svelte.js';
 
+export const prerender = false;
+
 export async function load({ params }) {
 	const { user } = userState;
 	const { id } = params;

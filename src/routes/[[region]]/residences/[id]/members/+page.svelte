@@ -30,15 +30,16 @@
 			<h2>{$_('pages.residences.detail.members')}</h2>
 		</header>
 		<UsersList {users} {onRemoveUser} />
-		{#if isMember}
-			<aside>
-				<header>
-					<h3>
-						{$_('components.residences.invite_user.title')}
-					</h3>
-				</header>
-				<InviteUser residenceId={id} {onInvite} />
-			</aside>
-		{/if}
 	</section>
+
+	{#if isMember}
+		<aside>
+			<header>
+				<h2>
+					{$_('components.residences.invite_user.title')}
+				</h2>
+			</header>
+			<InviteUser residenceId={id} {onInvite} />
+		</aside>
+	{/if}
 {/if}
