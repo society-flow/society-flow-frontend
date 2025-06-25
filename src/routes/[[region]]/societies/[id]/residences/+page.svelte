@@ -1,0 +1,61 @@
+<script>
+	import { _, locale } from 'svelte-i18n';
+	import { page } from '$app/stores';
+	import { api } from '$lib/api.svelte.js';
+	import { userState } from '$lib/states/user.svelte.js';
+	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import Anchor from '$lib/components/anchor.svelte';
+	import Error from '$lib/components/error.svelte';
+	import ResidencesList from '$lib/components/residences/list.svelte';
+
+	requiresAuth(locale);
+
+	const id = $derived($page.params.id);
+
+	let residences = $state([]);
+	let userRole = $state(null);
+	let loading = $state(true);
+	let error = $state(null);
+
+	$effect(async () => {
+		if (id) {
+			loading = true;
+			error = null;
+			try {
+				residences = await api.getAllResidencesInSociety(id);
+				try {
+					userRole = await api.getUserRoleInSociety(id, userState.user.id);
+				} catch {
+					userRole = null;
+				}
+			} catch (err) {
+				error = err.message || 'Failed to load residences';
+				console.error('Error loading residences:', err);
+			} finally {
+				loading = false;
+			}
+		}
+	});
+</script>
+
+{#if loading}
+	<aside><center><progress /></center></aside>
+{:else if error}
+	<section><Error {error} /></section>
+{:else}
+	<section>
+		<header>
+			<h2>{$_('menu.residences')}</h2>
+			{#if userRole}
+				<nav>
+					<li>
+						<Anchor href={`/create/residences/${id}`} isButton>
+							{$_('menu.create.residences')}
+						</Anchor>
+					</li>
+				</nav>
+			{/if}
+		</header>
+		<ResidencesList {residences} />
+	</section>
+{/if}
