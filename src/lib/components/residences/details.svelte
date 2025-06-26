@@ -2,7 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
 	import RelativeDate from '$lib/components/date/relative.svelte';
-  
+
 	const { residence, society } = $props();
 </script>
 
@@ -10,7 +10,7 @@
 	<ul>
 		<li>
 			<strong>{$_('components.residences.details.name')}</strong>:
-			<Anchor href={`/societies/${residence.id}`}>{residence.residenceName}</Anchor>
+			<Anchor href={`/residences/${residence.id}`}>{residence.residenceName}</Anchor>
 		</li>
 		<li>
 			<strong>{$_('components.residences.details.societyId')}</strong>:
