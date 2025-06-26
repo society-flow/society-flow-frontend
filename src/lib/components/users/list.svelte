@@ -22,7 +22,7 @@
 		{/snippet}
 	</List>
 {:else}
-	<p class="text-center">{$_('components.users.list.no_user')}</p>
+	<span>{$_('components.users.list.no_user')}</span>
 {/if}
 
 <style>

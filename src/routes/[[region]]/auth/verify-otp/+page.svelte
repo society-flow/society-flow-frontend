@@ -21,24 +21,21 @@
 </script>
 
 <Page title={$_('menu.auth.verify-otp')} isCenter={true}>
+	<section>
+		<VerifyOTP {onverify} {email} {otp} />
+	</section>
+	{#each Object.entries(sections) as [key, section]}
 		<section>
-			<VerifyOTP {onverify} {email} {otp} />
+			<p>
+				{#if section.link}
+					{section.text}{','}
+					<Anchor href={$_(section.link.url, { values: { email } })}>{$_(section.link.text)}</Anchor
+					>
+					{'.'}
+				{:else}
+					{section.text}
+				{/if}
+			</p>
 		</section>
-		<section>
-			{#each Object.entries(sections) as [key, section]}
-				<section class="text-center">
-					<p>
-						{#if section.link}
-							{section.text}{','}
-							<Anchor href={$_(section.link.url, { values: { email } })}
-								>{$_(section.link.text)}</Anchor
-							>
-							{'.'}
-						{:else}
-							{section.text}
-						{/if}
-					</p>
-				</section>
-			{/each}
-		</section>
+	{/each}
 </Page>

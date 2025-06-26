@@ -43,7 +43,7 @@
 {#snippet templateSections()}
 	{#each Object.entries(sections) as [key, section]}
 		<article>
-			<p class="text-center">
+			<p>
 				{section.text}
 				{#if section.link}
 					<Anchor href={userEmail ? `/auth/register?email=${userEmail}` : '/auth/register'}

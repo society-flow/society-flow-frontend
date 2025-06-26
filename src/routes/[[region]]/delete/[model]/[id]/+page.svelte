@@ -69,17 +69,18 @@
 	}
 </script>
 
-<Page title={`Delete ${model.slice(0, -1)}`} isCenter>
+<Page title={`Delete ${model}`} isCenter>
 	{#if error}
 		<Error {error} />
 	{:else if !item.id}
 		<progress></progress>
 	{:else}
-		<p class="text-center">
-			{$_('pages.delete.confirm')} "<strong>{item.name || item.title || item.residenceName}</strong
-			>"?
-		</p>
 		<form>
+			<p>
+				{$_('pages.delete.confirm')} "<strong
+					>{item.name || item.title || item.residenceName}</strong
+				>"?
+			</p>
 			<fieldset>
 				<button onclick={handleDelete} disabled={isDeleting}>
 					{isDeleting ? $_('common.deleting') : $_('common.delete')}
@@ -90,7 +91,13 @@
 
 	{#snippet footer()}
 		{#if item.id}
-			<Anchor href={`/${model}/${item.id}`}>{$_('common.cancel') || 'Cancel'}</Anchor>
+			<nav>
+				<ul>
+					<li>
+						<Anchor href={`/${model}/${item.id}`}>{$_('common.cancel') || 'Cancel'}</Anchor>
+					</li>
+				</ul>
+			</nav>
 		{/if}
 	{/snippet}
 </Page>

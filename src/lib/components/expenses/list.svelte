@@ -12,5 +12,5 @@
 		{/snippet}
 	</List>
 {:else}
-	<p class="text-center">ø {$_('menu.expenses')}</p>
+	<span>ø {$_('menu.expenses')}</span>
 {/if}

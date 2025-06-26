@@ -184,9 +184,4 @@
       margin: 0 calc(var(--s) / 2);
     }
   }
-
-	/* utilities */
-	:global(.text-center) {
-		text-align: center;
-	}
 </style>

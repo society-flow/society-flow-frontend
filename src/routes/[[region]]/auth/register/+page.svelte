@@ -28,7 +28,7 @@
 		</section>
 		{#each Object.entries(sections) as [key, section]}
 			<section>
-				<p class="text-center">
+				<p>
 					{section.text}
 					{#if section.link}
 						<Anchor href={section.link.url}>{$_(section.link.text)}</Anchor>

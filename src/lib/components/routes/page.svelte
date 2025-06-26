@@ -90,7 +90,7 @@
 			border-bottom: 1px solid var(--c-border);
 			border-radius: var(--border-radius);
 		}
-		:global(a) {
+		:global(a:not(.Button)) {
 			padding: calc(var(--s) * 1.2) calc(var(--s) * 1.3);
 			border-bottom: 0.2rem solid transparent;
 			border-radius: 0;
@@ -103,6 +103,10 @@
 			&:not([aria-current='page']) {
 				text-decoration: none;
 			}
+      :global(&.Button) {
+        border-radius: var(--border-radius);
+        border-color: var(--c-border);
+      }
 		}
 	}
 	.Page-header {

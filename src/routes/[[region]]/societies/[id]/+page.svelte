@@ -11,7 +11,7 @@
 	requiresAuth(locale);
 
 	const { data } = $props();
-	const { society, userRole } = data;
+	const { society, userRole, isAdmin } = $derived(data);
 	const id = society.id;
 
 	const markers = $derived(
@@ -29,6 +29,25 @@
 {#if markers.length}
 	<aside>
 		<Map {markers} />
+	</aside>
+{/if}
+
+{#if isAdmin}
+	<aside>
+		<nav>
+			<ul>
+				<li>
+					<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')} isButton>
+						{$_('menu.update.societies')}
+					</Anchor>
+				</li>
+				<li>
+					<Anchor href={`/delete/societies/${id}`} title={$_('common.delete')} isButton>
+						{$_('common.delete')}
+					</Anchor>
+				</li>
+			</ul>
+		</nav>
 	</aside>
 {/if}
 

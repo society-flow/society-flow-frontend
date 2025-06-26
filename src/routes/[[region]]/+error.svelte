@@ -8,5 +8,5 @@
 	{#snippet header()}
 		<h1>{$page.status}: {$page.error.message}</h1>
 	{/snippet}
-	<p class="text-center">{$_('pages.error.not_found')}</p>
+	<span>{$_('pages.error.not_found')}</span>
 </Page>

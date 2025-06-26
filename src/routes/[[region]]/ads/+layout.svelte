@@ -20,10 +20,8 @@
 				<li>
 					<Anchor href="/ads/map">{$_('menu.map')}</Anchor>
 				</li>
-				<li>
-					<Anchor href="/create/ads">{$_('menu.create.ads')}</Anchor>
-				</li>
 			</ul>
+			<Anchor href="/create/ads" isButton>{$_('menu.create.ads')}</Anchor>
 		{/snippet}
 		{@render children()}
 	</Page>
