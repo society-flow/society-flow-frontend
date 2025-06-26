@@ -128,8 +128,6 @@
 			</nav>
 		</aside>
 
-		<AdDetails {advert} />
-
 		{#if markers.length}
 			<aside>
 				<Map {markers} />
@@ -145,6 +143,8 @@
 				{/if}
 			</aside>
 		{/if}
+
+		<AdDetails {advert} />
 	</article>
 
 	{#snippet footer()}
