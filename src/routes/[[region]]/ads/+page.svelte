@@ -7,14 +7,10 @@
 	import Anchor from '$lib/components/anchor.svelte';
 
 	let typeId = $derived(page.url.searchParams.get('type'));
+	const { data } = $props();
+	const { adTypes } = $derived(data);
 
-	let adTypeOptions = $state([]);
-	const selectedType = $derived(adTypeOptions.find(({ id }) => id === typeId));
-	$effect(async () => {
-		if (adTypeOptions.length === 0) {
-			adTypeOptions = await api.getAllAdTypes();
-		}
-	});
+	const selectedType = $derived(adTypes.find(({ id }) => id === typeId));
 
 	let ads = $state([]);
 	$effect(async () => {
@@ -36,7 +32,7 @@
 		{/if}
 	</summary>
 	<nav>
-		{#each adTypeOptions as option}
+		{#each adTypes as option}
 			<Anchor href={`/ads?type=${option.id}`} isActive={option.id === typeId}
 				>{$_(`const.ads_types.${option.name}`)}</Anchor
 			>
@@ -47,10 +43,3 @@
 <section>
 	<ListAds {ads} />
 </section>
-
-<!-- <style> -->
-<!-- 	:global(.Page-main) { -->
-<!-- 		flex-direction: row; -->
-<!-- 		flex-wrap: wrap; -->
-<!-- 	} -->
-<!-- </style> -->

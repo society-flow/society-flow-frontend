@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { page } from '$app/state';
 	import { api } from '$lib/api.svelte.js';
@@ -6,7 +6,9 @@
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 
+	const { data } = $props();
 	const typeId = $derived(page.url.searchParams.get('type'));
+	const { adTypes } = $derived(data);
 
 	let adverts = $state([]);
 	$effect(async () => {
@@ -21,13 +23,7 @@
 		adverts = ads.filter((a) => a?.approxGeoCoordinate?.x || a?.approxGeoCoordinate?.y);
 	});
 
-	let adTypeOptions = $state([]);
-	const selectedType = $derived(adTypeOptions.find(({ id }) => id === typeId));
-	$effect(async () => {
-		if (adTypeOptions.length === 0) {
-			adTypeOptions = await api.getAllAdTypes();
-		}
-	});
+	const selectedType = $derived(adTypes.find(({ id }) => id === typeId));
 
 	const markers = $derived(
 		adverts.map((a) => ({
@@ -46,7 +42,7 @@
 		{/if}
 	</summary>
 	<nav>
-		{#each adTypeOptions as option}
+		{#each adTypes as option}
 			<Anchor href={`/ads/map?type=${option.id}`} isActive={option.id === typeId}
 				>{$_(`const.ads_types.${option.name}`)}</Anchor
 			>

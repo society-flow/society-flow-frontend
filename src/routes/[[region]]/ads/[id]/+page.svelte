@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
@@ -12,11 +12,12 @@
 	import ResidencyCard from '$lib/components/residences/card.svelte';
 	import RelativeDate from '$lib/components/date/relative.svelte';
 
+	const { data } = $props();
+	const { adTypes } = $derived(data);
 	const id = $derived($page.params.id);
 	let advert = $state({});
 	let residency = $state(null);
 	let society = $state(null);
-	let adTypes = $state([]);
 
 	let isOwner = $derived(advert?.userId === userState?.user?.id);
 	let coordinates = $derived(advert?.approxGeoCoordinate);
@@ -34,12 +35,6 @@
 				]
 			: []
 	);
-
-	$effect(async () => {
-		if (adTypes.length === 0) {
-			adTypes = await api.getAllAdTypes();
-		}
-	});
 
 	$effect(async () => {
 		if (id) {
