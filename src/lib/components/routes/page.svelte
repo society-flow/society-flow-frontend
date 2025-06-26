@@ -1,11 +1,13 @@
 <script>
 	const {
+    headTitle,
 		title,
 		nav,
 		head,
 		header,
 		children,
 		footer,
+		showNav = true,
 		showHeader = true,
 		isCenter = false,
 		isWide = false,
@@ -15,7 +17,7 @@
 
 <svelte:head>
 	{#if !head}
-		<title>{title}</title>
+		<title>{headTitle || title}</title>
 	{:else}
 		{@render head()}
 	{/if}
@@ -39,7 +41,7 @@
 		</header>
 	{/if}
 
-	{#if nav}
+	{#if showNav && nav}
 		<nav class="Page-nav">
 			{@render nav()}
 		</nav>
@@ -75,9 +77,9 @@
 		}
 	}
 	.Page-nav {
-		/* align-items: center; */
-    display: flex;
-    justify-content: center;
+		display: flex;
+		justify-content: center;
+    margin-bottom: var(--s);
 		:global(ul) {
 			flex-wrap: nowrap;
 			overflow-x: scroll;

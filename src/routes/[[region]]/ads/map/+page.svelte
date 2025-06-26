@@ -38,25 +38,23 @@
 	);
 </script>
 
-<Page title={$_('menu.map')} isFull>
-	<details>
-		<summary>
-			{$_('components.ads.form.type')}
-			{#if selectedType}
-				({$_(`const.ads_types.${selectedType.name}`)})
-			{/if}
-		</summary>
-		<nav>
-			{#each adTypeOptions as option}
-				<Anchor href={`/ads/map?type=${option.id}`} isActive={option.id === typeId}
-					>{$_(`const.ads_types.${option.name}`)}</Anchor
-				>
-			{/each}
-		</nav>
-	</details>
+<details>
+	<summary>
+		{$_('components.ads.form.type')}
+		{#if selectedType}
+			({$_(`const.ads_types.${selectedType.name}`)})
+		{/if}
+	</summary>
+	<nav>
+		{#each adTypeOptions as option}
+			<Anchor href={`/ads/map?type=${option.id}`} isActive={option.id === typeId}
+				>{$_(`const.ads_types.${option.name}`)}</Anchor
+			>
+		{/each}
+	</nav>
+</details>
 
-	<Map {markers} />
-</Page>
+<Map {markers} />
 
 <style>
 	:global(.Map) {

@@ -14,12 +14,13 @@
 	const id = $derived(residence.id);
 
 	async function handleJoin(data) {
-		invalidate("data:residence");
+		invalidate('data:residence');
 	}
 </script>
 
 <Page
 	title={residence?.residenceName || $_('menu.residences')}
+	headTitle={`${residence?.residenceName || residence?.id} — ${$_('menu.residences')}`}
 	showHeader={!!residence?.residenceName}
 >
 	{#snippet nav()}

@@ -12,11 +12,15 @@
 	const id = $derived(society.id);
 
 	async function handleRoleUpdate() {
-		invalidate("data:society");
+		invalidate('data:society');
 	}
 </script>
 
-<Page title={society?.name || $_('menu.societies')} showHeader={!!society?.name}>
+<Page
+	title={society?.name || $_('menu.societies')}
+	headTitle={`${society?.name || society?.id} — ${$_('menu.societies')}`}
+	showHeader={!!society?.name}
+>
 	{#snippet nav()}
 		<ul>
 			<li>

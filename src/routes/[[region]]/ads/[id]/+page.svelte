@@ -64,7 +64,10 @@
 	});
 </script>
 
-<Page title={`${advert?.title || advert?.id || $_('menu.ads')}`} showHeader={true}>
+<Page
+	title={`${advert?.title || advert?.id || ''}`}
+	headTitle={`${advert?.title || advert?.id} — ${$_('menu.ads')}`}
+>
 	<article class="Detail">
 		<header>
 			<nav>
