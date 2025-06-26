@@ -40,7 +40,7 @@
 			const month = String(now.getMonth() + 1).padStart(2, '0');
 			const yearMonth = `${year}${month}`;
 			for (const exp of expenses) {
-				await api.triggerCalculation(exp.id, yearMonth);
+				await api.triggerSocietyMaintenanceCalculation(id, yearMonth);
 			}
 		} catch (e) {
 			console.error('Error triggering calculations:', e);
