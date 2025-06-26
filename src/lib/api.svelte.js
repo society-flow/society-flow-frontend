@@ -402,17 +402,16 @@ class Api {
 	}
 	async getAdvertisementById(id) {
 		const client = await this.getClient();
-		const res = await client.apis.advertisings.getAdvertisementById({ id });
-		return res.body;
+		const res = await client.apis.advertisings.getAdvertisementById(id);
 	}
 	async getAdvertisementsByUserId(userId, isActive = true) {
 		const client = await this.getClient();
-		const res = await client.apis.advertisings.getAdvertisementsByUserId({ userId, isActive });
+		const res = await client.apis.advertisings.getAllAdvertisements({ userId, isActive });
 		return res.body;
 	}
-	async getAdvertisementsBySocietyId(societyId) {
+	async getAdvertisementsBySocietyId(societyId, isActive = true) {
 		const client = await this.getClient();
-		const res = await client.apis.advertisings.getAdvertisementsBySocietyId({ societyId });
+		const res = await client.apis.advertisings.getAllAdvertisements({ societyId, isActive });
 		return res.body;
 	}
 	async createAdvertisement(adData) {
