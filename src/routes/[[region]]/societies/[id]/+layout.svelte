@@ -8,7 +8,7 @@
 	requiresAuth(locale);
 
 	const { children, data } = $props();
-	const { society, isOwner, userRole } = data;
+	const { society, isAdmin, userRole } = $derived(data);
 	const id = $derived(society.id);
 
 	async function handleRoleUpdate() {
@@ -43,7 +43,7 @@
 			{#if !userRole}
 				<li><SocietyJoin societyId={id} {userRole} onJoin={handleRoleUpdate} /></li>
 			{/if}
-			{#if isOwner}
+			{#if isAdmin}
 				<li>
 					<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')}>
 						{$_('menu.update.societies')}

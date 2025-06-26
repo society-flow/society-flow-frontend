@@ -11,7 +11,7 @@
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
-	const { society } = data;
+	const { society, isAdmin } = $derived(data);
 
 	let expenses = $state([]);
 	let loading = $state(true);
@@ -59,11 +59,13 @@
 			<h2>{$_('menu.expenses')}</h2>
 			<nav>
 				<ul>
-					<li>
-						<button on:click={triggerAllCalculations} disabled={triggering}>
-							{$_('pages.societies.detail.triggerCalculations')}
-						</button>
-					</li>
+					{#if isAdmin}
+						<li>
+							<button on:click={triggerAllCalculations} disabled={triggering}>
+								{$_('pages.societies.detail.triggerCalculations')}
+							</button>
+						</li>
+					{/if}
 					<li>
 						<Anchor href={`/create/expenses?society=${society?.id}`} isButton>
 							{$_('menu.create.expenses')}

@@ -13,13 +13,12 @@
 	import RelativeDate from '$lib/components/date/relative.svelte';
 
 	const { data } = $props();
-	const { adTypes } = $derived(data);
+	const { adTypes, isAdmin } = $derived(data);
 	const id = $derived($page.params.id);
 	let advert = $state({});
 	let residency = $state(null);
 	let society = $state(null);
 
-	let isOwner = $derived(advert?.userId === userState?.user?.id);
 	let coordinates = $derived(advert?.approxGeoCoordinate);
 	let selectedLocation = $derived(residency || society);
 	let locationCoordinates = $derived(selectedLocation?.geoCoordinate || coordinates);
@@ -67,7 +66,7 @@
 		<header>
 			<nav>
 				<ul>
-					{#if isOwner}
+					{#if isAdmin}
 						<li>
 							<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton>
 								{$_('common.delete')}
@@ -93,7 +92,7 @@
 			<nav>
 				<ul>
 					<li>
-						{#if isOwner}
+						{#if isAdmin}
 							<span>
 								{#if advert.isActive}
 									{$_('pages.ads.detail.isActive')}
