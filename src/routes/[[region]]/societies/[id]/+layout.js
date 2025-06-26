@@ -3,7 +3,9 @@ import { userState } from '$lib/states/user.svelte.js';
 
 export const prerender = false;
 
-export async function load({ params }) {
+export async function load({ params, depends }) {
+	depends('data:society');
+
 	const { id } = params;
 	await initApi();
 	const society = await api.getSocietyById(id);

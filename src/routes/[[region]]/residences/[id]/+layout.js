@@ -4,7 +4,9 @@ import { userState } from '$lib/states/user.svelte.js';
 
 export const prerender = false;
 
-export async function load({ params }) {
+export async function load({ params, depends }) {
+	depends('data:residence');
+
 	const { user } = userState;
 	const { id } = params;
 

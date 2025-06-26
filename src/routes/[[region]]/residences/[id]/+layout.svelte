@@ -10,11 +10,11 @@
 	requiresAuth(page);
 
 	const { children, data } = $props();
-	const { residence, isMember } = data;
+	const { residence, isMember } = $derived(data);
 	const id = $derived(residence.id);
 
-	function handleJoin() {
-		invalidate();
+	async function handleJoin(data) {
+		invalidate("data:residence");
 	}
 </script>
 

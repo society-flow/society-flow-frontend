@@ -11,7 +11,7 @@
 		{#snippet children(user)}
 			<Card {user} />
 		{/snippet}
-		{#snippet aside()}
+		{#snippet aside(user)}
 			{#if onRemoveUser}
 				<li>
 					<button type="button" on:click={() => onRemoveUser(user)}>

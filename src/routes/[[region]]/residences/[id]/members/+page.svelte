@@ -1,5 +1,6 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
+  import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 
@@ -7,7 +8,7 @@
 	import UsersList from '$lib/components/users/list.svelte';
 
 	const { data } = $props();
-	const { users, isMember } = data;
+	const { users, isMember } = $derived(data);
 	const id = $derived($page.params.id);
 
 	async function onInvite(inviteData) {
@@ -17,7 +18,7 @@
 	async function onRemoveUser(user) {
 		try {
 			await api.removeUserFromResidence(id, user.id);
-			await api.getResidenceUsers(id);
+			invalidate("data:residence")
 		} catch (e) {
 			console.error('Error removing user:', e);
 		}

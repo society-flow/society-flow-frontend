@@ -11,8 +11,8 @@
 	const { society, isOwner, userRole } = data;
 	const id = $derived(society.id);
 
-	function handleRoleUpdate() {
-		invalidate();
+	async function handleRoleUpdate() {
+		invalidate("data:society");
 	}
 </script>
 

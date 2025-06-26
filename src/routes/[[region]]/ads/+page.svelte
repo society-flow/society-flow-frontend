@@ -3,7 +3,6 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { api } from '$lib/api.svelte.js';
-	import Page from '$lib/components/routes/page.svelte';
 	import ListAds from '$lib/components/ads/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 
@@ -29,31 +28,29 @@
 	});
 </script>
 
-<Page title={$_('menu.ads')}>
-	<details>
-		<summary>
-			{$_('components.ads.form.type')}
-			{#if selectedType}
-				({$_(`const.ads_types.${selectedType.name}`)})
-			{/if}
-		</summary>
-		<nav>
-			{#each adTypeOptions as option}
-				<Anchor href={`/ads?type=${option.id}`} isActive={option.id === typeId}
-					>{$_(`const.ads_types.${option.name}`)}</Anchor
-				>
-			{/each}
-		</nav>
-	</details>
+<details>
+	<summary>
+		{$_('components.ads.form.type')}
+		{#if selectedType}
+			({$_(`const.ads_types.${selectedType.name}`)})
+		{/if}
+	</summary>
+	<nav>
+		{#each adTypeOptions as option}
+			<Anchor href={`/ads?type=${option.id}`} isActive={option.id === typeId}
+				>{$_(`const.ads_types.${option.name}`)}</Anchor
+			>
+		{/each}
+	</nav>
+</details>
 
-	<section>
-		<ListAds {ads} />
-	</section>
-</Page>
+<section>
+	<ListAds {ads} />
+</section>
 
-<style>
-	:global(.Page-main) {
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-</style>
+<!-- <style> -->
+<!-- 	:global(.Page-main) { -->
+<!-- 		flex-direction: row; -->
+<!-- 		flex-wrap: wrap; -->
+<!-- 	} -->
+<!-- </style> -->

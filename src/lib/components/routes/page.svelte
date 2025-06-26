@@ -1,7 +1,8 @@
-<script lang="javascript">
+<script>
 	const {
 		title,
 		nav,
+		head,
 		header,
 		children,
 		footer,
@@ -13,7 +14,11 @@
 </script>
 
 <svelte:head>
-	<title>{title}</title>
+	{#if !head}
+		<title>{title}</title>
+	{:else}
+		{@render head()}
+	{/if}
 </svelte:head>
 
 <article
@@ -70,19 +75,24 @@
 		}
 	}
 	.Page-nav {
-		background-color: var(--c-bg--secondary);
-		border-bottom: 1px solid var(--c-border);
-		border-radius: var(--border-radius);
-		margin: var(--s);
+		/* align-items: center; */
+    display: flex;
+    justify-content: center;
 		:global(ul) {
-			justify-content: center;
-			align-items: center;
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			background-color: var(--c-bg--secondary);
+			border-bottom: 1px solid var(--c-border);
+			border-radius: var(--border-radius);
 		}
 		:global(a) {
 			padding: calc(var(--s) * 1.2) calc(var(--s) * 1.3);
 			border-bottom: 0.2rem solid transparent;
 			border-radius: 0;
 			color: var(--c-fg);
+			white-space: pre;
 			&[aria-current='page'] {
 				border-bottom-color: var(--c-link);
 				color: var(--c-link);
@@ -105,7 +115,7 @@
 		}
 	}
 	.Page-main {
-    flex-grow: 1;
+		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
