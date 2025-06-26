@@ -56,33 +56,3 @@
 		{/if}
 	</ul>
 </main>
-
-<style>
-	header {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--s);
-		align-items: center;
-		justify-content: space-between;
-		:global(form) {
-			border-color: transparent;
-			padding: 0;
-		}
-		:global(fieldset) {
-			margin: 0;
-			padding: 0;
-		}
-	}
-	main,
-	header {
-		:global(ul) {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-		:global(li) {
-			margin: calc(var(--s) / 3);
-			padding: calc(var(--s) / 2);
-		}
-	}
-</style>

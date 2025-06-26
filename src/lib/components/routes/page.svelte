@@ -81,6 +81,7 @@
 		justify-content: center;
     margin-bottom: var(--s);
 		:global(ul) {
+      justify-content: flex-start;
 			flex-wrap: nowrap;
 			overflow-x: scroll;
 			scrollbar-width: none;
