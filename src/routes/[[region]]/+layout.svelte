@@ -128,6 +128,10 @@
 			:global(& > nav) {
 				justify-content: flex-end;
 				align-items: center;
+        :global(ul) {
+          align-items: center;
+          justify-content: flex-end;
+        }
 			}
 		}
 		:global(& > section) {
@@ -174,6 +178,8 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     :global(li) {
       margin: 0 calc(var(--s) / 2);
     }

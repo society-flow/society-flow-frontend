@@ -63,31 +63,6 @@
 	headTitle={`${advert?.title || advert?.id} — ${$_('menu.ads')}`}
 >
 	<article class="Detail">
-		<header>
-			<nav>
-				<ul>
-					{#if isAdmin}
-						<li>
-							<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton>
-								{$_('common.delete')}
-							</Anchor>
-						</li>
-						<li>
-							<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')} isButton>
-								{$_('menu.update.ads')}
-							</Anchor>
-						</li>
-					{:else}
-						<li>
-							<Anchor href="#" title={$_('common.contact_user')} isButton>
-								{$_('common.contact_user')}
-							</Anchor>
-						</li>
-					{/if}
-				</ul>
-			</nav>
-		</header>
-
 		<aside>
 			<nav>
 				<ul>
@@ -121,6 +96,24 @@
 								{$_('common.created')}
 								<RelativeDate date={advert.createdAt} />
 							</span>
+						</li>
+					{/if}
+					{#if isAdmin}
+						<li>
+							<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton>
+								{$_('common.delete')}
+							</Anchor>
+						</li>
+						<li>
+							<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')} isButton>
+								{$_('menu.update.ads')}
+							</Anchor>
+						</li>
+					{:else}
+						<li>
+							<Anchor href="#" title={$_('common.contact_user')} isButton>
+								{$_('common.contact_user')}
+							</Anchor>
 						</li>
 					{/if}
 				</ul>

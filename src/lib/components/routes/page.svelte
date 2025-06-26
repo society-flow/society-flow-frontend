@@ -126,8 +126,9 @@
 		:global(a) {
 			padding: var(--s);
 		}
-		:global(nav) {
+		:global(nav ul) {
 			list-style: none;
+      justify-content: center;
 		}
 	}
 </style>

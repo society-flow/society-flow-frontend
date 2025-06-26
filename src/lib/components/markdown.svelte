@@ -6,11 +6,12 @@
 	const content = $derived(marked.parse(markdown));
   const clean = $derived(DOMPurify.sanitize(content, {
     ALLOWED_TAGS: [
-      "h1", "h2", "h3", "h4", "h5", "h6",
+      "p",
+      "a",
       'b',
       "i",
       "ul", "ol", "li",
-      "a",
+      "h1", "h2", "h3", "h4", "h5", "h6",
     ],
     ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|tel|sms):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i
   }));

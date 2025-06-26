@@ -11,25 +11,25 @@
 	requiresAuth(locale);
 
 	const { data } = $props();
-	const { society,  userRole } = data;
+	const { society, userRole } = data;
 	const id = society.id;
 
 	const markers = $derived(
 		society?.geoCoordinate
 			? [
-				{
-					coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
-					title: society.name || society.id
-				}
-			]
-		: []
+					{
+						coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
+						title: society.name || society.id
+					}
+				]
+			: []
 	);
 </script>
-
-<SocietyDetails {society} {userRole} />
 
 {#if markers.length}
 	<aside>
 		<Map {markers} />
 	</aside>
 {/if}
+
+<SocietyDetails {society} {userRole} />
