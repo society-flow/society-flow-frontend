@@ -4,6 +4,7 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
+  import ResidenceJoin from "$lib/components/residences/join.svelte";
 
 	const { data } = $props();
 	const { residence, isMember, society } = $derived(data);
