@@ -23,15 +23,6 @@
 <section>
 	<header>
 		<h2>{$_('menu.maintenances')}</h2>
-		<nav>
-			<ul>
-				<li>
-					<Anchor href={`/create/maintenances?societyId=${id}`} isButton>
-						{$_('menu.create.maintenances')}
-					</Anchor>
-				</li>
-			</ul>
-		</nav>
 	</header>
 	<MaintenanceList {maintenances} />
 </section>

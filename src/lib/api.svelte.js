@@ -170,14 +170,6 @@ class Api {
 	}
 
 	// --- Maintenances ---
-	async createOrUpdateMaintenance(maintenanceData) {
-		const client = await this.getClient();
-		const res = await client.apis.maintenances.createOrUpdateMaintenance(
-			{},
-			{ requestBody: maintenanceData }
-		);
-		return res.body;
-	}
 	async triggerSocietyMaintenanceCalculation(societyId, yearMonth) {
 		const client = await this.getClient();
 		const res = await client.apis.maintenances.triggerSocietyMaintenanceCalculation({
@@ -212,15 +204,6 @@ class Api {
 		return res.body;
 	}
 
-	async triggerMaintenanceCalculation(societyId, residenceId, yearMonth) {
-		const client = await this.getClient();
-		const res = await client.apis.maintenances.triggerMaintenanceCalculation({
-			societyId,
-			residenceId,
-			yearMonth
-		});
-		return res.body;
-	}
 
 	async getMaintenanceByYearMonth(societyId, residenceId, yearMonth) {
 		const client = await this.getClient();
@@ -350,6 +333,11 @@ class Api {
 		);
 		return res.body;
 	}
+    async triggerCalculationForSociety(societyId, yearMonth) {
+        const client = await this.getClient();
+        const res = await client.apis.calculations.triggerCalculationForSociety({ societyId, yearMonth });
+        return res.body;
+    }
 	async getAllCalculationsByExpense(expenseId) {
 		const client = await this.getClient();
 		const res = await client.apis.calculations.getAllCalculationsByExpense({ expenseId });
@@ -388,11 +376,7 @@ class Api {
 		});
 		return res.body;
 	}
-	async triggerCalculation(expenseId, yearMonth) {
-		const client = await this.getClient();
-		const res = await client.apis.calculations.triggerCalculation({ expenseId, yearMonth });
-		return res.body;
-	}
+
 
 	// --- Advertisings ---
 	async getAllAdvertisements(requestBody = {}) {
