@@ -36,6 +36,28 @@
 			}
 		}
 	});
+
+	let triggering = $state({});
+
+    async function triggerMaintenanceCalculation() {
+        const currentDate = new Date();
+        const yearMonth = parseInt(
+            `${currentDate.getFullYear()}${(currentDate.getMonth() + 1).toString().padStart(2, '0')}`
+        );
+
+        triggering = true;
+
+        try {
+            await api.triggerSocietyMaintenanceCalculation(id, yearMonth);
+            // You could add a success notification here
+            console.log($_('pages.maintenances.calculationTriggered'));
+        } catch (error) {
+            console.error($_('pages.maintenances.calculationFailed'), error);
+            // You could add an error notification here
+        } finally {
+            triggering = false;
+        }
+    }
 </script>
 
 {#if loading}
@@ -52,6 +74,11 @@
 						<Anchor href={`/create/residences/${id}`} isButton>
 							{$_('menu.create.residences')}
 						</Anchor>
+					</li>
+					<li>
+                        <button on:click={triggerMaintenanceCalculation}>
+                            Trigger Maintenances //todo need help here Hugo to make as per svelte :)
+                        </button>
 					</li>
 				</nav>
 			{/if}

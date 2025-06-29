@@ -24,7 +24,7 @@
 <aside>
 	<nav>
 		<ul>
-			{#if isMember}
+
 				<li>
 					<Anchor href={`/update/residences/${id}`} title={$_('menu.update.residences')} isButton>
 						{$_('menu.update.residences')}
@@ -35,7 +35,7 @@
 						{$_('common.delete')}
 					</Anchor>
 				</li>
-			{:else}
+
 				<li>
 					<ResidenceJoin
 						residenceId={id}
@@ -44,7 +44,7 @@
 						onJoin={handleJoin}
 					/>
 				</li>
-			{/if}
+
 		</ul>
 	</nav>
 </aside>
