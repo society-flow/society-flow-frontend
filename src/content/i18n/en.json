@@ -164,7 +164,7 @@
 		"societies": {
 			"detail": {
 				"expenseCalculations": "Expense Calculations",
-				"triggerCalculations": "Trigger Calculations",
+				"triggerCalculations": "Maintenance Calculations",
 				"noExpensesConfigured": "No expenses configured.",
 				"members": "Members",
 				"user_residences": "My residences",
