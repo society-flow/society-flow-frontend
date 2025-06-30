@@ -25,11 +25,6 @@
 				</Anchor>
 			</li>
 			<li>
-				<Anchor href={`/residences/${id}/expenses`}
-					>{$_('pages.residences.detail.myExpenseDues')}</Anchor
-				>
-			</li>
-			<li>
 				<Anchor href={`/residences/${id}/members`}>{$_('pages.residences.detail.members')}</Anchor>
 			</li>
 			<li>
