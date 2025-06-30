@@ -77,7 +77,7 @@
 					</li>
 					<li>
                         <button on:click={triggerMaintenanceCalculation}>
-                            Trigger Maintenances //todo need help here Hugo to make as per svelte :)
+                            {$_('pages.societies.detail.triggerCalculations')}
                         </button>
 					</li>
 				</nav>

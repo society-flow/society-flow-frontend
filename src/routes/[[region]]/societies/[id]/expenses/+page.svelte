@@ -60,7 +60,7 @@
 					{#if isAdmin}
 						<li>
 							<button on:click={triggerAllCalculations} disabled={triggering}>
-								{$_('pages.societies.detail.triggerCalculations')}
+								{$_('pages.societies.detail.expenseCalculations')}
 							</button>
 						</li>
 					{/if}
