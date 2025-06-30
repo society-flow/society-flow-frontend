@@ -50,7 +50,6 @@
         try {
             await api.triggerSocietyMaintenanceCalculation(id, yearMonth);
             // You could add a success notification here
-            console.log($_('pages.maintenances.calculationTriggered'));
         } catch (error) {
             console.error($_('pages.maintenances.calculationFailed'), error);
             // You could add an error notification here

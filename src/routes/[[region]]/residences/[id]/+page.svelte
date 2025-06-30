@@ -30,33 +30,24 @@
 						{$_('menu.update.residences')}
 					</Anchor>
 				</li>
-                {#if isAdmin}
-                    <li>
-                        <Anchor href={`/delete/residences/${id}`} title={$_('common.delete')} isButton>
-                            {$_('common.delete')}
-                        </Anchor>
-                    </li>
-                    {#if !isMember}
-                        <li>
-                            <ResidenceJoin
-                                residenceId={id}
-                                societyId={residence.societyId}
-                                {isMember}
-                                onJoin={handleJoin}
-                            />
-                        </li>
-                    {/if}
-                {/if}
-			{:else}
-				<li>
-					<ResidenceJoin
-						residenceId={id}
-						societyId={residence.societyId}
-						{isMember}
-						onJoin={handleJoin}
-					/>
-				</li>
 			{/if}
+            {#if isAdmin}
+                <li>
+                    <Anchor href={`/delete/residences/${id}`} title={$_('common.delete')} isButton>
+                        {$_('common.delete')}
+                    </Anchor>
+                </li>
+            {/if}
+            {#if !isMember}
+                <li>
+                    <ResidenceJoin
+                        residenceId={id}
+                        societyId={residence.societyId}
+                        {isMember}
+                        onJoin={handleJoin}
+                    />
+                </li>
+            {/if}
 		</ul>
 	</nav>
 </aside>
