@@ -16,11 +16,14 @@ export async function load({ params, depends }) {
 	const users = await api.getResidenceUsers(id);
 	const isMember = !!users.find((u) => u.id === user?.id);
 	const society = residence.societyId ? await api.getSocietyById(residence.societyId) : null;
+    const userRole = await api.getUserRoleInSociety(residence.societyId, userState.user.id);
+    const isAdmin = userRole?.role === 'ADMIN';
 
 	return {
 		residence,
 		users,
 		isMember,
-		society
+		society,
+		isAdmin
 	};
 }

@@ -7,7 +7,7 @@
   import ResidenceJoin from "$lib/components/residences/join.svelte";
 
 	const { data } = $props();
-	const { residence, isMember, society } = $derived(data);
+	const { residence, isMember, society, isAdmin } = $derived(data);
 	const id = $derived(residence.id);
 
 	async function handleJoin(data) {
