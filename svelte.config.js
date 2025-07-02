@@ -2,7 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import generatePrerenderEntries from './tools/prerender-region-entries.js';
 
-const base = process.argv.includes('dev') ? '' : process.env.BASE_PATH;
+const base = process.argv.includes('dev') ? '' : process.env.BASE_PATH || '';
 
 const entries = generatePrerenderEntries();
 
