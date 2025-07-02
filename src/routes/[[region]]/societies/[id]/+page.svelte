@@ -1,4 +1,4 @@
-<script>
+<script lang="javascript">
 	import { _, locale } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
@@ -13,7 +13,8 @@
 
 	const { data } = $props();
 	const { society, userRole, isAdmin, fund } = $derived(data);
-	const id = society.id;
+	const { id, currency } = $derived(society);
+	const { totalFund: total } = fund;
 
 	const markers = $derived(
 		society?.geoCoordinate
@@ -54,4 +55,4 @@
 
 <SocietyDetails {society} {userRole} />
 
-<FundCard total={fund.totalFund} currency={society.currency}/>
+<FundCard {total} {currency} />
