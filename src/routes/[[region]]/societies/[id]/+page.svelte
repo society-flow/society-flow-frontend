@@ -14,7 +14,7 @@
 	const { data } = $props();
 	const { society, userRole, isAdmin, fund } = $derived(data);
 	const { id, currency } = $derived(society);
-	const { totalFund: total } = fund;
+	const { totalFund: total } = $derived(fund);
 
 	const markers = $derived(
 		society?.geoCoordinate

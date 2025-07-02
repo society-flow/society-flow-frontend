@@ -310,9 +310,9 @@ class Api {
         const res = await client.apis.funds.getSocietyFundBySocietyId({ societyId });
         return res.body;
     }
-    async getResidenceFundByResidenceId(id) {
+    async getResidenceFundByResidenceId(residenceId) {
         const client = await this.getClient();
-        const res = await client.apis.funds.getResidenceFundByResidenceId({ id });
+        const res = await client.apis.funds.getResidenceFundByResidenceId({ residenceId });
         return res.body;
     }
 	async getAllExpensesBySociety(societyId) {

@@ -13,6 +13,7 @@ export async function load({ params, depends }) {
 	await initApi();
 
 	const residence = await api.getResidenceById(id);
+	const fund = await api.getResidenceFundByResidenceId(id);
 	const users = await api.getResidenceUsers(id);
 	const isMember = !!users.find((u) => u.id === user?.id);
 	const society = residence.societyId ? await api.getSocietyById(residence.societyId) : null;
@@ -21,6 +22,7 @@ export async function load({ params, depends }) {
 
 	return {
 		residence,
+		fund,
 		users,
 		isMember,
 		society,

@@ -1,7 +1,5 @@
 <script>
     const valProps = $props();
-    console.log("valProps =", valProps)
-
 </script>
 
 <article>

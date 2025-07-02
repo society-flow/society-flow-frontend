@@ -4,10 +4,13 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
-  import ResidenceJoin from "$lib/components/residences/join.svelte";
+    import ResidenceJoin from "$lib/components/residences/join.svelte";
+    import FundCard from '$lib/components/funds/card.svelte';
 
 	const { data } = $props();
-	const { residence, isMember, society, isAdmin } = $derived(data);
+	const { residence, fund, isMember, society, isAdmin } = $derived(data);
+	const { totalFund: total } = $derived(fund);
+	const { currency } = $derived(society);
 	const id = $derived(residence.id);
 
 	async function handleJoin(data) {
@@ -51,3 +54,5 @@
 		</ul>
 	</nav>
 </aside>
+
+<FundCard {total} {currency} />
