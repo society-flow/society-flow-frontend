@@ -12,5 +12,7 @@ export async function load({ params, depends }) {
 	const userRole = await api.getUserRoleInSociety(id, userState.user.id);
 	const isAdmin = userRole?.role === 'ADMIN';
 
-	return { society, userRole, isAdmin };
+	const fund = await api.getSocietyFundBySocietyId(id);
+
+	return { society, userRole, isAdmin, fund};
 }

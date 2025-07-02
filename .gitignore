@@ -27,3 +27,7 @@ storybook-static
 
 # docs
 swagger.json
+
+#Intellij or any ide speicific files
+society-flow-frontend.iml
+.idea/

@@ -7,11 +7,12 @@
 	import Error from '$lib/components/error.svelte';
 	import SocietyDetails from '$lib/components/societies/details.svelte';
 	import SocietyJoin from '$lib/components/societies/join.svelte';
+	import FundCard from '$lib/components/funds/card.svelte';
 
 	requiresAuth(locale);
 
 	const { data } = $props();
-	const { society, userRole, isAdmin } = $derived(data);
+	const { society, userRole, isAdmin, fund } = $derived(data);
 	const id = society.id;
 
 	const markers = $derived(
@@ -52,3 +53,5 @@
 {/if}
 
 <SocietyDetails {society} {userRole} />
+
+<FundCard total={fund.totalFund} currency={society.currency}/>

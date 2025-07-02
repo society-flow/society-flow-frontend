@@ -305,6 +305,16 @@ class Api {
 	}
 
 	// --- Finances ---
+    async getSocietyFundBySocietyId(societyId) {
+        const client = await this.getClient();
+        const res = await client.apis.funds.getSocietyFundBySocietyId({ societyId });
+        return res.body;
+    }
+    async getResidenceFundByResidenceId(id) {
+        const client = await this.getClient();
+        const res = await client.apis.funds.getResidenceFundByResidenceId({ id });
+        return res.body;
+    }
 	async getAllExpensesBySociety(societyId) {
 		const client = await this.getClient();
 		const res = await client.apis.expenses.getAllExpensesBySociety({ societyId });
