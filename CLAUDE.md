@@ -182,3 +182,137 @@ Total Amount = Previous Balance + Fine + This yearMonth Calculations sum for the
 - **Optimistic Updates**: For non-critical operations
 
 ---
+
+## 🐛 Bug Resolution & Development Lessons Learned
+
+### **Maintenance Payment Implementation - Key Lessons**
+
+#### **Critical Mistakes Made & How to Avoid Them:**
+
+1. **API Data Structure Mismatch**
+   - **Mistake**: Assumed maintenance payment used `maintenanceId` field like expense payment uses `expenseId`
+   - **Reality**: Maintenance payment API requires `residenceId` field instead
+   - **Lesson**: ALWAYS verify API data structure by checking swagger docs or existing working examples BEFORE implementing
+   - **Fix Applied**: Changed form data from `maintenanceId` to `residenceId`
+
+2. **Field Name Assumptions Based on Entity Names**
+   - **Mistake**: Used `maintenance.isActive` field assuming it matched expense patterns
+   - **Reality**: Maintenance entity uses `isCurrent` field, not `isActive` 
+   - **Lesson**: Never assume field names - always check actual API response structure first
+   - **Fix Applied**: Updated all references from `m.isActive` to `m.isCurrent`
+
+3. **Component Date Parsing Issues**
+   - **Mistake**: Used `RelativeDate` component without checking if dates were valid
+   - **Reality**: RelativeDate component fails with "RangeError: Invalid time value" on some date formats
+   - **Lesson**: Test date components with actual API data, not just hardcoded test data
+   - **Fix Applied**: Replaced `<RelativeDate dateString={payment.transactionDate} />` with simple `Date: {payment.transactionDate}`
+
+4. **Missing Required Props**
+   - **Mistake**: Created payment form without passing required `residenceId` prop
+   - **Reality**: Form needed residence ID from parent page component, not from maintenance object
+   - **Lesson**: Trace data flow from parent to child components carefully
+   - **Fix Applied**: Added `residenceId={id}` prop to MaintenancePaymentForm component
+
+#### **Proper Development Workflow for New Features:**
+
+**Step 1: Research Existing Patterns**
+```bash
+# Find similar working implementations first
+grep -r "createExpensePayment" src/
+grep -r "payment-form" src/
+# Study the working expense payment flow completely
+```
+
+**Step 2: Verify API Structure**
+- Check swagger docs at `/api-docs`
+- Test API manually with correct data structure
+- Compare request/response with working similar endpoints
+
+**Step 3: Component Implementation Order**
+1. API methods in `api.svelte.js` (copy exact pattern from working examples)
+2. Form component (copy structure from working form)
+3. List/display components (copy accordion pattern from working lists)
+4. Integration in page component (copy prop passing pattern)
+
+**Step 4: Data Structure Validation**
+- Log all data being sent to API
+- Verify field names match API expectations exactly
+- Test with real data, not placeholder data
+
+**Step 5: Component Integration Testing**
+- Test each component individually first
+- Test data flow between parent/child components
+- Verify all props are passed correctly
+
+#### **API Integration Best Practices:**
+
+1. **Always Copy Working Patterns Exactly**
+   ```javascript
+   // GOOD: Copy exact working pattern
+   async createMaintenancePayment(paymentData) {
+     const res = await client.apis.payments.addMaintenancePayment({}, { requestBody: paymentData });
+     return res.body;
+   }
+   
+   // BAD: Guess endpoint names or try multiple variations
+   ```
+
+2. **Data Structure Validation**
+   ```javascript
+   // ALWAYS log the exact data being sent
+   console.log('Sending payment data:', paymentData);
+   // Verify it matches the working manual API test
+   ```
+
+3. **Field Name Verification**
+   ```javascript
+   // DON'T assume field names
+   residenceId: maintenance?.residenceId // WRONG
+   
+   // DO verify actual field requirements
+   residenceId: residenceId // CORRECT - from parent component
+   ```
+
+#### **Component Pattern Replication Rules:**
+
+1. **Form Components**: Copy exact prop structure, form fields, validation from working forms
+2. **List Components**: Copy exact accordion pattern, date handling, currency formatting
+3. **API Integration**: Copy exact endpoint calling pattern, error handling, response processing
+4. **Parent-Child Data Flow**: Copy exact prop passing, effect patterns, state management
+
+#### **Debugging Strategy When Things Don't Work:**
+
+1. **Check Console Logs Appear**: If no console logs show, error is before your code runs
+2. **Verify API Endpoint Exists**: 500 errors often mean wrong endpoint name
+3. **Compare Data Structures**: Match your request exactly to known working requests
+4. **Test Components in Isolation**: Don't integrate until individual pieces work
+5. **Check Parent-Child Prop Flow**: Missing props cause silent failures
+
+#### **Quick Reference - Working Payment Pattern:**
+```javascript
+// API Method (in api.svelte.js)
+async createMaintenancePayment(paymentData) {
+  const client = await this.getClient();
+  const res = await client.apis.payments.addMaintenancePayment({}, { requestBody: paymentData });
+  return res.body;
+}
+
+// Data Structure
+const paymentData = {
+  residenceId: residenceId, // NOT maintenanceId!
+  amount: parseFloat(amount),
+  transactionDate: new Date(date).toISOString(),
+  yearMonth: 202507, // YYYYMM format
+  description: description,
+  userId: userState.user?.id
+};
+
+// Component Props
+<MaintenancePaymentForm 
+  maintenance={latestActiveMaintenance} 
+  residenceId={id}  // REQUIRED: Pass from parent
+  onSuccess={onMaintenancePaymentSuccess} 
+/>
+```
+
+---

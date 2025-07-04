@@ -447,6 +447,25 @@
 				"thisMonthCalculation": "This Month Calculation",
 				"totalAmountToPay": "Total Amount To Pay",
 				"withFormula": "With Formula"
+			},
+			"list": {
+				"title": "Maintenance History",
+				"noMaintenances": "No maintenance records found."
+			},
+			"payment": {
+				"title": "Maintenance Payments",
+				"addPayment": "Add Payment",
+				"amount": "Amount",
+				"amountPlaceholder": "Enter amount (positive for payments, negative for refunds)",
+				"transactionDate": "Transaction Date",
+				"yearMonth": "Year Month",
+				"description": "Description",
+				"descriptionPlaceholder": "Enter payment description",
+				"paymentHistory": "Payment History",
+				"payment": "payment",
+				"payments": "payments",
+				"noPayments": "No payments recorded yet.",
+				"invalidAmount": "Please enter a valid amount"
 			}
 		},
 		"legal": {
