@@ -9,6 +9,8 @@
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
 	import DistributionCard from '$lib/components/expenses/distribution-card.svelte';
 	import CalculationsList from '$lib/components/calculations/list.svelte';
+	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
+	import PaymentList from '$lib/components/expenses/payment-list.svelte';
 
 	requiresAuth(locale);
 
@@ -34,6 +36,27 @@
 			calculations = await api.getAllCalculationsByExpense(id);
 		}
 	});
+
+	// Expense payments
+	let payments = $state([]);
+	$effect(async () => {
+		if (id) {
+			try {
+				const result = await api.getExpensePaymentsByExpenseId(id);
+				payments = result;
+			} catch (error) {
+				console.error('Error fetching expense payments:', error);
+				payments = [];
+			}
+		}
+	});
+
+	async function onPaymentSuccess(newPayment) {
+		// Refresh payments list
+		payments = await api.getExpensePaymentsByExpenseId(id);
+		// Also refresh calculations to show updated paid amounts
+		calculations = await api.getAllCalculationsByExpense(id);
+	}
 	// Expense distributions
 	let distributions = $state([]);
 	let showDistributionForm = $state(false);
@@ -190,6 +213,14 @@
 			<section>
 				<h2>{$_('pages.expenses.detail.calculations')}</h2>
 				<CalculationsList {calculations} />
+			</section>
+
+			<section>
+				<PaymentForm {expense} onSuccess={onPaymentSuccess} />
+			</section>
+
+			<section>
+				<PaymentList {payments} {society} />
 			</section>
 		{:else}
 			<p>Loading...</p>

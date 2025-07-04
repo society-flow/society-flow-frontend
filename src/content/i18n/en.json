@@ -408,6 +408,21 @@
 			"distributionCard": {
 				"type": "Type",
 				"coverage": "Coverage"
+			},
+			"payment": {
+				"title": "Expense Payments",
+				"addPayment": "Add Payment",
+				"amount": "Amount",
+				"amountPlaceholder": "Enter amount (positive for payments, negative for refunds)",
+				"transactionDate": "Transaction Date",
+				"yearMonth": "Year Month",
+				"description": "Description",
+				"descriptionPlaceholder": "Enter payment description",
+				"paymentHistory": "Payment History",
+				"payment": "payment",
+				"payments": "payments",
+				"noPayments": "No payments recorded yet.",
+				"invalidAmount": "Please enter a valid amount"
 			}
 		},
 		"maintenances": {
@@ -461,6 +476,8 @@
 		"deleting": "Deleting...",
 		"cancel": "Cancel",
 		"update": "Update",
+		"save": "Save",
+		"saving": "Saving...",
 		"contact_admin": "Contact administrator",
 		"contact_user": "Contact user",
 		"created": "Created",
