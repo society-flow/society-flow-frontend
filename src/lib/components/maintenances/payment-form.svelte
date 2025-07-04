@@ -4,7 +4,7 @@
 	import { userState } from '$lib/states/user.svelte.js';
 	import Error from '$lib/components/error.svelte';
 
-	const { expense, onSuccess = () => {} } = $props();
+	const { maintenance, residenceId, onSuccess = () => {} } = $props();
 
 	let error = $state(null);
 	let isSubmitting = $state(false);
@@ -18,7 +18,7 @@
 	}
 
 	let form = $state({
-		expenseId: expense?.id || '',
+		residenceId: residenceId || '',
 		amount: '',
 		transactionDate: new Date().toISOString().split('T')[0],
 		yearMonth: getCurrentYearMonth(),
@@ -28,13 +28,18 @@
 
 	async function handleSubmit() {
 		try {
+			console.log('handleSubmit called');
+			console.log('Form data:', form);
+			console.log('Maintenance prop:', maintenance);
+			
 			isSubmitting = true;
 			error = null;
 			
 			// Validate amount is a valid number (can be negative for refunds)
 			const amount = parseFloat(form.amount);
+			console.log('Parsed amount:', amount);
 			if (isNaN(amount)) {
-				error = { message: $_('components.expenses.payment.invalidAmount') };
+				error = { message: $_('components.maintenances.payment.invalidAmount') };
 				return;
 			}
 			
@@ -44,14 +49,16 @@
 				transactionDate: new Date(form.transactionDate).toISOString()
 			};
 
-			const result = await api.createExpensePayment(paymentData);
-			console.log('Payment created successfully:', result);
-			console.log('Calling onSuccess callback...');
+			console.log('Sending maintenance payment data:', paymentData);
+			console.log('Maintenance object:', maintenance);
+			
+			const result = await api.createMaintenancePayment(paymentData);
+			console.log('Maintenance payment created successfully:', result);
 			onSuccess(result);
 			
 			// Reset form
 			form = {
-				expenseId: expense?.id || '',
+				residenceId: residenceId || '',
 				amount: '',
 				transactionDate: new Date().toISOString().split('T')[0],
 				yearMonth: getCurrentYearMonth(),
@@ -60,6 +67,8 @@
 			};
 			showForm = false;
 		} catch (e) {
+			console.error('Maintenance payment creation failed:', e);
+			console.error('Error details:', e.response || e.message || e);
 			error = e;
 		} finally {
 			isSubmitting = false;
@@ -70,7 +79,7 @@
 		showForm = false;
 		error = null;
 		form = {
-			expenseId: expense?.id || '',
+			residenceId: residenceId || '',
 			amount: '',
 			transactionDate: new Date().toISOString().split('T')[0],
 			yearMonth: getCurrentYearMonth(),
@@ -80,12 +89,12 @@
 	}
 </script>
 
-<section class="expense-payment-form">
+<section class="maintenance-payment-form">
 	<header>
-		<h3>{$_('components.expenses.payment.title')}</h3>
+		<h3>{$_('components.maintenances.payment.title')}</h3>
 		{#if !showForm}
 			<button type="button" onclick={() => showForm = true}>
-				{$_('components.expenses.payment.addPayment')}
+				{$_('components.maintenances.payment.addPayment')}
 			</button>
 		{/if}
 	</header>
@@ -93,19 +102,19 @@
 	{#if showForm}
 		<form onsubmit={handleSubmit}>
 			<fieldset>
-				<legend>{$_('components.expenses.payment.amount')}</legend>
+				<legend>{$_('components.maintenances.payment.amount')}</legend>
 				<input
 					type="text"
 					inputmode="decimal"
 					pattern="-?[0-9]*\.?[0-9]*"
 					bind:value={form.amount}
-					placeholder={$_('components.expenses.payment.amountPlaceholder')}
+					placeholder={$_('components.maintenances.payment.amountPlaceholder')}
 					required
 				/>
 			</fieldset>
 
 			<fieldset>
-				<legend>{$_('components.expenses.payment.transactionDate')}</legend>
+				<legend>{$_('components.maintenances.payment.transactionDate')}</legend>
 				<input
 					type="date"
 					bind:value={form.transactionDate}
@@ -114,7 +123,7 @@
 			</fieldset>
 
 			<fieldset>
-				<legend>{$_('components.expenses.payment.yearMonth')}</legend>
+				<legend>{$_('components.maintenances.payment.yearMonth')}</legend>
 				<input
 					type="number"
 					min="202301"
@@ -126,11 +135,11 @@
 			</fieldset>
 
 			<fieldset>
-				<legend>{$_('components.expenses.payment.description')}</legend>
+				<legend>{$_('components.maintenances.payment.description')}</legend>
 				<input
 					type="text"
 					bind:value={form.description}
-					placeholder={$_('components.expenses.payment.descriptionPlaceholder')}
+					placeholder={$_('components.maintenances.payment.descriptionPlaceholder')}
 				/>
 			</fieldset>
 
@@ -153,14 +162,14 @@
 </section>
 
 <style>
-	.expense-payment-form {
+	.maintenance-payment-form {
 		border: 1px solid #e0e0e0;
 		border-radius: 8px;
 		padding: 1rem;
 		margin: 1rem 0;
 	}
 
-	.expense-payment-form header {
+	.maintenance-payment-form header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

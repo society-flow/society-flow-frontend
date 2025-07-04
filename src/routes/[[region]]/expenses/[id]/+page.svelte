@@ -33,7 +33,12 @@
 	let calculations = $state([]);
 	$effect(async () => {
 		if (id) {
-			calculations = await api.getAllCalculationsByExpense(id);
+			try {
+				calculations = await api.getAllCalculationsByExpense(id);
+			} catch (error) {
+				console.error('Error fetching calculations:', error);
+				calculations = [];
+			}
 		}
 	});
 
@@ -52,10 +57,18 @@
 	});
 
 	async function onPaymentSuccess(newPayment) {
-		// Refresh payments list
-		payments = await api.getExpensePaymentsByExpenseId(id);
-		// Also refresh calculations to show updated paid amounts
-		calculations = await api.getAllCalculationsByExpense(id);
+		console.log('Payment success, refreshing data...');
+		try {
+			// Refresh payments list
+			const newPayments = await api.getExpensePaymentsByExpenseId(id);
+			console.log('New payments:', newPayments);
+			payments = newPayments;
+			
+			// Also refresh calculations to show updated paid amounts
+			calculations = await api.getAllCalculationsByExpense(id);
+		} catch (error) {
+			console.error('Error refreshing data after payment:', error);
+		}
 	}
 	// Expense distributions
 	let distributions = $state([]);
@@ -211,8 +224,7 @@
 			</section>
 
 			<section>
-				<h2>{$_('pages.expenses.detail.calculations')}</h2>
-				<CalculationsList {calculations} />
+				<CalculationsList {calculations} {society} />
 			</section>
 
 			<section>

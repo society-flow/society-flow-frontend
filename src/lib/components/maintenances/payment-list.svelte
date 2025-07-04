@@ -9,7 +9,9 @@
 
 	// Update grouped payments when payments change
 	$effect(() => {
+		console.log('MaintenancePaymentList received payments:', payments);
 		if (!payments || payments.length === 0) {
+			console.log('No maintenance payments, setting empty');
 			groupedPayments = {};
 			sortedYearMonths = [];
 			return;
@@ -17,6 +19,7 @@
 		
 		const grouped = payments.reduce((acc, payment) => {
 			const yearMonth = payment.yearMonth;
+			console.log('Processing maintenance payment:', payment, 'yearMonth:', yearMonth);
 			if (!acc[yearMonth]) {
 				acc[yearMonth] = [];
 			}
@@ -27,19 +30,27 @@
 		// Sort each group by transaction date (newest first)
 		Object.keys(grouped).forEach(key => {
 			grouped[key].sort((a, b) => {
-				const dateA = new Date(a.transactionDate);
-				const dateB = new Date(b.transactionDate);
-				// If dates are invalid, fall back to string comparison
-				if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
+				try {
+					const dateA = new Date(a.transactionDate);
+					const dateB = new Date(b.transactionDate);
+					// If dates are invalid, fall back to string comparison
+					if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
+						console.log('Invalid dates found:', a.transactionDate, b.transactionDate);
+						return b.transactionDate.localeCompare(a.transactionDate);
+					}
+					return dateB - dateA;
+				} catch (error) {
+					console.error('Date parsing error:', error, a.transactionDate, b.transactionDate);
 					return b.transactionDate.localeCompare(a.transactionDate);
 				}
-				return dateB - dateA;
 			});
 		});
 
+		console.log('Final grouped maintenance payments:', grouped);
 		groupedPayments = grouped;
 		
 		const sorted = Object.keys(grouped).sort((a, b) => parseInt(b) - parseInt(a));
+		console.log('Sorted maintenance payment months:', sorted);
 		sortedYearMonths = sorted;
 	});
 
@@ -60,20 +71,22 @@
 	let openAccordions = $state(new Set());
 
 	function toggleAccordion(yearMonth) {
+		console.log('toggleAccordion called for maintenance payments with:', yearMonth);
+		console.log('openAccordions before:', openAccordions);
 		if (openAccordions.has(yearMonth)) {
 			openAccordions.delete(yearMonth);
 		} else {
 			openAccordions.add(yearMonth);
 		}
 		openAccordions = new Set(openAccordions);
+		console.log('openAccordions after:', openAccordions);
 	}
 </script>
 
-<section class="expense-payment-list">
+<section class="maintenance-payment-list">
 	<header>
-		<h3>{$_('components.expenses.payment.paymentHistory')}</h3>
+		<h3>{$_('components.maintenances.payment.paymentHistory')}</h3>
 	</header>
-
 
 	{#if sortedYearMonths.length > 0}
 		<div class="accordion">
@@ -92,7 +105,7 @@
 						<div class="accordion-title">
 							<h4>{formatYearMonth(yearMonth)}</h4>
 							<span class="payment-count">
-								{monthPayments.length} {monthPayments.length === 1 ? $_('components.expenses.payment.payment') : $_('components.expenses.payment.payments')}
+								{monthPayments.length} {monthPayments.length === 1 ? $_('components.maintenances.payment.payment') : $_('components.maintenances.payment.payments')}
 							</span>
 						</div>
 						<div class="accordion-summary">
@@ -125,12 +138,12 @@
 			{/each}
 		</div>
 	{:else}
-		<p class="no-payments">{$_('components.expenses.payment.noPayments')}</p>
+		<p class="no-payments">{$_('components.maintenances.payment.noPayments')}</p>
 	{/if}
 </section>
 
 <style>
-	.expense-payment-list {
+	.maintenance-payment-list {
 		margin: 1rem 0;
 	}
 
