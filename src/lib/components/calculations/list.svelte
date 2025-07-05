@@ -293,11 +293,11 @@
 
 	.amounts .value {
 		font-weight: 600;
-		color: #1f2937;
+		color: #059669;
 	}
 
 	.amounts .value.paid {
-		color: #059669;
+		color: #666;
 	}
 
 	.calculation-meta {
