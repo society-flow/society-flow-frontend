@@ -387,6 +387,35 @@ class Api {
 		return res.body;
 	}
 
+	// --- Expense Payments ---
+	async createExpensePayment(paymentData) {
+		const client = await this.getClient();
+		const res = await client.apis.payments.addExpensePayment({}, { requestBody: paymentData });
+		return res.body;
+	}
+	async getExpensePaymentsByExpenseId(expenseId) {
+		const client = await this.getClient();
+		const res = await client.apis.payments.getAllPaymentsForExpense({ expenseId });
+		return res.body;
+	}
+
+	// --- Maintenance Payments ---
+	async createMaintenancePayment(paymentData) {
+		const client = await this.getClient();
+		const res = await client.apis.payments.addMaintenancePayment({}, { requestBody: paymentData });
+		return res.body;
+	}
+	async getMaintenancePaymentsByMaintenanceId(maintenanceId) {
+		const client = await this.getClient();
+		const res = await client.apis.payments.getAllPaymentsForMaintenance({ maintenanceId });
+		return res.body;
+	}
+	async getMaintenancePaymentsByResidenceId(residenceId) {
+		const client = await this.getClient();
+		const res = await client.apis.payments.getAllMaintenancePaymentsForResidence({ residenceId });
+		return res.body;
+	}
+
 
 	// --- Advertisings ---
 	async getAllAdvertisements(requestBody = {}) {

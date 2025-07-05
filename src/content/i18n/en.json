@@ -408,6 +408,29 @@
 			"distributionCard": {
 				"type": "Type",
 				"coverage": "Coverage"
+			},
+			"payment": {
+				"title": "Expense Payments",
+				"addPayment": "Add Payment",
+				"amount": "Amount",
+				"amountPlaceholder": "Enter amount (positive for payments, negative for refunds)",
+				"transactionDate": "Transaction Date",
+				"yearMonth": "Year Month",
+				"description": "Description",
+				"descriptionPlaceholder": "Enter payment description",
+				"paymentHistory": "Payment History",
+				"payment": "payment",
+				"payments": "payments",
+				"noPayments": "No payments recorded yet.",
+				"invalidAmount": "Please enter a valid amount",
+				"date": "Date",
+				"paymentId": "ID"
+			}
+		},
+		"calculations": {
+			"list": {
+				"calculatedForCollection": "Calculated for collection",
+				"actualExpensePaid": "Actual Expense Paid"
 			}
 		},
 		"maintenances": {
@@ -432,6 +455,34 @@
 				"thisMonthCalculation": "This Month Calculation",
 				"totalAmountToPay": "Total Amount To Pay",
 				"withFormula": "With Formula"
+			},
+			"list": {
+				"title": "Maintenance History",
+				"noMaintenances": "No maintenance records found.",
+				"active": "Active",
+				"inactive": "Inactive",
+				"previousAmount": "Previous Amount",
+				"fine": "Fine",
+				"thisMonth": "This Month",
+				"totalAmount": "Total Amount",
+				"maintenanceId": "ID"
+			},
+			"payment": {
+				"title": "Maintenance Payments",
+				"addPayment": "Add Payment",
+				"amount": "Amount",
+				"amountPlaceholder": "Enter amount (positive for payments, negative for refunds)",
+				"transactionDate": "Transaction Date",
+				"yearMonth": "Year Month",
+				"description": "Description",
+				"descriptionPlaceholder": "Enter payment description",
+				"paymentHistory": "Payment History",
+				"payment": "payment",
+				"payments": "payments",
+				"noPayments": "No payments recorded yet.",
+				"invalidAmount": "Please enter a valid amount",
+				"date": "Date",
+				"paymentId": "ID"
 			}
 		},
 		"legal": {
@@ -461,6 +512,8 @@
 		"deleting": "Deleting...",
 		"cancel": "Cancel",
 		"update": "Update",
+		"save": "Save",
+		"saving": "Saving...",
 		"contact_admin": "Contact administrator",
 		"contact_user": "Contact user",
 		"created": "Created",

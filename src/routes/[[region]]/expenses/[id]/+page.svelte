@@ -9,6 +9,8 @@
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
 	import DistributionCard from '$lib/components/expenses/distribution-card.svelte';
 	import CalculationsList from '$lib/components/calculations/list.svelte';
+	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
+	import PaymentList from '$lib/components/expenses/payment-list.svelte';
 
 	requiresAuth(locale);
 
@@ -30,10 +32,54 @@
 
 	let calculations = $state([]);
 	$effect(async () => {
-		if (id) {
-			calculations = await api.getAllCalculationsByExpense(id);
+		if (id && expense.societyId) {
+			try {
+				const rawCalculations = await api.getAllCalculationsByExpense(id);
+				const residences = await api.getAllResidencesInSociety(expense.societyId);
+				
+				// Enrich calculations with residence names
+				calculations = rawCalculations.map(calculation => {
+					const residence = residences.find(r => r.id === calculation.residenceId);
+					return {
+						...calculation,
+						residenceName: residence?.residenceName || calculation.residenceId
+					};
+				});
+			} catch (error) {
+				console.error('Error fetching calculations:', error);
+				calculations = [];
+			}
 		}
 	});
+
+	// Expense payments
+	let payments = $state([]);
+	$effect(async () => {
+		if (id) {
+			try {
+				const result = await api.getExpensePaymentsByExpenseId(id);
+				payments = result;
+			} catch (error) {
+				console.error('Error fetching expense payments:', error);
+				payments = [];
+			}
+		}
+	});
+
+	async function onPaymentSuccess(newPayment) {
+		console.log('Payment success, refreshing data...');
+		try {
+			// Refresh payments list
+			const newPayments = await api.getExpensePaymentsByExpenseId(id);
+			console.log('New payments:', newPayments);
+			payments = newPayments;
+			
+			// Also refresh calculations to show updated paid amounts
+			calculations = await api.getAllCalculationsByExpense(id);
+		} catch (error) {
+			console.error('Error refreshing data after payment:', error);
+		}
+	}
 	// Expense distributions
 	let distributions = $state([]);
 	let showDistributionForm = $state(false);
@@ -188,8 +234,15 @@
 			</section>
 
 			<section>
-				<h2>{$_('pages.expenses.detail.calculations')}</h2>
-				<CalculationsList {calculations} />
+				<CalculationsList {calculations} {society} />
+			</section>
+
+			<section>
+				<PaymentForm {expense} onSuccess={onPaymentSuccess} />
+			</section>
+
+			<section>
+				<PaymentList {payments} {society} />
 			</section>
 		{:else}
 			<p>Loading...</p>

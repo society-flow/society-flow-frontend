@@ -1,45 +1,45 @@
-<script>
+<script lang="javascript">
 	import { _ } from 'svelte-i18n';
+	import RelativeDate from '$lib/components/date/relative.svelte';
 
-	const { calculations, society } = $props();
+	const { payments, society } = $props();
 
-	let groupedCalculations = $state({});
+	let groupedPayments = $state({});
 	let sortedYearMonths = $state([]);
 
-	// Update grouped calculations when calculations change
+	// Update grouped payments when payments change
 	$effect(() => {
-		console.log('CalculationsList effect running, calculations:', calculations);
-		if (!calculations || calculations.length === 0) {
-			console.log('No calculations, setting empty');
-			groupedCalculations = {};
+		if (!payments || payments.length === 0) {
+			groupedPayments = {};
 			sortedYearMonths = [];
 			return;
 		}
 		
-		const grouped = calculations.reduce((acc, calculation) => {
-			const yearMonth = calculation.yearMonth;
+		const grouped = payments.reduce((acc, payment) => {
+			const yearMonth = payment.yearMonth;
 			if (!acc[yearMonth]) {
 				acc[yearMonth] = [];
 			}
-			acc[yearMonth].push(calculation);
+			acc[yearMonth].push(payment);
 			return acc;
 		}, {});
 
-		// Sort each group by residence name or ID
+		// Sort each group by transaction date (newest first)
 		Object.keys(grouped).forEach(key => {
 			grouped[key].sort((a, b) => {
-				// Sort by residence name if available, otherwise by residence ID
-				const nameA = a.residenceName || a.residenceId || '';
-				const nameB = b.residenceName || b.residenceId || '';
-				return nameA.localeCompare(nameB);
+				const dateA = new Date(a.transactionDate);
+				const dateB = new Date(b.transactionDate);
+				// If dates are invalid, fall back to string comparison
+				if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
+					return b.transactionDate.localeCompare(a.transactionDate);
+				}
+				return dateB - dateA;
 			});
 		});
 
-		console.log('Setting new grouped calculations:', grouped);
-		groupedCalculations = grouped;
+		groupedPayments = grouped;
 		
 		const sorted = Object.keys(grouped).sort((a, b) => parseInt(b) - parseInt(a));
-		console.log('Setting new sorted months:', sorted);
 		sortedYearMonths = sorted;
 	});
 
@@ -69,18 +69,18 @@
 	}
 </script>
 
-<section class="calculations-list">
+<section class="expense-payment-list">
 	<header>
-		<h3>{$_('pages.expenses.detail.calculations')}</h3>
+		<h3>{$_('components.expenses.payment.paymentHistory')}</h3>
 	</header>
+
 
 	{#if sortedYearMonths.length > 0}
 		<div class="accordion">
 			{#each sortedYearMonths as yearMonth}
 				{@const isOpen = openAccordions.has(yearMonth)}
-				{@const monthCalculations = groupedCalculations[yearMonth]}
-				{@const totalAmount = monthCalculations.reduce((sum, c) => sum + c.amountToPay, 0)}
-				{@const paidAmount = monthCalculations.reduce((sum, c) => sum + (c.expensePaid || 0), 0)}
+				{@const monthPayments = groupedPayments[yearMonth]}
+				{@const totalAmount = monthPayments.reduce((sum, p) => sum + p.amount, 0)}
 				{@const isLatest = yearMonth === sortedYearMonths[0]}
 				
 				<div class="accordion-item {isLatest ? 'latest' : 'historical'}">
@@ -91,44 +91,31 @@
 					>
 						<div class="accordion-title">
 							<h4>{formatYearMonth(yearMonth)}</h4>
-							<span class="calculation-count">
-								{monthCalculations.length} {monthCalculations.length === 1 ? 'residence' : 'residences'}
+							<span class="payment-count">
+								{monthPayments.length} {monthPayments.length === 1 ? $_('components.expenses.payment.payment') : $_('components.expenses.payment.payments')}
 							</span>
 						</div>
 						<div class="accordion-summary">
-							<div class="amount-info">
-								<span class="total-amount">{formatCurrency(totalAmount)}</span>
-								{#if paidAmount > 0}
-									<span class="paid-amount">({formatCurrency(paidAmount)} paid)</span>
-								{/if}
-							</div>
+							<span class="total-amount">{formatCurrency(totalAmount)}</span>
 							<span class="expand-icon {isOpen ? 'expanded' : ''}">{isOpen ? '▼' : '▶'}</span>
 						</div>
 					</button>
 
 					{#if isOpen}
 						<div class="accordion-content">
-							{#each monthCalculations as calculation}
-								<div class="calculation-item">
-									<div class="calculation-details">
-										<div class="residence-info">
-											<h5 class="residence-name">{calculation.residenceName || calculation.residenceId}</h5>
+							{#each monthPayments as payment}
+								<div class="payment-item">
+									<div class="payment-details">
+										<div class="payment-amount {payment.amount < 0 ? 'refund' : 'payment'}">{formatCurrency(payment.amount)}</div>
+										<div class="payment-date">
+											{$_('components.expenses.payment.date')}: {payment.transactionDate}
 										</div>
-										<div class="amounts">
-											<div class="amount-to-pay">
-												<span class="label">{$_('components.calculations.list.calculatedForCollection')}:</span>
-												<span class="value">{formatCurrency(calculation.amountToPay)}</span>
-											</div>
-											{#if calculation.expensePaid && calculation.expensePaid > 0}
-												<div class="expense-paid">
-													<span class="label">{$_('components.calculations.list.actualExpensePaid')}:</span>
-													<span class="value paid">{formatCurrency(calculation.expensePaid)}</span>
-												</div>
-											{/if}
-										</div>
+										{#if payment.description}
+											<div class="payment-description">{payment.description}</div>
+										{/if}
 									</div>
-									<div class="calculation-meta">
-										<small class="calculation-id">ID: {calculation.id.slice(-8)}</small>
+									<div class="payment-meta">
+										<small class="payment-id">{$_('components.expenses.payment.paymentId')}: {payment.id.slice(-8)}</small>
 									</div>
 								</div>
 							{/each}
@@ -138,12 +125,12 @@
 			{/each}
 		</div>
 	{:else}
-		<p class="no-calculations">{$_('pages.expenses.detail.noCalculations')}</p>
+		<p class="no-payments">{$_('components.expenses.payment.noPayments')}</p>
 	{/if}
 </section>
 
 <style>
-	.calculations-list {
+	.expense-payment-list {
 		margin: 1rem 0;
 	}
 
@@ -201,7 +188,7 @@
 		color: #374151;
 	}
 
-	.calculation-count {
+	.payment-count {
 		color: #666;
 		font-size: 0.9rem;
 		margin-top: 0.2rem;
@@ -213,20 +200,9 @@
 		gap: 1rem;
 	}
 
-	.amount-info {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-	}
-
 	.total-amount {
 		font-weight: 600;
 		color: #059669;
-	}
-
-	.paid-amount {
-		font-size: 0.8rem;
-		color: #666;
 	}
 
 	.expand-icon {
@@ -243,74 +219,58 @@
 		border-top: 1px solid #e0e0e0;
 	}
 
-	.calculation-item {
+	.payment-item {
 		display: flex;
 		justify-content: space-between;
-		align-items: flex-start;
+		align-items: center;
 		padding: 0.75rem 0;
 		border-bottom: 1px solid #f0f0f0;
 	}
 
-	.calculation-item:last-child {
+	.payment-item:last-child {
 		border-bottom: none;
 	}
 
-	.calculation-details {
+	.payment-details {
 		flex: 1;
 	}
 
-	.residence-info {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 0.5rem;
-	}
-
-	.residence-name {
-		margin: 0;
-		font-size: 1rem;
+	.payment-amount {
 		font-weight: 600;
-		color: #333;
+		font-size: 1.1rem;
 	}
 
-
-	.amounts {
-		display: flex;
-		gap: 1rem;
-	}
-
-	.amount-to-pay,
-	.expense-paid {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.amounts .label {
-		font-size: 0.8rem;
-		color: #666;
-		margin-bottom: 0.1rem;
-	}
-
-	.amounts .value {
-		font-weight: 600;
+	.payment-amount.payment {
 		color: #059669;
 	}
 
-	.amounts .value.paid {
+	.payment-amount.refund {
+		color: #dc2626;
+	}
+
+	.payment-date {
 		color: #666;
+		font-size: 0.9rem;
+		margin-top: 0.2rem;
 	}
 
-	.calculation-meta {
+	.payment-description {
+		color: #333;
+		font-size: 0.9rem;
+		margin-top: 0.2rem;
+		font-style: italic;
+	}
+
+	.payment-meta {
 		text-align: right;
-		margin-top: 0.5rem;
 	}
 
-	.calculation-id {
+	.payment-id {
 		color: #999;
 		font-size: 0.8rem;
 	}
 
-	.no-calculations {
+	.no-payments {
 		text-align: center;
 		padding: 2rem;
 		color: #666;
