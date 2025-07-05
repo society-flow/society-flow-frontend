@@ -1,7 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n';
 
-	const { maintenances, society } = $props();
+	const { maintenances, society, residence } = $props();
 
 	let groupedMaintenances = $state({});
 	let sortedYearMonths = $state([]);
@@ -72,8 +72,10 @@
 				{@const monthMaintenances = groupedMaintenances[yearMonth]}
 				{@const isLatest = yearMonth === sortedYearMonths[0]}
 				{@const activeMaintenance = monthMaintenances.find(m => m.isCurrent === true || m.isCurrent === 'true')}
+				{@const totalAmount = monthMaintenances.reduce((sum, m) => sum + m.totalAmountToPay, 0)}
+				{@const residenceCount = monthMaintenances.length}
 				
-				<div class="accordion-item {isLatest && activeMaintenance ? 'latest' : 'historical'}">
+				<div class="accordion-item {isLatest ? 'latest' : 'historical'}">
 					<button
 						class="accordion-header"
 						onclick={() => toggleAccordion(yearMonth)}
@@ -82,19 +84,16 @@
 						<div class="accordion-title">
 							<h4>{formatYearMonth(yearMonth)}</h4>
 							<span class="maintenance-status">
+								<span class="residence-count">{residenceCount} {residenceCount === 1 ? 'residence' : 'residences'}</span>
 								{#if activeMaintenance}
-									<span class="status-badge active">Active</span>
+									<span class="status-badge active">{$_('components.maintenances.list.active')}</span>
 								{:else}
-									<span class="status-badge inactive">Inactive</span>
+									<span class="status-badge inactive">{$_('components.maintenances.list.inactive')}</span>
 								{/if}
 							</span>
 						</div>
 						<div class="accordion-summary">
-							{#if activeMaintenance}
-								<span class="total-amount">{formatCurrency(activeMaintenance.totalAmountToPay)}</span>
-							{:else if monthMaintenances.length > 0}
-								<span class="total-amount">{formatCurrency(monthMaintenances[0].totalAmountToPay)}</span>
-							{/if}
+							<span class="total-amount">{formatCurrency(totalAmount)}</span>
 							<span class="expand-icon {isOpen ? 'expanded' : ''}">{isOpen ? '▼' : '▶'}</span>
 						</div>
 					</button>
@@ -105,26 +104,26 @@
 								<div class="maintenance-item">
 									<div class="maintenance-details">
 										<div class="maintenance-header">
-											<h5 class="maintenance-title">Maintenance Invoice</h5>
+											<h5 class="residence-name">{maintenance.residenceName || residence?.residenceName || `Residence ${maintenance.residenceId.slice(-8)}`}</h5>
 											<div class="maintenance-status-badge {maintenance.isCurrent ? 'active' : 'inactive'}">
-												{maintenance.isCurrent ? 'Active' : 'Inactive'}
+												{maintenance.isCurrent ? $_('components.maintenances.list.active') : $_('components.maintenances.list.inactive')}
 											</div>
 										</div>
 										<div class="amounts">
 											<div class="amount-row">
-												<span class="label">Previous Amount:</span>
+												<span class="label">{$_('components.maintenances.list.previousAmount')}:</span>
 												<span class="value">{formatCurrency(maintenance.previousAmountToPay)}</span>
 											</div>
 											<div class="amount-row">
-												<span class="label">Fine:</span>
+												<span class="label">{$_('components.maintenances.list.fine')}:</span>
 												<span class="value">{formatCurrency(maintenance.fineToPay)}</span>
 											</div>
 											<div class="amount-row">
-												<span class="label">This Month:</span>
+												<span class="label">{$_('components.maintenances.list.thisMonth')}:</span>
 												<span class="value">{formatCurrency(maintenance.thisMonthCalculation)}</span>
 											</div>
 											<div class="amount-row total">
-												<span class="label">Total Amount:</span>
+												<span class="label">{$_('components.maintenances.list.totalAmount')}:</span>
 												<span class="value total-amount">{formatCurrency(maintenance.totalAmountToPay)}</span>
 											</div>
 										</div>
@@ -135,7 +134,7 @@
 										{/if}
 									</div>
 									<div class="maintenance-meta">
-										<small class="maintenance-id">ID: {maintenance.id.slice(-8)}</small>
+										<small class="maintenance-id">{$_('components.maintenances.list.maintenanceId')}: {maintenance.id.slice(-8)}</small>
 									</div>
 								</div>
 							{/each}
@@ -197,10 +196,27 @@
 		margin: 0;
 		font-size: 1.1rem;
 		font-weight: 600;
+		color: #1f2937;
+	}
+
+	.accordion-item.latest .accordion-title h4 {
+		color: #065f46;
+	}
+
+	.accordion-item.historical .accordion-title h4 {
+		color: #374151;
 	}
 
 	.maintenance-status {
 		margin-top: 0.2rem;
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.residence-count {
+		color: #666;
+		font-size: 0.9rem;
 	}
 
 	.status-badge {
@@ -269,9 +285,9 @@
 		margin-bottom: 0.5rem;
 	}
 
-	.maintenance-title {
+	.residence-name {
 		margin: 0;
-		font-size: 1rem;
+		font-size: 1.1rem;
 		font-weight: 600;
 		color: #333;
 	}

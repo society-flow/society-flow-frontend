@@ -108,14 +108,14 @@
 									<div class="payment-details">
 										<div class="payment-amount {payment.amount < 0 ? 'refund' : 'payment'}">{formatCurrency(payment.amount)}</div>
 										<div class="payment-date">
-											Date: {payment.transactionDate}
+											{$_('components.expenses.payment.date')}: {payment.transactionDate}
 										</div>
 										{#if payment.description}
 											<div class="payment-description">{payment.description}</div>
 										{/if}
 									</div>
 									<div class="payment-meta">
-										<small class="payment-id">ID: {payment.id.slice(-8)}</small>
+										<small class="payment-id">{$_('components.expenses.payment.paymentId')}: {payment.id.slice(-8)}</small>
 									</div>
 								</div>
 							{/each}
@@ -177,6 +177,15 @@
 		margin: 0;
 		font-size: 1.1rem;
 		font-weight: 600;
+		color: #1f2937;
+	}
+
+	.accordion-item.latest .accordion-title h4 {
+		color: #065f46;
+	}
+
+	.accordion-item.historical .accordion-title h4 {
+		color: #374151;
 	}
 
 	.payment-count {

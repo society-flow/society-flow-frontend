@@ -116,12 +116,12 @@
 										</div>
 										<div class="amounts">
 											<div class="amount-to-pay">
-												<span class="label">Amount:</span>
+												<span class="label">{$_('components.calculations.list.calculatedForCollection')}:</span>
 												<span class="value">{formatCurrency(calculation.amountToPay)}</span>
 											</div>
 											{#if calculation.expensePaid && calculation.expensePaid > 0}
 												<div class="expense-paid">
-													<span class="label">Paid:</span>
+													<span class="label">{$_('components.calculations.list.actualExpensePaid')}:</span>
 													<span class="value paid">{formatCurrency(calculation.expensePaid)}</span>
 												</div>
 											{/if}
@@ -190,6 +190,15 @@
 		margin: 0;
 		font-size: 1.1rem;
 		font-weight: 600;
+		color: #1f2937;
+	}
+
+	.accordion-item.latest .accordion-title h4 {
+		color: #065f46;
+	}
+
+	.accordion-item.historical .accordion-title h4 {
+		color: #374151;
 	}
 
 	.calculation-count {
@@ -284,6 +293,7 @@
 
 	.amounts .value {
 		font-weight: 600;
+		color: #1f2937;
 	}
 
 	.amounts .value.paid {
