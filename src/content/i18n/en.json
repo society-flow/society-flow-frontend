@@ -422,7 +422,15 @@
 				"payment": "payment",
 				"payments": "payments",
 				"noPayments": "No payments recorded yet.",
-				"invalidAmount": "Please enter a valid amount"
+				"invalidAmount": "Please enter a valid amount",
+				"date": "Date",
+				"paymentId": "ID"
+			}
+		},
+		"calculations": {
+			"list": {
+				"calculatedForCollection": "Calculated for collection",
+				"actualExpensePaid": "Actual Expense Paid"
 			}
 		},
 		"maintenances": {
@@ -450,7 +458,14 @@
 			},
 			"list": {
 				"title": "Maintenance History",
-				"noMaintenances": "No maintenance records found."
+				"noMaintenances": "No maintenance records found.",
+				"active": "Active",
+				"inactive": "Inactive",
+				"previousAmount": "Previous Amount",
+				"fine": "Fine",
+				"thisMonth": "This Month",
+				"totalAmount": "Total Amount",
+				"maintenanceId": "ID"
 			},
 			"payment": {
 				"title": "Maintenance Payments",
@@ -465,7 +480,9 @@
 				"payment": "payment",
 				"payments": "payments",
 				"noPayments": "No payments recorded yet.",
-				"invalidAmount": "Please enter a valid amount"
+				"invalidAmount": "Please enter a valid amount",
+				"date": "Date",
+				"paymentId": "ID"
 			}
 		},
 		"legal": {

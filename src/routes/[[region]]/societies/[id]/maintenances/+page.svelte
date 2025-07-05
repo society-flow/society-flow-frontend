@@ -13,7 +13,14 @@
 		if (id) {
 			const residences = await api.getAllResidencesInSociety(id);
 			const maintenancesByResidence = await Promise.all(
-				residences.map((residence) => api.getAllMaintenances(id, residence.id))
+				residences.map(async (residence) => {
+					const residenceMaintenances = await api.getAllMaintenances(id, residence.id);
+					// Add residence name to each maintenance record
+					return residenceMaintenances.map(maintenance => ({
+						...maintenance,
+						residenceName: residence.residenceName
+					}));
+				})
 			);
 			maintenances = maintenancesByResidence.flat();
 		}

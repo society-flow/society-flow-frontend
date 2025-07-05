@@ -107,7 +107,7 @@
 
 {#if isMember || isAdmin}
 	<section>
-		<MaintenancesList {maintenances} {society} />
+		<MaintenancesList {maintenances} {society} {residence} />
 	</section>
 
 	{#if latestActiveMaintenance}

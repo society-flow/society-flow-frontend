@@ -32,9 +32,19 @@
 
 	let calculations = $state([]);
 	$effect(async () => {
-		if (id) {
+		if (id && expense.societyId) {
 			try {
-				calculations = await api.getAllCalculationsByExpense(id);
+				const rawCalculations = await api.getAllCalculationsByExpense(id);
+				const residences = await api.getAllResidencesInSociety(expense.societyId);
+				
+				// Enrich calculations with residence names
+				calculations = rawCalculations.map(calculation => {
+					const residence = residences.find(r => r.id === calculation.residenceId);
+					return {
+						...calculation,
+						residenceName: residence?.residenceName || calculation.residenceId
+					};
+				});
 			} catch (error) {
 				console.error('Error fetching calculations:', error);
 				calculations = [];
