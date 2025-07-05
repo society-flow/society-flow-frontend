@@ -1,11 +1,20 @@
 # Society Maintenance App - Business Logic Documentation
 
+## 🚀 Getting Started for New Sessions
+
+**IMPORTANT**: When starting a new Claude Code session:
+1. **Read this file first**: This CLAUDE.md contains all critical business logic, API patterns, and lessons learned
+2. **Use `/init`**: This will read the existing CLAUDE.md file and prepare you with context
+3. **Wait for user input**: After reading, wait for specific feature requests before implementing
+
+**DO NOT** create a new CLAUDE.md file - always read and build upon this existing one.
+
 ## 📋 Overview
 
 You are an expert renowned UI UX developer with extensive business knowledge of real-estate administration management (Hausverwaltung in Germany).
 In the existing project you should read in-depth and understand the already done pattern of svelte coding, routes, components for repeated usage etc. 
 This document captures the core business logic, API patterns, and domain knowledge of the Society Maintenance Application backend for frontend development purposes.
-Then wait for my wait for my input before implementing new feature additions in this svelte ui frontend project.
+Then wait for my input before implementing new feature additions in this svelte ui frontend project.
 ## 🏗️ Core Business Concepts
 
 ### **Entity Hierarchy**
@@ -167,13 +176,12 @@ Total Amount = Previous Balance + Fine + This yearMonth Calculations sum for the
 - Calculation: accordion on the latest yearMonth with all records expense unpaid are updatable green, rest previous yearMonth accordions are grey.
 - Maintenance: accordion on the latest yearMonth with isActive = true is green, rest previosu yearMonth accordions are grey.
 
-### **Key User Flows to be Present**
-1. **User logged in Dashboard**: All societies part of (with role on that society), all advertisements created by self. done already.
-2. **Expense Management**: Create, edit, distribute expenses. done already.
-3. **Calculation Trigger**: Monthly calculation trigger. done already in expenses page.
-4. **Maintenance Generation**: Per-residence maintenance trigger. done already in residences page.
-5. **Payment Processing**: not yet done. Record payments of maintenance type inside a residence page, payment of expense type inside expense page. Also should read them in yearMonth accordion wise in descending order of yearMonth. 
-6. **Financial Reports**: Fund value in society and residence level are done. Payment histories not yet done. 
+### **Key User Flows Status**
+1. **Expense Management**: ✅ Create, edit, distribute expenses
+2. **Calculation Trigger**: ✅ Monthly calculation trigger  
+3. **Maintenance Generation**: ✅ Per-residence maintenance trigger
+4. **Payment Processing**: ✅ Maintenance & expense payments with accordion history
+5. **Financial Reports**: ✅ Fund values, ✅ Payment histories 
 
 ### **Recommended Tech Stack Integration**
 - **Form Validation**: Client-side validation matching backend rules
@@ -288,16 +296,29 @@ grep -r "payment-form" src/
 4. **Test Components in Isolation**: Don't integrate until individual pieces work
 5. **Check Parent-Child Prop Flow**: Missing props cause silent failures
 
-#### **Quick Reference - Working Payment Pattern:**
+#### **Recent Error Corrections & Key Fixes:**
+
+1. **Color Consistency in Accordions**: Fixed calculations accordion where calculated amounts (teal) and paid amounts (dark gray) were inconsistent between summary and detail levels
+
+2. **Internationalization (i18n) Compliance**: 
+   - Added missing i18n keys for all hardcoded text in payment forms and lists
+   - Fixed "Date:", "ID:", "Active/Inactive", amount labels to use proper i18n
+   - All UI text now properly translatable
+
+3. **Data Enrichment Patterns**:
+   - **Society-level pages**: Must enrich data with residence names since API only returns IDs
+   - **Residence-level pages**: Pass residence object as prop to child components
+   - Pattern: Fetch related data → map/enrich → display with human-readable names
+
+#### **Quick Reference - Working Patterns:**
 ```javascript
-// API Method (in api.svelte.js)
+// 1. API Payment Pattern
 async createMaintenancePayment(paymentData) {
-  const client = await this.getClient();
   const res = await client.apis.payments.addMaintenancePayment({}, { requestBody: paymentData });
   return res.body;
 }
 
-// Data Structure
+// 2. Data Structure (residence payments)
 const paymentData = {
   residenceId: residenceId, // NOT maintenanceId!
   amount: parseFloat(amount),
@@ -307,12 +328,14 @@ const paymentData = {
   userId: userState.user?.id
 };
 
-// Component Props
-<MaintenancePaymentForm 
-  maintenance={latestActiveMaintenance} 
-  residenceId={id}  // REQUIRED: Pass from parent
-  onSuccess={onMaintenancePaymentSuccess} 
-/>
+// 3. Data Enrichment (society-level lists)
+const enrichedData = rawData.map(item => ({
+  ...item,
+  residenceName: residences.find(r => r.id === item.residenceId)?.residenceName
+}));
+
+// 4. i18n Usage (always for UI text)
+<span class="label">{$_('components.calculations.list.calculatedForCollection')}:</span>
 ```
 
 ---
