@@ -53,6 +53,8 @@ Expenses are distributed across residences using multiple calculation modes:
 
 #### **2. Financial Flow**
 ```
+An expense has per Month amount that need to be collected from reidences. Admin triggers calculation on society level for all expenses. A calculation is for an expense on a given yearMonth for a residence to pay.
+Admin can then trigger the maintenance preparation logic for the same yearMonth. Now for each residence the system will sum up the calculations done under earch expense to figure out how much the residence should pay for the current yearMonth + any previous balance not paid with interest.
 Maintenance Payment for a residence by admin → Residence Fund increases → Society Fund increases. Next month's maintenance carry over balance will check all mainteance payments done towards previous yearMonth.
 Expense Payment towards external expense serivce provider by admin -> Society Fun reduces -> Existing calculations of that (expense, yearMonth) for all active residences will now be updated with distribution wise expensePaid amount for that residence and residence fund would be reduced by that distributed amount. 
 ```
