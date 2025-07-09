@@ -164,7 +164,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Calculs des dépenses",
-        "triggerCalculations": "Déclencher des calculs",
+        "triggerCalculations": "Calculs de maintenance",
         "noExpensesConfigured": "Aucune dépense configurée.",
         "members": "Membres",
         "user_residences": "Mes résidences",
@@ -175,6 +175,7 @@
         }
       }
     },
+    "funds": "Fonds",
     "delete": {
       "confirm": "Êtes-vous sûr de vouloir supprimer"
     },
@@ -408,6 +409,29 @@
       "distributionCard": {
         "type": "Type",
         "coverage": "Couverture"
+      },
+      "payment": {
+        "title": "Paiements de dépenses",
+        "addPayment": "Ajouter un paiement",
+        "amount": "Montant",
+        "amountPlaceholder": "Entrez le montant (positif pour les paiements, négatif pour les remboursements)",
+        "transactionDate": "Date de la transaction",
+        "yearMonth": "Année Mois",
+        "description": "Description",
+        "descriptionPlaceholder": "Entrez la description du paiement",
+        "paymentHistory": "Historique des paiements",
+        "payment": "paiement",
+        "payments": "paiements",
+        "noPayments": "Aucun paiement enregistré pour le moment.",
+        "invalidAmount": "Veuillez entrer un montant valide",
+        "date": "Date",
+        "paymentId": "ID"
+      }
+    },
+    "calculations": {
+      "list": {
+        "calculatedForCollection": "Calculé pour la collecte",
+        "actualExpensePaid": "Dépense réelle payée"
       }
     },
     "maintenances": {
@@ -432,6 +456,34 @@
         "thisMonthCalculation": "Calcul de ce mois",
         "totalAmountToPay": "Montant total à payer",
         "withFormula": "Avec la formule"
+      },
+      "list": {
+        "title": "Historique de la maintenance",
+        "noMaintenances": "Aucun enregistrement de maintenance trouvé.",
+        "active": "Actif",
+        "inactive": "Inactif",
+        "previousAmount": "Montant précédent",
+        "fine": "Amende",
+        "thisMonth": "Ce mois-ci",
+        "totalAmount": "Montant total",
+        "maintenanceId": "ID"
+      },
+      "payment": {
+        "title": "Paiements de maintenance",
+        "addPayment": "Ajouter un paiement",
+        "amount": "Montant",
+        "amountPlaceholder": "Entrez le montant (positif pour les paiements, négatif pour les remboursements)",
+        "transactionDate": "Date de la transaction",
+        "yearMonth": "Année Mois",
+        "description": "Description",
+        "descriptionPlaceholder": "Entrez la description du paiement",
+        "paymentHistory": "Historique des paiements",
+        "payment": "paiement",
+        "payments": "paiements",
+        "noPayments": "Aucun paiement enregistré pour le moment.",
+        "invalidAmount": "Veuillez entrer un montant valide",
+        "date": "Date",
+        "paymentId": "ID"
       }
     },
     "legal": {
@@ -461,6 +513,8 @@
     "deleting": "Suppression...",
     "cancel": "Annuler",
     "update": "Mettre à jour",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
     "contact_admin": "Contacter l'administrateur",
     "contact_user": "Contacter l'utilisateur",
     "created": "Créé",

@@ -1,522 +1,576 @@
 {
-  "title": "تدفق المجتمع",
-  "catch_line": "شارك الخدمات. قسّم التكاليف. قم بتقوية مجتمعك.",
-  "menu": {
-    "home": "الصفحة الرئيسية",
-    "societies": "المجتمعات",
-    "residences": "المساكن",
-    "expenses": "المصروفات",
-    "maintenances": "الصيانة",
-    "ads": "الإعلانات",
-    "map": "الخريطة",
-    "about": "حول",
-    "styles": "الأنماط",
-    "settings": "الإعدادات",
-    "auth.login": "تسجيل الدخول",
-    "auth.logout": "تسجيل الخروج",
-    "auth.register": "تسجيل",
-    "auth.verify-otp": "التحقق من رمز المرور لمرة واحدة",
-    "legal": "قانوني",
-    "legal.terms-of-service": "شروط الخدمة",
-    "legal.privacy-policy": "سياسة الخصوصية",
-    "legal.data-processing-info": "معلومات معالجة البيانات",
-    "legal.cookie-policy": "سياسة ملفات تعريف الارتباط",
-    "create.societies": "إنشاء مجتمع جديد",
-    "create.residences": "إنشاء سكن جديد",
-    "create.maintenances": "إنشاء صيانة",
-    "create.ads": "إنشاء إعلان جديد",
-    "create.expenses": "إنشاء مصروف جديد",
-    "update.societies": "تحديث المجتمع",
-    "update.residences": "تحديث السكن",
-    "update.maintenances": "تحديث الصيانة",
-    "update.ads": "تحديث الإعلان",
-    "update.expenses": "تحديث المصروف"
-  },
-  "pages": {
-    "auth": {
-      "verify-otp": {
-        "sections": {
-          "did-not-receive": {
-            "text": "ألم تتلق رسالة بريد إلكتروني تحتوي على رمز المرور لمرة واحدة؟"
-          },
-          "resend": {
-            "text": "إعادة إرسال البريد الإلكتروني",
-            "link": {
-              "url": "/auth/login?email={email}",
-              "text": "menu.auth.verify-otp"
-            }
-          }
-        }
-      },
-      "register": {
-        "sections": {
-          "have-account": {
-            "text": "هل لديك حساب بالفعل؟",
-            "link": {
-              "url": "/auth/login",
-              "text": "menu.auth.login"
-            }
-          }
-        }
-      },
-      "login": {
-        "sections": {
-          "no-account": {
-            "text": "أليس لديك حساب بعد؟ إنه مجاني",
-            "link": {
-              "url": "/auth/register",
-              "text": "menu.auth.register"
-            }
-          }
-        }
-      }
-    },
-    "settings": {
-      "sections": {
-        "development": {
-          "title": "التطوير"
-        },
-        "demo": {
-          "title": "عرض توضيحي",
-          "loginText": "تسجيل دخول مستخدم العرض التوضيحي",
-          "logoutText": "تسجيل خروج مستخدم العرض التوضيحي"
-        }
-      }
-    },
-    "home": {
-      "auth": {
-        "greeting": "مرحباً {name} ({email}).",
-        "dashboard": {
-          "title": "لوحة القيادة الخاصة بك"
-        },
-        "sections": {
-          "societies": "المجتمعات",
-          "residences": "المساكن"
-        }
-      },
-      "marketing": {
-        "user_types": {
-          "society_admin": {
-            "title": "مسؤولي المجتمع",
-            "features": [
-              "إنشاء مجتمع واحد أو أكثر",
-              "دعوة المستخدمين",
-              "إضافة المصروفات المطلوبة",
-              "الموافقة على سجلات الدفع",
-              "إنشاء تعديلات مخصصة",
-              "نشر الإشعارات للمقيمين"
-            ]
-          },
-          "society_member": {
-            "title": "أعضاء المجتمع",
-            "features": [
-              "عرض جميع مساكنك عبر المجتمعات والمدن المختلفة",
-              "عرض مستحقاتك الشهرية مع تفصيل مناسب للتكاليف والأموال المتاحة",
-              "راسل المسؤولين بشأن المشكلات التي تواجهك أو احصل على إشعارات منهم."
-            ]
-          },
-          "rent_seeker": {
-            "title": "هل تبحث عن إيجارات أو تتطلع إلى شراء واحدة؟",
-            "features": [
-              "تحقق من الإعلانات التي ينشرها الملاك أو المجتمعات المعتمدة والصالحة بشأن التوفر، بما يناسب ميزانيتك وموقع أحلامك"
-            ]
-          }
-        },
-        "call_to_action": "انضم إلى {title} واكتشف جميع الميزات."
-      }
-    },
-    "about": {
-      "title": "حول",
-      "sections": {
-        "problem": {
-          "text": "بلدان مختلفة لديها نفس المشكلة: إدارة المصروفات المخفية دون رؤية واضحة للتكاليف والأموال.",
-          "icon": "المصروفات المخفية"
-        },
-        "goal": {
-          "text": "هدفنا هو توفير تفصيل مفصل للتسعير الشهري المحسوب ديناميكيًا لمعرفتك.",
-          "icon": "تقسيم الأسعار"
-        },
-        "philosophy": {
-          "text": "نشعر بقوة أن المصروفات المخفضة أو المتزايدة يجب أن تجعل المساهمات تتفاوت، وليست ثابتة. أيضًا، تحتاج المصروفات المختلفة إلى طريقة مختلفة للتوزيع عبر المساكن.",
-          "icon": "المساهمات المتغيرة"
-        },
-        "peer_services": {
-          "text": "على طول الطريق، يسمح لك نظامنا بإنشاء أو العثور على إعلانات ذات موقع جغرافي من مستخدمين أعضاء صالحين، متجاوزًا الوسطاء. في المرة القادمة تواصل مع نظير إلى نظير للحصول على أي خدمات ضمن مجال اهتمامك دون دفع مبالغ زائدة!",
-          "icon": "نظير إلى نظير"
-        }
-      }
-    },
-    "error": {
-      "not_found": "الصفحة المطلوبة غير موجودة على هذا الموقع."
-    },
-    "residences": {
-      "detail": {
-        "myExpenseDues": "مستحقات المصروفات الخاصة بي",
-        "noExpenseDues": "لم يتم العثور على مستحقات مصروفات.",
-        "members": "أعضاء",
-        "table": {
-          "month": "شهر",
-          "expense": "مصروف",
-          "amount": "المبلغ"
-        }
-      }
-    },
-    "societies": {
-      "detail": {
-        "expenseCalculations": "حسابات المصروفات",
-        "triggerCalculations": "تشغيل الحسابات",
-        "noExpensesConfigured": "لم يتم تكوين أي مصروفات.",
-        "members": "أعضاء",
-        "user_residences": "مساكني",
-        "table": {
-          "month": "شهر",
-          "residence": "السكن",
-          "amount": "المبلغ"
-        }
-      }
-    },
-    "delete": {
-      "confirm": "هل أنت متأكد أنك تريد حذف"
-    },
-    "expenses": {
-      "form": {
-        "name": "الاسم",
-        "name_placeholder": "أدخل اسم المصروف",
-        "amount": "المبلغ الشهري",
-        "amount_placeholder": "أدخل المبلغ الشهري",
-        "society": "المجتمع",
-        "society_placeholder": "اختر مجتمعًا",
-        "active": "نشط"
-      },
-      "detail": {
-        "distributions": "التوزيعات",
-        "editDistributions": "تعديل التوزيعات",
-        "selectType": "حدد النوع",
-        "percentageCoverage": "تغطية النسبة المئوية",
-        "addDistribution": "إضافة توزيع",
-        "saveDistributions": "حفظ",
-        "remove": "إزالة",
-        "noDistributions": "لا توجد توزيعات متاحة.",
-        "calculations": "الحسابات",
-        "noCalculations": "لا توجد حسابات متاحة.",
-        "table": {
-          "month": "شهر",
-          "residence": "السكن",
-          "amount": "المبلغ"
-        },
-        "error": {
-          "totalCoverage": "يجب أن تساوي نسبة التغطية الإجمالية 100"
-        },
-        "backToAllExpenses": "← العودة إلى جميع المصروفات"
-      }
-    },
-    "ads": {
-      "detail": {
-        "isActive": "نشط",
-        "isNotActive": "غير نشط"
-      }
-    }
-  },
-  "components": {
-    "settings": {
-      "api": {
-        "legend": "عنوان واجهة برمجة التطبيقات (API)",
-        "label": "أين تقع واجهة برمجة التطبيقات (API) على خوادم الخلفية."
-      }
-    },
-    "locales": {
-      "language": "اللغة"
-    },
-    "auth": {
-      "login": {
-        "email": {
-          "legend": "البريد الإلكتروني",
-          "placeholder": "user@example.com"
-        },
-        "submit": "تسجيل الدخول",
-        "error": "{error}"
-      },
-      "register": {
-        "name": {
-          "legend": "الاسم",
-          "placeholder": "أزور"
-        },
-        "email": {
-          "legend": "البريد الإلكتروني",
-          "placeholder": "user@example.com"
-        },
-        "submit": "تسجيل",
-        "error": "{error}"
-      },
-      "verify_otp": {
-        "email": {
-          "legend": "البريد الإلكتروني",
-          "placeholder": "user@example.com"
-        },
-        "otp": {
-          "legend": "كلمة المرور لمرة واحدة (OTP)",
-          "placeholder": "12345"
-        },
-        "submit": "تحقق"
-      }
-    },
-    "users": {
-      "card": {
-        "user_id": "معرف المستخدم",
-        "user_name": "الاسم",
-        "user_role": "الدور",
-        "member_since": "عضو منذ",
-        "no_members": "لم يتم العثور على أعضاء"
-      },
-      "list": {
-        "no_user": "لا يوجد حاليًا أي مستخدمين."
-      }
-    },
-    "societies": {
-      "form": {
-        "name": "اسم المجتمع",
-        "name_placeholder": "أدخل اسم المجتمع",
-        "postcode": "الرمز البريدي",
-        "postcode_placeholder": "أدخل الرمز البريدي",
-        "map": "حدد الموقع على الخريطة",
-        "city": "المدينة",
-        "city_placeholder": "أدخل المدينة",
-        "state": "الولاية",
-        "state_placeholder": "أدخل الولاية",
-        "country": "الدولة",
-        "country_placeholder": "أدخل الدولة",
-        "timezone": "المنطقة الزمنية",
-        "timezone_placeholder": "أدخل المنطقة الزمنية (مثل Europe/Berlin)",
-        "currency": "العملة",
-        "area_unit": "وحدة المساحة"
-      },
-      "details": {
-        "name": "الاسم",
-        "role": "الدور",
-        "no_membership": "أنت لست عضوًا",
-        "id": "معرف المجتمع",
-        "location": "الموقع",
-        "postcode": "الرمز البريدي",
-        "currency": "العملة",
-        "timezone": "المنطقة الزمنية",
-        "area_unit": "وحدة المساحة",
-        "fine_rate": "معدل الغرامة",
-        "coordinates": "الإحداثيات",
-        "created": "تم الإنشاء في",
-        "updated": "آخر تحديث"
-      },
-      "invite_user": {
-        "title": "دعُ مستخدمًا جديدًا إلى هذه المجموعة",
-        "email": {
-          "legend": "البريد الإلكتروني للمستخدم",
-          "placeholder": "user@example.com"
-        },
-        "name": {
-          "legend": "اسم المستخدم",
-          "placeholder": "أليس"
-        },
-        "role": {
-          "legend": "دور المستخدم في المجموعة"
-        }
-      }
-    },
-    "residences": {
-      "form": {
-        "societyId": "معرف المجتمع",
-        "societyId_placeholder": "أدخل معرف المجتمع",
-        "residenceName": "اسم الإقامة",
-        "residenceName_placeholder": "أدخل اسم الإقامة",
-        "floorCount": "عدد الطوابق",
-        "floorCount_placeholder": "أدخل عدد الطوابق",
-        "areaValue": "المساحة (بالقدم المربع)",
-        "areaValue_placeholder": "أدخل المساحة بالقدم المربع",
-        "residentsCount": "عدد السكان",
-        "residentsCount_placeholder": "أدخل عدد السكان",
-        "percentageOwnership": "نسبة الملكية",
-        "percentageOwnership_placeholder": "أدخل نسبة الملكية",
-        "description": "الوصف",
-        "description_placeholder": "أضف وصفًا"
-      },
-      "details": {
-        "name": "اسم الإقامة",
-        "societyId": "معرف المجتمع",
-        "residentsCount": "السكان",
-        "floorCount": "الطوابق",
-        "area": "المساحة",
-        "percentageOwnership": "نسبة الملكية",
-        "active": "نشط",
-        "yes": "نعم",
-        "no": "لا",
-        "description": "الوصف",
-        "createdAt": "تم الإنشاء في",
-        "updatedAt": "تم التحديث في",
-        "notAvailable": "غير متوفر"
-      },
-      "invite_user": {
-        "title": "ادعُ مستخدمًا جديدًا إلى هذه الإقامة",
-        "name": {
-          "legend": "الاسم",
-          "placeholder": "أليس"
-        },
-        "email": {
-          "legend": "البريد الإلكتروني",
-          "placeholder": "user@example.com"
-        }
-      }
-    },
-    "ads": {
-      "form": {
-        "title": "عنوان الإعلان",
-        "title_placeholder": "أدخل عنوان الإعلان",
-        "adDescription": "وصف الإعلان",
-        "adDescription_placeholder": "أدخل وصف الإعلان",
-        "anonymousUserName": "اسم المستخدم المجهول",
-        "anonymousUserName_placeholder": "أدخل اسمك المستعار أو اسمك المجهول",
-        "type": "نوع الإعلان",
-        "type_placeholder": "حدد نوع الإعلان",
-        "map": "حدد الموقع على الخريطة",
-        "coordinates": "الإحداثيات (خط العرض، خط الطول)",
-        "create": "إنشاء إعلان",
-        "created_successfully": "تم إنشاء الإعلان بنجاح.",
-        "society": "المجتمع",
-        "society_placeholder": "اختر مجتمعًا",
-        "residency": "الإقامة",
-        "residency_placeholder": "اختر الإقامة",
-        "isActive": "نشط"
-      },
-      "details": {
-        "description": "الوصف"
-      }
-    },
-    "expenses": {
-      "form": {
-        "name": "الاسم",
-        "name_placeholder": "إزمير",
-        "amount": "المبلغ الشهري",
-        "society": "المجتمع",
-        "society_placeholder": "اختر مجتمعًا",
-        "active": "نشط"
-      },
-      "details": {
-        "name": "الاسم",
-        "society": "المجتمع",
-        "amountPerMonth": "المبلغ الشهري",
-        "active": "نشط",
-        "createdAt": "تم الإنشاء في",
-        "updatedAt": "تم التحديث في"
-      },
-      "distributionCard": {
-        "type": "النوع",
-        "coverage": "التغطية"
-      }
-    },
-    "maintenances": {
-      "card": {
-        "isCurrent": "هل حالي",
-        "previousAmountToPay": "المبلغ السابق المستحق",
-        "fineToPay": "غرامة مستحقة",
-        "thisMonthCalculation": "حساب هذا الشهر",
-        "totalAmountToPay": "إجمالي المبلغ المستحق",
-        "withFormula": "بالصيغة"
-      },
-      "form": {
-        "society": "مجتمع",
-        "selectSociety": "اختر المجتمع",
-        "residence": "السكن",
-        "selectResidence": "اختر السكن",
-        "yearMonth": "سنة شهر",
-        "yearMonth_placeholder": "أدخل YYYY/MM",
-        "isCurrent": "هل حالي",
-        "previousAmountToPay": "المبلغ السابق المستحق",
-        "fineToPay": "غرامة مستحقة",
-        "thisMonthCalculation": "حساب هذا الشهر",
-        "totalAmountToPay": "إجمالي المبلغ المستحق",
-        "withFormula": "بالصيغة"
-      }
-    },
-    "legal": {
-      "dpi": {
-        "controller.heading": "مراقب البيانات",
-        "controller.name_label": "الاسم:",
-        "controller.address_label": "العنوان:",
-        "controller.email_label": "البريد الإلكتروني:",
-        "controller.phone_label": "الهاتف:",
-        "protection_officer.heading": "مسؤول حماية البيانات",
-        "protection_officer.email_label": "البريد الإلكتروني:",
-        "purposes.heading": "أغراض المعالجة",
-        "legal_bases.heading": "الأسس القانونية",
-        "recipients.heading": "متلقو البيانات",
-        "retention.heading": "الاحتفاظ بالبيانات",
-        "rights.heading": "حقوقك",
-        "supervisory_authority.heading": "السلطة الإشرافية"
-      }
-    }
-  },
-  "common": {
-    "submit": "إرسال",
-    "join": "انضم",
-    "create": "إنشاء",
-    "creating": "جارٍ الإنشاء...",
-    "delete": "حذف",
-    "deleting": "جارٍ الحذف...",
-    "cancel": "إلغاء",
-    "update": "تحديث",
-    "contact_admin": "اتصل بمسؤول النظام",
-    "contact_user": "اتصل بالمستخدم",
-    "created": "تم الإنشاء",
-    "updated": "تم التحديث",
-    "createdAt": "تم الإنشاء في",
-    "updatedAt": "تم التحديث في"
-  },
-  "const": {
-    "ads_types": {
-      "SOCIETY_ADMIN": "مسؤول المجتمع",
-      "SELL_HOUSE": "بيع منزل",
-      "RENT_HOUSE": "تأجير منزل",
-      "SUB_LEASE_HOUSE": "تأجير فرعي لمنزل",
-      "HOUSE_SHARING": "مشاركة المنزل",
-      "HEATING_SERVICE_NEEDED": "خدمة التدفئة مطلوبة",
-      "PLUMBING_SERVICE_NEEDED": "خدمة السباكة مطلوبة",
-      "ELECTRICAL_SERVICE_NEEDED": "خدمة الكهرباء مطلوبة",
-      "MOVING_SERVICE_NEEDED": "خدمة النقل مطلوبة",
-      "SELL_CLOTH": "بيع ملابس",
-      "SEARCH_CLOTH": "البحث عن ملابس",
-      "GIVE_AWAY_CLOTH": "التبرع بالملابس",
-      "SELL_FURNITURE": "بيع أثاث",
-      "SEARCH_FURNITURE": "البحث عن أثاث",
-      "GIVE_AWAY_FURNITURE": "التبرع بالأثاث",
-      "SMALL_PRINTING_SERVICE": "خدمة طباعة صغيرة",
-      "PROFESSIONAL_PRINTING_SERVICE": "خدمة طباعة احترافية",
-      "SELL_MISC": "بيع متنوعات",
-      "SEARCH_MISC": "البحث عن متنوعات",
-      "GIVE_AWAY_MISC": "التبرع بمتنوعات"
-    },
-    "area": {
-      "sqm": "متر مربع",
-      "sqft": "قدم مربع",
-      "acres": "فدان",
-      "hectares": "هكتار"
-    },
-    "currencies": {
-      "EUR": "EUR - يورو",
-      "USD": "USD - دولار أمريكي",
-      "GBP": "GBP - جنيه بريطاني",
-      "INR": "INR - روبية هندية",
-      "CAD": "CAD - دولار كندي",
-      "AUD": "AUD - دولار أسترالي"
-    },
-    "society_roles": {
-      "ADMIN": "مشرف",
-      "MANAGER": "مدير",
-      "MEMBER": "عضو",
-      "OWNER": "مالك"
-    },
-    "expense_types": {
-      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "لكل نسبة ملكية",
-      "AMOUNT_PER_RESIDENCE": "لكل سكن",
-      "AMOUNT_PER_SQUARE_AREA": "لكل مساحة مربعة",
-      "AMOUNT_PER_RESIDENT": "لكل مقيم",
-      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "لكل مقيم لكل عدد طوابق"
-    }
-  }
+	"title": "تدفق المجتمع",
+	"catch_line": "شارك الخدمات. قسّم التكاليف. قم بتقوية مجتمعك.",
+	"menu": {
+		"home": "الصفحة الرئيسية",
+		"societies": "المجتمعات",
+		"residences": "المساكن",
+		"expenses": "المصروفات",
+		"maintenances": "الصيانة",
+		"ads": "الإعلانات",
+		"map": "الخريطة",
+		"about": "حول",
+		"styles": "الأنماط",
+		"settings": "الإعدادات",
+		"auth.login": "تسجيل الدخول",
+		"auth.logout": "تسجيل الخروج",
+		"auth.register": "تسجيل",
+		"auth.verify-otp": "التحقق من رمز المرور لمرة واحدة",
+		"legal": "قانوني",
+		"legal.terms-of-service": "شروط الخدمة",
+		"legal.privacy-policy": "سياسة الخصوصية",
+		"legal.data-processing-info": "معلومات معالجة البيانات",
+		"legal.cookie-policy": "سياسة ملفات تعريف الارتباط",
+		"create.societies": "إنشاء مجتمع جديد",
+		"create.residences": "إنشاء سكن جديد",
+		"create.maintenances": "إنشاء صيانة",
+		"create.ads": "إنشاء إعلان جديد",
+		"create.expenses": "إنشاء مصروف جديد",
+		"update.societies": "تحديث المجتمع",
+		"update.residences": "تحديث السكن",
+		"update.maintenances": "تحديث الصيانة",
+		"update.ads": "تحديث الإعلان",
+		"update.expenses": "تحديث المصروف"
+	},
+	"pages": {
+		"auth": {
+			"verify-otp": {
+				"sections": {
+					"did-not-receive": {
+						"text": "ألم تتلق رسالة بريد إلكتروني تحتوي على رمز المرور لمرة واحدة؟"
+					},
+					"resend": {
+						"text": "إعادة إرسال البريد الإلكتروني",
+						"link": {
+							"url": "/auth/login?email={email}",
+							"text": "menu.auth.verify-otp"
+						}
+					}
+				}
+			},
+			"register": {
+				"sections": {
+					"have-account": {
+						"text": "هل لديك حساب بالفعل؟",
+						"link": {
+							"url": "/auth/login",
+							"text": "menu.auth.login"
+						}
+					}
+				}
+			},
+			"login": {
+				"sections": {
+					"no-account": {
+						"text": "أليس لديك حساب بعد؟ إنه مجاني",
+						"link": {
+							"url": "/auth/register",
+							"text": "menu.auth.register"
+						}
+					}
+				}
+			}
+		},
+		"settings": {
+			"sections": {
+				"development": {
+					"title": "التطوير"
+				},
+				"demo": {
+					"title": "عرض توضيحي",
+					"loginText": "تسجيل دخول مستخدم العرض التوضيحي",
+					"logoutText": "تسجيل خروج مستخدم العرض التوضيحي"
+				}
+			}
+		},
+		"home": {
+			"auth": {
+				"greeting": "مرحباً {name} ({email}).",
+				"dashboard": {
+					"title": "لوحة القيادة الخاصة بك"
+				},
+				"sections": {
+					"societies": "المجتمعات",
+					"residences": "المساكن"
+				}
+			},
+			"marketing": {
+				"user_types": {
+					"society_admin": {
+						"title": "مسؤولي المجتمع",
+						"features": [
+							"إنشاء مجتمع واحد أو أكثر",
+							"دعوة المستخدمين",
+							"إضافة المصروفات المطلوبة",
+							"الموافقة على سجلات الدفع",
+							"إنشاء تعديلات مخصصة",
+							"نشر الإشعارات للمقيمين"
+						]
+					},
+					"society_member": {
+						"title": "أعضاء المجتمع",
+						"features": [
+							"عرض جميع مساكنك عبر المجتمعات والمدن المختلفة",
+							"عرض مستحقاتك الشهرية مع تفصيل مناسب للتكاليف والأموال المتاحة",
+							"راسل المسؤولين بشأن المشكلات التي تواجهك أو احصل على إشعارات منهم."
+						]
+					},
+					"rent_seeker": {
+						"title": "هل تبحث عن إيجارات أو تتطلع إلى شراء واحدة؟",
+						"features": [
+							"تحقق من الإعلانات التي ينشرها الملاك أو المجتمعات المعتمدة والصالحة بشأن التوفر، بما يناسب ميزانيتك وموقع أحلامك"
+						]
+					}
+				},
+				"call_to_action": "انضم إلى {title} واكتشف جميع الميزات."
+			}
+		},
+		"about": {
+			"title": "حول",
+			"sections": {
+				"problem": {
+					"text": "بلدان مختلفة لديها نفس المشكلة: إدارة المصروفات المخفية دون رؤية واضحة للتكاليف والأموال.",
+					"icon": "المصروفات المخفية"
+				},
+				"goal": {
+					"text": "هدفنا هو توفير تفصيل مفصل للتسعير الشهري المحسوب ديناميكيًا لمعرفتك.",
+					"icon": "تقسيم الأسعار"
+				},
+				"philosophy": {
+					"text": "نشعر بقوة أن المصروفات المخفضة أو المتزايدة يجب أن تجعل المساهمات تتفاوت، وليست ثابتة. أيضًا، تحتاج المصروفات المختلفة إلى طريقة مختلفة للتوزيع عبر المساكن.",
+					"icon": "المساهمات المتغيرة"
+				},
+				"peer_services": {
+					"text": "على طول الطريق، يسمح لك نظامنا بإنشاء أو العثور على إعلانات ذات موقع جغرافي من مستخدمين أعضاء صالحين، متجاوزًا الوسطاء. في المرة القادمة تواصل مع نظير إلى نظير للحصول على أي خدمات ضمن مجال اهتمامك دون دفع مبالغ زائدة!",
+					"icon": "نظير إلى نظير"
+				}
+			}
+		},
+		"error": {
+			"not_found": "الصفحة المطلوبة غير موجودة على هذا الموقع."
+		},
+		"residences": {
+			"detail": {
+				"myExpenseDues": "مستحقات المصروفات الخاصة بي",
+				"noExpenseDues": "لم يتم العثور على مستحقات مصروفات.",
+				"members": "أعضاء",
+				"table": {
+					"month": "شهر",
+					"expense": "مصروف",
+					"amount": "المبلغ"
+				}
+			}
+		},
+		"societies": {
+			"detail": {
+				"expenseCalculations": "حسابات المصروفات",
+				"triggerCalculations": "حسابات الصيانة",
+				"noExpensesConfigured": "لم يتم تكوين أي مصروفات.",
+				"members": "أعضاء",
+				"user_residences": "مساكني",
+				"table": {
+					"month": "شهر",
+					"residence": "السكن",
+					"amount": "المبلغ"
+				}
+			}
+		},
+		"funds": "الأموال",
+		"delete": {
+			"confirm": "هل أنت متأكد أنك تريد حذف"
+		},
+		"expenses": {
+			"form": {
+				"name": "الاسم",
+				"name_placeholder": "أدخل اسم المصروف",
+				"amount": "المبلغ الشهري",
+				"amount_placeholder": "أدخل المبلغ الشهري",
+				"society": "المجتمع",
+				"society_placeholder": "اختر مجتمعًا",
+				"active": "نشط"
+			},
+			"detail": {
+				"distributions": "التوزيعات",
+				"editDistributions": "تعديل التوزيعات",
+				"selectType": "حدد النوع",
+				"percentageCoverage": "تغطية النسبة المئوية",
+				"addDistribution": "إضافة توزيع",
+				"saveDistributions": "حفظ",
+				"remove": "إزالة",
+				"noDistributions": "لا توجد توزيعات متاحة.",
+				"calculations": "الحسابات",
+				"noCalculations": "لا توجد حسابات متاحة.",
+				"table": {
+					"month": "شهر",
+					"residence": "السكن",
+					"amount": "المبلغ"
+				},
+				"error": {
+					"totalCoverage": "يجب أن تساوي نسبة التغطية الإجمالية 100"
+				},
+				"backToAllExpenses": "← العودة إلى جميع المصروفات"
+			}
+		},
+		"ads": {
+			"detail": {
+				"isActive": "نشط",
+				"isNotActive": "غير نشط"
+			}
+		}
+	},
+	"components": {
+		"settings": {
+			"api": {
+				"legend": "عنوان واجهة برمجة التطبيقات (API)",
+				"label": "أين تقع واجهة برمجة التطبيقات (API) على خوادم الخلفية."
+			}
+		},
+		"locales": {
+			"language": "اللغة"
+		},
+		"auth": {
+			"login": {
+				"email": {
+					"legend": "البريد الإلكتروني",
+					"placeholder": "user@example.com"
+				},
+				"submit": "تسجيل الدخول",
+				"error": "{error}"
+			},
+			"register": {
+				"name": {
+					"legend": "الاسم",
+					"placeholder": "أزور"
+				},
+				"email": {
+					"legend": "البريد الإلكتروني",
+					"placeholder": "user@example.com"
+				},
+				"submit": "تسجيل",
+				"error": "{error}"
+			},
+			"verify_otp": {
+				"email": {
+					"legend": "البريد الإلكتروني",
+					"placeholder": "user@example.com"
+				},
+				"otp": {
+					"legend": "كلمة المرور لمرة واحدة (OTP)",
+					"placeholder": "12345"
+				},
+				"submit": "تحقق"
+			}
+		},
+		"users": {
+			"card": {
+				"user_id": "معرف المستخدم",
+				"user_name": "الاسم",
+				"user_role": "الدور",
+				"member_since": "عضو منذ",
+				"no_members": "لم يتم العثور على أعضاء"
+			},
+			"list": {
+				"no_user": "لا يوجد حاليًا أي مستخدمين."
+			}
+		},
+		"societies": {
+			"form": {
+				"name": "اسم المجتمع",
+				"name_placeholder": "أدخل اسم المجتمع",
+				"postcode": "الرمز البريدي",
+				"postcode_placeholder": "أدخل الرمز البريدي",
+				"map": "حدد الموقع على الخريطة",
+				"city": "المدينة",
+				"city_placeholder": "أدخل المدينة",
+				"state": "الولاية",
+				"state_placeholder": "أدخل الولاية",
+				"country": "الدولة",
+				"country_placeholder": "أدخل الدولة",
+				"timezone": "المنطقة الزمنية",
+				"timezone_placeholder": "أدخل المنطقة الزمنية (مثل Europe/Berlin)",
+				"currency": "العملة",
+				"area_unit": "وحدة المساحة"
+			},
+			"details": {
+				"name": "الاسم",
+				"role": "الدور",
+				"no_membership": "أنت لست عضوًا",
+				"id": "معرف المجتمع",
+				"location": "الموقع",
+				"postcode": "الرمز البريدي",
+				"currency": "العملة",
+				"timezone": "المنطقة الزمنية",
+				"area_unit": "وحدة المساحة",
+				"fine_rate": "معدل الغرامة",
+				"coordinates": "الإحداثيات",
+				"created": "تم الإنشاء في",
+				"updated": "آخر تحديث"
+			},
+			"invite_user": {
+				"title": "دعُ مستخدمًا جديدًا إلى هذه المجموعة",
+				"email": {
+					"legend": "البريد الإلكتروني للمستخدم",
+					"placeholder": "user@example.com"
+				},
+				"name": {
+					"legend": "اسم المستخدم",
+					"placeholder": "أليس"
+				},
+				"role": {
+					"legend": "دور المستخدم في المجموعة"
+				}
+			}
+		},
+		"residences": {
+			"form": {
+				"societyId": "معرف المجتمع",
+				"societyId_placeholder": "أدخل معرف المجتمع",
+				"residenceName": "اسم الإقامة",
+				"residenceName_placeholder": "أدخل اسم الإقامة",
+				"floorCount": "عدد الطوابق",
+				"floorCount_placeholder": "أدخل عدد الطوابق",
+				"areaValue": "المساحة (بالقدم المربع)",
+				"areaValue_placeholder": "أدخل المساحة بالقدم المربع",
+				"residentsCount": "عدد السكان",
+				"residentsCount_placeholder": "أدخل عدد السكان",
+				"percentageOwnership": "نسبة الملكية",
+				"percentageOwnership_placeholder": "أدخل نسبة الملكية",
+				"description": "الوصف",
+				"description_placeholder": "أضف وصفًا"
+			},
+			"details": {
+				"name": "اسم الإقامة",
+				"societyId": "معرف المجتمع",
+				"residentsCount": "السكان",
+				"floorCount": "الطوابق",
+				"area": "المساحة",
+				"percentageOwnership": "نسبة الملكية",
+				"active": "نشط",
+				"yes": "نعم",
+				"no": "لا",
+				"description": "الوصف",
+				"createdAt": "تم الإنشاء في",
+				"updatedAt": "تم التحديث في",
+				"notAvailable": "غير متوفر"
+			},
+			"invite_user": {
+				"title": "ادعُ مستخدمًا جديدًا إلى هذه الإقامة",
+				"name": {
+					"legend": "الاسم",
+					"placeholder": "أليس"
+				},
+				"email": {
+					"legend": "البريد الإلكتروني",
+					"placeholder": "user@example.com"
+				}
+			}
+		},
+		"ads": {
+			"form": {
+				"title": "عنوان الإعلان",
+				"title_placeholder": "أدخل عنوان الإعلان",
+				"adDescription": "وصف الإعلان",
+				"adDescription_placeholder": "أدخل وصف الإعلان",
+				"anonymousUserName": "اسم المستخدم المجهول",
+				"anonymousUserName_placeholder": "أدخل اسمك المستعار أو اسمك المجهول",
+				"type": "نوع الإعلان",
+				"type_placeholder": "حدد نوع الإعلان",
+				"map": "حدد الموقع على الخريطة",
+				"coordinates": "الإحداثيات (خط العرض، خط الطول)",
+				"create": "إنشاء إعلان",
+				"created_successfully": "تم إنشاء الإعلان بنجاح.",
+				"society": "المجتمع",
+				"society_placeholder": "اختر مجتمعًا",
+				"residency": "الإقامة",
+				"residency_placeholder": "اختر الإقامة",
+				"isActive": "نشط"
+			},
+			"details": {
+				"description": "الوصف"
+			}
+		},
+		"expenses": {
+			"form": {
+				"name": "الاسم",
+				"name_placeholder": "إزمير",
+				"amount": "المبلغ الشهري",
+				"society": "المجتمع",
+				"society_placeholder": "اختر مجتمعًا",
+				"active": "نشط"
+			},
+			"details": {
+				"name": "الاسم",
+				"society": "المجتمع",
+				"amountPerMonth": "المبلغ الشهري",
+				"active": "نشط",
+				"createdAt": "تم الإنشاء في",
+				"updatedAt": "تم التحديث في"
+			},
+			"distributionCard": {
+				"type": "النوع",
+				"coverage": "التغطية"
+			},
+			"payment": {
+				"title": "مدفوعات المصروفات",
+				"addPayment": "إضافة دفعة",
+				"amount": "المبلغ",
+				"amountPlaceholder": "أدخل المبلغ (موجب للمدفوعات، سالب للمبالغ المستردة)",
+				"transactionDate": "تاريخ المعاملة",
+				"yearMonth": "سنة شهر",
+				"description": "الوصف",
+				"descriptionPlaceholder": "أدخل وصف الدفع",
+				"paymentHistory": "سجل الدفعات",
+				"payment": "دفع",
+				"payments": "مدفوعات",
+				"noPayments": "لم يتم تسجيل أي مدفوعات حتى الآن.",
+				"invalidAmount": "يرجى إدخال مبلغ صحيح",
+				"date": "تاريخ",
+				"paymentId": "هوية شخصية"
+			}
+		},
+		"calculations": {
+			"list": {
+				"calculatedForCollection": "تم حسابه للتحصيل",
+				"actualExpensePaid": "المصروف الفعلي المدفوع"
+			}
+		},
+		"maintenances": {
+			"card": {
+				"isCurrent": "هل حالي",
+				"previousAmountToPay": "المبلغ السابق المستحق",
+				"fineToPay": "غرامة مستحقة",
+				"thisMonthCalculation": "حساب هذا الشهر",
+				"totalAmountToPay": "إجمالي المبلغ المستحق",
+				"withFormula": "بالصيغة"
+			},
+			"form": {
+				"society": "مجتمع",
+				"selectSociety": "اختر المجتمع",
+				"residence": "السكن",
+				"selectResidence": "اختر السكن",
+				"yearMonth": "سنة شهر",
+				"yearMonth_placeholder": "أدخل YYYY/MM",
+				"isCurrent": "هل حالي",
+				"previousAmountToPay": "المبلغ السابق المستحق",
+				"fineToPay": "غرامة مستحقة",
+				"thisMonthCalculation": "حساب هذا الشهر",
+				"totalAmountToPay": "إجمالي المبلغ المستحق",
+				"withFormula": "بالصيغة"
+			},
+			"list": {
+				"title": "سجل الصيانة",
+				"noMaintenances": "لم يتم العثور على سجلات صيانة.",
+				"active": "نشط",
+				"inactive": "غير نشط",
+				"previousAmount": "المبلغ السابق",
+				"fine": "غرامة",
+				"thisMonth": "هذا الشهر",
+				"totalAmount": "المبلغ الإجمالي",
+				"maintenanceId": "هوية شخصية"
+			},
+			"payment": {
+				"title": "مدفوعات الصيانة",
+				"addPayment": "إضافة دفعة",
+				"amount": "المبلغ",
+				"amountPlaceholder": "أدخل المبلغ (موجب للمدفوعات، سالب للمبالغ المستردة)",
+				"transactionDate": "تاريخ المعاملة",
+				"yearMonth": "سنة شهر",
+				"description": "الوصف",
+				"descriptionPlaceholder": "أدخل وصف الدفع",
+				"paymentHistory": "سجل الدفعات",
+				"payment": "دفع",
+				"payments": "مدفوعات",
+				"noPayments": "لم يتم تسجيل أي مدفوعات حتى الآن.",
+				"invalidAmount": "يرجى إدخال مبلغ صحيح",
+				"date": "تاريخ",
+				"paymentId": "هوية شخصية"
+			}
+		},
+		"legal": {
+			"dpi": {
+				"controller.heading": "مراقب البيانات",
+				"controller.name_label": "الاسم:",
+				"controller.address_label": "العنوان:",
+				"controller.email_label": "البريد الإلكتروني:",
+				"controller.phone_label": "الهاتف:",
+				"protection_officer.heading": "مسؤول حماية البيانات",
+				"protection_officer.email_label": "البريد الإلكتروني:",
+				"purposes.heading": "أغراض المعالجة",
+				"legal_bases.heading": "الأسس القانونية",
+				"recipients.heading": "متلقو البيانات",
+				"retention.heading": "الاحتفاظ بالبيانات",
+				"rights.heading": "حقوقك",
+				"supervisory_authority.heading": "السلطة الإشرافية"
+			}
+		}
+	},
+	"common": {
+		"submit": "إرسال",
+		"join": "انضم",
+		"create": "إنشاء",
+		"creating": "جارٍ الإنشاء...",
+		"delete": "حذف",
+		"deleting": "جارٍ الحذف...",
+		"cancel": "إلغاء",
+		"update": "تحديث",
+		"save": "حفظ",
+		"saving": "جاري الحفظ...",
+		"contact_admin": "اتصل بمسؤول النظام",
+		"contact_user": "اتصل بالمستخدم",
+		"created": "تم الإنشاء",
+		"updated": "تم التحديث",
+		"createdAt": "تم الإنشاء في",
+		"updatedAt": "تم التحديث في"
+	},
+	"const": {
+		"ads_types": {
+			"SOCIETY_ADMIN": "مسؤول المجتمع",
+			"SELL_HOUSE": "بيع منزل",
+			"RENT_HOUSE": "تأجير منزل",
+			"SUB_LEASE_HOUSE": "تأجير فرعي لمنزل",
+			"HOUSE_SHARING": "مشاركة المنزل",
+			"HEATING_SERVICE_NEEDED": "خدمة التدفئة مطلوبة",
+			"PLUMBING_SERVICE_NEEDED": "خدمة السباكة مطلوبة",
+			"ELECTRICAL_SERVICE_NEEDED": "خدمة الكهرباء مطلوبة",
+			"MOVING_SERVICE_NEEDED": "خدمة النقل مطلوبة",
+			"SELL_CLOTH": "بيع ملابس",
+			"SEARCH_CLOTH": "البحث عن ملابس",
+			"GIVE_AWAY_CLOTH": "التبرع بالملابس",
+			"SELL_FURNITURE": "بيع أثاث",
+			"SEARCH_FURNITURE": "البحث عن أثاث",
+			"GIVE_AWAY_FURNITURE": "التبرع بالأثاث",
+			"SMALL_PRINTING_SERVICE": "خدمة طباعة صغيرة",
+			"PROFESSIONAL_PRINTING_SERVICE": "خدمة طباعة احترافية",
+			"SELL_MISC": "بيع متنوعات",
+			"SEARCH_MISC": "البحث عن متنوعات",
+			"GIVE_AWAY_MISC": "التبرع بمتنوعات"
+		},
+		"area": {
+			"sqm": "متر مربع",
+			"sqft": "قدم مربع",
+			"acres": "فدان",
+			"hectares": "هكتار"
+		},
+		"currencies": {
+			"EUR": "EUR - يورو",
+			"USD": "USD - دولار أمريكي",
+			"GBP": "GBP - جنيه بريطاني",
+			"INR": "INR - روبية هندية",
+			"CAD": "CAD - دولار كندي",
+			"AUD": "AUD - دولار أسترالي"
+		},
+		"society_roles": {
+			"ADMIN": "مشرف",
+			"MANAGER": "مدير",
+			"MEMBER": "عضو",
+			"OWNER": "مالك"
+		},
+		"expense_types": {
+			"AMOUNT_PER_OWNERSHIP_PERCENTAGE": "لكل نسبة ملكية",
+			"AMOUNT_PER_RESIDENCE": "لكل سكن",
+			"AMOUNT_PER_SQUARE_AREA": "لكل مساحة مربعة",
+			"AMOUNT_PER_RESIDENT": "لكل مقيم",
+			"AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "لكل مقيم لكل عدد طوابق"
+		}
+	}
 }

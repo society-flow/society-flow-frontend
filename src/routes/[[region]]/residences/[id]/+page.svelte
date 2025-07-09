@@ -5,8 +5,8 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
-    import ResidenceJoin from "$lib/components/residences/join.svelte";
-    import FundCard from '$lib/components/funds/card.svelte';
+	import ResidenceJoin from '$lib/components/residences/join.svelte';
+	import FundCard from '$lib/components/funds/card.svelte';
 	import MaintenancesList from '$lib/components/maintenances/list.svelte';
 	import MaintenancePaymentForm from '$lib/components/maintenances/payment-form.svelte';
 	import MaintenancePaymentList from '$lib/components/maintenances/payment-list.svelte';
@@ -51,7 +51,7 @@
 
 	// Get the latest active maintenance for payment form
 	const latestActiveMaintenance = $derived(() => {
-		return maintenances.find(m => m.isCurrent) || null;
+		return maintenances.find((m) => m.isCurrent) || null;
 	});
 
 	async function onMaintenancePaymentSuccess(newPayment) {
@@ -82,28 +82,35 @@
 					</Anchor>
 				</li>
 			{/if}
-            {#if isAdmin}
-                <li>
-                    <Anchor href={`/delete/residences/${id}`} title={$_('common.delete')} isButton>
-                        {$_('common.delete')}
-                    </Anchor>
-                </li>
-            {/if}
-            {#if !isMember}
-                <li>
-                    <ResidenceJoin
-                        residenceId={id}
-                        societyId={residence.societyId}
-                        {isMember}
-                        onJoin={handleJoin}
-                    />
-                </li>
-            {/if}
+			{#if isAdmin}
+				<li>
+					<Anchor href={`/delete/residences/${id}`} title={$_('common.delete')} isButton>
+						{$_('common.delete')}
+					</Anchor>
+				</li>
+			{/if}
+			{#if !isMember}
+				<li>
+					<ResidenceJoin
+						residenceId={id}
+						societyId={residence.societyId}
+						{isMember}
+						onJoin={handleJoin}
+					/>
+				</li>
+			{/if}
 		</ul>
 	</nav>
 </aside>
 
-<FundCard {total} {currency} />
+<section>
+	<header>
+		<h2>
+			{$_('pages.funds')}
+		</h2>
+	</header>
+	<FundCard {total} {currency} />
+</section>
 
 {#if isMember || isAdmin}
 	<section>
@@ -112,7 +119,11 @@
 
 	{#if latestActiveMaintenance}
 		<section>
-			<MaintenancePaymentForm maintenance={latestActiveMaintenance} residenceId={id} onSuccess={onMaintenancePaymentSuccess} />
+			<MaintenancePaymentForm
+				maintenance={latestActiveMaintenance}
+				residenceId={id}
+				onSuccess={onMaintenancePaymentSuccess}
+			/>
 		</section>
 	{/if}
 

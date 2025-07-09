@@ -175,6 +175,7 @@
 				}
 			}
 		},
+    "funds": "Funds",
 		"delete": {
 			"confirm": "Are you sure you want to delete"
 		},

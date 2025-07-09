@@ -34,6 +34,8 @@
 	</aside>
 {/if}
 
+<SocietyDetails {society} {userRole} />
+
 {#if isAdmin}
 	<aside>
 		<nav>
@@ -53,6 +55,11 @@
 	</aside>
 {/if}
 
-<SocietyDetails {society} {userRole} />
-
-<FundCard {total} {currency} />
+<section>
+	<header>
+		<h2>
+			{$_('pages.funds')}
+		</h2>
+	</header>
+	<FundCard {total} {currency} />
+</section>
