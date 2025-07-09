@@ -164,7 +164,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Cálculos de Gastos",
-        "triggerCalculations": "Activar cálculos",
+        "triggerCalculations": "Cálculos de mantenimiento",
         "noExpensesConfigured": "No se configuraron gastos.",
         "members": "Miembros",
         "user_residences": "Mis residencias",
@@ -175,6 +175,7 @@
         }
       }
     },
+    "funds": "Fondos",
     "delete": {
       "confirm": "¿Estás seguro de que deseas eliminar?"
     },
@@ -408,6 +409,29 @@
       "distributionCard": {
         "type": "Tipo",
         "coverage": "Cobertura"
+      },
+      "payment": {
+        "title": "Pagos de gastos",
+        "addPayment": "Agregar pago",
+        "amount": "Cantidad",
+        "amountPlaceholder": "Ingrese el monto (positivo para pagos, negativo para reembolsos)",
+        "transactionDate": "Fecha de transacción",
+        "yearMonth": "Año Mes",
+        "description": "Descripción",
+        "descriptionPlaceholder": "Ingrese la descripción del pago",
+        "paymentHistory": "Historial de pagos",
+        "payment": "pago",
+        "payments": "pagos",
+        "noPayments": "Aún no se han registrado pagos.",
+        "invalidAmount": "Por favor, ingrese un monto válido",
+        "date": "Fecha",
+        "paymentId": "ID"
+      }
+    },
+    "calculations": {
+      "list": {
+        "calculatedForCollection": "Calculado para la recaudación",
+        "actualExpensePaid": "Gasto real pagado"
       }
     },
     "maintenances": {
@@ -432,6 +456,34 @@
         "thisMonthCalculation": "Cálculo de Este Mes",
         "totalAmountToPay": "Importe Total a Pagar",
         "withFormula": "Con Fórmula"
+      },
+      "list": {
+        "title": "Historial de mantenimiento",
+        "noMaintenances": "No se encontraron registros de mantenimiento.",
+        "active": "Activo",
+        "inactive": "Inactivo",
+        "previousAmount": "Monto anterior",
+        "fine": "Multa",
+        "thisMonth": "Este mes",
+        "totalAmount": "Monto total",
+        "maintenanceId": "ID"
+      },
+      "payment": {
+        "title": "Pagos de mantenimiento",
+        "addPayment": "Agregar pago",
+        "amount": "Cantidad",
+        "amountPlaceholder": "Ingrese el monto (positivo para pagos, negativo para reembolsos)",
+        "transactionDate": "Fecha de transacción",
+        "yearMonth": "Año Mes",
+        "description": "Descripción",
+        "descriptionPlaceholder": "Ingrese la descripción del pago",
+        "paymentHistory": "Historial de pagos",
+        "payment": "pago",
+        "payments": "pagos",
+        "noPayments": "Aún no se han registrado pagos.",
+        "invalidAmount": "Por favor, ingrese un monto válido",
+        "date": "Fecha",
+        "paymentId": "ID"
       }
     },
     "legal": {
@@ -461,6 +513,8 @@
     "deleting": "Eliminando...",
     "cancel": "Cancelar",
     "update": "Actualizar",
+    "save": "Guardar",
+    "saving": "Guardando...",
     "contact_admin": "Contacte al administrador",
     "contact_user": "Contactar usuario",
     "created": "Creado",

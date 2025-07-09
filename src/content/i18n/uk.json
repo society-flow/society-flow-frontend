@@ -164,7 +164,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Розрахунки витрат",
-        "triggerCalculations": "Запустити обчислення",
+        "triggerCalculations": "Розрахунки обслуговування",
         "noExpensesConfigured": "Не налаштовано витрати.",
         "members": "Учасники",
         "user_residences": "Мої резиденції",
@@ -175,6 +175,7 @@
         }
       }
     },
+    "funds": "Кошти",
     "delete": {
       "confirm": "Ви впевнені, що хочете видалити"
     },
@@ -408,6 +409,29 @@
       "distributionCard": {
         "type": "Тип",
         "coverage": "Покриття"
+      },
+      "payment": {
+        "title": "Виплати витрат",
+        "addPayment": "Додати платіж",
+        "amount": "Сума",
+        "amountPlaceholder": "Введіть суму (позитивна для платежів, негативна для повернень)",
+        "transactionDate": "Дата транзакції",
+        "yearMonth": "Рік Місяць",
+        "description": "Опис",
+        "descriptionPlaceholder": "Введіть опис платежу",
+        "paymentHistory": "Історія платежів",
+        "payment": "платіж",
+        "payments": "платежі",
+        "noPayments": "Платежі ще не записані.",
+        "invalidAmount": "Будь ласка, введіть дійсну суму",
+        "date": "Дата",
+        "paymentId": "ID"
+      }
+    },
+    "calculations": {
+      "list": {
+        "calculatedForCollection": "Розраховано для збору",
+        "actualExpensePaid": "Фактичні витрати сплачено"
       }
     },
     "maintenances": {
@@ -432,6 +456,34 @@
         "thisMonthCalculation": "Розрахунок за цей місяць",
         "totalAmountToPay": "Загальна сума до сплати",
         "withFormula": "З формулою"
+      },
+      "list": {
+        "title": "Історія обслуговування",
+        "noMaintenances": "Записи про обслуговування не знайдено.",
+        "active": "Активний",
+        "inactive": "Неактивний",
+        "previousAmount": "Попередня сума",
+        "fine": "Штраф",
+        "thisMonth": "Цього місяця",
+        "totalAmount": "Загальна сума",
+        "maintenanceId": "ID"
+      },
+      "payment": {
+        "title": "Платежі за обслуговування",
+        "addPayment": "Додати платіж",
+        "amount": "Сума",
+        "amountPlaceholder": "Введіть суму (позитивна для платежів, негативна для повернень)",
+        "transactionDate": "Дата транзакції",
+        "yearMonth": "Рік Місяць",
+        "description": "Опис",
+        "descriptionPlaceholder": "Введіть опис платежу",
+        "paymentHistory": "Історія платежів",
+        "payment": "платіж",
+        "payments": "платежі",
+        "noPayments": "Платежі ще не записані.",
+        "invalidAmount": "Будь ласка, введіть дійсну суму",
+        "date": "Дата",
+        "paymentId": "ID"
       }
     },
     "legal": {
@@ -461,6 +513,8 @@
     "deleting": "Видалення...",
     "cancel": "Скасувати",
     "update": "Оновити",
+    "save": "Зберегти",
+    "saving": "Збереження...",
     "contact_admin": "Зв'яжіться з адміністратором",
     "contact_user": "Зв'язатися з користувачем",
     "created": "Створено",

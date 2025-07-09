@@ -164,7 +164,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "খৰচৰ হিচাপ",
-        "triggerCalculations": "হিচাপ ট্ৰিগাৰ কৰক",
+        "triggerCalculations": "মেৰামতিৰ হিচাপ",
         "noExpensesConfigured": "কোনো খৰচ কনফিগাৰ কৰা হোৱা নাই।",
         "members": "সদস্যসকল",
         "user_residences": "মোৰ বাসগৃহসমূহ",
@@ -175,6 +175,7 @@
         }
       }
     },
+    "funds": "ধন",
     "delete": {
       "confirm": "আপুনি নিশ্চিতভাৱে ইয়াক ডিলিট কৰিব বিচাৰে নে"
     },
@@ -408,6 +409,29 @@
       "distributionCard": {
         "type": "প্ৰকাৰ",
         "coverage": "কভাৰেজ"
+      },
+      "payment": {
+        "title": "খৰচৰ পৰিশোধ",
+        "addPayment": "পৰিশোধ যোগ কৰক",
+        "amount": "পৰিমাণ",
+        "amountPlaceholder": "পৰিশোধৰ পৰিমাণ ভৰাওক (পৰিশোধৰ বাবে যোগাত্মক, প্ৰত্যাহাৰৰ বাবে ঋণাত্মক)",
+        "transactionDate": "লেনদেনৰ তাৰিখ",
+        "yearMonth": "বছৰ মাহ",
+        "description": "বিৱৰণ",
+        "descriptionPlaceholder": "পৰিশোধৰ বিৱৰণ ভৰাওক",
+        "paymentHistory": "পৰিশোধৰ ইতিহাস",
+        "payment": "পৰিশোধ",
+        "payments": "পৰিশোধসমূহ",
+        "noPayments": "এতিয়ালৈকে কোনো পৰিশোধ ৰেকৰ্ড কৰা হোৱা নাই।",
+        "invalidAmount": "অনুগ্রহ কৰি বৈধ পৰিমাণ ভৰাওক",
+        "date": "তাৰিখ",
+        "paymentId": "আইডি"
+      }
+    },
+    "calculations": {
+      "list": {
+        "calculatedForCollection": "সংগ্ৰহৰ বাবে গণনা কৰা হৈছে",
+        "actualExpensePaid": "প্ৰকৃত খৰচ পৰিশোধ কৰা হ'ল"
       }
     },
     "maintenances": {
@@ -432,6 +456,34 @@
         "thisMonthCalculation": "এই মাহৰ হিচাপ",
         "totalAmountToPay": "পৰিশোধ কৰিবলগীয়া মুঠ ধনৰ পৰিমাণ",
         "withFormula": "সূত্ৰৰ সৈতে"
+      },
+      "list": {
+        "title": "মেৰামতিৰ ইতিহাস",
+        "noMaintenances": "কোনো মেৰামতিৰ ৰেকৰ্ড পোৱা নগ'ল।",
+        "active": "সক্ৰিয়",
+        "inactive": "निष्क्रिय",
+        "previousAmount": "পূৰ্বৰ পৰিমাণ",
+        "fine": "জৰিমনা",
+        "thisMonth": "এই মাহ",
+        "totalAmount": "মুঠ পৰিমাণ",
+        "maintenanceId": "আইডি"
+      },
+      "payment": {
+        "title": "মেৰামতিৰ পৰিশোধ",
+        "addPayment": "পৰিশোধ যোগ কৰক",
+        "amount": "পৰিমাণ",
+        "amountPlaceholder": "পৰিশোধৰ পৰিমাণ ভৰাওক (পৰিশোধৰ বাবে যোগাত্মক, প্ৰত্যাহাৰৰ বাবে ঋণাত্মক)",
+        "transactionDate": "লেনদেনৰ তাৰিখ",
+        "yearMonth": "বছৰ মাহ",
+        "description": "বিৱৰণ",
+        "descriptionPlaceholder": "পৰিশোধৰ বিৱৰণ ভৰাওক",
+        "paymentHistory": "পৰিশোধৰ ইতিহাস",
+        "payment": "পৰিশোধ",
+        "payments": "পৰিশোধসমূহ",
+        "noPayments": "এতিয়ালৈকে কোনো পৰিশোধ ৰেকৰ্ড কৰা হোৱা নাই।",
+        "invalidAmount": "অনুগ্রহ কৰি বৈধ পৰিমাণ ভৰাওক",
+        "date": "তাৰিখ",
+        "paymentId": "আইডি"
       }
     },
     "legal": {
@@ -461,6 +513,8 @@
     "deleting": "মচি পেলোৱা হৈছে...",
     "cancel": "বাতিল কৰক",
     "update": "আপডেট",
+    "save": "সংৰক্ষণ কৰক",
+    "saving": "সংৰক্ষণ কৰি আছে...",
     "contact_admin": "প্ৰশাসকৰ সৈতে যোগাযোগ কৰক",
     "contact_user": "ব্যৱহাৰকাৰীক যোগাযোগ কৰক",
     "created": "সৃষ্টি কৰা হ'ল",

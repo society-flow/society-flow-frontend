@@ -164,7 +164,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Gider Hesaplamaları",
-        "triggerCalculations": "Hesaplamaları Tetikle",
+        "triggerCalculations": "Bakım Hesaplamaları",
         "noExpensesConfigured": "Hiçbir gider yapılandırılmamış.",
         "members": "Üyeler",
         "user_residences": "Konutlarım",
@@ -175,6 +175,7 @@
         }
       }
     },
+    "funds": "Fonlar",
     "delete": {
       "confirm": "Silmek istediğinizden emin misiniz"
     },
@@ -408,6 +409,29 @@
       "distributionCard": {
         "type": "Tür",
         "coverage": "Kapsam"
+      },
+      "payment": {
+        "title": "Gider Ödemeleri",
+        "addPayment": "Ödeme Ekle",
+        "amount": "Tutar",
+        "amountPlaceholder": "Miktarı girin (ödeme için pozitif, iade için negatif)",
+        "transactionDate": "İşlem Tarihi",
+        "yearMonth": "Yıl Ay",
+        "description": "Açıklama",
+        "descriptionPlaceholder": "Ödeme açıklamasını girin",
+        "paymentHistory": "Ödeme Geçmişi",
+        "payment": "ödeme",
+        "payments": "ödemeler",
+        "noPayments": "Henüz ödeme kaydı yok.",
+        "invalidAmount": "Lütfen geçerli bir miktar girin",
+        "date": "Tarih",
+        "paymentId": "ID"
+      }
+    },
+    "calculations": {
+      "list": {
+        "calculatedForCollection": "Tahsilat için hesaplandı",
+        "actualExpensePaid": "Ödenen Gerçek Gider"
       }
     },
     "maintenances": {
@@ -432,6 +456,34 @@
         "thisMonthCalculation": "Bu Ay Hesaplaması",
         "totalAmountToPay": "Ödenecek Toplam Tutar",
         "withFormula": "Formülle"
+      },
+      "list": {
+        "title": "Bakım Geçmişi",
+        "noMaintenances": "Bakım kaydı bulunamadı.",
+        "active": "Aktif",
+        "inactive": "Etkin Değil",
+        "previousAmount": "Önceki Miktar",
+        "fine": "Ceza",
+        "thisMonth": "Bu Ay",
+        "totalAmount": "Toplam Tutar",
+        "maintenanceId": "ID"
+      },
+      "payment": {
+        "title": "Bakım Ödemeleri",
+        "addPayment": "Ödeme Ekle",
+        "amount": "Tutar",
+        "amountPlaceholder": "Miktarı girin (ödeme için pozitif, iade için negatif)",
+        "transactionDate": "İşlem Tarihi",
+        "yearMonth": "Yıl Ay",
+        "description": "Açıklama",
+        "descriptionPlaceholder": "Ödeme açıklamasını girin",
+        "paymentHistory": "Ödeme Geçmişi",
+        "payment": "ödeme",
+        "payments": "ödemeler",
+        "noPayments": "Henüz ödeme kaydı yok.",
+        "invalidAmount": "Lütfen geçerli bir miktar girin",
+        "date": "Tarih",
+        "paymentId": "ID"
       }
     },
     "legal": {
@@ -461,6 +513,8 @@
     "deleting": "Siliniyor...",
     "cancel": "İptal",
     "update": "Güncelle",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor...",
     "contact_admin": "Yöneticiyle iletişim kurun",
     "contact_user": "Kullanıcıyla iletişim kur",
     "created": "Oluşturuldu",

@@ -164,7 +164,7 @@
     "societies": {
       "detail": {
         "expenseCalculations": "Obliczenia wydatków",
-        "triggerCalculations": "Uruchom obliczenia",
+        "triggerCalculations": "Obliczenia konserwacyjne",
         "noExpensesConfigured": "Brak skonfigurowanych wydatków.",
         "members": "Członkowie",
         "user_residences": "Moje rezydencje",
@@ -175,6 +175,7 @@
         }
       }
     },
+    "funds": "Fundusze",
     "delete": {
       "confirm": "Czy na pewno chcesz usunąć"
     },
@@ -408,6 +409,29 @@
       "distributionCard": {
         "type": "Typ",
         "coverage": "Zasięg"
+      },
+      "payment": {
+        "title": "Płatności za wydatki",
+        "addPayment": "Dodaj płatność",
+        "amount": "Kwota",
+        "amountPlaceholder": "Wprowadź kwotę (dodatnia dla płatności, ujemna dla zwrotów)",
+        "transactionDate": "Data transakcji",
+        "yearMonth": "Rok miesiąc",
+        "description": "Opis",
+        "descriptionPlaceholder": "Wprowadź opis płatności",
+        "paymentHistory": "Historia płatności",
+        "payment": "płatność",
+        "payments": "płatności",
+        "noPayments": "Brak zapisanych płatności.",
+        "invalidAmount": "Wprowadź prawidłową kwotę",
+        "date": "Data",
+        "paymentId": "ID"
+      }
+    },
+    "calculations": {
+      "list": {
+        "calculatedForCollection": "Obliczone do pobrania",
+        "actualExpensePaid": "Rzeczywisty wydany wydatek"
       }
     },
     "maintenances": {
@@ -432,6 +456,34 @@
         "thisMonthCalculation": "Obliczenia dla tego miesiąca",
         "totalAmountToPay": "Całkowita kwota do zapłaty",
         "withFormula": "Ze wzorem"
+      },
+      "list": {
+        "title": "Historia konserwacji",
+        "noMaintenances": "Nie znaleziono żadnych zapisów konserwacji.",
+        "active": "Aktywny",
+        "inactive": "Nieaktywny",
+        "previousAmount": "Poprzednia kwota",
+        "fine": "Kara",
+        "thisMonth": "Ten miesiąc",
+        "totalAmount": "Całkowita kwota",
+        "maintenanceId": "ID"
+      },
+      "payment": {
+        "title": "Płatności za konserwację",
+        "addPayment": "Dodaj płatność",
+        "amount": "Kwota",
+        "amountPlaceholder": "Wprowadź kwotę (dodatnia dla płatności, ujemna dla zwrotów)",
+        "transactionDate": "Data transakcji",
+        "yearMonth": "Rok miesiąc",
+        "description": "Opis",
+        "descriptionPlaceholder": "Wprowadź opis płatności",
+        "paymentHistory": "Historia płatności",
+        "payment": "płatność",
+        "payments": "płatności",
+        "noPayments": "Brak zapisanych płatności.",
+        "invalidAmount": "Wprowadź prawidłową kwotę",
+        "date": "Data",
+        "paymentId": "ID"
       }
     },
     "legal": {
@@ -461,6 +513,8 @@
     "deleting": "Usuwanie...",
     "cancel": "Anuluj",
     "update": "Aktualizuj",
+    "save": "Zapisz",
+    "saving": "Zapisywanie...",
     "contact_admin": "Skontaktuj się z administratorem",
     "contact_user": "Kontakt z użytkownikiem",
     "created": "Utworzono",
