@@ -3,7 +3,6 @@ import { api, initApi } from '$lib/api.svelte.js';
 import { userState } from '$lib/states/user.svelte.js';
 
 export const prerender = false;
-
 export async function load({ params, depends }) {
 	depends('data:residence');
 
@@ -13,19 +12,32 @@ export async function load({ params, depends }) {
 	await initApi();
 
 	const residence = await api.getResidenceById(id);
+	const { societyId } = residence;
+	const society = await api.getSocietyById(societyId);
 	const fund = await api.getResidenceFundByResidenceId(id);
+	const maintenances = await api.getAllMaintenances(societyId, id);
+	const maintenancePayments = await api.getMaintenancePaymentsByResidenceId(id);
 	const users = await api.getResidenceUsers(id);
-	const isMember = !!users.find((u) => u.id === user?.id);
-	const society = residence.societyId ? await api.getSocietyById(residence.societyId) : null;
-    const userRole = await api.getUserRoleInSociety(residence.societyId, userState.user.id);
-    const isAdmin = userRole?.role === 'ADMIN';
+
+	let isMember = false;
+	if (user) {
+		const { isPresent } = await api.isUserInResidence(id, user.id);
+		isMember = isPresent;
+	}
+	let isAdmin = false;
+	if (user) {
+		const roleDetails = await api.getUserRoleInSociety(societyId, user.id);
+		isAdmin = roleDetails && roleDetails.role === 'admin';
+	}
 
 	return {
 		residence,
-		fund,
-		users,
-		isMember,
 		society,
+		users,
+		fund,
+		maintenances,
+		maintenancePayments,
+		isMember,
 		isAdmin
 	};
 }
