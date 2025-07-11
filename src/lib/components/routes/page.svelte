@@ -83,7 +83,7 @@
 		:global(.Nav) {
 			display: flex;
 			justify-content: center;
-			margin: var(--s) 0;
+			margin: calc(var(--s) / 2) 0;
       overflow: auto;
 			:global(ul) {
 				display: flex;

@@ -8,5 +8,7 @@
 </script>
 
 <Page title={$_('menu.auth.logout')} isCenter={true}>
-	<Logout />
+	<section>
+		<Logout />
+	</section>
 </Page>

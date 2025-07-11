@@ -7,7 +7,7 @@
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import { IconAdd } from 'obra-icons-svelte';
+	import { IconAdd, IconBusinessAlt } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -47,6 +47,7 @@
 		<section>
 			<header>
 				<h2>
+					<IconBusinessAlt />
 					<Anchor href={`/societies/${society.id}`}>
 						{society.name}
 					</Anchor>
