@@ -84,7 +84,10 @@
 			display: flex;
 			justify-content: center;
 			margin: var(--s) 0;
+      overflow: auto;
 			:global(ul) {
+				display: flex;
+				align-items: center;
 				justify-content: flex-start;
 				flex-wrap: nowrap;
 				overflow-x: scroll;
@@ -93,15 +96,12 @@
 				background-color: var(--c-bg--secondary);
 				border-bottom: 1px solid var(--c-border);
 				border-radius: var(--border-radius);
-			}
-			:global(ul) {
 				list-style: none;
 				margin: 0;
 				padding: 0;
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: center;
+			}
+			:global(ul) {
+				/* justify-content: center; */
 				:global(li) {
 					background-color: var(--c-bg--secondary);
 				}
