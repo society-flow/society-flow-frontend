@@ -2,25 +2,43 @@
 	import { _ } from 'svelte-i18n';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
-	import MaintenanceList from '$lib/components/maintenances/list.svelte';
+	import MaintenancesList from '$lib/components/maintenances/list.svelte';
+	import MaintenancePaymentForm from '$lib/components/maintenances/payment-form.svelte';
+	import MaintenancePaymentList from '$lib/components/maintenances/payment-list.svelte';
 
-	const id = $derived($page.params.id);
+	let { data } = $props();
+	const { residence, fund, society, isMember, isAdmin, maintenances, maintenancePayments } =
+		$derived(data);
 
-	let maintenances = $state([]);
-
-	$effect(async () => {
-		if (id) {
-			const residence = await api.getResidenceById(id);
-			if (residence.societyId) {
-				maintenances = await api.getAllMaintenances(residence.societyId, id);
-			}
-		}
+	const latestActiveMaintenance = $derived(() => {
+		return maintenances.find((m) => m.isCurrent) || null;
 	});
+
+	function onUpdate() {
+		invalidate('data:residence');
+	}
 </script>
 
-<section>
-	<header>
-		<h2>{$_('menu.maintenances')}</h2>
-	</header>
-	<MaintenanceList {maintenances} />
-</section>
+{#if isMember || isAdmin}
+	<!-- <header> -->
+	<!-- 	<h2>{$_('menu.maintenances')}</h2> -->
+	<!-- </header> -->
+
+	{#if latestActiveMaintenance}
+		<section>
+			<MaintenancePaymentForm
+				maintenance={latestActiveMaintenance}
+				residenceId={residence?.id}
+				onSuccess={onUpdate}
+			/>
+		</section>
+	{/if}
+
+	<section>
+		<MaintenancesList {maintenances} />
+	</section>
+
+	<section>
+		<MaintenancePaymentList payments={maintenancePayments} {society} />
+	</section>
+{/if}

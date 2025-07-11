@@ -10,18 +10,15 @@
 	let isSubmitting = $state(false);
 	let showForm = $state(false);
 
-	function getCurrentYearMonth() {
-		const now = new Date();
-		const year = now.getFullYear();
-		const month = (now.getMonth() + 1).toString().padStart(2, '0');
-		return parseInt(`${year}${month}`);
+	function getTodaysDate() {
+		return new Date().toISOString().split('T')[0];
 	}
 
 	let form = $state({
 		residenceId: residenceId || '',
 		amount: '',
-		transactionDate: new Date().toISOString().split('T')[0],
-		yearMonth: getCurrentYearMonth(),
+		transactionDate: getTodaysDate(),
+		yearMonth: getTodaysDate(),
 		description: '',
 		userId: userState.user?.id || ''
 	});
@@ -43,25 +40,27 @@
 				return;
 			}
 			
+			const yearMonthDate = new Date(form.yearMonth);
+			const year = yearMonthDate.getFullYear();
+			const month = (yearMonthDate.getMonth() + 1).toString().padStart(2, '0');
+			const yearMonthValue = parseInt(`${year}${month}`, 10);
+
 			const paymentData = {
 				...form,
 				amount: amount,
-				transactionDate: new Date(form.transactionDate).toISOString()
+				transactionDate: new Date(form.transactionDate).toISOString(),
+				yearMonth: yearMonthValue
 			};
-
-			console.log('Sending maintenance payment data:', paymentData);
-			console.log('Maintenance object:', maintenance);
 			
 			const result = await api.createMaintenancePayment(paymentData);
-			console.log('Maintenance payment created successfully:', result);
 			onSuccess(result);
 			
 			// Reset form
 			form = {
 				residenceId: residenceId || '',
 				amount: '',
-				transactionDate: new Date().toISOString().split('T')[0],
-				yearMonth: getCurrentYearMonth(),
+				transactionDate: getTodaysDate(),
+				yearMonth: getTodaysDate(),
 				description: '',
 				userId: userState.user?.id || ''
 			};
@@ -81,8 +80,8 @@
 		form = {
 			residenceId: residenceId || '',
 			amount: '',
-			transactionDate: new Date().toISOString().split('T')[0],
-			yearMonth: getCurrentYearMonth(),
+			transactionDate: getTodaysDate(),
+			yearMonth: getTodaysDate(),
 			description: '',
 			userId: userState.user?.id || ''
 		};
@@ -125,11 +124,8 @@
 			<fieldset>
 				<legend>{$_('components.maintenances.payment.yearMonth')}</legend>
 				<input
-					type="number"
-					min="202301"
-					max="209912"
+					type="date"
 					bind:value={form.yearMonth}
-					placeholder="202507"
 					required
 				/>
 			</fieldset>
@@ -163,10 +159,6 @@
 
 <style>
 	.maintenance-payment-form {
-		border: 1px solid #e0e0e0;
-		border-radius: 8px;
-		padding: 1rem;
-		margin: 1rem 0;
 	}
 
 	.maintenance-payment-form header {
@@ -178,7 +170,7 @@
 
 	.form-actions {
 		display: flex;
-		gap: 0.5rem;
+		gap: var(--s);
 		justify-content: flex-end;
 	}
 

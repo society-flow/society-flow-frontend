@@ -8,11 +8,11 @@
 	import UsersList from '$lib/components/users/list.svelte';
 
 	const { data } = $props();
-	const { users, isMember } = $derived(data);
-	const id = $derived($page.params.id);
+	const { residence, users, isMember } = $derived(data);
+  const { id } = $derived(residence);
 
 	async function onInvite(inviteData) {
-		await api.getResidenceUsers(id);
+    invalidate("data:residence")
 	}
 
 	async function onRemoveUser(user) {
