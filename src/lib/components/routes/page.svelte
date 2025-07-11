@@ -1,13 +1,15 @@
 <script>
+	import Anchor from '$lib/components/anchor.svelte';
+
 	const {
-    headTitle,
+		headTitle,
 		title,
+		titleHref,
 		nav,
 		head,
 		header,
 		children,
 		footer,
-		showNav = true,
 		showHeader = true,
 		isCenter = false,
 		isWide = false,
@@ -23,12 +25,7 @@
 	{/if}
 </svelte:head>
 
-<article
-	class="Page"
-	class:Page--center={isCenter}
-	class:Page--full={isFull}
-	class:Page--wide={isWide}
->
+<div class="Page" class:Page--center={isCenter} class:Page--full={isFull} class:Page--wide={isWide}>
 	{#if header}
 		<header class="Page-header">
 			{@render header()}
@@ -36,14 +33,22 @@
 	{:else if showHeader && title}
 		<header class="Page-header">
 			<h1>
-				{title}
+				{#if titleHref}
+					<Anchor href={titleHref}>
+						{title}
+					</Anchor>
+				{:else}
+					{title}
+				{/if}
 			</h1>
 		</header>
 	{/if}
 
-	{#if showNav && nav}
-		<nav class="Page-nav">
-			{@render nav()}
+	{#if nav}
+		<nav class="Nav">
+			<ul>
+				{@render nav()}
+			</ul>
 		</nav>
 	{/if}
 
@@ -58,7 +63,7 @@
 			{@render footer()}
 		</footer>
 	{/if}
-</article>
+</div>
 
 <style>
 	.Page {
@@ -75,38 +80,53 @@
 		&.Page--wide {
 			max-width: calc(var(--s-container) * 1.5);
 		}
-	}
-	.Page-nav {
-		display: flex;
-		justify-content: center;
-    margin-bottom: var(--s);
-		:global(ul) {
-      justify-content: flex-start;
-			flex-wrap: nowrap;
-			overflow-x: scroll;
-			scrollbar-width: none;
-			-ms-overflow-style: none;
-			background-color: var(--c-bg--secondary);
-			border-bottom: 1px solid var(--c-border);
-			border-radius: var(--border-radius);
-		}
-		:global(a:not(.Button)) {
-			padding: calc(var(--s) * 1.2) calc(var(--s) * 1.3);
-			border-bottom: 0.2rem solid transparent;
-			border-radius: 0;
-			color: var(--c-fg);
-			white-space: pre;
-			&[aria-current='page'] {
-				border-bottom-color: var(--c-link);
-				color: var(--c-link);
+		:global(.Nav) {
+			display: flex;
+			justify-content: center;
+			margin: var(--s) 0;
+			:global(ul) {
+				justify-content: flex-start;
+				flex-wrap: nowrap;
+				overflow-x: scroll;
+				scrollbar-width: none;
+				-ms-overflow-style: none;
+				background-color: var(--c-bg--secondary);
+				border-bottom: 1px solid var(--c-border);
+				border-radius: var(--border-radius);
 			}
-			&:not([aria-current='page']) {
-				text-decoration: none;
+			:global(ul) {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				:global(li) {
+					background-color: var(--c-bg--secondary);
+				}
 			}
-      :global(&.Button) {
-        border-radius: var(--border-radius);
-        border-color: var(--c-border);
-      }
+			:global(a:not(.Button)) {
+				padding: calc(var(--s) * 1.2) calc(var(--s) * 1.3);
+				border-bottom: 0.2rem solid transparent;
+				border-radius: 0;
+				color: var(--c-fg);
+				white-space: pre;
+				&[aria-current='page'] {
+					border-bottom-color: var(--c-link);
+					color: var(--c-link);
+				}
+				&:not([aria-current='page']) {
+					text-decoration: none;
+				}
+				:global(&.Button) {
+					border-radius: var(--border-radius);
+					border-color: var(--c-border);
+				}
+			}
+			&:has(.Button) {
+				background-color: red;
+			}
 		}
 	}
 	.Page-header {
@@ -116,9 +136,12 @@
 		justify-content: center;
 		align-items: center;
 		gap: var(--s);
-		padding: var(--s);
+		padding: calc(var(--s) / 2);
 		:global(h1) {
 			margin-bottom: 0;
+			/* :global(a[aria-current='page']) { */
+			/* 	text-decoration: underline var(--c-link); */
+			/* } */
 		}
 	}
 	.Page-main {
@@ -133,7 +156,7 @@
 		}
 		:global(nav ul) {
 			list-style: none;
-      justify-content: center;
+			justify-content: center;
 		}
 	}
 </style>

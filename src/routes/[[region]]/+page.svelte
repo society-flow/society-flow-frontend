@@ -3,6 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { getTicker, getTickers } from '$lib/db-static.js';
 	import { userState } from '$lib/states/user.svelte.js';
+	import { IconAdd } from 'obra-icons-svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import ListSocieties from '$lib/components/societies/list.svelte';
@@ -11,6 +12,7 @@
 	import MarketingUsers from '$lib/components/marketing/users.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
+	import { IconWorld, IconBusiness, IconBusinessAlt } from 'obra-icons-svelte';
 
 	let ticker = $state({});
 	$effect(async () => {
@@ -49,7 +51,11 @@
 <Page title={$_('title')} isWide={!userState?.isAuth} isCenter={!userState?.isAuth}>
 	{#snippet header()}
 		{#if !userState.isAuth}
-			<h1>{titleOneWord}</h1>
+			<h1>
+				<Anchor href="/">
+					{titleOneWord}
+				</Anchor>
+			</h1>
 			<p>{$_('catch_line')}</p>
 			<center>
 				<Anchor href="/auth/register" title={$_('menu.auth.register')}>
@@ -59,63 +65,70 @@
 		{/if}
 	{/snippet}
 
-	<article class="Detail">
-		{#if userState.isAuth}
-			<section>
-				<header>
-					<h2>{$_('pages.home.auth.dashboard.title')}</h2>
-					<p>
-						{$_('pages.home.auth.greeting', {
-							values: { name: userState?.user?.name, email: userState?.user?.email }
-						})}
-					</p>
-				</header>
-			</section>
-			<section>
-				<header>
-					<h2>{$_('menu.societies')}</h2>
-					<nav>
-						<Anchor href="/create/societies" isButton>
-							{$_('menu.create.societies')}
-						</Anchor>
-					</nav>
-				</header>
-				{#if societies?.length}
-					<ListSocieties {societies} />
-				{/if}
-			</section>
-			<section>
-				<header>
-					<h2>{$_('menu.residences')}</h2>
-					<nav>
-						<Anchor href="/create/residences" isButton>
-							{$_('menu.create.residences')}
-						</Anchor>
-					</nav>
-				</header>
-				{#if residences?.length}
-					<ListResidences {residences} />
-				{/if}
-			</section>
-			<section>
-				<header>
-					<h2>{$_('menu.ads')}</h2>
-					<nav>
-						<Anchor href="/create/ads" isButton>
-							{$_('menu.create.ads')}
-						</Anchor>
-					</nav>
-				</header>
-				{#if ads?.length}
-					<ListAds {ads} />
-				{/if}
-			</section>
-		{:else}
-			<section>
-				<MarketingUsers />
-			</section>
-		{/if}
-	</article>
+	{#if userState.isAuth}
+		<section>
+			<header>
+				<h2>{$_('pages.home.auth.dashboard.title')}</h2>
+				<p>
+					{$_('pages.home.auth.greeting', {
+						values: { name: userState?.user?.name, email: userState?.user?.email }
+					})}
+				</p>
+			</header>
+		</section>
+		<section>
+			<header>
+				<h2>
+					<IconBusinessAlt />
+					{$_('menu.societies')}
+				</h2>
+				<nav>
+					<Anchor href="/create/societies" title={$_('menu.create.societies')} isButton>
+						<IconAdd />
+					</Anchor>
+				</nav>
+			</header>
+			{#if societies?.length}
+				<ListSocieties {societies} />
+			{/if}
+		</section>
+		<section>
+			<header>
+				<h2>
+					<IconBusiness />
+					{$_('menu.residences')}
+				</h2>
+				<nav>
+					<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
+						<IconAdd />
+					</Anchor>
+				</nav>
+			</header>
+			{#if residences?.length}
+				<ListResidences {residences} />
+			{/if}
+		</section>
+		<section>
+			<header>
+				<h2>
+					<IconWorld />
+					{$_('menu.ads')}
+				</h2>
+				<nav>
+					<Anchor href="/create/ads" title={$_('menu.create.ads')} isButton>
+						<IconAdd />
+					</Anchor>
+				</nav>
+			</header>
+			{#if ads?.length}
+				<ListAds {ads} />
+			{/if}
+		</section>
+	{:else}
+		<section>
+			<MarketingUsers />
+		</section>
+	{/if}
 
 	{#snippet footer()}
 		{#if !userState.isAuth}

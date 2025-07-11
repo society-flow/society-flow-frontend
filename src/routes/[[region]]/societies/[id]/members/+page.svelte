@@ -50,12 +50,12 @@
 		</header>
 		<UsersList {users} />
 	</section>
-	<aside>
+	<section>
 		<header>
 			<h2>
 				{$_('components.societies.invite_user.title')}
 			</h2>
 		</header>
 		<InviteUser societyId={society.id} {onInvite} />
-	</aside>
+	</section>
 {/if}

@@ -1,28 +1,68 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
-
+	import Card from './card.svelte';
+	import Map from '$lib/components/map.svelte';
+	import Detail from '$lib/components/detail.svelte';
 	import RelativeDate from '$lib/components/date/relative.svelte';
+	import {
+		IconLocationMarker,
+		IconCoin,
+		IconCompassTool,
+		IconEditAlt,
+		IconCalendarSelectedDate,
+		IconWatch
+	} from 'obra-icons-svelte';
 
 	let { society, userRole } = $props();
+
+	const markers = $derived(
+		society?.geoCoordinate
+			? [
+					{
+						coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
+						title: society.name || society.id
+					}
+				]
+			: []
+	);
 </script>
 
-<main>
+<Detail title="{$_('components.societies.details.name')}:">
+	{#snippet header()}
+		<Card {society} />
+	{/snippet}
 	<ul>
 		<li>
-			<strong>{$_('components.societies.details.name')}:</strong>
-			<Anchor href={`/societies/${society.id}`}>
-				{society.name}
-			</Anchor>
+			<IconLocationMarker />
+			<strong>
+				{$_('components.societies.details.location')}:
+			</strong>
+			{[society.city, society.postcode, society.state, society.country]
+				.filter((v) => !!v)
+				.join(', ')}
 		</li>
 		<li>
-			<strong>{$_('components.societies.details.location')}:</strong>
-			{society.city}, {society.state}, {society.country}
+			<IconCoin />
+			<strong>
+				{$_('components.societies.details.currency')}:
+			</strong>
+			{society.currency}
 		</li>
-		<li><strong>{$_('components.societies.details.postcode')}:</strong> {society.postcode}</li>
-		<li><strong>{$_('components.societies.details.currency')}:</strong> {society.currency}</li>
-		<li><strong>{$_('components.societies.details.timezone')}:</strong> {society.timezone}</li>
-		<li><strong>{$_('components.societies.details.area_unit')}:</strong> {society.areaUnit}</li>
+		<li>
+			<IconWatch />
+			<strong>
+				{$_('components.societies.details.timezone')}:
+			</strong>
+			{society.timezone}
+		</li>
+		<li>
+			<IconCompassTool />
+			<strong>
+				{$_('components.societies.details.area_unit')}:
+			</strong>
+			{society.areaUnit}
+		</li>
 
 		{#if society.finerate}
 			<li>
@@ -40,6 +80,7 @@
 		{/if}
 		{#if society.updatedAt}
 			<li>
+				<IconEditAlt />
 				<strong>
 					{$_('common.updated')}
 				</strong>
@@ -48,6 +89,7 @@
 		{/if}
 		{#if society.createdAt}
 			<li>
+				<IconCalendarSelectedDate />
 				<strong>
 					{$_('common.created')}
 				</strong>
@@ -55,4 +97,9 @@
 			</li>
 		{/if}
 	</ul>
-</main>
+	{#snippet aside()}
+		{#if markers.length}
+			<Map {markers} />
+		{/if}
+	{/snippet}
+</Detail>

@@ -1,6 +1,6 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
-  import { invalidate } from '$app/navigation';
+	import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 
@@ -9,16 +9,16 @@
 
 	const { data } = $props();
 	const { residence, users, isMember } = $derived(data);
-  const { id } = $derived(residence);
+	const { id } = $derived(residence);
 
 	async function onInvite(inviteData) {
-    invalidate("data:residence")
+		invalidate('data:residence');
 	}
 
 	async function onRemoveUser(user) {
 		try {
 			await api.removeUserFromResidence(id, user.id);
-			invalidate("data:residence")
+			invalidate('data:residence');
 		} catch (e) {
 			console.error('Error removing user:', e);
 		}
@@ -34,13 +34,13 @@
 	</section>
 
 	{#if isMember}
-		<aside>
+		<section>
 			<header>
 				<h2>
 					{$_('components.residences.invite_user.title')}
 				</h2>
 			</header>
 			<InviteUser residenceId={id} {onInvite} />
-		</aside>
+		</section>
 	{/if}
 {/if}

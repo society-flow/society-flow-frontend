@@ -13,11 +13,8 @@
 	import RelativeDate from '$lib/components/date/relative.svelte';
 
 	const { data } = $props();
-	const { adTypes, isAdmin } = $derived(data);
+	const { advert, residency, society, adTypes, isAdmin } = $derived(data);
 	const id = $derived($page.params.id);
-	let advert = $state({});
-	let residency = $state(null);
-	let society = $state(null);
 
 	let coordinates = $derived(advert?.approxGeoCoordinate);
 	let selectedLocation = $derived(residency || society);
@@ -34,36 +31,14 @@
 				]
 			: []
 	);
-
-	$effect(async () => {
-		if (id) {
-			const res = await api.getAdvertisementById(id);
-
-			if (res.societyId || res.residencyId) {
-				try {
-					if (res.residencyId) {
-						residency = await api.getResidencyById(res.residencyId);
-						society = null; // Clear society if residency is found
-					} else if (res.societyId) {
-						society = await api.getSocietyById(res.societyId);
-						residency = null; // Clear residency if society is found
-					}
-				} catch (error) {
-					console.error('Error fetching location data:', error);
-				}
-			}
-
-			advert = res;
-		}
-	});
 </script>
 
 <Page
 	title={`${advert?.title || advert?.id || ''}`}
 	headTitle={`${advert?.title || advert?.id} — ${$_('menu.ads')}`}
 >
-	<article class="Detail">
-		<aside>
+	<section>
+		<header>
 			<nav>
 				<ul>
 					<li>
@@ -118,26 +93,28 @@
 					{/if}
 				</ul>
 			</nav>
-		</aside>
+		</header>
+	</section>
 
-		{#if markers.length}
-			<aside>
-				<Map {markers} />
-			</aside>
-		{/if}
-
-		{#if selectedLocation}
-			<aside>
-				{#if residency}
-					<ResidencyCard {residency} />
-				{:else if society}
-					<SocietyCard {society} />
-				{/if}
-			</aside>
-		{/if}
-
+	<section>
 		<AdDetails {advert} />
-	</article>
+	</section>
+
+	{#if selectedLocation}
+		<aside>
+			{#if residency}
+				<ResidencyCard {residency} />
+			{:else if society}
+				<SocietyCard {society} />
+			{/if}
+		</aside>
+	{/if}
+
+	{#if markers.length}
+		<aside>
+			<Map {markers} />
+		</aside>
+	{/if}
 
 	{#snippet footer()}
 		<nav>

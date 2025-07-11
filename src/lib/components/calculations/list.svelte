@@ -148,13 +148,13 @@
 	}
 
 	.accordion {
-		border: 1px solid #e0e0e0;
+		border: 1px solid var(--c-bg--secondary);
 		border-radius: 8px;
 		overflow: hidden;
 	}
 
 	.accordion-item {
-		border-bottom: 1px solid #e0e0e0;
+		border-bottom: 1px solid var(--c-border);
 	}
 
 	.accordion-item:last-child {

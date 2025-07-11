@@ -4,6 +4,8 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import ListExpenses from '$lib/components/expenses/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import { IconAdd } from 'obra-icons-svelte';
+	import { IconBusinessAlt } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -13,15 +15,30 @@
 
 <Page title={$_('menu.expenses')}>
 	{#snippet header()}
-		<h1>{$_('menu.expenses')}</h1>
-		{#if societies}
-			<Anchor href="/create/expenses" isButton>{$_('menu.create.expenses')}</Anchor>
-		{/if}
+		<h1>
+			{$_('menu.expenses')}
+		</h1>
 	{/snippet}
 	{#if societies}
 		{#each societies as society}
 			<section>
-				<h2><Anchor href={`/societies/${society.id}`}>{society.name}</Anchor></h2>
+				<header>
+					<h2>
+						<IconBusinessAlt />
+						<Anchor href={`/societies/${society.id}`}>
+							{society.name}
+						</Anchor>
+					</h2>
+					{#if societies}
+						<nav>
+							<li>
+								<Anchor href="/create/expenses" title={$_('menu.create.expenses')} isButton>
+									<IconAdd />
+								</Anchor>
+							</li>
+						</nav>
+					{/if}
+				</header>
 				<ListExpenses expenses={dicExpenses[society.id] || []} />
 			</section>
 		{/each}

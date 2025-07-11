@@ -4,6 +4,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Page from '$lib/components/routes/page.svelte';
+	import { IconMap, IconUnorderedList, IconAdd } from 'obra-icons-svelte';
 
 	const { children } = $props();
 	const isMap = $derived(page.url.pathname.split('/').pop() === 'map');
@@ -13,15 +14,21 @@
 {#if !isDetailPage}
 	<Page title={isMap ? `${$_('menu.ads')} — ${$_('menu.map')}` : $_('menu.ads')} isFull={isMap}>
 		{#snippet nav()}
-			<ul>
-				<li>
-					<Anchor href="/ads">{$_('menu.ads')}</Anchor>
-				</li>
-				<li>
-					<Anchor href="/ads/map">{$_('menu.map')}</Anchor>
-				</li>
-			</ul>
-			<Anchor href="/create/ads" isButton>{$_('menu.create.ads')}</Anchor>
+			<li>
+				<Anchor href="/ads" title={$_('menu.ads')}>
+					<IconUnorderedList />
+				</Anchor>
+			</li>
+			<li>
+				<Anchor href="/ads/map" title={$_('menu.map')}>
+					<IconMap />
+				</Anchor>
+			</li>
+			<li>
+				<Anchor href="/create/ads" isButton title={$_('menu.create.ads')}>
+					<IconAdd />
+				</Anchor>
+			</li>
 		{/snippet}
 		{@render children()}
 	</Page>

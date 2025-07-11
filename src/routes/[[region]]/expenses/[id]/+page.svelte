@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
@@ -11,6 +11,7 @@
 	import CalculationsList from '$lib/components/calculations/list.svelte';
 	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
 	import PaymentList from '$lib/components/expenses/payment-list.svelte';
+	import { IconAdd } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -36,10 +37,10 @@
 			try {
 				const rawCalculations = await api.getAllCalculationsByExpense(id);
 				const residences = await api.getAllResidencesInSociety(expense.societyId);
-				
+
 				// Enrich calculations with residence names
-				calculations = rawCalculations.map(calculation => {
-					const residence = residences.find(r => r.id === calculation.residenceId);
+				calculations = rawCalculations.map((calculation) => {
+					const residence = residences.find((r) => r.id === calculation.residenceId);
 					return {
 						...calculation,
 						residenceName: residence?.residenceName || calculation.residenceId
@@ -73,7 +74,7 @@
 			const newPayments = await api.getExpensePaymentsByExpenseId(id);
 			console.log('New payments:', newPayments);
 			payments = newPayments;
-			
+
 			// Also refresh calculations to show updated paid amounts
 			calculations = await api.getAllCalculationsByExpense(id);
 		} catch (error) {
@@ -141,113 +142,121 @@
 </script>
 
 <Page title={expense.name || $_('menu.expenses')} showHeader={!!expense?.name}>
-	<article class="Detail">
-		{#if expense.id}
-			<aside>
+	{#if expense.id}
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
+							{$_('common.update')}
+						</Anchor>
+					</li>
+					<li>
+						<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
+							{$_('common.delete')}
+						</Anchor>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<section>
+			<ExpenseDetails {expense} {society} />
+		</section>
+
+		<section>
+			<header>
+				<h2>{$_('pages.expenses.detail.distributions')}</h2>
 				<nav>
 					<ul>
 						<li>
-							<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
-								{$_('common.update')}
-							</Anchor>
-						</li>
-						<li>
-							<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
-								{$_('common.delete')}
-							</Anchor>
+							<button onclick={editDistributions}
+								>{$_('pages.expenses.detail.editDistributions')}</button
+							>
 						</li>
 					</ul>
 				</nav>
-			</aside>
-
-			<ExpenseDetails {expense} {society} />
-
-			<section>
-				<header>
-					<h2>{$_('pages.expenses.detail.distributions')}</h2>
-					<nav>
-						<button on:click={editDistributions}
-							>{$_('pages.expenses.detail.editDistributions')}</button
-						>
-					</nav>
-				</header>
-				{#if distributions.filter((d) => d.isActive).length && !showDistributionForm}
-					<div>
-						{#each distributions.filter((d) => d.isActive) as d}
-							<DistributionCard distribution={d} />
-						{/each}
-					</div>
-				{:else if showDistributionForm}
-					<form>
-						{#each distributions as d, index}
-							{#if d.isActive}
-								<section>
-									<fieldset>
-										<legend>
-											{$_('pages.expenses.detail.selectType')}
-										</legend>
-										<select bind:value={distributions[index].calculationMode}>
-											{#each typeOptions as opt}
-												<option value={opt}>
-													{$_(`const.expense_types.${opt}`)}
-												</option>
-											{/each}
-										</select>
-									</fieldset>
-									<fieldset>
-										<legend>
-											{$_('pages.expenses.detail.percentageCoverage')} (%)
-										</legend>
-										<input
-											type="number"
-											min="0"
-											max="100"
-											bind:value={distributions[index].percentageCoverage}
-										/>
-									</fieldset>
-									<fieldset>
-										<button type="button" on:click={() => removeDistribution(d)}
-											>{$_('pages.expenses.detail.remove')}</button
-										>
-									</fieldset>
-								</section>
-							{/if}
-						{/each}
-						<footer>
-							<fieldset>
-								<button type="button" on:click={addDistribution}>
-									{$_('pages.expenses.detail.addDistribution')}
-								</button>
-								<button type="button" on:click={saveDistributions}>
-									{$_('pages.expenses.detail.saveDistributions')}
-								</button>
-							</fieldset>
-						</footer>
-						{#if distError}
-							<p class="error">{distError}</p>
+			</header>
+			{#if distributions.filter((d) => d.isActive).length && !showDistributionForm}
+				<div>
+					{#each distributions.filter((d) => d.isActive) as d}
+						<DistributionCard distribution={d} />
+					{/each}
+				</div>
+			{:else if showDistributionForm}
+				<form>
+					{#each distributions as d, index}
+						{#if d.isActive}
+							<section>
+								<fieldset>
+									<legend>
+										{$_('pages.expenses.detail.selectType')}
+									</legend>
+									<select bind:value={distributions[index].calculationMode}>
+										{#each typeOptions as opt}
+											<option value={opt}>
+												{$_(`const.expense_types.${opt}`)}
+											</option>
+										{/each}
+									</select>
+								</fieldset>
+								<fieldset>
+									<legend>
+										{$_('pages.expenses.detail.percentageCoverage')} (%)
+									</legend>
+									<input
+										type="number"
+										min="0"
+										max="100"
+										bind:value={distributions[index].percentageCoverage}
+									/>
+								</fieldset>
+								<fieldset>
+									<button type="button" onclick={() => removeDistribution(d)}
+										>{$_('pages.expenses.detail.remove')}</button
+									>
+								</fieldset>
+							</section>
 						{/if}
-					</form>
-				{:else}
-					<p>{$_('pages.expenses.detail.noDistributions')}</p>
-					<button on:click={addDistribution}>{$_('pages.expenses.detail.addDistribution')}</button>
-				{/if}
-			</section>
+					{/each}
+					<footer>
+						<fieldset>
+							<button type="button" onclick={addDistribution}>
+								<IconAdd />
+								{$_('pages.expenses.detail.addDistribution')}
+							</button>
+							<button type="button" onclick={saveDistributions}>
+								{$_('pages.expenses.detail.saveDistributions')}
+							</button>
+						</fieldset>
+					</footer>
+					{#if distError}
+						<p class="error">{distError}</p>
+					{/if}
+				</form>
+			{:else}
+				<p>{$_('pages.expenses.detail.noDistributions')}</p>
+				<button onclick={addDistribution}>
+					<IconAdd />
+					{$_('pages.expenses.detail.addDistribution')}
+				</button>
+			{/if}
+		</section>
 
-			<section>
-				<CalculationsList {calculations} {society} />
-			</section>
+		<section>
+			<CalculationsList {calculations} {society} />
+		</section>
 
-			<section>
-				<PaymentForm {expense} onSuccess={onPaymentSuccess} />
-			</section>
+		<section>
+			<PaymentForm {expense} onSuccess={onPaymentSuccess} />
+		</section>
 
-			<section>
-				<PaymentList {payments} {society} />
-			</section>
-		{:else}
-			<p>Loading...</p>
-		{/if}
-	</article>
+		<section>
+			<PaymentList {payments} {society} />
+		</section>
+	{:else}
+		<progress />
+	{/if}
 	{#snippet footer()}
 		<p><Anchor href="/expenses">{$_('pages.expenses.detail.backToAllExpenses')}</Anchor></p>
 	{/snippet}
@@ -255,16 +264,15 @@
 
 <style>
 	form {
-    section {
-		  display: flex;
-		  align-items: center;
-	  }
-    footer {
-      
-      fieldset {
-        flex-direction: row;
-        justify-content: flex-end;
-      }
-    }
-  }
+		section {
+			display: flex;
+			align-items: center;
+		}
+		footer {
+			fieldset {
+				flex-direction: row;
+				justify-content: flex-end;
+			}
+		}
+	}
 </style>

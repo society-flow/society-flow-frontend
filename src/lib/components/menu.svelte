@@ -2,14 +2,23 @@
 	import { _, locale } from 'svelte-i18n';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
+	import {
+		IconHome,
+		IconWorld,
+		IconBusiness,
+		IconBusinessAlt,
+		IconBudgetAlt,
+		IconUserEncircledAltFill,
+		IconLogIn
+	} from 'obra-icons-svelte';
 
 	const menuItemsAuth = [
-		{ path: '/', label: 'menu.home' },
-		{ path: '/ads', label: 'menu.ads' },
-		{ path: '/societies', label: 'menu.societies' },
-		{ path: '/residences', label: 'menu.residences' },
-		{ path: '/expenses', label: 'menu.expenses' },
-		{ path: '/auth/logout', label: 'menu.auth.logout' }
+		{ path: '/', label: 'menu.home', Icon: IconHome },
+		{ path: '/societies', label: 'menu.societies', Icon: IconBusinessAlt },
+		{ path: '/residences', label: 'menu.residences', Icon: IconBusiness },
+		{ path: '/expenses', label: 'menu.expenses', Icon: IconBudgetAlt },
+		{ path: '/ads', label: 'menu.ads', Icon: IconWorld },
+		{ path: '/auth/logout', label: 'menu.auth.logout', Icon: IconUserEncircledAltFill }
 	];
 
 	const menuItemsNoAuth = [
@@ -24,10 +33,15 @@
 </script>
 
 <menu>
-	{#each menuItems as { path, label } (path)}
+	{#each menuItems as { path, label, Icon } (path)}
 		<li>
 			<Anchor href={path} title={$_(label)}>
-				{$_(label)}
+				{#if Icon}
+					<Icon />
+					{$_(label)}
+				{:else}
+					{$_(label)}
+				{/if}
 			</Anchor>
 		</li>
 	{/each}
@@ -50,7 +64,8 @@
 			text-decoration: none;
 			color: var(--c-fg);
 			font-weight: bold;
-			display: inline-block;
+			display: inline-flex;
+      align-items: center;
 			/* background-color: var(--c-bg); */
 			border: calc(var(--s) / 1.6) solid transparent;
 			transition: all ease-in-out 300ms;
@@ -74,6 +89,9 @@
 				outline-color: var(--c-link);
 				/* border-radius: calc(var(--s) * 1.5); */
 			}
+      :global(svg) {
+        margin: 0 calc(var(--s) / 3);
+      }
 		}
 	}
 </style>

@@ -3,6 +3,7 @@
 	import { invalidate } from '$app/navigation';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
+	import { IconMap, IconUnorderedList, IconAdd } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -11,22 +12,37 @@
 	const id = $derived(society.id);
 </script>
 
-<section>
-	<nav class="Page-nav">
-		<ul>
-			<li>
-				<Anchor href={`/societies/${id}/ads`}>{$_('menu.ads')}</Anchor>
-			</li>
-			<li>
-				<Anchor href={`/societies/${id}/ads/map`}>{$_('menu.map')}</Anchor>
-			</li>
-			<li>
-				<Anchor href={`/create/ads?society=${id}`} isButton>
-					{$_('menu.create.ads')}
-				</Anchor>
-			</li>
-		</ul>
-	</nav>
-</section>
+<div>
+	<header>
+		<nav class="Nav">
+			<ul>
+				<li>
+					<Anchor href={`/societies/${id}/ads`} title={$_('menu.ads')}>
+						<IconUnorderedList />
+					</Anchor>
+				</li>
+				<li>
+					<Anchor href={`/societies/${id}/ads/map`} title={$_('menu.map')}>
+						<IconMap />
+					</Anchor>
+				</li>
+				<li>
+					<Anchor href={`/create/ads?society=${id}`} title={$_('menu.create.ads')} isButton>
+						<IconAdd />
+					</Anchor>
+				</li>
+			</ul>
+		</nav>
+	</header>
 
-{@render children()}
+	{@render children()}
+</div>
+
+<style>
+	div {
+		flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+	}
+</style>
+

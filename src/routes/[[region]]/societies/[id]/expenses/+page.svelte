@@ -6,6 +6,7 @@
 	import ExpensesList from '$lib/components/expenses/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Error from '$lib/components/error.svelte';
+	import { IconAdd } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -65,8 +66,12 @@
 						</li>
 					{/if}
 					<li>
-						<Anchor href={`/create/expenses?society=${society?.id}`} isButton>
-							{$_('menu.create.expenses')}
+						<Anchor
+							href={`/create/expenses?society=${society?.id}`}
+							title={$_('menu.create.expenses')}
+							isButton
+						>
+							<IconAdd />
 						</Anchor>
 					</li>
 				</ul>

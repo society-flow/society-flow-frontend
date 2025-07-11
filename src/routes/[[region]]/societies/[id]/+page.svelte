@@ -2,7 +2,6 @@
 	import { _, locale } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
-	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Error from '$lib/components/error.svelte';
 	import SocietyDetails from '$lib/components/societies/details.svelte';
@@ -15,29 +14,10 @@
 	const { society, userRole, isAdmin, fund } = $derived(data);
 	const { id, currency } = $derived(society);
 	const { totalFund: total } = $derived(fund);
-
-	const markers = $derived(
-		society?.geoCoordinate
-			? [
-					{
-						coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
-						title: society.name || society.id
-					}
-				]
-			: []
-	);
 </script>
 
-{#if markers.length}
-	<aside>
-		<Map {markers} />
-	</aside>
-{/if}
-
-<SocietyDetails {society} {userRole} />
-
 {#if isAdmin}
-	<aside>
+	<header>
 		<nav>
 			<ul>
 				<li>
@@ -52,8 +32,12 @@
 				</li>
 			</ul>
 		</nav>
-	</aside>
+	</header>
 {/if}
+
+<section>
+	<SocietyDetails {society} {userRole} />
+</section>
 
 <section>
 	<header>

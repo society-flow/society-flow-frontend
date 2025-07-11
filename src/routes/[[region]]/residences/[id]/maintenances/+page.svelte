@@ -1,5 +1,6 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
+  import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 	import MaintenancesList from '$lib/components/maintenances/list.svelte';

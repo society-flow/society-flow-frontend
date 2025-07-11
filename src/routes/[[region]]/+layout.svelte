@@ -65,7 +65,7 @@
     flex-grow: 1;
 	}
 	.Site-header {
-		z-index: 2;
+		z-index: 1;
 		position: sticky;
 		top: 0;
 		display: flex;
@@ -99,89 +99,16 @@
 	}
 
 	/* components */  
-	:global(.Detail) {
-		flex-grow: 1;
-		display: flex;
-		flex-direction: column;
-    :global(& > :first-child) {
-      margin-top: 0;
-    }
-		:global(& > section, & > header, & > main, & > aside) {
-			border: 1px solid transparent;
-			border-radius: var(--border-radius);
-			padding: var(--s);
-			margin-top: var(--s);
-		}
-		:global(& > main) {
-			/* flex-grow: 1; */
-			/* border-color: var(--c-border); */
-      background-color: var(--c-bg--secondary);
-      padding: var(--s) calc(var(--s) * 2);
-		}
-		:global(& > header) {
-			background-color: transparent;
-			border: none;
-			:global(h1, h2) {
-				margin-bottom: 0;
-				text-align: center;
-			}
-			:global(& > nav) {
-				justify-content: flex-end;
-				align-items: center;
-        :global(ul) {
-          align-items: center;
-          justify-content: flex-end;
-        }
-			}
-		}
-		:global(& > section) {
-      /* background-color: var(--c-bg--secondary); */
-			:global(> header) {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-			}
-		}
-		:global(& > aside:has(nav, .Map, .List)) {
-			padding: 0;
-			border: 0;
-		}
-		:global(& > aside:has(form)) {
-			border: 0;
-		}
-		:global(h1, h2) {
-			:global(a) {
-				text-decoration: none;
-			}
-		}
-		:global(nav) {
-			list-style: none;
-			display: flex;
-			flex-wrap: wrap;
-		}
-		:global(aside nav) {
-			justify-content: flex-end;
-		}
-		:global(header nav) {
-			padding: calc(var(--s) / 2);
-		}
-		:global(main) {
-			:global(p:last-child) {
-				margin-bottom: 0;
-			}
-		}
-	}
-
-  :global(nav > ul) {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    :global(li) {
-      margin: 0 calc(var(--s) / 2);
-    }
-  }
+  /* :global(nav > ul) { */
+  /*   list-style: none; */
+  /*   margin: 0; */
+  /*   padding: 0; */
+  /*   display: flex; */
+  /*   flex-wrap: wrap; */
+  /*   align-items: center; */
+  /*   justify-content: center; */
+  /*   :global(li) { */
+  /*     margin: 0 calc(var(--s) / 2); */
+  /*   } */
+  /* } */
 </style>

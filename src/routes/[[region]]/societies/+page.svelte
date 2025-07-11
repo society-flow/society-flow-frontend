@@ -4,6 +4,7 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import ListSocieties from '$lib/components/societies/list.svelte';
+	import { IconAdd } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -16,12 +17,20 @@
 		<h1>
 			{$_('menu.societies')}
 		</h1>
-		<Anchor href="/create/societies" isButton>
-			{$_('menu.create.societies')}
-		</Anchor>
 	{/snippet}
 
 	<section>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<Anchor href="/create/societies" title={$_('menu.create.societies')} isButton>
+							<IconAdd />
+						</Anchor>
+					</li>
+				</ul>
+			</nav>
+		</header>
 		<ListSocieties {societies} />
 	</section>
 </Page>

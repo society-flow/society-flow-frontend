@@ -7,6 +7,7 @@
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import { IconAdd } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -40,18 +41,24 @@
 		<h1>
 			{$_('menu.residences')}
 		</h1>
-		<Anchor href="/create/residences" isButton>
-			{$_('menu.create.residences')}
-		</Anchor>
 	{/snippet}
 
 	{#each societies as society}
 		<section>
-			<h2>
-				<Anchor href={`/societies/${society.id}`}>
-					{society.name}
-				</Anchor>
-			</h2>
+			<header>
+				<h2>
+					<Anchor href={`/societies/${society.id}`}>
+						{society.name}
+					</Anchor>
+				</h2>
+				<menu>
+					<li>
+						<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
+							<IconAdd />
+						</Anchor>
+					</li>
+				</menu>
+			</header>
 			<ListResidences residences={dicResidences[society.id]} />
 		</section>
 	{/each}

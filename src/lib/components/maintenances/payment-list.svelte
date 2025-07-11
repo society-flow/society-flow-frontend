@@ -9,9 +9,7 @@
 
 	// Update grouped payments when payments change
 	$effect(() => {
-		console.log('MaintenancePaymentList received payments:', payments);
 		if (!payments || payments.length === 0) {
-			console.log('No maintenance payments, setting empty');
 			groupedPayments = {};
 			sortedYearMonths = [];
 			return;
@@ -19,7 +17,6 @@
 		
 		const grouped = payments.reduce((acc, payment) => {
 			const yearMonth = payment.yearMonth;
-			console.log('Processing maintenance payment:', payment, 'yearMonth:', yearMonth);
 			if (!acc[yearMonth]) {
 				acc[yearMonth] = [];
 			}
@@ -35,7 +32,6 @@
 					const dateB = new Date(b.transactionDate);
 					// If dates are invalid, fall back to string comparison
 					if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
-						console.log('Invalid dates found:', a.transactionDate, b.transactionDate);
 						return b.transactionDate.localeCompare(a.transactionDate);
 					}
 					return dateB - dateA;
@@ -46,11 +42,9 @@
 			});
 		});
 
-		console.log('Final grouped maintenance payments:', grouped);
 		groupedPayments = grouped;
 		
 		const sorted = Object.keys(grouped).sort((a, b) => parseInt(b) - parseInt(a));
-		console.log('Sorted maintenance payment months:', sorted);
 		sortedYearMonths = sorted;
 	});
 
@@ -71,15 +65,12 @@
 	let openAccordions = $state(new Set());
 
 	function toggleAccordion(yearMonth) {
-		console.log('toggleAccordion called for maintenance payments with:', yearMonth);
-		console.log('openAccordions before:', openAccordions);
 		if (openAccordions.has(yearMonth)) {
 			openAccordions.delete(yearMonth);
 		} else {
 			openAccordions.add(yearMonth);
 		}
 		openAccordions = new Set(openAccordions);
-		console.log('openAccordions after:', openAccordions);
 	}
 </script>
 
@@ -148,13 +139,13 @@
 	}
 
 	.accordion {
-		border: 1px solid #e0e0e0;
+		border: 1px solid var(--c-bg--secondary);
 		border-radius: 8px;
 		overflow: hidden;
 	}
 
 	.accordion-item {
-		border-bottom: 1px solid #e0e0e0;
+		border-bottom: 1px solid var(--c-border);
 	}
 
 	.accordion-item:last-child {

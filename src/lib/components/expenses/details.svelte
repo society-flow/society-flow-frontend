@@ -2,11 +2,12 @@
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
 	import RelativeDate from '$lib/components/date/relative.svelte';
+	import Detail from '$lib/components/detail.svelte';
 
 	const { expense = {}, society = {} } = $props();
 </script>
 
-<main>
+<Detail>
 	<ul>
 		<li>
 			<strong>{$_('components.expenses.details.name')}:</strong>
@@ -34,4 +35,4 @@
 			<RelativeDate date={expense.updatedAt} />
 		</li>
 	</ul>
-</main>
+</Detail>

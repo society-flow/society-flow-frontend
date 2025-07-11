@@ -3,13 +3,11 @@
 	import { invalidate } from '$app/navigation';
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
-	import SocietyCard from '$lib/components/societies/card.svelte';
 	import ResidenceJoin from '$lib/components/residences/join.svelte';
 	import FundCard from '$lib/components/funds/card.svelte';
 
 	let { data } = $props();
-	const { residence, fund, society, isMember, isAdmin } =
-		$derived(data);
+	const { residence, fund, society, isMember, isAdmin } = $derived(data);
 	const { totalFund: total } = $derived(fund);
 	const { currency } = $derived(society);
 	const id = $derived(residence.id);
@@ -19,13 +17,7 @@
 	}
 </script>
 
-<aside>
-	<SocietyCard {society} />
-</aside>
-
-<ResidenceDetails {residence} {isMember} {society} />
-
-<aside>
+<header>
 	<nav>
 		<ul>
 			{#if isAdmin || isMember}
@@ -49,7 +41,11 @@
 			{/if}
 		</ul>
 	</nav>
-</aside>
+</header>
+
+<section>
+	<ResidenceDetails {residence} {isMember} {society} />
+</section>
 
 <section>
 	<header>

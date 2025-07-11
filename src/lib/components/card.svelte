@@ -35,7 +35,7 @@
 			  display: flex;
 			  flex-wrap: wrap;
 			  gap: var(--s);
-			  padding: calc(var(--s) * 2);
+			  padding: calc(var(--s) * 1.5);
 			  border: 1px solid var(--c-border);
 			  background-color: var(--c-bg--secondary);
 			  border-radius: var(--border-radius);
@@ -58,6 +58,10 @@
 				  outline-color: var(--c-bg--secondary);
 				  border-color: var(--c-border);
 			  }
+        :global(&:has(svg)) {
+          display: flex;
+          align-items: center;
+        }
 		  }
     }
 	}

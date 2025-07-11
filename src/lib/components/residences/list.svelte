@@ -3,6 +3,7 @@
 	import { base } from '$app/paths';
 	import Card from './card.svelte';
 	import List from '$lib/components/list.svelte';
+
 	const { residences = [] } = $props();
 </script>
 

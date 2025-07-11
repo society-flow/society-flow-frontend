@@ -4,6 +4,7 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import { IconUsers, IconPaintRoller } from 'obra-icons-svelte';
 
 	requiresAuth(page);
 
@@ -14,26 +15,24 @@
 
 <Page
 	title={residence?.residenceName || $_('menu.residences')}
+	titleHref={`/residences/${id}`}
 	headTitle={`${residence?.residenceName || residence?.id} — ${$_('menu.residences')}`}
 	showHeader={!!residence?.residenceName}
 >
 	{#snippet nav()}
-		<ul>
-			<li>
-				<Anchor href={`/residences/${id}`}>
-					{residence.residenceName}
-				</Anchor>
-			</li>
-			<li>
-				<Anchor href={`/residences/${id}/members`}>{$_('pages.residences.detail.members')}</Anchor>
-			</li>
-			<li>
-				<Anchor href={`/residences/${id}/maintenances`}>{$_('menu.maintenances')}</Anchor>
-			</li>
-		</ul>
+		<li>
+			<Anchor href={`/residences/${id}/members`}>
+				<IconUsers />
+				{$_('pages.residences.detail.members')}
+			</Anchor>
+		</li>
+		<li>
+			<Anchor href={`/residences/${id}/maintenances`}>
+				<IconPaintRoller />
+				{$_('menu.maintenances')}
+			</Anchor>
+		</li>
 	{/snippet}
 
-	<article class="Detail">
-		{@render children()}
-	</article>
+	{@render children()}
 </Page>
