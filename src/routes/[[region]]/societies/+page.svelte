@@ -1,6 +1,5 @@
-<script lang="javascript">
+<script>
 	import { _, locale } from 'svelte-i18n';
-	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
@@ -8,10 +7,8 @@
 
 	requiresAuth(locale);
 
-	let societies = $state([]);
-	$effect(async () => {
-		societies = await api.getUserSocieties();
-	});
+	const { data } = $props();
+	const { societies } = $derived(data);
 </script>
 
 <Page title={$_('menu.societies')}>
