@@ -41,9 +41,7 @@
 				<details>
 					<summary>
 						<h5>
-							{m.residenceName ||
-								residence?.residenceName ||
-								`Residence ${m.residenceId.slice(-8)}`}
+							{m.residenceName || `Residence ${m.residenceId.slice(-8)}`}
 						</h5>
 					</summary>
 					<div>
