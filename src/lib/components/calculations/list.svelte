@@ -32,16 +32,16 @@
 	{#snippet groupHeader(yearMonth, group)}
 		<h4>{formatYearMonth(yearMonth)}</h4>
 		<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}: </span>
-		<span>To Pay: {formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}, </span>
-		<span>Actually Paid: {formatCurrency(group.reduce((sum, c) => sum + c.expensePaid, 0))} Actually Paid</span>
+		<span>{$_('components.calculations.list.calculatedForCollection')}: {formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}</span>
+		<span>{$_('components.calculations.list.actualExpensePaid')}: {formatCurrency(group.reduce((sum, c) => sum + c.expensePaid, 0))}</span>
 	{/snippet}
 	{#snippet children(yearMonth, group)}
 		{#each group as calculation}
 			<li>
 				<h5>{calculation.residenceName || calculation.residenceId}</h5>
-				<div>To Pay: {formatCurrency(calculation.amountToPay)}</div>
+				<div>{$_('components.calculations.list.calculatedForCollection')}: {formatCurrency(calculation.amountToPay)}</div>
 				{#if calculation.expensePaid}
-					<div>Actually Paid: {formatCurrency(calculation.expensePaid)}</div>
+					<div>{$_('components.calculations.list.actualExpensePaid')}: {formatCurrency(calculation.expensePaid)}</div>
 				{/if}
 				<div>Formula: {calculation.withFormula}</div>
 				<small>ID: {calculation.id.slice(-8)}</small>
