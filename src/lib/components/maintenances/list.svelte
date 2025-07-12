@@ -41,7 +41,7 @@
 				<details>
 					<summary>
 						<h5>
-							{m.residenceName}
+							{m.yearMonth}
 						</h5>
 					</summary>
 					<section>
