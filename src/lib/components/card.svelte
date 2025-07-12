@@ -37,7 +37,6 @@
 			  gap: var(--s);
 			  padding: calc(var(--s) * 1.5);
 			  border: 1px solid var(--c-border);
-			  background-color: var(--c-bg--secondary);
 			  border-radius: var(--border-radius);
 			  text-decoration: underline;
 			  text-decoration-color: transparent;
@@ -61,6 +60,10 @@
         :global(&:has(svg)) {
           display: flex;
           align-items: center;
+        }
+        :global(&[aria-current="page"]) {
+          background-color: var(--c-bg--secondary);
+          border-color: var(--c-bg);
         }
 		  }
     }

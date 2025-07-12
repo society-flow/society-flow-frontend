@@ -17,8 +17,10 @@
 </script>
 
 <Detail>
-	<Card {expense} />
-	<SocietyCard {society} />
+	{#snippet header()}
+		<Card {expense} />
+		<SocietyCard {society} />
+	{/snippet}
 	<ul>
 		<li>
 			<IconCalendarEndOfMonth />

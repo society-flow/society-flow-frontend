@@ -36,8 +36,8 @@
 
 <Detail>
 	{#snippet header()}
-		<SocietyCard {society} />
 		<Card {residence} />
+		<SocietyCard {society} />
 	{/snippet}
 	<ul>
 		<li>

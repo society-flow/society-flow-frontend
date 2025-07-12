@@ -21,12 +21,10 @@
 	div {
 		padding: 0;
 		display: grid;
-    align-items: stretch;
+		align-items: stretch;
 		gap: var(--s);
-		:has(header) {
-			grid-template-columns: 3fr 2fr;
-			:global(header) {
-			}
+		header {
+			display: flex;
 		}
 		:global(.Map) {
 			min-height: 10rem;
@@ -37,17 +35,18 @@
 			margin: 0;
 			background-color: var(--c-bg--secondary);
 			border-radius: var(--border-radius);
-      :global(li) {
-        display: flex;
-        align-items: center;
-        gap: calc(var(--s) / 2);
-      }
+			border: 1px solid var(--c-border);
+			:global(li) {
+				display: flex;
+				align-items: center;
+				gap: calc(var(--s) / 2);
+			}
 		}
 		:global(.Map) {
 			height: 100%;
 		}
-    :global(svg) {
-      height: 1rem;
-    }
+		:global(svg) {
+			height: 1rem;
+		}
 	}
 </style>
