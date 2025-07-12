@@ -24,7 +24,7 @@
 <style>
   .Markdown {
     padding: var(--s);
-    background: var(--c-bg--secondary);
+    background: var(--c-bg2);
     border: 1px solid var(--c-bg);
     border-radius: var(--border-radius);
     :global(ul, ol) {

@@ -34,7 +34,7 @@
 				border-radius: 0;
 
 				&:hover {
-					background-color: var(--c-bg--secondary);
+					background-color: var(--c-bg2);
 				}
 			}
 

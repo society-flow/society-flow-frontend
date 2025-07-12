@@ -167,7 +167,7 @@
 		text-align: center;
 	}
 	.Ticker {
-		background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg2);
 		padding: var(--s) calc(var(--s) * 2);
 		border-radius: var(--border-radius);
 		font-style: italic;

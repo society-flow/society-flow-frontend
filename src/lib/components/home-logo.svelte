@@ -79,7 +79,7 @@
 		transition: transform 0.3s ease;
 		border-radius: var(--border-radius);
 		box-shadow: 0 4px 20px var(--c-bg);
-		background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg2);
     border: 1px solid var(--c-border);
 		width: var(--svg-size);
 		height: var(--svg-size);

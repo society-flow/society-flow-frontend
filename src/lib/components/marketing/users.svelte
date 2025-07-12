@@ -57,7 +57,7 @@
 	.Card {
 		--s-svg: calc(var(--s) * 15);
 		padding: calc(var(--s) * 2);
-		background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg2);
 		border: 1px solid var(--c-border);
 		border-radius: var(--border-radius);
 

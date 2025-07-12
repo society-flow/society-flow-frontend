@@ -58,4 +58,7 @@
 	:global(.Map) {
 		flex-grow: 1;
 	}
+  details {
+    align-self: flex-start;
+  }
 </style>

@@ -93,7 +93,7 @@
 				overflow-x: scroll;
 				scrollbar-width: none;
 				-ms-overflow-style: none;
-				background-color: var(--c-bg--secondary);
+				background-color: var(--c-bg2);
 				border-bottom: 1px solid var(--c-border);
 				border-radius: var(--border-radius);
 				list-style: none;
@@ -103,7 +103,7 @@
 			:global(ul) {
 				/* justify-content: center; */
 				:global(li) {
-					background-color: var(--c-bg--secondary);
+					background-color: var(--c-bg2);
 				}
 			}
 			:global(a:not(.Button)) {

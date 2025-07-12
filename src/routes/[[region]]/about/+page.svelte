@@ -38,7 +38,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg2);
 		border: 1px solid var(--c-border);
 		padding: calc(var(--s) * 2);
 		text-align: center;

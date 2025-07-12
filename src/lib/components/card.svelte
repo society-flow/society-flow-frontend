@@ -45,7 +45,7 @@
 			  font-weight: normal;
 			  &:hover {
 				  text-decoration: underline var(--c-link);
-				  border-color: var(--c-bg--secondary);
+				  border-color: var(--c-bg2);
 				  background-color: transparent;
 				  font-weight: bold;
 			  }
@@ -54,7 +54,7 @@
 				  font-weight: bold;
 			  }
 			  &:active {
-				  outline-color: var(--c-bg--secondary);
+				  outline-color: var(--c-bg2);
 				  border-color: var(--c-border);
 			  }
         :global(&:has(svg)) {
@@ -62,7 +62,7 @@
           align-items: center;
         }
         :global(&[aria-current="page"]) {
-          background-color: var(--c-bg--secondary);
+          background-color: var(--c-bg2);
           border-color: var(--c-bg);
         }
 		  }

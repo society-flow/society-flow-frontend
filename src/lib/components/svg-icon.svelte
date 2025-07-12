@@ -132,7 +132,7 @@
 
 	/* Member icon: glow house + pulse message box on hover */
 	.member-icon:hover path:first-of-type {
-		filter: drop-shadow(0 0 calc(var(--s) / 2) var(--c-bg--secondary));
+		filter: drop-shadow(0 0 calc(var(--s) / 2) var(--c-bg2));
 	}
 	.member-icon:hover rect {
 		animation: pulseBox 1s infinite;

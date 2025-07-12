@@ -33,7 +33,7 @@
 			list-style: none;
 			padding: var(--s);
 			margin: 0;
-			background-color: var(--c-bg--secondary);
+			background-color: var(--c-bg2);
 			border-radius: var(--border-radius);
 			border: 1px solid var(--c-transparent);
 			:global(li) {

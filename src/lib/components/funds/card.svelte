@@ -9,7 +9,7 @@
 
 <style>
 	article {
-		background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg2);
 		padding: var(--s) calc(var(--s) * 2);
 		border: 1px solid transparent;
 		border-radius: var(--border-radius);

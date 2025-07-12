@@ -51,7 +51,7 @@
 		margin: 0;
 	}
 	:global(.Site) {
-		background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg2);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -70,7 +70,7 @@
 		top: 0;
 		display: flex;
 		justify-content: center;
-		background-color: var(--c-bg--secondary);
+		background-color: var(--c-bg2);
 		border-bottom: 1px solid var(--c-border);
 		width: 100%;
 	}
