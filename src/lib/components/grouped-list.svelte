@@ -38,17 +38,25 @@
 {#if sortedGroupKeys.length > 0}
 	{#each sortedGroupKeys as groupKey}
 		{@const itemsInGroup = groupedItems[groupKey]}
-		<article class="GroupedList-group">
+		<details class="GroupedList-group">
 			{#if groupHeader}
-				<header class="GroupedList-header">
+				<summary class="GroupedList-header">
 					{@render groupHeader(groupKey, itemsInGroup)}
-				</header>
+				</summary>
 			{/if}
 			<ul class="GroupedList-items">
 				{@render children(groupKey, itemsInGroup)}
 			</ul>
-		</article>
+		</details>
 	{/each}
 {:else}
 	<p>ø</p>
 {/if}
+
+<style>
+  .GroupedList-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+</style>

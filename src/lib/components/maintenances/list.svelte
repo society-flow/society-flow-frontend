@@ -42,27 +42,35 @@
 	{#snippet children(yearMonth, group)}
 		{#each group as m}
 			<li>
-				<h5>
-					{m.residenceName || residence?.residenceName || `Residence ${m.residenceId.slice(-8)}`}
-				</h5>
-				<div>
+				<details>
+					<summary>
+						<h5>
+							{m.residenceName ||
+								residence?.residenceName ||
+								`Residence ${m.residenceId.slice(-8)}`}
+						</h5>
+					</summary>
 					<div>
-						{$_('components.maintenances.list.previousAmount')}: {formatCurrency(
-							m.previousAmountToPay
-						)}
+						<div>
+							{$_('components.maintenances.list.previousAmount')}: {formatCurrency(
+								m.previousAmountToPay
+							)}
+						</div>
+						<div>{$_('components.maintenances.list.fine')}: {formatCurrency(m.fineToPay)}</div>
+						<div>
+							{$_('components.maintenances.list.thisMonth')}: {formatCurrency(
+								m.thisMonthCalculation
+							)}
+						</div>
+						<div>
+							{$_('components.maintenances.list.totalAmount')}: {formatCurrency(m.totalAmountToPay)}
+						</div>
 					</div>
-					<div>{$_('components.maintenances.list.fine')}: {formatCurrency(m.fineToPay)}</div>
-					<div>
-						{$_('components.maintenances.list.thisMonth')}: {formatCurrency(m.thisMonthCalculation)}
-					</div>
-					<div>
-						{$_('components.maintenances.list.totalAmount')}: {formatCurrency(m.totalAmountToPay)}
-					</div>
-				</div>
-				{#if m.withFormula}
-					<pre>{m.withFormula}</pre>
-				{/if}
-				<small>{$_('components.maintenances.list.maintenanceId')} {m.id.slice(-8)}</small>
+					{#if m.withFormula}
+						<pre>{m.withFormula}</pre>
+					{/if}
+					<small>{$_('components.maintenances.list.maintenanceId')} {m.id.slice(-8)}</small>
+				</details>
 			</li>
 		{/each}
 	{/snippet}

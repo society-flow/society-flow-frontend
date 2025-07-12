@@ -98,6 +98,14 @@ html {
 		display: flex;
 		align-items: center;
 		gap: var(--s);
+		&::before {
+			content: '→';
+		}
+	}
+	&:is([open]) {
+		> summary::before {
+			content: '↓';
+		}
 	}
 }
 
