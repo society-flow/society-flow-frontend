@@ -35,7 +35,7 @@
 			margin: 0;
 			background-color: var(--c-bg--secondary);
 			border-radius: var(--border-radius);
-			border: 1px solid var(--c-border);
+			border: 1px solid var(--c-transparent);
 			:global(li) {
 				display: flex;
 				align-items: center;

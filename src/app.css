@@ -1,48 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* global variables */
-:root {
-	--s: 0.5rem;
-	--s-container: 55rem;
-	--s-form: 50rem;
-	--s-page: 85rem;
-	--font-size: 16px;
-	--font-size--reset: 1rem;
-	--font-size--small: 0.9em;
-	--line-height: 1.6;
-	--border-radius: var(--s);
-}
-@media (prefers-color-scheme: light) {
-	:root,
-	:host {
-		color-scheme: light;
-		--c-fg: #171623;
-		--c-fg--secondary: #545454;
-		--c-bg: #e5e4e4;
-		--c-bg--secondary: #fafafa;
-		--c-bg--form: #d3d3d3;
-		--c-bg--button: #a8a8a8;
-		--c-link: #4000ff;
-		--c-border: #acacab;
-		--c-error: #d06100;
-	}
-}
-@media (prefers-color-scheme: dark) {
-	:root,
-	:host {
-		color-scheme: dark;
-		--c-fg: #e9eaf2;
-		--c-fg--secondary: #838383;
-		--c-bg: #252525;
-		--c-bg--secondary: #0c0c0c;
-		--c-bg--form: #303030;
-		--c-bg--button: #1e1e1e;
-		--c-link: #9254ff;
-		--c-border: #646060;
-		--c-error: #d06100;
-	}
-}
-
 /* https://css-tricks.com/box-sizing/ universal with inheritance */
 html {
 	box-sizing: border-box;
@@ -55,6 +12,7 @@ html {
 
 :root {
 	background-color: var(--c-bg--secondary);
+	transition: background-color 200ms ease-in-out;
 }
 
 /* fonts */
