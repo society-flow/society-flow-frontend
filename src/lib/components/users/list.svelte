@@ -7,7 +7,7 @@
 </script>
 
 {#if users.length > 0}
-	<List items={users} className="List--users">
+	<List items={users}>
 		{#snippet children(user)}
 			<Card {user} />
 		{/snippet}
@@ -24,14 +24,3 @@
 {:else}
 	<span>{$_('components.users.list.no_user')}</span>
 {/if}
-
-<style>
-	:global(.List--users) {
-		:global(.List-item) {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 0.5rem;
-		}
-	}
-</style>
