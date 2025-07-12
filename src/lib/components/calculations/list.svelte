@@ -31,17 +31,19 @@
 >
 	{#snippet groupHeader(yearMonth, group)}
 		<h4>{formatYearMonth(yearMonth)}</h4>
-		<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}</span>
-		<span>{formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}</span>
+		<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}: </span>
+		<span>To Pay: {formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}, </span>
+		<span>Actually Paid: {formatCurrency(group.reduce((sum, c) => sum + c.expensePaid, 0))} Actually Paid</span>
 	{/snippet}
 	{#snippet children(yearMonth, group)}
 		{#each group as calculation}
 			<li>
 				<h5>{calculation.residenceName || calculation.residenceId}</h5>
-				<div>{formatCurrency(calculation.amountToPay)}</div>
+				<div>To Pay: {formatCurrency(calculation.amountToPay)}</div>
 				{#if calculation.expensePaid}
-					<div>{formatCurrency(calculation.expensePaid)} paid</div>
+					<div>Actually Paid: {formatCurrency(calculation.expensePaid)}</div>
 				{/if}
+				<div>Formula: {calculation.withFormula}</div>
 				<small>ID: {calculation.id.slice(-8)}</small>
 			</li>
 		{/each}

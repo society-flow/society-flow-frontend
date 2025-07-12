@@ -3,6 +3,7 @@
 	import Card from '$lib/components/calculations/card.svelte';
 
 	const { calculation } = $props();
+	console.log("one calc: ", calculation);
 </script>
 
 <article class="Card">
