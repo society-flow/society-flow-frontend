@@ -1,6 +1,7 @@
 <script>
 	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
+  import { invalidate } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
 	import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
@@ -16,70 +17,11 @@
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
-
-	let expense = $state({});
-	$effect(async () => {
-		if (id) {
-			expense = await api.getExpenseById(id);
-		}
-	});
-
-	let society = $state({});
-	$effect(async () => {
-		if (expense.societyId) {
-			society = await api.getSocietyById(expense.societyId);
-		}
-	});
-
-	let calculations = $state([]);
-	$effect(async () => {
-		if (id && expense.societyId) {
-			try {
-				const rawCalculations = await api.getAllCalculationsByExpense(id);
-				const residences = await api.getAllResidencesInSociety(expense.societyId);
-
-				// Enrich calculations with residence names
-				calculations = rawCalculations.map((calculation) => {
-					const residence = residences.find((r) => r.id === calculation.residenceId);
-					return {
-						...calculation,
-						residenceName: residence?.residenceName || calculation.residenceId
-					};
-				});
-			} catch (error) {
-				console.error('Error fetching calculations:', error);
-				calculations = [];
-			}
-		}
-	});
-
-	// Expense payments
-	let payments = $state([]);
-	$effect(async () => {
-		if (id) {
-			try {
-				const result = await api.getExpensePaymentsByExpenseId(id);
-				payments = result;
-			} catch (error) {
-				console.error('Error fetching expense payments:', error);
-				payments = [];
-			}
-		}
-	});
+  const {data} = $props();
+  const {expense, society, calculations, payments} = $derived(data);
 
 	async function onPaymentSuccess(newPayment) {
-		console.log('Payment success, refreshing data...');
-		try {
-			// Refresh payments list
-			const newPayments = await api.getExpensePaymentsByExpenseId(id);
-			console.log('New payments:', newPayments);
-			payments = newPayments;
-
-			// Also refresh calculations to show updated paid amounts
-			calculations = await api.getAllCalculationsByExpense(id);
-		} catch (error) {
-			console.error('Error refreshing data after payment:', error);
-		}
+    invalidate("data:expense")
 	}
 	// Expense distributions
 	let distributions = $state([]);

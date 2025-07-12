@@ -3,20 +3,16 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import RelativeDate from '$lib/components/date/relative.svelte';
 	import Detail from '$lib/components/detail.svelte';
+	import Card from './card.svelte';
+	import SocietyCard from '$lib/components/societies/card.svelte';
 
 	const { expense = {}, society = {} } = $props();
 </script>
 
 <Detail>
+	<Card {expense} />
+	<SocietyCard {society} />
 	<ul>
-		<li>
-			<strong>{$_('components.expenses.details.name')}:</strong>
-			<Anchor href={`/expenses/${expense.id}`}>{expense.name}</Anchor>
-		</li>
-		<li>
-			<strong>{$_('components.expenses.details.society')}:</strong>
-			<Anchor href={`/societies/${expense.societyId}`}>{society.name || expense.societyId}</Anchor>
-		</li>
 		<li>
 			<strong>{$_('components.expenses.details.amountPerMonth')}:</strong>
 			{expense.amountPerMonth}
