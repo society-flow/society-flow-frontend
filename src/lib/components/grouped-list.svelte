@@ -44,9 +44,11 @@
 					{@render groupHeader(groupKey, itemsInGroup)}
 				</summary>
 			{/if}
-			<ul class="GroupedList-items">
-				{@render children(groupKey, itemsInGroup)}
-			</ul>
+			<section>
+				<ul class="GroupedList-items">
+					{@render children(groupKey, itemsInGroup)}
+				</ul>
+			</section>
 		</details>
 	{/each}
 {:else}
@@ -54,9 +56,9 @@
 {/if}
 
 <style>
-  .GroupedList-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+	.GroupedList-items {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 </style>

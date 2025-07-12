@@ -310,6 +310,22 @@ class Api {
         const res = await client.apis.funds.getSocietyFundBySocietyId({ societyId });
         return res.body;
     }
+    /**
+     * Retrieve a maintenance by its ID.
+     */
+    async getMaintenanceById(id) {
+        const client = await this.getClient();
+        const res = await client.apis.maintenances.getMaintenanceById({ id });
+        return res.body;
+    }
+    /**
+     * Create or update a maintenance record.
+     */
+    async createOrUpdateMaintenance(maintenanceData) {
+        const client = await this.getClient();
+        const res = await client.apis.maintenances.createOrUpdateMaintenance({}, { requestBody: maintenanceData });
+        return res.body;
+    }
     async getResidenceFundByResidenceId(residenceId) {
         const client = await this.getClient();
         const res = await client.apis.funds.getResidenceFundByResidenceId({ residenceId });

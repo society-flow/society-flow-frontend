@@ -91,20 +91,33 @@ html {
 	white-space: pre-wrap;
 }
 :is(details) {
-	padding: calc(var(--s) / 3);
+	border: 1px solid var(--c-bg--secondary);
+	border-radius: var(--border-radius);
+	transition: border-color 200ms ease-in-out;
 	:is(summary) {
-		padding: var(--s) 0;
+		padding: calc(var(--s) / 2);
 		cursor: pointer;
 		display: flex;
 		align-items: center;
 		gap: var(--s);
+		background-color: transparent;
+		transition: background-color 200ms ease-in-out;
 		&::before {
-			content: '→';
+			/* content: '→'; */
+			display: list-item;
+			list-style: disclosure-closed;
 		}
 	}
 	&:is([open]) {
+		/* padding: calc(var(--s) / 3); */
+		/* border-color: var(--c-border); */
 		> summary::before {
-			content: '↓';
+			/* content: '↓'; */
+			list-style: disclosure-open;
+		}
+		> summary {
+			background-color: var(--c-bg--secondary);
+			border-radius: var(--border-radius);
 		}
 	}
 }

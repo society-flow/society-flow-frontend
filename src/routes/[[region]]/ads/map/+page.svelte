@@ -41,13 +41,15 @@
 			({$_(`const.ads_types.${selectedType.name}`)})
 		{/if}
 	</summary>
-	<nav>
-		{#each adTypes as option}
-			<Anchor href={`/ads/map?type=${option.id}`} isActive={option.id === typeId}
-				>{$_(`const.ads_types.${option.name}`)}</Anchor
-			>
-		{/each}
-	</nav>
+	<section>
+		<nav>
+			{#each adTypes as option}
+				<Anchor href={`/ads/map?type=${option.id}`} isActive={option.id === typeId}
+					>{$_(`const.ads_types.${option.name}`)}</Anchor
+				>
+			{/each}
+		</nav>
+	</section>
 </details>
 
 <Map {markers} />

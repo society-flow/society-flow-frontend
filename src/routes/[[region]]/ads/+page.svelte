@@ -35,13 +35,15 @@
 			</Anchor>
 		{/if}
 	</summary>
-	<nav>
-		{#each adTypes as option}
-			<Anchor href={`/ads?type=${option.id}`} isActive={option.id === typeId}
-				>{$_(`const.ads_types.${option.name}`)}</Anchor
-			>
-		{/each}
-	</nav>
+	<section>
+		<nav>
+			{#each adTypes as option}
+				<Anchor href={`/ads?type=${option.id}`} isActive={option.id === typeId}
+					>{$_(`const.ads_types.${option.name}`)}</Anchor
+				>
+			{/each}
+		</nav>
+	</section>
 </details>
 
 <section>
