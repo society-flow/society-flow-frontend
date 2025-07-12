@@ -32,7 +32,11 @@
 					{#if societies}
 						<nav>
 							<li>
-								<Anchor href="/create/expenses" title={$_('menu.create.expenses')} isButton>
+								<Anchor
+									href={`/create/expenses?society=${society.id}`}
+									title={$_('menu.create.expenses')}
+									isButton
+								>
 									<IconAdd />
 								</Anchor>
 							</li>

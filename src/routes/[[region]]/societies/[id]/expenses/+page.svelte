@@ -7,12 +7,14 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import Error from '$lib/components/error.svelte';
 	import { IconAdd } from 'obra-icons-svelte';
+	import Total from '$lib/components/expenses/total.svelte';
 
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
 	const { society, isAdmin } = $derived(data);
+	const { currency } = $derived(society);
 
 	let expenses = $state([]);
 	let loading = $state(true);
@@ -58,6 +60,10 @@
 			<h2>{$_('menu.expenses')}</h2>
 			<nav>
 				<ul>
+					<li>
+						{console.log('currency', currency, society)}
+						<Total {expenses} {currency} />
+					</li>
 					{#if isAdmin}
 						<li>
 							<button on:click={triggerAllCalculations} disabled={triggering}>
