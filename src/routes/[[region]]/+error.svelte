@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { page } from '$app/stores';
 	import Page from '$lib/components/routes/page.svelte';
 	import { _ } from 'svelte-i18n';
@@ -10,3 +10,9 @@
 	{/snippet}
 	<span>{$_('pages.error.not_found')}</span>
 </Page>
+
+<style>
+	span {
+		text-align: center;
+	}
+</style>
