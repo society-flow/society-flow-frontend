@@ -8,6 +8,7 @@
 	import Error from '$lib/components/error.svelte';
 	import { IconAdd } from 'obra-icons-svelte';
 	import Total from '$lib/components/expenses/total.svelte';
+	import { getCurrentYearMonth, generateYearMonthOptions } from '$lib/utils/yearMonth.js';
 
 	requiresAuth(locale);
 
@@ -20,6 +21,9 @@
 	let loading = $state(true);
 	let triggerError = $state(null);
 	let triggering = $state(false);
+	let selectedYearMonth = $state(getCurrentYearMonth());
+	
+	const yearMonthOptions = generateYearMonthOptions();
 
 	$effect(async () => {
 		if (id) {
@@ -38,11 +42,7 @@
 		triggering = true;
 		triggerError = null;
 		try {
-			const now = new Date();
-			const year = now.getFullYear();
-			const month = String(now.getMonth() + 1).padStart(2, '0');
-			const yearMonth = `${year}${month}`;
-			await api.triggerCalculationForSociety(id, yearMonth);
+			await api.triggerCalculationForSociety(id, selectedYearMonth.toString());
 		} catch (e) {
 			console.error('Error triggering calculations:', e);
 			triggerError = e;
@@ -64,6 +64,13 @@
 						<Total {expenses} {currency} />
 					</li>
 					{#if isAdmin}
+						<li>
+							<select bind:value={selectedYearMonth}>
+								{#each yearMonthOptions as option}
+									<option value={option.value}>{option.label}</option>
+								{/each}
+							</select>
+						</li>
 						<li>
 							<button onclick={triggerAllCalculations} disabled={triggering}>
 								{$_('pages.societies.detail.expenseCalculations')}
