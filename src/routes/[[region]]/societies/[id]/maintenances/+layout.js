@@ -1,8 +1,12 @@
 import { api, initApi } from '$lib/api.svelte.js';
 
-export async function load({ params, depends }) {
+export async function load({ params, depends, parent }) {
 	depends('data:society/maintenances');
 	const { id } = params;
+
+	const parentData = await parent();
+	const { society } = parentData;
+	
 	await initApi();
 	const residences = await api.getAllResidencesInSociety(id);
 	const maintenancesByResidence = await Promise.all(
@@ -16,5 +20,5 @@ export async function load({ params, depends }) {
 		})
 	);
 	const maintenances = maintenancesByResidence.flat();
-	return { maintenances };
+	return { maintenances, society };
 }
