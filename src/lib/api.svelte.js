@@ -32,7 +32,6 @@ class Api {
 		return client;
 	}
 
-
 	// --- Societies & Residences ---
 	async getAllSocieties() {
 		const client = await this.getClient();
