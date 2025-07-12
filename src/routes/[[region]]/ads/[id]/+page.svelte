@@ -37,64 +37,62 @@
 	title={`${advert?.title || advert?.id || ''}`}
 	headTitle={`${advert?.title || advert?.id} — ${$_('menu.ads')}`}
 >
-	<section>
-		<header>
-			<nav>
-				<ul>
+	<header>
+		<nav>
+			<ul>
+				<li>
+					{#if isAdmin}
+						<span>
+							{#if advert.isActive}
+								{$_('pages.ads.detail.isActive')}
+							{:else}
+								{$_('pages.ads.detail.isNotActive')}
+							{/if}
+						</span>
+					{/if}
+				</li>
+				<li>
+					<Anchor href={`/ads?type=${adOption?.id}`}>
+						{$_(`const.ads_types.${adOption?.name}`)}
+					</Anchor>
+				</li>
+				{#if advert.updatedAt && advert.updatedAt !== advert.createdAt}
 					<li>
-						{#if isAdmin}
-							<span>
-								{#if advert.isActive}
-									{$_('pages.ads.detail.isActive')}
-								{:else}
-									{$_('pages.ads.detail.isNotActive')}
-								{/if}
-							</span>
-						{/if}
+						<span>
+							{$_('common.updated')}
+							<RelativeDate date={advert.updatedAt} />
+						</span>
 					</li>
+				{/if}
+				{#if advert.createdAt}
 					<li>
-						<Anchor href={`/ads?type=${adOption?.id}`}>
-							{$_(`const.ads_types.${adOption?.name}`)}
+						<span>
+							{$_('common.created')}
+							<RelativeDate date={advert.createdAt} />
+						</span>
+					</li>
+				{/if}
+				{#if isAdmin}
+					<li>
+						<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton>
+							{$_('common.delete')}
 						</Anchor>
 					</li>
-					{#if advert.updatedAt && advert.updatedAt !== advert.createdAt}
-						<li>
-							<span>
-								{$_('common.updated')}
-								<RelativeDate date={advert.updatedAt} />
-							</span>
-						</li>
-					{/if}
-					{#if advert.createdAt}
-						<li>
-							<span>
-								{$_('common.created')}
-								<RelativeDate date={advert.createdAt} />
-							</span>
-						</li>
-					{/if}
-					{#if isAdmin}
-						<li>
-							<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton>
-								{$_('common.delete')}
-							</Anchor>
-						</li>
-						<li>
-							<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')} isButton>
-								{$_('menu.update.ads')}
-							</Anchor>
-						</li>
-					{:else}
-						<li>
-							<Anchor href="#" title={$_('common.contact_user')} isButton>
-								{$_('common.contact_user')}
-							</Anchor>
-						</li>
-					{/if}
-				</ul>
-			</nav>
-		</header>
-	</section>
+					<li>
+						<Anchor href={`/update/ads/${id}`} title={$_('menu.update.ads')} isButton>
+							{$_('menu.update.ads')}
+						</Anchor>
+					</li>
+				{:else}
+					<li>
+						<Anchor href="#" title={$_('common.contact_user')} isButton>
+							{$_('common.contact_user')}
+						</Anchor>
+					</li>
+				{/if}
+			</ul>
+		</nav>
+	</header>
 
 	<section>
 		<AdDetails {advert} />
@@ -133,9 +131,7 @@
 </Page>
 
 <style>
-	.Detail {
-		main {
-			white-space: pre-wrap;
-		}
+	:global(main) header:has(nav) {
+		justify-content: center;
 	}
 </style>
