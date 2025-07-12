@@ -1,47 +1,8 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import GroupedList from '$lib/components/grouped-list.svelte';
 
-	const { calculations, society } = $props();
-
-	let groupedCalculations = $state({});
-	let sortedYearMonths = $state([]);
-
-	// Update grouped calculations when calculations change
-	$effect(() => {
-		console.log('CalculationsList effect running, calculations:', calculations);
-		if (!calculations || calculations.length === 0) {
-			console.log('No calculations, setting empty');
-			groupedCalculations = {};
-			sortedYearMonths = [];
-			return;
-		}
-
-		const grouped = calculations.reduce((acc, calculation) => {
-			const yearMonth = calculation.yearMonth;
-			if (!acc[yearMonth]) {
-				acc[yearMonth] = [];
-			}
-			acc[yearMonth].push(calculation);
-			return acc;
-		}, {});
-
-		// Sort each group by residence name or ID
-		Object.keys(grouped).forEach((key) => {
-			grouped[key].sort((a, b) => {
-				// Sort by residence name if available, otherwise by residence ID
-				const nameA = a.residenceName || a.residenceId || '';
-				const nameB = b.residenceName || b.residenceId || '';
-				return nameA.localeCompare(nameB);
-			});
-		});
-
-		console.log('Setting new grouped calculations:', grouped);
-		groupedCalculations = grouped;
-
-		const sorted = Object.keys(grouped).sort((a, b) => parseInt(b) - parseInt(a));
-		console.log('Setting new sorted months:', sorted);
-		sortedYearMonths = sorted;
-	});
+	const { calculations = [], society } = $props();
 
 	function formatYearMonth(yearMonth) {
 		const year = Math.floor(yearMonth / 100);
@@ -56,91 +17,37 @@
 			currency: currencyCode
 		}).format(amount);
 	}
-
-	let openAccordions = $state(new Set());
-
-	function toggleAccordion(yearMonth) {
-		if (openAccordions.has(yearMonth)) {
-			openAccordions.delete(yearMonth);
-		} else {
-			openAccordions.add(yearMonth);
-		}
-		openAccordions = new Set(openAccordions);
-	}
 </script>
 
-<section class="calculations-list">
-	<header>
-		<h3>{$_('pages.expenses.detail.calculations')}</h3>
-	</header>
+<section>
+	<h3>{$_('pages.expenses.detail.calculations')}</h3>
 
-	{#if sortedYearMonths.length > 0}
-		<div class="accordion">
-			{#each sortedYearMonths as yearMonth}
-				{@const isOpen = openAccordions.has(yearMonth)}
-				{@const monthCalculations = groupedCalculations[yearMonth]}
-				{@const totalAmount = monthCalculations.reduce((sum, c) => sum + c.amountToPay, 0)}
-				{@const paidAmount = monthCalculations.reduce((sum, c) => sum + (c.expensePaid || 0), 0)}
-				{@const isLatest = yearMonth === sortedYearMonths[0]}
-
-				<div class="accordion-item {isLatest ? 'latest' : 'historical'}">
-					<button class="accordion-header" onclick={() => toggleAccordion(yearMonth)} type="button">
-						<div class="accordion-title">
-							<h4>{formatYearMonth(yearMonth)}</h4>
-							<span class="calculation-count">
-								{monthCalculations.length}
-								{monthCalculations.length === 1 ? 'residence' : 'residences'}
-							</span>
-						</div>
-						<div class="accordion-summary">
-							<div class="amount-info">
-								<span class="total-amount">{formatCurrency(totalAmount)}</span>
-								{#if paidAmount > 0}
-									<span class="paid-amount">({formatCurrency(paidAmount)} paid)</span>
-								{/if}
-							</div>
-							<span class="expand-icon {isOpen ? 'expanded' : ''}">{isOpen ? '▼' : '▶'}</span>
-						</div>
-					</button>
-
-					{#if isOpen}
-						<div class="accordion-content">
-							{#each monthCalculations as calculation}
-								<div class="calculation-item">
-									<div class="calculation-details">
-										<div class="residence-info">
-											<h5 class="residence-name">
-												{calculation.residenceName || calculation.residenceId}
-											</h5>
-										</div>
-										<div class="amounts">
-											<div class="amount-to-pay">
-												<span class="label"
-													>{$_('components.calculations.list.calculatedForCollection')}:</span
-												>
-												<span class="value">{formatCurrency(calculation.amountToPay)}</span>
-											</div>
-											{#if calculation.expensePaid && calculation.expensePaid > 0}
-												<div class="expense-paid">
-													<span class="label"
-														>{$_('components.calculations.list.actualExpensePaid')}:</span
-													>
-													<span class="value paid">{formatCurrency(calculation.expensePaid)}</span>
-												</div>
-											{/if}
-										</div>
-									</div>
-									<div class="calculation-meta">
-										<small class="calculation-id">ID: {calculation.id.slice(-8)}</small>
-									</div>
-								</div>
-							{/each}
-						</div>
+	<GroupedList
+		items={calculations}
+		groupBy={(c) => c.yearMonth}
+		sortGroups={(a, b) => parseInt(b) - parseInt(a)}
+		sortGroupItems={(a, b) => {
+			const nameA = a.residenceName || a.residenceId || '';
+			const nameB = b.residenceName || b.residenceId || '';
+			return nameA.localeCompare(nameB);
+		}}
+	>
+		{#snippet groupHeader(yearMonth, group)}
+			<h4>{formatYearMonth(yearMonth)}</h4>
+			<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}</span>
+			<span>{formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}</span>
+		{/snippet}
+		{#snippet children(yearMonth, group)}
+			{#each group as calculation}
+				<li>
+					<h5>{calculation.residenceName || calculation.residenceId}</h5>
+					<div>{formatCurrency(calculation.amountToPay)}</div>
+					{#if calculation.expensePaid}
+						<div>{formatCurrency(calculation.expensePaid)} paid</div>
 					{/if}
-				</div>
+					<small>ID: {calculation.id.slice(-8)}</small>
+				</li>
 			{/each}
-		</div>
-	{:else}
-		<p class="no-calculations">{$_('pages.expenses.detail.noCalculations')}</p>
-	{/if}
+		{/snippet}
+	</GroupedList>
 </section>
