@@ -1,6 +1,6 @@
 <script>
 	import { _ } from 'svelte-i18n';
-  import { invalidate } from '$app/navigation';
+    import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 	import MaintenanceList from '$lib/components/maintenances/list.svelte';
@@ -8,7 +8,7 @@
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
-	const { userRole, maintenances } = $derived(data);
+	const { userRole, maintenances, society } = $derived(data);
 
 	let triggering = $state({});
 	async function triggerMaintenanceCalculation() {
@@ -46,5 +46,5 @@
 			</nav>
 		{/if}
 	</header>
-	<MaintenanceList {maintenances} />
+	<MaintenanceList {maintenances} {society} />
 </section>

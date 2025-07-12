@@ -1,9 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import GroupedList from '$lib/components/grouped-list.svelte';
-
-	const { maintenances = [], society, residence } = $props();
-
+    const { maintenances = [], society } = $props();
 	function formatYearMonth(yearMonth) {
 		const year = Math.floor(yearMonth / 100);
 		const month = yearMonth % 100;
