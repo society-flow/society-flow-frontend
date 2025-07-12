@@ -60,13 +60,12 @@
 			<h2>{$_('menu.expenses')}</h2>
 			<nav>
 				<ul>
-					<li>
-						{console.log('currency', currency, society)}
+					<li title={`${$_('menu.societies')} → Σ ${$_('menu.expenses')}`}>
 						<Total {expenses} {currency} />
 					</li>
 					{#if isAdmin}
 						<li>
-							<button on:click={triggerAllCalculations} disabled={triggering}>
+							<button onclick={triggerAllCalculations} disabled={triggering}>
 								{$_('pages.societies.detail.expenseCalculations')}
 							</button>
 						</li>

@@ -33,7 +33,7 @@
 					{#if societies}
 						<nav>
 							<ul>
-								<li>
+								<li title={`Σ ${$_('menu.societies')} → ${$_('menu.expenses')}`}>
 									<Total
 										{society}
 										expenses={dicExpenses[society.id] || []}
