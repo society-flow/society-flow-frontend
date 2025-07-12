@@ -2,16 +2,20 @@
 	import { _ } from 'svelte-i18n';
 	import { IconOrangeSlice } from 'obra-icons-svelte';
 
-	const { residences = [], requireTotal = true } = $props();
-	const total = residences.reduce((acc, res) => {
-		return acc + res.percentageOwnership;
-	}, 0);
-	const shouldWarn = $derived(requireTotal && total < 100);
+	const { residences = [], icon = true, warnTotal = false } = $props();
+	const total = $derived(
+		residences.reduce((acc, res) => {
+			return acc + res.percentageOwnership;
+		}, 0)
+	);
+	const shouldWarn = $derived(warnTotal && total < 100);
 </script>
 
-<span title={$_('components.residences.form.percentageOwnership')} class:shouldWarn={'warn'}>
+<span title={$_('components.residences.form.percentageOwnership')} class:warn={shouldWarn}>
 	{total}
-	<IconOrangeSlice />
+	{#if icon}
+		<IconOrangeSlice />
+	{/if}
 </span>
 
 <style>
@@ -22,5 +26,6 @@
 	}
 	span.warn {
 		text-decoration: underline;
+    color: var(--c-error);
 	}
 </style>

@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { api } from '$lib/api.svelte.js';
@@ -22,11 +22,26 @@
 	let dicResidences = $state({});
 	$effect(async () => {
 		if (societies) {
+			const promises = societies.map(({ id }) => api.getAllResidencesInSociety(id));
+			const res = await Promise.all(promises);
+			dicResidences = res.reduce((acc, residences) => {
+				for (const r of residences) {
+					if (!acc[r.societyId]) acc[r.societyId] = [];
+					acc[r.societyId].push(r);
+				}
+				return acc;
+			}, {});
+		}
+	});
+
+	let dicUserResidences = $state({});
+	$effect(async () => {
+		if (societies) {
 			const promises = societies.map(({ id }) =>
 				api.getUserResidencesInSociety(id, userState.user.id)
 			);
 			const res = await Promise.all(promises);
-			dicResidences = res.reduce((acc, residences) => {
+			dicUserResidences = res.reduce((acc, residences) => {
 				for (const r of residences) {
 					if (!acc[r.societyId]) acc[r.societyId] = [];
 					acc[r.societyId].push(r);
@@ -46,6 +61,7 @@
 
 	{#each societies as society}
 		{@const residences = dicResidences[society.id]}
+		{@const userResidences = dicUserResidences[society.id]}
 		<section>
 			<header>
 				<h2>
@@ -57,10 +73,18 @@
 				<nav>
 					<ul>
 						<li>
-							<PercentageOwnership {residences} />
+							<abbr>
+								<PercentageOwnership residences={userResidences} icon={false} />
+								{'/'}
+								<PercentageOwnership {residences} warnTotal />
+							</abbr>
 						</li>
 						<li>
-							<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
+							<Anchor
+								href={`/create/residences/${society.id}`}
+								title={$_('menu.create.residences')}
+								isButton
+							>
 								<IconAdd />
 							</Anchor>
 						</li>
@@ -71,3 +95,10 @@
 		</section>
 	{/each}
 </Page>
+
+<style>
+	abbr {
+		display: flex;
+		align-items: center;
+	}
+</style>

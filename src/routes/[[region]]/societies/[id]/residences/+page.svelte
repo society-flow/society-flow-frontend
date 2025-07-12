@@ -41,7 +41,7 @@
 			<nav>
 				<ul>
 					<li>
-						<PercentageOwnership {residences} />
+						<PercentageOwnership {residences} warnTotal />
 					</li>
 					<li>
 						<Anchor href={`/create/residences/${id}`} title={$_('menu.create.residences')} isButton>

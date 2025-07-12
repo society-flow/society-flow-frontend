@@ -13,7 +13,6 @@
 	const data = $derived({ societyId });
   
 	async function onSuccess({ id }) {
-    console.log("id", id)
 		setTimeout(() => goto(`${base}/${$locale}/residences/${id}`), 0);
 	}
 </script>
