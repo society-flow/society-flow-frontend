@@ -49,3 +49,9 @@
 <section>
 	<ListAds {ads} />
 </section>
+
+<style>
+  details {
+    align-self: flex-start;
+  }
+</style>
