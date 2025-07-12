@@ -2,6 +2,7 @@ import Swagger from 'swagger-client';
 import { userState } from '$lib/states/user.svelte.js';
 import { DOCUMENT_TYPES as validLegalDocumentTypes } from '$lib/const/legal.js';
 import { PUBLIC_API_URL } from '$env/static/public';
+import { errorNotification } from '$lib/stores/errorNotification.svelte.js';
 
 let swaggerClient = null;
 
@@ -30,6 +31,27 @@ class Api {
 			client.authorizations = { bearerAuth };
 		}
 		return client;
+	}
+
+	async executeWithErrorHandling(apiCall) {
+		try {
+			return await apiCall();
+		} catch (error) {
+			// Parse error response for consistent notification display
+			let errorData = error;
+			
+			if (error.response && error.response.body) {
+				errorData = error.response.body;
+			} else if (error.status && error.message) {
+				errorData = { status: error.status, message: error.message };
+			}
+			
+			// Show error notification
+			errorNotification.show(errorData);
+			
+			// Re-throw error so calling code can still handle it if needed
+			throw error;
+		}
 	}
 
 	// --- Societies & Residences ---
@@ -171,12 +193,14 @@ class Api {
 
 	// --- Maintenances ---
 	async triggerSocietyMaintenanceCalculation(societyId, yearMonth) {
-		const client = await this.getClient();
-		const res = await client.apis.maintenances.triggerSocietyMaintenanceCalculation({
-			societyId,
-			yearMonth
+		return this.executeWithErrorHandling(async () => {
+			const client = await this.getClient();
+			const res = await client.apis.maintenances.triggerSocietyMaintenanceCalculation({
+				societyId,
+				yearMonth
+			});
+			return res.body;
 		});
-		return res.body;
 	}
 
 	async getAllMaintenances(societyId, residenceId) {
@@ -344,9 +368,11 @@ class Api {
 		return res.body;
 	}
     async triggerCalculationForSociety(societyId, yearMonth) {
-        const client = await this.getClient();
-        const res = await client.apis.calculations.triggerCalculationForSociety({ societyId, yearMonth });
-        return res.body;
+        return this.executeWithErrorHandling(async () => {
+            const client = await this.getClient();
+            const res = await client.apis.calculations.triggerCalculationForSociety({ societyId, yearMonth });
+            return res.body;
+        });
     }
 	async getAllCalculationsByExpense(expenseId) {
 		const client = await this.getClient();
@@ -389,9 +415,11 @@ class Api {
 
 	// --- Expense Payments ---
 	async createExpensePayment(paymentData) {
-		const client = await this.getClient();
-		const res = await client.apis.payments.addExpensePayment({}, { requestBody: paymentData });
-		return res.body;
+		return this.executeWithErrorHandling(async () => {
+			const client = await this.getClient();
+			const res = await client.apis.payments.addExpensePayment({}, { requestBody: paymentData });
+			return res.body;
+		});
 	}
 	async getExpensePaymentsByExpenseId(expenseId) {
 		const client = await this.getClient();
@@ -401,9 +429,11 @@ class Api {
 
 	// --- Maintenance Payments ---
 	async createMaintenancePayment(paymentData) {
-		const client = await this.getClient();
-		const res = await client.apis.payments.addMaintenancePayment({}, { requestBody: paymentData });
-		return res.body;
+		return this.executeWithErrorHandling(async () => {
+			const client = await this.getClient();
+			const res = await client.apis.payments.addMaintenancePayment({}, { requestBody: paymentData });
+			return res.body;
+		});
 	}
 	async getMaintenancePaymentsByMaintenanceId(maintenanceId) {
 		const client = await this.getClient();
