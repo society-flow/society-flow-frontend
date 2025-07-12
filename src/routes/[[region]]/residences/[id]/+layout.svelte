@@ -9,8 +9,9 @@
 	requiresAuth(page);
 
 	const { children, data } = $props();
-	const { residence, isMember } = $derived(data);
+	const { residence, isMember, isAdmin } = $derived(data);
 	const id = $derived(residence.id);
+  console.log("isAdmin", isAdmin)
 </script>
 
 <Page
@@ -20,18 +21,20 @@
 	showHeader={!!residence?.residenceName}
 >
 	{#snippet nav()}
-		<li>
-			<Anchor href={`/residences/${id}/members`}>
-				<IconUsers />
-				{$_('pages.residences.detail.members')}
-			</Anchor>
-		</li>
-		<li>
-			<Anchor href={`/residences/${id}/maintenances`}>
-				<IconPaintRoller />
-				{$_('menu.maintenances')}
-			</Anchor>
-		</li>
+		{#if isMember || isAdmin}
+			<li>
+				<Anchor href={`/residences/${id}/members`}>
+					<IconUsers />
+					{$_('pages.residences.detail.members')}
+				</Anchor>
+			</li>
+			<li>
+				<Anchor href={`/residences/${id}/maintenances`}>
+					<IconPaintRoller />
+					{$_('menu.maintenances')}
+				</Anchor>
+			</li>
+		{/if}
 	{/snippet}
 
 	{@render children()}

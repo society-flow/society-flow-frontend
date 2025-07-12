@@ -28,7 +28,7 @@ export async function load({ params, depends }) {
 	let isAdmin = false;
 	if (user) {
 		const roleDetails = await api.getUserRoleInSociety(societyId, user.id);
-		isAdmin = roleDetails && roleDetails.role === 'admin';
+		isAdmin = roleDetails && roleDetails.role === 'ADMIN';
 	}
 
 	return {
