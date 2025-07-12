@@ -207,8 +207,7 @@
 				},
 				"error": {
 					"totalCoverage": "Die gesamte prozentuale Abdeckung muss 100 betragen"
-				},
-				"backToAllExpenses": "← Zurück zu allen Ausgaben"
+				}
 			}
 		},
 		"ads": {

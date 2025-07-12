@@ -1,576 +1,575 @@
 {
-  "title": "Society Flow",
-  "catch_line": "Partagez des services. Répartissez les coûts. Renforcez votre communauté.",
-  "menu": {
-    "home": "Accueil",
-    "societies": "Sociétés",
-    "residences": "Résidences",
-    "expenses": "Dépenses",
-    "maintenances": "Maintenances",
-    "ads": "Annonces",
-    "map": "Carte",
-    "about": "À propos",
-    "styles": "Styles",
-    "settings": "Paramètres",
-    "auth.login": "Connexion",
-    "auth.logout": "Déconnexion",
-    "auth.register": "S'inscrire",
-    "auth.verify-otp": "Vérifier le code OTP",
-    "legal": "Mentions légales",
-    "legal.terms-of-service": "Conditions d'utilisation",
-    "legal.privacy-policy": "Politique de confidentialité",
-    "legal.data-processing-info": "Informations sur le traitement des données",
-    "legal.cookie-policy": "Politique en matière de cookies",
-    "create.societies": "Créer une nouvelle société",
-    "create.residences": "Créer une nouvelle résidence",
-    "create.maintenances": "Create Maintenance",
-    "create.ads": "Créer une nouvelle annonce",
-    "create.expenses": "Créer une nouvelle dépense",
-    "update.societies": "Mettre à jour la société",
-    "update.residences": "Mettre à jour la résidence",
-    "update.maintenances": "Mettre à jour la maintenance",
-    "update.ads": "Mettre à jour l'annonce",
-    "update.expenses": "Mettre à jour la dépense"
-  },
-  "pages": {
-    "auth": {
-      "verify-otp": {
-        "sections": {
-          "did-not-receive": {
-            "text": "Vous n'avez pas reçu d'e-mail avec le code OTP ?"
-          },
-          "resend": {
-            "text": "Renvoyer l'e-mail",
-            "link": {
-              "url": "/auth/login?email={email}",
-              "text": "menu.auth.verify-otp"
-            }
-          }
-        }
-      },
-      "register": {
-        "sections": {
-          "have-account": {
-            "text": "Vous avez déjà un compte ?",
-            "link": {
-              "url": "/auth/login",
-              "text": "menu.auth.login"
-            }
-          }
-        }
-      },
-      "login": {
-        "sections": {
-          "no-account": {
-            "text": "Vous n'avez pas encore de compte ? C'est gratuit de",
-            "link": {
-              "url": "/auth/register",
-              "text": "menu.auth.register"
-            }
-          }
-        }
-      }
-    },
-    "settings": {
-      "sections": {
-        "development": {
-          "title": "Développement"
-        },
-        "demo": {
-          "title": "Démo",
-          "loginText": "Connecter l'utilisateur de démonstration",
-          "logoutText": "Déconnecter l'utilisateur de démonstration"
-        }
-      }
-    },
-    "home": {
-      "auth": {
-        "greeting": "Bonjour {name} ({email}).",
-        "dashboard": {
-          "title": "Votre tableau de bord"
-        },
-        "sections": {
-          "societies": "Sociétés",
-          "residences": "Résidences"
-        }
-      },
-      "marketing": {
-        "user_types": {
-          "society_admin": {
-            "title": "Administrateurs de la société",
-            "features": [
-              "Créer une ou plusieurs sociétés",
-              "Inviter des utilisateurs",
-              "Ajouter les dépenses nécessaires",
-              "Approuver les relevés de paiement",
-              "Créer des ajustements personnalisés",
-              "Publier des avis aux résidents"
-            ]
-          },
-          "society_member": {
-            "title": "Membres de la société",
-            "features": [
-              "Consultez toutes vos résidences dans différentes sociétés et villes",
-              "Consultez vos cotisations mensuelles avec une ventilation appropriée des coûts et des fonds disponibles",
-              "Envoyez un message aux administrateurs des problèmes rencontrés ou recevez des notifications de leur part."
-            ]
-          },
-          "rent_seeker": {
-            "title": "Vous cherchez des locations ou souhaitez en acheter une ?",
-            "features": [
-              "Consultez les annonces publiées par des propriétaires ou des sociétés valides et authentifiés concernant la disponibilité, en fonction de votre budget et de l'emplacement de vos rêves"
-            ]
-          }
-        },
-        "call_to_action": "Rejoignez {title} et découvrez toutes les fonctionnalités."
-      }
-    },
-    "about": {
-      "title": "À propos",
-      "sections": {
-        "problem": {
-          "text": "Différents pays avec le même problème : gestion des dépenses cachées sans visibilité claire des coûts et des fonds.",
-          "icon": "hidden-expenses"
-        },
-        "goal": {
-          "text": "Notre objectif est de fournir une ventilation détaillée des prix mensuels calculés dynamiquement à votre connaissance.",
-          "icon": "pricing-breakdown"
-        },
-        "philosophy": {
-          "text": "Nous pensons fermement que les dépenses réduites ou augmentées devraient faire varier les contributions, et non les fixer. De plus, les différentes dépenses nécessitent une manière différente de répartition entre les résidences.",
-          "icon": "variable-contributions"
-        },
-        "peer_services": {
-          "text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées auprès de membres valides des utilisateurs, en contournant les intermédiaires. La prochaine fois, contactez vos pairs pour tout service dans votre domaine d'intérêt sans payer trop cher !",
-          "icon": "peer-to-peer"
-        }
-      }
-    },
-    "error": {
-      "not_found": "La page demandée n'existe pas sur ce site Web."
-    },
-    "residences": {
-      "detail": {
-        "myExpenseDues": "Mes cotisations de dépenses",
-        "noExpenseDues": "Aucune cotisation de dépenses trouvée.",
-        "members": "Membres",
-        "table": {
-          "month": "Mois",
-          "expense": "Dépense",
-          "amount": "Montant"
-        }
-      }
-    },
-    "societies": {
-      "detail": {
-        "expenseCalculations": "Calculs des dépenses",
-        "triggerCalculations": "Calculs de maintenance",
-        "noExpensesConfigured": "Aucune dépense configurée.",
-        "members": "Membres",
-        "user_residences": "Mes résidences",
-        "table": {
-          "month": "Mois",
-          "residence": "Résidence",
-          "amount": "Montant"
-        }
-      }
-    },
-    "funds": "Fonds",
-    "delete": {
-      "confirm": "Êtes-vous sûr de vouloir supprimer"
-    },
-    "expenses": {
-      "form": {
-        "name": "Nom",
-        "name_placeholder": "Entrez le nom de la dépense",
-        "amount": "Montant par mois",
-        "amount_placeholder": "Entrez le montant par mois",
-        "society": "Société",
-        "society_placeholder": "Sélectionner une société",
-        "active": "Actif"
-      },
-      "detail": {
-        "distributions": "Distributions",
-        "editDistributions": "Modifier les distributions",
-        "selectType": "Sélectionner le type",
-        "percentageCoverage": "Couverture en pourcentage",
-        "addDistribution": "Ajouter une distribution",
-        "saveDistributions": "Enregistrer",
-        "remove": "Supprimer",
-        "noDistributions": "Aucune distribution disponible.",
-        "calculations": "Calculs",
-        "noCalculations": "Aucun calcul disponible.",
-        "table": {
-          "month": "Mois",
-          "residence": "Résidence",
-          "amount": "Montant"
-        },
-        "error": {
-          "totalCoverage": "La couverture en pourcentage totale doit être égale à 100"
-        },
-        "backToAllExpenses": "← Retour à toutes les dépenses"
-      }
-    },
-    "ads": {
-      "detail": {
-        "isActive": "Actif",
-        "isNotActive": "Inactif"
-      }
-    }
-  },
-  "components": {
-    "settings": {
-      "api": {
-        "legend": "URL de l'API",
-        "label": "Où se trouve l'API sur les serveurs principaux."
-      }
-    },
-    "locales": {
-      "language": "Langue"
-    },
-    "auth": {
-      "login": {
-        "email": {
-          "legend": "E-mail",
-          "placeholder": "user@example.com"
-        },
-        "submit": "Connexion",
-        "error": "{error}"
-      },
-      "register": {
-        "name": {
-          "legend": "Nom",
-          "placeholder": "Azur"
-        },
-        "email": {
-          "legend": "E-mail",
-          "placeholder": "user@example.com"
-        },
-        "submit": "S'inscrire",
-        "error": "{error}"
-      },
-      "verify_otp": {
-        "email": {
-          "legend": "E-mail",
-          "placeholder": "user@example.com"
-        },
-        "otp": {
-          "legend": "OTP (Mot de passe unique)",
-          "placeholder": "12345"
-        },
-        "submit": "Vérifier"
-      }
-    },
-    "users": {
-      "card": {
-        "user_id": "Identifiant utilisateur",
-        "user_name": "Nom",
-        "user_role": "Rôle",
-        "member_since": "Membre depuis",
-        "no_members": "Aucun membre trouvé"
-      },
-      "list": {
-        "no_user": "Il n'y a actuellement aucun utilisateur."
-      }
-    },
-    "societies": {
-      "form": {
-        "name": "Nom de la société",
-        "name_placeholder": "Entrez le nom de la société",
-        "postcode": "Code postal",
-        "postcode_placeholder": "Entrez le code postal",
-        "map": "Sélectionner l'emplacement sur la carte",
-        "city": "Ville",
-        "city_placeholder": "Entrez la ville",
-        "state": "État",
-        "state_placeholder": "Entrez l'état",
-        "country": "Pays",
-        "country_placeholder": "Entrez le pays",
-        "timezone": "Fuseau horaire",
-        "timezone_placeholder": "Entrez le fuseau horaire (par exemple, Europe/Berlin)",
-        "currency": "Devise",
-        "area_unit": "Unité de surface"
-      },
-      "details": {
-        "name": "Nom",
-        "role": "Rôle",
-        "no_membership": "Vous n'êtes pas membre",
-        "id": "ID de la société",
-        "location": "Emplacement",
-        "postcode": "Code postal",
-        "currency": "Devise",
-        "timezone": "Fuseau horaire",
-        "area_unit": "Unité de surface",
-        "fine_rate": "Taux d'amende",
-        "coordinates": "Coordonnées",
-        "created": "Créé le",
-        "updated": "Dernière mise à jour"
-      },
-      "invite_user": {
-        "title": "Inviter un nouvel utilisateur dans cette société",
-        "email": {
-          "legend": "E-mail de l'utilisateur",
-          "placeholder": "user@example.com"
-        },
-        "name": {
-          "legend": "Nom d'utilisateur",
-          "placeholder": "Alice"
-        },
-        "role": {
-          "legend": "Rôle de l'utilisateur dans la société"
-        }
-      }
-    },
-    "residences": {
-      "form": {
-        "societyId": "ID de la société",
-        "societyId_placeholder": "Entrez l'ID de la société",
-        "residenceName": "Nom de la résidence",
-        "residenceName_placeholder": "Entrez le nom de la résidence",
-        "floorCount": "Nombre d'étages",
-        "floorCount_placeholder": "Entrez le nombre d'étages",
-        "areaValue": "Superficie (pi2)",
-        "areaValue_placeholder": "Entrez la superficie en pi2",
-        "residentsCount": "Nombre de résidents",
-        "residentsCount_placeholder": "Entrez le nombre de résidents",
-        "percentageOwnership": "Pourcentage de propriété",
-        "percentageOwnership_placeholder": "Entrez le pourcentage de propriété",
-        "description": "Description",
-        "description_placeholder": "Ajouter une description"
-      },
-      "details": {
-        "name": "Nom de la résidence",
-        "societyId": "ID de la société",
-        "residentsCount": "Résidents",
-        "floorCount": "Étages",
-        "area": "Superficie",
-        "percentageOwnership": "Pourcentage de propriété",
-        "active": "Actif",
-        "yes": "Oui",
-        "no": "Non",
-        "description": "Description",
-        "createdAt": "Créé le",
-        "updatedAt": "Mis à jour le",
-        "notAvailable": "Non disponible"
-      },
-      "invite_user": {
-        "title": "Inviter un nouvel utilisateur à cette résidence",
-        "name": {
-          "legend": "Nom",
-          "placeholder": "Alice"
-        },
-        "email": {
-          "legend": "E-mail",
-          "placeholder": "user@example.com"
-        }
-      }
-    },
-    "ads": {
-      "form": {
-        "title": "Titre de l'annonce",
-        "title_placeholder": "Entrez le titre de l'annonce",
-        "adDescription": "Description de l'annonce",
-        "adDescription_placeholder": "Entrez la description de l'annonce",
-        "anonymousUserName": "Nom d'utilisateur anonyme",
-        "anonymousUserName_placeholder": "Entrez votre alias ou nom anonyme",
-        "type": "Type d'annonce",
-        "type_placeholder": "Sélectionnez un type d'annonce",
-        "map": "Sélectionner l'emplacement sur la carte",
-        "coordinates": "Coordonnées (Latitude, Longitude)",
-        "create": "Créer une annonce",
-        "created_successfully": "Annonce créée avec succès.",
-        "society": "Société",
-        "society_placeholder": "Sélectionner une société",
-        "residency": "Résidence",
-        "residency_placeholder": "Sélectionnez une résidence",
-        "isActive": "Est actif"
-      },
-      "details": {
-        "description": "Description"
-      }
-    },
-    "expenses": {
-      "form": {
-        "name": "Nom",
-        "name_placeholder": "Izmir",
-        "amount": "Montant par mois",
-        "society": "Société",
-        "society_placeholder": "Sélectionner une société",
-        "active": "Actif"
-      },
-      "details": {
-        "name": "Nom",
-        "society": "Société",
-        "amountPerMonth": "Montant par mois",
-        "active": "Actif",
-        "createdAt": "Créé le",
-        "updatedAt": "Mis à jour le"
-      },
-      "distributionCard": {
-        "type": "Type",
-        "coverage": "Couverture"
-      },
-      "payment": {
-        "title": "Paiements de dépenses",
-        "addPayment": "Ajouter un paiement",
-        "amount": "Montant",
-        "amountPlaceholder": "Entrez le montant (positif pour les paiements, négatif pour les remboursements)",
-        "transactionDate": "Date de la transaction",
-        "yearMonth": "Année Mois",
-        "description": "Description",
-        "descriptionPlaceholder": "Entrez la description du paiement",
-        "paymentHistory": "Historique des paiements",
-        "payment": "paiement",
-        "payments": "paiements",
-        "noPayments": "Aucun paiement enregistré pour le moment.",
-        "invalidAmount": "Veuillez entrer un montant valide",
-        "date": "Date",
-        "paymentId": "ID"
-      }
-    },
-    "calculations": {
-      "list": {
-        "calculatedForCollection": "Calculé pour la collecte",
-        "actualExpensePaid": "Dépense réelle payée"
-      }
-    },
-    "maintenances": {
-      "card": {
-        "isCurrent": "Est actuel",
-        "previousAmountToPay": "Montant précédent à payer",
-        "fineToPay": "Amende à payer",
-        "thisMonthCalculation": "Calcul de ce mois",
-        "totalAmountToPay": "Montant total à payer",
-        "withFormula": "Avec la formule"
-      },
-      "form": {
-        "society": "société",
-        "selectSociety": "Sélectionner la société",
-        "residence": "Résidence",
-        "selectResidence": "Sélectionner la résidence",
-        "yearMonth": "Année Mois",
-        "yearMonth_placeholder": "Entrer AAAA/MM",
-        "isCurrent": "Est actuel",
-        "previousAmountToPay": "Montant précédent à payer",
-        "fineToPay": "Amende à payer",
-        "thisMonthCalculation": "Calcul de ce mois",
-        "totalAmountToPay": "Montant total à payer",
-        "withFormula": "Avec la formule"
-      },
-      "list": {
-        "title": "Historique de la maintenance",
-        "noMaintenances": "Aucun enregistrement de maintenance trouvé.",
-        "active": "Actif",
-        "inactive": "Inactif",
-        "previousAmount": "Montant précédent",
-        "fine": "Amende",
-        "thisMonth": "Ce mois-ci",
-        "totalAmount": "Montant total",
-        "maintenanceId": "ID"
-      },
-      "payment": {
-        "title": "Paiements de maintenance",
-        "addPayment": "Ajouter un paiement",
-        "amount": "Montant",
-        "amountPlaceholder": "Entrez le montant (positif pour les paiements, négatif pour les remboursements)",
-        "transactionDate": "Date de la transaction",
-        "yearMonth": "Année Mois",
-        "description": "Description",
-        "descriptionPlaceholder": "Entrez la description du paiement",
-        "paymentHistory": "Historique des paiements",
-        "payment": "paiement",
-        "payments": "paiements",
-        "noPayments": "Aucun paiement enregistré pour le moment.",
-        "invalidAmount": "Veuillez entrer un montant valide",
-        "date": "Date",
-        "paymentId": "ID"
-      }
-    },
-    "legal": {
-      "dpi": {
-        "controller.heading": "Contrôleur de données",
-        "controller.name_label": "Nom :",
-        "controller.address_label": "Adresse :",
-        "controller.email_label": "E-mail :",
-        "controller.phone_label": "Téléphone :",
-        "protection_officer.heading": "Délégué à la protection des données",
-        "protection_officer.email_label": "E-mail :",
-        "purposes.heading": "Finalités du traitement",
-        "legal_bases.heading": "Bases légales",
-        "recipients.heading": "Destinataires des données",
-        "retention.heading": "Conservation des données",
-        "rights.heading": "Vos droits",
-        "supervisory_authority.heading": "Autorité de contrôle"
-      }
-    }
-  },
-  "common": {
-    "submit": "Soumettre",
-    "join": "Rejoindre",
-    "create": "Créer",
-    "creating": "Création...",
-    "delete": "Supprimer",
-    "deleting": "Suppression...",
-    "cancel": "Annuler",
-    "update": "Mettre à jour",
-    "save": "Enregistrer",
-    "saving": "Enregistrement...",
-    "contact_admin": "Contacter l'administrateur",
-    "contact_user": "Contacter l'utilisateur",
-    "created": "Créé",
-    "updated": "Mis à jour",
-    "createdAt": "Créé le",
-    "updatedAt": "Mis à jour le"
-  },
-  "const": {
-    "ads_types": {
-      "SOCIETY_ADMIN": "Administrateur de la société",
-      "SELL_HOUSE": "Vendre une maison",
-      "RENT_HOUSE": "Louer une maison",
-      "SUB_LEASE_HOUSE": "Sous-louer une maison",
-      "HOUSE_SHARING": "Colocation",
-      "HEATING_SERVICE_NEEDED": "Service de chauffage nécessaire",
-      "PLUMBING_SERVICE_NEEDED": "Service de plomberie nécessaire",
-      "ELECTRICAL_SERVICE_NEEDED": "Service électrique nécessaire",
-      "MOVING_SERVICE_NEEDED": "Service de déménagement nécessaire",
-      "SELL_CLOTH": "Vendre des vêtements",
-      "SEARCH_CLOTH": "Rechercher des vêtements",
-      "GIVE_AWAY_CLOTH": "Donner des vêtements",
-      "SELL_FURNITURE": "Vendre des meubles",
-      "SEARCH_FURNITURE": "Rechercher des meubles",
-      "GIVE_AWAY_FURNITURE": "Donner des meubles",
-      "SMALL_PRINTING_SERVICE": "Service d'impression petit format",
-      "PROFESSIONAL_PRINTING_SERVICE": "Service d'impression professionnel",
-      "SELL_MISC": "Vendre divers",
-      "SEARCH_MISC": "Rechercher divers",
-      "GIVE_AWAY_MISC": "Donner divers"
-    },
-    "area": {
-      "sqm": "Mètres carrés",
-      "sqft": "Pieds carrés",
-      "acres": "Acres",
-      "hectares": "Hectares"
-    },
-    "currencies": {
-      "EUR": "EUR - Euro",
-      "USD": "USD - Dollar américain",
-      "GBP": "GBP - Livre sterling",
-      "INR": "INR - Roupie indienne",
-      "CAD": "CAD - Dollar canadien",
-      "AUD": "AUD - Dollar australien"
-    },
-    "society_roles": {
-      "ADMIN": "Admin",
-      "MANAGER": "Manager",
-      "MEMBER": "Membre",
-      "OWNER": "Propriétaire"
-    },
-    "expense_types": {
-      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Par pourcentage de propriété",
-      "AMOUNT_PER_RESIDENCE": "Par résidence",
-      "AMOUNT_PER_SQUARE_AREA": "Par superficie",
-      "AMOUNT_PER_RESIDENT": "Par habitant",
-      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Par habitant par nombre d'étages"
-    }
-  }
+	"title": "Society Flow",
+	"catch_line": "Partagez des services. Répartissez les coûts. Renforcez votre communauté.",
+	"menu": {
+		"home": "Accueil",
+		"societies": "Sociétés",
+		"residences": "Résidences",
+		"expenses": "Dépenses",
+		"maintenances": "Maintenances",
+		"ads": "Annonces",
+		"map": "Carte",
+		"about": "À propos",
+		"styles": "Styles",
+		"settings": "Paramètres",
+		"auth.login": "Connexion",
+		"auth.logout": "Déconnexion",
+		"auth.register": "S'inscrire",
+		"auth.verify-otp": "Vérifier le code OTP",
+		"legal": "Mentions légales",
+		"legal.terms-of-service": "Conditions d'utilisation",
+		"legal.privacy-policy": "Politique de confidentialité",
+		"legal.data-processing-info": "Informations sur le traitement des données",
+		"legal.cookie-policy": "Politique en matière de cookies",
+		"create.societies": "Créer une nouvelle société",
+		"create.residences": "Créer une nouvelle résidence",
+		"create.maintenances": "Create Maintenance",
+		"create.ads": "Créer une nouvelle annonce",
+		"create.expenses": "Créer une nouvelle dépense",
+		"update.societies": "Mettre à jour la société",
+		"update.residences": "Mettre à jour la résidence",
+		"update.maintenances": "Mettre à jour la maintenance",
+		"update.ads": "Mettre à jour l'annonce",
+		"update.expenses": "Mettre à jour la dépense"
+	},
+	"pages": {
+		"auth": {
+			"verify-otp": {
+				"sections": {
+					"did-not-receive": {
+						"text": "Vous n'avez pas reçu d'e-mail avec le code OTP ?"
+					},
+					"resend": {
+						"text": "Renvoyer l'e-mail",
+						"link": {
+							"url": "/auth/login?email={email}",
+							"text": "menu.auth.verify-otp"
+						}
+					}
+				}
+			},
+			"register": {
+				"sections": {
+					"have-account": {
+						"text": "Vous avez déjà un compte ?",
+						"link": {
+							"url": "/auth/login",
+							"text": "menu.auth.login"
+						}
+					}
+				}
+			},
+			"login": {
+				"sections": {
+					"no-account": {
+						"text": "Vous n'avez pas encore de compte ? C'est gratuit de",
+						"link": {
+							"url": "/auth/register",
+							"text": "menu.auth.register"
+						}
+					}
+				}
+			}
+		},
+		"settings": {
+			"sections": {
+				"development": {
+					"title": "Développement"
+				},
+				"demo": {
+					"title": "Démo",
+					"loginText": "Connecter l'utilisateur de démonstration",
+					"logoutText": "Déconnecter l'utilisateur de démonstration"
+				}
+			}
+		},
+		"home": {
+			"auth": {
+				"greeting": "Bonjour {name} ({email}).",
+				"dashboard": {
+					"title": "Votre tableau de bord"
+				},
+				"sections": {
+					"societies": "Sociétés",
+					"residences": "Résidences"
+				}
+			},
+			"marketing": {
+				"user_types": {
+					"society_admin": {
+						"title": "Administrateurs de la société",
+						"features": [
+							"Créer une ou plusieurs sociétés",
+							"Inviter des utilisateurs",
+							"Ajouter les dépenses nécessaires",
+							"Approuver les relevés de paiement",
+							"Créer des ajustements personnalisés",
+							"Publier des avis aux résidents"
+						]
+					},
+					"society_member": {
+						"title": "Membres de la société",
+						"features": [
+							"Consultez toutes vos résidences dans différentes sociétés et villes",
+							"Consultez vos cotisations mensuelles avec une ventilation appropriée des coûts et des fonds disponibles",
+							"Envoyez un message aux administrateurs des problèmes rencontrés ou recevez des notifications de leur part."
+						]
+					},
+					"rent_seeker": {
+						"title": "Vous cherchez des locations ou souhaitez en acheter une ?",
+						"features": [
+							"Consultez les annonces publiées par des propriétaires ou des sociétés valides et authentifiés concernant la disponibilité, en fonction de votre budget et de l'emplacement de vos rêves"
+						]
+					}
+				},
+				"call_to_action": "Rejoignez {title} et découvrez toutes les fonctionnalités."
+			}
+		},
+		"about": {
+			"title": "À propos",
+			"sections": {
+				"problem": {
+					"text": "Différents pays avec le même problème : gestion des dépenses cachées sans visibilité claire des coûts et des fonds.",
+					"icon": "hidden-expenses"
+				},
+				"goal": {
+					"text": "Notre objectif est de fournir une ventilation détaillée des prix mensuels calculés dynamiquement à votre connaissance.",
+					"icon": "pricing-breakdown"
+				},
+				"philosophy": {
+					"text": "Nous pensons fermement que les dépenses réduites ou augmentées devraient faire varier les contributions, et non les fixer. De plus, les différentes dépenses nécessitent une manière différente de répartition entre les résidences.",
+					"icon": "variable-contributions"
+				},
+				"peer_services": {
+					"text": "En cours de route, notre système vous permet de créer ou de trouver des annonces géolocalisées auprès de membres valides des utilisateurs, en contournant les intermédiaires. La prochaine fois, contactez vos pairs pour tout service dans votre domaine d'intérêt sans payer trop cher !",
+					"icon": "peer-to-peer"
+				}
+			}
+		},
+		"error": {
+			"not_found": "La page demandée n'existe pas sur ce site Web."
+		},
+		"residences": {
+			"detail": {
+				"myExpenseDues": "Mes cotisations de dépenses",
+				"noExpenseDues": "Aucune cotisation de dépenses trouvée.",
+				"members": "Membres",
+				"table": {
+					"month": "Mois",
+					"expense": "Dépense",
+					"amount": "Montant"
+				}
+			}
+		},
+		"societies": {
+			"detail": {
+				"expenseCalculations": "Calculs des dépenses",
+				"triggerCalculations": "Calculs de maintenance",
+				"noExpensesConfigured": "Aucune dépense configurée.",
+				"members": "Membres",
+				"user_residences": "Mes résidences",
+				"table": {
+					"month": "Mois",
+					"residence": "Résidence",
+					"amount": "Montant"
+				}
+			}
+		},
+		"funds": "Fonds",
+		"delete": {
+			"confirm": "Êtes-vous sûr de vouloir supprimer"
+		},
+		"expenses": {
+			"form": {
+				"name": "Nom",
+				"name_placeholder": "Entrez le nom de la dépense",
+				"amount": "Montant par mois",
+				"amount_placeholder": "Entrez le montant par mois",
+				"society": "Société",
+				"society_placeholder": "Sélectionner une société",
+				"active": "Actif"
+			},
+			"detail": {
+				"distributions": "Distributions",
+				"editDistributions": "Modifier les distributions",
+				"selectType": "Sélectionner le type",
+				"percentageCoverage": "Couverture en pourcentage",
+				"addDistribution": "Ajouter une distribution",
+				"saveDistributions": "Enregistrer",
+				"remove": "Supprimer",
+				"noDistributions": "Aucune distribution disponible.",
+				"calculations": "Calculs",
+				"noCalculations": "Aucun calcul disponible.",
+				"table": {
+					"month": "Mois",
+					"residence": "Résidence",
+					"amount": "Montant"
+				},
+				"error": {
+					"totalCoverage": "La couverture en pourcentage totale doit être égale à 100"
+				}
+			}
+		},
+		"ads": {
+			"detail": {
+				"isActive": "Actif",
+				"isNotActive": "Inactif"
+			}
+		}
+	},
+	"components": {
+		"settings": {
+			"api": {
+				"legend": "URL de l'API",
+				"label": "Où se trouve l'API sur les serveurs principaux."
+			}
+		},
+		"locales": {
+			"language": "Langue"
+		},
+		"auth": {
+			"login": {
+				"email": {
+					"legend": "E-mail",
+					"placeholder": "user@example.com"
+				},
+				"submit": "Connexion",
+				"error": "{error}"
+			},
+			"register": {
+				"name": {
+					"legend": "Nom",
+					"placeholder": "Azur"
+				},
+				"email": {
+					"legend": "E-mail",
+					"placeholder": "user@example.com"
+				},
+				"submit": "S'inscrire",
+				"error": "{error}"
+			},
+			"verify_otp": {
+				"email": {
+					"legend": "E-mail",
+					"placeholder": "user@example.com"
+				},
+				"otp": {
+					"legend": "OTP (Mot de passe unique)",
+					"placeholder": "12345"
+				},
+				"submit": "Vérifier"
+			}
+		},
+		"users": {
+			"card": {
+				"user_id": "Identifiant utilisateur",
+				"user_name": "Nom",
+				"user_role": "Rôle",
+				"member_since": "Membre depuis",
+				"no_members": "Aucun membre trouvé"
+			},
+			"list": {
+				"no_user": "Il n'y a actuellement aucun utilisateur."
+			}
+		},
+		"societies": {
+			"form": {
+				"name": "Nom de la société",
+				"name_placeholder": "Entrez le nom de la société",
+				"postcode": "Code postal",
+				"postcode_placeholder": "Entrez le code postal",
+				"map": "Sélectionner l'emplacement sur la carte",
+				"city": "Ville",
+				"city_placeholder": "Entrez la ville",
+				"state": "État",
+				"state_placeholder": "Entrez l'état",
+				"country": "Pays",
+				"country_placeholder": "Entrez le pays",
+				"timezone": "Fuseau horaire",
+				"timezone_placeholder": "Entrez le fuseau horaire (par exemple, Europe/Berlin)",
+				"currency": "Devise",
+				"area_unit": "Unité de surface"
+			},
+			"details": {
+				"name": "Nom",
+				"role": "Rôle",
+				"no_membership": "Vous n'êtes pas membre",
+				"id": "ID de la société",
+				"location": "Emplacement",
+				"postcode": "Code postal",
+				"currency": "Devise",
+				"timezone": "Fuseau horaire",
+				"area_unit": "Unité de surface",
+				"fine_rate": "Taux d'amende",
+				"coordinates": "Coordonnées",
+				"created": "Créé le",
+				"updated": "Dernière mise à jour"
+			},
+			"invite_user": {
+				"title": "Inviter un nouvel utilisateur dans cette société",
+				"email": {
+					"legend": "E-mail de l'utilisateur",
+					"placeholder": "user@example.com"
+				},
+				"name": {
+					"legend": "Nom d'utilisateur",
+					"placeholder": "Alice"
+				},
+				"role": {
+					"legend": "Rôle de l'utilisateur dans la société"
+				}
+			}
+		},
+		"residences": {
+			"form": {
+				"societyId": "ID de la société",
+				"societyId_placeholder": "Entrez l'ID de la société",
+				"residenceName": "Nom de la résidence",
+				"residenceName_placeholder": "Entrez le nom de la résidence",
+				"floorCount": "Nombre d'étages",
+				"floorCount_placeholder": "Entrez le nombre d'étages",
+				"areaValue": "Superficie (pi2)",
+				"areaValue_placeholder": "Entrez la superficie en pi2",
+				"residentsCount": "Nombre de résidents",
+				"residentsCount_placeholder": "Entrez le nombre de résidents",
+				"percentageOwnership": "Pourcentage de propriété",
+				"percentageOwnership_placeholder": "Entrez le pourcentage de propriété",
+				"description": "Description",
+				"description_placeholder": "Ajouter une description"
+			},
+			"details": {
+				"name": "Nom de la résidence",
+				"societyId": "ID de la société",
+				"residentsCount": "Résidents",
+				"floorCount": "Étages",
+				"area": "Superficie",
+				"percentageOwnership": "Pourcentage de propriété",
+				"active": "Actif",
+				"yes": "Oui",
+				"no": "Non",
+				"description": "Description",
+				"createdAt": "Créé le",
+				"updatedAt": "Mis à jour le",
+				"notAvailable": "Non disponible"
+			},
+			"invite_user": {
+				"title": "Inviter un nouvel utilisateur à cette résidence",
+				"name": {
+					"legend": "Nom",
+					"placeholder": "Alice"
+				},
+				"email": {
+					"legend": "E-mail",
+					"placeholder": "user@example.com"
+				}
+			}
+		},
+		"ads": {
+			"form": {
+				"title": "Titre de l'annonce",
+				"title_placeholder": "Entrez le titre de l'annonce",
+				"adDescription": "Description de l'annonce",
+				"adDescription_placeholder": "Entrez la description de l'annonce",
+				"anonymousUserName": "Nom d'utilisateur anonyme",
+				"anonymousUserName_placeholder": "Entrez votre alias ou nom anonyme",
+				"type": "Type d'annonce",
+				"type_placeholder": "Sélectionnez un type d'annonce",
+				"map": "Sélectionner l'emplacement sur la carte",
+				"coordinates": "Coordonnées (Latitude, Longitude)",
+				"create": "Créer une annonce",
+				"created_successfully": "Annonce créée avec succès.",
+				"society": "Société",
+				"society_placeholder": "Sélectionner une société",
+				"residency": "Résidence",
+				"residency_placeholder": "Sélectionnez une résidence",
+				"isActive": "Est actif"
+			},
+			"details": {
+				"description": "Description"
+			}
+		},
+		"expenses": {
+			"form": {
+				"name": "Nom",
+				"name_placeholder": "Izmir",
+				"amount": "Montant par mois",
+				"society": "Société",
+				"society_placeholder": "Sélectionner une société",
+				"active": "Actif"
+			},
+			"details": {
+				"name": "Nom",
+				"society": "Société",
+				"amountPerMonth": "Montant par mois",
+				"active": "Actif",
+				"createdAt": "Créé le",
+				"updatedAt": "Mis à jour le"
+			},
+			"distributionCard": {
+				"type": "Type",
+				"coverage": "Couverture"
+			},
+			"payment": {
+				"title": "Paiements de dépenses",
+				"addPayment": "Ajouter un paiement",
+				"amount": "Montant",
+				"amountPlaceholder": "Entrez le montant (positif pour les paiements, négatif pour les remboursements)",
+				"transactionDate": "Date de la transaction",
+				"yearMonth": "Année Mois",
+				"description": "Description",
+				"descriptionPlaceholder": "Entrez la description du paiement",
+				"paymentHistory": "Historique des paiements",
+				"payment": "paiement",
+				"payments": "paiements",
+				"noPayments": "Aucun paiement enregistré pour le moment.",
+				"invalidAmount": "Veuillez entrer un montant valide",
+				"date": "Date",
+				"paymentId": "ID"
+			}
+		},
+		"calculations": {
+			"list": {
+				"calculatedForCollection": "Calculé pour la collecte",
+				"actualExpensePaid": "Dépense réelle payée"
+			}
+		},
+		"maintenances": {
+			"card": {
+				"isCurrent": "Est actuel",
+				"previousAmountToPay": "Montant précédent à payer",
+				"fineToPay": "Amende à payer",
+				"thisMonthCalculation": "Calcul de ce mois",
+				"totalAmountToPay": "Montant total à payer",
+				"withFormula": "Avec la formule"
+			},
+			"form": {
+				"society": "société",
+				"selectSociety": "Sélectionner la société",
+				"residence": "Résidence",
+				"selectResidence": "Sélectionner la résidence",
+				"yearMonth": "Année Mois",
+				"yearMonth_placeholder": "Entrer AAAA/MM",
+				"isCurrent": "Est actuel",
+				"previousAmountToPay": "Montant précédent à payer",
+				"fineToPay": "Amende à payer",
+				"thisMonthCalculation": "Calcul de ce mois",
+				"totalAmountToPay": "Montant total à payer",
+				"withFormula": "Avec la formule"
+			},
+			"list": {
+				"title": "Historique de la maintenance",
+				"noMaintenances": "Aucun enregistrement de maintenance trouvé.",
+				"active": "Actif",
+				"inactive": "Inactif",
+				"previousAmount": "Montant précédent",
+				"fine": "Amende",
+				"thisMonth": "Ce mois-ci",
+				"totalAmount": "Montant total",
+				"maintenanceId": "ID"
+			},
+			"payment": {
+				"title": "Paiements de maintenance",
+				"addPayment": "Ajouter un paiement",
+				"amount": "Montant",
+				"amountPlaceholder": "Entrez le montant (positif pour les paiements, négatif pour les remboursements)",
+				"transactionDate": "Date de la transaction",
+				"yearMonth": "Année Mois",
+				"description": "Description",
+				"descriptionPlaceholder": "Entrez la description du paiement",
+				"paymentHistory": "Historique des paiements",
+				"payment": "paiement",
+				"payments": "paiements",
+				"noPayments": "Aucun paiement enregistré pour le moment.",
+				"invalidAmount": "Veuillez entrer un montant valide",
+				"date": "Date",
+				"paymentId": "ID"
+			}
+		},
+		"legal": {
+			"dpi": {
+				"controller.heading": "Contrôleur de données",
+				"controller.name_label": "Nom :",
+				"controller.address_label": "Adresse :",
+				"controller.email_label": "E-mail :",
+				"controller.phone_label": "Téléphone :",
+				"protection_officer.heading": "Délégué à la protection des données",
+				"protection_officer.email_label": "E-mail :",
+				"purposes.heading": "Finalités du traitement",
+				"legal_bases.heading": "Bases légales",
+				"recipients.heading": "Destinataires des données",
+				"retention.heading": "Conservation des données",
+				"rights.heading": "Vos droits",
+				"supervisory_authority.heading": "Autorité de contrôle"
+			}
+		}
+	},
+	"common": {
+		"submit": "Soumettre",
+		"join": "Rejoindre",
+		"create": "Créer",
+		"creating": "Création...",
+		"delete": "Supprimer",
+		"deleting": "Suppression...",
+		"cancel": "Annuler",
+		"update": "Mettre à jour",
+		"save": "Enregistrer",
+		"saving": "Enregistrement...",
+		"contact_admin": "Contacter l'administrateur",
+		"contact_user": "Contacter l'utilisateur",
+		"created": "Créé",
+		"updated": "Mis à jour",
+		"createdAt": "Créé le",
+		"updatedAt": "Mis à jour le"
+	},
+	"const": {
+		"ads_types": {
+			"SOCIETY_ADMIN": "Administrateur de la société",
+			"SELL_HOUSE": "Vendre une maison",
+			"RENT_HOUSE": "Louer une maison",
+			"SUB_LEASE_HOUSE": "Sous-louer une maison",
+			"HOUSE_SHARING": "Colocation",
+			"HEATING_SERVICE_NEEDED": "Service de chauffage nécessaire",
+			"PLUMBING_SERVICE_NEEDED": "Service de plomberie nécessaire",
+			"ELECTRICAL_SERVICE_NEEDED": "Service électrique nécessaire",
+			"MOVING_SERVICE_NEEDED": "Service de déménagement nécessaire",
+			"SELL_CLOTH": "Vendre des vêtements",
+			"SEARCH_CLOTH": "Rechercher des vêtements",
+			"GIVE_AWAY_CLOTH": "Donner des vêtements",
+			"SELL_FURNITURE": "Vendre des meubles",
+			"SEARCH_FURNITURE": "Rechercher des meubles",
+			"GIVE_AWAY_FURNITURE": "Donner des meubles",
+			"SMALL_PRINTING_SERVICE": "Service d'impression petit format",
+			"PROFESSIONAL_PRINTING_SERVICE": "Service d'impression professionnel",
+			"SELL_MISC": "Vendre divers",
+			"SEARCH_MISC": "Rechercher divers",
+			"GIVE_AWAY_MISC": "Donner divers"
+		},
+		"area": {
+			"sqm": "Mètres carrés",
+			"sqft": "Pieds carrés",
+			"acres": "Acres",
+			"hectares": "Hectares"
+		},
+		"currencies": {
+			"EUR": "EUR - Euro",
+			"USD": "USD - Dollar américain",
+			"GBP": "GBP - Livre sterling",
+			"INR": "INR - Roupie indienne",
+			"CAD": "CAD - Dollar canadien",
+			"AUD": "AUD - Dollar australien"
+		},
+		"society_roles": {
+			"ADMIN": "Admin",
+			"MANAGER": "Manager",
+			"MEMBER": "Membre",
+			"OWNER": "Propriétaire"
+		},
+		"expense_types": {
+			"AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Par pourcentage de propriété",
+			"AMOUNT_PER_RESIDENCE": "Par résidence",
+			"AMOUNT_PER_SQUARE_AREA": "Par superficie",
+			"AMOUNT_PER_RESIDENT": "Par habitant",
+			"AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Par habitant par nombre d'étages"
+		}
+	}
 }

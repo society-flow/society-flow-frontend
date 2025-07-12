@@ -118,9 +118,6 @@
 		<nav>
 			<ul>
 				<li>
-					<Anchor href={`/ads`}>← {$_('menu.ads')}</Anchor>
-				</li>
-				<li>
 					<Anchor href="#" title={$_('common.contact_admin')}>
 						{$_('common.contact_admin')}
 					</Anchor>

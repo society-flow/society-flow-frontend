@@ -1,7 +1,7 @@
 <script>
 	import { _, locale } from 'svelte-i18n';
 	import { page } from '$app/stores';
-  import { invalidate } from '$app/navigation';
+	import { invalidate } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
 	import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
@@ -17,11 +17,11 @@
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
-  const {data} = $props();
-  const {expense, society, calculations, payments} = $derived(data);
+	const { data } = $props();
+	const { expense, society, calculations, payments } = $derived(data);
 
 	async function onPaymentSuccess(newPayment) {
-    invalidate("data:expense")
+		invalidate('data:expense');
 	}
 	// Expense distributions
 	let distributions = $state([]);
@@ -222,9 +222,6 @@
 	{:else}
 		<progress />
 	{/if}
-	{#snippet footer()}
-		<p><Anchor href="/expenses">{$_('pages.expenses.detail.backToAllExpenses')}</Anchor></p>
-	{/snippet}
 </Page>
 
 <style>

@@ -207,8 +207,7 @@
 				},
 				"error": {
 					"totalCoverage": "A cobertura percentual total deve ser igual a 100"
-				},
-				"backToAllExpenses": "← Voltar para todas as despesas"
+				}
 			}
 		},
 		"ads": {
