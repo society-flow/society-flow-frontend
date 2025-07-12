@@ -8,9 +8,7 @@
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
-	const { userRole } = $derived(data);
-
-	let maintenances = $state([]);
+	const { userRole, maintenances } = $derived(data);
 
 	let triggering = $state({});
 	async function triggerMaintenanceCalculation() {
