@@ -42,7 +42,9 @@
 		</li>
 		<li>
 			<strong>{$_('components.maintenances.card.withFormula')}:</strong>
-			{maintenance.withFormula}
+			<pre>
+        {maintenance.withFormula}
+      </pre>
 		</li>
 		<li>
 			<strong>{$_('common.createdAt')}: </strong>

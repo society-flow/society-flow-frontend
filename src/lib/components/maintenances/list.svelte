@@ -60,7 +60,7 @@
 					</div>
 				</div>
 				{#if m.withFormula}
-					<small>{m.withFormula}</small>
+					<pre>{m.withFormula}</pre>
 				{/if}
 				<small>{$_('components.maintenances.list.maintenanceId')} {m.id.slice(-8)}</small>
 			</li>
