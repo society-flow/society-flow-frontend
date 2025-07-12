@@ -4,6 +4,7 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import ListExpenses from '$lib/components/expenses/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Total from '$lib/components/expenses/total.svelte';
 	import { IconAdd } from 'obra-icons-svelte';
 	import { IconBusinessAlt } from 'obra-icons-svelte';
 
@@ -31,15 +32,24 @@
 					</h2>
 					{#if societies}
 						<nav>
-							<li>
-								<Anchor
-									href={`/create/expenses?society=${society.id}`}
-									title={$_('menu.create.expenses')}
-									isButton
-								>
-									<IconAdd />
-								</Anchor>
-							</li>
+							<ul>
+								<li>
+									<Total
+										{society}
+										expenses={dicExpenses[society.id] || []}
+										currency={society.currency}
+									/>
+								</li>
+								<li>
+									<Anchor
+										href={`/create/expenses?society=${society.id}`}
+										title={$_('menu.create.expenses')}
+										isButton
+									>
+										<IconAdd />
+									</Anchor>
+								</li>
+							</ul>
 						</nav>
 					{/if}
 				</header>
