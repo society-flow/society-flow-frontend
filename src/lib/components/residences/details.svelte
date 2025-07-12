@@ -14,7 +14,7 @@
 		IconDocumentAlt,
 		IconCheck,
 		IconCheckboxOff,
-		IconSpeedometer,
+		IconOrangeSlice,
 		IconMountains,
 		IconUsers,
 		IconRuler
@@ -55,7 +55,7 @@
 			{society.areaUnit}
 		</li>
 		<li>
-			<IconSpeedometer />
+			<IconOrangeSlice />
 			<strong>{$_('components.residences.details.percentageOwnership')}</strong>: {residence.percentageOwnership}%
 		</li>
 		<li>

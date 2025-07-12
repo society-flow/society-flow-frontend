@@ -4,9 +4,10 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import { IconAdd } from 'obra-icons-svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import ResidencesList from '$lib/components/residences/list.svelte';
-	import { IconAdd } from 'obra-icons-svelte';
+	import PercentageOwnership from '$lib/components/societies/percentage-ownership.svelte';
 
 	requiresAuth(locale);
 
@@ -21,6 +22,13 @@
 			<h2>
 				{$_('pages.societies.detail.user_residences')}
 			</h2>
+			<nav>
+				<ul>
+					<li>
+						<PercentageOwnership residences={userResidences} />
+					</li>
+				</ul>
+			</nav>
 		</header>
 		<ResidencesList residences={userResidences} />
 	</section>
@@ -31,11 +39,16 @@
 		<h2>{$_('menu.residences')}</h2>
 		{#if userRole}
 			<nav>
-				<li>
-					<Anchor href={`/create/residences/${id}`} title={$_('menu.create.residences')} isButton>
-						<IconAdd />
-					</Anchor>
-				</li>
+				<ul>
+					<li>
+						<PercentageOwnership {residences} />
+					</li>
+					<li>
+						<Anchor href={`/create/residences/${id}`} title={$_('menu.create.residences')} isButton>
+							<IconAdd />
+						</Anchor>
+					</li>
+				</ul>
 			</nav>
 		{/if}
 	</header>

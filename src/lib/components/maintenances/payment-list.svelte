@@ -34,46 +34,44 @@
 	}
 </script>
 
-<section>
-	<header>
-		<h3>{$_('components.maintenances.payment.paymentHistory')}</h3>
-	</header>
+<header>
+	<h3>{$_('components.maintenances.payment.paymentHistory')}</h3>
+</header>
 
-	{#if payments.length > 0}
-		<GroupedList
-			items={payments}
-			groupBy={(p) => p.yearMonth}
-			sortGroups={(a, b) => parseInt(b) - parseInt(a)}
-			sortGroupItems={sortPaymentsByDate}
-		>
-			{#snippet groupHeader(yearMonth, group)}
-				<h4>{formatYearMonth(yearMonth)}</h4>
-				<span>
-					{group.length}
-					{group.length === 1
-						? $_('components.maintenances.payment.payment')
-						: $_('components.maintenances.payment.payments')}
-				</span>
-				<span>{formatCurrency(group.reduce((sum, p) => sum + p.amount, 0))}</span>
-			{/snippet}
-			{#snippet children(yearMonth, group)}
-				{#each group as payment}
-					<li>
-						<div>
-							{formatCurrency(payment.amount)}
-						</div>
-						<div>
-							{$_('components.maintenances.payment.date')}: {payment.transactionDate}
-						</div>
-						{#if payment.description}
-							<div>{payment.description}</div>
-						{/if}
-						<small>{$_('components.maintenances.payment.paymentId')}: {payment.id}</small>
-					</li>
-				{/each}
-			{/snippet}
-		</GroupedList>
-	{:else}
-		<p class="no-payments">{$_('components.maintenances.payment.noPayments')}</p>
-	{/if}
-</section>
+{#if payments.length > 0}
+	<GroupedList
+		items={payments}
+		groupBy={(p) => p.yearMonth}
+		sortGroups={(a, b) => parseInt(b) - parseInt(a)}
+		sortGroupItems={sortPaymentsByDate}
+	>
+		{#snippet groupHeader(yearMonth, group)}
+			<h4>{formatYearMonth(yearMonth)}</h4>
+			<span>
+				{group.length}
+				{group.length === 1
+					? $_('components.maintenances.payment.payment')
+					: $_('components.maintenances.payment.payments')}
+			</span>
+			<span>{formatCurrency(group.reduce((sum, p) => sum + p.amount, 0))}</span>
+		{/snippet}
+		{#snippet children(yearMonth, group)}
+			{#each group as payment}
+				<li>
+					<div>
+						{formatCurrency(payment.amount)}
+					</div>
+					<div>
+						{$_('components.maintenances.payment.date')}: {payment.transactionDate}
+					</div>
+					{#if payment.description}
+						<div>{payment.description}</div>
+					{/if}
+					<small>{$_('components.maintenances.payment.paymentId')}: {payment.id}</small>
+				</li>
+			{/each}
+		{/snippet}
+	</GroupedList>
+{:else}
+	<p class="no-payments">{$_('components.maintenances.payment.noPayments')}</p>
+{/if}

@@ -19,35 +19,31 @@
 	}
 </script>
 
-<section>
-	<h3>{$_('pages.expenses.detail.calculations')}</h3>
-
-	<GroupedList
-		items={calculations}
-		groupBy={(c) => c.yearMonth}
-		sortGroups={(a, b) => parseInt(b) - parseInt(a)}
-		sortGroupItems={(a, b) => {
-			const nameA = a.residenceName || a.residenceId || '';
-			const nameB = b.residenceName || b.residenceId || '';
-			return nameA.localeCompare(nameB);
-		}}
-	>
-		{#snippet groupHeader(yearMonth, group)}
-			<h4>{formatYearMonth(yearMonth)}</h4>
-			<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}</span>
-			<span>{formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}</span>
-		{/snippet}
-		{#snippet children(yearMonth, group)}
-			{#each group as calculation}
-				<li>
-					<h5>{calculation.residenceName || calculation.residenceId}</h5>
-					<div>{formatCurrency(calculation.amountToPay)}</div>
-					{#if calculation.expensePaid}
-						<div>{formatCurrency(calculation.expensePaid)} paid</div>
-					{/if}
-					<small>ID: {calculation.id.slice(-8)}</small>
-				</li>
-			{/each}
-		{/snippet}
-	</GroupedList>
-</section>
+<GroupedList
+	items={calculations}
+	groupBy={(c) => c.yearMonth}
+	sortGroups={(a, b) => parseInt(b) - parseInt(a)}
+	sortGroupItems={(a, b) => {
+		const nameA = a.residenceName || a.residenceId || '';
+		const nameB = b.residenceName || b.residenceId || '';
+		return nameA.localeCompare(nameB);
+	}}
+>
+	{#snippet groupHeader(yearMonth, group)}
+		<h4>{formatYearMonth(yearMonth)}</h4>
+		<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}</span>
+		<span>{formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}</span>
+	{/snippet}
+	{#snippet children(yearMonth, group)}
+		{#each group as calculation}
+			<li>
+				<h5>{calculation.residenceName || calculation.residenceId}</h5>
+				<div>{formatCurrency(calculation.amountToPay)}</div>
+				{#if calculation.expensePaid}
+					<div>{formatCurrency(calculation.expensePaid)} paid</div>
+				{/if}
+				<small>ID: {calculation.id.slice(-8)}</small>
+			</li>
+		{/each}
+	{/snippet}
+</GroupedList>

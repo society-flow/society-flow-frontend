@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
@@ -8,7 +8,6 @@
 
 	let error = $state(null);
 	let isSubmitting = $state(false);
-	let showForm = $state(false);
 
 	function getCurrentYearMonth() {
 		const now = new Date();
@@ -30,14 +29,14 @@
 		try {
 			isSubmitting = true;
 			error = null;
-			
+
 			// Validate amount is a valid number (can be negative for refunds)
 			const amount = parseFloat(form.amount);
 			if (isNaN(amount)) {
 				error = { message: $_('components.expenses.payment.invalidAmount') };
 				return;
 			}
-			
+
 			const paymentData = {
 				...form,
 				amount: amount,
@@ -48,7 +47,7 @@
 			console.log('Payment created successfully:', result);
 			console.log('Calling onSuccess callback...');
 			onSuccess(result);
-			
+
 			// Reset form
 			form = {
 				expenseId: expense?.id || '',
@@ -58,7 +57,6 @@
 				description: '',
 				userId: userState.user?.id || ''
 			};
-			showForm = false;
 		} catch (e) {
 			error = e;
 		} finally {
@@ -67,7 +65,6 @@
 	}
 
 	function cancelForm() {
-		showForm = false;
 		error = null;
 		form = {
 			expenseId: expense?.id || '',
@@ -80,77 +77,60 @@
 	}
 </script>
 
-<section class="expense-payment-form">
-	<header>
-		<h3>{$_('components.expenses.payment.title')}</h3>
-		{#if !showForm}
-			<button type="button" onclick={() => showForm = true}>
-				{$_('components.expenses.payment.addPayment')}
-			</button>
-		{/if}
-	</header>
+<form onsubmit={handleSubmit}>
+	<fieldset>
+		<legend>{$_('components.expenses.payment.amount')}</legend>
+		<input
+			type="text"
+			inputmode="decimal"
+			pattern="-?[0-9]*\.?[0-9]*"
+			bind:value={form.amount}
+			placeholder={$_('components.expenses.payment.amountPlaceholder')}
+			required
+		/>
+	</fieldset>
 
-	{#if showForm}
-		<form onsubmit={handleSubmit}>
-			<fieldset>
-				<legend>{$_('components.expenses.payment.amount')}</legend>
-				<input
-					type="text"
-					inputmode="decimal"
-					pattern="-?[0-9]*\.?[0-9]*"
-					bind:value={form.amount}
-					placeholder={$_('components.expenses.payment.amountPlaceholder')}
-					required
-				/>
-			</fieldset>
+	<fieldset>
+		<legend>{$_('components.expenses.payment.transactionDate')}</legend>
+		<input type="date" bind:value={form.transactionDate} required />
+	</fieldset>
 
-			<fieldset>
-				<legend>{$_('components.expenses.payment.transactionDate')}</legend>
-				<input
-					type="date"
-					bind:value={form.transactionDate}
-					required
-				/>
-			</fieldset>
+	<fieldset>
+		<legend>{$_('components.expenses.payment.yearMonth')}</legend>
+		<input
+			type="number"
+			min="202301"
+			max="209912"
+			bind:value={form.yearMonth}
+			placeholder="202507"
+			required
+		/>
+	</fieldset>
 
-			<fieldset>
-				<legend>{$_('components.expenses.payment.yearMonth')}</legend>
-				<input
-					type="number"
-					min="202301"
-					max="209912"
-					bind:value={form.yearMonth}
-					placeholder="202507"
-					required
-				/>
-			</fieldset>
+	<fieldset>
+		<legend>{$_('components.expenses.payment.description')}</legend>
+		<input
+			type="text"
+			bind:value={form.description}
+			placeholder={$_('components.expenses.payment.descriptionPlaceholder')}
+		/>
+	</fieldset>
 
-			<fieldset>
-				<legend>{$_('components.expenses.payment.description')}</legend>
-				<input
-					type="text"
-					bind:value={form.description}
-					placeholder={$_('components.expenses.payment.descriptionPlaceholder')}
-				/>
-			</fieldset>
-
-			{#if error}
-				<fieldset>
-					<Error {error} />
-				</fieldset>
-			{/if}
-
-			<fieldset class="form-actions">
-				<button type="submit" disabled={isSubmitting}>
-					{isSubmitting ? $_('common.saving') : $_('common.save')}
-				</button>
-				<button type="button" onclick={cancelForm}>
-					{$_('common.cancel')}
-				</button>
-			</fieldset>
-		</form>
+	{#if error}
+		<fieldset>
+			<Error {error} />
+		</fieldset>
 	{/if}
-</section>
+
+	<fieldset class="form-actions">
+		<button type="submit" disabled={isSubmitting}>
+			{isSubmitting ? $_('common.saving') : $_('common.save')}
+		</button>
+		<button type="button" onclick={cancelForm}>
+			{$_('common.cancel')}
+		</button>
+	</fieldset>
+</form>
 
 <style>
 	.expense-payment-form {

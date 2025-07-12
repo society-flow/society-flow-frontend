@@ -4,10 +4,11 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import { IconAdd, IconBusinessAlt } from 'obra-icons-svelte';
 	import ListResidences from '$lib/components/residences/list.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import { IconAdd, IconBusinessAlt } from 'obra-icons-svelte';
+	import PercentageOwnership from '$lib/components/societies/percentage-ownership.svelte';
 
 	requiresAuth(locale);
 
@@ -44,6 +45,7 @@
 	{/snippet}
 
 	{#each societies as society}
+		{@const residences = dicResidences[society.id]}
 		<section>
 			<header>
 				<h2>
@@ -52,15 +54,20 @@
 						{society.name}
 					</Anchor>
 				</h2>
-				<menu>
-					<li>
-						<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
-							<IconAdd />
-						</Anchor>
-					</li>
-				</menu>
+				<nav>
+					<ul>
+						<li>
+							<PercentageOwnership {residences} />
+						</li>
+						<li>
+							<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
+								<IconAdd />
+							</Anchor>
+						</li>
+					</ul>
+				</nav>
 			</header>
-			<ListResidences residences={dicResidences[society.id]} />
+			<ListResidences {residences} />
 		</section>
 	{/each}
 </Page>

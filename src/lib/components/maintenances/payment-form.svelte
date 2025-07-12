@@ -28,10 +28,10 @@
 			console.log('handleSubmit called');
 			console.log('Form data:', form);
 			console.log('Maintenance prop:', maintenance);
-			
+
 			isSubmitting = true;
 			error = null;
-			
+
 			// Validate amount is a valid number (can be negative for refunds)
 			const amount = parseFloat(form.amount);
 			console.log('Parsed amount:', amount);
@@ -39,7 +39,7 @@
 				error = { message: $_('components.maintenances.payment.invalidAmount') };
 				return;
 			}
-			
+
 			const yearMonthDate = new Date(form.yearMonth);
 			const year = yearMonthDate.getFullYear();
 			const month = (yearMonthDate.getMonth() + 1).toString().padStart(2, '0');
@@ -51,10 +51,10 @@
 				transactionDate: new Date(form.transactionDate).toISOString(),
 				yearMonth: yearMonthValue
 			};
-			
+
 			const result = await api.createMaintenancePayment(paymentData);
 			onSuccess(result);
-			
+
 			// Reset form
 			form = {
 				residenceId: residenceId || '',
@@ -88,11 +88,11 @@
 	}
 </script>
 
-<section class="maintenance-payment-form">
+<div class="maintenance-payment-form">
 	<header>
 		<h3>{$_('components.maintenances.payment.title')}</h3>
 		{#if !showForm}
-			<button type="button" onclick={() => showForm = true}>
+			<button type="button" onclick={() => (showForm = true)}>
 				{$_('components.maintenances.payment.addPayment')}
 			</button>
 		{/if}
@@ -114,20 +114,12 @@
 
 			<fieldset>
 				<legend>{$_('components.maintenances.payment.transactionDate')}</legend>
-				<input
-					type="date"
-					bind:value={form.transactionDate}
-					required
-				/>
+				<input type="date" bind:value={form.transactionDate} required />
 			</fieldset>
 
 			<fieldset>
 				<legend>{$_('components.maintenances.payment.yearMonth')}</legend>
-				<input
-					type="date"
-					bind:value={form.yearMonth}
-					required
-				/>
+				<input type="date" bind:value={form.yearMonth} required />
 			</fieldset>
 
 			<fieldset>
@@ -155,7 +147,7 @@
 			</fieldset>
 		</form>
 	{/if}
-</section>
+</div>
 
 <style>
 	.maintenance-payment-form {

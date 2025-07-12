@@ -1,47 +1,9 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
+	import GroupedList from '$lib/components/grouped-list.svelte';
 	import RelativeDate from '$lib/components/date/relative.svelte';
 
-	const { payments, society } = $props();
-
-	let groupedPayments = $state({});
-	let sortedYearMonths = $state([]);
-
-	// Update grouped payments when payments change
-	$effect(() => {
-		if (!payments || payments.length === 0) {
-			groupedPayments = {};
-			sortedYearMonths = [];
-			return;
-		}
-
-		const grouped = payments.reduce((acc, payment) => {
-			const yearMonth = payment.yearMonth;
-			if (!acc[yearMonth]) {
-				acc[yearMonth] = [];
-			}
-			acc[yearMonth].push(payment);
-			return acc;
-		}, {});
-
-		// Sort each group by transaction date (newest first)
-		Object.keys(grouped).forEach((key) => {
-			grouped[key].sort((a, b) => {
-				const dateA = new Date(a.transactionDate);
-				const dateB = new Date(b.transactionDate);
-				// If dates are invalid, fall back to string comparison
-				if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
-					return b.transactionDate.localeCompare(a.transactionDate);
-				}
-				return dateB - dateA;
-			});
-		});
-
-		groupedPayments = grouped;
-
-		const sorted = Object.keys(grouped).sort((a, b) => parseInt(b) - parseInt(a));
-		sortedYearMonths = sorted;
-	});
+	const { payments = [], society } = $props();
 
 	function formatYearMonth(yearMonth) {
 		const year = Math.floor(yearMonth / 100);
@@ -56,64 +18,61 @@
 			currency: currencyCode
 		}).format(amount);
 	}
+
+	function sortPaymentsByDate(a, b) {
+		const dateA = new Date(a.transactionDate);
+		const dateB = new Date(b.transactionDate);
+		// If dates are invalid, fall back to string comparison
+		if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
+			return b.transactionDate.localeCompare(a.transactionDate);
+		}
+		return dateB - dateA;
+	}
 </script>
 
-<section class="expense-payment-list">
-	<header>
-		<h3>{$_('components.expenses.payment.paymentHistory')}</h3>
-	</header>
+{#if payments.length > 0}
+	<GroupedList
+		items={payments}
+		groupBy={(p) => p.yearMonth}
+		sortGroups={(a, b) => parseInt(b) - parseInt(a)}
+		sortGroupItems={sortPaymentsByDate}
+	>
+		{#snippet groupHeader(yearMonth, group, groupIndex)}
+			{@const totalAmount = group.reduce((sum, p) => sum + p.amount, 0)}
+			{@const isLatest = groupIndex === 0}
 
-	{#if sortedYearMonths.length > 0}
-		{#each sortedYearMonths as yearMonth}
-			{@const isOpen = openAccordions.has(yearMonth)}
-			{@const monthPayments = groupedPayments[yearMonth]}
-			{@const totalAmount = monthPayments.reduce((sum, p) => sum + p.amount, 0)}
-			{@const isLatest = yearMonth === sortedYearMonths[0]}
-
-			<detail class="accordion-item {isLatest ? 'latest' : 'historical'}">
-				<summary class="accordion-header" onclick={() => toggleAccordion(yearMonth)} type="button">
-					<div class="accordion-title">
-						<h4>{formatYearMonth(yearMonth)}</h4>
-						<span class="payment-count">
-							{monthPayments.length}
-							{monthPayments.length === 1
-								? $_('components.expenses.payment.payment')
-								: $_('components.expenses.payment.payments')}
-						</span>
+			<h4>{formatYearMonth(yearMonth)}</h4>
+			<span class="payment-count">
+				{group.length}
+				{group.length === 1
+					? $_('components.expenses.payment.payment')
+					: $_('components.expenses.payment.payments')}
+			</span>
+			<span class="total-amount">{formatCurrency(totalAmount)}</span>
+		{/snippet}
+		{#snippet children(yearMonth, group, groupIndex)}
+			{#each group as payment}
+				<div class="payment-item">
+					<div class="payment-details">
+						<div class="payment-amount {payment.amount < 0 ? 'refund' : 'payment'}">
+							{formatCurrency(payment.amount)}
+						</div>
+						<div class="payment-date">
+							{$_('components.expenses.payment.date')}: {payment.transactionDate}
+						</div>
+						{#if payment.description}
+							<div class="payment-description">{payment.description}</div>
+						{/if}
 					</div>
-					<div class="accordion-summary">
-						<span class="total-amount">{formatCurrency(totalAmount)}</span>
-						<span class="expand-icon {isOpen ? 'expanded' : ''}">{isOpen ? '▼' : '▶'}</span>
+					<div class="payment-meta">
+						<small class="payment-id"
+							>{$_('components.expenses.payment.paymentId')}: {payment.id.slice(-8)}</small
+						>
 					</div>
-				</summary>
-
-				{#if isOpen}
-					<div class="accordion-content">
-						{#each monthPayments as payment}
-							<div class="payment-item">
-								<div class="payment-details">
-									<div class="payment-amount {payment.amount < 0 ? 'refund' : 'payment'}">
-										{formatCurrency(payment.amount)}
-									</div>
-									<div class="payment-date">
-										{$_('components.expenses.payment.date')}: {payment.transactionDate}
-									</div>
-									{#if payment.description}
-										<div class="payment-description">{payment.description}</div>
-									{/if}
-								</div>
-								<div class="payment-meta">
-									<small class="payment-id"
-										>{$_('components.expenses.payment.paymentId')}: {payment.id.slice(-8)}</small
-									>
-								</div>
-							</div>
-						{/each}
-					</div>
-				{/if}
-			</detail>
-		{/each}
-	{:else}
-		<p class="no-payments">{$_('components.expenses.payment.noPayments')}</p>
-	{/if}
-</section>
+				</div>
+			{/each}
+		{/snippet}
+	</GroupedList>
+{:else}
+	<p>{$_('components.expenses.payment.noPayments')}</p>
+{/if}

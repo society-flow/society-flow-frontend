@@ -35,22 +35,20 @@
 	});
 </script>
 
-<section>
-	{#if sortedGroupKeys.length > 0}
-		{#each sortedGroupKeys as groupKey}
-			{@const itemsInGroup = groupedItems[groupKey]}
-			<article class="GroupedList-group">
-				{#if groupHeader}
-					<header class="GroupedList-header">
-						{@render groupHeader(groupKey, itemsInGroup)}
-					</header>
-				{/if}
-				<ul class="GroupedList-items">
-					{@render children(groupKey, itemsInGroup)}
-				</ul>
-			</article>
-		{/each}
-	{:else}
-		<p class="GroupedList-empty">No data available</p>
-	{/if}
-</section>
+{#if sortedGroupKeys.length > 0}
+	{#each sortedGroupKeys as groupKey}
+		{@const itemsInGroup = groupedItems[groupKey]}
+		<article class="GroupedList-group">
+			{#if groupHeader}
+				<header class="GroupedList-header">
+					{@render groupHeader(groupKey, itemsInGroup)}
+				</header>
+			{/if}
+			<ul class="GroupedList-items">
+				{@render children(groupKey, itemsInGroup)}
+			</ul>
+		</article>
+	{/each}
+{:else}
+	<p>ø</p>
+{/if}

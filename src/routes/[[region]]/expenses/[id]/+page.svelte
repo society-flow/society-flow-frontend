@@ -4,6 +4,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
+	import { IconAdd, IconShuffle, IconMath, IconBills, IconHistory } from 'obra-icons-svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
@@ -11,7 +12,6 @@
 	import CalculationsList from '$lib/components/calculations/list.svelte';
 	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
 	import PaymentList from '$lib/components/expenses/payment-list.svelte';
-	import { IconAdd } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -166,7 +166,10 @@
 
 		<section>
 			<header>
-				<h2>{$_('pages.expenses.detail.distributions')}</h2>
+				<h2>
+					<IconShuffle />
+					{$_('pages.expenses.detail.distributions')}
+				</h2>
 				<nav>
 					<ul>
 						<li>
@@ -244,14 +247,34 @@
 		</section>
 
 		<section>
+			<header>
+				<h3>
+					<IconMath />
+					{$_('pages.expenses.detail.calculations')}
+				</h3>
+			</header>
 			<CalculationsList {calculations} {society} />
 		</section>
 
 		<section>
+			<header>
+				<header>
+					<h3>
+						<IconBills />
+						{$_('components.expenses.payment.title')}
+					</h3>
+				</header>
+			</header>
 			<PaymentForm {expense} onSuccess={onPaymentSuccess} />
 		</section>
 
 		<section>
+			<header>
+				<h3>
+					<IconHistory />
+					{$_('components.expenses.payment.paymentHistory')}
+				</h3>
+			</header>
 			<PaymentList {payments} {society} />
 		</section>
 	{:else}

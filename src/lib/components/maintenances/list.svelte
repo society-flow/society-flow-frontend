@@ -19,55 +19,51 @@
 	}
 </script>
 
-<section>
-	<h3>{$_('components.maintenances.list.title')}</h3>
+<h3>{$_('components.maintenances.list.title')}</h3>
 
-	<GroupedList
-		items={maintenances}
-		groupBy={(m) => m.yearMonth}
-		sortGroups={(a, b) => parseInt(b) - parseInt(a)}
-		sortGroupItems={(a, b) => new Date(b.createdAt) - new Date(a.createdAt)}
-	>
-		{#snippet groupHeader(yearMonth, group)}
-			{@const active = group.find((m) => m.isCurrent === true || m.isCurrent === 'true')}
-			{@const total = group.reduce((sum, m) => sum + m.totalAmountToPay, 0)}
-			<h4>{formatYearMonth(yearMonth)}</h4>
-			<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}</span>
-			<span
-				>{active
-					? $_('components.maintenances.list.active')
-					: $_('components.maintenances.list.inactive')}</span
-			>
-			<span>{formatCurrency(total)}</span>
-		{/snippet}
-		{#snippet children(yearMonth, group)}
-			{#each group as m}
-				<li>
-					<h5>
-						{m.residenceName || residence?.residenceName || `Residence ${m.residenceId.slice(-8)}`}
-					</h5>
+<GroupedList
+	items={maintenances}
+	groupBy={(m) => m.yearMonth}
+	sortGroups={(a, b) => parseInt(b) - parseInt(a)}
+	sortGroupItems={(a, b) => new Date(b.createdAt) - new Date(a.createdAt)}
+>
+	{#snippet groupHeader(yearMonth, group)}
+		{@const active = group.find((m) => m.isCurrent === true || m.isCurrent === 'true')}
+		{@const total = group.reduce((sum, m) => sum + m.totalAmountToPay, 0)}
+		<h4>{formatYearMonth(yearMonth)}</h4>
+		<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}</span>
+		<span
+			>{active
+				? $_('components.maintenances.list.active')
+				: $_('components.maintenances.list.inactive')}</span
+		>
+		<span>{formatCurrency(total)}</span>
+	{/snippet}
+	{#snippet children(yearMonth, group)}
+		{#each group as m}
+			<li>
+				<h5>
+					{m.residenceName || residence?.residenceName || `Residence ${m.residenceId.slice(-8)}`}
+				</h5>
+				<div>
 					<div>
-						<div>
-							{$_('components.maintenances.list.previousAmount')}: {formatCurrency(
-								m.previousAmountToPay
-							)}
-						</div>
-						<div>{$_('components.maintenances.list.fine')}: {formatCurrency(m.fineToPay)}</div>
-						<div>
-							{$_('components.maintenances.list.thisMonth')}: {formatCurrency(
-								m.thisMonthCalculation
-							)}
-						</div>
-						<div>
-							{$_('components.maintenances.list.totalAmount')}: {formatCurrency(m.totalAmountToPay)}
-						</div>
+						{$_('components.maintenances.list.previousAmount')}: {formatCurrency(
+							m.previousAmountToPay
+						)}
 					</div>
-					{#if m.withFormula}
-						<small>{m.withFormula}</small>
-					{/if}
-					<small>{$_('components.maintenances.list.maintenanceId')} {m.id.slice(-8)}</small>
-				</li>
-			{/each}
-		{/snippet}
-	</GroupedList>
-</section>
+					<div>{$_('components.maintenances.list.fine')}: {formatCurrency(m.fineToPay)}</div>
+					<div>
+						{$_('components.maintenances.list.thisMonth')}: {formatCurrency(m.thisMonthCalculation)}
+					</div>
+					<div>
+						{$_('components.maintenances.list.totalAmount')}: {formatCurrency(m.totalAmountToPay)}
+					</div>
+				</div>
+				{#if m.withFormula}
+					<small>{m.withFormula}</small>
+				{/if}
+				<small>{$_('components.maintenances.list.maintenanceId')} {m.id.slice(-8)}</small>
+			</li>
+		{/each}
+	{/snippet}
+</GroupedList>
