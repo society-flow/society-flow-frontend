@@ -93,13 +93,14 @@ html {
 :is(details) {
 	padding: calc(var(--s) / 3);
 	:is(summary) {
-		padding: var(--s);
+		padding: var(--s) 0;
 		cursor: pointer;
 		display: flex;
 		align-items: center;
 		gap: var(--s);
 		&::before {
 			content: '→';
+			transform: translateY(-20%);
 		}
 	}
 	&:is([open]) {
@@ -319,7 +320,7 @@ html {
 		h1,
 		h2,
 		h3 {
-			margin-bottom: calc(var(--s) * 2);
+			margin: calc(var(--s) * 1x) 0;
 		}
 	}
 }

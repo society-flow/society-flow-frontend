@@ -19,8 +19,6 @@
 	}
 </script>
 
-<h3>{$_('components.maintenances.list.title')}</h3>
-
 <GroupedList
 	items={maintenances}
 	groupBy={(m) => m.yearMonth}
