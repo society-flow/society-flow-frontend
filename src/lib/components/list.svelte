@@ -18,7 +18,7 @@
 </ul>
 
 <style>
-	:global(.List) {
+	.List {
 		list-style: none;
 		padding: 0;
 		margin: 0;
@@ -42,5 +42,10 @@
 				border-bottom: 0;
 			}
 		}
+    :has(nav) {
+      display: flex;
+			justify-content: space-between;
+			align-items: center;
+    }
 	}
 </style>
