@@ -1,5 +1,6 @@
 <script>
 	import { _, locale } from 'svelte-i18n';
+	import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
@@ -11,7 +12,7 @@
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
-	const { society } = data;
+	const { society, isAdmin } = data;
 
 	let users = $state([]);
 	let loading = $state(true);
@@ -35,6 +36,15 @@
 			}
 		}
 	});
+
+	async function onRemoveUser(user) {
+		try {
+			await api.removeUserFromSociety(society.id, user.id);
+			invalidate('data:society');
+		} catch (e) {
+			console.error('Error removing user:', e);
+		}
+	}
 </script>
 
 {#if loading}
@@ -48,14 +58,16 @@
 				{$_('pages.societies.detail.members')}
 			</h2>
 		</header>
-		<UsersList {users} />
+		<UsersList {users} {onRemoveUser} />
 	</section>
-	<section>
-		<header>
-			<h2>
-				{$_('components.societies.invite_user.title')}
-			</h2>
-		</header>
-		<InviteUser societyId={society.id} {onInvite} />
-	</section>
+	{#if isAdmin}
+		<section>
+			<header>
+				<h2>
+					{$_('components.societies.invite_user.title')}
+				</h2>
+			</header>
+			<InviteUser societyId={society.id} {onInvite} />
+		</section>
+	{/if}
 {/if}
