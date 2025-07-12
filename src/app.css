@@ -100,7 +100,6 @@ html {
 		gap: var(--s);
 		&::before {
 			content: '→';
-			transform: translateY(-20%);
 		}
 	}
 	&:is([open]) {
