@@ -7,7 +7,7 @@
 	import { userState } from '$lib/states/user.svelte.js';
 	import Menu from '$lib/components/menu.svelte';
 	import Footer from '$lib/components/footer.svelte';
-	import ErrorNotification from '$lib/components/ErrorNotification.svelte';
+	import GlobalErrorNotification from '$lib/components/GlobalErrorNotification.svelte';
 
 	const { children } = $props();
 
@@ -40,7 +40,7 @@
 	{/if}
 </main>
 
-<ErrorNotification />
+<GlobalErrorNotification />
 
 <footer class="Site-footer">
 	<Footer />

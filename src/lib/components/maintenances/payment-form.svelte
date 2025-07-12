@@ -3,6 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Error from '$lib/components/error.svelte';
+	import { globalError } from '$lib/stores/globalError.svelte.js';
 
 	const { maintenance, residenceId, onSuccess = () => {} } = $props();
 
@@ -69,6 +70,7 @@
 			console.error('Maintenance payment creation failed:', e);
 			console.error('Error details:', e.response || e.message || e);
 			error = e;
+			globalError.show(e);
 		} finally {
 			isSubmitting = false;
 		}

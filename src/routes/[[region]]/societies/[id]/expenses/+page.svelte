@@ -8,6 +8,7 @@
 	import Error from '$lib/components/error.svelte';
 	import { IconAdd } from 'obra-icons-svelte';
 	import Total from '$lib/components/expenses/total.svelte';
+	import { globalError } from '$lib/stores/globalError.svelte.js';
 
 	requiresAuth(locale);
 
@@ -46,6 +47,7 @@
 		} catch (e) {
 			console.error('Error triggering calculations:', e);
 			triggerError = e;
+			globalError.show(e);
 		} finally {
 			triggering = false;
 		}

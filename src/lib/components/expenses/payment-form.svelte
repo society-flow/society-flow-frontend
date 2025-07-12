@@ -3,6 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Error from '$lib/components/error.svelte';
+	import { globalError } from '$lib/stores/globalError.svelte.js';
 
 	const { expense, onSuccess = () => {} } = $props();
 
@@ -59,6 +60,7 @@
 			};
 		} catch (e) {
 			error = e;
+			globalError.show(e);
 		} finally {
 			isSubmitting = false;
 		}

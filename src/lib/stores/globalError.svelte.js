@@ -1,34 +1,29 @@
 /**
- * Global error notification store for displaying API errors
+ * Global error store for displaying API errors at the bottom of the screen
  */
 
 let errorState = $state({
-	isVisible: false,
 	error: null,
 	timeoutId: null
 });
 
-export const errorNotification = {
-	get isVisible() {
-		return errorState.isVisible;
-	},
+export const globalError = {
 	get error() {
 		return errorState.error;
 	},
 	
 	/**
-	 * Show error notification
-	 * @param {Object} error - Error object with status, message, etc.
-	 * @param {number} duration - Auto-hide duration in ms (default: 5000)
+	 * Show global error notification
+	 * @param {Object} error - Error object (API error or any error)
+	 * @param {number} duration - Auto-hide duration in ms (default: 8000)
 	 */
-	show(error, duration = 5000) {
+	show(error, duration = 8000) {
 		// Clear existing timeout
 		if (errorState.timeoutId) {
 			clearTimeout(errorState.timeoutId);
 		}
 		
 		errorState.error = error;
-		errorState.isVisible = true;
 		
 		// Auto-hide after duration
 		if (duration > 0) {
@@ -39,10 +34,9 @@ export const errorNotification = {
 	},
 	
 	/**
-	 * Hide error notification
+	 * Hide global error notification
 	 */
 	hide() {
-		errorState.isVisible = false;
 		errorState.error = null;
 		if (errorState.timeoutId) {
 			clearTimeout(errorState.timeoutId);

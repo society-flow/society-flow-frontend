@@ -5,6 +5,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import MaintenanceList from '$lib/components/maintenances/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import { globalError } from '$lib/stores/globalError.svelte.js';
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
@@ -24,7 +25,7 @@
 			// You could add a success notification here
 		} catch (error) {
 			console.error($_('pages.maintenances.calculationFailed'), error);
-			// You could add an error notification here
+			globalError.show(error);
 		} finally {
 			triggering = false;
       invalidate("data:society/maintenances")
