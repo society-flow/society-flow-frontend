@@ -1,31 +1,40 @@
-<script lang="javascript">
-   import Map from '$lib/components/map.svelte';
-   import { _ } from 'svelte-i18n';
+<script>
+	import { _ } from 'svelte-i18n';
+	import Map from '$lib/components/map.svelte';
+	import { IconLocationMarker } from 'obra-icons-svelte';
+
 	const { latitude = null, longitude = null, title = '', onselect = () => {} } = $props();
 
-  let selected = $state(null)
+    let selected = $state(null);
+    let mapComponent;
 
-  const markers = $derived(
-    latitude && longitude
-      ? [
-          {
-            coordinates: [latitude, longitude],
-            title: title || ''
-          }
-        ]
-      : []
-  );
+	const markers = $derived(
+		latitude && longitude
+			? [
+					{
+						coordinates: [latitude, longitude],
+						title: title || ''
+					}
+				]
+			: []
+	);
 
 	function onMapClick(event) {
 		selected = event.detail;
 		onselect(selected);
 	}
+
+	function clearSelection() {
+    selected = null;
+    onselect({});
+    mapComponent?.clearNewMarker();
+	}
 </script>
 
-<Map markers={markers} selectMode={true} on:mapClick={onMapClick} />
+<Map bind:this={mapComponent} {markers} selectMode={true} on:mapClick={onMapClick} />
 
 {#if selected}
-   <div>
-       {$_('components.mapPicker.selectedPosition')} {selected.lat.toFixed(4)}, {selected.lng.toFixed(4)}
-   </div>
+	<button type="button" onclick={clearSelection}>
+		{$_('common.cancel')}
+	</button>
 {/if}

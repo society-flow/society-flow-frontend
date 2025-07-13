@@ -44,7 +44,7 @@
 		map = L.map(node).setView(center, zoom);
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; OpenStreetMap contributors',
-      className: 'Map-tiles'
+			className: 'Map-tiles'
 		}).addTo(map);
 
 		// Create an empty feature group container
@@ -61,7 +61,7 @@
 					title: 'New Position'
 				})
 					.addTo(map)
-					.bindPopup(`Selected: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+					.bindPopup(`${lat}, ${lng}`)
 					.openPopup();
 			});
 		}
@@ -85,44 +85,55 @@
 			title,
 			href
 		} of validMarkers) {
-			const popup = href ? `<a href=\"${base}/${$locale}${href}\">${title}</a>` : title;
+			const popup = href ? `<a href="${base}/${$locale}${href}">${title}</a>` : title;
 			L.marker([lat, lon], { icon: createIcon(fill), title })
 				.addTo(markerGroup)
 				.bindPopup(popup);
 		}
 
-		if (validMarkers.length) {
+		if (validMarkers.length === 1) {
+			const [lat, lon] = validMarkers[0].coordinates;
+			map.setView([lat, lon], 13);
+		} else if (validMarkers.length > 1) {
 			map.fitBounds(markerGroup.getBounds().pad(0.2));
 		}
-	});
+    });
+    // Expose method to clear the temporary new marker
+    export function clearNewMarker() {
+        if (newMarker) {
+            map.removeLayer(newMarker);
+            newMarker = null;
+        }
+    }
 </script>
 
 <div id={mapId} class="Map" use:setup></div>
 
 <style>
 	.Map {
-    --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+		--map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3)
+			brightness(0.7);
 		width: 100%;
 		height: 20dvh;
 		z-index: 1;
-    border: 1px solid var(--c-border);
-    border-radius: var(--border-radius);
-    :global(.leaflet-popup-content a) {
-      color: var(--c-link);
-    }
-    :global(.leaflet-popup-content) {
-      color: var(--c-fg);
-    }
-    :global(.leaflet-popup-content-wrapper, .leaflet-popup-tip) {
-      background: var(--c-bg);
-    }
-    :global(.leaflet-popup a.leaflet-popup-close-button) {
-      color: var(--c-fg);
-    }
-    @media (prefers-color-scheme: dark) {
-      :global(.Map-tiles) {
-        filter:var(--map-tiles-filter, none);
-	    }
-    }
+		border: 1px solid var(--c-border);
+		border-radius: var(--border-radius);
+		:global(.leaflet-popup-content a) {
+			color: var(--c-link);
+		}
+		:global(.leaflet-popup-content) {
+			color: var(--c-fg);
+		}
+		:global(.leaflet-popup-content-wrapper, .leaflet-popup-tip) {
+			background: var(--c-bg);
+		}
+		:global(.leaflet-popup a.leaflet-popup-close-button) {
+			color: var(--c-fg);
+		}
+		@media (prefers-color-scheme: dark) {
+			:global(.Map-tiles) {
+				filter: var(--map-tiles-filter, none);
+			}
+		}
 	}
 </style>

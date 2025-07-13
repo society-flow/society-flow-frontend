@@ -31,9 +31,9 @@
 
   
 
-	async function onMapSelect(detail) {
-		const lat = detail.lat;
-		const lng = detail.lng;
+	async function onMapSelect({lat: latitude, lng: longitude} = {}) {
+		const lat = Number(latitude);
+		const lng = Number(longitude);
 
 		form = {
 			...form,
