@@ -171,6 +171,7 @@ html {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		gap: calc(var(--s) / 2);
 	}
 }
 :is(a.Button) {
@@ -324,12 +325,12 @@ html {
 }
 
 :is(progress) {
-	max-height: var(--s);
+	max-height: calc(var(--s) / 1);
 	height: 100%;
 	&[value] {
 		border: 1px solid var(--c-border);
 		border-radius: var(--border-radius);
-		background-color: var(--c-link);
+		background-color: transparent;
 		&::-moz-progress-bar {
 			background-color: var(--c-link);
 		}

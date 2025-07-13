@@ -2,6 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import List from '$lib/components/list.svelte';
 	import Card from '$lib/components/users/card.svelte';
+	import { IconClose } from 'obra-icons-svelte';
 
 	const { users = [], onRemoveUser } = $props();
 </script>
@@ -15,6 +16,7 @@
 			{#if onRemoveUser}
 				<li>
 					<button type="button" on:click={() => onRemoveUser(user)}>
+						<IconClose />
 						{$_('common.delete')}
 					</button>
 				</li>
