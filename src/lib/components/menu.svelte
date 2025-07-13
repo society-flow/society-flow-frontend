@@ -8,7 +8,7 @@
 		IconBusiness,
 		IconBusinessAlt,
 		IconBudgetAlt,
-		IconUserEncircledAltFill,
+		IconUserFill,
 		IconLogIn
 	} from 'obra-icons-svelte';
 
@@ -18,7 +18,7 @@
 		{ path: '/residences', label: 'menu.residences', Icon: IconBusiness },
 		{ path: '/expenses', label: 'menu.expenses', Icon: IconBudgetAlt },
 		{ path: '/ads', label: 'menu.ads', Icon: IconWorld },
-		{ path: '/auth/logout', label: 'menu.auth.logout', Icon: IconUserEncircledAltFill }
+		{ path: '/auth/logout', label: 'menu.auth.logout', Icon: IconUserFill }
 	];
 
 	const menuItemsNoAuth = [

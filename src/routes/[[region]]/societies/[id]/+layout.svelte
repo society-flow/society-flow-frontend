@@ -6,6 +6,7 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import {
 		IconUsers,
+    IconUserEncircledAlt2Fill,
 		IconWorld,
 		IconBusiness,
 		IconPaintRoller,
@@ -17,7 +18,7 @@
 	requiresAuth(locale);
 
 	const { children, data } = $props();
-	const { society, userRole } = $derived(data);
+	const { society, userRole, isAdmin } = $derived(data);
 	const id = $derived(society.id);
 
 	async function handleRoleUpdate() {
@@ -52,7 +53,11 @@
 		</li>
 		<li>
 			<Anchor href={`/societies/${id}/members`}>
-				<IconUsers />
+        {#if isAdmin}
+          <IconUserEncircledAlt2Fill />
+        {:else}
+					<IconUsers />
+        {/if}
 				{$_('pages.societies.detail.members')}
 			</Anchor>
 		</li>

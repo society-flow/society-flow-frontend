@@ -8,7 +8,7 @@
 	import UsersList from '$lib/components/users/list.svelte';
 
 	const { data } = $props();
-	const { residence, users, isMember } = $derived(data);
+	const { residence, users, isMember, isAdmin } = $derived(data);
 	const { id } = $derived(residence);
 
 	async function onInvite(inviteData) {
@@ -25,22 +25,19 @@
 	}
 </script>
 
-{#if users.length}
+{#if isMember || isAdmin}
 	<section>
 		<header>
 			<h2>{$_('pages.residences.detail.members')}</h2>
 		</header>
 		<UsersList {users} {onRemoveUser} />
 	</section>
-
-	{#if isMember}
-		<section>
-			<header>
-				<h2>
-					{$_('components.residences.invite_user.title')}
-				</h2>
-			</header>
-			<InviteUser residenceId={id} {onInvite} />
-		</section>
-	{/if}
+	<section>
+		<header>
+			<h2>
+				{$_('components.residences.invite_user.title')}
+			</h2>
+		</header>
+		<InviteUser residenceId={id} {onInvite} />
+	</section>
 {/if}

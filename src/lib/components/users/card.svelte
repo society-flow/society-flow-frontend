@@ -1,7 +1,7 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
-	import { IconUser, IconUserEncircledAltFill } from 'obra-icons-svelte';
+	import { IconUser, IconUserEncircledAlt2Fill } from 'obra-icons-svelte';
 	import Card from '$lib/components/card.svelte';
 
 	const { user } = $props();
@@ -13,7 +13,7 @@
 		{#if user?.name}
 			<span class="Card-name" title={$_('components.users.card.user_name')}>
 				{#if isAdmin}
-					<IconUserEncircledAltFill />
+					<IconUserEncircledAlt2Fill />
 				{:else}
 					<IconUser />
 				{/if}
@@ -22,11 +22,7 @@
 		{/if}
 
 		{#if user?.role}
-			<span
-				class="Card-role"
-				title={$_('components.users.card.user_role')}
-				class:isAdmin
-			>
+			<span class="Card-role" title={$_('components.users.card.user_role')} class:isAdmin>
 				{$_(`const.society_roles.${user.role}`)}
 			</span>
 		{/if}
@@ -52,9 +48,9 @@
 	}
 	.Card-role {
 		/* order: -1; */
-    &.isAdmin {
-      font-weight: bold;
-    }
+		&.isAdmin {
+			font-weight: bold;
+		}
 	}
 	.Card-name {
 		font-weight: bold;

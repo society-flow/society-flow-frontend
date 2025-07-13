@@ -4,14 +4,14 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import { IconUsers, IconPaintRoller } from 'obra-icons-svelte';
+	import { IconPaintRoller, IconUsers, IconUserEncircledAlt2Fill } from 'obra-icons-svelte';
 
 	requiresAuth(page);
 
 	const { children, data } = $props();
 	const { residence, isMember, isAdmin } = $derived(data);
 	const id = $derived(residence.id);
-  console.log("isAdmin", isAdmin)
+	console.log('isAdmin', isAdmin);
 </script>
 
 <Page
@@ -24,7 +24,11 @@
 		{#if isMember || isAdmin}
 			<li>
 				<Anchor href={`/residences/${id}/members`}>
-					<IconUsers />
+					{#if isAdmin}
+						<IconUserEncircledAlt2Fill />
+					{:else}
+						<IconUsers />
+					{/if}
 					{$_('pages.residences.detail.members')}
 				</Anchor>
 			</li>
