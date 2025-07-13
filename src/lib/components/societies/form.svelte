@@ -29,13 +29,7 @@
 		...initialData
 	});
 
-  const hasCoordinates = $derived(form?.geoCoordinate?.x && form?.geoCoordinate?.y)
-	const markers = $derived(hasCoordinates && form.name ? [
-		{
-			coordinates: [form.geoCoordinate.x, form.geoCoordinate.y],
-			title: form.name || ''
-		}
-	] : []);
+  
 
 	async function onMapSelect(detail) {
 		const lat = detail.lat;
@@ -106,7 +100,12 @@
 		<legend>
 			{$_('components.societies.form.map')}
 		</legend>
-		<MapPicker onselect={onMapSelect} initialMarkers={markers} />
+		<MapPicker
+			onselect={onMapSelect}
+			latitude={form.geoCoordinate.x}
+			longitude={form.geoCoordinate.y}
+			title={form.name}
+		/>
 	</fieldset>
 
 	<fieldset>

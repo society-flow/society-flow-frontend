@@ -25,14 +25,7 @@
 		...initialData
 	});
 
-  const hasCoordinates = $derived(form?.geoCoordinate?.x && form?.geoCoordinate?.y)
-
-	const markers = $derived(hasCoordinates && form.adDescription ? [
-		{
-			coordinates: [form?.approxGeoCoordinate?.x, form?.approxGeoCoordinate?.y],
-			title: form.adDescription || ''
-		}
-	] : []);
+  
 
 	// Options loaded via reactive effect
 	let adTypeOptions = $state([]);
@@ -167,7 +160,12 @@
 			<legend>
 				{$_('components.ads.form.map')}
 			</legend>
-			<MapPicker onselect={onMapSelect} initialMarkers={markers} />
+			<MapPicker
+				onselect={onMapSelect}
+				latitude={form.approxGeoCoordinate.x}
+				longitude={form.approxGeoCoordinate.y}
+				title={form.adDescription}
+			/>
 		</fieldset>
 
 		<fieldset style="display: none;">

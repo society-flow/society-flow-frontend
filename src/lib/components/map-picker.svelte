@@ -1,10 +1,20 @@
-<script>
-	import Map from '$lib/components/map.svelte';
-	import { _ } from 'svelte-i18n';
+<script lang="javascript">
+   import Map from '$lib/components/map.svelte';
+   import { _ } from 'svelte-i18n';
+	const { latitude = null, longitude = null, title = '', onselect = () => {} } = $props();
 
-	const { initialMarkers = [], onselect = () => {}, zoom = 1 } = $props();
+  let selected = $state(null)
 
-	let selected = $state(null);
+  const markers = $derived(
+    latitude && longitude
+      ? [
+          {
+            coordinates: [latitude, longitude],
+            title: title || ''
+          }
+        ]
+      : []
+  );
 
 	function onMapClick(event) {
 		selected = event.detail;
@@ -12,13 +22,10 @@
 	}
 </script>
 
-<Map markers={initialMarkers} selectMode={true} on:mapClick={onMapClick} {zoom} />
+<Map markers={markers} selectMode={true} on:mapClick={onMapClick} />
 
-<div>
-	<span>
-		{$_('menu.map')}:
-	</span>
-	{#if selected}
-		{selected.lat.toFixed(4)}, {selected.lng.toFixed(4)}
-	{/if}
-</div>
+{#if selected}
+   <div>
+       {$_('components.mapPicker.selectedPosition')} {selected.lat.toFixed(4)}, {selected.lng.toFixed(4)}
+   </div>
+{/if}
