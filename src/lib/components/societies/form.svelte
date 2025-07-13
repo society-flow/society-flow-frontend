@@ -44,17 +44,18 @@
 		};
 
 		try {
-			const data = await nominatim(lat, lng);
-
-			if (data.address) {
-				form = {
-					...form,
-					postcode: data.address.postcode || '',
-					city: data.address.city || data.address.town || data.address.village || '',
-					state: data.address.state || '',
-					country: data.address.country || ''
-				};
-			}
+      if (lat, lng) {
+        let data = await nominatim(lat, lng);
+			  if (data.address) {
+				  form = {
+					  ...form,
+					  postcode: data.address.postcode || '',
+					  city: data.address.city || data.address.town || data.address.village || '',
+					  state: data.address.state || '',
+					  country: data.address.country || ''
+				  };
+			  }
+      }
 		} catch (err) {
 			console.error('Error fetching OSM data:', err);
 		}
