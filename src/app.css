@@ -322,3 +322,22 @@ html {
 		flex-wrap: wrap;
 	}
 }
+
+:is(progress) {
+	max-height: var(--s);
+	height: 100%;
+	&[value] {
+		border: 1px solid var(--c-border);
+		border-radius: var(--border-radius);
+		background-color: var(--c-link);
+		&::-moz-progress-bar {
+			background-color: var(--c-link);
+		}
+		&::-webkit-progress-value {
+			background-color: var(--c-link);
+		}
+	}
+	&:not([value]) {
+		border: 1px solid var(--c-link);
+	}
+}
