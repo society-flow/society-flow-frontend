@@ -3,7 +3,6 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
-	import { userState } from '$lib/states/user.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
@@ -21,7 +20,7 @@
 	} from 'obra-icons-svelte';
 
 	const { data } = $props();
-	const { advert, residency, society, adTypes, isAdmin } = $derived(data);
+	const { advert, residency, society, adTypes, isAdmin, isOwner } = $derived(data);
 	const id = $derived($page.params.id);
 
 	let coordinates = $derived(advert?.approxGeoCoordinate);
@@ -71,7 +70,7 @@
 		<nav>
 			<ul>
 				<li>
-					{#if isAdmin}
+                {#if isAdmin || isOwner}
 						<span>
 							{#if advert.isActive}
 								{$_('pages.ads.detail.isActive')}
@@ -95,7 +94,7 @@
 						</span>
 					</li>
 				{/if}
-				{#if isAdmin}
+				{#if isAdmin || isOwner}
 					<li>
 						<Anchor href={`/delete/ads/${id}`} title={$_('common.delete')} isButton>
 							{$_('common.delete')}

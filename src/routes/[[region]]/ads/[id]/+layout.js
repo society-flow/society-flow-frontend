@@ -1,4 +1,5 @@
 import { api, initApi } from '$lib/api.svelte.js';
+import { userState } from '$lib/states/user.svelte.js';
 
 export const prerender = false;
 
@@ -24,6 +25,10 @@ export async function load({ params }) {
 			}
 		}
 
-		return { advert, residency, society };
+		// Compute ownership and admin status on the client
+		const user = userState.user;
+		const isOwner = !!(user && advert.userId === user.id);
+		const isAdmin = !!(user && user.role === 'ADMIN');
+		return { advert, residency, society, isOwner, isAdmin };
 	}
 }
