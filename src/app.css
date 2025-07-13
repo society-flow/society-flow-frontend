@@ -215,7 +215,6 @@ html {
 	border: 1px solid var(--c-border);
 	display: flex;
 	flex-direction: column;
-	margin-bottom: var(--s);
 	padding: var(--s);
 	border-color: transparent;
 }
