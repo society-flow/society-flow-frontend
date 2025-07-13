@@ -25,12 +25,14 @@
 		...initialData
 	});
 
-	const markers = $derived([
+  const hasCoordinates = $derived(form?.geoCoordinate?.x && form?.geoCoordinate?.y)
+
+	const markers = $derived(hasCoordinates && form.adDescription ? [
 		{
-			coordinates: [form.approxGeoCoordinate.x, form.approxGeoCoordinate.y],
+			coordinates: [form?.approxGeoCoordinate?.x, form?.approxGeoCoordinate?.y],
 			title: form.adDescription || ''
 		}
-	]);
+	] : []);
 
 	// Options loaded via reactive effect
 	let adTypeOptions = $state([]);

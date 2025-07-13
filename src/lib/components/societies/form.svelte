@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import { nominatim } from '$lib/geo.js';
@@ -29,16 +29,13 @@
 		...initialData
 	});
 
-	const markers = $derived(
-		form.geoCoordinate
-			? [
-					{
-						coordinates: [form?.geoCoordinate?.x, form?.geoCoordinate?.y],
-						title: form.name || ''
-					}
-				]
-			: []
-	);
+  const hasCoordinates = $derived(form?.geoCoordinate?.x && form?.geoCoordinate?.y)
+	const markers = $derived(hasCoordinates && form.name ? [
+		{
+			coordinates: [form.geoCoordinate.x, form.geoCoordinate.y],
+			title: form.name || ''
+		}
+	] : []);
 
 	async function onMapSelect(detail) {
 		const lat = detail.lat;
