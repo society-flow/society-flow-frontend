@@ -29,9 +29,7 @@
 		...initialData
 	});
 
-  
-
-	async function onMapSelect({lat: latitude, lng: longitude} = {}) {
+	async function onMapSelect({ lat: latitude, lng: longitude } = {}) {
 		const lat = Number(latitude);
 		const lng = Number(longitude);
 
@@ -44,18 +42,18 @@
 		};
 
 		try {
-      if (lat, lng) {
-        let data = await nominatim(lat, lng);
-			  if (data.address) {
-				  form = {
-					  ...form,
-					  postcode: data.address.postcode || '',
-					  city: data.address.city || data.address.town || data.address.village || '',
-					  state: data.address.state || '',
-					  country: data.address.country || ''
-				  };
-			  }
-      }
+			if ((lat, lng)) {
+				let data = await nominatim(lat, lng);
+				if (data.address) {
+					form = {
+						...form,
+						postcode: data.address.postcode || '',
+						city: data.address.city || data.address.town || data.address.village || '',
+						state: data.address.state || '',
+						country: data.address.country || ''
+					};
+				}
+			}
 		} catch (err) {
 			console.error('Error fetching OSM data:', err);
 		}
@@ -87,92 +85,90 @@
 </script>
 
 <form onsubmit={handleSubmit}>
-	<fieldset>
-		<legend>{$_('components.societies.form.name')}</legend>
-		<input
-			bind:value={form.name}
-			placeholder={$_('components.societies.form.name_placeholder')}
-			required
-			oninput={resetMessages}
-		/>
-	</fieldset>
-
-	<fieldset>
-		<legend>
-			{$_('components.societies.form.map')}
-		</legend>
-		<MapPicker
-			onselect={onMapSelect}
-			latitude={form.geoCoordinate.x}
-			longitude={form.geoCoordinate.y}
-			title={form.name}
-		/>
-	</fieldset>
-
-	<fieldset>
-		<legend>{$_('components.societies.form.postcode')}</legend>
-		<input
-			bind:value={form.postcode}
-			placeholder={$_('components.societies.form.postcode_placeholder')}
-			oninput={resetMessages}
-		/>
-	</fieldset>
-
-	<fieldset>
-		<legend>{$_('components.societies.form.city')}</legend>
-		<input
-			bind:value={form.city}
-			placeholder={$_('components.societies.form.city_placeholder')}
-			oninput={resetMessages}
-		/>
-	</fieldset>
-
-	<fieldset>
-		<legend>{$_('components.societies.form.state')}</legend>
-		<input
-			bind:value={form.state}
-			placeholder={$_('components.societies.form.state_placeholder')}
-			oninput={resetMessages}
-		/>
-	</fieldset>
-
-	<fieldset>
-		<legend>{$_('components.societies.form.country')}</legend>
-		<input
-			bind:value={form.country}
-			placeholder={$_('components.societies.form.country_placeholder')}
-			oninput={resetMessages}
-		/>
-	</fieldset>
-
-	<fieldset>
-		<legend>{$_('components.societies.form.timezone')}</legend>
-		<select bind:value={form.timezone} onchange={resetMessages}>
-			{#each Intl.supportedValuesOf('timeZone').sort() as tz}
-				<option value={tz}>
-					{tz}
-				</option>
-			{/each}
-		</select>
-	</fieldset>
-
-	<fieldset>
-		<legend>{$_('components.societies.form.currency')}</legend>
-		<select bind:value={form.currency} onchange={resetMessages}>
-			{#each currencyOptions as option}
-				<option value={option.value}>{$_(`const.currencies.${option.value}`)}</option>
-			{/each}
-		</select>
-	</fieldset>
-
-	<fieldset>
-		<legend>{$_('components.societies.form.area_unit')}</legend>
-		<select bind:value={form.areaUnit} onchange={resetMessages}>
-			{#each areaUnitOptions as option}
-				<option value={option}>{$_(`const.area.${option}`)}</option>
-			{/each}
-		</select>
-	</fieldset>
+	<section>
+		<fieldset>
+			<legend>{$_('components.societies.form.name')}</legend>
+			<input
+				bind:value={form.name}
+				placeholder={$_('components.societies.form.name_placeholder')}
+				required
+				oninput={resetMessages}
+			/>
+		</fieldset>
+	</section>
+	<section>
+		<fieldset>
+			<legend>
+				{$_('components.societies.form.map')}
+			</legend>
+			<MapPicker
+				onselect={onMapSelect}
+				latitude={form.geoCoordinate.x}
+				longitude={form.geoCoordinate.y}
+				title={form.name}
+			/>
+		</fieldset>
+		<fieldset>
+			<legend>{$_('components.societies.form.country')}</legend>
+			<input
+				bind:value={form.country}
+				placeholder={$_('components.societies.form.country_placeholder')}
+				oninput={resetMessages}
+			/>
+		</fieldset>
+		<fieldset>
+			<legend>{$_('components.societies.form.city')}</legend>
+			<input
+				bind:value={form.city}
+				placeholder={$_('components.societies.form.city_placeholder')}
+				oninput={resetMessages}
+			/>
+		</fieldset>
+		<fieldset>
+			<legend>{$_('components.societies.form.postcode')}</legend>
+			<input
+				bind:value={form.postcode}
+				placeholder={$_('components.societies.form.postcode_placeholder')}
+				oninput={resetMessages}
+			/>
+		</fieldset>
+		<fieldset>
+			<legend>{$_('components.societies.form.state')}</legend>
+			<input
+				bind:value={form.state}
+				placeholder={$_('components.societies.form.state_placeholder')}
+				oninput={resetMessages}
+			/>
+		</fieldset>
+	</section>
+	<section>
+		<fieldset>
+			<legend>{$_('components.societies.form.timezone')}</legend>
+			<select bind:value={form.timezone} onchange={resetMessages}>
+				{#each Intl.supportedValuesOf('timeZone').sort() as tz}
+					<option value={tz}>
+						{tz}
+					</option>
+				{/each}
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>{$_('components.societies.form.currency')}</legend>
+			<select bind:value={form.currency} onchange={resetMessages}>
+				{#each currencyOptions as option}
+					<option value={option.value}>{$_(`const.currencies.${option.value}`)}</option>
+				{/each}
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>{$_('components.societies.form.area_unit')}</legend>
+			<select bind:value={form.areaUnit} onchange={resetMessages}>
+				{#each areaUnitOptions as option}
+					<option value={option}>{$_(`const.area.${option}`)}</option>
+				{/each}
+			</select>
+		</fieldset>
+	</section>
 
 	<fieldset>
 		<button type="submit" disabled={isLoading}>
