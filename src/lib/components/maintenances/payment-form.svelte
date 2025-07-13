@@ -1,4 +1,4 @@
-<script lang="javascript">
+<script>
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
@@ -25,10 +25,6 @@
 
 	async function handleSubmit() {
 		try {
-			console.log('handleSubmit called');
-			console.log('Form data:', form);
-			console.log('Maintenance prop:', maintenance);
-
 			isSubmitting = true;
 			error = null;
 
@@ -73,100 +69,49 @@
 			isSubmitting = false;
 		}
 	}
-
-	function cancelForm() {
-		showForm = false;
-		error = null;
-		form = {
-			residenceId: residenceId || '',
-			amount: '',
-			transactionDate: getTodaysDate(),
-			yearMonth: getTodaysDate(),
-			description: '',
-			userId: userState.user?.id || ''
-		};
-	}
 </script>
 
-<div class="maintenance-payment-form">
-	<header>
-		<h3>{$_('components.maintenances.payment.title')}</h3>
-		{#if !showForm}
-			<button type="button" onclick={() => (showForm = true)}>
-				{$_('components.maintenances.payment.addPayment')}
-			</button>
-		{/if}
-	</header>
+<form onsubmit={handleSubmit}>
+	<fieldset>
+		<legend>{$_('components.maintenances.payment.amount')}</legend>
+		<input
+			type="text"
+			inputmode="decimal"
+			pattern="-?[0-9]*\.?[0-9]*"
+			bind:value={form.amount}
+			placeholder={$_('components.maintenances.payment.amountPlaceholder')}
+			required
+		/>
+	</fieldset>
 
-	{#if showForm}
-		<form onsubmit={handleSubmit}>
-			<fieldset>
-				<legend>{$_('components.maintenances.payment.amount')}</legend>
-				<input
-					type="text"
-					inputmode="decimal"
-					pattern="-?[0-9]*\.?[0-9]*"
-					bind:value={form.amount}
-					placeholder={$_('components.maintenances.payment.amountPlaceholder')}
-					required
-				/>
-			</fieldset>
+	<fieldset>
+		<legend>{$_('components.maintenances.payment.transactionDate')}</legend>
+		<input type="date" bind:value={form.transactionDate} required />
+	</fieldset>
 
-			<fieldset>
-				<legend>{$_('components.maintenances.payment.transactionDate')}</legend>
-				<input type="date" bind:value={form.transactionDate} required />
-			</fieldset>
+	<fieldset>
+		<legend>{$_('components.maintenances.payment.yearMonth')}</legend>
+		<input type="date" bind:value={form.yearMonth} required />
+	</fieldset>
 
-			<fieldset>
-				<legend>{$_('components.maintenances.payment.yearMonth')}</legend>
-				<input type="date" bind:value={form.yearMonth} required />
-			</fieldset>
+	<fieldset>
+		<legend>{$_('components.maintenances.payment.description')}</legend>
+		<input
+			type="text"
+			bind:value={form.description}
+			placeholder={$_('components.maintenances.payment.descriptionPlaceholder')}
+		/>
+	</fieldset>
 
-			<fieldset>
-				<legend>{$_('components.maintenances.payment.description')}</legend>
-				<input
-					type="text"
-					bind:value={form.description}
-					placeholder={$_('components.maintenances.payment.descriptionPlaceholder')}
-				/>
-			</fieldset>
-
-			{#if error}
-				<fieldset>
-					<Error {error} />
-				</fieldset>
-			{/if}
-
-			<fieldset class="form-actions">
-				<button type="submit" disabled={isSubmitting}>
-					{isSubmitting ? $_('common.saving') : $_('common.save')}
-				</button>
-				<button type="button" onclick={cancelForm}>
-					{$_('common.cancel')}
-				</button>
-			</fieldset>
-		</form>
+	{#if error}
+		<fieldset>
+			<Error {error} />
+		</fieldset>
 	{/if}
-</div>
 
-<style>
-	.maintenance-payment-form {
-	}
-
-	.maintenance-payment-form header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 1rem;
-	}
-
-	.form-actions {
-		display: flex;
-		gap: var(--s);
-		justify-content: flex-end;
-	}
-
-	.form-actions button {
-		padding: 0.5rem 1rem;
-	}
-</style>
+	<fieldset>
+		<button type="submit" disabled={isSubmitting}>
+			{isSubmitting ? $_('common.saving') : $_('common.save')}
+		</button>
+	</fieldset>
+</form>

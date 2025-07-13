@@ -30,8 +30,8 @@
 		{$_('components.ads.form.type')}
 		{#if selectedType}
 			<Anchor isButton href="/ads">
-				<IconClose />
 				{$_(`const.ads_types.${selectedType.name}`)}
+				<IconClose />
 			</Anchor>
 		{/if}
 	</summary>
@@ -51,7 +51,7 @@
 </section>
 
 <style>
-  details {
-    align-self: flex-start;
-  }
+	details {
+		align-self: flex-start;
+	}
 </style>

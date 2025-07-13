@@ -126,9 +126,6 @@
 		<button type="submit" disabled={isSubmitting}>
 			{isSubmitting ? $_('common.saving') : $_('common.save')}
 		</button>
-		<button type="button" onclick={cancelForm}>
-			{$_('common.cancel')}
-		</button>
 	</fieldset>
 </form>
 

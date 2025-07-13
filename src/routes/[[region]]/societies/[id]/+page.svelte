@@ -7,6 +7,7 @@
 	import SocietyDetails from '$lib/components/societies/details.svelte';
 	import SocietyJoin from '$lib/components/societies/join.svelte';
 	import FundCard from '$lib/components/funds/card.svelte';
+	import { IconClose, IconEdit } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -23,11 +24,13 @@
 				<li>
 					<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')} isButton>
 						{$_('menu.update.societies')}
+						<IconEdit />
 					</Anchor>
 				</li>
 				<li>
 					<Anchor href={`/delete/societies/${id}`} title={$_('common.delete')} isButton>
 						{$_('common.delete')}
+						<IconClose />
 					</Anchor>
 				</li>
 			</ul>

@@ -5,7 +5,6 @@
 	import { api } from '$lib/api.svelte.js';
 	import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
-	import { IconAdd, IconShuffle, IconMath, IconBills, IconHistory } from 'obra-icons-svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
@@ -13,6 +12,15 @@
 	import CalculationsList from '$lib/components/calculations/list.svelte';
 	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
 	import PaymentList from '$lib/components/expenses/payment-list.svelte';
+	import {
+		IconAdd,
+		IconShuffle,
+		IconMath,
+		IconBills,
+		IconHistory,
+		IconClose,
+		IconEdit
+	} from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -91,11 +99,13 @@
 					<li>
 						<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
 							{$_('common.update')}
+							<IconEdit />
 						</Anchor>
 					</li>
 					<li>
 						<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
 							{$_('common.delete')}
+							<IconClose />
 						</Anchor>
 					</li>
 				</ul>
@@ -115,9 +125,10 @@
 				<nav>
 					<ul>
 						<li>
-							<button onclick={editDistributions}
-								>{$_('pages.expenses.detail.editDistributions')}</button
-							>
+							<button onclick={editDistributions}>
+								{$_('pages.expenses.detail.editDistributions')}
+								<IconEdit />
+							</button>
 						</li>
 					</ul>
 				</nav>

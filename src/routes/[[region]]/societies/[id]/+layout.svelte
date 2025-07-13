@@ -11,7 +11,7 @@
 		IconPaintRoller,
 		IconBudgetAlt,
 		IconUserEncircledAltFill,
-		IconLogIn
+		IconLogIn,
 	} from 'obra-icons-svelte';
 
 	requiresAuth(locale);

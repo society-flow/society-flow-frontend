@@ -6,7 +6,7 @@
 	import ExpensesList from '$lib/components/expenses/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Error from '$lib/components/error.svelte';
-	import { IconAdd } from 'obra-icons-svelte';
+	import { IconAdd, IconCalculator } from 'obra-icons-svelte';
 	import Total from '$lib/components/expenses/total.svelte';
 	import { getCurrentYearMonth, generateYearMonthOptions } from '$lib/utils/yearMonth.js';
 
@@ -22,7 +22,7 @@
 	let triggerError = $state(null);
 	let triggering = $state(false);
 	let selectedYearMonth = $state(getCurrentYearMonth());
-	
+
 	const yearMonthOptions = generateYearMonthOptions();
 
 	$effect(async () => {
@@ -74,6 +74,7 @@
 						<li>
 							<button onclick={triggerAllCalculations} disabled={triggering}>
 								{$_('pages.societies.detail.expenseCalculations')}
+								<IconCalculator />
 							</button>
 						</li>
 					{/if}

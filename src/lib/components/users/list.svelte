@@ -16,8 +16,8 @@
 			{#if onRemoveUser}
 				<li>
 					<button type="button" on:click={() => onRemoveUser(user)}>
-						<IconClose />
 						{$_('common.delete')}
+						<IconClose />
 					</button>
 				</li>
 			{/if}

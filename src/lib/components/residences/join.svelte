@@ -2,6 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
+	import { IconUser, IconEnterRight } from 'obra-icons-svelte';
 
 	let { residenceId, societyId, isMember, onJoin } = $props();
 
@@ -31,8 +32,10 @@
 </script>
 
 {#if !isMember}
-  <button onclick={joinResidence} disabled={joining}>
+	<button onclick={joinResidence} disabled={joining}>
+    <IconUser />
 		{$_('common.join')}
+		<IconEnterRight />
 		{#if joinError}
 			<span>{joinError}</span>
 		{/if}

@@ -338,7 +338,4 @@ html {
 			background-color: var(--c-link);
 		}
 	}
-	&:not([value]) {
-		border: 1px solid var(--c-link);
-	}
 }

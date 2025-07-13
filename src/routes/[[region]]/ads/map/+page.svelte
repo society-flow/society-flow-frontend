@@ -5,6 +5,7 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import { IconClose } from 'obra-icons-svelte';
 
 	const { data } = $props();
 	const typeId = $derived(page.url.searchParams.get('type'));
@@ -38,7 +39,10 @@
 	<summary>
 		{$_('components.ads.form.type')}
 		{#if selectedType}
-			({$_(`const.ads_types.${selectedType.name}`)})
+			<Anchor isButton href="/ads/map">
+				{$_(`const.ads_types.${selectedType.name}`)}
+				<IconClose />
+			</Anchor>
 		{/if}
 	</summary>
 	<section>
@@ -58,7 +62,7 @@
 	:global(.Map) {
 		flex-grow: 1;
 	}
-  details {
-    align-self: flex-start;
-  }
+	details {
+		align-self: flex-start;
+	}
 </style>
