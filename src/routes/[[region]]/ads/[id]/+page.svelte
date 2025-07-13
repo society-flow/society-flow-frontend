@@ -7,6 +7,7 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Dialog from '$lib/components/dialog.svelte';
 	import AdDetails from '$lib/components/ads/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
 	import ResidencyCard from '$lib/components/residences/card.svelte';
@@ -106,18 +107,32 @@
 						</Anchor>
 					</li>
 				{:else}
-					<li>
-						<Anchor href="#" title={$_('common.contact_user')} isButton>
-							{$_('common.contact_user')}
-							<IconSendAlt />
-						</Anchor>
+					<li title={$_('common.contact_user')}>
+						<Dialog>
+							{#snippet buttonOpen()}
+								{$_('common.contact_user')}
+								<IconSendAlt />
+							{/snippet}
+							<form>
+								<fieldset>
+									<textarea></textarea>
+								</fieldset>
+							</form>
+						</Dialog>
 					</li>
 				{/if}
-				<li>
-					<Anchor href="#" title={$_('common.contact_admin')} isButton>
-						{$_('common.contact_admin')}
-						<IconMessageAlt />
-					</Anchor>
+				<li title={$_('common.contact_admin')}>
+					<Dialog>
+						{#snippet buttonOpen()}
+							{$_('common.contact_admin')}
+							<IconMessageAlt />
+						{/snippet}
+						<form>
+							<fieldset>
+								<textarea></textarea>
+							</fieldset>
+						</form>
+					</Dialog>
 				</li>
 			</ul>
 		</nav>
