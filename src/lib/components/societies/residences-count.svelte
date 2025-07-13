@@ -1,26 +1,25 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import { IconBusiness } from 'obra-icons-svelte';
 	import Card from '$lib/components/card.svelte';
-	import { IconBankFill } from 'obra-icons-svelte';
 
-	const { total, currency } = $props();
+	let { count } = $props();
 </script>
 
-<Card>
+<Card background>
 	<div>
 		<h4>
-			<IconBankFill />
-			{$_('pages.funds')}
+			<IconBusiness />
+			{$_('menu.residences')}
 		</h4>
 		<span>
-			{total}
-			{currency}
+			{count}
 		</span>
 	</div>
 </Card>
 
 <style>
-	h4,
+  h4,
 	div {
 		display: flex;
 		align-items: center;

@@ -3,12 +3,13 @@
 	import { page } from '$app/stores';
 	import { invalidate } from '$app/navigation';
 	import { api } from '$lib/api.svelte.js';
-	import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
+    // Removed distribution types import; moved to DistributionForm component
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
-	import DistributionCard from '$lib/components/expenses/distribution-card.svelte';
+    import DistributionCard from '$lib/components/expenses/distribution-card.svelte';
+    import DistributionForm from '$lib/components/expenses/distributions/form.svelte';
 	import CalculationsList from '$lib/components/calculations/list.svelte';
 	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
 	import PaymentList from '$lib/components/expenses/payment-list.svelte';
@@ -234,18 +235,3 @@
 		<progress />
 	{/if}
 </Page>
-
-<style>
-	form {
-		section {
-			display: flex;
-			align-items: center;
-		}
-		footer {
-			fieldset {
-				flex-direction: row;
-				justify-content: flex-end;
-			}
-		}
-	}
-</style>

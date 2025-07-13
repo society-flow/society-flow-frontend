@@ -28,7 +28,7 @@ html {
 :is(h1, h2, h3, h4, h5, h6) {
 	margin-top: 0;
 	margin-bottom: 0;
-	line-height: 1;
+	/* line-height: 1; */
 }
 
 :is(p) {
@@ -37,20 +37,19 @@ html {
 }
 
 :is(h1) {
-	font-size: 2em;
+	font-size: var(--fs--h1);
 }
-
 :is(h2) {
-	font-size: 1.7em;
+	font-size: var(--fs--h2);
 }
 :is(h3) {
-	font-size: 1.5em;
+	font-size: var(--fs--h3);
 }
 :is(h4) {
-	font-size: 1.2em;
+	font-size: var(--fs--h4);
 }
 :is(h5) {
-	font-size: 1.1em;
+	font-size: var(--fs--h5);
 }
 
 :is(pre) {

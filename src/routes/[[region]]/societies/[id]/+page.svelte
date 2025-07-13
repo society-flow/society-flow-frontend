@@ -6,13 +6,14 @@
 	import Error from '$lib/components/error.svelte';
 	import SocietyDetails from '$lib/components/societies/details.svelte';
 	import SocietyJoin from '$lib/components/societies/join.svelte';
+	import ResidencesCount from '$lib/components/societies/residences-count.svelte';
 	import FundCard from '$lib/components/funds/card.svelte';
 	import { IconClose, IconEdit } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
 	const { data } = $props();
-	const { society, userRole, isAdmin, fund } = $derived(data);
+	const { society, residencesCount, fund, userRole, isAdmin } = $derived(data);
 	const { id, currency } = $derived(society);
 	const { totalFund: total } = $derived(fund);
 </script>
@@ -43,10 +44,16 @@
 </section>
 
 <section>
-	<header>
-		<h2>
-			{$_('pages.funds')}
-		</h2>
-	</header>
-	<FundCard {total} {currency} />
+	<div>
+		<FundCard {total} {currency} />
+		<ResidencesCount count={residencesCount} />
+	</div>
 </section>
+
+<style>
+	div {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--s);
+	}
+</style>
