@@ -66,11 +66,14 @@ html {
 		display: flex;
 		align-items: center;
 		gap: var(--s);
+		border: 1px solid var(--c-transparent);
 		background-color: transparent;
-		transition: background-color 200ms ease-in-out;
+		transition:
+			background-color 200ms ease-in-out,
+			border-color-color 200ms ease-in-out;
 		&::before {
 			/* content: '→'; */
-			color: var(--c-bg2);
+			color: var(--c-border);
 			content: '';
 			display: list-item;
 			list-style: disclosure-closed;
@@ -78,6 +81,9 @@ html {
 		}
 		&:hover {
 			background-color: var(--c-bg2);
+			&::before {
+				color: var(--c-fg);
+			}
 		}
 	}
 	&:is([open]) {
@@ -91,6 +97,7 @@ html {
 		> summary {
 			background-color: var(--c-bg2);
 			border-radius: var(--border-radius);
+			border-bottom-color: var(--c-border);
 			&:hover {
 				background-color: var(--c-bg);
 			}

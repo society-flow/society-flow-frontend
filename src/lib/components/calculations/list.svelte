@@ -1,22 +1,10 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import GroupedList from '$lib/components/grouped-list.svelte';
+	import FormatYearMonth from '$lib/components/format/year-month.svelte';
+	import FormatCurrency from '$lib/components/format/currency.svelte';
 
 	const { calculations = [], society } = $props();
-
-	function formatYearMonth(yearMonth) {
-		const year = Math.floor(yearMonth / 100);
-		const month = yearMonth % 100;
-		return `${year}-${month.toString().padStart(2, '0')}`;
-	}
-
-	function formatCurrency(amount) {
-		const currencyCode = society?.currency || 'EUR';
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: currencyCode
-		}).format(amount);
-	}
 </script>
 
 <GroupedList
@@ -30,18 +18,38 @@
 	}}
 >
 	{#snippet groupHeader(yearMonth, group)}
-		<h4>{formatYearMonth(yearMonth)}</h4>
-		<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}: </span>
-		<span>{$_('components.calculations.list.calculatedForCollection')}: {formatCurrency(group.reduce((sum, c) => sum + c.amountToPay, 0))}</span>
-		<span>{$_('components.calculations.list.actualExpensePaid')}: {formatCurrency(group.reduce((sum, c) => sum + c.expensePaid, 0))}</span>
+		<div>
+			<h4><FormatYearMonth {yearMonth} /></h4>
+			<span>{group.length} {group.length === 1 ? 'residence' : 'residences'}: </span>
+			<span>
+				{$_('components.calculations.list.calculatedForCollection')}:
+				<FormatCurrency
+					value={group.reduce((sum, c) => sum + c.amountToPay, 0)}
+					currency={society.currency}
+				/>
+			</span>
+			<span>
+				{$_('components.calculations.list.actualExpensePaid')}:
+				<FormatCurrency
+					value={group.reduce((sum, c) => sum + c.expensePaid, 0)}
+					currency={society.currency}
+				/>
+			</span>
+		</div>
 	{/snippet}
 	{#snippet children(yearMonth, group)}
 		{#each group as calculation}
 			<li>
 				<h5>{calculation.residenceName || calculation.residenceId}</h5>
-				<div>{$_('components.calculations.list.calculatedForCollection')}: {formatCurrency(calculation.amountToPay)}</div>
+				<div>
+					{$_('components.calculations.list.calculatedForCollection')}:
+					<FormatCurrency value={calculation.amountToPay} currency={society.currency} />
+				</div>
 				{#if calculation.expensePaid}
-					<div>{$_('components.calculations.list.actualExpensePaid')}: {formatCurrency(calculation.expensePaid)}</div>
+					<div>
+						{$_('components.calculations.list.actualExpensePaid')}:
+						<FormatCurrency value={calculation.expensePaid} currency={society.currency} />
+					</div>
 				{/if}
 				<div>Formula: {calculation.withFormula}</div>
 				<small>ID: {calculation.id.slice(-8)}</small>
@@ -49,3 +57,12 @@
 		{/each}
 	{/snippet}
 </GroupedList>
+
+<style>
+	div {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--s);
+	}
+</style>

@@ -65,12 +65,12 @@
 
 <style>
   div {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
     gap: var(--s);
     align-items: center;
     /* justify-content: space-around; */
     flex-grow: 1;
+    flex-wrap: wrap;
     overflow-x: auto;
 		scrollbar-width: none;
 		-ms-overflow-style: none;

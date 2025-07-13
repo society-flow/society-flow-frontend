@@ -56,6 +56,9 @@
 {/if}
 
 <style>
+  .GroupedList-header {
+    /* flex-wrap: ; */
+  }
 	.GroupedList-items {
 		list-style: none;
 		padding: 0;
