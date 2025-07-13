@@ -60,7 +60,7 @@
 					throw new Error(text || `Failed to delete expense ${id}`);
 				}
 			}
-			setTimeout(() => goto(`${base}/${$locale}/${model}`), 0);
+       goto(`${base}/${$locale}/${model}`);
 		} catch (e) {
 			error = e;
 		} finally {

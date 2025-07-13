@@ -20,8 +20,8 @@
 		}
 	});
 
-	function onsuccess(residence) {
-    setTimeout(() => goto(`${base}/${$locale}/residences/${residence.id}`), 0);
+  function onSuccess({ id }) {
+    goto(`${base}/${$locale}/residences/${id}`);
   }
 </script>
 
@@ -30,7 +30,7 @@
 		<Error {error} />
   {:else if !data}
     <progress></progress>
-	{:else}
-		<Form {data} {onsuccess} />
+    {:else}
+      <Form {data} {onSuccess} />
 	{/if}
 </Page>

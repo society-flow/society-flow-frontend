@@ -21,7 +21,7 @@
 	});
 
 	function onsuccess(ad) {
-    setTimeout(() => goto(`${base}/${$locale}/ads/${ad.id}`), 0);
+    goto(`${base}/${$locale}/ads/${ad.id}`);
 	}
 </script>
 

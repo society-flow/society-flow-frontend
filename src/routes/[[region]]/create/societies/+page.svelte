@@ -11,7 +11,7 @@
 	requiresAuth(locale);
 
 	function onsuccess(newSociety) {
-		setTimeout(() => goto(`${base}/${$locale}/societies/${newSociety.id}`), 0);
+       goto(`${base}/${$locale}/societies/${newSociety.id}`);
 	}
 </script>
 

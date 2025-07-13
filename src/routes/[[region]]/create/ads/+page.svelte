@@ -17,7 +17,7 @@
 	const data = $derived({ societyId, residencyId });
 
 	async function onsuccess({ id }) {
-		setTimeout(() => goto(`${base}/${$locale}/ads/${id}`), 0);
+       goto(`${base}/${$locale}/ads/${id}`);
 	}
 </script>
 

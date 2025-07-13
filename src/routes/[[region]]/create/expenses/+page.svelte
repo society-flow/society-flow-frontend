@@ -13,7 +13,7 @@
 
 	async function onsuccess({ id }) {
 		// Navigate to expense detail after creation
-		setTimeout(() => goto(`${base}/${$locale}/expenses/${id}`), 0);
+       goto(`${base}/${$locale}/expenses/${id}`);
 	}
 </script>
 

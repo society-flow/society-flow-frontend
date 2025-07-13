@@ -36,7 +36,7 @@
 
 	async function onSuccess(res) {
     console.log("res",res)
-		setTimeout(() => goto(`${base}/${$locale}/societies/${res.societyId}/maintenances`), 0);
+       goto(`${base}/${$locale}/societies/${res.societyId}/maintenances`);
 	}
 </script>
 

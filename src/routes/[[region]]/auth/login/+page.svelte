@@ -20,7 +20,7 @@
 		userEmail = inputEmail;
 	}
 	async function onLogin({ email: inputEmail }) {
-		setTimeout(() => goto(`${base}/${$locale}/auth/verify-otp?email=${inputEmail}`), 0);
+       goto(`${base}/${$locale}/auth/verify-otp?email=${inputEmail}`);
 	}
 </script>
 

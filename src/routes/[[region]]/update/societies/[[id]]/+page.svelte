@@ -21,7 +21,7 @@
 	});
 
 	function onsuccess(society) {
-		setTimeout(() => goto(`${base}/${$locale}/societies/${society.id}`), 0);
+       goto(`${base}/${$locale}/societies/${society.id}`);
 	}
 </script>
 
