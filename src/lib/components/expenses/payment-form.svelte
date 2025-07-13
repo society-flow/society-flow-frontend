@@ -131,8 +131,8 @@
 
 <style>
 	.expense-payment-form {
-		border: 1px solid #e0e0e0;
-		border-radius: 8px;
+		/* border: 1px solid var(--c-background); */
+		border-radius: var(--border-radius);
 		padding: 1rem;
 		margin: 1rem 0;
 	}

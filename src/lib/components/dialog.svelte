@@ -63,23 +63,28 @@
 		</button>
 	</form>
 
-	{@render children?.()}
+	<article>
+    {@render children?.()}
+  </article>
 </dialog>
 
 <style>
   dialog {
     border: 1px solid var(--c-border);
     border-radius: var(--border-radius);
-    padding: var(--s);
+    padding: 0;
     width: auto;
     height: auto;
     min-width: auto;
     min-height: auto;
     transition: min-height 200ms ease-in-out, min-width 200ms ease-in-out;
+    background-color: var(--c-transparent);
     &::backdrop {
       background-color: var(--c-transparent);
       opacity: 1;
       transition: all 300ms ease-in-out;
+      outline: 1px solid var(--c-border);
+      outline-offset: -0.1rem;
     }
     &[open] {
       display: flex;
@@ -91,16 +96,33 @@
       align-self: center;
       left: var(--s);
       right: var(--s);
+      background-color: var(--c-bg);
       &::backdrop {
-        background-color: var(--c-bg);
-        opacity: 0.8;
+        background-color: var(--c-bg2);
+        opacity: 0.5;
+      }
+    }
+    article {
+      flex-grow: 1;
+    }
+    :global(article:has(form)) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      :global(form) {
+        flex-grow: 1;
+        margin: calc(var(--s) / 2);
       }
     }
   }
   form[method="dialog"] {
     padding: 0;
+    margin: 0;
+    margin-bottom: calc(var(--s) / 2);
     align-items: flex-end;
     align-self: flex-end;
-    margin: calc(var(--s) / 2);
+    position: sticky;
+    top: 0;
   }
 </style>

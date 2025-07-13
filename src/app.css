@@ -236,7 +236,7 @@ html {
 	align-items: center;
 	border: 1px solid var(--c-border);
 	background-color: var(--c-bg--form);
-	border-radius: calc(var(--border-radius) * 2);
+	border-radius: var(--border-radius);
 	padding: calc(var(--s) * 1.5) calc(var(--s) * 0.5);
 	/* max-width: var(--s-form); */
 	:is(section, footer, main, aside) {
