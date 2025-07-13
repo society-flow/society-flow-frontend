@@ -10,7 +10,7 @@
 	import AdDetails from '$lib/components/ads/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
 	import ResidencyCard from '$lib/components/residences/card.svelte';
-	import RelativeDate from '$lib/components/date/relative.svelte';
+	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
 
 	const { data } = $props();
 	const { advert, residency, society, adTypes, isAdmin } = $derived(data);
@@ -60,7 +60,7 @@
 					<li>
 						<span>
 							{$_('common.updated')}
-							<RelativeDate date={advert.updatedAt} />
+							<FormatDateRelative date={advert.updatedAt} />
 						</span>
 					</li>
 				{/if}
@@ -68,7 +68,7 @@
 					<li>
 						<span>
 							{$_('common.created')}
-							<RelativeDate date={advert.createdAt} />
+							<FormatDateRelative date={advert.createdAt} />
 						</span>
 					</li>
 				{/if}

@@ -1,37 +1,43 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
-	import RelativeDate from '$lib/components/date/relative.svelte';
+	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
+	import { IconUser } from 'obra-icons-svelte';
+	import Card from '$lib/components/card.svelte';
 
 	const { user } = $props();
 </script>
 
-<article class="Card">
-	<span class="Card-id" title={$_('components.users.card.user_id')}>
-		{user.id}
-	</span>
-	{#if user?.name}
-		<span class="Card-name" title={$_('components.users.card.user_name')}>
-			{user.name}
+<Card>
+	<div>
+		{#if user?.name}
+			<span class="Card-name" title={$_('components.users.card.user_name')}>
+				<IconUser />
+				{user.name}
+			</span>
+		{/if}
+
+		{#if user?.role}
+			<span class="Card-role" title={$_('components.users.card.user_role')}>
+				{$_(`const.society_roles.${user.role}`)}
+			</span>
+		{/if}
+		{#if user?.createdAt}
+			<span class="Card-date" title={$_('components.users.card.member_since')}>
+				<FormatDateRelative date={user.createdAt} />
+			</span>
+		{/if}
+		<span class="Card-id" title={$_('components.users.card.user_id')}>
+			{user.id}
 		</span>
-	{/if}
-	{#if user?.role}
-		<span class="Card-role" title={$_('components.users.card.user_role')}>
-			{$_(`const.society_roles.${user.role}`)}
-		</span>
-	{/if}
-	{#if user?.createdAt}
-		<span class="Card-date" title={$_('components.users.card.member_since')}>
-			<RelativeDate date={user.createdAt} />
-		</span>
-	{/if}
-</article>
+	</div>
+</Card>
 
 <style>
-	.Card {
-		display: flex;
-		flex-wrap: wrap;
-		padding: calc(var(--s) / 3);
-	}
+  div {
+    display: flex;
+    align-items: center;
+    gap: var(--s);
+  }
 	.Card-id {
 		display: none;
 	}
@@ -40,6 +46,9 @@
 	}
 	.Card-name {
 		font-weight: bold;
+		display: flex;
+    align-items: center;
+    gap: calc(var(--s) / 2);
 	}
 	.Card-name,
 	.Card-role,

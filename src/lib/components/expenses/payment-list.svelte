@@ -1,7 +1,7 @@
 <script lang="javascript">
 	import { _ } from 'svelte-i18n';
 	import GroupedList from '$lib/components/grouped-list.svelte';
-	import RelativeDate from '$lib/components/date/relative.svelte';
+	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
 
 	const { payments = [], society } = $props();
 

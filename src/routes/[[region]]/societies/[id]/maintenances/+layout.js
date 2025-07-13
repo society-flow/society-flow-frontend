@@ -6,7 +6,7 @@ export async function load({ params, depends, parent }) {
 
 	const parentData = await parent();
 	const { society } = parentData;
-	
+
 	await initApi();
 	const residences = await api.getAllResidencesInSociety(id);
 	const maintenancesByResidence = await Promise.all(

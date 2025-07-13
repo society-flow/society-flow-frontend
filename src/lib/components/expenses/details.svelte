@@ -1,7 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import Anchor from '$lib/components/anchor.svelte';
-	import RelativeDate from '$lib/components/date/relative.svelte';
+	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
 	import Detail from '$lib/components/detail.svelte';
 	import Card from './card.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
@@ -40,12 +40,12 @@
 		<li>
 			<IconWatch />
 			<strong>{$_('common.updatedAt')}:</strong>
-			<RelativeDate date={expense.updatedAt} />
+			<FormatDateRelative date={expense.updatedAt} />
 		</li>
 		<li>
 			<IconCalendarSelectedDate />
 			<strong>{$_('common.createdAt')}:</strong>
-			<RelativeDate date={expense.createdAt} />
+			<FormatDateRelative date={expense.createdAt} />
 		</li>
 	</ul>
 </Detail>

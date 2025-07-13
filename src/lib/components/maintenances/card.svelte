@@ -2,7 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import Card from '$lib/components/card.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import RelativeDate from '$lib/components/date/relative.svelte';
+	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
 
 	const { maintenance } = $props();
 </script>
@@ -48,11 +48,11 @@
 		</li>
 		<li>
 			<strong>{$_('common.createdAt')}: </strong>
-			<RelativeDate date={maintenance.createdAt} />
+			<FormatDateRelative date={maintenance.createdAt} />
 		</li>
 		<li>
 			<strong>{$_('common.updatedAt')}:</strong>
-			<RelativeDate date={maintenance.updatedAt} />
+			<FormatDateRelative date={maintenance.updatedAt} />
 		</li>
 	</ul>
 </Card>

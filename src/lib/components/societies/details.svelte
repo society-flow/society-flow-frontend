@@ -4,7 +4,7 @@
 	import Card from './card.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Detail from '$lib/components/detail.svelte';
-	import RelativeDate from '$lib/components/date/relative.svelte';
+	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
 	import {
 		IconLocationMarker,
 		IconCoin,
@@ -84,7 +84,7 @@
 				<strong>
 					{$_('common.updated')}
 				</strong>
-				<RelativeDate date={society.updatedAt} />
+				<FormatDateRelative date={society.updatedAt} />
 			</li>
 		{/if}
 		{#if society.createdAt}
@@ -93,7 +93,7 @@
 				<strong>
 					{$_('common.created')}
 				</strong>
-				<RelativeDate date={society.createdAt} />
+				<FormatDateRelative date={society.createdAt} />
 			</li>
 		{/if}
 	</ul>

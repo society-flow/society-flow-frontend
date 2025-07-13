@@ -22,7 +22,7 @@
 		padding: 0;
 		display: grid;
 		align-items: stretch;
-		gap: var(--s);
+		/* gap: var(--s); */
 		header {
 			display: flex;
 		}
