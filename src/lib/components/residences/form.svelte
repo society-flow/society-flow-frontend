@@ -3,7 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import Error from '$lib/components/error.svelte';
 
-	const { data: initialData = {}, onsuccess = () => {} } = $props();
+	const { data: initialData = {}, onSuccess = () => {} } = $props();
 
 	let form = $state({
 		...{
@@ -17,13 +17,14 @@
 		},
 		...initialData
 	});
+
 	let error = $state('');
 
 	async function submit() {
 		try {
 			const response = await api.createOrUpdateResidence({ ...form });
-			onsuccess(response);
 			form = { ...response };
+			onSuccess(response);
 		} catch (error) {
 			console.error('Error creating residence:', error);
 			error = error.message;

@@ -230,7 +230,7 @@ html {
 	border: 1px solid var(--c-border);
 	background-color: var(--c-bg--form);
 	border-radius: calc(var(--border-radius) * 2);
-	padding: calc(var(--s) * 2) calc(var(--s) * 1);
+	padding: calc(var(--s) * 1.5) calc(var(--s) * 0.5);
 	/* max-width: var(--s-form); */
 	:is(section, footer, main, aside) {
 		width: 100%;
