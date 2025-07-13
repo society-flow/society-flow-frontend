@@ -4,7 +4,13 @@
 	import FormatYearMonth from '$lib/components/format/year-month.svelte';
 	import FormatCurrency from '$lib/components/format/currency.svelte';
 	import Details from './details.svelte';
-	import { IconPaintRoller, IconBusiness } from 'obra-icons-svelte';
+	import {
+		IconBudgetAlt,
+		IconPaintRoller,
+		IconBusiness,
+		IconCheck,
+		IconCheckboxOff
+	} from 'obra-icons-svelte';
 
 	const { maintenances = [], society } = $props();
 </script>
@@ -24,18 +30,29 @@
 	{#snippet groupHeader(yearMonth, group)}
 		{@const active = group.find((m) => m.isCurrent === true || m.isCurrent === 'true')}
 		{@const total = group.reduce((sum, m) => sum + m.totalAmountToPay, 0)}
-		<IconPaintRoller />
-		<h4><FormatYearMonth {yearMonth} /></h4>
-		<span>
-			{group.length}
-			<IconBusiness />
-		</span>
-		<span
-			>{active
-				? $_('components.maintenances.list.active')
-				: $_('components.maintenances.list.inactive')}</span
-		>
-		<strong><FormatCurrency value={total} currency={society.currency} /></strong>
+		<div>
+			<span>
+        <IconPaintRoller />
+			  <h4><FormatYearMonth {yearMonth} /></h4>
+        </span>
+			<span>
+				<IconBusiness />
+				{group.length}
+			</span>
+			<span>
+				{#if active}
+					<IconCheck />
+					{$_('components.maintenances.list.active')}
+				{:else}
+					<IconCheckboxOff />
+					{$_('components.maintenances.list.inactive')}
+				{/if}
+			</span>
+			<strong>
+				<IconBudgetAlt />
+				<FormatCurrency value={total} currency={society.currency} />
+			</strong>
+		</div>
 	{/snippet}
 	{#snippet children(yearMonth, group)}
 		{#each group as maintenance}
@@ -45,3 +62,23 @@
 		{/each}
 	{/snippet}
 </GroupedList>
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: var(--s);
+    align-items: center;
+    /* justify-content: space-around; */
+    flex-grow: 1;
+    overflow-x: auto;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+    span,
+    strong {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--s) / 2);
+    }
+  }
+  </style>

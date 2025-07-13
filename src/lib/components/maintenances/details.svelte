@@ -1,6 +1,7 @@
 <script>
 	import { _, locale } from 'svelte-i18n';
 	import {
+    IconBusiness,
 		IconJustice,
 		IconCalculator,
 		IconCalendarEndOfMonth,
@@ -9,15 +10,15 @@
 	import FormatCurrency from '$lib/components/format/currency.svelte';
 
 	const { maintenance: m, society } = $props();
-
 </script>
 
 <details open>
 	<summary>
+    <IconBusiness />
 		<h5>
 			{m.residenceName}
-			{m.totalAmountToPay}
 		</h5>
+		<FormatCurrency value={m.totalAmountToPay} currency={society.currency} />
 	</summary>
 	<section>
 		<ul>
@@ -57,15 +58,15 @@
 </details>
 
 <style>
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  pre {
-    font-size: 0.8rem;
-    padding: var(--s);
-    border: 1px solid var(--c-border);
-    border-radius: var(--border-radius);
-  }
-  </style>
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	pre {
+		font-size: 0.8rem;
+		padding: var(--s);
+		border: 1px solid var(--c-border);
+		border-radius: var(--border-radius);
+	}
+</style>

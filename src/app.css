@@ -157,7 +157,8 @@ html {
 	font-weight: bold;
 	&:hover {
 		/* background-color: var(--c-bg); */
-		border-color: var(--c-border);
+		text-decoration-color: transparent;
+		border-color: var(--c-link);
 	}
 	&:focus,
 	&:active {
@@ -178,29 +179,28 @@ html {
 	/* border-color: var(--c-link); */
 	text-decoration-color: transparent;
 	&:hover {
-		text-decoration-color: initial;
+		text-decoration-color: var(--c-link);
 	}
 }
 
 :is(a) {
 	color: var(--c-link);
 	font-weight: bold;
-	outline: 1px solid transparent;
 	border-radius: calc(var(--s) * 1.5);
 	display: inline-block;
 	line-height: 1; /* for :focus styles centered */
 	padding: calc(var(--s) / 2.5) calc(var(--s) / 1.7);
+	text-decoration-color: var(--c-transparent);
+	transition: text-decoration-color 200ms ease-in-out;
 
 	transition: all 140ms ease-in-out;
 	&:focus {
-		outline-color: var(--c-link);
 		text-decoration-color: var(--c-border);
 	}
 	&:hover {
-		text-decoration-color: var(--c-border);
+		text-decoration-color: var(--c-link);
 	}
 	&:active {
-		outline-color: transparent;
 		text-decoration-color: transparent;
 		font-weight: normal;
 	}

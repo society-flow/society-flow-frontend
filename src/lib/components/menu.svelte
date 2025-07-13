@@ -53,7 +53,7 @@
 		margin: 0;
 		list-style: none;
 		display: flex;
-		overflow-x: scroll;
+		overflow-x: auto;
 		scrollbar-width: none;
 		-ms-overflow-style: none;
 		/* align-items: center; */
