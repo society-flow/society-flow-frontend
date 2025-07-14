@@ -7,21 +7,21 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
-import DistributionForm from '$lib/components/expenses/distributions/form.svelte';
+	import DistributionList from '$lib/components/expenses/distributions/list.svelte';
 	import CalculationsList from '$lib/components/calculations/list.svelte';
 	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
 	import PaymentList from '$lib/components/expenses/payment-list.svelte';
-	import { IconMath, IconBills, IconHistory, IconClose, IconEdit } from 'obra-icons-svelte';
+	import { IconShuffle, IconMath, IconBills, IconHistory, IconClose, IconEdit } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
-	const { expense, society, calculations, payments } = $derived(data);
+	const { expense, society, calculations, payments, distributions } = $derived(data);
 
-async function onPaymentSuccess(newPayment) {
-  invalidate('data:expense');
-}
+	async function onPaymentSuccess(newPayment) {
+		invalidate('data:expense');
+	}
 </script>
 
 <Page title={expense.name || $_('menu.expenses')} showHeader={!!expense?.name}>
@@ -49,8 +49,30 @@ async function onPaymentSuccess(newPayment) {
 			<ExpenseDetails {expense} {society} />
 		</section>
 
-		<DistributionForm expenseId={expense.id} />
-
+		<section>
+			<header>
+				<h2>
+					<IconShuffle />
+					{$_('pages.expenses.detail.distributions')}
+				</h2>
+				<nav>
+					<ul>
+						<li>
+							{#if distributions.filter((d) => d.isActive).length}
+								<Anchor href={`/update/expenses/distributions?id=${expense.id}`} isButton>
+									{$_('pages.expenses.detail.editDistributions')}
+								</Anchor>
+							{:else}
+								<Anchor href={`/create/expenses/distributions?expense=${expense.id}`} isButton>
+									{$_('pages.expenses.detail.addDistribution')}
+								</Anchor>
+							{/if}
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<DistributionList {distributions} />
+		</section>
 		<section>
 			<header>
 				<h3>

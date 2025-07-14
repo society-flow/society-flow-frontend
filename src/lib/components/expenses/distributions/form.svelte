@@ -1,212 +1,173 @@
 <script>
-  import { _ } from 'svelte-i18n';
-  import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
-import DistributionList from '$lib/components/expenses/distributions/list.svelte';
-import { IconCheck, IconClose, IconMath, IconHome, IconGrid, IconUser, IconLayers } from 'obra-icons-svelte';
-  import { api } from '$lib/api.svelte.js';
-  import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
+	import {
+		IconCheck,
+		IconClose,
+		IconMath,
+		IconHome,
+		IconGrid,
+		IconUser,
+		IconLayers,
+		IconCaretUpDown
+	} from 'obra-icons-svelte';
+	import { api } from '$lib/api.svelte.js';
+	import { createEventDispatcher } from 'svelte';
 
-  // The main distribution component: handles listing, editing, saving, and canceling
-  export let expenseId;
+	const dispatch = createEventDispatcher();
 
-  let distributions = [];
-  let showForm = false;
-  let distError = '';
+	const { expenseId, distributions: distribs = [] } = $props();
 
-  // Derived state
-  $: activeDistributions = distributions.filter(d => d.isActive);
-  $: coverageTotal = activeDistributions.reduce((sum, d) => sum + Number(d.percentageCoverage), 0);
-  // Map each calculation mode to an icon
-  const iconMap = {
-    AMOUNT_PER_OWNERSHIP_PERCENTAGE: IconMath,
-    AMOUNT_PER_RESIDENCE: IconHome,
-    AMOUNT_PER_SQUARE_AREA: IconGrid,
-    AMOUNT_PER_RESIDENT: IconUser,
-    AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT: IconLayers
-  };
+	let distError = $state('');
+	let distributions = $state([]);
 
-  // Initial load
-  onMount(async () => {
-    if (expenseId) {
-      const fetched = await api.getAllExpenseDistributionsByExpenseId(expenseId);
-      // Ensure one entry per distribution type
-      distributions = typeOptions.map(mode => {
-        const existing = fetched.find(d => d.calculationMode === mode);
-        return existing
-          ? { ...existing }
-          : { expenseId, calculationMode: mode, percentageCoverage: 0, isActive: true };
-      });
-    }
-  });
+	$effect(() => {
+		distributions = [...distribs];
+	});
 
-  // Handlers
-  function addDistribution() {
-    distributions = [
-      ...distributions,
-      { expenseId, calculationMode: '', percentageCoverage: 0, isActive: true }
-    ];
-    showForm = true;
-    distError = '';
-  }
+	const activeDistributions = $derived(distributions.filter((d) => d.isActive));
+	const coverageTotal = $derived(
+		activeDistributions.reduce((sum, d) => sum + Number(d.percentageCoverage), 0)
+	);
+	const isValid = $derived(coverageTotal === 100);
 
-  function editDistributions() {
-    showForm = true;
-    distError = '';
-  }
+	// Map each calculation mode to an icon
+	const iconMap = {
+		AMOUNT_PER_OWNERSHIP_PERCENTAGE: IconMath,
+		AMOUNT_PER_RESIDENCE: IconHome,
+		AMOUNT_PER_SQUARE_AREA: IconGrid,
+		AMOUNT_PER_RESIDENT: IconUser,
+		AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT: IconLayers
+	};
 
-  async function saveDistributions() {
-    distError = '';
-    // Validate total coverage
-    if (activeDistributions.length > 0) {
-      const total = activeDistributions.reduce((sum, d) => sum + Number(d.percentageCoverage), 0);
-      if (total !== 100) {
-        distError = $_('pages.expenses.detail.error.totalCoverage');
-        return;
-      }
-    }
-    // Persist only distributions with non-zero coverage
-    for (const d of distributions.filter(d => Number(d.percentageCoverage) > 0)) {
-      await api.createOrUpdateExpenseDistribution({
-        id: d.id,
-        expenseId,
-        calculationMode: d.calculationMode,
-        percentageCoverage: d.percentageCoverage,
-        calculationValue: 0,
-        isActive: true
-      });
-    }
-    // Refresh and exit
-    // Reload persisted distributions, mapping each type
-    const fetched = await api.getAllExpenseDistributionsByExpenseId(expenseId);
-    distributions = typeOptions.map(mode => {
-      const existing = fetched.find(d => d.calculationMode === mode);
-      return existing
-        ? { ...existing }
-        : { expenseId, calculationMode: mode, percentageCoverage: 0, isActive: true };
-    });
-    showForm = false;
-  }
+	// Handlers
+	function addDistribution() {
+		distributions = [
+			...distributions,
+			{ expenseId, calculationMode: '', percentageCoverage: 0, isActive: true }
+		];
+		distError = '';
+	}
 
-  function removeDistribution(d) {
-    if (d.id) {
-      // Mark persisted distribution inactive
-      distributions = distributions.map(dist =>
-        dist.id === d.id ? { ...dist, isActive: false } : dist
-      );
-    } else {
-      // Remove new entry entirely
-      distributions = distributions.filter(dist => dist !== d);
-    }
-  }
+	function editDistributions() {
+		distError = '';
+	}
 
-  async function cancelDistributions() {
-    // Discard edits and reload from server
-    showForm = false;
-    distError = '';
-    const fetched = await api.getAllExpenseDistributionsByExpenseId(expenseId);
-    distributions = typeOptions.map(mode => {
-      const existing = fetched.find(d => d.calculationMode === mode);
-      return existing
-        ? { ...existing }
-        : { expenseId, calculationMode: mode, percentageCoverage: 0, isActive: true };
-    });
-  }
+	async function saveDistributions() {
+		distError = '';
+		// Validate total coverage
+		if (activeDistributions.length > 0) {
+			const total = activeDistributions.reduce((sum, d) => sum + Number(d.percentageCoverage), 0);
+			if (total !== 100) {
+				distError = $_('pages.expenses.detail.error.totalCoverage');
+				return;
+			}
+		}
+		// Persist only distributions with non-zero coverage
+		for (const d of distributions.filter((d) => Number(d.percentageCoverage) > 0)) {
+			await api.createOrUpdateExpenseDistribution({
+				id: d.id,
+				expenseId,
+				calculationMode: d.calculationMode,
+				percentageCoverage: d.percentageCoverage,
+				calculationValue: 0,
+				isActive: true
+			});
+		}
+		// Notify parent to refresh and hide form
+		dispatch('save');
+	}
+
+	function removeDistribution(d) {
+		if (d.id) {
+			// Mark persisted distribution inactive
+			distributions = distributions.map((dist) =>
+				dist.id === d.id ? { ...dist, isActive: false } : dist
+			);
+		} else {
+			// Remove new entry entirely
+			distributions = distributions.filter((dist) => dist !== d);
+		}
+	}
+
+	function cancelDistributions() {
+		dispatch('cancel');
+	}
 </script>
 
-<section>
-  {#if !showForm}
-    <!-- List view -->
-    <DistributionList
-      distributions={distributions}
-      onEdit={editDistributions}
-      onAdd={addDistribution}
-    />
-  {:else}
-    <!-- Edit form -->
-    <form>
-      {#each distributions as d, index}
-        <section>
-          {#if iconMap[d.calculationMode]}
-            <svelte:component this={iconMap[d.calculationMode]} class="type-icon" />
-          {/if}
-          <label for="dist-{index}">{$_(`const.expense_types.${d.calculationMode}`)}</label>
-          <input
-            id="dist-{index}"
-            type="number"
-            min="0"
-            max="100"
-            bind:value={distributions[index].percentageCoverage}
-          />
-          <!-- Individual type coverage bar -->
-          <progress max="100" value={distributions[index].percentageCoverage}></progress>
-        </section>
-      {/each}
-      <footer>
-        <fieldset>
-          <div class="coverage-summary">
-            <!-- Total coverage bar -->
-            <progress max="100" value={coverageTotal}></progress>
-            <span>{coverageTotal}/100%</span>
-            {#if coverageTotal === 100}
-              <IconCheck />
-            {/if}
-          </div>
-          <button type="button" on:click={saveDistributions} disabled={coverageTotal !== 100}>
-            {$_('pages.expenses.detail.saveDistributions')}
-          </button>
-          <button type="button" class="cancel" on:click={cancelDistributions}>
-            <IconClose /> {$_('common.cancel')}
-          </button>
-        </fieldset>
-      </footer>
-      {#if distError}
-        <p class="error">{distError}</p>
-      {/if}
-    </form>
-  {/if}
-</section>
+<form onsubmit={saveDistributions} class:isValid>
+	{#each distributions as d, index}
+		<fieldset>
+			<legend>
+				{#if iconMap[d.calculationMode]}
+					<svelte:component this={iconMap[d.calculationMode]} class="type-icon" />
+				{/if}
+				{$_(`const.expense_types.${d.calculationMode}`)}
+			</legend>
+			<input type="number" min="0" max="100" bind:value={distributions[index].percentageCoverage} />
+			<!-- Individual type coverage bar -->
+			<progress max="100" value={distributions[index].percentageCoverage}></progress>
+		</fieldset>
+	{/each}
+	{#if distError}
+		<fieldset>
+			<p class="error">{distError}</p>
+		</fieldset>
+	{/if}
+	<fieldset>
+		<progress max="100" value={coverageTotal}></progress>
+		{#if isValid}
+			<IconCheck />
+		{:else}
+			<IconCaretUpDown />
+		{/if}
+		<span>{coverageTotal}/100%</span>
+		<button type="submit" disabled={coverageTotal !== 100}>
+			{$_('pages.expenses.detail.saveDistributions')}
+		</button>
+		<button type="button" onclick={cancelDistributions}>
+			<IconClose />
+			{$_('common.cancel')}
+		</button>
+	</fieldset>
+</form>
 
 <style>
-  section > :global(form) {
-    section {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    footer {
-      fieldset {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 0.5rem;
-      }
-    }
-  }
-
-  .coverage-summary {
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-
-  .coverage-summary span {
-    font-weight: bold;
-    margin-right: 0.25rem;
-  }
-
-  button.cancel {
-    margin-left: 0.5rem;
-    background: none;
-    border: none;
-    color: var(--color-error, red);
-    cursor: pointer;
-  }
-  .type-icon {
-    margin-right: 0.5rem;
-    width: 1.25rem;
-    height: 1.25rem;
-    vertical-align: middle;
-  }
+	form {
+		/* background: red; */
+		fieldset {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			align-items: center;
+			gap: var(--s);
+			/* flex-wrap: nowrap; */
+			flex-direction: row;
+			progress {
+				width: 100%;
+				flex-grow: 1;
+			}
+			input {
+				flex-grow: 0;
+				width: auto;
+				/* flex-shrink: 1; */
+			}
+			&:last-of-type {
+				display: flex;
+			}
+		}
+		progress {
+			&::-moz-progress-bar,
+			&::-webkit-progress-value {
+				transition: background-color 200ms ease-in-out;
+				background-color: var(--c-error);
+			}
+		}
+		&.isValid {
+			progress {
+				&::-moz-progress-bar,
+				&::-webkit-progress-value {
+					background-color: var(--c-link);
+				}
+			}
+		}
+	}
 </style>

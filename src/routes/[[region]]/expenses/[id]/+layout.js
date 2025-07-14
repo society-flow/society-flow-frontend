@@ -1,6 +1,5 @@
 import { api, initApi } from '$lib/api.svelte.js';
-
-import { userState } from '$lib/states/user.svelte.js';
+import { EXPENSE_DISTRIBUTION_TYPES as typeOptions } from '$lib/const/expense_distribution_types.js';
 
 export const prerender = false;
 
@@ -38,17 +37,34 @@ export async function load({ params, depends }) {
 	if (id) {
 		try {
 			const result = await api.getExpensePaymentsByExpenseId(id);
-			payments = result;
+		  payments = result;
 		} catch (error) {
 			console.error('Error fetching expense payments:', error);
 			payments = [];
 		}
 	}
 
-	return {
-		expense,
-		society,
-		calculations,
-		payments
-	};
+  // Fetch distributions, ensuring one entry per type
+  let distributions = [];
+  if (id) {
+    try {
+      const fetchedDistributions = await api.getAllExpenseDistributionsByExpenseId(id);
+      distributions = typeOptions.map((mode) => {
+        const existing = fetchedDistributions.find((d) => d.calculationMode === mode);
+        return existing
+          ? { ...existing }
+        : { expenseId: id, calculationMode: mode, percentageCoverage: 0, isActive: true };
+      });
+    } catch (error) {
+      console.error('Error fetching expense distributions:', error);
+      distributions = [];
+    }
+  }
+  return {
+    expense,
+    society,
+    calculations,
+    payments,
+    distributions
+  };
 }

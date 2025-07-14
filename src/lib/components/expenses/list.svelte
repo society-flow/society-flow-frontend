@@ -2,6 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import Card from './card.svelte';
 	import List from '$lib/components/list.svelte';
+  
 	const { expenses = [] } = $props();
 </script>
 

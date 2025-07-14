@@ -125,16 +125,15 @@ html {
 	&:hover {
 		border-color: var(--c-bg);
 	}
-	&[readonly],
-	&[disabled] {
-		background-color: var(--c-bg);
-		color: var(--c-fg2);
-	}
-	&[readonly]:focus,
-	&[disabled]:focus {
-		outline-color: transparent;
+	&:is([readonly], [disabled]) {
 		border-color: transparent;
-		color: var(--c-fg2);
+		/* color: var(--c-fg2); */
+	}
+	&:is([readonly], [disabled]):focus,
+	&:is([readonly], [disabled]):hover {
+		outline-color: transparent;
+		border-color: initial;
+		/* color: var(--c-fg2); */
 	}
 	&::placeholder {
 		font-style: italic;
@@ -255,7 +254,7 @@ html {
 		}
 	}
 	:is(button[type='submit']) {
-		background-color: var(--c-bg--button);
+		border-color: var(--c-bg2);
 	}
 }
 :is(form fieldset) {
