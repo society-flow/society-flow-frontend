@@ -262,6 +262,13 @@ html {
 	&:last-of-type {
 		margin-bottom: 0;
 		padding-bottom: 0;
+		:is(menu) {
+			list-style: none;
+			display: flex;
+			align-self: flex-end;
+			align-items: center;
+			gap: var(--s);
+		}
 	}
 	:is(&:has(input:focus, input:active)),
 	:is(&:has(select:focus, select:active)),
