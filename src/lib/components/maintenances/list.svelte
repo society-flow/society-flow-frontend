@@ -65,7 +65,8 @@
 
 <style>
   div {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--s);
     align-items: center;
     /* justify-content: space-around; */
