@@ -97,7 +97,7 @@
 			<Error error={triggerError} />
 		{/if}
 		{#if expenses.length}
-			<ExpensesList {expenses} />
+			<ExpensesList {expenses} {currency}/>
 		{:else}
 			<p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
 		{/if}

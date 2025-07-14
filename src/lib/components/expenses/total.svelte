@@ -1,5 +1,6 @@
 <script>
 	import { IconCalendarEndOfMonth } from 'obra-icons-svelte';
+	import FormatCurrency from '$lib/components/format/currency.svelte';
 	const { expenses, currency } = $props();
 
 	const total = $derived(
@@ -10,11 +11,10 @@
 </script>
 
 <span>
+	<!-- <IconCalendarEndOfMonth /> -->
 	<strong>
-		{total}
+		<FormatCurrency value={total} {currency} />
 	</strong>
-	{currency}
-	<IconCalendarEndOfMonth />
 </span>
 
 <style>
