@@ -11,10 +11,14 @@
 		IconCompassTool,
 		IconEditAlt,
 		IconCalendarSelectedDate,
-		IconWatch
+		IconWatch,
+		IconGavel
 	} from 'obra-icons-svelte';
 
 	let { society, userRole } = $props();
+	const location = $derived(
+		[society.city, society.postcode, society.state, society.country].filter((v) => !!v).join(', ')
+	);
 
 	const markers = $derived(
 		society?.geoCoordinate
@@ -33,45 +37,51 @@
 		<Card {society} />
 	{/snippet}
 	<ul>
-		<li>
-			<IconLocationMarker />
-			<strong>
-				{$_('components.societies.details.location')}:
-			</strong>
-			{[society.city, society.postcode, society.state, society.country]
-				.filter((v) => !!v)
-				.join(', ')}
-		</li>
-		<li>
-			<IconCoin />
-			<strong>
-				{$_('components.societies.details.currency')}:
-			</strong>
-			{society.currency}
-		</li>
-		<li>
-			<IconWatch />
-			<strong>
-				{$_('components.societies.details.timezone')}:
-			</strong>
-			{society.timezone}
-		</li>
-		<li>
-			<IconCompassTool />
-			<strong>
-				{$_('components.societies.details.area_unit')}:
-			</strong>
-			{society.areaUnit}
-		</li>
+		{#if location}
+			<li>
+				<IconLocationMarker />
+				<strong>
+					{$_('components.societies.details.location')}:
+				</strong>
+				{location}
+			</li>
+		{/if}
+		{#if society.currency}
+			<li>
+				<IconCoin />
+				<strong>
+					{$_('components.societies.details.currency')}:
+				</strong>
+				{society.currency}
+			</li>
+		{/if}
+		{#if society.timezone}
+			<li>
+				<IconWatch />
+				<strong>
+					{$_('components.societies.details.timezone')}:
+				</strong>
+				{society.timezone}
+			</li>
+		{/if}
+		{#if society.areaUnit}
+			<li>
+				<IconCompassTool />
+				<strong>
+					{$_('components.societies.details.area_unit')}:
+				</strong>
+				{society.areaUnit}
+			</li>
+		{/if}
 
 		{#if society.finerate}
 			<li>
+				<IconGavel />
 				<strong>{$_('components.societies.details.fine_rate')}:</strong>
 				{society.finerate}
 				{society.currency}
 			</li>
 		{/if}
-
 		{#if society.geocoordinate}
 			<li>
 				<strong>{$_('components.societies.details.coordinates')}:</strong>
