@@ -22,6 +22,7 @@
 		activeDistributions.reduce((sum, d) => sum + Number(d.percentageCoverage), 0)
 	);
 	const isValid = $derived(coverageTotal === 100);
+  const isHigh = $derived(coverageTotal > 100)
 
 	function addDistribution() {
 		distributions = [
@@ -76,7 +77,7 @@
 	}
 </script>
 
-<form onsubmit={saveDistributions} class:isValid>
+<form onsubmit={saveDistributions} class:isValid class:isHigh>
 	{#each distributions as d, index}
 		{console.log(d)}
 		{@const icon = EXPENSE_DISTRIBUTIONS[d.calculationMode]?.icon}
@@ -97,7 +98,7 @@
 	{#if distributions}
 		<fieldset>
 			<Total {distributions} showProgress />
-			<button type="submit" disabled={coverageTotal !== 100}>
+			<button type="submit" disabled={!isValid}>
 				{$_('pages.expenses.detail.saveDistributions')}
 			</button>
 			<button type="button" onclick={cancelDistributions}>
@@ -111,6 +112,7 @@
 <style>
 	form {
 		/* background: red; */
+    --c-status: var(--c-link);
 		fieldset {
 			display: grid;
 			grid-template-columns: 1fr 2fr;
@@ -126,6 +128,11 @@
 			progress {
 				width: 100%;
 				flex-grow: 1;
+		    &::-moz-progress-bar,
+		    &::-webkit-progress-value {
+			    background-color: var(--c-status);
+          transition: background-color 200ms ease-in-out;
+	      }
 			}
 			input {
 				flex-grow: 0;
@@ -139,5 +146,11 @@
 				flex-grow: 1;
 			}
 		}
+    &.isHigh {
+      --c-status: var(--c-warn);
+    }
+    &.isValid {
+      --c-status: var(--c-success);
+    }
 	}
 </style>

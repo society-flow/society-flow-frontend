@@ -32,23 +32,23 @@
 		display: flex;
 		align-items: center;
 	}
-  progress {
-		&::-moz-progress-bar,
-		&::-webkit-progress-value {
-			background-color: var(--c-progress);
-      transition: background-color 200ms ease-in-out;
-		}
-	}
   output {
-    /* --c-progress: cyan; */
+    color: var(--c-status);
     &.isValid {
-      --c-progress: var(--c-link);      
+      --c-status: var(--c-success);      
     }
     &.isHigh {
-      --c-progress: var(--c-error);      
+      --c-status: var(--c-error);      
     }
     &.isLow {
-      --c-progress: var(--c-error);      
+      --c-status: var(--c-warn);      
     }
+    progress {
+		  &::-moz-progress-bar,
+		  &::-webkit-progress-value {
+			  background-color: var(--c-status);
+        transition: background-color 200ms ease-in-out;
+		  }
+	  }
   }
 </style>
