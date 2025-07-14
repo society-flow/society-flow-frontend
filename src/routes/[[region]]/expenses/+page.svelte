@@ -53,7 +53,7 @@
 						</nav>
 					{/if}
 				</header>
-				<ListExpenses expenses={dicExpenses[society.id] || []} />
+				<ListExpenses expenses={dicExpenses[society.id] || []} currency={society.currency} />
 			</section>
 		{/each}
 	{/if}

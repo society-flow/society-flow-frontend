@@ -5,6 +5,7 @@
 	import Map from '$lib/components/map.svelte';
 	import Detail from '$lib/components/detail.svelte';
 	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
+	import FormatCurrency from '$lib/components/format/currency.svelte';
 	import {
 		IconLocationMarker,
 		IconCoin,
