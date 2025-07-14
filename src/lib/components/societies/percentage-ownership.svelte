@@ -1,6 +1,6 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import { IconOrangeSlice } from 'obra-icons-svelte';
+	import { EXPENSE_DISTRIBUTIONS } from '$lib/const/expense_distribution_types.js';
 
 	const { residences = [], icon = true, warnTotal = false } = $props();
 	const total = $derived(
@@ -9,12 +9,13 @@
 		}, 0)
 	);
 	const shouldWarn = $derived(warnTotal && total < 100);
+  const iconComponent = EXPENSE_DISTRIBUTIONS['AMOUNT_PER_OWNERSHIP_PERCENTAGE'].icon
 </script>
 
 <span title={$_('components.residences.form.percentageOwnership')} class:warn={shouldWarn}>
 	{total}
-	{#if icon}
-		<IconOrangeSlice />
+	{#if iconComponent}
+		<svelte:component this={iconComponent}/>
 	{/if}
 </span>
 

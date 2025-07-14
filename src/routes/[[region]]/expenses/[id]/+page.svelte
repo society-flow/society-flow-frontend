@@ -8,10 +8,18 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
 	import DistributionList from '$lib/components/expenses/distributions/list.svelte';
+	import DistributionTotal from '$lib/components/expenses/distributions/total.svelte';
 	import CalculationsList from '$lib/components/calculations/list.svelte';
 	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
 	import PaymentList from '$lib/components/expenses/payment-list.svelte';
-	import { IconShuffle, IconMath, IconBills, IconHistory, IconClose, IconEdit } from 'obra-icons-svelte';
+	import {
+		IconShuffle,
+		IconMath,
+		IconBills,
+		IconHistory,
+		IconClose,
+		IconEdit
+	} from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -57,6 +65,9 @@
 				</h2>
 				<nav>
 					<ul>
+						<li>
+							<DistributionTotal {distributions} />
+						</li>
 						<li>
 							{#if distributions.filter((d) => d.isActive).length}
 								<Anchor href={`/update/expenses/distributions?id=${expense.id}`} isButton>

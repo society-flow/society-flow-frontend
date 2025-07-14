@@ -2,24 +2,18 @@
 	import { _ } from 'svelte-i18n';
 	import Card from '$lib/components/card.svelte';
 
-	import { IconOrangeSlice, IconBusiness, IconGrid, IconUser, IconLayers } from 'obra-icons-svelte';
-
-	const iconMap = {
-		AMOUNT_PER_OWNERSHIP_PERCENTAGE: IconOrangeSlice,
-		AMOUNT_PER_RESIDENCE: IconBusiness,
-		AMOUNT_PER_SQUARE_AREA: IconGrid,
-		AMOUNT_PER_RESIDENT: IconUser,
-		AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT: IconLayers
-	};
+	import { EXPENSE_DISTRIBUTIONS } from '$lib/const/expense_distribution_types.js';
 
 	const { distribution = {} } = $props();
+
+	const icon = $derived(EXPENSE_DISTRIBUTIONS[distribution.calculationMode].icon);
 </script>
 
 <Card>
 	<div>
 		<span title={$_('components.expenses.distributionCard.type')}>
-			{#if iconMap[distribution.calculationMode]}
-				<svelte:component this={iconMap[distribution.calculationMode]} />
+			{#if icon}
+				<svelte:component this={icon} />
 			{/if}
 			{$_(`const.expense_types.${distribution.calculationMode}`)}
 		</span>
@@ -42,9 +36,9 @@
 		width: 100%;
 		min-height: calc(var(--s) * 2);
 	}
-  span {
-    display: flex;
-    align-items: center;
-    gap: var(--s);
-  }
+	span {
+		display: flex;
+		align-items: center;
+		gap: var(--s);
+	}
 </style>

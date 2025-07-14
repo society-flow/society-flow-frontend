@@ -1,17 +1,10 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import {
-		IconCheck,
-		IconClose,
-		IconOrangeSlice,
-		IconBusiness,
-		IconGrid,
-		IconUser,
-		IconLayers,
-		IconCaretUpDown
-	} from 'obra-icons-svelte';
+	import { EXPENSE_DISTRIBUTIONS } from '$lib/const/expense_distribution_types.js';
 	import { api } from '$lib/api.svelte.js';
 	import { createEventDispatcher } from 'svelte';
+	import Total from './total.svelte';
+	import { IconClose } from 'obra-icons-svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -30,16 +23,6 @@
 	);
 	const isValid = $derived(coverageTotal === 100);
 
-	// Map each calculation mode to an icon
-	const iconMap = {
-		AMOUNT_PER_OWNERSHIP_PERCENTAGE: IconOrangeSlice,
-		AMOUNT_PER_RESIDENCE: IconBusiness,
-		AMOUNT_PER_SQUARE_AREA: IconGrid,
-		AMOUNT_PER_RESIDENT: IconUser,
-		AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT: IconLayers
-	};
-
-	// Handlers
 	function addDistribution() {
 		distributions = [
 			...distributions,
@@ -56,8 +39,7 @@
 		distError = '';
 		// Validate total coverage
 		if (activeDistributions.length > 0) {
-			const total = activeDistributions.reduce((sum, d) => sum + Number(d.percentageCoverage), 0);
-			if (total !== 100) {
+			if (coverageTotal !== 100) {
 				distError = $_('pages.expenses.detail.error.totalCoverage');
 				return;
 			}
@@ -96,11 +78,11 @@
 
 <form onsubmit={saveDistributions} class:isValid>
 	{#each distributions as d, index}
+		{console.log(d)}
+		{@const icon = EXPENSE_DISTRIBUTIONS[d.calculationMode]?.icon}
 		<fieldset>
 			<legend>
-				{#if iconMap[d.calculationMode]}
-					<svelte:component this={iconMap[d.calculationMode]} class="type-icon" />
-				{/if}
+				<svelte:component this={icon} class="type-icon" />
 				{$_(`const.expense_types.${d.calculationMode}`)}
 			</legend>
 			<input type="number" min="0" max="100" bind:value={distributions[index].percentageCoverage} />
@@ -114,13 +96,7 @@
 	{/if}
 	{#if distributions}
 		<fieldset>
-			<progress max="100" value={coverageTotal}></progress>
-			{#if isValid}
-				<IconCheck />
-			{:else}
-				<IconCaretUpDown />
-			{/if}
-			<span>{coverageTotal}/100%</span>
+			<Total {distributions} showProgress />
 			<button type="submit" disabled={coverageTotal !== 100}>
 				{$_('pages.expenses.detail.saveDistributions')}
 			</button>
@@ -142,11 +118,11 @@
 			gap: var(--s);
 			/* flex-wrap: nowrap; */
 			flex-direction: row;
-      legend {
-        display: flex;
-        align-items: center;
-        gap: var(--s);
-      }
+			legend {
+				display: flex;
+				align-items: center;
+				gap: var(--s);
+			}
 			progress {
 				width: 100%;
 				flex-grow: 1;
@@ -159,20 +135,8 @@
 			&:last-of-type {
 				display: flex;
 			}
-		}
-		progress {
-			&::-moz-progress-bar,
-			&::-webkit-progress-value {
-				transition: background-color 200ms ease-in-out;
-				background-color: var(--c-error);
-			}
-		}
-		&.isValid {
-			progress {
-				&::-moz-progress-bar,
-				&::-webkit-progress-value {
-					background-color: var(--c-link);
-				}
+			:global(output, output progress) {
+				flex-grow: 1;
 			}
 		}
 	}
