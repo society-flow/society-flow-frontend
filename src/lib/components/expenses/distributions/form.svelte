@@ -188,7 +188,14 @@
         display: flex;
 				flex-wrap: nowrap;
         align-items: center;
+        justify-content: center;
         flex-direction: row;
+        flex-wrap: wrap;
+        menu {
+          margin: 0;
+          padding: 0;
+          align-self: flex-end;
+        }
 			}
 			:global(output, output progress) {
 				flex-grow: 1;
