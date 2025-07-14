@@ -9,10 +9,11 @@
 		}, 0)
 	);
 	const shouldWarn = $derived(warnTotal && total < 100);
+  const isHigh = $derived(warnTotal && total > 100);
   const iconComponent = EXPENSE_DISTRIBUTIONS['AMOUNT_PER_OWNERSHIP_PERCENTAGE'].icon
 </script>
 
-<span title={$_('components.residences.form.percentageOwnership')} class:warn={shouldWarn}>
+<span title={$_('components.residences.form.percentageOwnership')} class:isWarn={shouldWarn} class:isHigh>
 	{total}
 	{#if iconComponent}
 		<svelte:component this={iconComponent}/>
@@ -25,8 +26,14 @@
 		justify-content: center;
 		gap: calc(var(--s) / 3);
 	}
-	span.warn {
+	span {
 		text-decoration: underline;
-    color: var(--c-error);
+    color: var(--c-status);
+    &.isWarn {
+      --c-status: var(--c-warn)
+    }
+    &.isHigh {
+      --c-status: var(--c-error)
+    }
 	}
 </style>
