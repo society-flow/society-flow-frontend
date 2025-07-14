@@ -15,9 +15,9 @@
 		IconCheck,
 		IconCheckboxOff,
 		IconOrangeSlice,
-		IconMountains,
+		IconLayers,
 		IconUsers,
-		IconRuler
+		IconGrid
 	} from 'obra-icons-svelte';
 
 	const { residence, society } = $props();
@@ -45,11 +45,11 @@
 			<strong>{$_('components.residences.details.residentsCount')}</strong>: {residence.residentsCount}
 		</li>
 		<li>
-			<IconMountains />
+			<IconLayers />
 			<strong>{$_('components.residences.details.floorCount')}</strong>: {residence.floorCount}
 		</li>
 		<li>
-			<IconRuler />
+			<IconGrid />
 			<strong>{$_('components.residences.details.area')}</strong>:
 			{residence.areaValue}
 			{society.areaUnit}

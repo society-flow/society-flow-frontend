@@ -3,8 +3,8 @@
 	import {
 		IconCheck,
 		IconClose,
-		IconMath,
-		IconHome,
+		IconOrangeSlice,
+		IconBusiness,
 		IconGrid,
 		IconUser,
 		IconLayers,
@@ -32,8 +32,8 @@
 
 	// Map each calculation mode to an icon
 	const iconMap = {
-		AMOUNT_PER_OWNERSHIP_PERCENTAGE: IconMath,
-		AMOUNT_PER_RESIDENCE: IconHome,
+		AMOUNT_PER_OWNERSHIP_PERCENTAGE: IconOrangeSlice,
+		AMOUNT_PER_RESIDENCE: IconBusiness,
 		AMOUNT_PER_SQUARE_AREA: IconGrid,
 		AMOUNT_PER_RESIDENT: IconUser,
 		AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT: IconLayers
@@ -104,7 +104,6 @@
 				{$_(`const.expense_types.${d.calculationMode}`)}
 			</legend>
 			<input type="number" min="0" max="100" bind:value={distributions[index].percentageCoverage} />
-			<!-- Individual type coverage bar -->
 			<progress max="100" value={distributions[index].percentageCoverage}></progress>
 		</fieldset>
 	{/each}
@@ -113,22 +112,24 @@
 			<p class="error">{distError}</p>
 		</fieldset>
 	{/if}
-	<fieldset>
-		<progress max="100" value={coverageTotal}></progress>
-		{#if isValid}
-			<IconCheck />
-		{:else}
-			<IconCaretUpDown />
-		{/if}
-		<span>{coverageTotal}/100%</span>
-		<button type="submit" disabled={coverageTotal !== 100}>
-			{$_('pages.expenses.detail.saveDistributions')}
-		</button>
-		<button type="button" onclick={cancelDistributions}>
-			<IconClose />
-			{$_('common.cancel')}
-		</button>
-	</fieldset>
+	{#if distributions}
+		<fieldset>
+			<progress max="100" value={coverageTotal}></progress>
+			{#if isValid}
+				<IconCheck />
+			{:else}
+				<IconCaretUpDown />
+			{/if}
+			<span>{coverageTotal}/100%</span>
+			<button type="submit" disabled={coverageTotal !== 100}>
+				{$_('pages.expenses.detail.saveDistributions')}
+			</button>
+			<button type="button" onclick={cancelDistributions}>
+				<IconClose />
+				{$_('common.cancel')}
+			</button>
+		</fieldset>
+	{/if}
 </form>
 
 <style>
@@ -141,6 +142,11 @@
 			gap: var(--s);
 			/* flex-wrap: nowrap; */
 			flex-direction: row;
+      legend {
+        display: flex;
+        align-items: center;
+        gap: var(--s);
+      }
 			progress {
 				width: 100%;
 				flex-grow: 1;

@@ -15,7 +15,7 @@
 
 	requiresAuth(locale);
 
-	const id = $derived($page.params.id);
+	const { id } = $derived($page.params);
 	const { data } = $props();
 	const { expense, society, calculations, payments, distributions } = $derived(data);
 
