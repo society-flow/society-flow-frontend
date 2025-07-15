@@ -391,7 +391,7 @@
 		"expenses": {
 			"form": {
 				"name": "Name",
-				"name_placeholder": "Izmir",
+				"name_placeholder": "Electricity",
 				"amount": "Amount per Month",
 				"society": "Society",
 				"society_placeholder": "Select a society",

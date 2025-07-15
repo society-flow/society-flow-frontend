@@ -1,575 +1,575 @@
 {
-	"title": "Society Flow",
-	"catch_line": "Hizmetleri paylaşın. Maliyetleri bölün. Topluluğunuzu güçlendirin.",
-	"menu": {
-		"home": "Ana Sayfa",
-		"societies": "Topluluklar",
-		"residences": "Konutlar",
-		"expenses": "Giderler",
-		"maintenances": "Bakımlar",
-		"ads": "Reklamlar",
-		"map": "Harita",
-		"about": "Hakkında",
-		"styles": "Stiller",
-		"settings": "Ayarlar",
-		"auth.login": "Giriş",
-		"auth.logout": "Çıkış",
-		"auth.register": "Kaydol",
-		"auth.verify-otp": "OTP'yi Doğrula",
-		"legal": "Yasal",
-		"legal.terms-of-service": "Hizmet Şartları",
-		"legal.privacy-policy": "Gizlilik Politikası",
-		"legal.data-processing-info": "Veri İşleme Bilgileri",
-		"legal.cookie-policy": "Çerez Politikası",
-		"create.societies": "Yeni Topluluk Oluştur",
-		"create.residences": "Yeni Konut Oluştur",
-		"create.maintenances": "Bakım Oluştur",
-		"create.ads": "Yeni Reklam Oluştur",
-		"create.expenses": "Yeni Gider Oluştur",
-		"update.societies": "Topluluğu Güncelle",
-		"update.residences": "Konutu Güncelle",
-		"update.maintenances": "Bakımı Güncelle",
-		"update.ads": "Reklamı Güncelle",
-		"update.expenses": "Gideri Güncelle"
-	},
-	"pages": {
-		"auth": {
-			"verify-otp": {
-				"sections": {
-					"did-not-receive": {
-						"text": "OTP kodu içeren bir e-posta almadınız mı?"
-					},
-					"resend": {
-						"text": "E-postayı Yeniden Gönder",
-						"link": {
-							"url": "/auth/login?email={email}",
-							"text": "menu.auth.verify-otp"
-						}
-					}
-				}
-			},
-			"register": {
-				"sections": {
-					"have-account": {
-						"text": "Zaten bir hesabınız var mı?",
-						"link": {
-							"url": "/auth/login",
-							"text": "menu.auth.login"
-						}
-					}
-				}
-			},
-			"login": {
-				"sections": {
-					"no-account": {
-						"text": "Henüz hesabınız yok mu? Ücretsiz",
-						"link": {
-							"url": "/auth/register",
-							"text": "menu.auth.register"
-						}
-					}
-				}
-			}
-		},
-		"settings": {
-			"sections": {
-				"development": {
-					"title": "Geliştirme"
-				},
-				"demo": {
-					"title": "Demo",
-					"loginText": "Demo kullanıcısı olarak oturum aç",
-					"logoutText": "Demo kullanıcısı olarak oturumu kapat"
-				}
-			}
-		},
-		"home": {
-			"auth": {
-				"greeting": "Merhaba {name} ({email}).",
-				"dashboard": {
-					"title": "Kontrol Panelin"
-				},
-				"sections": {
-					"societies": "Topluluklar",
-					"residences": "Konutlar"
-				}
-			},
-			"marketing": {
-				"user_types": {
-					"society_admin": {
-						"title": "Topluluk Yöneticileri",
-						"features": [
-							"Bir veya daha fazla topluluk oluşturun",
-							"Kullanıcıları davet et",
-							"Gerekli giderleri ekleyin",
-							"Ödeme kayıtlarını onaylayın",
-							"Özel ayarlamalar oluşturun",
-							"Sakinlere bildirimler yayınlayın"
-						]
-					},
-					"society_member": {
-						"title": "Topluluk Üyeleri",
-						"features": [
-							"Çeşitli topluluklar ve şehirlerdeki tüm konutlarınızı görüntüleyin",
-							"Maliyetlerin ve mevcut fonların uygun dökümü ile aylık aidatlarınızı görüntüleyin",
-							"Karşılaşılan sorunlar hakkında yöneticilere mesaj gönderin veya onlardan bildirim alın."
-						]
-					},
-					"rent_seeker": {
-						"title": "Kiralık veya satın alınacak yer mi arıyorsunuz?",
-						"features": [
-							"Bütçenize ve hayalinizdeki konuma uygun olarak, doğrulanmış geçerli ev sahipleri veya topluluklar tarafından yayınlanan reklamları kontrol edin"
-						]
-					}
-				},
-				"call_to_action": "{title}'ya katılın ve tüm özellikleri keşfedin."
-			}
-		},
-		"about": {
-			"title": "Hakkında",
-			"sections": {
-				"problem": {
-					"text": "Aynı soruna sahip farklı ülkeler: Maliyetlerin ve fonların net görünürlüğü olmadan gizli gider yönetimi.",
-					"icon": "hidden-expenses"
-				},
-				"goal": {
-					"text": "Amacımız, bilginiz için dinamik olarak hesaplanan aylık fiyatlandırmanın ayrıntılı bir dökümünü sağlamaktır.",
-					"icon": "pricing-breakdown"
-				},
-				"philosophy": {
-					"text": "Giderlerin azaltılması veya artırılmasının, sabit değil, katkıları değiştirmesi gerektiğine kesinlikle inanıyoruz. Ayrıca, farklı giderlerin konutlar arasında farklı dağıtım yöntemlerine ihtiyacı vardır.",
-					"icon": "variable-contributions"
-				},
-				"peer_services": {
-					"text": "Bu arada, sistemimiz, orta adamları atlayarak, geçerli kullanıcı üyelerinden coğrafi olarak konumlandırılmış reklamlar oluşturmanıza veya bulmanıza olanak tanır. Bir dahaki sefere, aşırı ödeme yapmadan ilgi alanınızdaki herhangi bir hizmet için eşler arası iletişime geçin!",
-					"icon": "peer-to-peer"
-				}
-			}
-		},
-		"error": {
-			"not_found": "İstenen sayfa bu web sitesinde mevcut değil."
-		},
-		"residences": {
-			"detail": {
-				"myExpenseDues": "Gider Borçlarım",
-				"noExpenseDues": "Gider borcu bulunamadı.",
-				"members": "Üyeler",
-				"table": {
-					"month": "Ay",
-					"expense": "Gider",
-					"amount": "Tutar"
-				}
-			}
-		},
-		"societies": {
-			"detail": {
-				"expenseCalculations": "Gider Hesaplamaları",
-				"triggerCalculations": "Bakım Hesaplamaları",
-				"noExpensesConfigured": "Hiçbir gider yapılandırılmamış.",
-				"members": "Üyeler",
-				"user_residences": "Konutlarım",
-				"table": {
-					"month": "Ay",
-					"residence": "İkametgah",
-					"amount": "Tutar"
-				}
-			}
-		},
-		"funds": "Fonlar",
-		"delete": {
-			"confirm": "Silmek istediğinizden emin misiniz"
-		},
-		"expenses": {
-			"form": {
-				"name": "Ad",
-				"name_placeholder": "Gider adını girin",
-				"amount": "Aylık Tutar",
-				"amount_placeholder": "Aylık tutarı girin",
-				"society": "Site",
-				"society_placeholder": "Site seçin",
-				"active": "Aktif"
-			},
-			"detail": {
-				"distributions": "Dağılımlar",
-				"editDistributions": "Dağılımları Düzenle",
-				"selectType": "Tip seçin",
-				"percentageCoverage": "Yüzde Kapsamı",
-				"addDistribution": "Dağılım Ekle",
-				"saveDistributions": "Kaydet",
-				"remove": "Kaldır",
-				"noDistributions": "Kullanılabilir dağıtım yok.",
-				"calculations": "Hesaplamalar",
-				"noCalculations": "Kullanılabilir hesaplama yok.",
-				"table": {
-					"month": "Ay",
-					"residence": "İkametgah",
-					"amount": "Tutar"
-				},
-				"error": {
-					"totalCoverage": "Toplam yüzde kapsamı 100'e eşit olmalı"
-				}
-			}
-		},
-		"ads": {
-			"detail": {
-				"isActive": "Aktif",
-				"isNotActive": "Etkin Değil"
-			}
-		}
-	},
-	"components": {
-		"settings": {
-			"api": {
-				"legend": "API URL'si",
-				"label": "Arka uç sunucularındaki API'nin bulunduğu yer."
-			}
-		},
-		"locales": {
-			"language": "Dil"
-		},
-		"auth": {
-			"login": {
-				"email": {
-					"legend": "E-posta",
-					"placeholder": "user@example.com"
-				},
-				"submit": "Giriş",
-				"error": "{error}"
-			},
-			"register": {
-				"name": {
-					"legend": "Ad",
-					"placeholder": "Azur"
-				},
-				"email": {
-					"legend": "E-posta",
-					"placeholder": "user@example.com"
-				},
-				"submit": "Kaydol",
-				"error": "{error}"
-			},
-			"verify_otp": {
-				"email": {
-					"legend": "E-posta",
-					"placeholder": "user@example.com"
-				},
-				"otp": {
-					"legend": "OTP (Tek Seferlik Şifre)",
-					"placeholder": "12345"
-				},
-				"submit": "Doğrula"
-			}
-		},
-		"users": {
-			"card": {
-				"user_id": "Kullanıcı Kimliği",
-				"user_name": "Ad",
-				"user_role": "Rol",
-				"member_since": "Üye Olma Tarihi",
-				"no_members": "Üye bulunamadı"
-			},
-			"list": {
-				"no_user": "Şu anda kullanıcı yok."
-			}
-		},
-		"societies": {
-			"form": {
-				"name": "Topluluk Adı",
-				"name_placeholder": "Topluluk adını girin",
-				"postcode": "Posta Kodu",
-				"postcode_placeholder": "Posta kodunu girin",
-				"map": "Haritada Konum Seç",
-				"city": "Şehir",
-				"city_placeholder": "Şehir girin",
-				"state": "Eyalet",
-				"state_placeholder": "Eyalet girin",
-				"country": "Ülke",
-				"country_placeholder": "Ülke girin",
-				"timezone": "Saat Dilimi",
-				"timezone_placeholder": "Saat dilimini girin (örneğin, Europe/Berlin)",
-				"currency": "Para Birimi",
-				"area_unit": "Alan Birimi"
-			},
-			"details": {
-				"name": "Ad",
-				"role": "Rol",
-				"no_membership": "Üye değilsiniz",
-				"id": "Topluluk Kimliği",
-				"location": "Konum",
-				"postcode": "Posta Kodu",
-				"currency": "Para Birimi",
-				"timezone": "Saat Dilimi",
-				"area_unit": "Alan Birimi",
-				"fine_rate": "Ceza Oranı",
-				"coordinates": "Koordinatlar",
-				"created": "Oluşturulma Tarihi",
-				"updated": "Son Güncelleme"
-			},
-			"invite_user": {
-				"title": "Bu topluluğa yeni bir kullanıcı davet et",
-				"email": {
-					"legend": "Kullanıcı e-postası",
-					"placeholder": "user@example.com"
-				},
-				"name": {
-					"legend": "Kullanıcı adı",
-					"placeholder": "Alice"
-				},
-				"role": {
-					"legend": "Toplulukta kullanıcı rolü"
-				}
-			}
-		},
-		"residences": {
-			"form": {
-				"societyId": "Topluluk Kimliği",
-				"societyId_placeholder": "Topluluk kimliğini girin",
-				"residenceName": "Konut Adı",
-				"residenceName_placeholder": "Konut adını girin",
-				"floorCount": "Kat Sayısı",
-				"floorCount_placeholder": "Kat sayısını girin",
-				"areaValue": "Alan (sq ft)",
-				"areaValue_placeholder": "Alan (sq ft) cinsinden girin",
-				"residentsCount": "Sakin Sayısı",
-				"residentsCount_placeholder": "Sakin sayısını girin",
-				"percentageOwnership": "Yüzde Sahipliği",
-				"percentageOwnership_placeholder": "yüzde sahipliğini girin",
-				"description": "Açıklama",
-				"description_placeholder": "Bir açıklama ekleyin"
-			},
-			"details": {
-				"name": "İkamet adı",
-				"societyId": "Topluluk Kimliği",
-				"residentsCount": "Sakinler",
-				"floorCount": "Katlar",
-				"area": "Alan",
-				"percentageOwnership": "Yüzde Sahipliği",
-				"active": "Aktif",
-				"yes": "Evet",
-				"no": "Hayır",
-				"description": "Açıklama",
-				"createdAt": "Oluşturulma Tarihi",
-				"updatedAt": "Güncelleme Tarihi",
-				"notAvailable": "Mevcut değil"
-			},
-			"invite_user": {
-				"title": "Bu konuta yeni bir kullanıcı davet et",
-				"name": {
-					"legend": "Ad",
-					"placeholder": "Alice"
-				},
-				"email": {
-					"legend": "E-posta",
-					"placeholder": "user@example.com"
-				}
-			}
-		},
-		"ads": {
-			"form": {
-				"title": "Reklam başlığı",
-				"title_placeholder": "Reklam başlığını girin",
-				"adDescription": "Reklam açıklaması",
-				"adDescription_placeholder": "Reklam açıklamasını girin",
-				"anonymousUserName": "Anonim Kullanıcı Adı",
-				"anonymousUserName_placeholder": "Takma adınızı veya anonim adınızı girin",
-				"type": "Reklam Türü",
-				"type_placeholder": "Bir reklam türü seçin",
-				"map": "Haritada Konum Seç",
-				"coordinates": "Koordinatlar (Enlem, Boylam)",
-				"create": "Reklam Oluştur",
-				"created_successfully": "Reklam başarıyla oluşturuldu.",
-				"society": "Site",
-				"society_placeholder": "Site seçin",
-				"residency": "İkamet",
-				"residency_placeholder": "İkametgah seçin",
-				"isActive": "Etkin mi"
-			},
-			"details": {
-				"description": "Açıklama"
-			}
-		},
-		"expenses": {
-			"form": {
-				"name": "Ad",
-				"name_placeholder": "İzmir",
-				"amount": "Aylık Tutar",
-				"society": "Site",
-				"society_placeholder": "Site seçin",
-				"active": "Aktif"
-			},
-			"details": {
-				"name": "Ad",
-				"society": "Site",
-				"amountPerMonth": "Aylık Tutar",
-				"active": "Aktif",
-				"createdAt": "Oluşturulma Tarihi",
-				"updatedAt": "Güncelleme Tarihi"
-			},
-			"distributionCard": {
-				"type": "Tür",
-				"coverage": "Kapsam"
-			},
-			"payment": {
-				"title": "Gider Ödemeleri",
-				"addPayment": "Ödeme Ekle",
-				"amount": "Tutar",
-				"amountPlaceholder": "Miktarı girin (ödeme için pozitif, iade için negatif)",
-				"transactionDate": "İşlem Tarihi",
-				"yearMonth": "Yıl Ay",
-				"description": "Açıklama",
-				"descriptionPlaceholder": "Ödeme açıklamasını girin",
-				"paymentHistory": "Ödeme Geçmişi",
-				"payment": "ödeme",
-				"payments": "ödemeler",
-				"noPayments": "Henüz ödeme kaydı yok.",
-				"invalidAmount": "Lütfen geçerli bir miktar girin",
-				"date": "Tarih",
-				"paymentId": "ID"
-			}
-		},
-		"calculations": {
-			"list": {
-				"calculatedForCollection": "Tahsilat için hesaplandı",
-				"actualExpensePaid": "Ödenen Gerçek Gider"
-			}
-		},
-		"maintenances": {
-			"card": {
-				"isCurrent": "Güncel mi?",
-				"previousAmountToPay": "Ödenecek Önceki Tutar",
-				"fineToPay": "Ödenecek Ceza",
-				"thisMonthCalculation": "Bu Ay Hesaplaması",
-				"totalAmountToPay": "Ödenecek Toplam Tutar",
-				"withFormula": "Formülle"
-			},
-			"form": {
-				"society": "site",
-				"selectSociety": "Site Seç",
-				"residence": "İkametgah",
-				"selectResidence": "Konut Seç",
-				"yearMonth": "Yıl Ay",
-				"yearMonth_placeholder": "YYYY/AA Girin",
-				"isCurrent": "Güncel mi?",
-				"previousAmountToPay": "Ödenecek Önceki Tutar",
-				"fineToPay": "Ödenecek Ceza",
-				"thisMonthCalculation": "Bu Ay Hesaplaması",
-				"totalAmountToPay": "Ödenecek Toplam Tutar",
-				"withFormula": "Formülle"
-			},
-			"list": {
-				"title": "Bakım Geçmişi",
-				"noMaintenances": "Bakım kaydı bulunamadı.",
-				"active": "Aktif",
-				"inactive": "Etkin Değil",
-				"previousAmount": "Önceki Miktar",
-				"fine": "Ceza",
-				"thisMonth": "Bu Ay",
-				"totalAmount": "Toplam Tutar",
-				"maintenanceId": "ID"
-			},
-			"payment": {
-				"title": "Bakım Ödemeleri",
-				"addPayment": "Ödeme Ekle",
-				"amount": "Tutar",
-				"amountPlaceholder": "Miktarı girin (ödeme için pozitif, iade için negatif)",
-				"transactionDate": "İşlem Tarihi",
-				"yearMonth": "Yıl Ay",
-				"description": "Açıklama",
-				"descriptionPlaceholder": "Ödeme açıklamasını girin",
-				"paymentHistory": "Ödeme Geçmişi",
-				"payment": "ödeme",
-				"payments": "ödemeler",
-				"noPayments": "Henüz ödeme kaydı yok.",
-				"invalidAmount": "Lütfen geçerli bir miktar girin",
-				"date": "Tarih",
-				"paymentId": "ID"
-			}
-		},
-		"legal": {
-			"dpi": {
-				"controller.heading": "Veri Denetleyicisi",
-				"controller.name_label": "Ad:",
-				"controller.address_label": "Adres:",
-				"controller.email_label": "E-posta:",
-				"controller.phone_label": "Telefon:",
-				"protection_officer.heading": "Veri Koruma Görevlisi",
-				"protection_officer.email_label": "E-posta:",
-				"purposes.heading": "İşleme Amaçları",
-				"legal_bases.heading": "Yasal Dayanaklar",
-				"recipients.heading": "Veri Alıcıları",
-				"retention.heading": "Veri Saklama",
-				"rights.heading": "Haklarınız",
-				"supervisory_authority.heading": "Denetim Makamı"
-			}
-		}
-	},
-	"common": {
-		"submit": "Gönder",
-		"join": "Katıl",
-		"create": "Oluştur",
-		"creating": "Oluşturuluyor...",
-		"delete": "Sil",
-		"deleting": "Siliniyor...",
-		"cancel": "İptal",
-		"update": "Güncelle",
-		"save": "Kaydet",
-		"saving": "Kaydediliyor...",
-		"contact_admin": "Yöneticiyle iletişim kurun",
-		"contact_user": "Kullanıcıyla iletişim kur",
-		"created": "Oluşturuldu",
-		"updated": "Güncellendi",
-		"createdAt": "Oluşturulma Tarihi",
-		"updatedAt": "Güncelleme Tarihi"
-	},
-	"const": {
-		"ads_types": {
-			"SOCIETY_ADMIN": "Topluluk Yöneticisi",
-			"SELL_HOUSE": "Ev Sat",
-			"RENT_HOUSE": "Ev Kirala",
-			"SUB_LEASE_HOUSE": "Ev Alt Kirala",
-			"HOUSE_SHARING": "Ev Paylaşımı",
-			"HEATING_SERVICE_NEEDED": "Isıtma Servisi Gerekli",
-			"PLUMBING_SERVICE_NEEDED": "Tesisat Servisi Gerekli",
-			"ELECTRICAL_SERVICE_NEEDED": "Elektrik Servisi Gerekli",
-			"MOVING_SERVICE_NEEDED": "Taşıma Servisi Gerekli",
-			"SELL_CLOTH": "Giyim Eşyası Sat",
-			"SEARCH_CLOTH": "Giyim Eşyası Ara",
-			"GIVE_AWAY_CLOTH": "Giyim Eşyası Ver",
-			"SELL_FURNITURE": "Mobilya Sat",
-			"SEARCH_FURNITURE": "Mobilya Ara",
-			"GIVE_AWAY_FURNITURE": "Mobilya Ver",
-			"SMALL_PRINTING_SERVICE": "Küçük Ölçekli Baskı Hizmeti",
-			"PROFESSIONAL_PRINTING_SERVICE": "Profesyonel Baskı Hizmeti",
-			"SELL_MISC": "Çeşitli Eşyalar Sat",
-			"SEARCH_MISC": "Çeşitli Eşyalar Ara",
-			"GIVE_AWAY_MISC": "Çeşitli Eşyalar Ver"
-		},
-		"area": {
-			"sqm": "Metrekare",
-			"sqft": "Fitkare",
-			"acres": "Dönüm",
-			"hectares": "Hektar"
-		},
-		"currencies": {
-			"EUR": "EUR - Euro",
-			"USD": "USD - Amerikan Doları",
-			"GBP": "GBP - İngiliz Sterlini",
-			"INR": "INR - Hindistan Rupisi",
-			"CAD": "CAD - Kanada Doları",
-			"AUD": "AUD - Avustralya Doları"
-		},
-		"society_roles": {
-			"ADMIN": "Yönetici",
-			"MANAGER": "Müdür",
-			"MEMBER": "Üye",
-			"OWNER": "Sahip"
-		},
-		"expense_types": {
-			"AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Hissedarlık Yüzdesi Başına",
-			"AMOUNT_PER_RESIDENCE": "Konut Başına",
-			"AMOUNT_PER_SQUARE_AREA": "Metrekare Başına",
-			"AMOUNT_PER_RESIDENT": "Sakin Başına",
-			"AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Kat Sayısı Başına Sakin Başına"
-		}
-	}
+  "title": "Society Flow",
+  "catch_line": "Hizmetleri paylaşın. Maliyetleri bölün. Topluluğunuzu güçlendirin.",
+  "menu": {
+    "home": "Ana Sayfa",
+    "societies": "Topluluklar",
+    "residences": "Konutlar",
+    "expenses": "Giderler",
+    "maintenances": "Bakımlar",
+    "ads": "Reklamlar",
+    "map": "Harita",
+    "about": "Hakkında",
+    "styles": "Stiller",
+    "settings": "Ayarlar",
+    "auth.login": "Giriş",
+    "auth.logout": "Çıkış",
+    "auth.register": "Kaydol",
+    "auth.verify-otp": "OTP'yi Doğrula",
+    "legal": "Yasal",
+    "legal.terms-of-service": "Hizmet Şartları",
+    "legal.privacy-policy": "Gizlilik Politikası",
+    "legal.data-processing-info": "Veri İşleme Bilgileri",
+    "legal.cookie-policy": "Çerez Politikası",
+    "create.societies": "Yeni Topluluk Oluştur",
+    "create.residences": "Yeni Konut Oluştur",
+    "create.maintenances": "Bakım Oluştur",
+    "create.ads": "Yeni Reklam Oluştur",
+    "create.expenses": "Yeni Gider Oluştur",
+    "update.societies": "Topluluğu Güncelle",
+    "update.residences": "Konutu Güncelle",
+    "update.maintenances": "Bakımı Güncelle",
+    "update.ads": "Reklamı Güncelle",
+    "update.expenses": "Gideri Güncelle"
+  },
+  "pages": {
+    "auth": {
+      "verify-otp": {
+        "sections": {
+          "did-not-receive": {
+            "text": "OTP kodu içeren bir e-posta almadınız mı?"
+          },
+          "resend": {
+            "text": "E-postayı Yeniden Gönder",
+            "link": {
+              "url": "/auth/login?email={email}",
+              "text": "menu.auth.verify-otp"
+            }
+          }
+        }
+      },
+      "register": {
+        "sections": {
+          "have-account": {
+            "text": "Zaten bir hesabınız var mı?",
+            "link": {
+              "url": "/auth/login",
+              "text": "menu.auth.login"
+            }
+          }
+        }
+      },
+      "login": {
+        "sections": {
+          "no-account": {
+            "text": "Henüz hesabınız yok mu? Ücretsiz",
+            "link": {
+              "url": "/auth/register",
+              "text": "menu.auth.register"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "sections": {
+        "development": {
+          "title": "Geliştirme"
+        },
+        "demo": {
+          "title": "Demo",
+          "loginText": "Demo kullanıcısı olarak oturum aç",
+          "logoutText": "Demo kullanıcısı olarak oturumu kapat"
+        }
+      }
+    },
+    "home": {
+      "auth": {
+        "greeting": "Merhaba {name} ({email}).",
+        "dashboard": {
+          "title": "Kontrol Panelin"
+        },
+        "sections": {
+          "societies": "Topluluklar",
+          "residences": "Konutlar"
+        }
+      },
+      "marketing": {
+        "user_types": {
+          "society_admin": {
+            "title": "Topluluk Yöneticileri",
+            "features": [
+              "Bir veya daha fazla topluluk oluşturun",
+              "Kullanıcıları davet et",
+              "Gerekli giderleri ekleyin",
+              "Ödeme kayıtlarını onaylayın",
+              "Özel ayarlamalar oluşturun",
+              "Sakinlere bildirimler yayınlayın"
+            ]
+          },
+          "society_member": {
+            "title": "Topluluk Üyeleri",
+            "features": [
+              "Çeşitli topluluklar ve şehirlerdeki tüm konutlarınızı görüntüleyin",
+              "Maliyetlerin ve mevcut fonların uygun dökümü ile aylık aidatlarınızı görüntüleyin",
+              "Karşılaşılan sorunlar hakkında yöneticilere mesaj gönderin veya onlardan bildirim alın."
+            ]
+          },
+          "rent_seeker": {
+            "title": "Kiralık veya satın alınacak yer mi arıyorsunuz?",
+            "features": [
+              "Bütçenize ve hayalinizdeki konuma uygun olarak, doğrulanmış geçerli ev sahipleri veya topluluklar tarafından yayınlanan reklamları kontrol edin"
+            ]
+          }
+        },
+        "call_to_action": "{title}'ya katılın ve tüm özellikleri keşfedin."
+      }
+    },
+    "about": {
+      "title": "Hakkında",
+      "sections": {
+        "problem": {
+          "text": "Aynı soruna sahip farklı ülkeler: Maliyetlerin ve fonların net görünürlüğü olmadan gizli gider yönetimi.",
+          "icon": "hidden-expenses"
+        },
+        "goal": {
+          "text": "Amacımız, bilginiz için dinamik olarak hesaplanan aylık fiyatlandırmanın ayrıntılı bir dökümünü sağlamaktır.",
+          "icon": "pricing-breakdown"
+        },
+        "philosophy": {
+          "text": "Giderlerin azaltılması veya artırılmasının, sabit değil, katkıları değiştirmesi gerektiğine kesinlikle inanıyoruz. Ayrıca, farklı giderlerin konutlar arasında farklı dağıtım yöntemlerine ihtiyacı vardır.",
+          "icon": "variable-contributions"
+        },
+        "peer_services": {
+          "text": "Bu arada, sistemimiz, orta adamları atlayarak, geçerli kullanıcı üyelerinden coğrafi olarak konumlandırılmış reklamlar oluşturmanıza veya bulmanıza olanak tanır. Bir dahaki sefere, aşırı ödeme yapmadan ilgi alanınızdaki herhangi bir hizmet için eşler arası iletişime geçin!",
+          "icon": "peer-to-peer"
+        }
+      }
+    },
+    "error": {
+      "not_found": "İstenen sayfa bu web sitesinde mevcut değil."
+    },
+    "residences": {
+      "detail": {
+        "myExpenseDues": "Gider Borçlarım",
+        "noExpenseDues": "Gider borcu bulunamadı.",
+        "members": "Üyeler",
+        "table": {
+          "month": "Ay",
+          "expense": "Gider",
+          "amount": "Tutar"
+        }
+      }
+    },
+    "societies": {
+      "detail": {
+        "expenseCalculations": "Gider Hesaplamaları",
+        "triggerCalculations": "Bakım Hesaplamaları",
+        "noExpensesConfigured": "Hiçbir gider yapılandırılmamış.",
+        "members": "Üyeler",
+        "user_residences": "Konutlarım",
+        "table": {
+          "month": "Ay",
+          "residence": "İkametgah",
+          "amount": "Tutar"
+        }
+      }
+    },
+    "funds": "Fonlar",
+    "delete": {
+      "confirm": "Silmek istediğinizden emin misiniz"
+    },
+    "expenses": {
+      "form": {
+        "name": "Ad",
+        "name_placeholder": "Gider adını girin",
+        "amount": "Aylık Tutar",
+        "amount_placeholder": "Aylık tutarı girin",
+        "society": "Site",
+        "society_placeholder": "Site seçin",
+        "active": "Aktif"
+      },
+      "detail": {
+        "distributions": "Dağılımlar",
+        "editDistributions": "Dağılımları Düzenle",
+        "selectType": "Tip seçin",
+        "percentageCoverage": "Yüzde Kapsamı",
+        "addDistribution": "Dağılım Ekle",
+        "saveDistributions": "Kaydet",
+        "remove": "Kaldır",
+        "noDistributions": "Kullanılabilir dağıtım yok.",
+        "calculations": "Hesaplamalar",
+        "noCalculations": "Kullanılabilir hesaplama yok.",
+        "table": {
+          "month": "Ay",
+          "residence": "İkametgah",
+          "amount": "Tutar"
+        },
+        "error": {
+          "totalCoverage": "Toplam yüzde kapsamı 100'e eşit olmalı"
+        }
+      }
+    },
+    "ads": {
+      "detail": {
+        "isActive": "Aktif",
+        "isNotActive": "Etkin Değil"
+      }
+    }
+  },
+  "components": {
+    "settings": {
+      "api": {
+        "legend": "API URL'si",
+        "label": "Arka uç sunucularındaki API'nin bulunduğu yer."
+      }
+    },
+    "locales": {
+      "language": "Dil"
+    },
+    "auth": {
+      "login": {
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Giriş",
+        "error": "{error}"
+      },
+      "register": {
+        "name": {
+          "legend": "Ad",
+          "placeholder": "Azur"
+        },
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        },
+        "submit": "Kaydol",
+        "error": "{error}"
+      },
+      "verify_otp": {
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        },
+        "otp": {
+          "legend": "OTP (Tek Seferlik Şifre)",
+          "placeholder": "12345"
+        },
+        "submit": "Doğrula"
+      }
+    },
+    "users": {
+      "card": {
+        "user_id": "Kullanıcı Kimliği",
+        "user_name": "Ad",
+        "user_role": "Rol",
+        "member_since": "Üye Olma Tarihi",
+        "no_members": "Üye bulunamadı"
+      },
+      "list": {
+        "no_user": "Şu anda kullanıcı yok."
+      }
+    },
+    "societies": {
+      "form": {
+        "name": "Topluluk Adı",
+        "name_placeholder": "Topluluk adını girin",
+        "postcode": "Posta Kodu",
+        "postcode_placeholder": "Posta kodunu girin",
+        "map": "Haritada Konum Seç",
+        "city": "Şehir",
+        "city_placeholder": "Şehir girin",
+        "state": "Eyalet",
+        "state_placeholder": "Eyalet girin",
+        "country": "Ülke",
+        "country_placeholder": "Ülke girin",
+        "timezone": "Saat Dilimi",
+        "timezone_placeholder": "Saat dilimini girin (örneğin, Europe/Berlin)",
+        "currency": "Para Birimi",
+        "area_unit": "Alan Birimi"
+      },
+      "details": {
+        "name": "Ad",
+        "role": "Rol",
+        "no_membership": "Üye değilsiniz",
+        "id": "Topluluk Kimliği",
+        "location": "Konum",
+        "postcode": "Posta Kodu",
+        "currency": "Para Birimi",
+        "timezone": "Saat Dilimi",
+        "area_unit": "Alan Birimi",
+        "fine_rate": "Ceza Oranı",
+        "coordinates": "Koordinatlar",
+        "created": "Oluşturulma Tarihi",
+        "updated": "Son Güncelleme"
+      },
+      "invite_user": {
+        "title": "Bu topluluğa yeni bir kullanıcı davet et",
+        "email": {
+          "legend": "Kullanıcı e-postası",
+          "placeholder": "user@example.com"
+        },
+        "name": {
+          "legend": "Kullanıcı adı",
+          "placeholder": "Alice"
+        },
+        "role": {
+          "legend": "Toplulukta kullanıcı rolü"
+        }
+      }
+    },
+    "residences": {
+      "form": {
+        "societyId": "Topluluk Kimliği",
+        "societyId_placeholder": "Topluluk kimliğini girin",
+        "residenceName": "Konut Adı",
+        "residenceName_placeholder": "Konut adını girin",
+        "floorCount": "Kat Sayısı",
+        "floorCount_placeholder": "Kat sayısını girin",
+        "areaValue": "Alan (sq ft)",
+        "areaValue_placeholder": "Alan (sq ft) cinsinden girin",
+        "residentsCount": "Sakin Sayısı",
+        "residentsCount_placeholder": "Sakin sayısını girin",
+        "percentageOwnership": "Yüzde Sahipliği",
+        "percentageOwnership_placeholder": "yüzde sahipliğini girin",
+        "description": "Açıklama",
+        "description_placeholder": "Bir açıklama ekleyin"
+      },
+      "details": {
+        "name": "İkamet adı",
+        "societyId": "Topluluk Kimliği",
+        "residentsCount": "Sakinler",
+        "floorCount": "Katlar",
+        "area": "Alan",
+        "percentageOwnership": "Yüzde Sahipliği",
+        "active": "Aktif",
+        "yes": "Evet",
+        "no": "Hayır",
+        "description": "Açıklama",
+        "createdAt": "Oluşturulma Tarihi",
+        "updatedAt": "Güncelleme Tarihi",
+        "notAvailable": "Mevcut değil"
+      },
+      "invite_user": {
+        "title": "Bu konuta yeni bir kullanıcı davet et",
+        "name": {
+          "legend": "Ad",
+          "placeholder": "Alice"
+        },
+        "email": {
+          "legend": "E-posta",
+          "placeholder": "user@example.com"
+        }
+      }
+    },
+    "ads": {
+      "form": {
+        "title": "Reklam başlığı",
+        "title_placeholder": "Reklam başlığını girin",
+        "adDescription": "Reklam açıklaması",
+        "adDescription_placeholder": "Reklam açıklamasını girin",
+        "anonymousUserName": "Anonim Kullanıcı Adı",
+        "anonymousUserName_placeholder": "Takma adınızı veya anonim adınızı girin",
+        "type": "Reklam Türü",
+        "type_placeholder": "Bir reklam türü seçin",
+        "map": "Haritada Konum Seç",
+        "coordinates": "Koordinatlar (Enlem, Boylam)",
+        "create": "Reklam Oluştur",
+        "created_successfully": "Reklam başarıyla oluşturuldu.",
+        "society": "Site",
+        "society_placeholder": "Site seçin",
+        "residency": "İkamet",
+        "residency_placeholder": "İkametgah seçin",
+        "isActive": "Etkin mi"
+      },
+      "details": {
+        "description": "Açıklama"
+      }
+    },
+    "expenses": {
+      "form": {
+        "name": "Ad",
+        "name_placeholder": "Elektrik",
+        "amount": "Aylık Tutar",
+        "society": "Site",
+        "society_placeholder": "Site seçin",
+        "active": "Aktif"
+      },
+      "details": {
+        "name": "Ad",
+        "society": "Site",
+        "amountPerMonth": "Aylık Tutar",
+        "active": "Aktif",
+        "createdAt": "Oluşturulma Tarihi",
+        "updatedAt": "Güncelleme Tarihi"
+      },
+      "distributionCard": {
+        "type": "Tür",
+        "coverage": "Kapsam"
+      },
+      "payment": {
+        "title": "Gider Ödemeleri",
+        "addPayment": "Ödeme Ekle",
+        "amount": "Tutar",
+        "amountPlaceholder": "Miktarı girin (ödeme için pozitif, iade için negatif)",
+        "transactionDate": "İşlem Tarihi",
+        "yearMonth": "Yıl Ay",
+        "description": "Açıklama",
+        "descriptionPlaceholder": "Ödeme açıklamasını girin",
+        "paymentHistory": "Ödeme Geçmişi",
+        "payment": "ödeme",
+        "payments": "ödemeler",
+        "noPayments": "Henüz ödeme kaydı yok.",
+        "invalidAmount": "Lütfen geçerli bir miktar girin",
+        "date": "Tarih",
+        "paymentId": "ID"
+      }
+    },
+    "calculations": {
+      "list": {
+        "calculatedForCollection": "Tahsilat için hesaplandı",
+        "actualExpensePaid": "Ödenen Gerçek Gider"
+      }
+    },
+    "maintenances": {
+      "card": {
+        "isCurrent": "Güncel mi?",
+        "previousAmountToPay": "Ödenecek Önceki Tutar",
+        "fineToPay": "Ödenecek Ceza",
+        "thisMonthCalculation": "Bu Ay Hesaplaması",
+        "totalAmountToPay": "Ödenecek Toplam Tutar",
+        "withFormula": "Formülle"
+      },
+      "form": {
+        "society": "site",
+        "selectSociety": "Site Seç",
+        "residence": "İkametgah",
+        "selectResidence": "Konut Seç",
+        "yearMonth": "Yıl Ay",
+        "yearMonth_placeholder": "YYYY/AA Girin",
+        "isCurrent": "Güncel mi?",
+        "previousAmountToPay": "Ödenecek Önceki Tutar",
+        "fineToPay": "Ödenecek Ceza",
+        "thisMonthCalculation": "Bu Ay Hesaplaması",
+        "totalAmountToPay": "Ödenecek Toplam Tutar",
+        "withFormula": "Formülle"
+      },
+      "list": {
+        "title": "Bakım Geçmişi",
+        "noMaintenances": "Bakım kaydı bulunamadı.",
+        "active": "Aktif",
+        "inactive": "Etkin Değil",
+        "previousAmount": "Önceki Miktar",
+        "fine": "Ceza",
+        "thisMonth": "Bu Ay",
+        "totalAmount": "Toplam Tutar",
+        "maintenanceId": "ID"
+      },
+      "payment": {
+        "title": "Bakım Ödemeleri",
+        "addPayment": "Ödeme Ekle",
+        "amount": "Tutar",
+        "amountPlaceholder": "Miktarı girin (ödeme için pozitif, iade için negatif)",
+        "transactionDate": "İşlem Tarihi",
+        "yearMonth": "Yıl Ay",
+        "description": "Açıklama",
+        "descriptionPlaceholder": "Ödeme açıklamasını girin",
+        "paymentHistory": "Ödeme Geçmişi",
+        "payment": "ödeme",
+        "payments": "ödemeler",
+        "noPayments": "Henüz ödeme kaydı yok.",
+        "invalidAmount": "Lütfen geçerli bir miktar girin",
+        "date": "Tarih",
+        "paymentId": "ID"
+      }
+    },
+    "legal": {
+      "dpi": {
+        "controller.heading": "Veri Denetleyicisi",
+        "controller.name_label": "Ad:",
+        "controller.address_label": "Adres:",
+        "controller.email_label": "E-posta:",
+        "controller.phone_label": "Telefon:",
+        "protection_officer.heading": "Veri Koruma Görevlisi",
+        "protection_officer.email_label": "E-posta:",
+        "purposes.heading": "İşleme Amaçları",
+        "legal_bases.heading": "Yasal Dayanaklar",
+        "recipients.heading": "Veri Alıcıları",
+        "retention.heading": "Veri Saklama",
+        "rights.heading": "Haklarınız",
+        "supervisory_authority.heading": "Denetim Makamı"
+      }
+    }
+  },
+  "common": {
+    "submit": "Gönder",
+    "join": "Katıl",
+    "create": "Oluştur",
+    "creating": "Oluşturuluyor...",
+    "delete": "Sil",
+    "deleting": "Siliniyor...",
+    "cancel": "İptal",
+    "update": "Güncelle",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor...",
+    "contact_admin": "Yöneticiyle iletişim kurun",
+    "contact_user": "Kullanıcıyla iletişim kur",
+    "created": "Oluşturuldu",
+    "updated": "Güncellendi",
+    "createdAt": "Oluşturulma Tarihi",
+    "updatedAt": "Güncelleme Tarihi"
+  },
+  "const": {
+    "ads_types": {
+      "SOCIETY_ADMIN": "Topluluk Yöneticisi",
+      "SELL_HOUSE": "Ev Sat",
+      "RENT_HOUSE": "Ev Kirala",
+      "SUB_LEASE_HOUSE": "Ev Alt Kirala",
+      "HOUSE_SHARING": "Ev Paylaşımı",
+      "HEATING_SERVICE_NEEDED": "Isıtma Servisi Gerekli",
+      "PLUMBING_SERVICE_NEEDED": "Tesisat Servisi Gerekli",
+      "ELECTRICAL_SERVICE_NEEDED": "Elektrik Servisi Gerekli",
+      "MOVING_SERVICE_NEEDED": "Taşıma Servisi Gerekli",
+      "SELL_CLOTH": "Giyim Eşyası Sat",
+      "SEARCH_CLOTH": "Giyim Eşyası Ara",
+      "GIVE_AWAY_CLOTH": "Giyim Eşyası Ver",
+      "SELL_FURNITURE": "Mobilya Sat",
+      "SEARCH_FURNITURE": "Mobilya Ara",
+      "GIVE_AWAY_FURNITURE": "Mobilya Ver",
+      "SMALL_PRINTING_SERVICE": "Küçük Ölçekli Baskı Hizmeti",
+      "PROFESSIONAL_PRINTING_SERVICE": "Profesyonel Baskı Hizmeti",
+      "SELL_MISC": "Çeşitli Eşyalar Sat",
+      "SEARCH_MISC": "Çeşitli Eşyalar Ara",
+      "GIVE_AWAY_MISC": "Çeşitli Eşyalar Ver"
+    },
+    "area": {
+      "sqm": "Metrekare",
+      "sqft": "Fitkare",
+      "acres": "Dönüm",
+      "hectares": "Hektar"
+    },
+    "currencies": {
+      "EUR": "EUR - Euro",
+      "USD": "USD - Amerikan Doları",
+      "GBP": "GBP - İngiliz Sterlini",
+      "INR": "INR - Hindistan Rupisi",
+      "CAD": "CAD - Kanada Doları",
+      "AUD": "AUD - Avustralya Doları"
+    },
+    "society_roles": {
+      "ADMIN": "Yönetici",
+      "MANAGER": "Müdür",
+      "MEMBER": "Üye",
+      "OWNER": "Sahip"
+    },
+    "expense_types": {
+      "AMOUNT_PER_OWNERSHIP_PERCENTAGE": "Hissedarlık Yüzdesi Başına",
+      "AMOUNT_PER_RESIDENCE": "Konut Başına",
+      "AMOUNT_PER_SQUARE_AREA": "Metrekare Başına",
+      "AMOUNT_PER_RESIDENT": "Sakin Başına",
+      "AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Kat Sayısı Başına Sakin Başına"
+    }
+  }
 }
