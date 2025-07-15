@@ -11,6 +11,4 @@
 			<Card {society} />
 		{/snippet}
 	</List>
-{:else}
-	<span>ø {$_('menu.societies')}</span>
 {/if}
