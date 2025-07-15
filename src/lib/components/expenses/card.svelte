@@ -29,6 +29,7 @@
 		align-items: center;
 		justify-content: space-between;
 		flex-grow: 1;
+    gap: var(--s);
 	}
 	span {
 		display: flex;

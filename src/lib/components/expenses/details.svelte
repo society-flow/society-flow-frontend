@@ -12,7 +12,7 @@
 
 <Detail>
 	{#snippet header()}
-		<Card {expense} />
+		<Card {expense} currency={society.currency} />
 		<SocietyCard {society} />
 	{/snippet}
 	<ul>
