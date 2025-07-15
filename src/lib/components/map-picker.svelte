@@ -1,12 +1,11 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import Map from '$lib/components/map.svelte';
-	import { IconLocationMarker } from 'obra-icons-svelte';
 
 	const { latitude = null, longitude = null, title = '', onselect = () => {} } = $props();
 
-    let selected = $state(null);
-    let mapComponent;
+	let selected = $state(null);
+	let mapComponent;
 
 	const markers = $derived(
 		latitude && longitude
@@ -25,9 +24,9 @@
 	}
 
 	function clearSelection() {
-    selected = null;
-    onselect({});
-    mapComponent?.clearNewMarker();
+		selected = null;
+		onselect({});
+		mapComponent?.clearNewMarker();
 	}
 </script>
 

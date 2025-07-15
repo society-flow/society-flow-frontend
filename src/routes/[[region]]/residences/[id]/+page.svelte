@@ -2,10 +2,10 @@
 	import { _ } from 'svelte-i18n';
 	import { invalidate } from '$app/navigation';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import ResidenceDetails from '$lib/components/residences/details.svelte';
 	import ResidenceJoin from '$lib/components/residences/join.svelte';
 	import FundCard from '$lib/components/funds/card.svelte';
-	import { IconClose, IconEdit } from 'obra-icons-svelte';
 
 	let { data } = $props();
 	const { residence, fund, society, isMember, isAdmin } = $derived(data);
@@ -25,7 +25,7 @@
 				<li>
 					<Anchor href={`/update/residences/${id}`} title={$_('menu.update.residences')} isButton>
 						{$_('menu.update.residences')}
-						<IconEdit />
+						<Icon icon="edit" />
 					</Anchor>
 				</li>
 			{/if}
@@ -33,7 +33,7 @@
 				<li>
 					<Anchor href={`/delete/residences/${id}`} title={$_('common.delete')} isButton>
 						{$_('common.delete')}
-						<IconClose />
+						<Icon icon="close" />
 					</Anchor>
 				</li>
 			{/if}

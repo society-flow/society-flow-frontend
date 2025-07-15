@@ -5,6 +5,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import ExpenseDetails from '$lib/components/expenses/details.svelte';
 	import DistributionList from '$lib/components/expenses/distributions/list.svelte';
@@ -12,14 +13,6 @@
 	import CalculationsList from '$lib/components/calculations/list.svelte';
 	import PaymentForm from '$lib/components/expenses/payment-form.svelte';
 	import PaymentList from '$lib/components/expenses/payment-list.svelte';
-	import {
-		IconShuffle,
-		IconMath,
-		IconBills,
-		IconHistory,
-		IconClose,
-		IconEdit
-	} from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -40,13 +33,13 @@
 					<li>
 						<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
 							{$_('common.update')}
-							<IconEdit />
+							<Icon icon="edit" />
 						</Anchor>
 					</li>
 					<li>
 						<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
 							{$_('common.delete')}
-							<IconClose />
+							<Icon icon="close" />
 						</Anchor>
 					</li>
 				</ul>
@@ -60,7 +53,7 @@
 		<section>
 			<header>
 				<h2>
-					<IconShuffle />
+					<Icon icon="shuffle" />
 					{$_('pages.expenses.detail.distributions')}
 				</h2>
 				<nav>
@@ -87,7 +80,7 @@
 		<section>
 			<header>
 				<h3>
-					<IconMath />
+					<Icon icon="math" />
 					{$_('pages.expenses.detail.calculations')}
 				</h3>
 			</header>
@@ -98,7 +91,7 @@
 			<header>
 				<header>
 					<h3>
-						<IconBills />
+						<Icon icon="bills" />
 						{$_('components.expenses.payment.title')}
 					</h3>
 				</header>
@@ -109,7 +102,7 @@
 		<section>
 			<header>
 				<h3>
-					<IconHistory />
+					<Icon icon="history" />
 					{$_('components.expenses.payment.paymentHistory')}
 				</h3>
 			</header>

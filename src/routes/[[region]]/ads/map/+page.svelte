@@ -5,7 +5,7 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import { IconClose } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const { data } = $props();
 	const typeId = $derived(page.url.searchParams.get('type'));
@@ -41,7 +41,7 @@
 		{#if selectedType}
 			<Anchor isButton href="/ads/map">
 				{$_(`const.ads_types.${selectedType.name}`)}
-				<IconClose />
+				<Icon icon="close" />
 			</Anchor>
 		{/if}
 	</summary>

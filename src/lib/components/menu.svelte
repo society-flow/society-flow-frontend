@@ -2,23 +2,15 @@
 	import { _, locale } from 'svelte-i18n';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
-	import {
-		IconHome,
-		IconWorld,
-		IconBusiness,
-		IconBusinessAlt,
-		IconBudgetAlt,
-		IconUserFill,
-		IconLogIn
-	} from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const menuItemsAuth = [
-		{ path: '/', label: 'menu.home', Icon: IconHome },
-		{ path: '/societies', label: 'menu.societies', Icon: IconBusinessAlt },
-		{ path: '/residences', label: 'menu.residences', Icon: IconBusiness },
-		{ path: '/expenses', label: 'menu.expenses', Icon: IconBudgetAlt },
-		{ path: '/ads', label: 'menu.ads', Icon: IconWorld },
-		{ path: '/auth/logout', label: 'menu.auth.logout', Icon: IconUserFill }
+		{ path: '/', label: 'menu.home', icon: 'home' },
+		{ path: '/societies', label: 'menu.societies', icon: 'business-alt' },
+		{ path: '/residences', label: 'menu.residences', icon: 'business' },
+		{ path: '/expenses', label: 'menu.expenses', icon: 'budget-alt' },
+		{ path: '/ads', label: 'menu.ads', icon: 'world' },
+		{ path: '/auth/logout', label: 'menu.auth.logout', icon: 'user-fill' }
 	];
 
 	const menuItemsNoAuth = [
@@ -33,12 +25,13 @@
 </script>
 
 <menu>
-	{#each menuItems as { path, label, Icon } (path)}
+	{#each menuItems as { path, label, icon } (path)}
 		<li>
 			<Anchor href={path} title={$_(label)}>
-				{#if Icon}
-					<Icon />
-					{$_(label)}
+				{#if icon}
+					<Icon {icon}>
+						{$_(label)}
+					</Icon>
 				{:else}
 					{$_(label)}
 				{/if}
@@ -65,7 +58,7 @@
 			color: var(--c-fg);
 			font-weight: bold;
 			display: inline-flex;
-      align-items: center;
+			align-items: center;
 			/* background-color: var(--c-bg); */
 			border: calc(var(--s) / 1.6) solid transparent;
 			transition: all ease-in-out 300ms;
@@ -89,9 +82,9 @@
 				outline-color: var(--c-link);
 				/* border-radius: calc(var(--s) * 1.5); */
 			}
-      :global(svg) {
-        margin: 0 calc(var(--s) / 3);
-      }
+			:global(svg) {
+				margin: 0 calc(var(--s) / 3);
+			}
 		}
 	}
 </style>

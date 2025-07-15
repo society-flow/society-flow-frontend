@@ -1,10 +1,10 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import { createEventDispatcher } from 'svelte';
 	import { EXPENSE_DISTRIBUTIONS } from '$lib/const/expense_distribution_types.js';
 	import { api } from '$lib/api.svelte.js';
-	import { createEventDispatcher } from 'svelte';
 	import Total from './total.svelte';
-	import { IconClose } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -117,7 +117,7 @@
 		{@const icon = distributionType?.icon}
 		<fieldset>
 			<legend>
-				<svelte:component this={icon} class="type-icon" />
+				<Icon {icon} className="type-icon" />
 				{$_(`const.expense_types.${calculationMode}`)}
 			</legend>
 			<input
@@ -143,7 +143,7 @@
 			<menu>
 				<li>
 					<button type="button" onclick={cancelDistributions}>
-						<IconClose />
+						<Icon icon="close" />
 						{$_('common.cancel')}
 					</button>
 				</li>

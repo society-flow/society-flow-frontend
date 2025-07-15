@@ -3,10 +3,10 @@
 	import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
-	import MaintenanceList from '$lib/components/maintenances/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
+	import MaintenanceList from '$lib/components/maintenances/list.svelte';
 	import { getCurrentYearMonth, generateYearMonthOptions } from '$lib/utils/yearMonth.js';
-	import { IconCalculator } from 'obra-icons-svelte';
 
 	const id = $derived($page.params.id);
 	const { data } = $props();
@@ -47,7 +47,7 @@
 					<li>
 						<button onclick={triggerMaintenanceCalculation} disabled={triggering}>
 							{$_('pages.societies.detail.triggerCalculations')}
-							<IconCalculator />
+							<Icon icon="calculator" />
 						</button>
 					</li>
 				</ul>

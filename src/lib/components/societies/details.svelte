@@ -3,18 +3,10 @@
 	import Anchor from '$lib/components/anchor.svelte';
 	import Card from './card.svelte';
 	import Map from '$lib/components/map.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Detail from '$lib/components/detail.svelte';
 	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
 	import FormatCurrency from '$lib/components/format/currency.svelte';
-	import {
-		IconLocationMarker,
-		IconCoin,
-		IconCompassTool,
-		IconEditAlt,
-		IconCalendarSelectedDate,
-		IconWatch,
-		IconGavel
-	} from 'obra-icons-svelte';
 
 	let { society, userRole } = $props();
 	const location = $derived(
@@ -40,7 +32,7 @@
 	<ul>
 		{#if location}
 			<li>
-				<IconLocationMarker />
+				<Icon icon="location-marker" />
 				<strong>
 					{$_('components.societies.details.location')}:
 				</strong>
@@ -49,7 +41,7 @@
 		{/if}
 		{#if society.currency}
 			<li>
-				<IconCoin />
+				<Icon icon="coin" />
 				<strong>
 					{$_('components.societies.details.currency')}:
 				</strong>
@@ -58,7 +50,7 @@
 		{/if}
 		{#if society.timezone}
 			<li>
-				<IconWatch />
+				<Icon icon="watch" />
 				<strong>
 					{$_('components.societies.details.timezone')}:
 				</strong>
@@ -67,7 +59,7 @@
 		{/if}
 		{#if society.areaUnit}
 			<li>
-				<IconCompassTool />
+				<Icon icon="compass-tool" />
 				<strong>
 					{$_('components.societies.details.area_unit')}:
 				</strong>
@@ -77,7 +69,7 @@
 
 		{#if society.finerate}
 			<li>
-				<IconGavel />
+				<Icon icon="gavel" />
 				<strong>{$_('components.societies.details.fine_rate')}:</strong>
 				{society.finerate}
 				{society.currency}
@@ -91,7 +83,7 @@
 		{/if}
 		{#if society.updatedAt}
 			<li>
-				<IconEditAlt />
+				<Icon icon="edit-alt" />
 				<strong>
 					{$_('common.updated')}
 				</strong>
@@ -100,7 +92,7 @@
 		{/if}
 		{#if society.createdAt}
 			<li>
-				<IconCalendarSelectedDate />
+				<Icon icon="calendar-selected-date" />
 				<strong>
 					{$_('common.created')}
 				</strong>

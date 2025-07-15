@@ -6,18 +6,12 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import Map from '$lib/components/map.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Dialog from '$lib/components/dialog.svelte';
 	import AdDetails from '$lib/components/ads/details.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
 	import ResidencyCard from '$lib/components/residences/card.svelte';
 	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
-	import {
-		IconSendAlt,
-		IconMessageAlt,
-		IconHashtag,
-		IconCalendarSelectedDate,
-		IconWatch
-	} from 'obra-icons-svelte';
 
 	const { data } = $props();
 	const { advert, residency, society, adTypes, isAdmin, isOwner } = $derived(data);
@@ -49,7 +43,7 @@
 			<ul>
 				{#if advert.createdAt}
 					<li>
-						<IconCalendarSelectedDate />
+						<Icon icon="calendar-selected-date" />
 						<strong>
 							{$_('common.created')}
 						</strong>
@@ -58,7 +52,7 @@
 				{/if}
 				{#if advert.updatedAt}
 					<li>
-						<IconWatch />
+						<Icon icon="watch" />
 						<strong>
 							{$_('common.updated')}
 						</strong>
@@ -70,7 +64,7 @@
 		<nav>
 			<ul>
 				<li>
-                {#if isAdmin || isOwner}
+					{#if isAdmin || isOwner}
 						<span>
 							{#if advert.isActive}
 								{$_('pages.ads.detail.isActive')}
@@ -83,7 +77,7 @@
 				<li>
 					<Anchor href={`/ads?type=${adOption?.id}`} isButton>
 						{$_(`const.ads_types.${adOption?.name}`)}
-						<IconHashtag />
+						<Icon icon="hashtag" />
 					</Anchor>
 				</li>
 				{#if advert.updatedAt && advert.updatedAt !== advert.createdAt}
@@ -110,7 +104,7 @@
 						<Dialog>
 							{#snippet buttonOpen()}
 								{$_('common.contact_user')}
-								<IconSendAlt />
+								<Icon icon="send-alt" />
 							{/snippet}
 							<form>
 								<fieldset>
@@ -124,7 +118,7 @@
 					<Dialog>
 						{#snippet buttonOpen()}
 							{$_('common.contact_admin')}
-							<IconMessageAlt />
+							<Icon icon="message-alt" />
 						{/snippet}
 						<form>
 							<fieldset>

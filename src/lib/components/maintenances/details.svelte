@@ -1,20 +1,14 @@
 <script>
 	import { _, locale } from 'svelte-i18n';
-	import {
-    IconBusiness,
-		IconJustice,
-		IconCalculator,
-		IconCalendarEndOfMonth,
-		IconCalendarSelectedDate
-	} from 'obra-icons-svelte';
 	import FormatCurrency from '$lib/components/format/currency.svelte';
+	import Icon from '$lib/components/icon.svelte'
 
 	const { maintenance: m, society } = $props();
 </script>
 
 <details open>
 	<summary>
-    <IconBusiness />
+		<Icon icon="business" />
 		<h5>
 			{m.residenceName}
 		</h5>
@@ -23,27 +17,27 @@
 	<section>
 		<ul>
 			<li>
-				<IconCalculator />
+				<Icon icon="calculator" />
 				<strong>
 					{$_('components.maintenances.list.totalAmount')}:
 				</strong>
 				<FormatCurrency currency={society.currency} value={m.totalAmountToPay} />
 			</li>
 			<li>
-				<IconJustice />
+				<Icon icon="justice" />
 				<strong>{$_('components.maintenances.list.fine')}:</strong>
 				<FormatCurrency currency={society.currency} value={m.fineToPay} />
 			</li>
 			<li>
 				<strong>
-					<IconCalendarEndOfMonth />
+					<Icon icon="calendar-end-of-month" />
 					{$_('components.maintenances.list.thisMonth')}:
 				</strong>
 				<FormatCurrency currency={society.currency} value={m.thisMonthCalculation} />
 			</li>
 			<li>
 				<strong>
-					<IconCalendarSelectedDate />
+					<Icon icon="calendar-selected-date" />
 					{$_('components.maintenances.list.previousAmount')}:
 				</strong>
 				<FormatCurrency currency={society.currency} value={m.previousAmountToPay} />

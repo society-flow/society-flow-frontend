@@ -1,9 +1,9 @@
 <script>
-	import Card from '$lib/components/card.svelte';
-	import Anchor from '$lib/components/anchor.svelte';
-	import { marked } from 'marked';
 	import DOMPurify from 'dompurify';
-	import { IconWorld } from 'obra-icons-svelte';
+	import { marked } from 'marked';
+	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
+	import Card from '$lib/components/card.svelte';
 
 	const { ad } = $props();
 	const content = $derived(marked.parse(ad?.adDescription));
@@ -16,7 +16,7 @@
 
 <Card>
 	<Anchor href={`/ads/${ad.id}`}>
-		<IconWorld />
+		<Icon icon="world" />
 		{#if ad.title}
 			{ad.title}
 		{/if}

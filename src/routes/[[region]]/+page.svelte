@@ -3,7 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { getTicker, getTickers } from '$lib/db-static.js';
 	import { userState } from '$lib/states/user.svelte.js';
-	import { IconAdd } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import ListSocieties from '$lib/components/societies/list.svelte';
@@ -12,7 +12,6 @@
 	import MarketingUsers from '$lib/components/marketing/users.svelte';
 	import HomeLogo from '$lib/components/home-logo.svelte';
 	import SvgIcon from '$lib/components/svg-icon.svelte';
-	import { IconWorld, IconBusiness, IconBusinessAlt } from 'obra-icons-svelte';
 
 	let ticker = $state({});
 	$effect(async () => {
@@ -79,12 +78,13 @@
 		<section>
 			<header>
 				<h2>
-					<IconBusinessAlt />
-					{$_('menu.societies')}
+					<Icon icon="business-alt">
+						{$_('menu.societies')}
+					</Icon>
 				</h2>
 				<nav>
 					<Anchor href="/create/societies" title={$_('menu.create.societies')} isButton>
-						<IconAdd />
+						<Icon icon="add" />
 					</Anchor>
 				</nav>
 			</header>
@@ -95,12 +95,13 @@
 		<section>
 			<header>
 				<h2>
-					<IconBusiness />
-					{$_('menu.residences')}
+					<Icon icon="business">
+						{$_('menu.residences')}
+					</Icon>
 				</h2>
 				<nav>
 					<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
-						<IconAdd />
+						<Icon icon="add" />
 					</Anchor>
 				</nav>
 			</header>
@@ -111,12 +112,13 @@
 		<section>
 			<header>
 				<h2>
-					<IconWorld />
-					{$_('menu.ads')}
+					<Icon icon="world">
+						{$_('menu.ads')}
+					</Icon>
 				</h2>
 				<nav>
 					<Anchor href="/create/ads" title={$_('menu.create.ads')} isButton>
-						<IconAdd />
+						<Icon icon="add" />
 					</Anchor>
 				</nav>
 			</header>

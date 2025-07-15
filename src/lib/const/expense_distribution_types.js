@@ -1,19 +1,17 @@
-import { IconOrangeSlice, IconBusiness, IconGrid, IconUser, IconLayers } from 'obra-icons-svelte';
-
 export const EXPENSE_DISTRIBUTIONS = {
 	AMOUNT_PER_OWNERSHIP_PERCENTAGE: {
-		icon: IconOrangeSlice
+		icon: 'orange-slice'
 	},
 	AMOUNT_PER_RESIDENCE: {
-		icon: IconBusiness
+		icon: 'business'
 	},
 	AMOUNT_PER_SQUARE_AREA: {
-		icon: IconGrid
+		icon: 'grid'
 	},
 	AMOUNT_PER_RESIDENT: {
-		icon: IconUser
+		icon: 'user'
 	},
 	AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT: {
-		icon: IconLayers
+		icon: 'layers'
 	}
 };

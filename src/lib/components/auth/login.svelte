@@ -2,7 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import Error from '$lib/components/error.svelte';
-	import { IconLogIn } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const { email: userEmail, onLogin = () => {}, onSubmit = () => {} } = $props();
 
@@ -37,7 +37,7 @@
 
 	<fieldset>
 		<button type="submit">
-			<IconLogIn />
+			<Icon icon="log-in" />
 			{$_('components.auth.login.submit')}
 		</button>
 	</fieldset>

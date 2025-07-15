@@ -3,9 +3,9 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { api } from '$lib/api.svelte.js';
-	import ListAds from '$lib/components/ads/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import { IconClose } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
+	import ListAds from '$lib/components/ads/list.svelte';
 
 	let typeId = $derived(page.url.searchParams.get('type'));
 	const { data } = $props();
@@ -31,7 +31,7 @@
 		{#if selectedType}
 			<Anchor isButton href="/ads">
 				{$_(`const.ads_types.${selectedType.name}`)}
-				<IconClose />
+				<Icon icon="close" />
 			</Anchor>
 		{/if}
 	</summary>

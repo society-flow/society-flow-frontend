@@ -4,7 +4,7 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import MaintenanceList from '$lib/components/maintenances/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import { IconAdd, IconBusinessAlt } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	requiresAuth(locale);
 
@@ -21,7 +21,7 @@
 			<section>
 				<header>
 					<h2>
-						<IconBusinessAlt />
+						<Icon icon="business-alt" />
 						<Anchor href={`/societies/${society.id}`}>
 							{society.name}
 						</Anchor>
@@ -34,13 +34,13 @@
 									title={$_('menu.create.maintenances')}
 									isButton
 								>
-									<IconAdd />
+									<Icon icon="add" />
 								</Anchor>
 							</li>
 						</ul>
 					</nav>
 				</header>
-				<MaintenanceList maintenances={dicMaintenances[society.id] || []} society={society} />
+				<MaintenanceList maintenances={dicMaintenances[society.id] || []} {society} />
 			</section>
 		{/each}
 	{/if}

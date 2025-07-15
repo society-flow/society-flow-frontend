@@ -11,7 +11,7 @@
 		{#each Object.entries(aboutSections) as [key, section]}
 			<article>
 				<p>{section.text}</p>
-				<Icon name={section.icon} />
+				<Icon icon={section.icon} />
 			</article>
 		{/each}
 	</section>

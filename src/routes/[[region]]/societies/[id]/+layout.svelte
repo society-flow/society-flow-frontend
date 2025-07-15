@@ -4,16 +4,7 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Page from '$lib/components/routes/page.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
-	import {
-		IconUsers,
-    IconUserEncircledAlt2Fill,
-		IconWorld,
-		IconBusiness,
-		IconPaintRoller,
-		IconBudgetAlt,
-		IconUserEncircledAltFill,
-		IconLogIn,
-	} from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	requiresAuth(locale);
 
@@ -35,35 +26,35 @@
 	{#snippet nav()}
 		<li>
 			<Anchor href={`/societies/${id}/residences`}>
-				<IconBusiness />
+				<Icon icon="business" />
 				{$_('menu.residences')}
 			</Anchor>
 		</li>
 		<li>
 			<Anchor href={`/societies/${id}/expenses`}>
-				<IconBudgetAlt />
+				<Icon icon="budget-alt" />
 				{$_('menu.expenses')}
 			</Anchor>
 		</li>
 		<li>
 			<Anchor href={`/societies/${id}/maintenances`}>
-				<IconPaintRoller />
+				<Icon icon="paint-roller" />
 				{$_('menu.maintenances')}
 			</Anchor>
 		</li>
 		<li>
 			<Anchor href={`/societies/${id}/members`}>
-        {#if isAdmin}
-          <IconUserEncircledAlt2Fill />
-        {:else}
-					<IconUsers />
-        {/if}
+				{#if isAdmin}
+					<Icon icon="user-encircled-alt2-fill" />
+				{:else}
+					<Icon icon="users" />
+				{/if}
 				{$_('pages.societies.detail.members')}
 			</Anchor>
 		</li>
 		<li>
 			<Anchor href={`/societies/${id}/ads`}>
-				<IconWorld />
+				<Icon icon="world" />
 				{$_('menu.ads')}
 			</Anchor>
 		</li>

@@ -2,7 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import Error from '$lib/components/error.svelte';
-	import { IconLogOut } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const { onLogout = () => {} } = $props();
 
@@ -23,7 +23,7 @@
 <form on:submit={onSubmit}>
 	<fieldset>
 		<button type="submit">
-			<IconLogOut />
+			<Icon icon="log-out" />
 			{$_('menu.auth.logout')}
 		</button>
 	</fieldset>

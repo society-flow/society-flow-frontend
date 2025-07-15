@@ -2,13 +2,13 @@
 	import { _, locale } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
-	import Anchor from '$lib/components/anchor.svelte';
 	import Error from '$lib/components/error.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import SocietyDetails from '$lib/components/societies/details.svelte';
 	import SocietyJoin from '$lib/components/societies/join.svelte';
 	import ResidencesCount from '$lib/components/societies/residences-count.svelte';
 	import FundCard from '$lib/components/funds/card.svelte';
-	import { IconClose, IconEdit } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -25,13 +25,13 @@
 				<li>
 					<Anchor href={`/update/societies/${id}`} title={$_('menu.update.societies')} isButton>
 						{$_('menu.update.societies')}
-						<IconEdit />
+						<Icon icon="edit" />
 					</Anchor>
 				</li>
 				<li>
 					<Anchor href={`/delete/societies/${id}`} title={$_('common.delete')} isButton>
 						{$_('common.delete')}
-						<IconClose />
+						<Icon icon="close" />
 					</Anchor>
 				</li>
 			</ul>

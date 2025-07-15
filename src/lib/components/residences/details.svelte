@@ -6,19 +6,7 @@
 	import Card from './card.svelte';
 	import Map from '$lib/components/map.svelte';
 	import SocietyCard from '$lib/components/societies/card.svelte';
-	import {
-		IconCompassTool,
-		IconEditAlt,
-		IconCalendarSelectedDate,
-		IconWatch,
-		IconDocumentAlt,
-		IconCheck,
-		IconCheckboxOff,
-		IconOrangeSlice,
-		IconLayers,
-		IconUsers,
-		IconGrid
-	} from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const { residence, society } = $props();
 
@@ -41,28 +29,28 @@
 	{/snippet}
 	<ul>
 		<li>
-			<IconUsers />
+			<Icon icon="users" />
 			<strong>{$_('components.residences.details.residentsCount')}</strong>: {residence.residentsCount}
 		</li>
 		<li>
-			<IconLayers />
+			<Icon icon="layers" />
 			<strong>{$_('components.residences.details.floorCount')}</strong>: {residence.floorCount}
 		</li>
 		<li>
-			<IconGrid />
+			<Icon icon="grid" />
 			<strong>{$_('components.residences.details.area')}</strong>:
 			{residence.areaValue}
 			{society.areaUnit}
 		</li>
 		<li>
-			<IconOrangeSlice />
+			<Icon icon="orange-slice" />
 			<strong>{$_('components.residences.details.percentageOwnership')}</strong>: {residence.percentageOwnership}%
 		</li>
 		<li>
 			{#if residence.isActive}
-				<IconCheckboxOff />
+				<Icon icon="checkbox-off" />
 			{:else}
-				<IconCheck />
+				<Icon icon="check" />
 			{/if}
 			<strong>{$_('components.residences.details.active')}</strong>:
 			{residence.isActive === null
@@ -74,13 +62,13 @@
 
 		{#if residence.description}
 			<li>
-				<IconDocumentAlt />
+				<Icon icon="document-alt" />
 				<strong>{$_('components.residences.details.description')}</strong>: {residence.description}
 			</li>
 		{/if}
 		{#if residence.updatedAt}
 			<li>
-				<IconWatch />
+				<Icon icon="watch" />
 				<strong>
 					{$_('common.updated')}
 				</strong>
@@ -90,7 +78,7 @@
 		{#if residence.createdAt}
 			<li>
 				<strong>
-					<IconCalendarSelectedDate />
+					<Icon icon="calendar-selected-date" />
 					{$_('common.created')}
 				</strong>
 				<FormatDateRelative date={residence.createdAt} />

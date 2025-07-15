@@ -3,14 +3,8 @@
 	import GroupedList from '$lib/components/grouped-list.svelte';
 	import FormatYearMonth from '$lib/components/format/year-month.svelte';
 	import FormatCurrency from '$lib/components/format/currency.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Details from './details.svelte';
-	import {
-		IconBudgetAlt,
-		IconPaintRoller,
-		IconBusiness,
-		IconCheck,
-		IconCheckboxOff
-	} from 'obra-icons-svelte';
 
 	const { maintenances = [], society } = $props();
 </script>
@@ -31,27 +25,24 @@
 		{@const active = group.find((m) => m.isCurrent === true || m.isCurrent === 'true')}
 		{@const total = group.reduce((sum, m) => sum + m.totalAmountToPay, 0)}
 		<div>
-			<span>
-        <IconPaintRoller />
-			  <h4><FormatYearMonth {yearMonth} /></h4>
-        </span>
-			<span>
-				<IconBusiness />
+			<Icon icon="paint-roller">
+				<h4><FormatYearMonth {yearMonth} /></h4>
+			</Icon>
+			<Icon icon="business">
 				{group.length}
-			</span>
-			<span>
-				{#if active}
-					<IconCheck />
-					{$_('components.maintenances.list.active')}
-				{:else}
-					<IconCheckboxOff />
-					{$_('components.maintenances.list.inactive')}
-				{/if}
-			</span>
-			<strong>
-				<IconBudgetAlt />
-				<FormatCurrency value={total} currency={society.currency} />
-			</strong>
+			</Icon>
+			{#if active}
+				<Icon icon="check" />
+				{$_('components.maintenances.list.active')}
+			{:else}
+				<Icon icon="checkbox-off" />
+				{$_('components.maintenances.list.inactive')}
+			{/if}
+			<Icon icon="budget-alt">
+				<strong>
+					<FormatCurrency value={total} currency={society.currency} />
+				</strong>
+			</Icon>
 		</div>
 	{/snippet}
 	{#snippet children(yearMonth, group)}
@@ -64,22 +55,15 @@
 </GroupedList>
 
 <style>
-  div {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--s);
-    align-items: center;
-    /* justify-content: space-around; */
-    flex-grow: 1;
-    flex-wrap: wrap;
-    overflow-x: auto;
+	div {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: var(--s);
+		align-items: center;
+		flex-grow: 1;
+		flex-wrap: wrap;
+		overflow-x: auto;
 		scrollbar-width: none;
 		-ms-overflow-style: none;
-    span,
-    strong {
-      display: flex;
-      align-items: center;
-      gap: calc(var(--s) / 2);
-    }
-  }
-  </style>
+	}
+</style>

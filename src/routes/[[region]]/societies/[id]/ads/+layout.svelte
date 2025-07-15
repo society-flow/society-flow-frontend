@@ -3,7 +3,7 @@
 	import { invalidate } from '$app/navigation';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
-	import { IconMap, IconUnorderedList, IconAdd } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	requiresAuth(locale);
 
@@ -18,17 +18,17 @@
 			<ul>
 				<li>
 					<Anchor href={`/societies/${id}/ads`} title={$_('menu.ads')}>
-						<IconUnorderedList />
+						<Icon icon="unordered-list" />
 					</Anchor>
 				</li>
 				<li>
 					<Anchor href={`/societies/${id}/ads/map`} title={$_('menu.map')}>
-						<IconMap />
+						<Icon icon="map" />
 					</Anchor>
 				</li>
 				<li>
 					<Anchor href={`/create/ads?society=${id}`} title={$_('menu.create.ads')} isButton>
-						<IconAdd />
+						<Icon icon="add" />
 					</Anchor>
 				</li>
 			</ul>
@@ -41,8 +41,7 @@
 <style>
 	div {
 		flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+		display: flex;
+		flex-direction: column;
 	}
 </style>
-

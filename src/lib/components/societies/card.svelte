@@ -1,7 +1,7 @@
 <script>
 	import Anchor from '$lib/components/anchor.svelte';
 	import Card from '$lib/components/card.svelte';
-	import { IconBusinessAlt } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const { society = {} } = $props();
 	const { id, name } = society;
@@ -9,7 +9,7 @@
 
 <Card>
 	<Anchor href={`/societies/${id}`}>
-		<IconBusinessAlt />
+		<Icon icon="business-alt" />
 		{name || id}
 	</Anchor>
 </Card>

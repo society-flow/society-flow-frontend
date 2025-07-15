@@ -1,21 +1,19 @@
 <script>
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Card from '$lib/components/card.svelte';
 	import FormatCurrency from '$lib/components/format/currency.svelte';
-	import { IconBudgetAlt, IconCalendar } from 'obra-icons-svelte';
 
 	const { expense = {}, currency = '' } = $props();
 	const { id, name, amountPerMonth } = expense;
-	$inspect(expense);
 </script>
 
 <Card>
 	<Anchor href={`/expenses/${id}`}>
 		<div>
-			<span>
-				<IconBudgetAlt />
+			<Icon icon="budget-alt">
 				{name}
-			</span>
+			</Icon>
 			<span>
 				<FormatCurrency value={amountPerMonth} {currency} />
 			</span>

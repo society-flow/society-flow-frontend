@@ -3,8 +3,8 @@
 	import { page } from '$app/state';
 	import { api } from '$lib/api.svelte.js';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Page from '$lib/components/routes/page.svelte';
-	import { IconMap, IconUnorderedList, IconAdd } from 'obra-icons-svelte';
 
 	const { children } = $props();
 	const isMap = $derived(page.url.pathname.split('/').pop() === 'map');
@@ -16,17 +16,17 @@
 		{#snippet nav()}
 			<li>
 				<Anchor href="/ads" title={$_('menu.ads')}>
-					<IconUnorderedList />
+					<Icon icon="unordered-list" />
 				</Anchor>
 			</li>
 			<li>
 				<Anchor href="/ads/map" title={$_('menu.map')}>
-					<IconMap />
+					<Icon icon="map" />
 				</Anchor>
 			</li>
 			<li>
 				<Anchor href="/create/ads" isButton title={$_('menu.create.ads')}>
-					<IconAdd />
+					<Icon icon="add" />
 				</Anchor>
 			</li>
 		{/snippet}

@@ -1,23 +1,22 @@
 <script>
 	import * as icons from 'obra-icons-svelte';
 
-	const { children, icon = '', title = icon } = $props();
+	const { children, icon = '', title = icon, className } = $props();
 
-	function toImportName(str, prefix = "Icon") {
+	function toImportName(str, prefix = 'Icon') {
 		const parts = str.split('-');
 		for (let i = 0; i < parts.length; i++) {
 			parts[i] = parts[i].charAt(0).toUpperCase() + parts[i].slice(1);
 		}
-    parts.unshift(prefix);
+		parts.unshift(prefix);
 		return parts.join('');
 	}
 
 	const iconName = $derived(toImportName(icon));
 	const Icon = $derived(icons[iconName]);
-  $inspect(Icon, icons)
 </script>
 
-<i class="icon" class:icon {title}>
+<i class={`icon ${className}`} class:icon {title}>
 	{#if Icon}
 		<Icon />
 	{/if}

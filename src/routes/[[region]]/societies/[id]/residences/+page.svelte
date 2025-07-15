@@ -4,8 +4,8 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
-	import { IconAdd } from 'obra-icons-svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import ResidencesList from '$lib/components/residences/list.svelte';
 	import PercentageOwnership from '$lib/components/societies/percentage-ownership.svelte';
 
@@ -45,7 +45,7 @@
 					</li>
 					<li>
 						<Anchor href={`/create/residences/${id}`} title={$_('menu.create.residences')} isButton>
-							<IconAdd />
+							<Icon icon="add" />
 						</Anchor>
 					</li>
 				</ul>

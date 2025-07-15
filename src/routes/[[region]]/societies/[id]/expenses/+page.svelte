@@ -6,7 +6,7 @@
 	import ExpensesList from '$lib/components/expenses/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
 	import Error from '$lib/components/error.svelte';
-	import { IconAdd, IconCalculator } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Total from '$lib/components/expenses/total.svelte';
 	import { getCurrentYearMonth, generateYearMonthOptions } from '$lib/utils/yearMonth.js';
 
@@ -74,7 +74,7 @@
 						<li>
 							<button onclick={triggerAllCalculations} disabled={triggering}>
 								{$_('pages.societies.detail.expenseCalculations')}
-								<IconCalculator />
+								<Icon icon="calculator" />
 							</button>
 						</li>
 					{/if}
@@ -84,7 +84,7 @@
 							title={$_('menu.create.expenses')}
 							isButton
 						>
-							<IconAdd />
+							<Icon icon="add" />
 						</Anchor>
 					</li>
 				</ul>
@@ -97,7 +97,7 @@
 			<Error error={triggerError} />
 		{/if}
 		{#if expenses.length}
-			<ExpensesList {expenses} {currency}/>
+			<ExpensesList {expenses} {currency} />
 		{:else}
 			<p>{$_('pages.societies.detail.noExpensesConfigured')}</p>
 		{/if}

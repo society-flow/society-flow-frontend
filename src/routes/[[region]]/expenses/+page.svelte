@@ -4,9 +4,8 @@
 	import Page from '$lib/components/routes/page.svelte';
 	import ListExpenses from '$lib/components/expenses/list.svelte';
 	import Anchor from '$lib/components/anchor.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Total from '$lib/components/expenses/total.svelte';
-	import { IconAdd } from 'obra-icons-svelte';
-	import { IconBusinessAlt } from 'obra-icons-svelte';
 
 	requiresAuth(locale);
 
@@ -25,9 +24,10 @@
 			<section>
 				<header>
 					<h2>
-						<IconBusinessAlt />
 						<Anchor href={`/societies/${society.id}`}>
-							{society.name}
+							<Icon icon="business-alt">
+								{society.name}
+							</Icon>
 						</Anchor>
 					</h2>
 					{#if societies}
@@ -46,7 +46,7 @@
 										title={$_('menu.create.expenses')}
 										isButton
 									>
-										<IconAdd />
+										<Icon icon="add" />
 									</Anchor>
 								</li>
 							</ul>
