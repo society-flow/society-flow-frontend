@@ -29,58 +29,65 @@
 	{/snippet}
 	<ul>
 		<li>
-			<Icon icon="users" />
-			<strong>{$_('components.residences.details.residentsCount')}</strong>: {residence.residentsCount}
+			<Icon icon="users">
+				<strong>{$_('components.residences.details.residentsCount')}</strong>
+			</Icon>
+			{residence.residentsCount}
 		</li>
 		<li>
-			<Icon icon="layers" />
-			<strong>{$_('components.residences.details.floorCount')}</strong>: {residence.floorCount}
+			<Icon icon="layers">
+				<strong>{$_('components.residences.details.floorCount')}</strong>
+			</Icon>
+			{residence.floorCount}
 		</li>
 		<li>
-			<Icon icon="grid" />
-			<strong>{$_('components.residences.details.area')}</strong>:
+			<Icon icon="grid">
+				<strong>{$_('components.residences.details.area')}</strong>
+			</Icon>
 			{residence.areaValue}
 			{society.areaUnit}
 		</li>
 		<li>
-			<Icon icon="orange-slice" />
-			<strong>{$_('components.residences.details.percentageOwnership')}</strong>: {residence.percentageOwnership}%
+			<Icon icon="orange-slice">
+				<strong>{$_('components.residences.details.percentageOwnership')}</strong>
+			</Icon>
+			{residence.percentageOwnership}%
 		</li>
 		<li>
-			{#if residence.isActive}
-				<Icon icon="checkbox-off" />
-			{:else}
-				<Icon icon="check" />
-			{/if}
-			<strong>{$_('components.residences.details.active')}</strong>:
+			<Icon icon={residence.isActive ? 'check' : 'checkbox-off'}>
+				<strong>{$_('components.residences.details.active')}</strong>:
+			</Icon>
 			{residence.isActive === null
 				? $_('components.residences.details.active')
 				: residence.isActive
 					? $_('components.residences.details.yes')
 					: $_('components.residences.details.no')}
 		</li>
-
 		{#if residence.description}
 			<li>
-				<Icon icon="document-alt" />
-				<strong>{$_('components.residences.details.description')}</strong>: {residence.description}
+				<Icon icon="document-alt">
+					<strong>{$_('components.residences.details.description')}</strong>
+				</Icon>
+				{residence.description}
 			</li>
 		{/if}
 		{#if residence.updatedAt}
 			<li>
-				<Icon icon="watch" />
-				<strong>
-					{$_('common.updated')}
-				</strong>
-				<FormatDateRelative date={residence.updatedAt} />
+				<Icon icon="watch">
+					<strong>
+						{$_('common.updated')}
+					</strong>
+					<FormatDateRelative date={residence.updatedAt} />
+				</Icon>
 			</li>
 		{/if}
 		{#if residence.createdAt}
 			<li>
-				<strong>
-					<Icon icon="calendar-selected-date" />
-					{$_('common.created')}
-				</strong>
+				<Icon icon="calendar-selected-date">
+					<strong>
+						{$_('common.created')}
+					</strong>
+				</Icon>
 				<FormatDateRelative date={residence.createdAt} />
 			</li>
 		{/if}
