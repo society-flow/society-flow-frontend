@@ -16,7 +16,7 @@
 	const { userResidences, residences, userRole } = $derived(data);
 </script>
 
-{#if userResidences}
+{#if userResidences?.length}
 	<section>
 		<header>
 			<h2>
