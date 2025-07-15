@@ -1,37 +1,31 @@
 <script lang="javascript">
 	import Anchor from '$lib/components/anchor.svelte';
 	import Card from '$lib/components/card.svelte';
-	import { IconBusiness, IconOrangeSlice, IconGrid, IconUser, IconLayers } from 'obra-icons-svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	const { residence = {} } = $props();
 	const { id, residenceName, percentageOwnership, areaValue, floorCount, residentsCount } =
 		residence;
-	$inspect(residence);
 </script>
 
 <Card>
 	<Anchor href={`/residences/${id}`}>
 		<div>
-			<i>
-				<IconBusiness />
+			<Icon icon="business">
 				<strong>{residenceName || id}</strong>
-			</i>
-			<i>
-				<IconOrangeSlice />
-				{percentageOwnership}%
-			</i>
-			<i>
-				<IconGrid />
-				{areaValue}
-			</i>
-			<i>
-				<IconUser />
+			</Icon>
+			<Icon icon="user">
 				{residentsCount}
-			</i>
-			<i>
-				<IconLayers />
+			</Icon>
+			<Icon icon="layers">
 				{floorCount}
-			</i>
+			</Icon>
+			<Icon icon="grid">
+				{areaValue}
+			</Icon>
+			<Icon icon="orange-slice">
+				{percentageOwnership}%
+			</Icon>
 		</div>
 	</Anchor>
 </Card>
@@ -46,13 +40,13 @@
 	}
 	i {
 		display: flex;
-    flex-wrap: wrap;
+		flex-wrap: wrap;
 		align-items: center;
-    justify-content: center;
+		justify-content: center;
 		gap: calc(var(--s) / 1);
-    &:first-of-type {
-      justify-content: flex-start;
-    }
+		&:first-of-type {
+			justify-content: flex-start;
+		}
 	}
 	strong {
 		font-weight: bold;
