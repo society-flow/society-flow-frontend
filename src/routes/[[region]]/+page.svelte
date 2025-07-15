@@ -99,11 +99,13 @@
 						{$_('menu.residences')}
 					</Icon>
 				</h2>
-				<nav>
-					<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
-						<Icon icon="add" />
-					</Anchor>
-				</nav>
+				{#if societies?.length}
+					<nav>
+						<Anchor href="/create/residences" title={$_('menu.create.residences')} isButton>
+							<Icon icon="add" />
+						</Anchor>
+					</nav>
+				{/if}
 			</header>
 			{#if residences?.length}
 				<ListResidences {residences} />
