@@ -3,12 +3,12 @@
 	import Card from '$lib/components/card.svelte';
 	import Icon from '$lib/components/icon.svelte';
 
-	const { residence = {} } = $props();
+	const { residence = {}, ...rest } = $props();
 	const { id, residenceName, percentageOwnership, areaValue, floorCount, residentsCount } =
 		residence;
 </script>
 
-<Card>
+<Card {...rest}>
 	<Anchor href={`/residences/${id}`}>
 		<div>
 			<Icon icon="business">

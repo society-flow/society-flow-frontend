@@ -27,7 +27,7 @@
 
 <Detail title="{$_('components.societies.details.name')}:">
 	{#snippet header()}
-		<Card {society} />
+		<Card {society} showChildren={false} />
 	{/snippet}
 	<ul>
 		{#if location}

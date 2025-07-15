@@ -3,11 +3,11 @@
 	import Card from '$lib/components/card.svelte';
 	import Icon from '$lib/components/icon.svelte';
 
-	const { society = {} } = $props();
+	const { society = {}, ...rest } = $props();
 	const { id, name } = society;
 </script>
 
-<Card>
+<Card {...rest}>
 	<Anchor href={`/societies/${id}`}>
 		<Icon icon="business-alt" />
 		{name || id}

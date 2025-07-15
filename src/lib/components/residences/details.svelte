@@ -24,7 +24,7 @@
 
 <Detail>
 	{#snippet header()}
-		<Card {residence} />
+		<Card {residence} showChildren={false} />
 		<SocietyCard {society} />
 	{/snippet}
 	<ul>
