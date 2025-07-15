@@ -137,24 +137,22 @@
 		</fieldset>
 	{/if}
 
-	{#if activeDistributions.length > 0}
-		<fieldset>
-			<Total distributions={activeDistributions} showProgress />
-			<menu>
-				<li>
-					<button type="button" onclick={cancelDistributions}>
-						<Icon icon="close" />
-						{$_('common.cancel')}
-					</button>
-				</li>
-				<li>
-					<button type="submit" disabled={!isValid}>
-						{$_('pages.expenses.detail.saveDistributions')}
-					</button>
-				</li>
-			</menu>
-		</fieldset>
-	{/if}
+	<fieldset>
+		<Total distributions={activeDistributions} showProgress />
+		<menu>
+			<li>
+				<button type="button" onclick={cancelDistributions}>
+					<Icon icon="close" />
+					{$_('common.cancel')}
+				</button>
+			</li>
+			<li>
+				<button type="submit" disabled={!isValid}>
+					{$_('pages.expenses.detail.saveDistributions')}
+				</button>
+			</li>
+		</menu>
+	</fieldset>
 </form>
 
 <style>
