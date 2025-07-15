@@ -38,6 +38,7 @@
 			border: 1px solid var(--c-transparent);
 			:global(li) {
 				display: flex;
+        flex-wrap: wrap;
 				align-items: center;
 				gap: calc(var(--s) / 2);
 			}

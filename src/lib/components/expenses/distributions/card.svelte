@@ -1,6 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import Card from '$lib/components/card.svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	import { EXPENSE_DISTRIBUTIONS } from '$lib/const/expense_distribution_types.js';
 
@@ -13,7 +14,7 @@
 	<div>
 		<span title={$_('components.expenses.distributionCard.type')}>
 			{#if icon}
-				<svelte:component this={icon} />
+				<Icon {icon} />
 			{/if}
 			{$_(`const.expense_types.${distribution.calculationMode}`)}
 		</span>
