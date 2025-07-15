@@ -11,7 +11,7 @@
 		}).format(amount);
 	}
 
-	const valueFormated = $derived(currency ? formatCurrency(value) : value + '#?$$?#');
+	const valueFormated = $derived(currency ? formatCurrency(value) : value);
 </script>
 
 <span title={`${currency} ${value}`}>
