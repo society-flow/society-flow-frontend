@@ -3,6 +3,7 @@
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
 	import Error from '$lib/components/error.svelte';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	const { data: initialData = {}, onSuccess = () => {} } = $props();
 
@@ -129,9 +130,18 @@
 	</fieldset>
 
 	<fieldset>
-		<button type="submit">
-			{$_('common.submit')}
-		</button>
+		<menu>
+			<li>
+				<Anchor href={form.id ? `/residences/${form.id}` : `/residences`} isButton>
+					{$_('common.cancel')}
+				</Anchor>
+			</li>
+			<li>
+				<button type="submit">
+					{$_('common.submit')}
+				</button>
+			</li>
+		</menu>
 	</fieldset>
 
 	{#if error}

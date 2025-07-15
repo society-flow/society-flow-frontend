@@ -78,6 +78,23 @@
 		<section>
 			<header>
 				<h2>
+					<Icon icon="world">
+						{$_('menu.ads')}
+					</Icon>
+				</h2>
+				<nav>
+					<Anchor href="/create/ads" title={$_('menu.create.ads')} isButton>
+						<Icon icon="add" />
+					</Anchor>
+				</nav>
+			</header>
+			{#if ads?.length}
+				<ListAds {ads} />
+			{/if}
+		</section>
+		<section>
+			<header>
+				<h2>
 					<Icon icon="business-alt">
 						{$_('menu.societies')}
 					</Icon>
@@ -109,23 +126,6 @@
 			</header>
 			{#if residences?.length}
 				<ListResidences {residences} />
-			{/if}
-		</section>
-		<section>
-			<header>
-				<h2>
-					<Icon icon="world">
-						{$_('menu.ads')}
-					</Icon>
-				</h2>
-				<nav>
-					<Anchor href="/create/ads" title={$_('menu.create.ads')} isButton>
-						<Icon icon="add" />
-					</Anchor>
-				</nav>
-			</header>
-			{#if ads?.length}
-				<ListAds {ads} />
 			{/if}
 		</section>
 	{:else}

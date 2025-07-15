@@ -2,6 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import { api } from '$lib/api.svelte.js';
 	import { userState } from '$lib/states/user.svelte.js';
+	import Anchor from '$lib/components/anchor.svelte';
 
 	// Props: data (initial expense) and onsuccess callback
 	const { data = {}, onsuccess = () => {} } = $props();
@@ -90,9 +91,23 @@
 		<input type="checkbox" bind:checked={form.isActive} on:change={resetMessages} />
 	</fieldset>
 	<fieldset>
-		<button type="submit" disabled={isLoading}>
-			{isLoading ? $_('common.creating') || 'Saving...' : $_('common.submit') || 'Submit'}
-		</button>
+		<menu>
+			<li>
+				<Anchor
+					href={form.id && form.societyId
+						? `/societies/${form.societyId}/expenses/${form.id}`
+						: `/societies/${form.societyId}/expenses`}
+					isButton
+				>
+					{$_('common.cancel')}
+				</Anchor>
+			</li>
+			<li>
+				<button type="submit" disabled={isLoading}>
+					{isLoading ? $_('common.creating') || 'Saving...' : $_('common.submit') || 'Submit'}
+				</button>
+			</li>
+		</menu>
 	</fieldset>
 	{#if error}
 		<fieldset data-type="error" role="alert">{error}</fieldset>

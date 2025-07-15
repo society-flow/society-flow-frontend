@@ -4,6 +4,7 @@
 	import { nominatim } from '$lib/geo.js';
 	import { AREA_UNITS as areaUnitOptions } from '$lib/const/area.js';
 	import { CURRENCIES as currencyOptions } from '$lib/const/currencies.js';
+	import Anchor from '$lib/components/anchor.svelte';
 	import MapPicker from '$lib/components/map-picker.svelte';
 
 	const { data: initialData = {}, onsuccess = () => {} } = $props();
@@ -171,9 +172,18 @@
 	</section>
 
 	<fieldset>
-		<button type="submit" disabled={isLoading}>
-			{$_('common.submit')}
-		</button>
+		<menu>
+			<li>
+				<Anchor href={form.id ? `/societies/${form.id}` : `/societies`} isButton>
+					{$_('common.cancel')}
+				</Anchor>
+			</li>
+			<li>
+				<button type="submit" disabled={isLoading}>
+					{$_('common.submit')}
+				</button>
+			</li>
+		</menu>
 	</fieldset>
 
 	{#if error}
