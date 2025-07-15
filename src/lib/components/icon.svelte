@@ -1,7 +1,7 @@
 <script>
 	import * as icons from 'obra-icons-svelte';
 
-	const { children, icon = '', title = icon, className } = $props();
+	const { children, icon = '', title = "", className } = $props();
 
 	function toImportName(str, prefix = 'Icon') {
 		const parts = str.split('-');
