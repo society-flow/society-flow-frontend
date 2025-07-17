@@ -53,8 +53,8 @@
 
 	function onMapSelect(detail) {
 		form.approxGeoCoordinate = {
-			x: detail.lat,
-			y: detail.lng
+			x: detail.lng,
+			y: detail.lat
 		};
 	}
 
@@ -162,8 +162,8 @@
 			</legend>
 			<MapPicker
 				onselect={onMapSelect}
-				latitude={form.approxGeoCoordinate.x}
-				longitude={form.approxGeoCoordinate.y}
+				latitude={form.approxGeoCoordinate.y}
+				longitude={form.approxGeoCoordinate.x}
 				title={form.adDescription}
 			/>
 		</fieldset>
