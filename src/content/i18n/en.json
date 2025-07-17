@@ -7,6 +7,7 @@
 		"residences": "Residences",
 		"expenses": "Expenses",
 		"maintenances": "Maintenances",
+		"invitations": "Invitations",
 		"ads": "Adverts",
 		"map": "Map",
 		"about": "About",
@@ -215,6 +216,14 @@
 				"isActive": "Active",
 				"isNotActive": "Inactive"
 			}
+		},
+		"invitations": {
+			"title": "Invitations",
+			"create_invitation": "Create Invitation",
+			"received_invitations": "Received Invitations",
+			"sent_invitations": "Sent Invitations",
+			"no_received_invitations": "No pending invitations",
+			"no_sent_invitations": "No sent invitations"
 		}
 	},
 	"components": {
@@ -570,6 +579,32 @@
 			"AMOUNT_PER_SQUARE_AREA": "Per Square Area",
 			"AMOUNT_PER_RESIDENT": "Per Resident",
 			"AMOUNT_PER_RESIDENT_PER_FLOOR_COUNT": "Per Resident per Floor Count"
+		},
+		"invitations": {
+			"form": {
+				"title": "Create New Invitation",
+				"email": "Email",
+				"email_placeholder": "Enter email address",
+				"society": "Society",
+				"select_society": "Select society",
+				"role": "Role",
+				"role_member": "Member",
+				"role_admin": "Admin",
+				"residence": "Residence (Optional)",
+				"select_residence": "Select residence",
+				"residence_uuid_placeholder": "Enter residence UUID (optional)",
+				"send_invitation": "Send Invitation"
+			},
+			"list": {
+				"email": "Email",
+				"society": "Society",
+				"role": "Role",
+				"residence": "Residence",
+				"created": "Created",
+				"accept": "Accept",
+				"decline": "Decline",
+				"cancel": "Cancel"
+			}
 		}
 	}
 }

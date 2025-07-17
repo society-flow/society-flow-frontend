@@ -9,6 +9,7 @@
 		{ path: '/societies', label: 'menu.societies', icon: 'business-alt' },
 		{ path: '/residences', label: 'menu.residences', icon: 'business' },
 		{ path: '/expenses', label: 'menu.expenses', icon: 'budget-alt' },
+		{ path: '/invitations', label: 'menu.invitations', icon: 'email' },
 		{ path: '/ads', label: 'menu.ads', icon: 'world' },
 		{ path: '/auth/logout', label: 'menu.auth.logout', icon: 'user-fill' }
 	];

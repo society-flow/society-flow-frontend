@@ -119,6 +119,13 @@ class Api {
 		const res = await client.apis.societies.getUserResidencesInSociety({ societyId, userId });
 		return res.body;
 	}
+	
+	// Get all residences in a society
+	async getAllResidencesInSociety(societyId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.getAllResidencesInSociety({ societyId });
+		return res.body;
+	}
 	async getUserResidences(userId) {
 		const client = await this.getClient();
 		const res = await client.apis.societies.getUserResidences({ userId });
@@ -483,6 +490,63 @@ class Api {
 	async getAdTypeById(id) {
 		const client = await this.getClient();
 		const res = await client.apis.advertisings.getAdTypeById({ id });
+		return res.body;
+	}
+
+	// --- Invitations ---
+	// Create a new invitation
+	async createInvitation(invitationData) {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.createInvitation({}, { requestBody: invitationData });
+		return res.body;
+	}
+	
+	// Get invitation by ID
+	async getInvitationById(id) {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.getInvitationById({ id });
+		return res.body;
+	}
+	
+	// Get my received invitations
+	async getMyInvitations() {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.getMyInvitations();
+		return res.body;
+	}
+	
+	// Get my sent invitations
+	async getSentInvitations() {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.getSentInvitations();
+		return res.body;
+	}
+	
+	// Get invitations for a society
+	async getSocietyInvitations(societyId) {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.getSocietyInvitations({ societyId });
+		return res.body;
+	}
+	
+	// Accept an invitation
+	async acceptInvitation(id) {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.acceptInvitation({ id }, {});
+		return res.body;
+	}
+	
+	// Decline an invitation
+	async declineInvitation(id) {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.declineInvitation({ id }, {});
+		return res.body;
+	}
+	
+	// Cancel an invitation
+	async cancelInvitation(id) {
+		const client = await this.getClient();
+		const res = await client.apis.invitations.cancelInvitation({ id });
 		return res.body;
 	}
 }
