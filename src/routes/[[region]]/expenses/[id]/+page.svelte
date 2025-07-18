@@ -18,7 +18,7 @@
 
 	const { id } = $derived($page.params);
 	const { data } = $props();
-	const { expense, society, calculations, payments, distributions } = $derived(data);
+	const { expense, society, calculations, payments, distributions, isAdmin } = $derived(data);
 
 	async function onPaymentSuccess(newPayment) {
 		invalidate('data:expense');
@@ -27,24 +27,26 @@
 
 <Page title={expense.name || $_('menu.expenses')} showHeader={!!expense?.name}>
 	{#if expense.id}
-		<header>
-			<nav>
-				<ul>
-					<li>
-						<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
-							{$_('common.update')}
-							<Icon icon="edit" />
-						</Anchor>
-					</li>
-					<li>
-						<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
-							{$_('common.delete')}
-							<Icon icon="close" />
-						</Anchor>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		{#if isAdmin}
+			<header>
+				<nav>
+					<ul>
+						<li>
+							<Anchor href={`/update/expenses/${expense.id}`} isButton title={$_('common.update')}>
+								{$_('common.update')}
+								<Icon icon="edit" />
+							</Anchor>
+						</li>
+						<li>
+							<Anchor href={`/delete/expenses/${expense.id}`} title={$_('common.delete')} isButton>
+								{$_('common.delete')}
+								<Icon icon="close" />
+							</Anchor>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		{/if}
 
 		<section>
 			<ExpenseDetails {expense} {society} />
@@ -75,7 +77,7 @@
 					</ul>
 				</nav>
 			</header>
-			<DistributionList {distributions} />
+			<DistributionList {distributions} {isAdmin} />
 		</section>
 		<section>
 			<header>

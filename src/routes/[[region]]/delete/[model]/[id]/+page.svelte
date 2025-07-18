@@ -52,17 +52,17 @@
 				console.log('Soft deleting advertisement...');
 				await api.updateAdvertisement({ ...item, isActive: false });
 			} else if (model === 'residences') {
-				// Soft delete by setting isActive to false
-				console.log('Soft deleting residence...');
-				await api.createOrUpdateResidence({ ...item, isActive: false });
+				// Hard delete using new API endpoint
+				console.log('Hard deleting residence...');
+				await api.deleteResidence(id);
 			} else if (model === 'societies') {
-				// Soft delete by setting isActive to false
-				console.log('Soft deleting society...');
-				await api.createOrUpdateSociety({ ...item, isActive: false });
+				// Hard delete using new API endpoint
+				console.log('Hard deleting society...');
+				await api.deleteSociety(id);
 			} else if (model === 'expenses') {
-				// Soft delete by setting isActive to false
-				console.log('Soft deleting expense...');
-				await api.createOrUpdateExpense({ ...item, isActive: false });
+				// Hard delete using new API endpoint
+				console.log('Hard deleting expense...');
+				await api.deleteExpense(id);
 			} else if (model === 'invitations') {
 				// Hard delete via cancel invitation API
 				console.log('Hard deleting invitation...');

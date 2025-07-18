@@ -551,6 +551,13 @@ class Api {
 	}
 
 	// --- DELETE Methods ---
+	// Delete society
+	async deleteSociety(societyId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.deleteSociety({ societyId });
+		return res.body;
+	}
+
 	// Remove user from society
 	async removeUserFromSociety(societyId, userId) {
 		const client = await this.getClient();
@@ -558,10 +565,31 @@ class Api {
 		return res.body;
 	}
 
+	// Delete residence
+	async deleteResidence(residenceId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.deleteResidence({ residenceId });
+		return res.body;
+	}
+
 	// Remove user from residence
 	async removeUserFromResidence(residenceId, userId) {
 		const client = await this.getClient();
 		const res = await client.apis.societies.removeUserFromResidence({ residenceId, userId });
+		return res.body;
+	}
+
+	// Delete expense
+	async deleteExpense(expenseId) {
+		const client = await this.getClient();
+		const res = await client.apis.expenses.deleteExpense({ expenseId });
+		return res.body;
+	}
+
+	// Delete expense distribution
+	async deleteExpenseDistribution(distributionId) {
+		const client = await this.getClient();
+		const res = await client.apis.expenses.deleteExpenseDistribution({ distributionId });
 		return res.body;
 	}
 }
