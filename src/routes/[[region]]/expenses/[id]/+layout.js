@@ -1,4 +1,5 @@
 import { api, initApi } from '$lib/api.svelte.js';
+import { userState } from '$lib/states/user.svelte.js';
 import { EXPENSE_DISTRIBUTIONS } from '$lib/const/expense_distribution_types.js';
 
 export const prerender = false;
@@ -12,6 +13,17 @@ export async function load({ params, depends }) {
 
 	const expense = await api.getExpenseById(id);
 	const society = await api.getSocietyById(expense.societyId);
+
+	// Check if user is admin
+	let isAdmin = false;
+	if (userState.user && expense.societyId) {
+		try {
+			const roleDetails = await api.getUserRoleInSociety(expense.societyId, userState.user.id);
+			isAdmin = roleDetails && roleDetails.role === 'ADMIN';
+		} catch (error) {
+			console.error('Error checking admin status:', error);
+		}
+	}
 
 	let calculations = [];
 	if (id && expense.societyId) {
@@ -65,6 +77,7 @@ export async function load({ params, depends }) {
 		society,
 		calculations,
 		payments,
-		distributions
+		distributions,
+		isAdmin
 	};
 }

@@ -477,6 +477,11 @@ class Api {
 		const res = await client.apis.advertisings.updateAdvertisement({ id }, { requestBody: adData });
 		return res.body;
 	}
+	async deleteAdvertisement(id) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.deleteAdvertisement({ id });
+		return res.body;
+	}
 	async getActiveAdvertisements() {
 		const client = await this.getClient();
 		const res = await client.apis.advertisings.getActiveAdvertisements();
@@ -547,6 +552,49 @@ class Api {
 	async cancelInvitation(id) {
 		const client = await this.getClient();
 		const res = await client.apis.invitations.cancelInvitation({ id });
+		return res.body;
+	}
+
+	// --- DELETE Methods ---
+	// Delete society
+	async deleteSociety(societyId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.deleteSociety({ societyId });
+		return res.body;
+	}
+
+	// Remove user from society
+	async removeUserFromSociety(societyId, userId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.removeUserFromSociety({ societyId, userId });
+		return res.body;
+	}
+
+	// Delete residence
+	async deleteResidence(residenceId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.deleteResidence({ residenceId });
+		return res.body;
+	}
+
+	// Remove user from residence
+	async removeUserFromResidence(residenceId, userId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.removeUserFromResidence({ residenceId, userId });
+		return res.body;
+	}
+
+	// Delete expense
+	async deleteExpense(expenseId) {
+		const client = await this.getClient();
+		const res = await client.apis.expenses.deleteExpense({ expenseId });
+		return res.body;
+	}
+
+	// Delete expense distribution
+	async deleteExpenseDistribution(distributionId) {
+		const client = await this.getClient();
+		const res = await client.apis.expenses.deleteExpenseDistribution({ distributionId });
 		return res.body;
 	}
 }
