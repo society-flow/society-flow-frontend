@@ -31,11 +31,13 @@
 					item = await api.getSocietyById(id);
 				} else if (model === 'expenses') {
 					item = await api.getExpenseById(id);
+				} else if (model === 'invitations') {
+					item = await api.getInvitationById(id);
 				} else {
 					error = `Unsupported model: ${model}`;
 				}
 			} catch (e) {
-				error = e;
+				error = e.message || e;
 			}
 		}
 	});
@@ -43,26 +45,39 @@
 	async function handleDelete() {
 		isDeleting = true;
 		try {
+			console.log(`Deleting ${model} with ID: ${id}`);
+			
 			if (model === 'ads') {
-				await api.updateAdvertisement(id, { ...item, isActive: false });
+				// Soft delete by setting isActive to false
+				console.log('Soft deleting advertisement...');
+				await api.updateAdvertisement({ ...item, isActive: false });
 			} else if (model === 'residences') {
+				// Soft delete by setting isActive to false
+				console.log('Soft deleting residence...');
 				await api.createOrUpdateResidence({ ...item, isActive: false });
 			} else if (model === 'societies') {
-				await api.createOrUpdateSociety({ ...item }); // no isActive flag for societies
+				// Soft delete by setting isActive to false
+				console.log('Soft deleting society...');
+				await api.createOrUpdateSociety({ ...item, isActive: false });
 			} else if (model === 'expenses') {
-				// Attempt hard delete via HTTP DELETE if supported
-				const url = `${PUBLIC_API_URL}/api/expenses/${id}`;
-				const headers = { 'Content-Type': 'application/json' };
-				if (userState.token) headers['Authorization'] = `Bearer ${userState.token}`;
-				const resp = await fetch(url, { method: 'DELETE', headers });
-				if (!resp.ok) {
-					const text = await resp.text();
-					throw new Error(text || `Failed to delete expense ${id}`);
-				}
+				// Soft delete by setting isActive to false
+				console.log('Soft deleting expense...');
+				await api.createOrUpdateExpense({ ...item, isActive: false });
+			} else if (model === 'invitations') {
+				// Hard delete via cancel invitation API
+				console.log('Hard deleting invitation...');
+				await api.cancelInvitation(id);
+			} else {
+				throw new Error(`Delete not supported for model: ${model}`);
 			}
-       goto(`${base}/${$locale}/${model}`);
+			
+			console.log(`Successfully deleted ${model} with ID: ${id}`);
+			
+			// Navigate back to the model list page
+			goto(`${base}/${$locale}/${model}`);
 		} catch (e) {
-			error = e;
+			console.error(`Error deleting ${model}:`, e);
+			error = e.message || e;
 		} finally {
 			isDeleting = false;
 		}
@@ -78,7 +93,7 @@
 		<form>
 			<p>
 				{$_('pages.delete.confirm')} "<strong
-					>{item.name || item.title || item.residenceName}</strong
+					>{item.name || item.title || item.residenceName || item.email}</strong
 				>"?
 			</p>
 			<fieldset>

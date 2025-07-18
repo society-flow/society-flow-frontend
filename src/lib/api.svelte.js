@@ -549,6 +549,21 @@ class Api {
 		const res = await client.apis.invitations.cancelInvitation({ id });
 		return res.body;
 	}
+
+	// --- DELETE Methods ---
+	// Remove user from society
+	async removeUserFromSociety(societyId, userId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.removeUserFromSociety({ societyId, userId });
+		return res.body;
+	}
+
+	// Remove user from residence
+	async removeUserFromResidence(residenceId, userId) {
+		const client = await this.getClient();
+		const res = await client.apis.societies.removeUserFromResidence({ residenceId, userId });
+		return res.body;
+	}
 }
 
 export const api = new Api();
