@@ -52,6 +52,12 @@
 				{$_('pages.societies.detail.members')}
 			</Anchor>
 		</li>
+        <li>
+            <Anchor href={`/societies/${id}/messages`}>
+                <Icon icon="paint-roller" />
+                {$_('menu.messages')}
+            </Anchor>
+        </li>
 		<li>
 			<Anchor href={`/societies/${id}/ads`}>
 				<Icon icon="world" />

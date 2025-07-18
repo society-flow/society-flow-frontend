@@ -12,6 +12,8 @@
 	import SocietyCard from '$lib/components/societies/card.svelte';
 	import ResidencyCard from '$lib/components/residences/card.svelte';
 	import FormatDateRelative from '$lib/components/format/date-relative.svelte';
+	import { userState } from '$lib/states/user.svelte.js';
+	import MessageComposer from '$lib/components/messages/MessageComposer.svelte';
 
 	const { data } = $props();
 	const { advert, residency, society, adTypes, isAdmin, isOwner } = $derived(data);
@@ -32,6 +34,51 @@
 				]
 			: []
 	);
+
+	let adminMessageLoading = false;
+	let adminMessageError = '';
+	let userMessageLoading = false;
+	let userMessageError = '';
+
+	async function handleAdminMessageSubmit(event) {
+		const messageData = event.detail;
+		
+		adminMessageLoading = true;
+		adminMessageError = '';
+		
+		try {
+			await api.createMessage(messageData);
+			// The dialog should close automatically after successful submission
+		} catch (err) {
+			adminMessageError = err.message || $_('messages.compose.error.general');
+		} finally {
+			adminMessageLoading = false;
+		}
+	}
+
+	function handleAdminMessageCancel() {
+		adminMessageError = '';
+	}
+
+	async function handleUserMessageSubmit(event) {
+		const messageData = event.detail;
+		
+		userMessageLoading = true;
+		userMessageError = '';
+		
+		try {
+			await api.createMessage(messageData);
+			// The dialog should close automatically after successful submission
+		} catch (err) {
+			userMessageError = err.message || $_('messages.compose.error.general');
+		} finally {
+			userMessageLoading = false;
+		}
+	}
+
+	function handleUserMessageCancel() {
+		userMessageError = '';
+	}
 </script>
 
 <Page
@@ -100,33 +147,43 @@
 						</Anchor>
 					</li>
 				{:else}
-					<li title={$_('common.contact_user')}>
+					{#if userState.isAuth}
+						<li>
+							<Anchor href={`/messages/compose?recipient=${advert.userId}&ad=${id}`} isButton>
+								{$_('messages.compose')}
+								<Icon icon="message" />
+							</Anchor>
+						</li>
+					{/if}
+					<li title={$_('common.contact_publisher')}>
 						<Dialog>
 							{#snippet buttonOpen()}
-								{$_('common.contact_user')}
+								{$_('common.contact_publisher')}
 								<Icon icon="send-alt" />
 							{/snippet}
-							<form>
-								<fieldset>
-									<textarea></textarea>
-								</fieldset>
-							</form>
+							<div>
+								<h3>{$_('common.contact_publisher')}</h3>
+								<p>{$_('messages.compose.publisherInquiry')}</p>
+								
+								{#if userMessageError}
+									<div>
+										{userMessageError}
+									</div>
+								{/if}
+								
+								<MessageComposer
+									toUserId={advert.userId}
+									subject={`Inquiry about ad: ${advert.title}`}
+									messageType="ADVERTISEMENT_INQUIRY"
+									advertisementId={advert.id}
+									disabled={userMessageLoading}
+									on:submit={handleUserMessageSubmit}
+									on:cancel={handleUserMessageCancel}
+								/>
+							</div>
 						</Dialog>
 					</li>
 				{/if}
-				<li title={$_('common.contact_admin')}>
-					<Dialog>
-						{#snippet buttonOpen()}
-							{$_('common.contact_admin')}
-							<Icon icon="message-alt" />
-						{/snippet}
-						<form>
-							<fieldset>
-								<textarea></textarea>
-							</fieldset>
-						</form>
-					</Dialog>
-				</li>
 			</ul>
 		</nav>
 	</header>

@@ -10,6 +10,7 @@
 		{ path: '/residences', label: 'menu.residences', icon: 'business' },
 		{ path: '/expenses', label: 'menu.expenses', icon: 'budget-alt' },
 		{ path: '/invitations', label: 'menu.invitations', icon: 'email' },
+		{ path: '/messages', label: 'menu.messages', icon: 'message' },
 		{ path: '/ads', label: 'menu.ads', icon: 'world' },
 		{ path: '/auth/logout', label: 'menu.auth.logout', icon: 'user-fill' }
 	];
