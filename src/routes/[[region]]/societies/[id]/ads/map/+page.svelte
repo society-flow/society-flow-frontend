@@ -8,7 +8,7 @@
 		adverts
 			.filter((a) => a?.approxGeoCoordinate?.x || a?.approxGeoCoordinate?.y)
 			.map((a) => ({
-				coordinates: [a.approxGeoCoordinate.x, a.approxGeoCoordinate.y],
+				coordinates: [a.approxGeoCoordinate.y, a.approxGeoCoordinate.x],
 				title: a.title || a.id,
 				href: `/ads/${a.id}`
 			}))

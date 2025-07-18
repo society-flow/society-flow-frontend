@@ -37,8 +37,8 @@
 		form = {
 			...form,
 			geoCoordinate: {
-				x: lat,
-				y: lng
+				x: lng,
+				y: lat
 			}
 		};
 
@@ -104,8 +104,8 @@
 			</legend>
 			<MapPicker
 				onselect={onMapSelect}
-				latitude={form.geoCoordinate.x}
-				longitude={form.geoCoordinate.y}
+				latitude={form.geoCoordinate.y}
+				longitude={form.geoCoordinate.x}
 				title={form.name}
 			/>
 		</fieldset>
