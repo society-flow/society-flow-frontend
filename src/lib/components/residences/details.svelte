@@ -14,7 +14,7 @@
 		society?.geoCoordinate
 			? [
 					{
-						coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
+						coordinates: [society.geoCoordinate.y, society.geoCoordinate.x],
 						title: society.name || society.id
 					}
 				]

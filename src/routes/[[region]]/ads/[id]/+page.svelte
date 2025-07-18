@@ -26,7 +26,7 @@
 		locationCoordinates
 			? [
 					{
-						coordinates: [locationCoordinates.x, locationCoordinates.y],
+						coordinates: [locationCoordinates.y, locationCoordinates.x],
 						title: selectedLocation?.name || advert.title || advert.id
 					}
 				]

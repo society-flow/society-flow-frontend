@@ -17,7 +17,7 @@
 		society?.geoCoordinate
 			? [
 					{
-						coordinates: [society.geoCoordinate.x, society.geoCoordinate.y],
+						coordinates: [society.geoCoordinate.y, society.geoCoordinate.x],
 						title: society.name || society.id
 					}
 				]
@@ -75,10 +75,10 @@
 				{society.currency}
 			</li>
 		{/if}
-		{#if society.geocoordinate}
+		{#if society.geoCoordinate}
 			<li>
 				<strong>{$_('components.societies.details.coordinates')}:</strong>
-				{society.geocoordinate.x}, {society.geocoordinate.y}
+				{society.geoCoordinate.x}, {society.geoCoordinate.y}
 			</li>
 		{/if}
 		{#if society.updatedAt}
