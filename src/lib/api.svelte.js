@@ -477,6 +477,11 @@ class Api {
 		const res = await client.apis.advertisings.updateAdvertisement({ id }, { requestBody: adData });
 		return res.body;
 	}
+	async deleteAdvertisement(id) {
+		const client = await this.getClient();
+		const res = await client.apis.advertisings.deleteAdvertisement({ id });
+		return res.body;
+	}
 	async getActiveAdvertisements() {
 		const client = await this.getClient();
 		const res = await client.apis.advertisings.getActiveAdvertisements();

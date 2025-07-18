@@ -48,9 +48,9 @@
 			console.log(`Deleting ${model} with ID: ${id}`);
 			
 			if (model === 'ads') {
-				// Soft delete by setting isActive to false
-				console.log('Soft deleting advertisement...');
-				await api.updateAdvertisement({ ...item, isActive: false });
+				// Hard delete using new API endpoint
+				console.log('Hard deleting advertisement...');
+				await api.deleteAdvertisement(id);
 			} else if (model === 'residences') {
 				// Hard delete using new API endpoint
 				console.log('Hard deleting residence...');
