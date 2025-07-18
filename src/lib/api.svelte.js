@@ -555,6 +555,100 @@ class Api {
 		return res.body;
 	}
 
+	// --- Messages ---
+	async createMessage(messageData) {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.createMessage({}, { requestBody: messageData });
+		return res.body;
+	}
+
+	async updateMessage(messageData) {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.updateMessage({}, { requestBody: messageData });
+		return res.body;
+	}
+
+	async deleteMessage(id) {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.deleteMessage({ id });
+		return res.body;
+	}
+
+	async getMessageById(id) {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.getMessageById({ id });
+		return res.body;
+	}
+
+	async searchMessages(searchData) {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.searchMessages({}, { requestBody: searchData });
+		return res.body;
+	}
+
+	async getSentMessages() {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.getSentMessages();
+		return res.body;
+	}
+
+	async getReceivedMessages() {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.getReceivedMessages();
+		return res.body;
+	}
+
+	async getUnreadMessages() {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.getUnreadMessages();
+		return res.body;
+	}
+
+	async getUnreadMessageCount() {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.getUnreadMessageCount();
+		return res.body;
+	}
+
+	async getThreadMessages(threadId) {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.getMessagesByThread({ threadId });
+		return res.body;
+	}
+
+	async interactWithMessage(messageId, interactionType) {
+		const client = await this.getClient();
+		const res = await client.apis.messaging.interactWithMessage({}, { 
+			requestBody: { messageId, interactionType } 
+		});
+		return res.body;
+	}
+
+	async markMessageAsRead(messageId) {
+		return this.interactWithMessage(messageId, 'MARK_READ');
+	}
+
+	async getSocietyMessages(societyId) {
+		const client = await this.getClient();
+		const searchData = { societyId };
+		const res = await client.apis.messaging.searchMessages({}, { requestBody: searchData });
+		return res.body;
+	}
+
+	async getResidenceMessages(residenceId) {
+		const client = await this.getClient();
+		const searchData = { residenceId };
+		const res = await client.apis.messaging.searchMessages({}, { requestBody: searchData });
+		return res.body;
+	}
+
+	async getAdMessages(adId) {
+		const client = await this.getClient();
+		const searchData = { adId };
+		const res = await client.apis.messaging.searchMessages({}, { requestBody: searchData });
+		return res.body;
+	}
+
 	// --- DELETE Methods ---
 	// Delete society
 	async deleteSociety(societyId) {

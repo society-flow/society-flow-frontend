@@ -38,6 +38,12 @@
 					{$_('menu.maintenances')}
 				</Anchor>
 			</li>
+			<li>
+				<Anchor href={`/residences/${id}/messages`}>
+					<Icon icon="paint-roller" />
+					{$_('menu.messages')}
+				</Anchor>
+			</li>
 		{/if}
 	{/snippet}
 

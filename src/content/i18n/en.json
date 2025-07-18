@@ -8,6 +8,7 @@
 		"expenses": "Expenses",
 		"maintenances": "Maintenances",
 		"invitations": "Invitations",
+		"messages": "Messages",
 		"ads": "Adverts",
 		"map": "Map",
 		"about": "About",
@@ -525,6 +526,7 @@
 		"saving": "Saving...",
 		"contact_admin": "Contact administrator",
 		"contact_user": "Contact user",
+		"contact_publisher": "Contact publisher",
 		"created": "Created",
 		"updated": "Updated",
 		"createdAt": "Created At",
@@ -604,6 +606,129 @@
 				"accept": "Accept",
 				"decline": "Decline",
 				"cancel": "Cancel"
+			}
+		},
+		"messages": {
+			"title": "Messages",
+			"compose": "Compose Message",
+			"inbox": "Inbox",
+			"sent": "Sent",
+			"unread": "Unread",
+			"loading": "Loading messages...",
+			"empty": "No messages found",
+			"noUnreadMessages": "No unread messages",
+			"noSubject": "No Subject",
+			"from": "From",
+			"to": "To",
+			"date": "Date",
+			"type": "Type",
+			"priority": "Priority",
+			"reply": "Reply",
+			"bookmark": "Bookmark",
+			"delete": "Delete",
+			"confirmDelete": "Are you sure you want to delete this message?",
+			"conversation": "Conversation",
+			"attachments": "Attachments",
+			"cancel": "Cancel",
+			"sendReply": "Send Reply",
+			"sending": "Sending...",
+			"replyTo": "Reply to: {subject}",
+			"replyPlaceholder": "Type your reply here...",
+			"message": "message",
+			"messages": "messages",
+			"personal": {
+				"description": "Your personal messages and direct conversations with other users."
+			},
+			"otherTypes": "Other Message Types",
+			"societyMessages": "Society Messages",
+			"residenceMessages": "Residence Messages",
+			"adMessages": "Advertisement Messages",
+			"society": {
+				"title": "Society Messages",
+				"description": "Messages related to this society and its community.",
+				"compose": "Post to Society",
+				"empty": "No society messages found"
+			},
+			"residence": {
+				"title": "Residence Messages",
+				"description": "Messages related to this residence and maintenance issues.",
+				"compose": "Post to Residence",
+				"empty": "No residence messages found",
+				"society": "Society"
+			},
+			"ad": {
+				"title": "Advertisement Messages",
+				"inquire": "Inquire about Ad",
+				"compose": "Send Inquiry",
+				"inquiries": "Inquiries about this Ad",
+				"inquiriesDescription": "Messages from users interested in this advertisement.",
+				"myInquiries": "My Inquiries",
+				"myInquiriesDescription": "Your inquiries about this advertisement.",
+				"noInquiries": "No inquiries received yet",
+				"noMyInquiries": "No inquiries sent yet"
+			},
+			"error": {
+				"loadFailed": "Failed to load message",
+				"replyFailed": "Failed to send reply",
+				"deleteFailed": "Failed to delete message",
+				"interactionFailed": "Failed to update message"
+			},
+			"compose": {
+				"title": "Compose Message",
+				"back": "Back to Messages",
+				"recipient": "Recipient",
+				"recipientPlaceholder": "Enter recipient ID or email",
+				"society": "Society",
+				"societyPlaceholder": "Society ID",
+				"residence": "Residence", 
+				"residencePlaceholder": "Residence ID",
+				"subject": "Subject",
+				"subjectPlaceholder": "Enter message subject",
+				"type": "Message Type",
+				"priority": "Priority",
+				"message": "Message",
+				"messagePlaceholder": "Enter your message here...",
+				"send": "Send Message",
+				"cancel": "Cancel",
+				"sending": "Sending...",
+				"sendReply": "Send Reply",
+				"adInquiry": "Inquiry about advertisement",
+				"adminInquiry": "Send a message to the administrator about this advertisement or report an issue.",
+				"userInquiry": "Send a message to the advertisement owner to inquire about this listing.",
+				"publisherInquiry": "Send a message to the advertisement publisher to inquire about this listing.",
+				"types": {
+					"general": "General",
+					"complaint": "Complaint",
+					"inquiry": "Inquiry",
+					"announcement": "Announcement",
+					"maintenanceNotice": "Maintenance Notice",
+					"paymentReminder": "Payment Reminder",
+					"communityEvent": "Community Event",
+					"emergencyAlert": "Emergency Alert",
+					"advertisementInquiry": "Advertisement Inquiry",
+					"feedback": "Feedback",
+					"suggestion": "Suggestion"
+				},
+				"priorities": {
+					"low": "Low",
+					"medium": "Medium",
+					"high": "High",
+					"urgent": "Urgent"
+				},
+				"visibility": "Visibility",
+				"visibilities": {
+					"public": "Public",
+					"private": "Private",
+					"societyWide": "Society Wide",
+					"residenceOnly": "Residence Only",
+					"adminOnly": "Admin Only"
+				},
+				"error": {
+					"required": "Recipient and message are required",
+					"general": "Failed to send message",
+					"recipientRequired": "Recipient is required",
+					"contentRequired": "Message content is required"
+				}
 			}
 		}
 	}
