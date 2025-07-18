@@ -3,8 +3,6 @@
 	import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { api } from '$lib/api.svelte.js';
-
-	import InviteUser from '$lib/components/residences/invite-user.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
 
 	const { data } = $props();
@@ -31,13 +29,5 @@
 			<h2>{$_('pages.residences.detail.members')}</h2>
 		</header>
 		<UsersList {users} {onRemoveUser} />
-	</section>
-	<section>
-		<header>
-			<h2>
-				{$_('components.residences.invite_user.title')}
-			</h2>
-		</header>
-		<InviteUser residenceId={id} {onInvite} />
 	</section>
 {/if}

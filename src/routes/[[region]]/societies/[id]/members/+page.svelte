@@ -6,7 +6,6 @@
 	import requiresAuth from '$lib/effects/requires-auth.svelte.js';
 	import Error from '$lib/components/error.svelte';
 	import UsersList from '$lib/components/users/list.svelte';
-	import InviteUser from '$lib/components/societies/invite-user.svelte';
 
 	requiresAuth(locale);
 
@@ -60,14 +59,4 @@
 		</header>
 		<UsersList {users} {onRemoveUser} />
 	</section>
-	{#if isAdmin}
-		<section>
-			<header>
-				<h2>
-					{$_('components.societies.invite_user.title')}
-				</h2>
-			</header>
-			<InviteUser societyId={society.id} {onInvite} />
-		</section>
-	{/if}
 {/if}
